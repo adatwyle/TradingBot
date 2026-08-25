@@ -1,0 +1,40 @@
+# --- Python ------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# --- Secrets (jamais dans le repo — vivent dans C:\db\tradingBot\secrets\) ---
+*.secret
+*token*.txt
+*key*.txt
+.env
+.env.*
+!.env.example
+
+# --- Datas lourdes / régénérables (D4 — restent locales) ----
+*.parquet
+*.pkl
+*.pickle
+datasets/
+bars_cache/
+data/cache/
+
+# --- Bases de données (vivent dans C:\db\tradingBot\) -------
+*.db
+*.db-wal
+*.db-shm
+
+# --- Logs et runtime ----------------------------------------
+logs/
+*.log
+.stop
+*.lock
+
+# --- OS / IDE -----------------------------------------------
+Thumbs.db
+.DS_Store
+.claude/settings.local.json

@@ -464,14 +464,18 @@ WORKERS: list[tuple[str, pathlib.Path, str, int, str]] = [
     ("cc_spec_queue", ROOT / "spec", "claude:cc_spec_queue", 1800, "tick"),
     # Débloqueur : un ticket bloquant ouvert → session cc-support immédiate.
     ("cc_support_block", ROOT / "support", "claude:cc_support_block", 300, "tick"),
-    # Canal Telegram : mécanique du prototype REPRISE TELLE QUELLE (les
-    # scripts robinbot-* sont réutilisés, pas réécrits). Sans secrets
-    # (C:/db/tradingBot/gateway/, notifier/), chaque tick sort en 2
-    # « ressource externe indisponible » — vérifié dans leur code, la factory
-    # réessaie sans crier. Le gabarit du panneau les livre OFF tant que les
-    # tokens ne sont pas posés (TCK-004).
-    ("gateway",   ROOT, "py:app/orchestrator/robinbot-gateway.py", 30, "tick"),
-    ("notify",    ROOT, "py:app/orchestrator/robinbot-notify.py",  300, "tick"),
+    # Canal Telegram TradingBot (T7, SPEC_telegram-reporting) : deux bots
+    # DÉDIÉS (getUpdates exclusif par bot — les bots du prototype ne sont pas
+    # réutilisés). tbot-notify (sortant, source = ledger, formats exacts
+    # d'Adrian) et tbot-gateway (entrant, session Claude headless lecture
+    # seule, menu skills tbot-* auto). Mécanique héritée des robinbot-*
+    # éprouvés (curseurs après envoi / offset avant appel payé), mêmes
+    # cadences. Sans tokens (C:/db/tradingBot/notifier/token.txt,
+    # gateway/token.txt + config.json — TCK-007), chaque tick sort en 2
+    # « ressource externe indisponible » : INERTES, la factory réessaie sans
+    # crier — le gabarit du panneau peut donc les livrer ON.
+    ("gateway",   ROOT, "py:app/orchestrator/tbot-gateway.py", 30, "tick"),
+    ("notify",    ROOT, "py:app/orchestrator/tbot-notify.py",  300, "tick"),
     # Études scellées en vol, migrées du prototype (TCK-009/T10) : py pur,
     # cadences IDENTIQUES à robinbot. Codes 0/2/3/4 contractuels (AUTO-OFF
     # sur 3/4). OFF par défaut au panneau : chaque bascule d'étude = GO

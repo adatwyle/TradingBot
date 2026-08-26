@@ -52,18 +52,21 @@ cc_spec_queue = off     # tick 1800s — un ticket cc-spec par tick
 # doit être vu vite. Pas de bloquant = veille gratuite.
 cc_support_block = off  # tick 300s — garde : ticket bloquant ouvert
 
-# ── Canal Telegram (py pur — scripts du prototype réutilisés tels quels) ────
-# gateway : porte ENTRANTE — chaque message Telegram d'Adrian déclenche une
-#           session Claude headless LECTURE SEULE qui répond (cc-support-
-#           telegram). Coût : une petite session par message reçu.
-# notify  : sorties Telegram (nouveautés journaux, AUTO-OFF, digest). 0 token.
-# SANS SECRETS (C:/db/tradingBot/gateway/gateway_token.txt + config.json,
-# C:/db/tradingBot/secrets/… — voir TCK-004), chaque tick sort en code 2
-# « ressource externe indisponible » : la factory réessaie sans crier, rien ne
-# crashe — comportement vérifié dans le code des deux workers. OFF par défaut
-# tant que les tokens ne sont pas posés, pour des logs propres.
-gateway = off           # tick 30s — répondeur Telegram (lecture seule)
-notify = off            # tick 300s — notifications sortantes
+# ── Canal Telegram TradingBot (T7 — deux bots DÉDIÉS, py pur) ───────────────
+# gateway : porte ENTRANTE (tbot-gateway.py) — chaque message Telegram
+#           d'Adrian déclenche une session Claude headless LECTURE SEULE qui
+#           répond ; menu auto depuis .claude/skills/tbot-*/ (/etat livré).
+#           Coût : une petite session par message reçu.
+# notify  : sorties Telegram (tbot-notify.py) — lignes de trade du LEDGER à
+#           la clôture, récap quotidien/hebdo/mensuel/annuel, AUTO-OFF.
+#           0 token.
+# SANS TOKENS (C:/db/tradingBot/notifier/token.txt, gateway/token.txt +
+# config.json — geste Adrian, TCK-007), chaque tick sort en code 2
+# « ressource externe indisponible » : les deux workers sont INERTES, la
+# factory réessaie sans crier, rien ne crashe — comportement vérifié par
+# leurs tests. ON par défaut : poser les tokens SUFFIT à armer le canal.
+gateway = on            # tick 30s — répondeur Telegram (lecture seule)
+notify = on             # tick 300s — reporting ledger + alertes
 
 # ── Études scellées en vol (py pur — migrées du prototype, TCK-009) ─────────
 # Les 5 études tournent ENCORE dans la robinbot factory (journaux vivants dans

@@ -1,0 +1,301 @@
+{
+  "study": "alexg_paper",
+  "sealed_at": "2026-08-22",
+  "strategy_id": "s93_alexg_ai_judge",
+  "instruments": [
+    "EURUSD",
+    "GBPUSD",
+    "USDJPY",
+    "USDCHF",
+    "USDCAD",
+    "AUDUSD",
+    "NZDUSD",
+    "EURJPY",
+    "GBPJPY",
+    "AUDJPY",
+    "NZDJPY",
+    "CADJPY",
+    "CHFJPY",
+    "EURCHF",
+    "GBPCHF",
+    "AUDCHF",
+    "CADCHF",
+    "EURGBP",
+    "EURAUD",
+    "EURNZD",
+    "EURCAD",
+    "GBPAUD",
+    "GBPNZD",
+    "GBPCAD",
+    "AUDNZD",
+    "AUDCAD"
+  ],
+  "timeframe": "H1",
+  "detector": {
+    "aoi_width_pips": 60.0,
+    "aoi_touch_min": 3,
+    "aoi_lookback_days": 1095,
+    "visit_window": 48,
+    "rr_min": 2.0,
+    "sl_buf_atr": 0.1,
+    "tp_margin_atr": 0.1,
+    "ema_period": 50,
+    "min_gap_bars": 6
+  },
+  "specs": {
+    "EURUSD": {
+      "symbol": "EURUSD",
+      "pip": 0.0001,
+      "spread_pips": 1.9,
+      "max_spread_pips": 3.0,
+      "pip_value_per_lot": 10.0,
+      "slippage_pips": 0.5
+    },
+    "GBPUSD": {
+      "symbol": "GBPUSD",
+      "pip": 0.0001,
+      "spread_pips": 2.3,
+      "max_spread_pips": 6.5,
+      "pip_value_per_lot": 8.01,
+      "slippage_pips": 0.5
+    },
+    "USDJPY": {
+      "symbol": "USDJPY",
+      "pip": 0.01,
+      "spread_pips": 2.8,
+      "max_spread_pips": 5.0,
+      "pip_value_per_lot": 6.7,
+      "slippage_pips": 0.5
+    },
+    "USDCHF": {
+      "symbol": "USDCHF",
+      "pip": 0.0001,
+      "spread_pips": 2.2,
+      "max_spread_pips": 4.0,
+      "pip_value_per_lot": 11.0,
+      "slippage_pips": 0.5
+    },
+    "USDCAD": {
+      "symbol": "USDCAD",
+      "pip": 0.0001,
+      "spread_pips": 3.1,
+      "max_spread_pips": 5.0,
+      "pip_value_per_lot": 7.3,
+      "slippage_pips": 0.5
+    },
+    "AUDUSD": {
+      "symbol": "AUDUSD",
+      "pip": 0.0001,
+      "spread_pips": 2.0,
+      "max_spread_pips": 3.5,
+      "pip_value_per_lot": 10.0,
+      "slippage_pips": 0.5
+    },
+    "NZDUSD": {
+      "symbol": "NZDUSD",
+      "pip": 0.0001,
+      "spread_pips": 5.0,
+      "max_spread_pips": 7.0,
+      "pip_value_per_lot": 8.01,
+      "slippage_pips": 0.5
+    },
+    "EURJPY": {
+      "symbol": "EURJPY",
+      "pip": 0.01,
+      "spread_pips": 3.6,
+      "max_spread_pips": 6.0,
+      "pip_value_per_lot": 6.7,
+      "slippage_pips": 0.5
+    },
+    "GBPJPY": {
+      "symbol": "GBPJPY",
+      "pip": 0.01,
+      "spread_pips": 6.7,
+      "max_spread_pips": 18.0,
+      "pip_value_per_lot": 5.04,
+      "slippage_pips": 0.5
+    },
+    "AUDJPY": {
+      "symbol": "AUDJPY",
+      "pip": 0.01,
+      "spread_pips": 4.1,
+      "max_spread_pips": 8.0,
+      "pip_value_per_lot": 5.04,
+      "slippage_pips": 0.5
+    },
+    "NZDJPY": {
+      "symbol": "NZDJPY",
+      "pip": 0.01,
+      "spread_pips": 4.1,
+      "max_spread_pips": 10.0,
+      "pip_value_per_lot": 5.04,
+      "slippage_pips": 0.5
+    },
+    "CADJPY": {
+      "symbol": "CADJPY",
+      "pip": 0.01,
+      "spread_pips": 4.0,
+      "max_spread_pips": 9.0,
+      "pip_value_per_lot": 5.04,
+      "slippage_pips": 0.5
+    },
+    "CHFJPY": {
+      "symbol": "CHFJPY",
+      "pip": 0.01,
+      "spread_pips": 3.9,
+      "max_spread_pips": 7.0,
+      "pip_value_per_lot": 6.7,
+      "slippage_pips": 0.5
+    },
+    "EURCHF": {
+      "symbol": "EURCHF",
+      "pip": 0.0001,
+      "spread_pips": 3.5,
+      "max_spread_pips": 6.0,
+      "pip_value_per_lot": 11.0,
+      "slippage_pips": 0.5
+    },
+    "GBPCHF": {
+      "symbol": "GBPCHF",
+      "pip": 0.0001,
+      "spread_pips": 5.4,
+      "max_spread_pips": 17.0,
+      "pip_value_per_lot": 10.0,
+      "slippage_pips": 0.5
+    },
+    "AUDCHF": {
+      "symbol": "AUDCHF",
+      "pip": 0.0001,
+      "spread_pips": 2.2,
+      "max_spread_pips": 4.0,
+      "pip_value_per_lot": 11.0,
+      "slippage_pips": 0.5
+    },
+    "CADCHF": {
+      "symbol": "CADCHF",
+      "pip": 0.0001,
+      "spread_pips": 3.4,
+      "max_spread_pips": 6.0,
+      "pip_value_per_lot": 11.0,
+      "slippage_pips": 0.5
+    },
+    "EURGBP": {
+      "symbol": "EURGBP",
+      "pip": 0.0001,
+      "spread_pips": 1.8,
+      "max_spread_pips": 3.3,
+      "pip_value_per_lot": 10.93,
+      "slippage_pips": 0.5
+    },
+    "EURAUD": {
+      "symbol": "EURAUD",
+      "pip": 0.0001,
+      "spread_pips": 3.4,
+      "max_spread_pips": 6.0,
+      "pip_value_per_lot": 6.5,
+      "slippage_pips": 0.5
+    },
+    "EURNZD": {
+      "symbol": "EURNZD",
+      "pip": 0.0001,
+      "spread_pips": 9.3,
+      "max_spread_pips": 21.2,
+      "pip_value_per_lot": 4.79,
+      "slippage_pips": 0.5
+    },
+    "EURCAD": {
+      "symbol": "EURCAD",
+      "pip": 0.0001,
+      "spread_pips": 3.8,
+      "max_spread_pips": 6.0,
+      "pip_value_per_lot": 7.3,
+      "slippage_pips": 0.5
+    },
+    "GBPAUD": {
+      "symbol": "GBPAUD",
+      "pip": 0.0001,
+      "spread_pips": 4.2,
+      "max_spread_pips": 18.5,
+      "pip_value_per_lot": 5.75,
+      "slippage_pips": 0.5
+    },
+    "GBPNZD": {
+      "symbol": "GBPNZD",
+      "pip": 0.0001,
+      "spread_pips": 8.2,
+      "max_spread_pips": 20.0,
+      "pip_value_per_lot": 4.79,
+      "slippage_pips": 0.5
+    },
+    "GBPCAD": {
+      "symbol": "GBPCAD",
+      "pip": 0.0001,
+      "spread_pips": 4.8,
+      "max_spread_pips": 16.5,
+      "pip_value_per_lot": 5.82,
+      "slippage_pips": 0.5
+    },
+    "AUDNZD": {
+      "symbol": "AUDNZD",
+      "pip": 0.0001,
+      "spread_pips": 7.1,
+      "max_spread_pips": 11.0,
+      "pip_value_per_lot": 4.79,
+      "slippage_pips": 0.5
+    },
+    "AUDCAD": {
+      "symbol": "AUDCAD",
+      "pip": 0.0001,
+      "spread_pips": 3.2,
+      "max_spread_pips": 5.5,
+      "pip_value_per_lot": 7.3,
+      "slippage_pips": 0.5
+    }
+  },
+  "engine": {
+    "max_positions": 1,
+    "cooldown_bars": 2,
+    "cb_losses": 3,
+    "cb_cooldown_bars": 24,
+    "max_hold_bars": null
+  },
+  "sizing": {
+    "capital_initial": 10000.0,
+    "risk_per_trade_pct": 1.0
+  },
+  "ai": {
+    "timeout_s": 180,
+    "retries": 1,
+    "bounds": {
+      "size_min": 0.0,
+      "size_max": 1.0,
+      "sl_adjust_min": 1.0,
+      "sl_adjust_max": 1.0,
+      "tp_adjust_min": 1.0,
+      "tp_adjust_max": 1.0
+    }
+  },
+  "random_arm": {
+    "seed": 20260822,
+    "default_take_rate": 1.0
+  },
+  "control": {
+    "draws": 2000,
+    "seed": 20260822
+  },
+  "stop_rules": {
+    "fail_ai": {
+      "min_decisions": 40,
+      "percentile_fail_below": 80,
+      "percentile_pass_at_or_above": 95
+    },
+    "fail_base": {
+      "min_signals": 40,
+      "cum_r_nocost_below": 0.0
+    },
+    "time": {
+      "months": 6,
+      "min_decisions": 40
+    }
+  }
+}

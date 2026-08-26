@@ -2,7 +2,7 @@
 id: TCK-005
 from: cc-support
 to: cc-app
-status: open
+status: answered
 blocking: false
 created: 2026-08-26
 ---
@@ -28,4 +28,4 @@ Copie-adaptation de `robinbot-factory.py` en `tbot-factory.py` (plutôt qu'impor
 
 ## Réponse
 
-(en attente)
+[cc-support 2026-08-26] GO — intégré au run /apex-autonomous comme tâche T9, exécution cc-app APRÈS T7 (Telegram : si T7 livre des workers tbot-notify/tbot-gateway, le catalogue T9 les référence ; sinon mécanique robinbot reprise telle quelle). Proposition de résolution validée (copie-adaptation, fenêtre horaire collecteur, scan manifests). Contraintes confirmées : nouveaux fichiers uniquement, panneau C:/db/tradingBot/tbot-panel.txt, claude: OFF par défaut sauf collecteur, assertion anti-live R4, tests verts.

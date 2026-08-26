@@ -3,7 +3,8 @@ Fixtures partagées des tests du serveur de supervision (SPEC_ui-dynamique).
 
 Le principe : TOUT l'état vit dans un layout jetable monté dans tmp_path via
 les seams officiels (TBOT_PROJECT_ROOT, TBOT_DB_DIR, TBOT_LEDGER_DB, TBF_*,
-ROBINBOT_*) — jamais C:\\db, jamais le dépôt réel, jamais la factory vivante.
+TBOT_GATEWAY_DIR/TBOT_NOTIFY_DIR) — jamais C:\\db, jamais le dépôt réel,
+jamais la factory vivante.
 Chaque seam est posé explicitement : un test qui oublierait un seam lirait la
 machine réelle, et ce genre de fuite a déjà pollué un run complet.
 """
@@ -45,11 +46,10 @@ def ui_env(tmp_path, monkeypatch):
     monkeypatch.setenv("TBF_LOCK", str(tmp_path / "factory.lock"))
     monkeypatch.setenv("TBF_LOG_DIR", str(tmp_path / "logs"))
     monkeypatch.setenv("TBF_PANEL", str(tmp_path / "panel.txt"))
-    # Seams Telegram : le vrai ~/.claude/.env ne doit pas rendre
-    # token_present vrai sur le poste de dev.
-    monkeypatch.setenv("ROBINBOT_TELEGRAM_ENV", str(tmp_path / "tg.env"))
-    monkeypatch.setenv("ROBINBOT_GATEWAY_DIR", str(db / "gateway"))
-    monkeypatch.setenv("ROBINBOT_NOTIFY_DIR", str(db / "notifier"))
+    # Seams Telegram tbot (TBOT_*, jamais ROBINBOT_*) : les vrais dossiers
+    # d'état ne doivent pas rendre token_present vrai sur le poste de dev.
+    monkeypatch.setenv("TBOT_GATEWAY_DIR", str(db / "tbot-gateway"))
+    monkeypatch.setenv("TBOT_NOTIFY_DIR", str(db / "tbot-notify"))
 
     def make_strategy(folder="S013_macd_fx", *, status="PAPER",
                       symbols=("AUDCAD",), manifest_text=None,

@@ -23,19 +23,26 @@ Everything is resolved at CALL time and overridable by environment variables:
 that is the testability seam (tests mount a throwaway layout in tmp_path
 without a single `if TEST` branch in production code).
 
-    project_root()  RBF_ROOT, then TBOT_PROJECT_ROOT  or parent of app/
-    app_root()      (fixed)                           the app/ directory itself
-    db_dir()        TBOT_DB_DIR                       or C:\\db\\tradingBot
-    panel_file()    RBF_PANEL                         or db_dir()/robinbot-panel.txt
+    project_root()      RBF_ROOT, then TBOT_PROJECT_ROOT  or parent of app/
+    app_root()          (fixed)                        the app/ directory itself
+    db_dir()            TBOT_DB_DIR                    or C:\\db\\tradingBot
+    panel_file()        RBF_PANEL                      or db_dir()/robinbot-panel.txt
+    tbot_panel_file()   TBF_PANEL                      or db_dir()/tbot-panel.txt
 
 RBF_ROOT is the factory's historical sandbox/test seam. It MUST steer EVERY
 consumer — factory, workers, server, tools — to the same root: a sandboxed
 launch must never make the supervision server read the REAL repo's manifests.
 
-The control panel default is shared by the factory (writes AUTO-OFF), the
-notifier and the pilot (both read it): the three MUST resolve the same file.
-The prototype diverged here (factory wrote to <db>, notify/pilot read next to
-the script) — documented defect, fixed by this module.
+TWO control panels, TWO consoles — never confuse them:
+  - panel_file() is the ROBINBOT (prototype) panel — kept as archived
+    reference for the robinbot-*.py modules, which are never launched from
+    this repo.
+  - tbot_panel_file() is the TBOT factory panel — the live control surface of
+    THIS repo, shared by tbot-factory.py (writes AUTO-OFF), tbot-notify.py
+    and the supervision server (server/services.py): the three MUST resolve
+    the same file.  The prototype diverged on exactly this point (factory
+    wrote to <db>, notify/pilot read next to the script) — documented defect;
+    one resolver HERE keeps the tbot trio aligned by construction.
 """
 from __future__ import annotations
 
@@ -71,6 +78,14 @@ def db_dir() -> pathlib.Path:
 
 
 def panel_file() -> pathlib.Path:
-    """The control panel — ONE file per machine, shared factory/notify/pilot."""
+    """The ROBINBOT (prototype) control panel — archived reference, read by
+    the robinbot-*.py modules only (never launched from this repo)."""
     env = os.environ.get("RBF_PANEL")
     return pathlib.Path(env) if env else db_dir() / "robinbot-panel.txt"
+
+
+def tbot_panel_file() -> pathlib.Path:
+    """The TBOT factory control panel — ONE file per machine, shared by
+    tbot-factory (writes AUTO-OFF), tbot-notify and the supervision server."""
+    env = os.environ.get("TBF_PANEL")
+    return pathlib.Path(env) if env else db_dir() / "tbot-panel.txt"

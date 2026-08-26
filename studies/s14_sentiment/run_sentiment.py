@@ -98,6 +98,7 @@ except Exception:
     pass
 
 from core import secrets                                 # noqa: E402
+from studies.first_pass import first_pass_refused        # noqa: E402
 from studies.s14_sentiment.sentiment_step import (      # noqa: E402
     PARAMS_PATH, PARAMS_SHA256, JournalError, Paths, SealError, _write_status,
     ingest_news, judge_is_on, load_sealed_params, load_state, next_batch,
@@ -505,6 +506,11 @@ def main(argv: list[str]) -> int:
         return test_judge(params)
     if "--dry-run" in argv:
         return dry_run(paths, params)
+    # Garde first-pass (studies/first_pass.py) : journal absent = étude pas
+    # encore basculée (CUTOVER.md) — refus AVANT toute écriture. Après les
+    # sondes : --test-judge et --dry-run ne touchent ni journal ni état.
+    if first_pass_refused(paths.journal, "s14_sentiment"):
+        return 2
     return run_pass(paths, params)              # --once est le défaut
 
 

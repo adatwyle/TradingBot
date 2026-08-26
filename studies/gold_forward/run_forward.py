@@ -41,6 +41,7 @@ import pandas as pd                                       # noqa: E402
 
 from core.data.source import load_bars                    # noqa: E402
 from strategies.S011_legacy_breakout.strategy import Strategy  # noqa: E402
+from studies.first_pass import first_pass_refused          # noqa: E402
 from studies.gold_forward.forward_step import (            # noqa: E402
     JournalError, Paths, SealError, load_sealed_params, run_step,
 )
@@ -80,6 +81,12 @@ def make_signal_fn(params: dict):
 def main(argv: list[str]) -> int:
     stale_ok = "--stale-ok" in argv
 
+    # Garde first-pass (studies/first_pass.py) : journal absent = étude pas
+    # encore basculée (CUTOVER.md) — refus AVANT toute écriture.
+    paths = Paths()
+    if first_pass_refused(paths.journal, "gold_forward"):
+        return 2
+
     try:
         params = load_sealed_params(PARAMS_PATH, PARAMS_SHA256)
     except SealError as e:
@@ -108,7 +115,6 @@ def main(argv: list[str]) -> int:
     # travaille que sur des barres clôturées.
     df = df.iloc[:-1]
 
-    paths = Paths()
     try:
         status = run_step(df, params, paths, make_signal_fn(params))
     except SealError as e:

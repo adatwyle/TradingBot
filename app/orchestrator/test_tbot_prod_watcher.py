@@ -35,7 +35,7 @@ _ENV_KEYS = (
     "TBOT_WATCH_POLL", "TBOT_WATCH_STOP_TIMEOUT", "TBOT_WATCH_GATE_ALERT",
     "TBOT_WATCH_LOCK", "TBOT_WATCH_LOCK_STALE", "TBOT_WATCH_LOG_DIR",
     "TBOT_WATCH_FACTORY_CMD", "TBOT_WATCH_PYTEST_CMD", "TBF_STOP", "RBF_STOP",
-    "TBF_LOG_DIR", "ROBINBOT_NOTIFY_DIR", "TBOT_WATCH_CRASH_BACKOFF",
+    "TBF_LOG_DIR", "TBF_LOCK", "TBOT_NOTIFY_DIR", "TBOT_WATCH_CRASH_BACKOFF",
     "TBOT_WATCH_PYTEST_TIMEOUT",
 )
 
@@ -94,7 +94,8 @@ def env(tmp_path):
     os.environ["TBOT_WATCH_LOCK"] = str(tmp_path / ".wlock")
     os.environ["TBOT_WATCH_LOG_DIR"] = str(tmp_path / "logs")
     os.environ["TBF_STOP"] = str(tmp_path / ".stop")
-    os.environ["ROBINBOT_NOTIFY_DIR"] = str(tmp_path / "notifier-absent")
+    os.environ["TBF_LOCK"] = str(tmp_path / ".tbot-factory.lock")
+    os.environ["TBOT_NOTIFY_DIR"] = str(tmp_path / "notifier-absent")
     os.environ["TBOT_WATCH_PYTEST_CMD"] = json.dumps(PY_GREEN)
     os.environ["TBOT_WATCH_FACTORY_CMD"] = json.dumps(
         [sys.executable, "-c", "import time; time.sleep(60)"])
@@ -360,6 +361,44 @@ def test_arret_force_au_timeout(env, monkeypatch):
         assert proc.poll() is not None                 # arbre tué
         assert any("forcé" in a for a in alertes)
         assert not m.stop_file().exists()
+    finally:
+        if proc.poll() is None:
+            proc.kill()
+
+
+def test_arret_force_supprime_le_verrou_factory(env, monkeypatch):
+    """F7 : après un arrêt FORCÉ la factory est morte mais son verrou
+    .tbot-factory.lock reste frais — sans nettoyage il bloquerait la relance
+    jusqu'à 180 s (et la relance compterait crash). Le watcher le retire."""
+    m = env
+    monkeypatch.setattr(m, "send_telegram", lambda t: None)
+    os.environ["TBOT_WATCH_STOP_TIMEOUT"] = "1"
+    lock = m.factory_lock_file()
+    lock.write_text("pid 12345 :: frais\n", encoding="utf-8")
+
+    proc = subprocess.Popen([sys.executable, "-c", _FACTORY_SOURDE])
+    try:
+        assert m.stop_factory(proc) is False           # forcé
+        assert not lock.exists()                       # verrou orphelin retiré
+    finally:
+        if proc.poll() is None:
+            proc.kill()
+
+
+def test_arret_propre_conserve_le_verrou_au_watcher(env, monkeypatch):
+    """Contre-cas F7 : sur un arrêt PROPRE la factory gère son verrou
+    elle-même (finally clear_lock) — le watcher n'y touche pas."""
+    m = env
+    monkeypatch.setattr(m, "send_telegram", lambda t: None)
+    lock = m.factory_lock_file()
+    lock.write_text("pid 12345 :: frais\n", encoding="utf-8")
+    script = m.tmp / "factory_docile.py"
+    script.write_text(_FACTORY_DOCILE, encoding="utf-8")
+    proc = subprocess.Popen([sys.executable, str(script),
+                             os.environ["TBF_STOP"]])
+    try:
+        assert m.stop_factory(proc) is True            # sortie propre
+        assert lock.exists()                           # pas touché par le watcher
     finally:
         if proc.poll() is None:
             proc.kill()

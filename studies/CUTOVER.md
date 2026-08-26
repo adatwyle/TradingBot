@@ -72,10 +72,19 @@ barres closes à la reprise).
    dernier tick de l'étude est terminé et qu'aucun ne redémarre (le worker
    n'apparaît plus dans les lancements). En cas de doute : attendre 2-3 min
    de plus — la fenêtre est large.
-4. **Déplacer le journal** (même volume → rename instantané) :
+4. **Déplacer le journal** (même volume → rename instantané) —
+   **STOP OBLIGATOIRE d'abord** :
+   `Test-Path C:\db\tradingBot\<étude>`
+   → doit rendre **False**. `True` = **STOP net, aucune bascule** : un
+   `Move-Item` vers un dossier existant IMBRIQUE silencieusement la source
+   DANS la cible (`C:\db\tradingBot\<étude>\<étude>\`) au lieu de la
+   remplacer — le journal semblerait disparu et le runner démarrerait un état
+   neuf. Enquête (d'où vient la cible ? un premier passage accidentel ?)
+   avant toute reprise.
+   Puis seulement :
    `Move-Item C:\db\tbot\<étude> C:\db\tradingBot\<étude>`
    Le dossier part ENTIER : `journal.csv`, `state.json`, `status.json`,
-   `run.log` (et tout fichier annexe). La cible ne doit pas préexister.
+   `run.log` (et tout fichier annexe).
 5. **Vérifier APRÈS** :
    `python studies/verify-journal.py <étude>`
    (défaut = emplacement cible) → exit 0 exigé.

@@ -14,9 +14,12 @@ BACKTEST), les formats sont EXACTEMENT ceux d'Adrian (chapitre 07) :
     📒 Année 2026                          ← récap annuel (TG-7)
 
 Nouveau canal : bot Telegram DÉDIÉ TradingBot (les bots du prototype ne sont
-pas réutilisés). Token brut dans C:/db/tradingBot/notifier/token.txt, chat_id
-dans config.json — absents, le worker est INERTE : sortie 2 SANS BRUIT
-(TCK-007), la factory réessaie sans crier.
+pas réutilisés). Token brut dans C:/db/tradingBot/tbot-notify/token.txt,
+chat_id dans config.json — absents, le worker est INERTE : sortie 2 SANS
+BRUIT (TCK-007), la factory réessaie sans crier. L'état vit dans un dossier
+PROPRE à ce worker (`tbot-notify/`, seam TBOT_NOTIFY_DIR) : AUCUN partage
+avec les dossiers ni les variables d'environnement du prototype robinbot
+(`ROBINBOT_*`, `notifier/`) — deux bots, deux curseurs.
 
 LES CURSEURS N'AVANCENT QU'APRÈS UN ENVOI RÉUSSI (héritage robinbot-notify)
 ----------------------------------------------------------------------------
@@ -108,6 +111,7 @@ ETUDES: list[tuple[str, str]] = [
     ("s13_forward",   "S13_FORWARD_DIR"),
     ("macd_ai_paper", "MACD_AI_PAPER_DIR"),
     ("s14_sentiment", "S14_SENTIMENT_DIR"),
+    ("alexg_paper",   "ALEXG_PAPER_DIR"),
 ]
 
 # gold_forward ne journalise pas de colonne symbol : l'instrument est unique.
@@ -116,7 +120,8 @@ IMPLICIT_SYMBOL = {"gold_forward": "XAUUSD"}
 
 # == RÉSOLUTION DES CHEMINS (à l'appel, pas à l'import — testable) =============
 def notify_dir() -> str:
-    return os.environ.get("ROBINBOT_NOTIFY_DIR") or str(_paths.db_dir() / "notifier")
+    # Dossier PROPRE à ce worker — jamais `notifier/` (curseurs robinbot).
+    return os.environ.get("TBOT_NOTIFY_DIR") or str(_paths.db_dir() / "tbot-notify")
 
 
 def etude_dirs() -> list[tuple[str, str]]:
@@ -126,8 +131,8 @@ def etude_dirs() -> list[tuple[str, str]]:
 
 def panel_path() -> str:
     # Le panneau de la TBOT factory (tbot-factory.py écrit ses AUTO-OFF là),
-    # PAS celui du prototype robinbot. Même résolution que la factory.
-    return os.environ.get("TBF_PANEL") or str(_paths.db_dir() / "tbot-panel.txt")
+    # PAS celui du prototype robinbot. Résolution UNIQUE : core.paths (F9).
+    return str(_paths.tbot_panel_file())
 
 
 # == PETITS OUTILS =============================================================
@@ -178,14 +183,21 @@ def _to_local(iso_utc: str) -> datetime:
     return dt.astimezone(LOCAL_TZ)
 
 
-def chf(amount: float) -> str:
-    """Montant -> forme exacte d'Adrian : arrondi CHF entier, signé, suffixe
-    collé (D-TG-5) : -100chf, +210chf, +0chf. Arrondi « half away from zero »
-    (déterministe — pas le banquier de round()), jamais de « -0chf »."""
+def money(amount: float, currency: str = "CHF") -> str:
+    """Montant -> forme exacte d'Adrian : arrondi entier, signé, suffixe
+    devise collé en minuscules (D-TG-5) : -100chf, +210chf, +0chf, +50eur.
+    Arrondi « half away from zero » (déterministe — pas le banquier de
+    round()), jamais de « -0chf »."""
+    suffix = (currency or "CHF").lower()
     n = int(math.floor(abs(float(amount)) + 0.5))
     if amount < 0 and n > 0:
-        return f"-{n}chf"
-    return f"+{n}chf"
+        return f"-{n}{suffix}"
+    return f"+{n}{suffix}"
+
+
+def chf(amount: float) -> str:
+    """Forme historique CHF (les golden TG-4..TG-7 en CHF pur)."""
+    return money(amount, "CHF")
 
 
 def split_message(text: str, limit: int = TELEGRAM_LIMIT) -> list[str]:
@@ -253,16 +265,38 @@ def format_trade_line(row: dict) -> str:
 
 
 def _merged_pnl(ledger: Ledger, method: str, label: str,
-                date_from, date_to) -> dict[str, float]:
-    """Agrégat ledger fusionné PAPER + LIVE -> {période: net}. Les agrégats
-    du ledger séparent les devises ; le reporting parle chf — un mandat
-    multi-devises demandera une extension de spec, pas une addition muette."""
-    out: dict[str, float] = {}
+                date_from, date_to) -> dict[str, dict[str, float]]:
+    """Agrégat ledger fusionné PAPER + LIVE -> {période: {devise: net}}.
+    Les agrégats du ledger séparent les devises (LG-14) ; le reporting
+    CONSERVE la séparation — une ligne par devise, JAMAIS une addition
+    inter-devises muette (F10)."""
+    out: dict[str, dict[str, float]] = {}
     for mode in LEDGER_MODES:
         for row in getattr(ledger, method)(date_from, date_to, mode=mode):
-            key = row[label]
-            out[key] = out.get(key, 0.0) + (row["net"] or 0.0)
+            per = out.setdefault(row[label], {})
+            cur = row.get("currency") or "CHF"
+            per[cur] = per.get(cur, 0.0) + (row["net"] or 0.0)
     return out
+
+
+def _sum_per_ccy(periods) -> dict[str, float]:
+    """Totaux par devise sur un itérable de {devise: net} — même règle F10 :
+    on additionne DANS une devise, jamais entre devises."""
+    totals: dict[str, float] = {}
+    for per in periods:
+        for cur, net in per.items():
+            totals[cur] = totals.get(cur, 0.0) + net
+    return totals
+
+
+def _amount_lines(prefix: str, per_ccy: dict[str, float]) -> list[str]:
+    """Une ligne PAR DEVISE (F10), devises triées pour un rendu déterministe.
+    Période sans trade -> la ligne +0chf historique (le défaut du reporting).
+    Une seule devise CHF -> rendu golden inchangé (TG-4..TG-7)."""
+    if not per_ccy:
+        return [f"{prefix} +0chf"]
+    return [f"{prefix} {money(net, cur)}"
+            for cur, net in sorted(per_ccy.items())]
 
 
 # == LES SECTIONS DU DIGEST (formats golden — TG-4 à TG-7) =====================
@@ -295,11 +329,11 @@ def build_weekly_section(ledger: Ledger, today: date) -> str:
              f"–{friday.strftime('%d.%m')}) —"]
     for i in range(7):
         d = monday + timedelta(days=i)
-        net = per_day.get(d.isoformat(), 0.0)
-        if i >= 5 and abs(net) < 0.005:
+        per = per_day.get(d.isoformat(), {})
+        if i >= 5 and not any(abs(net) >= 0.005 for net in per.values()):
             continue                        # week-end sans trade : pas de ligne
-        lines.append(f"{JOURS_FR[i]} {chf(net)}")
-    lines.append(f"Total semaine : {chf(sum(per_day.values()))}")
+        lines.extend(_amount_lines(JOURS_FR[i], per))
+    lines.extend(_amount_lines("Total semaine :", _sum_per_ccy(per_day.values())))
     return "\n".join(lines)
 
 
@@ -319,8 +353,8 @@ def build_monthly_section(ledger: Ledger, year: int, month: int) -> str:
     weeks = _merged_pnl(ledger, "pnl_by_week", "week", first, last)
     lines = [_titre_mois(year, month)]
     for wk in sorted(weeks):                # 'YYYY-Www' — l'ordre lexical suit
-        lines.append(f"S{int(wk.split('-W')[1]):02d} {chf(weeks[wk])}")
-    lines.append(f"Total mois : {chf(sum(weeks.values()))}")
+        lines.extend(_amount_lines(f"S{int(wk.split('-W')[1]):02d}", weeks[wk]))
+    lines.extend(_amount_lines("Total mois :", _sum_per_ccy(weeks.values())))
     lines.append("")
     lines.append("— 12 derniers mois —")
     start_y, start_m = (year, month + 1) if month < 12 else (year + 1, 1)
@@ -328,7 +362,8 @@ def build_monthly_section(ledger: Ledger, year: int, month: int) -> str:
     months = _merged_pnl(ledger, "pnl_by_month", "month", start, last)
     y, m = start.year, start.month
     for _ in range(12):
-        lines.append(f"{m:02d}.{y:04d} {chf(months.get(f'{y:04d}-{m:02d}', 0.0))}")
+        lines.extend(_amount_lines(f"{m:02d}.{y:04d}",
+                                   months.get(f"{y:04d}-{m:02d}", {})))
         y, m = (y + 1, 1) if m == 12 else (y, m + 1)
     return "\n".join(lines)
 
@@ -338,12 +373,10 @@ def build_annual_section(ledger: Ledger, year: int) -> str:
     months = _merged_pnl(ledger, "pnl_by_month", "month",
                          date(year, 1, 1), date(year, 12, 31))
     lines = [f"📒 Année {year}"]
-    total = 0.0
     for m in range(1, 13):
-        net = months.get(f"{year:04d}-{m:02d}", 0.0)
-        total += net
-        lines.append(f"{m:02d} {chf(net)}")
-    lines.append(f"Total année : {chf(total)}")
+        lines.extend(_amount_lines(f"{m:02d}",
+                                   months.get(f"{year:04d}-{m:02d}", {})))
+    lines.extend(_amount_lines("Total année :", _sum_per_ccy(months.values())))
     return "\n".join(lines)
 
 

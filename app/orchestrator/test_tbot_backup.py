@@ -402,6 +402,40 @@ def test_gitignore_hostile_avertissement(env):
     assert any("events.csv" in w and ".gitignore" in w for w in st["warnings"])
 
 
+# == F8 : source vidée ≠ ordre de purge ========================================
+def test_source_videe_purge_refusee(env):
+    """db_dir existe mais ne contient plus AUCUN fichier éligible alors que le
+    miroir en porte : symptôme (source vidée par accident, seam cassé) — la
+    purge D-BK-3 est REFUSÉE, aucune suppression, alerte explicite."""
+    m, db = env, env.db
+    _seed_minimal(db)
+    assert m.main(["--now"]) == 0                      # miroir peuplé
+    n = m.depot.n_commits()
+
+    (db / "S017" / "journal.csv").unlink()             # la source se vide
+    assert m.main(["--now"]) == 1                      # refus, pas un miroir vide
+    assert (m.depot.local / "db-backup" / "S017" / "journal.csv").is_file()
+    assert m.depot.n_commits() == n                    # aucune destruction commitée
+    st = _status(m)
+    assert st["last_result"] == "error"
+    assert any("purge refusée" in w for w in st["warnings"])
+
+    # La source revit → le passage suivant repart normalement.
+    _seed_minimal(db)
+    (db / "S017" / "journal.csv").write_text("t;evt\n1;open\n2;close\n",
+                                             encoding="utf-8")
+    assert m.main(["--now"]) == 0
+    assert _status(m)["last_result"] == "pushed"
+
+
+def test_source_et_miroir_vides_comportement_normal(env):
+    """Contre-cas F8 : sélection vide + miroir vide (première vie du poste) =
+    rien à faire, pas une erreur."""
+    m = env
+    assert m.main(["--now"]) == 0
+    assert _status(m)["last_result"] == "nothing-to-do"
+
+
 # == Robustesse : db_dir absent ≠ source vide ==================================
 def test_db_dir_absent_ne_vide_jamais_le_miroir(env):
     m, db = env, env.db

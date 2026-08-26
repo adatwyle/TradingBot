@@ -68,18 +68,19 @@ dans le panneau et crie, pour qu'un humain vienne LIRE avant de rallumer.
 
 USAGE
 -----
-    python app/orchestrator/robinbot-factory.py            # la console
-    python app/orchestrator/robinbot-factory.py --once     # un seul cycle (sonde)
-    python app/orchestrator/robinbot-factory.py --dry-run  # n'exécute rien, montre
-    ou double-clic sur app/orchestrator/run-factory.bat
+    RÉFÉRENCE ARCHIVÉE — ce script ne se lance JAMAIS depuis ce dépôt (ses
+    lanceurs run-factory.bat / demarrer-detache.ps1 ont été retirés). La
+    console de ce dépôt est app/orchestrator/tbot-factory.py.
 
 Arrêt : Ctrl-C, ou créer le fichier `app/orchestrator/.stop`. Les deux sont PROPRES —
 on cesse de lancer, on laisse finir ce qui vole, puis on sort.
 
 QUI DOIT LANCER CETTE CONSOLE — et surtout, qui ne doit PAS
 ------------------------------------------------------------
-Elle se lance par DOUBLE-CLIC sur `run-factory.bat`, ou par une commande
-DÉTACHÉE. Jamais depuis une session Claude Code : le processus deviendrait
+PERSONNE, depuis ce dépôt : référence archivée du prototype (le prototype
+vivant tourne depuis C:\\Datas\\Projects\\TradingBot_9.0.0.x avec son propre
+lanceur). Leçon historique conservée : jamais de factory depuis une session
+Claude Code — le processus deviendrait
 descendant de l'application, et comme la factory ne s'arrête jamais, l'arbre de
 processus de l'application ne se libérerait plus.
 
@@ -203,12 +204,16 @@ PYTHON = sys.executable or "python"
 # compris les études D1 : un passage horaire sur une bougie quotidienne ne fait
 # rien 23 fois sur 24, et fait le travail dès que la bougie est là — sans
 # dépendre d'une heure de rendez-vous que MT5 pourrait manquer.
-# NOTE MIGRATION (E2) : les workers d'études référencent `studies/*/run_*.py`
-# à la RACINE PROJET — les études scellées ne sont PAS encore migrées (elles
-# tournent dans le prototype jusqu'à E6). Les workers restent DÉCLARABLES mais
-# INERTES : le gabarit du panneau les livre `off`, et le panneau fail-closed
-# couvre le reste (absent = OFF). Les rallumer sans les fichiers d'études ne
-# produit qu'un tick en sortie 2 (ressource indisponible), jamais un incident.
+# NOTE MIGRATION (T10, 2026-08-26) : les fichiers d'études SONT migrés dans
+# `studies/` de CE dépôt désormais — mais leurs JOURNAUX VIVANTS restent sous
+# C:\db\tbot\ (prototype en exploitation) jusqu'à la bascule par étude
+# (studies/CUTOVER.md). Rallumer un worker d'étude ICI ne sortirait PAS en 2 :
+# il démarrerait un PREMIER PASSAGE et écrirait un journal NEUF dans
+# C:\db\tradingBot\ — deux journaux parallèles pour la même étude, exactement
+# l'entrelacement que le protocole interdit. Ce fichier est une RÉFÉRENCE
+# ARCHIVÉE du prototype : il ne se lance JAMAIS depuis ce dépôt. La console de
+# ce dépôt est `app/orchestrator/tbot-factory.py` (workers d'études au
+# catalogue, off tant que la bascule CUTOVER n'a pas eu lieu).
 WORKERS: list[tuple[str, pathlib.Path, str, int, str]] = [
     ("gold_forward",  ROOT, "py:studies/gold_forward/run_forward.py", 3600, "tick"),
     ("s13_forward",   ROOT, "py:studies/s13_forward/run_forward.py",  3600, "tick"),

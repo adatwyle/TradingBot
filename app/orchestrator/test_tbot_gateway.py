@@ -50,7 +50,7 @@ class Poste:
 
 @pytest.fixture
 def poste(tmp_path, monkeypatch) -> Poste:
-    gdir = tmp_path / "gateway"
+    gdir = tmp_path / "tbot-gateway"
     gdir.mkdir()
     (gdir / "config.json").write_text(json.dumps({"chat_id": ADRIAN}),
                                       encoding="utf-8")
@@ -60,7 +60,7 @@ def poste(tmp_path, monkeypatch) -> Poste:
     monkeypatch.setattr(mod, "STATE_FILE", gdir / "state.json")
     monkeypatch.setattr(mod, "CONFIG_FILE", gdir / "config.json")
     monkeypatch.setattr(mod, "TOKEN_FILE", gdir / "token.txt")
-    monkeypatch.delenv("ROBINBOT_GATEWAY_TOKEN", raising=False)
+    monkeypatch.delenv("TBOT_GATEWAY_TOKEN", raising=False)
 
     p = Poste()
     monkeypatch.setattr(mod, "fetch_updates", lambda t, o: p.updates)
@@ -75,7 +75,7 @@ def poste(tmp_path, monkeypatch) -> Poste:
 
 
 def _state(tmp_path) -> dict:
-    return json.loads((tmp_path / "gateway" / "state.json")
+    return json.loads((tmp_path / "tbot-gateway" / "state.json")
                       .read_text(encoding="utf-8"))
 
 
@@ -100,7 +100,7 @@ def test_aucun_message_ne_produit_rien(poste, tmp_path):
     poste.updates = []
     assert mod.tick() == 0
     assert poste.envois == []
-    assert not (tmp_path / "gateway" / "state.json").exists()
+    assert not (tmp_path / "tbot-gateway" / "state.json").exists()
 
 
 # == TG-16 / TG-T5 : L'OFFSET AVANCE AVANT L'APPEL PAYÉ ========================
@@ -146,7 +146,7 @@ def test_accuse_non_remis_rien_paye_message_rejoue(poste, tmp_path):
     poste.envoi_ok = False
     assert mod.tick() == 0
     assert poste.analyses == []                          # rien payé
-    st_file = tmp_path / "gateway" / "state.json"
+    st_file = tmp_path / "tbot-gateway" / "state.json"
     offset = _state(tmp_path)["offset"] if st_file.exists() else 0
     assert offset <= 20                                  # pas consommé
 
@@ -176,14 +176,14 @@ def test_intrus_puis_adrian_dans_le_meme_lot(poste):
 
 # == LES REFUS PROPRES (TG-14, TG-20) ==========================================
 def test_token_absent_exit_2(poste, tmp_path):
-    (tmp_path / "gateway" / "token.txt").unlink()
+    (tmp_path / "tbot-gateway" / "token.txt").unlink()
     poste.updates = [_update(1, "état ?")]
     assert mod.tick() == 2
     assert poste.envois == []
 
 
 def test_config_absente_exit_2(poste, tmp_path):
-    (tmp_path / "gateway" / "config.json").unlink()
+    (tmp_path / "tbot-gateway" / "config.json").unlink()
     assert mod.tick() == 2
 
 
@@ -207,7 +207,7 @@ def test_dry_run_ne_lance_aucune_session(poste, tmp_path, monkeypatch):
     poste.updates = [_update(1, "état ?")]
     assert mod.tick(dry=True) == 0
     assert appels == [] and poste.envois == []
-    assert not (tmp_path / "gateway" / "state.json").exists()
+    assert not (tmp_path / "tbot-gateway" / "state.json").exists()
 
 
 # == TG-11 / TG-T7 : CE QU'ON NE DIVULGUE PAS ==================================
@@ -377,3 +377,35 @@ def test_prefixe_tbot_retire():
     assert mod._nom_telegram("tbot_gex") == "gex"
     assert mod._nom_telegram("etat-simple") == "etat_simple"
     assert mod._nom_telegram("tbot") == "tbot"           # pas de nom vide
+
+
+# == SÉPARATION D'ÉTAT tbot / robinbot (F3) ====================================
+def _module_frais():
+    spec = importlib.util.spec_from_file_location(
+        "tbot_gateway_frais", _HERE / "tbot-gateway.py")
+    frais = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(frais)
+    return frais
+
+
+def test_dossier_d_etat_propre_tbot_gateway(tmp_path, monkeypatch):
+    """Défaut = db_dir()/tbot-gateway/ ; seam = TBOT_GATEWAY_DIR. Jamais le
+    dossier `gateway/` du prototype robinbot (curseurs d'un AUTRE bot)."""
+    monkeypatch.setenv("TBOT_DB_DIR", str(tmp_path / "db"))
+    monkeypatch.delenv("TBOT_GATEWAY_DIR", raising=False)
+    frais = _module_frais()
+    assert frais.GATEWAY_DIR == tmp_path / "db" / "tbot-gateway"
+    assert frais.STATE_FILE == frais.GATEWAY_DIR / "state.json"
+    assert frais.TOKEN_FILE == frais.GATEWAY_DIR / "token.txt"
+
+    monkeypatch.setenv("TBOT_GATEWAY_DIR", str(tmp_path / "ailleurs"))
+    frais = _module_frais()
+    assert frais.GATEWAY_DIR == tmp_path / "ailleurs"
+
+
+def test_aucun_seam_robinbot_dans_le_source():
+    """Plus AUCUN partage avec l'environnement robinbot : un seam ROBINBOT_*
+    qui réapparaît ici, c'est le piège des deux bots qui revient."""
+    src = (_HERE / "tbot-gateway.py").read_text(encoding="utf-8")
+    assert 'os.environ.get("ROBINBOT' not in src
+    assert '/ "gateway"' not in src                     # dossier robinbot

@@ -78,12 +78,15 @@ def test_factory_log_tail_parsed_per_worker(client, ui_env):
 
 # ── telegram : présence token, JAMAIS la valeur (UI-T5) ─────────────────────
 def test_telegram_token_present_without_value_leak(client, ui_env):
+    # Les dossiers d'état TBOT (tbot-notify/, tbot-gateway/) — jamais les
+    # dossiers robinbot du prototype (notifier/, gateway/).
     secret = "8123456789:AAsecretSECRETsecret"
-    (ui_env.tmp / "tg.env").write_text(f"TELEGRAM_BOT_TOKEN={secret}\n",
-                                       encoding="utf-8")
-    gw = ui_env.db / "gateway"
+    nd = ui_env.db / "tbot-notify"
+    nd.mkdir(parents=True)
+    (nd / "token.txt").write_text(secret, encoding="utf-8")
+    gw = ui_env.db / "tbot-gateway"
     gw.mkdir(parents=True)
-    (gw / "gateway_token.txt").write_text("9999:AAgwSECRET", encoding="utf-8")
+    (gw / "token.txt").write_text("9999:AAgwSECRET", encoding="utf-8")
     (gw / "state.json").write_text('{"offset": 12, "n_served": 3}',
                                    encoding="utf-8")
 
@@ -102,6 +105,22 @@ def test_telegram_absent_tokens(client, ui_env):
     assert tg["notifier"]["token_present"] is False
     assert tg["gateway"]["token_present"] is False
     assert tg["notifier"]["state"] is None
+
+
+def test_telegram_ignore_les_dossiers_robinbot(client, ui_env):
+    """Séparation d'état stricte : un état robinbot présent sous db_dir()
+    (notifier/, gateway/ — le prototype) ne transparaît JAMAIS dans la vue
+    telegram tbot."""
+    for d, tok in (("notifier", "token.txt"), ("gateway", "gateway_token.txt")):
+        p = ui_env.db / d
+        p.mkdir(parents=True)
+        (p / tok).write_text("111:AArobinbot", encoding="utf-8")
+        (p / "state.json").write_text('{"offset": 99}', encoding="utf-8")
+    tg = client.get("/api/services").get_json()["telegram"]
+    assert tg["notifier"]["token_present"] is False
+    assert tg["gateway"]["token_present"] is False
+    assert tg["notifier"]["state"] is None
+    assert tg["gateway"]["state"] is None
 
 
 # ── datas : datasets listés, secrets JAMAIS ─────────────────────────────────
@@ -175,7 +194,7 @@ def test_etudes_inherited_panels_present(client, ui_env):
     etudes = {e["dossier"]: e
               for e in client.get("/api/services").get_json()["etudes"]}
     assert set(etudes) == {"gold_forward", "s13_forward", "macd_ai_paper",
-                           "s14_sentiment"}
+                           "s14_sentiment", "alexg_paper"}          # F5
     assert etudes["gold_forward"]["vivante"] is True
     assert etudes["gold_forward"]["trades"] == 7
     assert etudes["s13_forward"]["vivante"] is False    # jamais passée

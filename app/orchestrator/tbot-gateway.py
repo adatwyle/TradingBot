@@ -11,9 +11,13 @@ par bot : deux lecteurs sur le même bot se volent les messages).
 
 TOKEN ET CONFIGURATION (D-TG-1, TCK-007)
 -----------------------------------------
-Token brut (1 ligne, BOM toléré) dans C:/db/tradingBot/gateway/token.txt —
-le défaut hérité `gateway_token.txt` est REMPLACÉ. chat_id dans config.json.
+Token brut (1 ligne, BOM toléré) dans C:/db/tradingBot/tbot-gateway/token.txt
+— le défaut hérité `gateway_token.txt` est REMPLACÉ. chat_id dans config.json.
 Sans ces fichiers le worker sort en 2 et ne gêne personne (inerte).
+L'état vit dans un dossier PROPRE à ce worker (`tbot-gateway/`, seam
+TBOT_GATEWAY_DIR) : AUCUN partage avec les dossiers ni les variables
+d'environnement du prototype robinbot (`ROBINBOT_*`, `gateway/`) — deux bots,
+deux curseurs, deux surfaces d'état.
 
 CE QUE LA SESSION HEADLESS A LE DROIT DE FAIRE (TG-15 — hérité intégralement)
 ------------------------------------------------------------------------------
@@ -81,21 +85,24 @@ from core.paths import db_dir, project_root  # noqa: E402
 # RBF_ROOT/TBOT_PROJECT_ROOT sont lus DANS project_root() (un seul seam).
 ROOT = project_root()
 
-GATEWAY_DIR = pathlib.Path(os.environ.get("ROBINBOT_GATEWAY_DIR")
-                           or (db_dir() / "gateway"))
+# Dossier d'état PROPRE à ce worker — jamais `gateway/` (curseurs du bot
+# robinbot du prototype) ni un seam ROBINBOT_* : le partage rejouerait ou
+# volerait des messages entre les deux bots.
+GATEWAY_DIR = pathlib.Path(os.environ.get("TBOT_GATEWAY_DIR")
+                           or (db_dir() / "tbot-gateway"))
 STATE_FILE = GATEWAY_DIR / "state.json"
 CONFIG_FILE = GATEWAY_DIR / "config.json"
 # Le token du bot DÉDIÉ TradingBot : token.txt (D-TG-1 — le défaut hérité
 # gateway_token.txt est remplacé). Fichier hors dépôt, jamais commité.
-TOKEN_FILE = pathlib.Path(os.environ.get("ROBINBOT_GATEWAY_TOKEN_FILE")
+TOKEN_FILE = pathlib.Path(os.environ.get("TBOT_GATEWAY_TOKEN_FILE")
                           or (GATEWAY_DIR / "token.txt"))
 
 API = "https://api.telegram.org/bot{token}/{method}"
 HTTP_TIMEOUT = 20
 # Plafond d'une réponse : au-delà, Claude tourne en rond ou la question
 # demandait un travail de session, pas de répondeur.
-CLAUDE_TIMEOUT_S = int(os.environ.get("ROBINBOT_GATEWAY_CLAUDE_TIMEOUT") or 300)
-CLAUDE_MAX_TURNS = int(os.environ.get("ROBINBOT_GATEWAY_MAX_TURNS") or 24)
+CLAUDE_TIMEOUT_S = int(os.environ.get("TBOT_GATEWAY_CLAUDE_TIMEOUT") or 300)
+CLAUDE_MAX_TURNS = int(os.environ.get("TBOT_GATEWAY_MAX_TURNS") or 24)
 # Lecture seule — cf. l'en-tête. Toute extension de cette liste est une
 # décision de sécurité, pas un réglage de confort (TG-15).
 ALLOWED_TOOLS = "Read,Grep,Glob"
@@ -152,7 +159,7 @@ def load_config() -> dict | None:
 
 
 def load_token() -> str:
-    tok = os.environ.get("ROBINBOT_GATEWAY_TOKEN", "").strip()
+    tok = os.environ.get("TBOT_GATEWAY_TOKEN", "").strip()
     if tok:
         return tok
     try:

@@ -54,6 +54,7 @@ from studies.alexg_paper.ai_judge import make_judge          # noqa: E402
 from studies.alexg_paper.paper_step import (                 # noqa: E402
     PARAMS_SHA256, JournalError, Paths, SealError, load_sealed_params, run_step,
 )
+from studies.first_pass import first_pass_refused            # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PARAMS_PATH = os.path.join(HERE, "params.json")
@@ -139,6 +140,13 @@ def main(argv: list[str]) -> int:
     if "--test-judge" in argv:
         return test_judge(params)
 
+    # Garde first-pass (studies/first_pass.py) : journal absent = étude pas
+    # encore basculée (CUTOVER.md) — refus AVANT toute écriture. Après le
+    # --test-judge : la sonde ne touche ni journal ni état.
+    paths = Paths()
+    if first_pass_refused(paths.journal, "alexg_paper"):
+        return 2
+
     max_age = 24 * 365 * 10 if stale_ok else FRESH_MAX_AGE_H
     dfs = {}
     for sym in params["instruments"]:
@@ -162,7 +170,6 @@ def main(argv: list[str]) -> int:
               "essai au prochain passage.", file=sys.stderr)
         return 2
 
-    paths = Paths()
     signal_fns = {sym: make_signal_fn(params, sym)
                   for sym in params["instruments"]}
     try:

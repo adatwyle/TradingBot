@@ -55,13 +55,14 @@ def test_calendrier_de_reference():
 
 # == L'USINE JETABLE ===========================================================
 def seed_trade(db: str, *, close: str, net: float, reason: str = "SL",
-               instance: str = "S001.CHF-USD", mode: str = "PAPER") -> int:
+               instance: str = "S001.CHF-USD", mode: str = "PAPER",
+               currency: str = "CHF") -> int:
     """Un trade CLOS dans le ledger de test — net = gross (0 frais)."""
     return record_trade(
         db_path=db, strategy_id=instance.split(".")[0], instance_id=instance,
         strategy_version="1.0.0", magic_number=71001, mode=mode,
         symbol="CHFUSD", timeframe="H1", side="LONG", volume_lots=0.10,
-        open_time=close, open_price=1.0, stop_price=0.99,
+        open_time=close, open_price=1.0, stop_price=0.99, currency=currency,
         close_time=close, close_price=1.0, exit_reason=reason, gross_pnl=net)
 
 
@@ -83,7 +84,7 @@ class Usine:
     def __init__(self, tmp: pathlib.Path, stub: SendStub):
         self.tmp = tmp
         self.stub = stub
-        self.notifier = tmp / "notifier"
+        self.notifier = tmp / "tbot-notify"
         self.db = str(tmp / "ledger.db")
         self.panel = tmp / "tbot-panel.txt"
 
@@ -103,15 +104,15 @@ class Usine:
 
 @pytest.fixture
 def usine(tmp_path, monkeypatch) -> Usine:
-    notifier = tmp_path / "notifier"
+    notifier = tmp_path / "tbot-notify"
     notifier.mkdir()
     (notifier / "token.txt").write_text(TOKEN + "\n", encoding="utf-8")
 
-    monkeypatch.setenv("ROBINBOT_NOTIFY_DIR", str(notifier))
+    monkeypatch.setenv("TBOT_NOTIFY_DIR", str(notifier))
     monkeypatch.setenv("TBOT_LEDGER_DB", str(tmp_path / "ledger.db"))
     monkeypatch.setenv("TBF_PANEL", str(tmp_path / "tbot-panel.txt"))
-    for env in ("GOLD_FORWARD_DIR", "S13_FORWARD_DIR",
-                "MACD_AI_PAPER_DIR", "S14_SENTIMENT_DIR"):
+    for env in ("GOLD_FORWARD_DIR", "S13_FORWARD_DIR", "MACD_AI_PAPER_DIR",
+                "S14_SENTIMENT_DIR", "ALEXG_PAPER_DIR"):
         monkeypatch.setenv(env, str(tmp_path / env.lower()))
     # Fuseau de reporting figé : golden déterministes sur tout poste.
     monkeypatch.setattr(mod, "LOCAL_TZ", timezone.utc)
@@ -174,6 +175,14 @@ def test_arrondi_chf_entier_signe():
     assert mod.chf(0.0) == "+0chf"
 
 
+def test_money_devise_generique():
+    """F10 : le suffixe suit la devise du ledger — même arrondi que chf()."""
+    assert mod.money(50.0, "EUR") == "+50eur"
+    assert mod.money(-19.5, "USD") == "-20usd"
+    assert mod.money(-0.4, "EUR") == "+0eur"
+    assert mod.money(7.0, None) == "+7chf"              # devise absente = CHF
+
+
 # == TG-4 : RÉCAP QUOTIDIEN (golden) ===========================================
 def test_recap_quotidien_golden(usine):
     seed_trade(usine.db, close="2026-08-26T10:53:00Z", net=-100.0, reason="SL")
@@ -227,6 +236,29 @@ def test_recap_hebdo_vendredi_golden(usine):
         "Je +75chf\n"
         "Ve -25chf\n"
         "Total semaine : +120chf")
+
+
+def test_hebdo_multi_devises_une_ligne_par_devise(usine):
+    """F10 : deux devises la même semaine — chaque jour et le total rendent
+    UNE ligne PAR devise (tri déterministe), JAMAIS un montant fusionné."""
+    seed_trade(usine.db, close="2026-08-24T09:00:00Z", net=110.0, reason="TP")
+    seed_trade(usine.db, close="2026-08-24T10:00:00Z", net=50.0, reason="TP",
+               instance="S002.EUR-USD", currency="EUR")
+    seed_trade(usine.db, close="2026-08-27T09:00:00Z", net=-30.0, reason="SL",
+               instance="S002.EUR-USD", currency="EUR")
+    assert mod.tick(now_local=datetime(2026, 8, 28, 12, 0)) == 0    # armement
+
+    assert mod.tick(now_local=VENDREDI_SOIR) == 0
+    msg = usine.sent[-1]
+    # Lundi : les deux devises, CHF avant EUR (tri), sur DEUX lignes.
+    assert "Lu +110chf\nLu +50eur" in msg
+    # Jeudi : EUR seul — pas de ligne CHF fantôme.
+    assert "Je -30eur" in msg and "Je +0chf" not in msg
+    # Mercredi sans trade : la ligne +0chf historique.
+    assert "Me +0chf" in msg
+    # Totaux par devise, jamais fusionnés.
+    assert "Total semaine : +110chf\nTotal semaine : +20eur" in msg
+    assert "+160" not in msg and "+130" not in msg      # aucune addition croisée
 
 
 def test_semaine_a_cheval_sur_deux_mois_golden(usine):
@@ -417,9 +449,9 @@ def test_send_telegram_decoupe_en_plusieurs_posts(monkeypatch):
 
 # == TG-T4 : INERTIE SANS TOKENS (TCK-007) =====================================
 def test_inertie_dossier_vide_exit_2_sans_bruit(tmp_path, monkeypatch, capsys):
-    ndir = tmp_path / "notifier"
+    ndir = tmp_path / "tbot-notify"
     ndir.mkdir()
-    monkeypatch.setenv("ROBINBOT_NOTIFY_DIR", str(ndir))
+    monkeypatch.setenv("TBOT_NOTIFY_DIR", str(ndir))
     monkeypatch.setenv("TBOT_LEDGER_DB", str(tmp_path / "ledger.db"))
 
     def aucun_reseau(*a, **k):
@@ -433,11 +465,11 @@ def test_inertie_dossier_vide_exit_2_sans_bruit(tmp_path, monkeypatch, capsys):
 
 
 def test_inertie_config_sans_chat_id_exit_2(tmp_path, monkeypatch, capsys):
-    ndir = tmp_path / "notifier"
+    ndir = tmp_path / "tbot-notify"
     ndir.mkdir()
     (ndir / "token.txt").write_text(TOKEN, encoding="utf-8")
     (ndir / "config.json").write_text("{}", encoding="utf-8")
-    monkeypatch.setenv("ROBINBOT_NOTIFY_DIR", str(ndir))
+    monkeypatch.setenv("TBOT_NOTIFY_DIR", str(ndir))
     monkeypatch.setenv("TBOT_LEDGER_DB", str(tmp_path / "ledger.db"))
     assert mod.tick(now_local=MERCREDI_MIDI) == 2
     sortie = capsys.readouterr()
@@ -533,3 +565,34 @@ def test_journal_d_etude_herite_notifie(usine, tmp_path):
                 "-100.00,9900.00,x\n")
     assert mod.tick(now_local=MERCREDI_MIDI) == 0
     assert "🔻 [gold_forward] CLOSE XAUUSD -1.00 R (-100 CHF) SL" in usine.sent[-1]
+
+
+def test_les_cinq_etudes_du_depot_sont_jointes():
+    """F5 : alexg_paper manquait aux jointures — les 5 études de studies/
+    doivent être surveillées, avec le seam de dossier de leur runner."""
+    assert set(mod.ETUDES) == {
+        ("gold_forward",  "GOLD_FORWARD_DIR"),
+        ("s13_forward",   "S13_FORWARD_DIR"),
+        ("macd_ai_paper", "MACD_AI_PAPER_DIR"),
+        ("s14_sentiment", "S14_SENTIMENT_DIR"),
+        ("alexg_paper",   "ALEXG_PAPER_DIR"),
+    }
+
+
+# == SÉPARATION D'ÉTAT tbot / robinbot (F3) ====================================
+def test_dossier_d_etat_propre_tbot_notify(tmp_path, monkeypatch):
+    """Défaut = db_dir()/tbot-notify/ ; seam = TBOT_NOTIFY_DIR. Jamais le
+    dossier `notifier/` du prototype robinbot (curseurs d'un AUTRE bot)."""
+    monkeypatch.setenv("TBOT_DB_DIR", str(tmp_path / "db"))
+    monkeypatch.delenv("TBOT_NOTIFY_DIR", raising=False)
+    assert pathlib.Path(mod.notify_dir()) == tmp_path / "db" / "tbot-notify"
+    monkeypatch.setenv("TBOT_NOTIFY_DIR", str(tmp_path / "ailleurs"))
+    assert pathlib.Path(mod.notify_dir()) == tmp_path / "ailleurs"
+
+
+def test_aucun_seam_robinbot_dans_le_source():
+    """Plus AUCUN partage avec l'environnement robinbot : un seam ROBINBOT_*
+    qui réapparaît ici, c'est le piège des deux bots qui revient."""
+    src = (_HERE / "tbot-notify.py").read_text(encoding="utf-8")
+    assert 'os.environ.get("ROBINBOT' not in src
+    assert '"notifier"' not in src                      # dossier robinbot

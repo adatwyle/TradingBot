@@ -12,6 +12,7 @@
 
 - Python 3.11+ ; état vivant dans `C:\db\tradingBot\` (jamais dans le code) ; secrets dans `C:\db\tradingBot\secrets\` (jamais dans le repo ni les logs).
 - Les leçons payées du prototype font loi : causalité R1, spread pessimiste, stop-first intra-barre, timezone MT5 calibrée, curseurs Telegram avancés après envoi réussi (notifier) / avant appel payé (gateway), un bot Telegram = un seul lecteur `getUpdates`.
+- `robinbot-*.py` = référence archivée du prototype — JAMAIS lancés depuis ce repo ; la console de ce repo est `tbot-factory`.
 - Contrat codes de sortie workers : `0` OK · `2` ressource indisponible · `3` scellé violé · `4` journal altéré (AUTO-OFF par la factory sur 3/4).
 
 ## Interdits

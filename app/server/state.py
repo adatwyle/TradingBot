@@ -57,6 +57,7 @@ LEGACY_STUDIES = [
     ("s13_forward",   "S013", "AUDCAD ext-MACD D1"),
     ("macd_ai_paper", "S012", "MACD-IA — indices D1"),
     ("s14_sentiment", None,   "Sentiment des news (étude)"),
+    ("alexg_paper",   "S093", "fxalexg + juge IA — 26 paires H1"),
 ]
 
 _PAIR_RE = re.compile(r"^[A-Z]{6}$")

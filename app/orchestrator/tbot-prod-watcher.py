@@ -256,8 +256,10 @@ def send_telegram(text: str) -> None:
     POST sendMessage, aucun couplage avec les curseurs du notifier. Token ou
     config absents → silence. Le token n'atteint JAMAIS un log."""
     try:
-        ndir = pathlib.Path(os.environ.get("ROBINBOT_NOTIFY_DIR")
-                            or (db_dir() / "notifier"))
+        # Même résolution que tbot-notify.py (TBOT_NOTIFY_DIR) — jamais le
+        # dossier `notifier/` du prototype robinbot.
+        ndir = pathlib.Path(os.environ.get("TBOT_NOTIFY_DIR")
+                            or (db_dir() / "tbot-notify"))
         token = (ndir / "token.txt").read_text(encoding="utf-8-sig").strip()
         cfg = json.loads((ndir / "config.json").read_text(encoding="utf-8-sig"))
         chat_id = str(cfg.get("chat_id") or "").strip()
@@ -444,6 +446,25 @@ def start_factory() -> Optional[subprocess.Popen]:
         return None
 
 
+def factory_lock_file() -> pathlib.Path:
+    """Le verrou single-instance de la factory ENFANT — même résolution que
+    tbot-factory.py (TBF_LOCK, sinon app/orchestrator/.tbot-factory.lock)."""
+    env = os.environ.get("TBF_LOCK")
+    return (pathlib.Path(env) if env
+            else project_root() / "app" / "orchestrator" / ".tbot-factory.lock")
+
+
+def _clear_factory_lock() -> None:
+    """Après un arrêt FORCÉ (_kill_tree) la factory est MORTE mais son verrou
+    reste frais (battement < TBF_LOCK_STALE) : sans ce nettoyage, la relance
+    refuserait de démarrer jusqu'à 180 s et la sortie compterait comme un
+    crash (backoff). Le processus détenteur n'existe plus — on retire."""
+    try:
+        factory_lock_file().unlink(missing_ok=True)
+    except OSError:
+        pass
+
+
 def _kill_tree(proc: subprocess.Popen) -> None:
     """Tue TOUT l'arbre (tuer le seul parent orphelinerait les ticks)."""
     if os.name == "nt":
@@ -472,6 +493,7 @@ def stop_factory(proc: subprocess.Popen) -> bool:
     except OSError as e:
         log(f"ERREUR : impossible de poser {sf} ({e!r}) — arrêt forcé direct.")
         _kill_tree(proc)
+        _clear_factory_lock()               # factory morte, verrou orphelin (F7)
         return False
     clean = True
     try:
@@ -481,6 +503,7 @@ def stop_factory(proc: subprocess.Popen) -> bool:
         log(f"factory sortie proprement (code {proc.returncode}).")
     except subprocess.TimeoutExpired:
         _kill_tree(proc)
+        _clear_factory_lock()               # factory morte, verrou orphelin (F7)
         alert(f"arrêt forcé de la factory après {stop_timeout_sec()}s "
               f"(le .stop n'a pas suffi) — arbre tué, l'état sur disque "
               f"est intact.")

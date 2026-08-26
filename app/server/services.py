@@ -28,7 +28,7 @@ import pathlib
 import re
 import time
 
-from core.paths import app_root, db_dir, project_root
+from core.paths import app_root, db_dir, project_root, tbot_panel_file
 from server.state import LEGACY_STUDIES, load_json_quiet, study_state
 
 # Same default as tbot-factory.py: a lock older than this belongs to a dead
@@ -55,8 +55,9 @@ def log_dir() -> pathlib.Path:
 
 
 def panel_file() -> pathlib.Path:
-    env = os.environ.get("TBF_PANEL")
-    return pathlib.Path(env) if env else db_dir() / "tbot-panel.txt"
+    # Résolution UNIQUE core.paths (F9) — même fichier que tbot-factory
+    # (écrit les AUTO-OFF) et tbot-notify (les alerte).
+    return tbot_panel_file()
 
 
 def tickets_dir() -> pathlib.Path:
@@ -181,17 +182,17 @@ def build_factory() -> dict:
 
 
 # ── telegram (token presence only — the value is NEVER read) ────────────────
-def _notifier_token_file() -> pathlib.Path:
-    env = os.environ.get("ROBINBOT_TELEGRAM_ENV")
-    if env:
-        return pathlib.Path(env)
-    return (pathlib.Path(os.path.expanduser("~")) / ".claude" / "channels"
-            / "telegram" / ".env")
+# Same resolutions as the tbot workers themselves (TBOT_NOTIFY_DIR /
+# TBOT_GATEWAY_DIR) — never the robinbot prototype dirs (notifier/, gateway/):
+# two bots, two state surfaces, and this UI reports the TBOT one.
+def _notify_dir() -> pathlib.Path:
+    env = os.environ.get("TBOT_NOTIFY_DIR")
+    return pathlib.Path(env) if env else db_dir() / "tbot-notify"
 
 
 def _gateway_dir() -> pathlib.Path:
-    env = os.environ.get("ROBINBOT_GATEWAY_DIR")
-    return pathlib.Path(env) if env else db_dir() / "gateway"
+    env = os.environ.get("TBOT_GATEWAY_DIR")
+    return pathlib.Path(env) if env else db_dir() / "tbot-gateway"
 
 
 def _safe_state(path: pathlib.Path) -> dict | None:
@@ -212,19 +213,18 @@ def _mtime_iso(path: pathlib.Path) -> str | None:
 
 
 def build_telegram() -> dict:
-    notify_dir = pathlib.Path(os.environ.get("ROBINBOT_NOTIFY_DIR")
-                              or (db_dir() / "notifier"))
+    notify_dir = _notify_dir()
     gw_dir = _gateway_dir()
     notify_state = notify_dir / "state.json"
     gw_state = gw_dir / "state.json"
     return {
         "notifier": {
-            "token_present": _notifier_token_file().is_file(),
+            "token_present": (notify_dir / "token.txt").is_file(),
             "state": _safe_state(notify_state),
             "state_modified": _mtime_iso(notify_state),
         },
         "gateway": {
-            "token_present": (gw_dir / "gateway_token.txt").is_file(),
+            "token_present": (gw_dir / "token.txt").is_file(),
             "state": _safe_state(gw_state),
             "state_modified": _mtime_iso(gw_state),
         },

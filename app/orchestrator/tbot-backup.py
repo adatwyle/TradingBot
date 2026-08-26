@@ -377,6 +377,30 @@ def run(force: bool = False) -> int:
 
     warnings: list[str] = []
     files, oversize = eligible_files()
+
+    # GARDE ANTI-PURGE (F8) : une sélection VIDE face à un miroir NON VIDE
+    # n'est pas « tout a disparu, effaçons » — c'est un symptôme (db_dir vidé
+    # par accident, seam mal posé, allowlist cassée). Le miroir avec
+    # suppression (D-BK-3) committerait la destruction totale : on REFUSE la
+    # purge, on crie, on ne touche à rien. Miroir vide aussi → cas normal
+    # (première vie du poste), le passage continue sans rien faire.
+    if not files:
+        try:
+            md = mirror_dir()
+            miroir_non_vide = md.is_dir() and any(
+                p.is_file() for p in md.rglob("*"))
+        except OSError:
+            miroir_non_vide = True          # doute → refus (fail-closed)
+        if miroir_non_vide:
+            log(f"ERREUR : db_dir vide (aucun fichier éligible sous "
+                f"{db_dir()}) mais miroir db-backup/ non vide — purge "
+                f"REFUSÉE : aucune suppression (F8). Vérifie la source "
+                f"avant tout nouveau passage.")
+            write_status("error", 0, 0, oversize,
+                         warnings + ["db_dir vide mais miroir non vide — "
+                                     "purge refusée"], success=False)
+            return 1
+
     for rel in oversize:
         log(f"ATTENTION : {rel} > 10 Mo — dataset égaré ? non copié (D-BK-6).")
     n_changed = mirror_files(files, warnings)

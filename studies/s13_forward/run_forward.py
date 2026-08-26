@@ -41,6 +41,7 @@ import pandas as pd                                       # noqa: E402
 
 from core.data.source import load_bars                    # noqa: E402
 from strategies.S013_macd_fx.strategy import Strategy     # noqa: E402
+from studies.first_pass import first_pass_refused          # noqa: E402
 from studies.s13_forward.forward_step import (             # noqa: E402
     JournalError, Paths, SealError, load_sealed_params, run_step,
 )
@@ -83,6 +84,12 @@ def make_signal_fn(params: dict, symbol: str):
 def main(argv: list[str]) -> int:
     stale_ok = "--stale-ok" in argv
 
+    # Garde first-pass (studies/first_pass.py) : journal absent = étude pas
+    # encore basculée (CUTOVER.md) — refus AVANT toute écriture.
+    paths = Paths()
+    if first_pass_refused(paths.journal, "s13_forward"):
+        return 2
+
     try:
         params = load_sealed_params(PARAMS_PATH, PARAMS_SHA256)
     except SealError as e:
@@ -116,7 +123,6 @@ def main(argv: list[str]) -> int:
               "intact.", file=sys.stderr)
         return 2
 
-    paths = Paths()
     signal_fns = {sym: make_signal_fn(params, sym)
                   for sym in params["instruments"]}
     try:

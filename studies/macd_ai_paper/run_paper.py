@@ -45,6 +45,7 @@ import pandas as pd                                       # noqa: E402
 
 from core.data.source import load_bars                    # noqa: E402
 from strategies.S012_prt_macd_meanrev.strategy import Strategy  # noqa: E402
+from studies.first_pass import first_pass_refused          # noqa: E402
 from studies.macd_ai_paper.ai_judge import make_judge     # noqa: E402
 from studies.macd_ai_paper.paper_step import (            # noqa: E402
     JournalError, Paths, SealError, load_sealed_params, run_step,
@@ -128,6 +129,13 @@ def main(argv: list[str]) -> int:
     if "--test-judge" in argv:
         return test_judge(params)
 
+    # Garde first-pass (studies/first_pass.py) : journal absent = étude pas
+    # encore basculée (CUTOVER.md) — refus AVANT toute écriture. Après le
+    # --test-judge : la sonde ne touche ni journal ni état.
+    paths = Paths()
+    if first_pass_refused(paths.journal, "macd_ai_paper"):
+        return 2
+
     max_age = 24 * 365 * 10 if stale_ok else FRESH_MAX_AGE_H
     dfs = {}
     for sym in params["instruments"]:
@@ -150,7 +158,6 @@ def main(argv: list[str]) -> int:
               "essai au prochain passage.", file=sys.stderr)
         return 2
 
-    paths = Paths()
     signal_fns = {sym: make_signal_fn(params, sym)
                   for sym in params["instruments"]}
     try:

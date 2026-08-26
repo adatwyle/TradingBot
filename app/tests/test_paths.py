@@ -33,7 +33,7 @@ _ORCH = pathlib.Path(APP_DIR) / "orchestrator"
 # Les seams d'environnement qui influencent la résolution : on les neutralise
 # pour tester les DÉFAUTS, on les pose pour tester les surcharges.
 _SEAMS = ("TBOT_PROJECT_ROOT", "TBOT_DB_DIR", "RBF_PANEL", "RBF_ROOT",
-          "RBF_CATALOGUE")
+          "RBF_CATALOGUE", "TBF_PANEL")
 
 
 def _sans_seams(monkeypatch):
@@ -155,6 +155,32 @@ def test_rbf_panel_suivi_par_les_trois(monkeypatch, tmp_path):
     assert factory.PANEL_FILE == tmp_path / "panel.txt"
     assert pathlib.Path(notify.panel_path()) == tmp_path / "panel.txt"
     assert pilot.PANEL_FILE == tmp_path / "panel.txt"
+
+
+# == F9 : UN SEUL PANNEAU TBOT POUR FACTORY, NOTIFY ET SERVEUR =================
+def test_tbot_panel_resolu_identique_par_les_trois(monkeypatch, tmp_path):
+    """Trois résolutions dupliquées du panneau tbot (factory, notify,
+    services) → une seule, core.paths.tbot_panel_file() (F9). Les trois
+    doivent rendre LE MÊME fichier, défaut comme surcharge TBF_PANEL."""
+    _sans_seams(monkeypatch)
+    from server import services
+
+    attendu = pathlib.Path(r"C:\db\tradingBot") / "tbot-panel.txt"
+    assert paths.tbot_panel_file() == attendu
+    factory = _charger("tbot-factory")
+    notify = _charger("tbot-notify")
+    assert factory.PANEL_FILE == attendu
+    assert pathlib.Path(notify.panel_path()) == attendu
+    assert services.panel_file() == attendu
+
+    # Surcharge TBF_PANEL : suivie par les trois (notify et services résolvent
+    # à l'appel ; la factory à l'import — rechargée ici).
+    monkeypatch.setenv("TBF_PANEL", str(tmp_path / "p.txt"))
+    assert paths.tbot_panel_file() == tmp_path / "p.txt"
+    factory2 = _charger("tbot-factory")
+    assert factory2.PANEL_FILE == tmp_path / "p.txt"
+    assert pathlib.Path(notify.panel_path()) == tmp_path / "p.txt"
+    assert services.panel_file() == tmp_path / "p.txt"
 
 
 # == LE CATALOGUE PAR DÉFAUT DE LA FACTORY =====================================

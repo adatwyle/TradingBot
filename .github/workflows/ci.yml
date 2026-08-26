@@ -59,14 +59,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r app/requirements.txt
 
-      # CI-3.4 — suite complète depuis la racine. Écart documenté vs la lettre
-      # de CI-3 : `-o "python_files=test_*.py"` restreint la collecte à la
-      # convention réelle du repo (test_*.py). Sans lui, pytest collecte aussi
-      # les scripts de recherche nommés *_test.py sous strategies/ (ex :
-      # S007_ionita_gaussian/forward_test.py, script prototype aux imports
-      # morts) et la collecte explose. Signalé à cc-spec (ticket TCK-008).
+      # CI-3.4 — suite complète depuis la racine : app + strategies + studies
+      # (les bancs des études scellées comptent — 133 tests hors CI sinon).
+      # Écart documenté vs la lettre de CI-3 : `-o "python_files=test_*.py"`
+      # restreint la collecte à la convention réelle du repo (test_*.py). Sans
+      # lui, pytest collecte aussi les scripts de recherche nommés *_test.py
+      # sous strategies/ (ex : S007_ionita_gaussian/forward_test.py, script
+      # prototype aux imports morts) et la collecte explose. Signalé à cc-spec
+      # (ticket TCK-008).
       - name: Run test suite
-        run: python -m pytest app strategies -q -o "python_files=test_*.py"
+        run: python -m pytest app strategies studies -q -o "python_files=test_*.py"
 
   publish:
     # CI-4 — publication seulement après tests verts, et seulement depuis dev

@@ -123,7 +123,7 @@ HERE = pathlib.Path(__file__).resolve().parent           # app/orchestrator
 # `core` vit dans app/ ; ce script est lancé en direct (pas en module), on rend
 # donc app/ importable AVANT l'import de core.paths.
 sys.path.insert(0, str(HERE.parent))
-from core.paths import db_dir, project_root  # noqa: E402
+from core.paths import db_dir, project_root, tbot_panel_file  # noqa: E402
 
 # TBF_ROOT est le seam de test de CETTE factory ; à défaut, la résolution
 # canonique du dépôt (core.paths.project_root — RBF_ROOT/TBOT_PROJECT_ROOT).
@@ -132,8 +132,9 @@ ROOT = pathlib.Path(os.environ.get("TBF_ROOT") or project_root())
 # LE PANNEAU VIT HORS DU DÉPÔT — un panneau, un poste (leçon robinbot
 # 2026-08-21 : un panneau versionné devient un conflit de merge multi-postes).
 # C'est le panneau de la TBOT factory : fichier distinct de celui du prototype
-# (robinbot-panel.txt) — deux consoles, deux surfaces de contrôle.
-PANEL_FILE = pathlib.Path(os.environ.get("TBF_PANEL") or (db_dir() / "tbot-panel.txt"))
+# (robinbot-panel.txt) — deux consoles, deux surfaces de contrôle. Résolution
+# UNIQUE dans core.paths (F9) : factory, notify et serveur = LE MÊME fichier.
+PANEL_FILE = tbot_panel_file()      # TBF_PANEL, sinon db_dir()/tbot-panel.txt
 PANEL_TEMPLATE = HERE / "tbot-panel.exemple.txt"
 LOG_DIR    = pathlib.Path(os.environ.get("TBF_LOG_DIR") or (HERE / "logs"))
 FACTORY_LOG = LOG_DIR / "tbot-factory.log"

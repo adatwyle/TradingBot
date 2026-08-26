@@ -140,6 +140,20 @@ def test_living_legacy_study_counts_as_real_paper(client, ui_env):
     assert any("S011" in d and "attendu PAPER" in d for d in n["divergences"])
 
 
+def test_alexg_paper_joint_aux_etudes_heritees(client, ui_env):
+    """F5 : alexg_paper manquait aux jointures — même patron que les 4 autres,
+    mappée sur la stratégie qu'elle instancie (S093_alexg_ai_judge,
+    cf. studies/alexg_paper/run_paper.py)."""
+    from server.state import LEGACY_STUDIES
+    assert ("alexg_paper", "S093") in {(f, s) for f, s, _l in LEGACY_STUDIES}
+
+    ui_env.make_strategy("S093_alexg_ai_judge", status="RESEARCH")
+    ui_env.write_study("alexg_paper", fresh=True)
+    n = client.get("/api/state").get_json()["niveaux"]
+    assert "S093_alexg_ai_judge" in n["paper"]
+    assert any("S093" in d and "attendu PAPER" in d for d in n["divergences"])
+
+
 def test_levels_placement(client, ui_env):
     ui_env.make_strategy("S001_live", status="LIVE")
     ui_env.make_strategy("S002_paper", status="PAPER")

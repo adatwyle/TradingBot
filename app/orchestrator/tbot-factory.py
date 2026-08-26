@@ -482,6 +482,14 @@ WORKERS: list[tuple[str, pathlib.Path, str, int, str]] = [
     # crier — le gabarit du panneau peut donc les livrer ON.
     ("gateway",   ROOT, "py:app/orchestrator/tbot-gateway.py", 30, "tick"),
     ("notify",    ROOT, "py:app/orchestrator/tbot-notify.py",  300, "tick"),
+    # Backup GitHub (T8, SPEC_backup-github) : journaux/états légers de
+    # C:/db/tradingBot/ vers db-backup/ (allowlist stricte fail-closed —
+    # jamais secrets/datasets/caches), commit [skip ci] restreint à
+    # db-backup/ + push origin dev. Py pur, 0 token. Le tick horaire rend le
+    # « à la demande » réactif (.push-now / --now) ; la garde INTERNE 24 h
+    # assure le 1×/jour (D-BK-1). Sur main (PC prod) : sortie 0 — un seul
+    # poste écrivain (D-BK-5).
+    ("backup",    ROOT, "py:app/orchestrator/tbot-backup.py", 3600, "tick"),
     # Études scellées en vol, migrées du prototype (TCK-009/T10) : py pur,
     # cadences IDENTIQUES à robinbot. Codes 0/2/3/4 contractuels (AUTO-OFF
     # sur 3/4). OFF par défaut au panneau : chaque bascule d'étude = GO

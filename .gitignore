@@ -38,3 +38,17 @@ logs/
 Thumbs.db
 .DS_Store
 .claude/settings.local.json
+
+# --- Backup GitHub (T8, SPEC_backup-github) -----------------
+# db-backup/ est le MIROIR versionné des états légers : les patterns racine
+# (logs/ notamment) ne doivent pas le trouer. Ré-inclusion CIBLÉE des seuls
+# noms de l'allowlist BK-1 — token/key/secret, *.db, *.parquet, *.log restent
+# ignorés MÊME sous db-backup/ (défense en profondeur, BK-2).
+!db-backup/**/
+!db-backup/**/journal.csv
+!db-backup/**/status.json
+!db-backup/**/state.json
+!db-backup/**/config.json
+!db-backup/**/events.csv
+!db-backup/robinbot-panel.txt
+!db-backup/tbot-panel.txt

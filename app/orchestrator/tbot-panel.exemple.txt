@@ -80,6 +80,16 @@ supervision = on        # service — http://127.0.0.1:8742 (ou TBOT_UI_PORT)
 gateway = on            # tick 30s — répondeur Telegram (lecture seule)
 notify = on             # tick 300s — reporting ledger + alertes
 
+# ── Backup GitHub (T8 — py pur, ZÉRO token, SPEC_backup-github) ─────────────
+# backup : miroir des journaux/états LÉGERS de C:/db/tradingBot/ vers
+#          db-backup/ (allowlist stricte de noms exacts — JAMAIS les secrets,
+#          datasets, caches, tokens, *.db), commit `[skip ci]` restreint à
+#          db-backup/ + push origin dev. Garde interne 24 h (1×/jour) ; à la
+#          demande : poser C:/db/tradingBot/backup/.push-now, ou `--now`.
+#          Silencieux si rien n'a changé (aucun commit vide). Sur main
+#          (PC prod) : no-op sortie 0 — un seul poste écrivain (D-BK-5).
+backup = on             # tick 3600s — garde interne 24 h + .push-now/--now
+
 # ── Études scellées en vol (py pur — migrées du prototype, TCK-009) ─────────
 # Les 5 études tournent ENCORE dans la robinbot factory (journaux vivants dans
 # C:/db/tbot/<étude>/, prototype en exploitation). OFF ici tant que la bascule

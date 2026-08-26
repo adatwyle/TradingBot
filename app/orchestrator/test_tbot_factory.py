@@ -184,6 +184,9 @@ def test_catalogue_reel_coherent(usine_reelle):
                 # Serveur de supervision (T6/T4) : service persistant relancé
                 # avec backoff — même mécanique que robinbot.
                 "supervision",
+                # Backup GitHub (T8) : journaux/états légers → db-backup/,
+                # commit [skip ci] restreint + push origin dev.
+                "backup",
                 # Études scellées migrées du prototype (TCK-009/T10) —
                 # cadences identiques à robinbot, off par défaut au panneau.
                 "gold_forward", "s13_forward", "macd_ai_paper",

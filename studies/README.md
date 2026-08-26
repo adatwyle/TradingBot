@@ -1,6 +1,6 @@
 # Études scellées transverses
 
-Ce dossier accueillera les études scellées (protocole + hash des paramètres + journaux chaînés) lors de la migration E2/E6. **Jusqu'à la bascule (E6), les études vivent et tournent dans le prototype `C:\Datas\Projects\TradingBot_9.0.0.x\studies\` — ne pas dupliquer, ne pas toucher.**
+Études scellées (protocole + hash des paramètres + journaux chaînés). **Le CODE des 5 études en vol est migré ici depuis le prototype (TCK-009/T10, 2026-08-26) — mais leurs journaux vivent et tournent ENCORE dans le prototype (`C:\db\tbot\<étude>\`, lancés par la robinbot factory). Le prototype `C:\Datas\Projects\TradingBot_9.0.0.x\` reste en lecture seule absolue.** La bascule se fait étude par étude, sur GO Adrian explicite, selon `studies/CUTOVER.md` (outil : `studies/verify-journal.py`). Les workers tbot correspondants existent au catalogue, off par défaut.
 
 État au 2026-08-25 (prototype) :
 

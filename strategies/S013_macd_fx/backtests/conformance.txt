@@ -1,0 +1,233 @@
+### params {'family': 'mr', 'direction': 'long', 'n_down': 5, 'exit': 'sym10'}
+R5 CONFORMITÉ — s13_macd_fx / EURUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 52 en backtest, 52 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'mr', 'direction': 'short', 'n_down': 3, 'range_filter': True, 'exit': 'atr_1.5_1.5'}
+R5 CONFORMITÉ — s13_macd_fx / EURUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 69 en backtest, 69 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'cross', 'direction': 'long', 'trigger': 'sig', 'exit': 'atr_2_3'}
+R5 CONFORMITÉ — s13_macd_fx / EURUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 13 en backtest, 13 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'cross', 'direction': 'short', 'trigger': 'zero', 'exit': 'hold20_sl3'}
+R5 CONFORMITÉ — s13_macd_fx / EURUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 6 en backtest, 6 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'ext', 'direction': 'long', 'lookback': 252, 'q': 0.05, 'exit': 'sym3'}
+R5 CONFORMITÉ — s13_macd_fx / EURUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 20 en backtest, 20 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'ext', 'direction': 'short', 'lookback': 126, 'q': 0.1, 'exit': 'atr_1.5_1.5'}
+R5 CONFORMITÉ — s13_macd_fx / EURUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 44 en backtest, 44 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'mr', 'direction': 'long', 'n_down': 5, 'exit': 'sym10'}
+R5 CONFORMITÉ — s13_macd_fx / USDJPY
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 60 en backtest, 60 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'mr', 'direction': 'short', 'n_down': 3, 'range_filter': True, 'exit': 'atr_1.5_1.5'}
+R5 CONFORMITÉ — s13_macd_fx / USDJPY
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 90 en backtest, 90 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'cross', 'direction': 'long', 'trigger': 'sig', 'exit': 'atr_2_3'}
+R5 CONFORMITÉ — s13_macd_fx / USDJPY
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 12 en backtest, 12 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'cross', 'direction': 'short', 'trigger': 'zero', 'exit': 'hold20_sl3'}
+R5 CONFORMITÉ — s13_macd_fx / USDJPY
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 5 en backtest, 5 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'ext', 'direction': 'long', 'lookback': 252, 'q': 0.05, 'exit': 'sym3'}
+R5 CONFORMITÉ — s13_macd_fx / USDJPY
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 46 en backtest, 46 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'ext', 'direction': 'short', 'lookback': 126, 'q': 0.1, 'exit': 'atr_1.5_1.5'}
+R5 CONFORMITÉ — s13_macd_fx / USDJPY
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 55 en backtest, 55 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'mr', 'direction': 'long', 'n_down': 5, 'exit': 'sym10'}
+R5 CONFORMITÉ — s13_macd_fx / AUDCAD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 51 en backtest, 51 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'mr', 'direction': 'short', 'n_down': 3, 'range_filter': True, 'exit': 'atr_1.5_1.5'}
+R5 CONFORMITÉ — s13_macd_fx / AUDCAD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 62 en backtest, 62 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'cross', 'direction': 'long', 'trigger': 'sig', 'exit': 'atr_2_3'}
+R5 CONFORMITÉ — s13_macd_fx / AUDCAD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 15 en backtest, 15 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'cross', 'direction': 'short', 'trigger': 'zero', 'exit': 'hold20_sl3'}
+R5 CONFORMITÉ — s13_macd_fx / AUDCAD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 8 en backtest, 8 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'ext', 'direction': 'long', 'lookback': 252, 'q': 0.05, 'exit': 'sym3'}
+R5 CONFORMITÉ — s13_macd_fx / AUDCAD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 25 en backtest, 25 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+### params {'family': 'ext', 'direction': 'short', 'lookback': 126, 'q': 0.1, 'exit': 'atr_1.5_1.5'}
+R5 CONFORMITÉ — s13_macd_fx / AUDCAD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 51 en backtest, 51 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres

@@ -1,0 +1,6 @@
+R5 CONFORMITÉ — s09_balke_rangebreakout / USDJPY
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 17 en backtest, 17 en live
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres

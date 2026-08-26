@@ -1,0 +1,44 @@
+# Manifest — Daily MACD Mean Reversion
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s12_prt_macd_meanrev
+display_name: "Daily MACD Mean Reversion (ProRealTime)"
+version: "1.0.0"
+magic_number: 130012
+author: "claude:s12_prt_macd_meanrev"
+source: "https://www.youtube.com/watch?v=1l7xWU-BU3w"
+trader: "ProRealTime blog (algo gratuit, release juin 2022)"
+
+status: PAPER      # forward scellé en cours (macd_ai_paper). PAPER ne vaut
+                   # PAS validation : le backtest a rendu PAS D'EDGE.
+
+symbols: [SP500, NASDAQ, DAX]   # SP500 = source ; NASDAQ/DAX = transfert à froid
+timeframe: "D1"
+warmup_bars: 60
+
+default_params:
+  range_len: 20
+  pos_max: 0.20
+  no_friday: false
+  sl_atr: 10.0            # proxy « sans stop » (la source n'a pas de stop — R3 impose)
+
+param_grid:
+  range_len: [10, 20]
+  pos_max: [0.20, 0.35]
+  no_friday: [false, true]
+  sl_atr: [3.0, 10.0]     # 16 cellules — figées dans research/FALSIFICATION.md
+
+created: 2026-08-16
+notes: |
+  Mean reversion CLASSIQUE D1 long-only sur indice (acheter la faiblesse,
+  sortir sur reprise du plus haut de la veille). Grille et falsifications
+  figées AVANT tout backtest : research/FALSIFICATION.md (+ addendum règles
+  exactes). VERDICT (commit 773cc4a) : PAS D'EDGE — R1/R5 passés, témoin
+  aléatoire percentile 51,5 sur SP500, espérance négative à spread nul
+  (−0,0062 R/trade, 38 trades), F3 déclenchée sur 1927-2026 (jours en position
+  +0,8 %/an vs B&H +6,4 %/an, 464 trades ; Nasdaq : −3,5 %/an vs +10,6 %).
+  « Performed quite well since June 2022 » reproduit et expliqué : beta pur
+  (témoin long aléatoire fait pareil). Voir research/VERDICT.md.
+  default_params inclut close_down/macd_rel (addendum fidélité, défauts =
+  comportement gelé).

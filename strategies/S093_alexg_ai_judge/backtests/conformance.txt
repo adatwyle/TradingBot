@@ -1,0 +1,6 @@
+R5 CONFORMITÉ — s93_alexg_ai_judge / EURUSD
+==============================================================
+  3000 barres rejouées barre par barre
+  signaux : 0 en backtest, 0 en live
+
+  RÉSULTAT : CONFORME — 0 divergence sur 3000 barres

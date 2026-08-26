@@ -1,0 +1,77 @@
+# Manifest — Tim Flossbach - Liquidation Sweep
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de verite sur cette strategie.
+
+strategy_id: s05_flossbach_liqsweep
+display_name: "Tim Flossbach - Liquidation Sweep"
+version: "1.0.0"
+magic_number: 130005
+author: "claude:s05_flossbach_liqsweep"
+source: "https://www.youtube.com/watch?v=BewBId1gbqQ"
+trader: "Tim Flossbach"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+# 4 familles. Il affirme l'universalite (« everything I show here today is
+# possible in every market »). La crypto — sur laquelle TOUTE sa demonstration
+# est faite — est intestable : BTCUSD est absent du catalogue Swissquote.
+symbols: ["EURUSD", "USDJPY", "USDCHF", "USDCAD", "AUDUSD",
+          "XAUUSD", "XAGUSD", "SP500", "NASDAQ", "DAX", "WTIUSD"]
+timeframe: "H4"         # « my most favorite time frame to enter big positions »
+warmup_bars: 260        # htf_ema 200 + marge ATR/pivots
+
+# Le defaut reproduit l'exemple qu'il DEROULE (23:07 -> 31:08), pas ses maximes
+# generales — les deux divergent, cf. research/ANALYSIS.md §6 et VERDICT.md.
+default_params:
+  band_atr: 1.0           # largeur de bande d'agglomeration, en ATR
+  min_cluster: 2          # « a lot a lot a lot of combined liquidity »
+  stop_ref: "higherlow"   # « I placed my stop loss below this low here »
+  htf_mode: "off"         # son propre exemple est un LONG sous l'EMA200
+  chop_max: 99.0          # filtre « shaking too much » desactive par defaut
+  target_mode: "first_rr" # « I want to figure out a very big range »
+  # ── HORS GRILLE : ce sont SES regles, pas des variables d'ajustement ──────
+  min_rr: 2.0             # « 95% of my trades are minimum 2:1, never below »
+  piv: 3
+  brk_atr: 0.1            # « I need a very clear breakout »
+  setup_bars: 48
+  max_age: 300
+  reach_atr: 6.0
+  atr_len: 14
+  htf_ema: 200
+  stop_buf_atr: 0.1
+  # ── INSTRUMENTS DE MESURE, pas des reglages ──────────────────────────────
+  require_sweep: true     # false = controle F3 (meme entree, sans balayage)
+  need_hl: true           # false = entree sans attendre le creux plus haut
+  _symbol: ""
+
+param_grid:
+  band_atr:    [0.5, 1.0]
+  min_cluster: [2, 3]
+  stop_ref:    ["sweep", "higherlow"]
+  htf_mode:    ["off", "with"]
+  chop_max:    [99.0, 1.5]
+  target_mode: ["nearest", "first_rr"]
+  # 64 cellules -> ~3,2 reussites STRICT attendues par PUR HASARD et par
+  # instrument. min_rr, piv, brk_atr, setup_bars sont volontairement HORS
+  # grille : les mettre dedans reviendrait a chercher le meilleur faux positif.
+
+created: 2026-08-16
+notes: |
+  Le coeur de sa detection (indicateurs proprietaires X-Ray / X-Ray Pro,
+  liquidations agregees des carnets d'exchanges crypto) N'EST PAS DISPONIBLE.
+  Substitut, derive de sa propre description et non invente : un amas de
+  liquidite = >= min_cluster extremes de swing NON BALAYES tenant dans une
+  bande de band_atr x ATR. Cf. research/ANALYSIS.md §4.
+
+  Consequence a ne jamais oublier : un echec refute NOTRE PROXY de sa methode,
+  pas sa methode. Un succes, lui, aurait confirme son propre propos (« I can
+  also be profitable without this indicator »).
+
+  R1 (causalite) : PASSE — 72 cellules x 4 coupures, 0 divergence, 0 fuite
+  indicateur, avec controle positif prouvant que la couche indicateur etait
+  bien active (precompute renvoie un DataFrame, pas un dict).
+  R5 : verifie localement — core/validation/conformance.py N'EXISTE PAS dans
+  le depot alors que la checklist d'admission le prescrit (lacune signalee).
+  R9 : moteur commun uniquement, commit 66668d1 (correctif gap sur stop).
+
+  VERDICT : voir research/VERDICT.md.

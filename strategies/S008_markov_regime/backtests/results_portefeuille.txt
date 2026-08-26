@@ -1,0 +1,260 @@
+================================================================================================
+s08_markov_regime — ÉVALUATION COMPLÈTE
+================================================================================================
+Contrat : ALLOCATION. Moteur : core.backtest.allocation_engine.run_allocation.
+Shorts : séries synthétiques SYM~S (coût de bord nul, cf. make_specs).
+Conditions de falsification déclarées AVANT mesure : research/FALSIFICATION.md
+
+################################################################################################
+# SP500 — 2774 barres D1 (2016-01-12 -> 2026-08-14) · 262 barres/an
+################################################################################################
+
+  --- long only -------------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          0.30%     0.13    -9.16%         3.2%   37.8%     220
+  markov causal step=20 binaire       3.22%     0.34   -29.41%        39.9%   37.8%     135
+  markov causal step=1  binaire       0.64%     0.15   -13.96%         7.0%   10.0%     152
+  markov FUITÉ step=20 binaire        6.56%     0.56   -31.58%        95.9%   65.0%      77
+  markov FUITÉ step=1  binaire        0.64%     0.15   -13.96%         7.0%   10.0%     152
+  naïf momentum 20j                   0.64%     0.15   -13.96%         7.0%   10.0%     152
+  markov horizon=5 (P^n)              7.08%     0.62   -25.29%       106.2%   52.3%      13
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  --- avec shorts -----------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          0.01%     0.01    -9.76%         0.1%   50.4%     255
+  markov causal step=20 binaire       0.55%     0.11   -40.86%         6.0%   50.4%     158
+  markov causal step=1  binaire      -3.74%    -0.28   -49.35%       -33.2%   16.1%     228
+  markov FUITÉ step=20 binaire        6.56%     0.56   -31.58%        95.9%   65.0%      77
+  markov FUITÉ step=1  binaire       -3.74%    -0.28   -49.35%       -33.2%   16.1%     228
+  naïf momentum 20j                  -3.74%    -0.28   -49.35%       -33.2%   16.1%     228
+  markov horizon=5 (P^n)              6.31%     0.49   -28.65%        91.1%   55.9%      17
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  RÉFÉRENCES (rendues par le moteur, non optionnelles) :
+    B&H SP500                    CAGR   14.08%  Sharpe   0.84  DD  -35.18%  total      303.5%
+    cash (0 %)                   CAGR    0.00%  Sharpe   0.00  DD    0.00%  total        0.0%
+
+  F1 — CONTRIBUTION MARGINALE DE L'APPAREIL (comparaison position par position)
+  ----------------------------------------------------------------------------------------
+  n = 1974 barres après warmup
+  poids IDENTIQUES à 1e-9 près : 33.99 % des barres
+  même DIRECTION (long/short/plat) : 33.99 %
+  seuil F1 déclaré avant mesure : concordance >= 95 % ET |dCAGR| < 1 pt
+  CAGR markov +0.55 %  vs  naïf -3.74 %   (écart +4.30 pt)
+  -> F1 NON déclenchée
+
+  F5 — LE VERDICT CHANGE-T-IL DE SIGNE SELON QU'ON CORRIGE LA FUITE ?
+  ----------------------------------------------------------------------------------------
+  step=20   causal CAGR    0.55%  Sharpe   0.11   |   FUITÉ CAGR    6.56%  Sharpe   0.56   |   écart CAGR   +6.00 pt
+  step=1    causal CAGR   -3.74%  Sharpe  -0.28   |   FUITÉ CAGR   -3.74%  Sharpe  -0.28   |   écart CAGR   +0.00 pt
+
+  CONTRÔLE LONG / SHORT (docs/METHODOLOGY.md §5.2)
+  ----------------------------------------------------------------------------------------
+  Rendement annualisé PAR JOUR DÉTENU, par jambe :
+    SP500             +9.36 %
+    SP500~S          -18.73 %
+  Temps passé :
+    CASH             49.6 %
+    SP500            37.8 %
+    SP500~S          12.6 %
+
+  ABLATION DU SPREAD (docs/METHODOLOGY.md §5.1) ET COÛT DE PORTAGE
+  ----------------------------------------------------------------------------------------
+  coût                  CAGR   Sharpe    DD max        total
+  ------------------------------------------------------------
+  nul                  0.77%     0.12   -40.59%         8.5%
+  nominal              0.55%     0.11   -40.86%         6.0%
+  pessimiste x2        0.34%     0.09   -41.14%         3.6%
+
+  Portage NON modélisé par le moteur : swap long 6.33 %/an sur SP500.
+  Stratégie investie 50.4 % du temps -> ~3.19 %/an de portage, contre 6.33 %/an pour un buy & hold CFD (investi 100 %).
+  Le portage joue donc EN FAVEUR de la stratégie ; l'omettre des deux côtés
+  la désavantage. Sens conservateur, conservé tel quel.
+
+################################################################################################
+# NASDAQ — 2774 barres D1 (2016-01-12 -> 2026-08-14) · 262 barres/an
+################################################################################################
+
+  --- long only -------------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          4.74%     0.55   -16.89%        63.4%   66.6%     345
+  markov causal step=20 binaire      12.03%     0.67   -35.71%       233.0%   66.6%      49
+  markov causal step=1  binaire       9.53%     0.64   -30.89%       162.2%   62.3%      95
+  markov FUITÉ step=20 binaire       14.75%     0.77   -35.71%       329.4%   71.1%       1
+  markov FUITÉ step=1  binaire        9.53%     0.64   -30.89%       162.2%   62.3%      95
+  naïf momentum 20j                   4.44%     0.56   -12.13%        58.4%   19.1%     206
+  markov horizon=5 (P^n)             14.75%     0.77   -35.71%       329.4%   71.1%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  --- avec shorts -----------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          4.74%     0.55   -16.89%        63.4%   66.6%     345
+  markov causal step=20 binaire      12.03%     0.67   -35.71%       233.0%   66.6%      49
+  markov causal step=1  binaire       3.07%     0.25   -44.67%        37.7%   71.1%      95
+  markov FUITÉ step=20 binaire       14.75%     0.77   -35.71%       329.4%   71.1%       1
+  markov FUITÉ step=1  binaire        3.07%     0.25   -44.67%        37.7%   71.1%      95
+  naïf momentum 20j                  -1.72%    -0.04   -40.69%       -16.8%   27.9%     300
+  markov horizon=5 (P^n)             14.75%     0.77   -35.71%       329.4%   71.1%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  RÉFÉRENCES (rendues par le moteur, non optionnelles) :
+    B&H NASDAQ                   CAGR   20.11%  Sharpe   0.93  DD  -35.71%  total      595.7%
+    cash (0 %)                   CAGR    0.00%  Sharpe   0.00  DD    0.00%  total        0.0%
+
+  F1 — CONTRIBUTION MARGINALE DE L'APPAREIL (comparaison position par position)
+  ----------------------------------------------------------------------------------------
+  n = 1974 barres après warmup
+  poids IDENTIQUES à 1e-9 près : 24.82 % des barres
+  même DIRECTION (long/short/plat) : 24.82 %
+  seuil F1 déclaré avant mesure : concordance >= 95 % ET |dCAGR| < 1 pt
+  CAGR markov +12.03 %  vs  naïf -1.72 %   (écart +13.75 pt)
+  -> F1 NON déclenchée
+
+  F5 — LE VERDICT CHANGE-T-IL DE SIGNE SELON QU'ON CORRIGE LA FUITE ?
+  ----------------------------------------------------------------------------------------
+  step=20   causal CAGR   12.03%  Sharpe   0.67   |   FUITÉ CAGR   14.75%  Sharpe   0.77   |   écart CAGR   +2.72 pt
+  step=1    causal CAGR    3.07%  Sharpe   0.25   |   FUITÉ CAGR    3.07%  Sharpe   0.25   |   écart CAGR   +0.00 pt
+
+  CONTRÔLE LONG / SHORT (docs/METHODOLOGY.md §5.2)
+  ----------------------------------------------------------------------------------------
+  Rendement annualisé PAR JOUR DÉTENU, par jambe :
+    NASDAQ           +18.73 %
+  Temps passé :
+    NASDAQ           66.6 %
+    CASH             33.4 %
+    NASDAQ~S          0.0 %
+
+  ABLATION DU SPREAD (docs/METHODOLOGY.md §5.1) ET COÛT DE PORTAGE
+  ----------------------------------------------------------------------------------------
+  coût                  CAGR   Sharpe    DD max        total
+  ------------------------------------------------------------
+  nul                 12.12%     0.67   -35.71%       235.7%
+  nominal             12.03%     0.67   -35.71%       233.0%
+  pessimiste x2       11.95%     0.66   -35.71%       230.3%
+
+  Portage NON modélisé par le moteur : swap long 6.32 %/an sur NASDAQ.
+  Stratégie investie 66.6 % du temps -> ~4.21 %/an de portage, contre 6.32 %/an pour un buy & hold CFD (investi 100 %).
+  Le portage joue donc EN FAVEUR de la stratégie ; l'omettre des deux côtés
+  la désavantage. Sens conservateur, conservé tel quel.
+
+################################################################################################
+# BTCUSD — 4376 barres D1 (2014-07-17 -> 2026-08-16) · 362 barres/an
+################################################################################################
+
+  --- long only -------------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop         12.19%     0.60   -45.48%       301.4%   67.3%     581
+  markov causal step=20 binaire      13.94%     0.51   -89.22%       384.2%   67.3%     223
+  markov causal step=1  binaire      21.66%     0.67   -75.64%       968.0%   36.9%     290
+  markov FUITÉ step=20 binaire       34.45%     0.86   -75.89%      3474.3%   58.5%     255
+  markov FUITÉ step=1  binaire       22.95%     0.71   -54.41%      1113.7%   33.2%     296
+  naïf momentum 20j                  22.95%     0.71   -54.41%      1113.7%   33.2%     296
+  markov horizon=5 (P^n)             46.05%     0.92   -83.42%      9613.5%   81.7%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  --- avec shorts -----------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop         11.34%     0.56   -47.03%       266.2%   72.0%     588
+  markov causal step=20 binaire       8.04%     0.43   -89.22%       154.5%   72.0%     228
+  markov causal step=1  binaire       4.05%     0.36   -88.32%        61.6%   60.4%     473
+  markov FUITÉ step=20 binaire       34.45%     0.86   -75.89%      3474.3%   58.5%     255
+  markov FUITÉ step=1  binaire        5.75%     0.38   -77.70%        96.5%   56.3%     536
+  naïf momentum 20j                   5.75%     0.38   -77.70%        96.5%   56.3%     536
+  markov horizon=5 (P^n)             46.05%     0.92   -83.42%      9613.5%   81.7%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  RÉFÉRENCES (rendues par le moteur, non optionnelles) :
+    B&H BTCUSD                   CAGR   46.74%  Sharpe   0.91  DD  -83.42%  total    10185.3%
+    cash (0 %)                   CAGR    0.00%  Sharpe   0.00  DD    0.00%  total        0.0%
+
+  F1 — CONTRIBUTION MARGINALE DE L'APPAREIL (comparaison position par position)
+  ----------------------------------------------------------------------------------------
+  n = 3576 barres après warmup
+  poids IDENTIQUES à 1e-9 près : 47.01 % des barres
+  même DIRECTION (long/short/plat) : 47.01 %
+  seuil F1 déclaré avant mesure : concordance >= 95 % ET |dCAGR| < 1 pt
+  CAGR markov +8.04 %  vs  naïf +5.75 %   (écart +2.29 pt)
+  -> F1 NON déclenchée
+
+  F5 — LE VERDICT CHANGE-T-IL DE SIGNE SELON QU'ON CORRIGE LA FUITE ?
+  ----------------------------------------------------------------------------------------
+  step=20   causal CAGR    8.04%  Sharpe   0.43   |   FUITÉ CAGR   34.45%  Sharpe   0.86   |   écart CAGR  +26.41 pt
+  step=1    causal CAGR    4.05%  Sharpe   0.36   |   FUITÉ CAGR    5.75%  Sharpe   0.38   |   écart CAGR   +1.70 pt
+
+  CONTRÔLE LONG / SHORT (docs/METHODOLOGY.md §5.2)
+  ----------------------------------------------------------------------------------------
+  Rendement annualisé PAR JOUR DÉTENU, par jambe :
+    BTCUSD           +50.54 %
+    BTCUSD~S         -67.99 %
+  Temps passé :
+    BTCUSD           67.3 %
+    CASH             28.0 %
+    BTCUSD~S          4.6 %
+
+  ABLATION DU SPREAD (docs/METHODOLOGY.md §5.1) ET COÛT DE PORTAGE
+  ----------------------------------------------------------------------------------------
+  coût                  CAGR   Sharpe    DD max        total
+  ------------------------------------------------------------
+  nul                 24.94%     0.67   -85.43%      1372.8%
+  nominal              8.04%     0.43   -89.22%       154.5%
+  pessimiste x2       -7.19%     0.18   -92.93%       -59.4%
+
+  Portage NON modélisé par le moteur : swap long 17.16 %/an sur BTCUSD.
+  Stratégie investie 72.0 % du temps -> ~12.35 %/an de portage, contre 17.16 %/an pour un buy & hold CFD (investi 100 %).
+  Le portage joue donc EN FAVEUR de la stratégie ; l'omettre des deux côtés
+  la désavantage. Sens conservateur, conservé tel quel.
+
+################################################################################################
+# PORTEFEUILLE SP500+NASDAQ+BTCUSD — index commun, 2773 barres
+################################################################################################
+==============================================================================
+ALLOCATION — COURBE D'EQUITY ET RÉFÉRENCES
+==============================================================================
+2773 périodes · 78 bascules
+
+                                     CAGR   Sharpe      DD max        total
+  ------------------------------------------------------------------------
+  STRATÉGIE                       16.48 %     0.79    -45.47 %      402.9 %
+  ------------------------------------------------------------------------
+  B&H BTCUSD                      59.60 %     1.04    -83.22 %    14013.8 %
+  B&H NASDAQ                      20.11 %     0.93    -35.71 %      595.7 %
+  B&H SP500                       14.08 %     0.84    -35.18 %      303.5 %
+  naïf BTCUSD/BTCUSD~S/NASDAQ/NASDAQ~S/SP500/SP500~S équipondéré    -0.00 %     0.00     -0.00 %       -0.0 %
+  cash (0 %)                       0.00 %     0.00      0.00 %        0.0 %
+  B&H SP500~S                    -15.02 %    -0.84    -83.04 %      -82.2 %
+  B&H NASDAQ~S                   -20.86 %    -0.93    -92.31 %      -91.6 %
+  B&H BTCUSD~S                   -59.30 %    -1.04   -100.00 %     -100.0 %
+
+  Temps passé par instrument :
+    BTCUSD           66.8 %
+    NASDAQ           65.2 %
+    SP500            52.7 %
+    CASH             29.2 %
+    SP500~S           5.9 %
+    NASDAQ~S          2.7 %
+    BTCUSD~S          0.7 %
+
+  Rendement annualisé PAR JOUR DÉTENU (ignore le temps passé) :
+  Une jambe qui fait moins bien que détenir l'actif n'apporte rien.
+    BTCUSD           +18.21 %   (B&H BTCUSD : +59.60 %)
+    NASDAQ            +6.42 %   (B&H NASDAQ : +20.11 %)
+    SP500             +4.55 %   (B&H SP500 : +14.08 %)
+    SP500~S           +0.90 %   (B&H SP500~S : -15.02 %)
+    NASDAQ~S         -16.89 %   (B&H NASDAQ~S : -20.86 %)
+    BTCUSD~S         -35.61 %   (B&H BTCUSD~S : -59.30 %)
+
+  VERDICT : NE BAT PAS « B&H BTCUSD » (Sharpe 1.04 contre 0.79).
+  Critère n°1 de la méthodologie non satisfait : une stratégie qui
+  ne bat pas l'effort zéro n'a pas d'intérêt, quel que soit son DD.
+
+################################################################################################
+# DÉFAUTS DE DONNÉES DÉTECTÉS (signalés, non corrigés dans core/)
+################################################################################################
+  BTCUSD : 1 barre(s) à prix nul retirée(s) (2015-01-07). Sans ce filtre, le B&H de BTCUSD ressort à -100 %.

@@ -1,0 +1,98 @@
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ (contrat d'allocation)
+==============================================================================
+Stratégie : s07_ionita_gaussian
+Univers   : BTCUSD, ETHUSD
+Barres    : 2839 (D1)
+Params    : période=144 pôles=4 mult=1.414 shorts=False
+
+COUCHE 0 — CE QUE LE GARDIEN DE core/ COUVRE RÉELLEMENT ICI
+------------------------------------------------------------------------------
+  causality.main() : `AllocationManifest` n'a PAS de champ `symbols`
+     (il a `universe`) -> `--strategy s07_ionita_gaussian` lève
+     AttributeError avant même de charger des barres.
+  causality.check()  : `generate_signals` présent = False
+     -> l'invariant de core/ ne peut pas être exécuté tel quel.
+
+  CONSÉQUENCE : le CLI `python -m core.validation.causality` est
+  INAPPLICABLE à cette stratégie. La couverture R1 rapportée ci-
+  dessous vient de ce fichier, qui réutilise la primitive
+  `_compare_precompute` de core/ pour la couche indicateur.
+
+COUCHE 1 — LE FILTRE GAUSSIEN SEUL
+------------------------------------------------------------------------------
+  2839 barres · période 144 · 4 pôles
+
+   coupure       T     notre filtre      lfilter   filtfilt (piège)
+  --------------------------------------------------------------------
+      60%    1703        0.000e+00    0.000e+00          6.815e+02
+      70%    1987        0.000e+00    0.000e+00          1.906e+02
+      80%    2271        0.000e+00    0.000e+00          1.424e+03
+      90%    2555        0.000e+00    0.000e+00          8.602e+03
+
+  Colonnes vérifiées : filter, upper, lower, trend (les quatre du canal).
+  -> écart EXACTEMENT nul : le filtre ne lit aucune barre future.
+  -> le contre-exemple filtfilt produit bien un écart : le test a
+     le pouvoir de détecter la fuite qu'il prétend écarter.
+
+COUCHE 2 — TOUS LES INDICATEURS (primitive core/_compare_precompute)
+------------------------------------------------------------------------------
+  precompute() rend un DataFrame de 16 colonnes,
+  dont 16 numériques — donc réellement comparées.
+
+  Colonnes sous surveillance :
+    - BTCUSD__open
+    - BTCUSD__high
+    - BTCUSD__close
+    - BTCUSD__filter
+    - BTCUSD__upper
+    - BTCUSD__lower
+    - BTCUSD__trend
+    - BTCUSD__bo_age
+    - ETHUSD__open
+    - ETHUSD__high
+    - ETHUSD__close
+    - ETHUSD__filter
+    - ETHUSD__upper
+    - ETHUSD__lower
+    - ETHUSD__trend
+    - ETHUSD__bo_age
+
+   coupure       T  verdict
+  ----------------------------------------
+      60%    1703  OK
+      70%    1987  OK
+      80%    2271  OK
+      90%    2555  OK
+
+COUCHE 3 — LES DÉCISIONS (invariant de troncature sur les allocations)
+------------------------------------------------------------------------------
+  generate_allocations(precompute(bars),     p, T)
+      ==
+  generate_allocations(precompute(bars[:T]), p, T)
+
+   coupure       T   allocs A   allocs B  verdict
+  ------------------------------------------------------------
+      60%    1703       1252       1252  OK
+      70%    1987       1536       1536  OK
+      80%    2271       1820       1820  OK
+      90%    2555       2104       2104  OK
+
+COUCHE 4 — SÉRIES SHORT SYNTHÉTIQUES
+------------------------------------------------------------------------------
+  2 série(s) x 4 coupures — écart nul partout.
+
+==============================================================================
+VERDICT : R1 PASSÉ sur les 4 couches.
+
+SURFACE COUVERTE, explicitement :
+  [x] filtre gaussien seul, avec contre-exemple filtfilt actif
+  [x] toutes les colonnes numériques de precompute(), listées
+      ci-dessus, via la primitive _compare_precompute de core/
+  [x] les allocations elles-mêmes, poids par poids, 4 coupures
+  [x] les séries short synthétiques
+  [ ] NON couvert ici : le moteur run_allocation lui-même — il
+      l'est par tests/test_allocation_engine.py::test_r1_truncature
+  [ ] NON couvert : le CLI core/validation/causality, inapplicable
+      à ce contrat (cf. COUCHE 0).
+==============================================================================

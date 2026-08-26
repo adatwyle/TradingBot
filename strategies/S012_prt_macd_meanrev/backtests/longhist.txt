@@ -1,0 +1,42 @@
+================================================================================================
+LONGHIST — SP500_1927 : 24772 barres (1927-12-30 -> 2026-08-14) — close-only, spread nul, config par défaut
+================================================================================================
+PLEIN ÉCHANTILLON :  464 trades |   -28.93 R |  -0.0624 R/trade |  -0.386 %/trade | WR  84.7 % | pire trade  -33.13 %
+  détention : méd 5 j, p90 29 j, max 432 j
+  pire : entrée 1987-10-14 sortie 1987-10-19 -26.3 % (3 j, SL)
+  pire : entrée 1946-08-22 sortie 1946-09-03 -14.6 % (7 j, SL)
+  pire : entrée 2011-08-01 sortie 2011-08-08 -13.0 % (5 j, SL)
+
+F3 — sélection de jours (le test qui compte pour un long-only) :
+  B&H (tous les jours)            :    +6.39 %/an  (24772 jours)
+  jours EN position (stratégie)   :    +0.82 %/an  (5776 jours, 23.3 % du temps)
+  toujours investi SAUF ces jours :    +8.14 %/an  (18996 jours)
+  => NE BAT PAS la moyenne des jours (F3 déclenchée)
+
+PAR ÉPOQUE (precompute par tranche, warmup rejoué) :
+  1928-01 -> 1950-01 :  107 trades |    -8.68 R |  -0.0811 R/trade |  -0.785 %/trade | WR  82.2 % | pire trade  -26.33 %
+  1950-01 -> 1980-01 :  152 trades |   -15.21 R |  -0.1000 R/trade |  -0.418 %/trade | WR  80.9 % | pire trade  -13.84 %
+  1980-01 -> 2000-01 :   83 trades |    -0.45 R |  -0.0054 R/trade |  +0.140 %/trade | WR  91.6 % | pire trade  -26.34 %
+  2000-01 -> 2022-06 :  103 trades |    -3.17 R |  -0.0308 R/trade |  -0.377 %/trade | WR  87.4 % | pire trade  -33.13 %
+  2022-06 -> 2027-01 :   15 trades |    -1.06 R |  -0.0710 R/trade |  -0.207 %/trade | WR  86.7 % | pire trade   -7.93 %
+
+================================================================================================
+LONGHIST — NASDAQ_1971 : 13998 barres (1971-02-05 -> 2026-08-14) — close-only, spread nul, config par défaut
+================================================================================================
+PLEIN ÉCHANTILLON :  257 trades |   -21.40 R |  -0.0833 R/trade |  -0.634 %/trade | WR  83.3 % | pire trade  -34.85 %
+  détention : méd 5 j, p90 29 j, max 328 j
+  pire : entrée 1987-10-14 sortie 1987-10-19 -15.9 % (3 j, SL)
+  pire : entrée 1990-07-23 sortie 1990-08-06 -10.0 % (10 j, SL)
+  pire : entrée 2018-10-08 sortie 2018-10-24 -8.1 % (12 j, SL)
+
+F3 — sélection de jours (le test qui compte pour un long-only) :
+  B&H (tous les jours)            :   +10.58 %/an  (13998 jours)
+  jours EN position (stratégie)   :    -3.53 %/an  (3160 jours, 22.6 % du temps)
+  toujours investi SAUF ces jours :   +15.08 %/an  (10838 jours)
+  => NE BAT PAS la moyenne des jours (F3 déclenchée)
+
+PAR ÉPOQUE (precompute par tranche, warmup rejoué) :
+  1950-01 -> 1980-01 :   54 trades |    -4.72 R |  -0.0875 R/trade |  -0.718 %/trade | WR  83.3 % | pire trade  -13.00 %
+  1980-01 -> 2000-01 :   89 trades |   -11.91 R |  -0.1339 R/trade |  -0.570 %/trade | WR  79.8 % | pire trade  -15.90 %
+  2000-01 -> 2022-06 :   95 trades |    -2.60 R |  -0.0274 R/trade |  -0.627 %/trade | WR  86.3 % | pire trade  -34.85 %
+  2022-06 -> 2027-01 :   16 trades |    +0.31 R |  +0.0197 R/trade |  +0.240 %/trade | WR  93.8 % | pire trade  -10.75 %

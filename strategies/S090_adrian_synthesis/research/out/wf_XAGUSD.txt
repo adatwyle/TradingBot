@@ -1,0 +1,46 @@
+================================================================================================
+WALK-FORWARD — s90_adrian_synthesis / XAGUSD
+================================================================================================
+30021 barres · 6 configurations · 30s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/6   (≈0 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 0/6
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    sl_atr2.0_threshold_atr4_tp_atr1.0             +0.35   +5.25   -2.61   +0.63   +0.90      64
+        témoin aléatoire : percentile  94.0  | nul méd   -3.40 R, p95   +4.94 R | 200 tirages de 64 trades (exéc. méd. 64, 20 % long) | R/trade aléatoire L -0.054 / S -0.055
+    sl_atr1.0_threshold_atr4_tp_atr1.0             +0.73   +2.91   +0.55   -3.71   +0.12      67
+        témoin aléatoire : percentile  87.5  | nul méd   -6.28 R, p95   +4.67 R | 200 tirages de 67 trades (exéc. méd. 67, 19 % long) | R/trade aléatoire L -0.143 / S -0.084
+    sl_atr2.0_threshold_atr3_tp_atr1.0             -8.62   +8.72   -6.43   +5.29   -0.26     171
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+    Beta directionnel mesuré : -0.059 R/trade d'écart entre
+    une entrée LONG au hasard et une entrée SHORT au hasard.
+    => la période BAISSE. Symétrique du cas précédent pour
+       une stratégie majoritairement short.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.

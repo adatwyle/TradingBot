@@ -1,0 +1,61 @@
+# Manifest — Asian-window fade (H91)
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s91_claude_scratch
+display_name: "Asian-window fade (H91)"
+version: "1.0.0"
+magic_number: 130091
+author: "claude:s91_claude_scratch"
+source: "conception autonome — hypothèse H91, research/ANALYSIS.md"
+trader: "Claude Code"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+# Reste RESEARCH : verdict PAS D'EDGE. Voir research/VERDICT.md §4.
+# Ne pas promouvoir en PAPER.
+
+symbols:
+  # Groupe ÉLIGIBLE — aucune session domestique majeure à 22-06h serveur
+  - EURUSD
+  - USDCHF
+  - USDCAD
+  - AUDUSD
+  # CONTRÔLE NÉGATIF déclaré — session de Tokyo ouverte dans la fenêtre.
+  # H91 prédit qu'ils échouent. Ce ne sont PAS des candidats au trading.
+  - USDJPY
+  - EURJPY
+
+timeframe: H1
+warmup_bars: 50         # > max(SMA 20, ATR 24) avec marge
+
+default_params:
+  z_min: 2.0
+  sl_atr: 2.5
+  rr: 1.0
+  window: large
+
+param_grid:             # 3 x 3 x 3 x 2 = 54 configurations
+  z_min:  [1.5, 2.0, 2.5]
+  sl_atr: [2.0, 2.5, 3.0]
+  rr:     [0.75, 1.0, 1.5]
+  window: [large, etroite]
+
+created: 2026-08-16
+notes: |
+  Contre-tendance sur extension (z = (close - SMA20) / sigma20) dans la fenêtre
+  de faible liquidité, heure SERVEUR MT5 22-06h (« large ») ou 23-04h
+  (« etroite »). Stop = sl_atr x ATR(24), cible = rr x risque.
+
+  VERDICT : PAS D'EDGE (research/VERDICT.md).
+    - R1 causalité PASSÉ sur 24 points de grille.
+    - Walk-forward : 1 STRICT sur les 4 éligibles contre 10,8 attendues par
+      pur hasard. Moyenne OOS négative sur les 4. Effectif OOS médian 82 trades.
+    - Ablation du spread : signal brut RÉEL (+0,0818 R/trade, 180/216 cellules
+      positives) mais péage +0,0798 -> net +0,0019 R/trade. Le broker prend 98 %.
+    - Hors échantillon, spread compris : toutes les variantes perdantes.
+    - Une seule année positive sur six.
+
+  Sous-résultat conservé, NON promouvable : la porte horaire apporte
+  +0,053 R/trade brut hors échantillon contre la même règle appliquée 24h/24
+  (laquelle est négative). L'axe horaire mérite d'être exploré comme FILTRE
+  par-dessus un signal ayant déjà un edge propre — jamais comme signal seul.

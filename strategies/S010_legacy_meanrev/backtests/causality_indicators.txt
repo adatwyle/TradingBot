@@ -1,0 +1,45 @@
+========================================================================================================
+R1 BIS — INVARIANT DE CAUSALITE A LA COUCHE INDICATEUR (verification propre)
+========================================================================================================
+
+  MOTIF. Le gardien core/validation/causality.py a ete renforce le 16.08.2026
+  (commit 7ba94e9) pour comparer AUSSI les indicateurs renvoyes par
+  precompute(), apres decouverte d un faux negatif (filtfilt passait R1).
+  Or mon precompute() ne renvoie que la liste de signaux : le nouveau
+  controle n a donc RIEN a inspecter chez moi et passe en silence.
+  << Rassurer a tort >> est exactement ce que le commit denonce. Je refais
+  donc le test moi-meme, tableau par tableau.
+
+  SP500    29962 barres
+      coupure  60% (T= 17977) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  70% (T= 20973) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  80% (T= 23969) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  90% (T= 26965) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+
+  NIKKEI   27142 barres
+      coupure  60% (T= 16285) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  70% (T= 18999) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  80% (T= 21713) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  90% (T= 24427) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+
+  AUDCHF   31592 barres
+      coupure  60% (T= 18955) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  70% (T= 22114) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  80% (T= 25273) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  90% (T= 28432) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+
+  EURUSD   31593 barres
+      coupure  60% (T= 18955) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  70% (T= 22115) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  80% (T= 25274) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+      coupure  90% (T= 28433) : ecart relatif max 0.00e+00 sur 0 pts, portee 0 barres  -> OK
+
+  11 tableaux d indicateurs x 4 coupures x 4 instruments = 176 comparaisons.
+  Points divergents au total : 0
+  VERDICT R1-INDICATEUR : PASSE
+
+  Ce test ferme l angle mort : aucun indicateur (MACD, RSI, ADX/DI, ATR,
+  distances S/R, divergences, inflexions) ne change quand on retire les
+  barres futures. Aucune moyenne centree, aucun z-score plein echantillon,
+  aucun filtre bidirectionnel. Les fractals sont decales de +k barres,
+  ce qui est precisement leur delai de confirmation.

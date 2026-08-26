@@ -1,0 +1,89 @@
+================================================================================================
+WALK-FORWARD — s12_prt_macd_meanrev / SP500
+================================================================================================
+2774 barres · 16 configurations · 1s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/16   (≈1 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 8/16
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    no_fridayFalse_pos_max0.2_range_len20_sl_atr3.0   +0.84   -0.26   +0.47   +0.99   +0.51      21
+        témoin aléatoire : percentile  56.5  | nul méd   +1.58 R, p95   +5.09 R | 200 tirages de 21 trades (exéc. méd. 21, 100 % long) | R/trade aléatoire L +0.073 / S    n/a
+    no_fridayTrue_pos_max0.2_range_len20_sl_atr3.0   +0.73   -0.26   +0.47   +0.99   +0.48      22
+        témoin aléatoire : percentile  59.5  | nul méd   +1.48 R, p95   +4.91 R | 200 tirages de 22 trades (exéc. méd. 22, 100 % long) | R/trade aléatoire L +0.064 / S    n/a
+    no_fridayFalse_pos_max0.2_range_len10_sl_atr3.0   +0.32   -0.26   +0.47   +0.99   +0.38      18  [MINCE]
+        témoin aléatoire : percentile  49.0  | nul méd   +1.60 R, p95   +4.66 R | 200 tirages de 18 trades (exéc. méd. 18, 100 % long) | R/trade aléatoire L +0.087 / S    n/a
+    no_fridayTrue_pos_max0.2_range_len10_sl_atr3.0   +0.21   -0.26   +0.47   +0.99   +0.35      19  [MINCE]
+    no_fridayFalse_pos_max0.35_range_len10_sl_atr3.0   +0.86   -0.45   -0.24   +1.04   +0.30      27
+    no_fridayFalse_pos_max0.35_range_len20_sl_atr3.0   +0.86   -0.45   -0.24   +1.04   +0.30      27
+    no_fridayTrue_pos_max0.35_range_len10_sl_atr3.0   +0.74   -0.45   -0.24   +1.04   +0.27      28
+    no_fridayTrue_pos_max0.35_range_len20_sl_atr3.0   +0.74   -0.45   -0.24   +1.04   +0.27      28
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    no_fridayFalse_pos_max0.2_range_len20_sl_atr3.0      +6.33      +2.04      68 %
+    no_fridayFalse_pos_max0.35_range_len20_sl_atr3.0      +6.12      +1.21      80 %
+    no_fridayFalse_pos_max0.2_range_len10_sl_atr3.0      +5.93      +1.52      74 %
+
+    => 68 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.
+================================================================================================
+DIAGNOSTICS — config par défaut {'range_len': 20, 'pos_max': 0.2, 'no_friday': False, 'sl_atr': 10.0, 'close_down': False, 'macd_rel': False}
+================================================================================================
+F2 — ablation du spread (plein échantillon) :
+  spread réel :   38 trades,    -0.27 R total, -0.0072 R/trade, WR 89.5 %
+  spread nul  :   38 trades,    -0.24 R total, -0.0062 R/trade, WR 89.5 %
+  péage mesuré : +0.0010 R/trade
+
+F4 — sa propre doctrine (split release 2022-06-21, spread réel) :
+  pré-release  (2016-01-12 -> 2022-06-21) :   20 trades,    -0.98 R total, -0.0492 R/trade, WR 80.0 %
+  post-release (2022-06-21 -> 2026-08-14) :   18 trades,    +0.58 R total, +0.0324 R/trade, WR 94.4 %
+
+Cellule vendredi (R/trade, jamais le total — plein échantillon, spread réel) :
+  vendredi autorisé :   38 trades,    -0.27 R total, -0.0072 R/trade, WR 89.5 %
+  vendredi interdit :   38 trades,    -0.48 R total, -0.0126 R/trade, WR 89.5 %
+
+Exposition « sans stop » (proxy 10 ATR) — config par défaut, spread réel :
+  MAE (38 trades) : méd 0.10 R / 1.68 %, p90 0.67 R / 11.50 %, max 1.36 R / 21.88 %
+  détention : méd 4 j, p90 35 j, max 81 j — sorties {'TP': np.int64(34), 'SL': np.int64(4)}
+
+--- TÉMOIN PAR CONFIG (toutes les configs armées) ---
+  no_fridayFalse_pos_max0.2_range_len20_sl_atr10.0           honest_r    +0.63 (19 trades OOS)
+      témoin aléatoire : percentile  51.5  | nul méd   +0.62 R, p95   +1.81 R | 200 tirages de 19 trades (exéc. méd. 17, 100 % long) | R/trade aléatoire L +0.042 / S    n/a
+  no_fridayFalse_pos_max0.2_range_len20_sl_atr3.0            honest_r    +2.04 (21 trades OOS)
+      témoin aléatoire : percentile  56.5  | nul méd   +1.58 R, p95   +5.09 R | 200 tirages de 21 trades (exéc. méd. 21, 100 % long) | R/trade aléatoire L +0.073 / S    n/a
+  no_fridayTrue_pos_max0.2_range_len20_sl_atr3.0             honest_r    +1.92 (22 trades OOS)
+      témoin aléatoire : percentile  59.5  | nul méd   +1.48 R, p95   +4.91 R | 200 tirages de 22 trades (exéc. méd. 22, 100 % long) | R/trade aléatoire L +0.064 / S    n/a
+  no_fridayFalse_pos_max0.2_range_len10_sl_atr3.0            honest_r    +1.52 (18 trades OOS)
+      témoin aléatoire : percentile  49.0  | nul méd   +1.60 R, p95   +4.66 R | 200 tirages de 18 trades (exéc. méd. 18, 100 % long) | R/trade aléatoire L +0.087 / S    n/a

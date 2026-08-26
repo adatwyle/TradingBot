@@ -1,0 +1,29 @@
+==============================================================================
+SIGNIFICATIVITÉ DE L'ÉCART DE SHARPE
+==============================================================================
+  2839 observations quotidiennes (7.8 ans)
+
+  Sharpe stratégie            0.875
+  Sharpe naïf équipondéré     0.819
+  écart                      +0.056
+
+  Erreur-type analytique (Lo 2002), chaque Sharpe pris isolément :
+    stratégie  0.875 +/- 0.422   IC95 [+0.05 ; +1.70]
+    naïf       0.819 +/- 0.414   IC95 [+0.01 ; +1.63]
+    Les deux intervalles se recouvrent presque entièrement.
+
+  Bootstrap par blocs (5000 tirages, blocs de 21 jours) sur la DIFFÉRENCE :
+    écart moyen        +0.060
+    IC95 de l'écart    [-0.644 ; +0.808]
+    P(écart <= 0)      0.443
+
+  CONCLUSION : l'intervalle de confiance de l'écart CONTIENT ZÉRO.
+  La supériorité de Sharpe n'est pas distinguable du bruit. Le
+  « bat toutes les références » du moteur repose sur un écart que
+  cet échantillon ne permet pas d'établir.
+
+  Rappel de cadrage : même établi, un écart de Sharpe de cette taille
+  s'accompagne ici d'un rendement total inférieur de 355 points et
+  d'un drawdown de 65 %. La question de l'intérêt pratique reste
+  entière, indépendamment de la significativité statistique.
+==============================================================================

@@ -1,0 +1,44 @@
+================================================================================================
+WALK-FORWARD — s90_adrian_synthesis / NIKKEI
+================================================================================================
+27142 barres · 6 configurations · 26s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/6   (≈0 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 0/6
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    sl_atr1.0_threshold_atr4_tp_atr1.0             +2.68   +2.06   +0.04   -1.26   +0.88      30
+        témoin aléatoire : percentile  90.0  | nul méd   -4.81 R, p95   +5.51 R | 200 tirages de 30 trades (exéc. méd. 30, 37 % long) | R/trade aléatoire L -0.138 / S -0.157
+    sl_atr2.0_threshold_atr4_tp_atr1.0             +1.36   -0.42   -2.43   -1.13   -0.65      30
+    sl_atr2.0_threshold_atr3_tp_atr1.0             +0.30   -4.29   -6.49   -9.96   -5.11     127
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+    Beta directionnel mesuré : +0.027 R/trade d'écart entre
+    une entrée LONG au hasard et une entrée SHORT au hasard.
+    => pas de dérive directionnelle exploitable sur la période.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.

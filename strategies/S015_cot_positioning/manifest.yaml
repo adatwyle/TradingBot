@@ -1,0 +1,78 @@
+# Manifest — Positionnement des gros opérateurs (COT / CFTC)
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s15_cot_positioning
+display_name: "COT positioning — valeur prédictive (contrats directs)"
+version: "0.1.0"
+magic_number: 130015
+author: "claude:s15_cot_positioning"
+source: "Rapport COT de la CFTC (core/data/cot.py) — littérature de référence : Klitgaard & Weir, FRBNY Economic Policy Review, mai 2004"
+trader: "interne (3e pilier — TODO.md §3e PILIER)"
+
+# RESEARCH : protocole gelé, AUCUN backtest exécuté à ce jour.
+# Le gel (research/ANALYSIS.md + research/FALSIFICATION.md) précède tout run.
+status: RESEARCH
+
+# Périmètre : contrats DIRECTS uniquement. Les paires synthétiques
+# (AUDCHF, AUDCAD, EURJPY, reconstituées depuis les jambes dollar) sont
+# EXCLUES et feront l'objet d'une étude séparée et scellée à part —
+# research/ANALYSIS.md §2.
+symbols: [XAUUSD, EURUSD]
+
+# D1 est une CONTRAINTE, pas un choix : le COT est hebdomadaire, un point de
+# donnée couvre ~5 barres D1 et ~120 barres H1 — il ne porte aucun timing
+# horaire. research/ANALYSIS.md §3.
+timeframe: "D1"
+warmup_bars: 60
+
+# Configuration primaire désignée AVANT toute mesure (FALSIFICATION.md §4.1).
+# Ce n'est pas un résultat : c'est la cellule dont le protocole déclare
+# d'avance qu'elle porte l'hypothèse H15.
+default_params:
+  family: "niveau"        # niveau (A) | impulsion (B)
+  state: "bas"            # bas | haut  — percentile de pct_noncomm
+  direction: "long"       # lecture contrarienne : état bas -> long
+  lookback: 260           # semaines (5 ans) — primaire
+  q: 0.20                 # queue — primaire
+  exit: "hold5"           # hold5 | atr_2_2
+  leak_mode: "honest"     # honest | leak3d | leak_contemporary (F0 uniquement)
+
+# Grille figée — 64 cellules par instrument, 128 au total (2 instruments).
+# La famille C (suiveur) n'ajoute AUCUNE cellule : c'est la lecture
+# (état, sens opposé) des cellules ci-dessous, produite par le même run.
+param_grid:
+  family: ["niveau", "impulsion"]
+  state: ["bas", "haut"]
+  direction: ["long", "short"]
+  lookback: [104, 260]
+  q: [0.10, 0.20]
+  exit: ["hold5", "atr_2_2"]
+
+created: 2026-08-19
+notes: |
+  ATTENTE A PRIORI DÉCLARÉE : edge faible ou nul. Klitgaard & Weir (FRBNY,
+  2004) mesurent une corrélation SYNCHRONE forte (30-45 % de la variance
+  hebdomadaire, ~75 % de réussite directionnelle sur la semaine en cours) et
+  concluent à une absence de pouvoir PRÉDICTIF sur la semaine suivante. Un
+  résultat positif se traite donc avec suspicion, pas avec enthousiasme.
+
+  CONTRÔLE DE FUITE (F0, gate) : la donnée CFTC ne porte que la date du MARDI ;
+  la publication a lieu le VENDREDI 15h30 ET. Toute mesure est produite en
+  version HONNÊTE (lecture via cot.connu_au(), entrée au close du LUNDI) et en
+  deux versions FUITÉES délibérées (lecture dès le mardi ; alignement synchrone
+  exact). Aucun chiffre fuité n'entre dans une candidate ni au hold-out : le
+  contrôle valide l'INSTRUMENT DE MESURE, jamais l'hypothèse.
+  Aucun verdict n'est rendu si F0 n'est pas passée.
+
+  HOLD-OUT SCELLÉ : toute barre D1 datée >= 2021-08-16 (5 ans, ~261 semaines),
+  ouverte UNE fois sur <= 3 candidates dont la liste est close et commitée
+  avant l'ouverture. Écart assumé avec s13 (18 mois) : un scellé se dimensionne
+  en occasions de DÉCISION, et la décision est ici hebdomadaire.
+
+  EFFECTIF : toute métrique est rapportée avec DEUX effectifs — nombre de
+  trades ET nombre d'ÉPISODES indépendants (le positionnement est fortement
+  autocorrélé). Seuil >= 12 épisodes, dérivé et non choisi (FALSIFICATION §6).
+
+  core/data/cot.py est en LECTURE SEULE pour ce dossier.
+  Protocole complet : research/ANALYSIS.md + research/FALSIFICATION.md.

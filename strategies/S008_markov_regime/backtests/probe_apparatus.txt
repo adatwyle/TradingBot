@@ -1,0 +1,198 @@
+==============================================================================
+s08 — SONDE DE L'APPAREIL MARKOVIEN (avant toute mesure de performance)
+==============================================================================
+
+##############################################################################
+# SP500 — 2774 barres D1  (2016-01-12 -> 2026-08-14)
+# occurrences d'états : {'bear': 207, 'side': 2226, 'bull': 321}
+##############################################################################
+
+  Q1 — PERSISTANCE : l'artefact de recouvrement
+  --------------------------------------------------------------------------
+  Deux fenêtres de 20 j consécutives partagent 19 j. La persistance
+  mesurée sur des fenêtres qui se chevauchent est donc mécanique.
+
+  recouvrantes (step=1) — n = 2753 transitions
+    de -> vers     bear     side     bull     n obs
+    bear        0.752   0.243   0.005       207
+    side        0.023   0.938   0.039      2225
+    bull        0.003   0.269   0.728       321
+    persistance diagonale : bear 0.752  side 0.938  bull 0.728
+
+  SANS recouvrement (step=20) — n = 137 transitions
+    de -> vers     bear     side     bull     n obs
+    bear        0.214   0.571   0.214        11
+    side        0.080   0.795   0.125       109
+    bull        0.100   0.750   0.150        17
+    persistance diagonale : bear 0.214  side 0.795  bull 0.150
+
+  CHUTE de persistance (step=1 -> step=20), en points :
+    bear     75.2 %  ->    21.4 %   (-53.8 pt)
+    side     93.8 %  ->    79.5 %   (-14.3 pt)
+    bull     72.8 %  ->    15.0 %   (-57.8 pt)
+
+  Q2 — CONTRIBUTION MARGINALE DE L'APPAREIL
+  --------------------------------------------------------------------------
+  Barres exploitables (état défini, >= 30 transitions connues) : 2154
+  Concordance de SIGNE markov / naïf : 19.27 %  (n = 2154)
+  Désaccords : 1739
+
+  Signe du signal par état, au fil du temps :
+    bear   n=  198   signe +:  106  -:    0  0:  92   amplitude [+0.000 ; +0.200]
+    side   n= 1665   signe +:  905  -:  578  0: 182   amplitude [-0.086 ; +0.045]
+    bull   n=  291   signe +:  233  -:    0  0:  58   amplitude [+0.000 ; +0.250]
+
+  Lecture : si chaque état ne présente qu'un seul signe, la matrice
+  glissante ne fait varier que l'AMPLITUDE, jamais la direction —
+  la stratégie est alors la règle naïve, dimensionnée autrement.
+
+  Q3 — AMPLEUR DU BIAIS DE FUITE (matrice causale vs plein échantillon)
+  --------------------------------------------------------------------------
+  n = 2154 barres comparées
+  écart absolu moyen du signal : 0.0469   médian 0.0306   max 0.2000
+  barres où la fuite CHANGE LE SIGNE de la position : 924 (42.90 %)
+
+  Q4 — P^n CONTRE L'EXPONENTIATION SCALAIRE DE LA SOURCE
+  --------------------------------------------------------------------------
+  Matrice de plein échantillon élevée aux puissances successives :
+      n   P^n[bull,bull]   signal(bull)   scalaire^n
+      1           0.1500         0.0500     0.050000
+      2           0.1377         0.0410     0.002500
+      3           0.1371         0.0411     0.000125
+      5           0.1370         0.0411     0.000000
+     10           0.1370         0.0411     0.000000
+     20           0.1370         0.0411     0.000000
+     50           0.1370         0.0411     0.000000
+  P^200 (distribution stationnaire) : bear 0.096 side 0.767 bull 0.137
+  Le scalaire tend vers 0 ; P^n tend vers la stationnaire. Les deux
+  décrivent des mondes opposés — la source décrit le mauvais.
+
+##############################################################################
+# NASDAQ — 2774 barres D1  (2016-01-12 -> 2026-08-14)
+# occurrences d'états : {'bear': 300, 'side': 1832, 'bull': 622}
+##############################################################################
+
+  Q1 — PERSISTANCE : l'artefact de recouvrement
+  --------------------------------------------------------------------------
+  Deux fenêtres de 20 j consécutives partagent 19 j. La persistance
+  mesurée sur des fenêtres qui se chevauchent est donc mécanique.
+
+  recouvrantes (step=1) — n = 2753 transitions
+    de -> vers     bear     side     bull     n obs
+    bear        0.795   0.201   0.003       300
+    side        0.033   0.894   0.074      1832
+    bull        0.002   0.215   0.784       621
+    persistance diagonale : bear 0.795  side 0.894  bull 0.784
+
+  SANS recouvrement (step=20) — n = 137 transitions
+    de -> vers     bear     side     bull     n obs
+    bear        0.111   0.444   0.444        15
+    side        0.128   0.691   0.181        91
+    bull        0.118   0.618   0.265        31
+    persistance diagonale : bear 0.111  side 0.691  bull 0.265
+
+  CHUTE de persistance (step=1 -> step=20), en points :
+    bear     79.5 %  ->    11.1 %   (-68.4 pt)
+    side     89.4 %  ->    69.1 %   (-20.2 pt)
+    bull     78.4 %  ->    26.5 %   (-51.9 pt)
+
+  Q2 — CONTRIBUTION MARGINALE DE L'APPAREIL
+  --------------------------------------------------------------------------
+  Barres exploitables (état défini, >= 30 transitions connues) : 2154
+  Concordance de SIGNE markov / naïf : 26.18 %  (n = 2154)
+  Désaccords : 1590
+
+  Signe du signal par état, au fil du temps :
+    bear   n=  281   signe +:  281  -:    0  0:   0   amplitude [+0.250 ; +0.455]
+    side   n= 1320   signe +: 1209  -:   17  0:  94   amplitude [-0.033 ; +0.082]
+    bull   n=  553   signe +:  470  -:    0  0:  83   amplitude [+0.000 ; +0.238]
+
+  Lecture : si chaque état ne présente qu'un seul signe, la matrice
+  glissante ne fait varier que l'AMPLITUDE, jamais la direction —
+  la stratégie est alors la règle naïve, dimensionnée autrement.
+
+  Q3 — AMPLEUR DU BIAIS DE FUITE (matrice causale vs plein échantillon)
+  --------------------------------------------------------------------------
+  n = 2154 barres comparées
+  écart absolu moyen du signal : 0.0296   médian 0.0162   max 0.1471
+  barres où la fuite CHANGE LE SIGNE de la position : 194 (9.01 %)
+
+  Q4 — P^n CONTRE L'EXPONENTIATION SCALAIRE DE LA SOURCE
+  --------------------------------------------------------------------------
+  Matrice de plein échantillon élevée aux puissances successives :
+      n   P^n[bull,bull]   signal(bull)   scalaire^n
+      1           0.2647         0.1471     0.147059
+      2           0.2341         0.1110     0.021626
+      3           0.2329         0.1096     0.003180
+      5           0.2329         0.1096     0.000069
+     10           0.2329         0.1096     0.000000
+     20           0.2329         0.1096     0.000000
+     50           0.2329         0.1096     0.000000
+  P^200 (distribution stationnaire) : bear 0.123 side 0.644 bull 0.233
+  Le scalaire tend vers 0 ; P^n tend vers la stationnaire. Les deux
+  décrivent des mondes opposés — la source décrit le mauvais.
+
+##############################################################################
+# BTCUSD — 4376 barres D1  (2014-07-17 -> 2026-08-16)
+# occurrences d'états : {'bear': 1271, 'side': 1368, 'bull': 1717}
+##############################################################################
+
+  Q1 — PERSISTANCE : l'artefact de recouvrement
+  --------------------------------------------------------------------------
+  Deux fenêtres de 20 j consécutives partagent 19 j. La persistance
+  mesurée sur des fenêtres qui se chevauchent est donc mécanique.
+
+  recouvrantes (step=1) — n = 4355 transitions
+    de -> vers     bear     side     bull     n obs
+    bear        0.873   0.118   0.009      1271
+    side        0.113   0.766   0.121      1367
+    bull        0.003   0.100   0.897      1717
+    persistance diagonale : bear 0.873  side 0.766  bull 0.897
+
+  SANS recouvrement (step=20) — n = 217 transitions
+    de -> vers     bear     side     bull     n obs
+    bear        0.329   0.343   0.329        67
+    side        0.302   0.302   0.397        60
+    bull        0.290   0.226   0.484        90
+    persistance diagonale : bear 0.329  side 0.302  bull 0.484
+
+  CHUTE de persistance (step=1 -> step=20), en points :
+    bear     87.3 %  ->    32.9 %   (-54.4 pt)
+    side     76.6 %  ->    30.2 %   (-46.4 pt)
+    bull     89.7 %  ->    48.4 %   (-41.3 pt)
+
+  Q2 — CONTRIBUTION MARGINALE DE L'APPAREIL
+  --------------------------------------------------------------------------
+  Barres exploitables (état défini, >= 30 transitions connues) : 3756
+  Concordance de SIGNE markov / naïf : 49.81 %  (n = 3756)
+  Désaccords : 1885
+
+  Signe du signal par état, au fil du temps :
+    bear   n= 1039   signe +:  557  -:  289  0: 193   amplitude [-0.133 ; +0.095]
+    side   n= 1194   signe +: 1016  -:  119  0:  59   amplitude [-0.222 ; +0.136]
+    bull   n= 1523   signe +: 1523  -:    0  0:   0   amplitude [+0.194 ; +0.412]
+
+  Lecture : si chaque état ne présente qu'un seul signe, la matrice
+  glissante ne fait varier que l'AMPLITUDE, jamais la direction —
+  la stratégie est alors la règle naïve, dimensionnée autrement.
+
+  Q3 — AMPLEUR DU BIAIS DE FUITE (matrice causale vs plein échantillon)
+  --------------------------------------------------------------------------
+  n = 3756 barres comparées
+  écart absolu moyen du signal : 0.0526   médian 0.0346   max 0.3175
+  barres où la fuite CHANGE LE SIGNE de la position : 1024 (27.26 %)
+
+  Q4 — P^n CONTRE L'EXPONENTIATION SCALAIRE DE LA SOURCE
+  --------------------------------------------------------------------------
+  Matrice de plein échantillon élevée aux puissances successives :
+      n   P^n[bull,bull]   signal(bull)   scalaire^n
+      1           0.4839         0.1935     0.193548
+      2           0.4191         0.1152     0.037461
+      3           0.4126         0.1075     0.007251
+      5           0.4119         0.1067     0.000272
+     10           0.4118         0.1067     0.000000
+     20           0.4118         0.1067     0.000000
+     50           0.4118         0.1067     0.000000
+  P^200 (distribution stationnaire) : bear 0.305 side 0.283 bull 0.412
+  Le scalaire tend vers 0 ; P^n tend vers la stationnaire. Les deux
+  décrivent des mondes opposés — la source décrit le mauvais.

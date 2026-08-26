@@ -1,0 +1,53 @@
+# Manifest — FXAlexG Swing HTF
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s01_fxalexg_swing
+display_name: "FXAlexG Swing HTF"
+version: "1.0.0"
+magic_number: 130001
+author: "claude:s01_fxalexg_swing"
+source: "https://www.youtube.com/@fxalexg__"
+trader: "fxalexg (1.3M abo)"
+
+status: BACKTESTED      # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+# Généraliste : la méthode ne cible pas d'instrument particulier.
+# Restreint au catalogue de core/data/instruments.py.
+symbols: [EURUSD, USDJPY, USDCHF, AUDUSD, USDCAD, EURJPY, XAUUSD]
+timeframe: "H1"         # TF d'EXÉCUTION. La structure est lue en H4/D1,
+                        # rééchantillonnées depuis ces mêmes barres H1.
+warmup_bars: 500
+
+default_params:
+  htf: D1
+  k_htf: 2
+  k_ltf: 3
+  retr_min: 0.382
+  retr_max: 0.786
+  target: struct
+  sl_buf_atr: 0.5       # fixé, volontairement hors grille
+
+param_grid:             # 2*2*2*2*2*4 = 128 configurations
+  htf:      [H4, D1]
+  k_htf:    [2, 3]
+  k_ltf:    [2, 3]
+  retr_min: [0.382, 0.5]
+  retr_max: [0.786, 1.0]
+  target:   [struct, ext27, ext62, rr3]
+
+created: 2026-08-16
+notes: |
+  Reproduction mécanique de la méthode fxalexg : structure de marché (HH/HL vs
+  LL/LH) lue sur timeframe élevé, entrée sur H1 lors de la confirmation d'un
+  swing contraire situé dans la zone de retracement de la jambe d'impulsion,
+  set & forget.
+
+  R1 (causalité) : PASSÉ — vérifié sur 32 points de la grille, pas seulement
+  sur les paramètres par défaut. Sortie archivée dans backtests/.
+  R5 (conformance) : core/validation/conformance.py n'existe pas dans le dépôt.
+  on_bar() réutilise littéralement le code de generate_signals(), donc la
+  divergence est structurellement impossible.
+
+  RÉSULTAT : voir research/VERDICT.md. Statut BACKTESTED au sens « mesuré »,
+  PAS au sens « validé ». Ne pas promouvoir en PAPER.

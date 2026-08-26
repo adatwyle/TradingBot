@@ -1,0 +1,60 @@
+==============================================================================
+R1 — INVARIANT DE CAUSALITE — s04_aipathways_trendcore
+==============================================================================
+
+La CLI `python -m core.validation.causality --strategy
+s04_aipathways_trendcore --save` REFUSE de tourner :
+
+    [SKIP] s04_aipathways_trendcore - donnees insuffisantes pour NASDAQ
+
+Cause : la CLI exige len(df) >= 2000 barres (causality.py:223). Nous
+avons 1331 barres D1. Le seuil vise du H1 (~31 600 barres), pas du
+journalier. `core/` etant interdit de modification, ce script appelle
+la MEME fonction check() du MEME module, sans le garde-fou de taille.
+
+Verification etendue : les 2 jambes x toute la grille (12 cellules),
+soit 24 points, x 4 coupures (60/70/80/90 %) = 96 comparaisons.
+La jambe `hedge` est le cas sensible : son regime vient de NASDAQ
+alors qu'elle trade XAUUSD (alignement cross-symbole).
+
+------------------------------------------------------------------------------
+JAMBE RISK   — instrument trade : NASDAQ  (1331 barres, 2021-07-19 -> 2026-08-14)
+regime lu sur : NASDAQ
+------------------------------------------------------------------------------
+   ma_len   buffer  coupures OK       signaux (60/70/80/90%)  verdict
+      100    0.000       4/4                     16/18/19/22  OK
+      100    0.005       4/4                     13/15/16/17  OK
+      100    0.010       4/4                      8/10/11/11  OK
+      150    0.000       4/4                        6/8/9/10  OK
+      150    0.005       4/4                         4/6/7/8  OK
+      150    0.010       4/4                         3/5/6/7  OK
+      200    0.000       4/4                         2/3/4/4  OK
+      200    0.005       4/4                         1/1/2/2  OK
+      200    0.010       4/4                         1/1/2/2  OK
+      250    0.000       4/4                         5/5/8/8  OK
+      250    0.005       4/4                         3/3/5/5  OK
+      250    0.010       4/4                         2/2/4/4  OK
+
+------------------------------------------------------------------------------
+JAMBE HEDGE  — instrument trade : XAUUSD  (1329 barres, 2021-07-19 -> 2026-08-14)
+regime lu sur : NASDAQ
+------------------------------------------------------------------------------
+   ma_len   buffer  coupures OK       signaux (60/70/80/90%)  verdict
+      100    0.000       4/4                     15/17/18/22  OK
+      100    0.005       4/4                     12/14/15/17  OK
+      100    0.010       4/4                       7/9/10/11  OK
+      150    0.000       4/4                        6/8/9/10  OK
+      150    0.005       4/4                         4/6/7/8  OK
+      150    0.010       4/4                         3/5/6/7  OK
+      200    0.000       4/4                         2/3/4/4  OK
+      200    0.005       4/4                         1/1/2/2  OK
+      200    0.010       4/4                         1/1/2/2  OK
+      250    0.000       4/4                         5/5/8/8  OK
+      250    0.005       4/4                         3/3/5/5  OK
+      250    0.010       4/4                         2/2/4/4  OK
+
+==============================================================================
+24 points de grille verifies, 0 echec(s).
+VERDICT : R1 PASSE — aucune information future detectee,
+          y compris sur l'alignement cross-symbole de la jambe hedge.
+==============================================================================

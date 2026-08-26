@@ -1,0 +1,81 @@
+====================================================================================================
+ETUDE POOLEE — s05_flossbach_liqsweep — timeframe H4
+====================================================================================================
+11 instruments x 64 cellules de grille x 3 variantes + placebo
+Tout resultat est donne AVEC son effectif. R = multiples du risque.
+
+  EURUSD traite  (131s)
+  USDJPY traite  (268s)
+  USDCHF traite  (401s)
+  USDCAD traite  (522s)
+  AUDUSD traite  (642s)
+  XAUUSD traite  (764s)
+  XAGUSD traite  (914s)
+  SP500 traite  (1020s)
+  NASDAQ traite  (1117s)
+  DAX traite  (1164s)
+  WTIUSD traite  (1242s)
+
+--- 1. ESPERANCE POOLEE PAR VARIANTE (tous instruments, toute la grille) ---
+
+  variante          n trades    total R    R/trade    WR %          IC95 WR   R/trade spread NUL
+  ----------------------------------------------------------------------------------------------
+  A_source              2343      +13.4    +0.0057    26.6    [24.9 ; 28.5]              +0.0323
+  B_sans_sweep          7173     -237.0    -0.0330    25.6    [24.6 ; 26.6]              -0.0096
+  C_sans_pullbk         2394     -231.2    -0.0966    24.0    [22.3 ; 25.8]              -0.0732
+  D_placebo             2289     -190.0    -0.0830    25.0    [23.3 ; 26.8]              -0.0596
+
+  Lecture : le seuil de rentabilite depend du R:R median realise
+  (~2,5 a 3,5 -> seuil 22 a 29 % de reussite). Le PLACEBO donne la
+  reussite qu'obtient la meme geometrie SANS information de setup.
+
+--- 1bis. EST-CE DISTINGUABLE DE ZERO ? ---
+
+  Une esperance par trade n'a de sens qu'avec son incertitude. Ecart-type
+  des R par trade, erreur-type = sd/sqrt(n), IC 95 % = +/- 1,96 x SE.
+
+  variante               n    R/trade      sd       SE           IC95 R/trade       t
+  ----------------------------------------------------------------------------------
+  A_source            2343    +0.0057    1.75   0.0362    [-0.0653 ; +0.0767]   +0.16
+  B_sans_sweep        7173    -0.0330    1.78   0.0210    [-0.0743 ; +0.0082]   -1.57
+  C_sans_pullbk       2394    -0.0966    1.72   0.0351    [-0.1655 ; -0.0277]   -2.75
+  D_placebo           2289    -0.0830    1.68   0.0352    [-0.1520 ; -0.0140]   -2.36
+
+  A (source) MOINS D (placebo) : +0.0887 R/trade, SE 0.0505, t = +1.76
+    IC95 : [-0.0103 ; +0.1877]
+  A (source) MOINS B (sans balayage) : +0.0387 R/trade, SE 0.0419, t = +0.92
+    IC95 : [-0.0434 ; +0.1209]
+
+  |t| < 1,96 = indistinguable de zero au seuil 95 %. Les cellules de
+  grille se recouvrant fortement (memes barres, parametres voisins), ces
+  effectifs sont OPTIMISTES : les trades ne sont pas independants et la
+  vraie erreur-type est PLUS GRANDE que celle affichee ici.
+
+--- 2. PAR INSTRUMENT — variante A (source) ---
+
+  instrument      n    R/trade    WR %  R/tr spread nul  n long   R/tr long  n short  R/tr short
+  --------------------------------------------------------------------------------------------
+  EURUSD        288    -0.1624    21.5          -0.1403     198     -0.1101       90     -0.2774
+  USDJPY        125    -0.1105    24.8          -0.0875      57     +0.4713       68     -0.5982
+  USDCHF        272    +0.4550    42.6          +0.4964     114     -0.1828      158     +0.9152
+  USDCAD        155    +0.1561    25.2          +0.2141      69     +0.7154       86     -0.2926
+  AUDUSD        252    +0.6645    42.9          +0.7237     132     +0.2455      120     +1.1254
+  XAUUSD        214    -0.1345    21.5          -0.1264     100     +0.3122      114     -0.5264
+  XAGUSD        326    +0.0551    28.2          +0.0926     116     +0.4314      210     -0.1527
+  SP500         124    -0.4976    12.9          -0.4919      42     -1.0034       82     -0.2385
+  NASDAQ        269    -0.5229    11.2          -0.5208      56     -1.0011      213     -0.3972
+  DAX           102    +0.1500    29.4          +0.1533      26     -1.0013       76     +0.5439
+  WTIUSD        216    -0.2018    25.0          -0.1907     160     -0.5056       56     +0.6661
+
+--- 3. CONTROLE LONG / SHORT — poole, variante A ---
+  LONG  :   1070 trades, -0.0541 R/trade, total -57.9 R
+  SHORT :   1273 trades, +0.0560 R/trade, total +71.2 R
+  (F4 est declenchee si UN SEUL sens porte tout le resultat positif.)
+
+--- 4. DISPERSION DES CELLULES — variante A ---
+  cellules (instrument x config) avec au moins 1 trade : 400
+  dont R/trade > 0 : 178  (44.5 %)
+  Si le signal etait pur bruit on attendrait ~50 %.
+  cellules SANS aucun trade : 304 / 704
+
+Duree : 1242s

@@ -20,10 +20,10 @@ Ordre d'exécution : T1 ∥ T2 → T3 → T5 → T6 → T7 → T4 → T8 → Pha
 
 ## Exclusions du mandat autonome (tickets)
 
-- **Broker / exécution réelle** : hors mandat — décisions Adrian nécessaires (compte démo, politique de risque, étages 1-5 CHF). Ticket TCK-003.
-- **Tokens Telegram** : geste Adrian (création bots). Ticket TCK-004. Le code livre tout, inerte sans tokens.
+- **Broker / exécution réelle** : hors mandat — décisions Adrian nécessaires (compte démo, politique de risque, étages 1-5 CHF). Ticket TCK-006.
+- **Tokens Telegram** : geste Adrian (création bots). Ticket TCK-007. Le code livre tout, inerte sans tokens.
 - **E6** (bascule console 9.0.0.x) et **E7** (lancement dev stratégies) : gates Adrian existants.
-- Seuils de risque globaux : implémentés config-driven avec défauts hérités du prototype, confirmation Adrian via TCK-003.
+- Seuils de risque globaux : implémentés config-driven avec défauts hérités du prototype, confirmation Adrian via TCK-006.
 
 ## Garde-fous permanents
 

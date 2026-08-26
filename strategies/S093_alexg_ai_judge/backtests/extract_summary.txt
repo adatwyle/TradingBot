@@ -1,0 +1,10 @@
+EXTRACTION s93 — détecteur v2, 6 paires H1, spread réel + slippage 0.5 pip
+
+EURUSD: 50 candidats | run séquentiel : 42 trades, -2.9 R, WR 29%
+USDJPY: 34 candidats | run séquentiel : 27 trades, +0.4 R, WR 26%
+USDCHF: 42 candidats | run séquentiel : 36 trades, -15.8 R, WR 22%
+AUDCAD: 23 candidats | run séquentiel : 19 trades, -11.5 R, WR 21%
+GBPUSD: 19 candidats | run séquentiel : 18 trades, -8.2 R, WR 22%
+EURJPY: 23 candidats | run séquentiel : 17 trades, +3.5 R, WR 29%
+
+TOTAL : 191 candidats (0.72/semaine sur le book)

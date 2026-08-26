@@ -1,0 +1,66 @@
+================================================================================================
+ADDENDUM règles exactes — SP500 (2774 barres, release 2022-06-21)
+================================================================================================
+[A0_gel] défauts gelés
+  plein échantillon (réel) :   38 trades,    -0.27 R, -0.0072 R/trade, WR 89.5 %
+  plein échantillon (nul)  :   38 trades,    -0.24 R, -0.0062 R/trade, WR 89.5 %
+  pré-release  :   20 trades,    -0.98 R, -0.0492 R/trade, WR 80.0 %
+  post-release :   18 trades,    +0.58 R, +0.0324 R/trade, WR 94.4 %
+
+[A1_close_down] {'close_down': True}
+  plein échantillon (réel) :   34 trades,    -0.23 R, -0.0068 R/trade, WR 88.2 %
+  plein échantillon (nul)  :   34 trades,    -0.20 R, -0.0059 R/trade, WR 88.2 %
+  pré-release  :   19 trades,    -0.95 R, -0.0498 R/trade, WR 84.2 %
+  post-release :   15 trades,    +0.60 R, +0.0400 R/trade, WR 93.3 %
+  WF OOS [+0.65 +0.31 -0.60 +0.39] honest_r +0.74 (16 trades OOS)
+  témoin aléatoire : percentile  51.5  | nul méd   +0.74 R, p95   +1.93 R | 200 tirages de 16 trades (exéc. méd. 15, 100 % long) | R/trade aléatoire L +0.059 / S    n/a
+
+[A2_smacd_proxy] {'close_down': True, 'macd_rel': True}
+  plein échantillon (réel) :   34 trades,    -0.23 R, -0.0068 R/trade, WR 88.2 %
+  plein échantillon (nul)  :   34 trades,    -0.20 R, -0.0059 R/trade, WR 88.2 %
+  pré-release  :   19 trades,    -0.95 R, -0.0498 R/trade, WR 84.2 %
+  post-release :   15 trades,    +0.60 R, +0.0400 R/trade, WR 93.3 %
+  WF OOS [+0.65 +0.31 -0.60 +0.39] honest_r +0.74 (16 trades OOS)
+  témoin aléatoire : percentile  51.5  | nul méd   +0.74 R, p95   +1.93 R | 200 tirages de 16 trades (exéc. méd. 15, 100 % long) | R/trade aléatoire L +0.059 / S    n/a
+
+================================================================================================
+ADDENDUM règles exactes — NASDAQ (2774 barres, release 2022-06-21)
+================================================================================================
+[A0_gel] défauts gelés
+  plein échantillon (réel) :   41 trades,    +2.36 R, +0.0575 R/trade, WR 95.1 %
+  plein échantillon (nul)  :   41 trades,    +2.38 R, +0.0579 R/trade, WR 95.1 %
+  pré-release  :   21 trades,    +1.67 R, +0.0797 R/trade, WR 95.2 %
+  post-release :   20 trades,    +0.60 R, +0.0298 R/trade, WR 95.0 %
+
+[A1_close_down] {'close_down': True}
+  plein échantillon (réel) :   38 trades,    +2.25 R, +0.0591 R/trade, WR 94.7 %
+  plein échantillon (nul)  :   38 trades,    +2.26 R, +0.0595 R/trade, WR 94.7 %
+  pré-release  :   20 trades,    +1.61 R, +0.0803 R/trade, WR 95.0 %
+  post-release :   18 trades,    +0.55 R, +0.0306 R/trade, WR 94.4 %
+
+[A2_smacd_proxy] {'close_down': True, 'macd_rel': True}
+  plein échantillon (réel) :   39 trades,    +2.42 R, +0.0621 R/trade, WR 94.9 %
+  plein échantillon (nul)  :   39 trades,    +2.44 R, +0.0626 R/trade, WR 94.9 %
+  pré-release  :   20 trades,    +1.65 R, +0.0823 R/trade, WR 95.0 %
+  post-release :   19 trades,    +0.69 R, +0.0362 R/trade, WR 94.7 %
+
+================================================================================================
+ADDENDUM règles exactes — DAX (2692 barres, release 2022-06-21)
+================================================================================================
+[A0_gel] défauts gelés
+  plein échantillon (réel) :   45 trades,    +1.26 R, +0.0281 R/trade, WR 93.3 %
+  plein échantillon (nul)  :   45 trades,    +1.28 R, +0.0284 R/trade, WR 93.3 %
+  pré-release  :   27 trades,    -0.57 R, -0.0212 R/trade, WR 88.9 %
+  post-release :   18 trades,    +1.74 R, +0.0966 R/trade, WR 100.0 %
+
+[A1_close_down] {'close_down': True}
+  plein échantillon (réel) :   42 trades,    +1.39 R, +0.0332 R/trade, WR 92.9 %
+  plein échantillon (nul)  :   42 trades,    +1.41 R, +0.0336 R/trade, WR 92.9 %
+  pré-release  :   25 trades,    -0.52 R, -0.0209 R/trade, WR 88.0 %
+  post-release :   17 trades,    +1.82 R, +0.1071 R/trade, WR 100.0 %
+
+[A2_smacd_proxy] {'close_down': True, 'macd_rel': True}
+  plein échantillon (réel) :   39 trades,    +1.00 R, +0.0256 R/trade, WR 92.3 %
+  plein échantillon (nul)  :   39 trades,    +1.01 R, +0.0259 R/trade, WR 92.3 %
+  pré-release  :   24 trades,    -0.74 R, -0.0308 R/trade, WR 87.5 %
+  post-release :   15 trades,    +1.64 R, +0.1092 R/trade, WR 100.0 %

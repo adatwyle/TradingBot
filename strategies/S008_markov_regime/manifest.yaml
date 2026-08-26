@@ -1,0 +1,70 @@
+# Manifest — Markov Regime Switching (« hedge fund method »)
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+#
+# CONTRAT : ALLOCATION (core/contracts/allocation.py), pas le contrat épisodique.
+# Position dimensionnée par la confiance, sans stop de prix, potentiellement
+# toujours investie : R3 est explicitement hors périmètre (cf. allocation.py).
+# Justification complète : docstring de strategy.py + research/ANALYSIS.md.
+
+strategy_id: s08_markov_regime
+display_name: "Markov Regime Switching"
+version: "1.0.0"
+magic_number: 130008
+author: "claude:s08_markov_regime"
+source: "https://www.youtube.com/watch?v=Z-hU97WO30I"
+trader: "Lewis Jackson / Ran (hedge fund method)"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+contract: allocation
+
+# Univers testé. Les trois premiers sont ceux que la source cite ; les trois
+# suivants servent le contrôle de concentration (docs/METHODOLOGY.md §6).
+symbols: [SP500, NASDAQ, BTCUSD, XAUUSD, DAX, ETHUSD]
+timeframe: D1
+
+# 20 barres pour définir l'état, puis assez de transitions NON RECOUVRANTES pour
+# que la matrice ne soit pas du bruit pur. À step=20, 800 barres ne donnent que
+# ~39 transitions. C'est peu, et c'est déclaré dans research/FALSIFICATION.md §F3.
+warmup_bars: 800
+
+max_single_weight: 1.0
+rebalance: daily
+allow_cash: true
+
+default_params:
+  window: 20              # « les 20 derniers jours »
+  thr: 0.05               # « plus de 5 % » / « moins de -5 % »
+  step: 20                # correction n°1 : fenêtres sans recouvrement (1 = recouvrant)
+  alpha: 1.0              # lissage de Laplace sur les comptes de transitions
+  causal: true            # correction n°2 : matrice estimée sur le passé seul (R1)
+  horizon: 1              # prévision à n pas, par P^n
+  scalar_power: false     # true = l'exponentiation scalaire (fausse) de la source
+  mode: standalone        # standalone | filter
+  signal_source: markov   # markov | naive | hmm_agree
+  size_mode: proportional # proportional (fidèle) | binary (isole le timing)
+  size_scale: 2.0
+  weight_cap: 1.0
+  min_signal: 0.02
+  enable_shorts: false
+  hmm_mode: causal        # causal | leaky (leaky = le piège R7, mesuré exprès)
+  hmm_min_bars: 500
+  hmm_refit_every: 60
+
+# 4 x 3 x 3 = 36 cellules -> ~1,8 « réussite » attendue par pur hasard au seuil
+# 5 % (docs/METHODOLOGY.md §6). Grille délibérément petite : une grille large
+# trouve un meilleur faux positif, pas un meilleur edge.
+param_grid:
+  window: [10, 20, 40, 60]
+  thr: [0.03, 0.05, 0.08]
+  size_scale: [1.0, 2.0, 3.0]
+
+created: 2026-08-16
+notes: |
+  VERDICT : PAS D'EDGE (research/VERDICT.md).
+  R1 passé (backtests/causality.txt), R5 passé (backtests/conformance.txt).
+  0 victoire contre le buy & hold sur 6 instruments et 10 à 12 ans d'historique.
+  4 conditions de falsification sur 5 déclenchées (F2, F3, F4, F5).
+  Shorts portés par des séries synthétiques SYM~S : Allocation.weights impose
+  [0, 1] et ne sait pas exprimer un poids négatif.
+  Ne pas promouvoir. Statut maintenu à RESEARCH.

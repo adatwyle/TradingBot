@@ -1,0 +1,318 @@
+s10_legacy_meanrev — EXAMEN DU RÉSIDU NIKKEI + COMPARAISON AU RUN CONTAMINÉ
+
+========================================================================================================
+1. NIKKEI — STABILITÉ ANNUELLE DE LA MEILLEURE CELLULE
+========================================================================================================
+  Test repris de s01 §3.3, où il a disqualifié XAUUSD (72 % du résultat
+  venait de la seule année 2022). Critère fixé avant de regarder :
+  si > 60 % du résultat vient d'une seule année, ce n'est pas un système.
+
+  meilleure cellule WF (HIST_INF rsi40 adx35 sl1.5 rr2) — NIKKEI — 281 trades, +9.3 R, +0.0331 R/trade, WR 36.7 %, DD max 28.8 R
+    année        n         R   R/trade
+    2021        25      -0.2   -0.0083
+    2022        57     -10.2   -0.1783
+    2023        65      -6.8   -0.1046
+    2024        59      +3.7   +0.0622
+    2025        51     +23.4   +0.4586
+    2026        24      -0.6   -0.0242
+    -> meilleure année 2025 : +23.4 R = 251 % du total
+    -> hors 2025 : -14.1 R sur 230 trades (-0.0612 R/trade)
+    meilleure cellule directionnel : LONG 139 tr +5.3 R (+0.0382 R/tr)  |  SHORT 142 tr +4.0 R (+0.0282 R/tr)
+
+  Les 3 variantes au paramétrage par défaut, pour voir si le résultat
+  tient à la cellule ou à l'instrument :
+
+  défaut / DIV_SR — NIKKEI — 106 trades, +19.0 R, +0.1791 R/trade, WR 41.5 %, DD max 8.4 R
+    année        n         R   R/trade
+    2021        13      +4.0   +0.3073
+    2022        18      +7.6   +0.4223
+    2023        25      +6.1   +0.2432
+    2024        17      -5.6   -0.3321
+    2025        19      +1.3   +0.0658
+    2026        14      +5.7   +0.4074
+    -> meilleure année 2022 : +7.6 R = 40 % du total
+    -> hors 2022 : +11.4 R sur 88 trades (+0.1293 R/trade)
+    DIV_SR directionnel : LONG 52 tr +14.1 R (+0.2710 R/tr)  |  SHORT 54 tr +4.9 R (+0.0906 R/tr)
+
+  défaut / DIV_NOSR — NIKKEI — 119 trades, +20.6 R, +0.1733 R/trade, WR 41.2 %, DD max 9.4 R
+    année        n         R   R/trade
+    2021        14      +3.0   +0.2121
+    2022        19      +3.7   +0.1943
+    2023        29     +10.8   +0.3714
+    2024        18      -6.7   -0.3699
+    2025        20      +0.3   +0.0143
+    2026        19      +9.6   +0.5033
+    -> meilleure année 2023 : +10.8 R = 52 % du total
+    -> hors 2023 : +9.9 R sur 90 trades (+0.1095 R/trade)
+    DIV_NOSR directionnel : LONG 56 tr +13.1 R (+0.2335 R/tr)  |  SHORT 63 tr +7.5 R (+0.1198 R/tr)
+
+  défaut / HIST_INF — NIKKEI — 88 trades, +14.3 R, +0.1630 R/trade, WR 40.9 %, DD max 12.3 R
+    année        n         R   R/trade
+    2021        12      +7.8   +0.6514
+    2022        19      -7.9   -0.4178
+    2023        20      -0.1   -0.0027
+    2024        13      +4.4   +0.3387
+    2025        16      +7.1   +0.4430
+    2026         8      +3.0   +0.3785
+    -> meilleure année 2021 : +7.8 R = 54 % du total
+    -> hors 2021 : +6.5 R sur 76 trades (+0.0859 R/trade)
+    HIST_INF directionnel : LONG 48 tr +3.8 R (+0.0781 R/tr)  |  SHORT 40 tr +10.6 R (+0.2649 R/tr)
+
+========================================================================================================
+2. CONTRÔLE — LE MÊME TEST SUR LES DEUX EX-VEDETTES CONTAMINÉES
+========================================================================================================
+  SP500 et FTSE portaient le « PORTFOLIO ROBUSTE » de SPEC.md §7.1
+  (+244 et +108 CHF/fenêtre). Sur moteur propre ils font 0/108 STRICT.
+
+  défaut / DIV_SR — SP500 — 98 trades, -7.4 R, -0.0759 R/trade, WR 31.6 %, DD max 24.0 R
+    année        n         R   R/trade
+    2021         9      -6.3   -0.6967
+    2022        15      +5.6   +0.3752
+    2023        26      +0.3   +0.0097
+    2024        22      -7.6   -0.3443
+    2025        16      -7.3   -0.4560
+    2026        10      +7.8   +0.7818
+    -> meilleure année 2026 : +7.8 R = -105 % du total
+    -> hors 2026 : -15.3 R sur 88 trades (-0.1734 R/trade)
+    SP500 directionnel : LONG 38 tr -5.7 R (-0.1504 R/tr)  |  SHORT 60 tr -1.7 R (-0.0288 R/tr)
+
+  défaut / DIV_SR — FTSE — 54 trades, -7.0 R, -0.1293 R/trade, WR 29.6 %, DD max 12.4 R
+    année        n         R   R/trade
+    2021         6      -3.1   -0.5170
+    2022        10      +1.8   +0.1797
+    2023        12      +5.7   +0.4780
+    2024         9      -3.2   -0.3510
+    2025        10      -4.2   -0.4178
+    2026         7      -4.1   -0.5818
+    -> meilleure année 2023 : +5.7 R = -82 % du total
+    -> hors 2023 : -12.7 R sur 42 trades (-0.3027 R/trade)
+    FTSE directionnel : LONG 21 tr -0.4 R (-0.0190 R/tr)  |  SHORT 33 tr -6.6 R (-0.1994 R/tr)
+
+========================================================================================================
+3. DE COMBIEN LA FUITE GONFLAIT-ELLE LES CONCLUSIONS ?
+========================================================================================================
+
+  Le run contaminé de référence est `anchored_wf_results.txt` (2026-04-10) :
+  même protocole (walk-forward ancré, 4 fenêtres, critère STRICT), 210 configs,
+  17 instruments. Comparaison à protocole identique, normalisée par la taille
+  de grille.
+
+    instrument | contaminé /210 |  taux  | propre /108 |  taux  | attendu hasard
+    -----------+----------------+--------+-------------+--------+---------------
+    SP500      |       7        |  3.3 % |      0      |  0.0 % |     5.0 %
+    FTSE       |       7        |  3.3 % |      0      |  0.0 % |     5.0 %
+    AUDCHF     |       3        |  1.4 % |      4      |  3.7 % |     5.0 %
+    NIKKEI     |       2        |  1.0 % |      9      |  8.3 % |     5.0 %
+    USDJPY     |       0        |  0.0 % |      0      |  0.0 % |     5.0 %
+    EURUSD     |     absent     |    -   |      0      |  0.0 % |     5.0 %
+    EURCHF     |     absent     |    -   |      4      |  3.7 % |     5.0 %
+    AUDUSD     |     absent     |    -   |      2      |  1.9 % |     5.0 %
+
+  LE POINT CENTRAL, ET IL NE PORTE PAS SUR LA FUITE :
+
+  Le run contaminé a produit 19 réussites STRICT sur 17 x 210 = 3 570 cellules.
+  Un edge STRICTEMENT NUL en aurait produit ~178 (3 570 x 5 %).
+  Il faisait donc DIX FOIS MOINS BIEN QUE LE HASARD — et il a quand même été
+  publié comme « PORTFOLIO ROBUSTE » dans SPEC.md §7.1, puis chiffré à
+  +612 CHF/an.
+
+  Le run propre produit 19 réussites sur 8 x 108 = 864 cellules, contre ~43
+  attendues du hasard : deux fois moins bien que le hasard.
+
+  Autrement dit : la correction du lookahead n'a PAS transformé un résultat
+  positif en résultat négatif. Le résultat était déjà négatif AVANT la
+  correction — personne n'avait calculé le taux de faux positifs. La fuite a
+  déplacé QUELS instruments semblaient marcher (SP500 et FTSE s'effondrent de
+  3,3 % a 0 %, NIKKEI monte de 1,0 % a 8,3 %) sans jamais changer le fait que
+  l'ensemble était sous le seuil du hasard.
+
+  C'est un résultat plus dérangeant que « la fuite gonflait de X % » :
+  le chiffre publie n'etait pas seulement gonfle, il n'etait pas lu.
+
+  RÉSERVE HONNÊTE SUR CETTE COMPARAISON — trois écarts de protocole
+  interdisent d'attribuer TOUT l'écart à la fuite :
+    (a) les cellules gagnantes de SP500 et FTSE dans le run contaminé étaient
+        des COMBINAISONS multi-variantes (HI_cons+NO_SR, HI_aggr+NO_SR) que le
+        contrat de la plateforme ne permet pas d'exprimer (ANALYSIS §4.4) ;
+        leur 0/108 n'est donc pas strictement le même test ;
+    (b) ma détection de divergence est une fractale confirmée, pas la fenêtre
+        tronquée de l'historique (ANALYSIS §4.1) ;
+    (c) le moteur commun est plus pessimiste (stop prioritaire, pas de marge de
+        bruit sur le stop) et compte en R, pas en CHF (ANALYSIS §4.5).
+  La conclusion « sous le seuil du hasard » ne dépend d'aucun de ces trois
+  points : elle se calcule sur les comptes de réussites du run contaminé
+  lui-même, avec ses propres chiffres.
+
+
+========================================================================================================
+4. SUR-DISPERSION — POURQUOI « 19 CONTRE 43 » EST À LIRE AVEC PRUDENCE
+========================================================================================================
+
+  Le repère « 5 % de la grille par pur hasard » suppose des configurations
+  INDÉPENDANTES. Elles ne le sont pas : deux cellules voisines partagent la
+  quasi-totalité de leurs trades. Le nombre de réussites est donc SUR-DISPERSÉ
+  — il arrive par paquets (0, 0, 9, 4...) plutôt que dispersé autour de 5,4.
+
+  Conséquence dans les deux sens :
+   * un instrument à 9/108 n'est pas « 1,7x le hasard » de façon significative ;
+   * mais un TOTAL de 19 contre 43 attendues sur 8 instruments reste informatif,
+     parce que la sur-dispersion joue surtout DANS un instrument, pas entre eux.
+  On ne conclut donc pas sur un instrument isolé, on conclut sur le portefeuille
+  — et on traite NIKKEI comme un résidu à part, pas comme une preuve.
+
+Traceback (most recent call last):
+  File "<string>", line 80, in <module>
+ValueError: unsupported format character '>' (0x3e) at index 10
+
+========================================================================================================
+5. LE VRAI AMAS STRICT DE NIKKEI (le §1 avait profile la cellule au meilleur
+   OOS MOYEN, qui n est PAS un pass STRICT — correction)
+========================================================================================================
+
+  Bornes des fenetres du walk-forward ancre sur NIKKEI :
+     60% -> 2024-07-11 15:00:00
+     70% -> 2025-01-20 18:00:00
+     80% -> 2025-07-28 05:00:00
+     90% -> 2026-02-09 16:00:00
+    100% -> 2026-08-14 22:00:00
+
+  8 des 9 pass STRICT sont DIV_NOSR/DIV_SR, rsi 35-40, sl_atr 2.5, adx 25-35 :
+  un amas contigu, pas des cellules eparses. Les 4 representants :
+
+  DIV_NOSR  rsi40  adx35  sl2.5 rr2.0 | n=182  R= +28.5  R/tr=+0.1565  WR=40.1  DDmax=13.7 R
+            annees : 2021:-3.7(15)  2022:-10.3(33)  2023:+15.5(42)  2024:+9.7(37)  2025:+7.0(31)  2026:+10.4(24)
+            meilleure annee 2023 = 54% du total  |  hors 2023 : +13.0 R / 140 tr (+0.0930 R/tr)
+            LONG 86 +21.6 R (+0.2512)  |  SHORT 96 +6.9 R (+0.0717)  |  a spread nul +0.1969 R/tr
+
+  DIV_NOSR  rsi40  adx25  sl2.5 rr2.0 | n= 95  R= +31.9  R/tr=+0.3356  WR=46.3  DDmax=7.2 R
+            annees : 2021:+1.6(7)  2022:-0.7(15)  2023:+11.8(20)  2024:+5.2(24)  2025:+10.5(13)  2026:+3.6(16)
+            meilleure annee 2023 = 37% du total  |  hors 2023 : +20.1 R / 75 tr (+0.2682 R/tr)
+            LONG 50 +25.9 R (+0.5187)  |  SHORT 45 +5.9 R (+0.1321)  |  a spread nul +0.3772 R/tr
+
+  DIV_NOSR  rsi35  adx35  sl2.5 rr2.0 | n=112  R= +25.9  R/tr=+0.2311  WR=42.9  DDmax=6.3 R
+            annees : 2021:-0.7(12)  2022:+9.8(19)  2023:+7.4(27)  2024:-0.6(18)  2025:-1.5(19)  2026:+11.5(17)
+            meilleure annee 2026 = 44% du total  |  hors 2026 : +14.4 R / 95 tr (+0.1517 R/tr)
+            LONG 54 +15.7 R (+0.2907)  |  SHORT 58 +10.2 R (+0.1756)  |  a spread nul +0.2753 R/tr
+
+  DIV_SR    rsi35  adx35  sl2.5 rr2.0 | n=101  R= +25.1  R/tr=+0.2484  WR=43.6  DDmax=6.1 R
+            annees : 2021:-0.7(12)  2022:+13.7(18)  2023:+4.6(24)  2024:+0.4(17)  2025:-0.5(18)  2026:+7.6(12)
+            meilleure annee 2022 = 55% du total  |  hors 2022 : +11.4 R / 83 tr (+0.1369 R/tr)
+            LONG 51 +18.7 R (+0.3657)  |  SHORT 50 +6.4 R (+0.1287)  |  a spread nul +0.2954 R/tr
+
+  LECTURE. Contrairement a la cellule du §1, cet amas passe les tests qui
+  ont disqualifie XAUUSD dans s01 : aucune annee ne porte plus de 55 % du
+  total (seuil fixe a 60 %), le residu hors meilleure annee reste positif
+  (+0.09 a +0.27 R/trade), les deux sens sont profitables, et l edge est
+  BRUT (a spread nul : +0.20 a +0.38 R/trade).
+
+  CE QUI L EMPECHE MALGRE TOUT D ETRE UN EDGE ETABLI :
+   * les 4 cellules PARTAGENT la majorite de leurs trades — c est UNE
+     observation, pas quatre confirmations independantes ;
+   * n = 95 a 182 trades sur 5,1 ans ; l ecart-type du R/trade etant ~1 R,
+     l erreur standard vaut 0,07 a 0,10 R — soit 2 a 3 sigma au mieux,
+     SANS correction pour multiplicite ;
+   * la multiplicite est justement le probleme : NIKKEI est le meilleur de
+     8 instruments x 108 configurations. Le bon test n est pas << +0.25 est-il
+     significatif pour une serie >> mais << le meilleur de 864 cellules l est-il >>.
+     A ce niveau, non ;
+   * le cote LONG rend 2 a 4x le cote SHORT (+0.25/+0.52 contre +0.07/+0.18)
+     sur un marche qui a environ double sur la periode. Les deux sens sont
+     positifs — ce n est donc pas du pur beta — mais le biais directionnel
+     est reel et non explique ;
+   * NIKKEI figurait dans la liste des survivants du run CONTAMINE : il n a
+     pas ete choisi a l aveugle.
+
+  => Statut : NON CONCLUSIF. Ni ecarte, ni retenu. Merite un test dedie
+     (autres indices asiatiques, autre periode), pas une promotion.
+
+========================================================================================================
+6. LE FILTRE S/R — LA SIGNATURE DE S1 — APPORTE-T-IL QUELQUE CHOSE ?
+========================================================================================================
+
+  DIV_SR et DIV_NOSR ne different QUE par la confirmation de lieu :
+  proximite d un niveau S/R contre simple dominance -DI/+DI.
+  Jugement sur le R/TRADE, jamais sur le PnL total (retirer des trades
+  baisse le total mecaniquement).
+
+
+    sym          n S/R   R/tr S/R     n DI    R/tr DI     meilleur
+    --------------------------------------------------------------
+    SP500           98    -0.0759      104    -0.0726           DI
+    NIKKEI         106    +0.1791      119    +0.1733          S/R
+    FTSE            54    -0.1293       61    -0.2298          S/R
+    AUDCHF         103    +0.2126      106    +0.2311           DI
+    EURUSD         113    +0.0167      114    +0.0858           DI
+    EURCHF          85    +0.2565       85    +0.2564          S/R
+    AUDUSD         135    -0.0826      137    -0.0542           DI
+    USDJPY         130    -0.1444      134    -0.1042           DI
+    --------------------------------------------------------------
+    MOYENNE               +0.0291             +0.0357
+    S/R meilleur sur 3/8 instruments.
+
+  Sur EURCHF les deux variantes donnent 85 trades et +0.2565 / +0.2564 R/tr :
+  les deux filtres selectionnent litteralement les MEMES barres. Le filtre
+  de lieu n est pas contraignant.
+
+  CONCLUSION. Le composant qui donne son nom a la strategie — la confluence
+  divergence + support/resistance — n apporte AUCUNE information mesurable.
+  Le remplacer par un test trivial de dominance directionnelle fait aussi
+  bien, voire mieux. Le calcul de S/R (le poste le plus couteux du code
+  historique, ~50 s par instrument) ne paie pas son cout.
+
+========================================================================================================
+7. SENSIBILITE AU SLIPPAGE (ajoute a core/backtest/engine.py le 16.08.2026)
+========================================================================================================
+
+  Le moteur commun expose desormais InstrumentSpec.slippage_pips, defaut 0,0.
+  Mes resultats ci-dessus ont donc ete produits SANS slippage — ils sont
+  retrocompatibles, mais optimistes. Ordres de grandeur documentes dans le
+  moteur : 0,2-0,5 pip en FX liquide hors news, davantage sur indices CFD.
+  Quand l esperance nette vaut -0,0017 R/trade, 0,5 pip n est pas un detail.
+
+    sym       variante       slip 0.0     slip 0.5     slip 1.0
+    ------------------------------------------------------------
+    SP500     DIV_SR          -0.0759      -0.0808      -0.0857
+    SP500     DIV_NOSR        -0.0726      -0.0774      -0.0822
+    SP500     HIST_INF        +0.1640      +0.1592      +0.1545
+
+    NIKKEI    DIV_SR          +0.1791      +0.1736      +0.1681
+    NIKKEI    DIV_NOSR        +0.1733      +0.1681      +0.1629
+    NIKKEI    HIST_INF        +0.1630      +0.1576      +0.1523
+
+    FTSE      DIV_SR          -0.1293      -0.1315      -0.1337
+    FTSE      DIV_NOSR        -0.2298      -0.2319      -0.2340
+    FTSE      HIST_INF        -0.1711      -0.1732      -0.1753
+
+    AUDCHF    DIV_SR          +0.2126      +0.1597      +0.1096
+    AUDCHF    DIV_NOSR        +0.2311      +0.1781      +0.1278
+    AUDCHF    HIST_INF        -0.0422      -0.0902      -0.1357
+
+    EURUSD    DIV_SR          +0.0167      -0.0189      -0.0532
+    EURUSD    DIV_NOSR        +0.0858      +0.0500      +0.0155
+    EURUSD    HIST_INF        -0.0152      -0.0471      -0.0779
+
+    EURCHF    DIV_SR          +0.2565      +0.2071      +0.1601
+    EURCHF    DIV_NOSR        +0.2564      +0.2070      +0.1600
+    EURCHF    HIST_INF        -0.2744      -0.3093      -0.3427
+
+    AUDUSD    DIV_SR          -0.0826      -0.1213      -0.1583
+    AUDUSD    DIV_NOSR        -0.0542      -0.0932      -0.1306
+    AUDUSD    HIST_INF        -0.1202      -0.1581      -0.1944
+
+    USDJPY    DIV_SR          -0.1444      -0.1672      -0.1893
+    USDJPY    DIV_NOSR        -0.1042      -0.1268      -0.1488
+    USDJPY    HIST_INF        -0.2637      -0.2842      -0.3041
+
+    ------------------------------------------------------------
+    MOYENNE (24 cellules)      -0.0017      -0.0271      -0.0515
+    cellules positives          10/24         9/24         9/24
+
+  LECTURE. L esperance passe de -0,0017 a -0,0271 R/trade avec 0,5 pip de
+  glissement, et a -0,0515 avec 1 pip. Le << presque exactement zero >> du
+  §2.2 du verdict etait donc deja le SCENARIO LE PLUS FAVORABLE.
+
+  Consequence sur l argument << edge brut mange par les couts >> : l edge
+  brut mesure a spread nul vaut +0,0748 R/trade. Le spread en consomme
+  0,0766 et un glissement realiste de 0,5 pip en consomme 0,0254 de plus.
+  Il n y a donc AUCUNE marge : meme un broker a spread nul ne rendrait pas
+  la strategie rentable une fois le glissement paye.

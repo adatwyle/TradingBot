@@ -1,0 +1,27 @@
+========================================================================================
+R5 — CONFORMITÉ BACKTEST / LIVE (contrat allocation)
+========================================================================================
+
+Le CLI `core/validation/conformance.py` est câblé sur le contrat
+ÉPISODIQUE et ne sait pas rejouer `on_bar -> Allocation`. Lacune de
+core/ signalée, non corrigée (interdiction d'y toucher).
+
+  ### défaut
+  SP500 — 250 dernières barres rejouées en mode live
+    désaccords : 0 / 250   OK
+
+  ### binaire + shorts
+  SP500 — 250 dernières barres rejouées en mode live
+    désaccords : 0 / 250   OK
+
+  ### défaut
+  BTCUSD — 250 dernières barres rejouées en mode live
+    désaccords : 0 / 250   OK
+
+  ### binaire + shorts
+  BTCUSD — 250 dernières barres rejouées en mode live
+    désaccords : 0 / 250   OK
+
+========================================================================================
+VERDICT R5 : PASSÉ — les deux chemins décident à l'identique sur la fenêtre rejouée.
+========================================================================================

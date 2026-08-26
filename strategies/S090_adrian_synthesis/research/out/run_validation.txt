@@ -1,0 +1,432 @@
+s90 VALIDATION — commit f1e9d0c — 2026-08-17 03:39
+Protocole : research/HYPOTHESIS.md (figé, commit f1e9d0c). Moteur commun R9.
+Coûts réels : spread catalogue + slippage 0.5 pip. EK={'max_positions': 1, 'cooldown_bars': 2, 'cb_losses': 3, 'cb_cooldown_bars': 24, 'max_hold_bars': None}
+  EURUSD    31593 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  USDCHF    31594 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  USDJPY    31594 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  USDCAD    31594 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  AUDUSD    31594 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  EURCHF    31594 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  AUDCHF    31592 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  EURJPY    31594 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  AUDCAD    31591 barres H1  2021-07-18 23:00:00 -> 2026-08-14 22:00:00
+  SP500     29962 barres H1  2021-07-19 00:00:00 -> 2026-08-14 22:00:00
+  NASDAQ    29958 barres H1  2021-07-19 00:00:00 -> 2026-08-14 22:00:00
+  DAX       18121 barres H1  2021-07-19 08:00:00 -> 2026-08-14 21:00:00
+  FTSE      17849 barres H1  2021-07-19 08:00:00 -> 2026-08-14 21:00:00
+  NIKKEI    27142 barres H1  2021-07-19 01:00:00 -> 2026-08-14 22:00:00
+  XAUUSD    30024 barres H1  2021-07-19 00:00:00 -> 2026-08-14 22:00:00
+  XAGUSD    30021 barres H1  2021-07-19 00:00:00 -> 2026-08-14 22:00:00
+  WTIUSD    29994 barres H1  2021-07-19 00:00:00 -> 2026-08-14 22:00:00
+
+====================================================================================================
+P0 — ÉCONOMIE A PRIORI (cible 1 ATR)
+====================================================================================================
+coût aller-retour = spread + 2 × 0.5 pip ; drag = coût / (1 ATR médiane) ; mort sur papier si > 25 %
+
+instrument  ATR H1 méd (pips)  coût (pips)   drag %  statut
+----------------------------------------------------------------
+EURUSD                   12.8          2.9     22.6  
+USDCHF                   11.5          3.2     27.9  MORT-PAPIER (exclu du verdict de généralité)
+USDJPY                   20.6          3.8     18.5  
+USDCAD                   13.5          4.1     30.3  MORT-PAPIER (exclu du verdict de généralité)
+AUDUSD                   11.6          3.0     25.8  MORT-PAPIER (exclu du verdict de généralité)
+EURCHF                    9.0          4.5     50.0  MORT-PAPIER (exclu du verdict de généralité)
+AUDCHF                    9.6          3.2     33.4  MORT-PAPIER (exclu du verdict de généralité)
+EURJPY                   22.4          4.6     20.6  
+AUDCAD                   11.9          4.2     35.2  MORT-PAPIER (exclu du verdict de généralité)
+SP500                   113.9          6.0      5.3  
+NASDAQ                  534.3          9.0      1.7  
+DAX                     565.4          9.0      1.6  
+FTSE                    208.9          9.0      4.3  
+NIKKEI                  110.7         11.0      9.9  
+XAUUSD                  562.5         26.0      4.6  
+XAGUSD                  131.4         26.0     19.8  
+WTIUSD                   44.0          4.0      9.1  
+
+Instruments viables : 11/17 — hors découverte viables : ['EURJPY', 'FTSE', 'NASDAQ', 'NIKKEI', 'SP500', 'USDJPY', 'WTIUSD', 'XAGUSD']
+
+====================================================================================================
+P1 — R1 INVARIANT DE TRONCATURE (complément)
+====================================================================================================
+  USDCHF t2 T= 18956 :  842 vs  842 -> OK
+  USDCHF t2 T= 28434 : 1325 vs 1325 -> OK
+  USDCHF t3 T= 18956 :  357 vs  357 -> OK
+  USDCHF t3 T= 28434 :  557 vs  557 -> OK
+  USDCHF t4 T= 18956 :  136 vs  136 -> OK
+  USDCHF t4 T= 28434 :  201 vs  201 -> OK
+  NASDAQ t2 T= 17974 : 1078 vs 1078 -> OK
+  NASDAQ t2 T= 26962 : 1634 vs 1634 -> OK
+  NASDAQ t3 T= 17974 :  444 vs  444 -> OK
+  NASDAQ t3 T= 26962 :  710 vs  710 -> OK
+  NASDAQ t4 T= 17974 :  173 vs  173 -> OK
+  NASDAQ t4 T= 26962 :  278 vs  278 -> OK
+  XAGUSD t2 T= 18012 :  983 vs  983 -> OK
+  XAGUSD t2 T= 27018 : 1415 vs 1415 -> OK
+  XAGUSD t3 T= 18012 :  439 vs  439 -> OK
+  XAGUSD t3 T= 27018 :  615 vs  615 -> OK
+  XAGUSD t4 T= 18012 :  181 vs  181 -> OK
+  XAGUSD t4 T= 27018 :  254 vs  254 -> OK
+
+R1 complément : PASSÉ
+
+====================================================================================================
+P2 — WALK-FORWARD ANCRÉ (réel) + TÉMOIN NON CONDITIONNÉ
+====================================================================================================
+  EURUSD : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- EURUSD : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0       -121.88    428   -0.2848           —        —
+    t2_sl2.0        -36.95    420   -0.0880           —        —
+    t3_sl1.0        -44.44    214   -0.2077        51.5   +0.012 <= PRIMAIRE
+    t3_sl2.0        -10.20    216   -0.0472           —        —
+    t4_sl1.0        -18.35     71   -0.2585           —        —
+    t4_sl2.0         -5.52     71   -0.0778           —        —
+    (* = effectif témoin écarté)
+  [EURUSD terminé en 64s]
+  USDCHF : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- USDCHF : 6 cellules (walk-forward ancré, OOS honnête, coûts réels)   [MORT-PAPIER] ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0       -124.52    427   -0.2916           —        —
+    t2_sl2.0        -30.95    415   -0.0746           —        —
+    t3_sl1.0        -54.10    201   -0.2691        21.5   -0.106 <= PRIMAIRE
+    t3_sl2.0        -23.91    198   -0.1208           —        —
+    t4_sl1.0        -23.90     65   -0.3677           —        —
+    t4_sl2.0        -10.27     64   -0.1604           —        —
+    (* = effectif témoin écarté)
+  [USDCHF terminé en 60s]
+  USDJPY : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- USDJPY : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0        -85.18    385   -0.2213           —        —
+    t2_sl2.0        -42.53    360   -0.1182           —        —
+    t3_sl1.0        -42.70    176   -0.2426        23.5   -0.005 <= PRIMAIRE
+    t3_sl2.0        -28.42    171   -0.1662           —        —
+    t4_sl1.0        -18.89     61   -0.3097           —        —
+    t4_sl2.0         -7.72     58   -0.1331           —        —
+    (* = effectif témoin écarté)
+  [USDJPY terminé en 59s]
+  USDCAD : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- USDCAD : 6 cellules (walk-forward ancré, OOS honnête, coûts réels)   [MORT-PAPIER] ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0       -114.41    388   -0.2949           —        —
+    t2_sl2.0        -53.10    379   -0.1401           —        —
+    t3_sl1.0        -45.21    151   -0.2994        26.5   +0.033 <= PRIMAIRE
+    t3_sl2.0        -19.49    148   -0.1317           —        —
+    t4_sl1.0        -13.88     49   -0.2832           —        —
+    t4_sl2.0         -6.12     48   -0.1274           —        —
+    (* = effectif témoin écarté)
+  [USDCAD terminé en 59s]
+  AUDUSD : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- AUDUSD : 6 cellules (walk-forward ancré, OOS honnête, coûts réels)   [MORT-PAPIER] ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0        -66.85    395   -0.1692           —        —
+    t2_sl2.0        -26.45    378   -0.0700           —        —
+    t3_sl1.0        -30.55    153   -0.1997        72.5   -0.050 <= PRIMAIRE
+    t3_sl2.0        -14.35    151   -0.0950           —        —
+    t4_sl1.0         -9.70     33   -0.2938           —        —
+    t4_sl2.0         -2.01     33   -0.0611           —        —
+    (* = effectif témoin écarté)
+  [AUDUSD terminé en 58s]
+  EURCHF : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- EURCHF : 6 cellules (walk-forward ancré, OOS honnête, coûts réels)   [MORT-PAPIER] ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0       -158.27    403   -0.3927           —        —
+    t2_sl2.0        -74.12    383   -0.1935           —        —
+    t3_sl1.0        -84.91    184   -0.4614         1.0   -0.099 <= PRIMAIRE
+    t3_sl2.0        -38.67    182   -0.2125           —        —
+    t4_sl1.0        -33.05     81   -0.4081           —        —
+    t4_sl2.0        -18.55     82   -0.2262           —        —
+    (* = effectif témoin écarté)
+  [EURCHF terminé en 60s]
+  AUDCHF : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- AUDCHF : 6 cellules (walk-forward ancré, OOS honnête, coûts réels)   [MORT-PAPIER] ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0       -115.30    370   -0.3116           —        —
+    t2_sl2.0        -54.68    353   -0.1549           —        —
+    t3_sl1.0        -51.77    149   -0.3474         7.0   -0.186 <= PRIMAIRE
+    t3_sl2.0        -22.19    151   -0.1470           —        —
+    t4_sl1.0         -7.45     36   -0.2070           —        —
+    t4_sl2.0         -2.81     36   -0.0782           —        —
+    (* = effectif témoin écarté)
+  [AUDCHF terminé en 60s]
+  EURJPY : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- EURJPY : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0        -90.47    380   -0.2381           —        —
+    t2_sl2.0        -36.89    358   -0.1031           —        —
+    t3_sl1.0        -40.13    167   -0.2403        19.5   -0.040 <= PRIMAIRE
+    t3_sl2.0        -15.57    167   -0.0932           —        —
+    t4_sl1.0        -13.89     59   -0.2355           —        —
+    t4_sl2.0         -1.84     58   -0.0318           —        —
+    (* = effectif témoin écarté)
+  [EURJPY terminé en 60s]
+  AUDCAD : 2 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- AUDCAD : 6 cellules (walk-forward ancré, OOS honnête, coûts réels)   [MORT-PAPIER] ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0       -125.98    388   -0.3247           —        —
+    t2_sl2.0        -54.56    372   -0.1467           —        —
+    t3_sl1.0        -51.22    169   -0.3031        36.5   -0.155 <= PRIMAIRE
+    t3_sl2.0        -14.17    165   -0.0859           —        —
+    t4_sl1.0         -6.46     42   -0.1538           —        —
+    t4_sl2.0         +2.07     42   +0.0492        99.5   -0.083
+    (* = effectif témoin écarté)
+  [AUDCAD terminé en 89s]
+  SP500 : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- SP500 : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0        -41.93    434   -0.0966           —        —
+    t2_sl2.0        -20.18    419   -0.0482           —        —
+    t3_sl1.0        -26.20    189   -0.1386        31.5   +0.057 <= PRIMAIRE
+    t3_sl2.0        -18.36    179   -0.1025           —        —
+    t4_sl1.0        -14.33     82   -0.1747           —        —
+    t4_sl2.0        -10.15     80   -0.1268           —        —
+    (* = effectif témoin écarté)
+  [SP500 terminé en 57s]
+  NASDAQ : 3 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- NASDAQ : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0         -7.56    452   -0.0167           —        —
+    t2_sl2.0        +10.34    426   +0.0243        95.0   +0.001
+    t3_sl1.0         +3.72    215   +0.0173        87.5   +0.025 <= PRIMAIRE
+    t3_sl2.0         +2.85    213   +0.0134        82.5   +0.001
+    t4_sl1.0         -6.27     75   -0.0836           —        —
+    t4_sl2.0         -1.62     73   -0.0222           —        —
+    (* = effectif témoin écarté)
+  [NASDAQ terminé en 127s]
+  DAX : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- DAX : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0        -19.53    235   -0.0831           —        —
+    t2_sl2.0         -7.50    224   -0.0335           —        —
+    t3_sl1.0        -14.05     90   -0.1561        26.5   +0.070 <= PRIMAIRE
+    t3_sl2.0         -0.24     92   -0.0026           —        —
+    t4_sl1.0         -5.39     22   -0.2449           —        —
+    t4_sl2.0         -2.04     22   -0.0926           —        —
+    (* = effectif témoin écarté)
+  [DAX terminé en 35s]
+  FTSE : 2 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- FTSE : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0         -4.68    218   -0.0215           —        —
+    t2_sl2.0         +2.36    211   +0.0112        74.5   +0.051
+    t3_sl1.0        -17.98     81   -0.2220        14.5   -0.014 <= PRIMAIRE
+    t3_sl2.0         -8.37     82   -0.1021           —        —
+    t4_sl1.0         -1.63      9   -0.1811           —        —
+    t4_sl2.0         -1.64      9   -0.1826           —        —
+    (* = effectif témoin écarté)
+  [FTSE terminé en 53s]
+  NIKKEI : 2 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- NIKKEI : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0        -43.27    351   -0.1233           —        —
+    t2_sl2.0        -36.16    340   -0.1064           —        —
+    t3_sl1.0        -41.03    131   -0.3132         1.5   +0.034 <= PRIMAIRE
+    t3_sl2.0        -20.44    127   -0.1610           —        —
+    t4_sl1.0         +3.52     30   +0.1173        90.0   +0.020
+    t4_sl2.0         -2.62     30   -0.0872           —        —
+    (* = effectif témoin écarté)
+  [NIKKEI terminé en 78s]
+  XAUUSD : 3 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- XAUUSD : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0         -9.07    399   -0.0227           —        —
+    t2_sl2.0         -3.86    375   -0.0103           —        —
+    t3_sl1.0        +17.92    191   +0.0938        96.5   +0.066 <= PRIMAIRE
+    t3_sl2.0         +8.04    189   +0.0425        95.5   +0.075
+    t4_sl1.0         -3.75     64   -0.0586           —        —
+    t4_sl2.0         +0.07     65   +0.0011        75.5   +0.061
+    (* = effectif témoin écarté)
+  [XAUUSD terminé en 119s]
+  XAGUSD : 3 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- XAGUSD : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0        -37.72    404   -0.0934           —        —
+    t2_sl2.0         -1.62    375   -0.0043           —        —
+    t3_sl1.0        -18.64    174   -0.1071        48.5   -0.098 <= PRIMAIRE
+    t3_sl2.0         -1.04    171   -0.0061           —        —
+    t4_sl1.0         +0.48     67   +0.0072        87.5   -0.059
+    t4_sl2.0         +3.62     64   +0.0566        94.0   +0.000
+    (* = effectif témoin écarté)
+  [XAGUSD terminé en 118s]
+  WTIUSD : 1 cellules au témoin non conditionné (candidates OOS > 0 et/ou primaire, ≥ 20 tr)
+
+--- WTIUSD : 6 cellules (walk-forward ancré, OOS honnête, coûts réels) ---
+    cellule         OOS R  n OOS   R/t OOS  témoin pct     beta
+    ------------------------------------------------------------
+    t2_sl1.0        -57.19    473   -0.1209           —        —
+    t2_sl2.0        -33.93    451   -0.0752           —        —
+    t3_sl1.0        -15.65    204   -0.0767        76.0   +0.039 <= PRIMAIRE
+    t3_sl2.0        -25.42    201   -0.1265           —        —
+    t4_sl1.0         -4.74     81   -0.0585           —        —
+    t4_sl2.0         -9.81     80   -0.1226           —        —
+    (* = effectif témoin écarté)
+  [WTIUSD terminé en 60s]
+
+====================================================================================================
+P3 — ABLATION : spread nul + slippage nul (F7)
+====================================================================================================
+  EURUSD   cellules OOS > 0 à coût nul : 4/6 (réel : 0/6)
+  USDCHF   cellules OOS > 0 à coût nul : 4/6 (réel : 0/6)
+  USDJPY   cellules OOS > 0 à coût nul : 0/6 (réel : 0/6)
+  USDCAD   cellules OOS > 0 à coût nul : 6/6 (réel : 0/6)
+  AUDUSD   cellules OOS > 0 à coût nul : 5/6 (réel : 0/6)
+  EURCHF   cellules OOS > 0 à coût nul : 6/6 (réel : 0/6)
+  AUDCHF   cellules OOS > 0 à coût nul : 5/6 (réel : 0/6)
+  EURJPY   cellules OOS > 0 à coût nul : 2/6 (réel : 0/6)
+  AUDCAD   cellules OOS > 0 à coût nul : 5/6 (réel : 1/6)
+  SP500    cellules OOS > 0 à coût nul : 0/6 (réel : 0/6)
+  NASDAQ   cellules OOS > 0 à coût nul : 3/6 (réel : 3/6)
+  DAX      cellules OOS > 0 à coût nul : 1/6 (réel : 0/6)
+  FTSE     cellules OOS > 0 à coût nul : 2/6 (réel : 1/6)
+  NIKKEI   cellules OOS > 0 à coût nul : 1/6 (réel : 1/6)
+  XAUUSD   cellules OOS > 0 à coût nul : 5/6 (réel : 3/6)
+  XAGUSD   cellules OOS > 0 à coût nul : 6/6 (réel : 2/6)
+  WTIUSD   cellules OOS > 0 à coût nul : 2/6 (réel : 0/6)
+
+====================================================================================================
+P4 — SYNTHÈSES (F2 généralité, F4 sens, F8 dose-réponse)
+====================================================================================================
+
+--- F8 dose-réponse : R/t OOS réel poolé par seuil (instruments viables, sl 1.0) ---
+    seuil      R/t réel                   IC95       n  R/t coût nul       n
+    ------------------------------------------------------------------------
+    t2          -0.1247 [ -0.1548; -0.0946]    4159       -0.0352    4159
+    t3          -0.1306 [ -0.1753; -0.0858]    1832       -0.0342    1832
+    t4          -0.1340 [ -0.2097; -0.0584]     621       -0.0234     621
+    (même tableau, sl 2.0)
+    t2          -0.0523 [ -0.0741; -0.0304]    3959       -0.0048    3959
+    t3          -0.0648 [ -0.0972; -0.0324]    1808       -0.0137    1808
+    t4          -0.0644 [ -0.1193; -0.0094]     610       -0.0056     610
+
+--- F2 : cellule PRIMAIRE (t3_sl1.0), pools réels ---
+    découverte (EURUSD/XAUUSD/DAX)         R/t  -0.0819 [ -0.1680; +0.0042] n   495   (coût nul  +0.0274, n 495)
+    HORS DÉCOUVERTE viables (le juge)      R/t  -0.1485 [ -0.2009; -0.0962] n  1337   (coût nul  -0.0570, n 1337)
+    hors découverte tous                   R/t  -0.2203 [ -0.2581; -0.1825] n  2344   (coût nul  -0.0266, n 2344)
+    univers viable entier                  R/t  -0.1306 [ -0.1753; -0.0858] n  1832   (coût nul  -0.0342, n 1832)
+
+--- F4 : long/short, cellule primaire, pools réels ---
+    découverte                   LONG  -0.0981 (n  207)   SHORT  -0.0703 (n  288)
+    hors découverte viables      LONG  -0.1298 (n  463)   SHORT  -0.1585 (n  874)
+
+--- par instrument : cellule primaire (réel) ---
+    instrument   R/t OOS     n    OOS R     pct  coût nul R/t  groupe
+    ----------------------------------------------------------------------
+    EURUSD       -0.2077   214   -44.44    51.5       +0.0169  DÉCOUVERTE
+    USDCHF       -0.2691   201   -54.10    21.5       +0.0149  mort-papier
+    USDJPY       -0.2426   176   -42.70    23.5       -0.0800  hors-déc.
+    USDCAD       -0.2994   151   -45.21    26.5       +0.0185  mort-papier
+    AUDUSD       -0.1997   153   -30.55    72.5       +0.0588  mort-papier
+    EURCHF       -0.4614   184   -84.91     1.0       +0.0109  mort-papier
+    AUDCHF       -0.3474   149   -51.77     7.0       -0.0269  mort-papier
+    EURJPY       -0.2403   167   -40.13    19.5       -0.0539  hors-déc.
+    AUDCAD       -0.3031   169   -51.22    36.5       +0.0069  mort-papier
+    SP500        -0.1386   189   -26.20    31.5       -0.0899  hors-déc.
+    NASDAQ       +0.0173   215    +3.72    87.5       +0.0333  hors-déc.
+    DAX          -0.1561    90   -14.05    26.5       -0.1450  DÉCOUVERTE
+    FTSE         -0.2220    81   -17.98    14.5       -0.1908  hors-déc.
+    NIKKEI       -0.3132   131   -41.03     1.5       -0.2586  hors-déc.
+    XAUUSD       +0.0938   191   +17.92    96.5       +0.1204  DÉCOUVERTE
+    XAGUSD       -0.1071   174   -18.64    48.5       +0.0000  hors-déc.
+    WTIUSD       -0.0767   204   -15.65    76.0       +0.0294  hors-déc.
+
+Cellules F1 (pct ≥ 95, eff OK, ≥ 20 tr OOS) : 4
+  AUDCAD     t4_sl2.0   OOS   +2.07 R (42 tr, R/t +0.0492)  pct 99.5
+  NASDAQ     t2_sl2.0   OOS  +10.34 R (426 tr, R/t +0.0243)  pct 95.0
+  XAUUSD     t3_sl1.0   OOS  +17.92 R (191 tr, R/t +0.0938)  pct 96.5
+  XAUUSD     t3_sl2.0   OOS   +8.04 R (189 tr, R/t +0.0425)  pct 95.5
+
+====================================================================================================
+P5 — STABILITÉ MULTI-GRAINES (F5) des cellules pct ≥ 95
+====================================================================================================
+graines : [20260816, 20260817, 7, 424242, 990001] — 200 tirages chacune
+
+  AUDCAD     t4_sl2.0   pct par graine : 100.0   97.5   98.5   99.5   97.5  -> 5/5 ≥ 95 STABLE
+  NASDAQ     t2_sl2.0   pct par graine :  95.5   94.0   95.5   95.0   96.0  -> 4/5 ≥ 95 STABLE
+  XAUUSD     t3_sl1.0   pct par graine :  96.5   98.5   99.0   98.5   98.5  -> 5/5 ≥ 95 STABLE
+  XAUUSD     t3_sl2.0   pct par graine :  95.5   97.0   95.0   96.5   98.0  -> 5/5 ≥ 95 STABLE
+
+====================================================================================================
+P6 — TÉMOIN CONDITIONNÉ À L'ÉTAT D'EXCURSION (F3b)
+====================================================================================================
+Tirages restreints aux barres dans l'état (tendance, ADX > 20, excursion ≥ seuil ATR),
+géométrie identique (profil OOS permuté), mêmes engine_kwargs, 200 tirages × 5 graines.
+Lecture (HYPOTHESIS §3 mapping) : pct ≥ 95 = le palier ajoute ; pct < 95 avec E_c > 0 =
+l'état est l'edge (réserve levée) ; pct < 95 et E_c ≤ 0 = artefact, au plus NON CONCLUSIF.
+
+  DAX        t3_sl1.0   graine 20260816 : pct  16.0  E_c -0.1052 R/t  (méd. 64/90 tr, EFFECTIF ÉCARTÉ)
+  DAX        t3_sl1.0   graine 20260817 : pct  20.5  E_c -0.1235 R/t  (méd. 64/90 tr, EFFECTIF ÉCARTÉ)
+  DAX        t3_sl1.0   graine 7 : pct  23.0  E_c -0.1063 R/t  (méd. 63/90 tr, EFFECTIF ÉCARTÉ)
+  DAX        t3_sl1.0   graine 424242 : pct  13.5  E_c -0.1055 R/t  (méd. 63/90 tr, EFFECTIF ÉCARTÉ)
+  DAX        t3_sl1.0   graine 990001 : pct  17.0  E_c -0.0986 R/t  (méd. 64/90 tr, EFFECTIF ÉCARTÉ)
+  => DAX t3_sl1.0 : pct méd  17.0, E_c méd -0.1055 R/t
+
+  EURUSD     t3_sl1.0   graine 20260816 : pct  25.0  E_c -0.2367 R/t  (méd. 164/214 tr, EFFECTIF ÉCARTÉ)
+  EURUSD     t3_sl1.0   graine 20260817 : pct  21.5  E_c -0.2274 R/t  (méd. 164/214 tr, EFFECTIF ÉCARTÉ)
+  EURUSD     t3_sl1.0   graine 7 : pct  24.0  E_c -0.2265 R/t  (méd. 165/214 tr, EFFECTIF ÉCARTÉ)
+  EURUSD     t3_sl1.0   graine 424242 : pct  26.0  E_c -0.2358 R/t  (méd. 164/214 tr, EFFECTIF ÉCARTÉ)
+  EURUSD     t3_sl1.0   graine 990001 : pct  28.5  E_c -0.2333 R/t  (méd. 164/214 tr, EFFECTIF ÉCARTÉ)
+  => EURUSD t3_sl1.0 : pct méd  25.0, E_c méd -0.2333 R/t
+
+  XAUUSD     t3_sl1.0   graine 20260816 : pct  98.0  E_c -0.0364 R/t  (méd. 143/191 tr, EFFECTIF ÉCARTÉ)
+  XAUUSD     t3_sl1.0   graine 20260817 : pct 100.0  E_c -0.0286 R/t  (méd. 143/191 tr, EFFECTIF ÉCARTÉ)
+  XAUUSD     t3_sl1.0   graine 7 : pct  97.0  E_c -0.0276 R/t  (méd. 143/191 tr, EFFECTIF ÉCARTÉ)
+  XAUUSD     t3_sl1.0   graine 424242 : pct  98.5  E_c -0.0238 R/t  (méd. 143/191 tr, EFFECTIF ÉCARTÉ)
+  XAUUSD     t3_sl1.0   graine 990001 : pct  99.0  E_c -0.0361 R/t  (méd. 143/191 tr, EFFECTIF ÉCARTÉ)
+  => XAUUSD t3_sl1.0 : pct méd  98.5, E_c méd -0.0286 R/t
+
+  AUDCAD     t4_sl2.0   graine 20260816 : pct  98.0  E_c -0.1005 R/t  (méd. 32/42 tr, EFFECTIF ÉCARTÉ)
+  AUDCAD     t4_sl2.0   graine 20260817 : pct  98.0  E_c -0.0998 R/t  (méd. 33/42 tr, EFFECTIF ÉCARTÉ)
+  AUDCAD     t4_sl2.0   graine 7 : pct  98.5  E_c -0.0973 R/t  (méd. 33/42 tr, EFFECTIF ÉCARTÉ)
+  AUDCAD     t4_sl2.0   graine 424242 : pct  98.5  E_c -0.0752 R/t  (méd. 33/42 tr, EFFECTIF ÉCARTÉ)
+  AUDCAD     t4_sl2.0   graine 990001 : pct  98.5  E_c -0.0951 R/t  (méd. 33/42 tr, EFFECTIF ÉCARTÉ)
+  => AUDCAD t4_sl2.0 : pct méd  98.5, E_c méd -0.0973 R/t
+
+  NASDAQ     t2_sl2.0   graine 20260816 : pct  92.0  E_c -0.0214 R/t  (méd. 293/426 tr, EFFECTIF ÉCARTÉ)
+  NASDAQ     t2_sl2.0   graine 20260817 : pct  92.5  E_c -0.0203 R/t  (méd. 293/426 tr, EFFECTIF ÉCARTÉ)
+  NASDAQ     t2_sl2.0   graine 7 : pct  92.0  E_c -0.0212 R/t  (méd. 293/426 tr, EFFECTIF ÉCARTÉ)
+  NASDAQ     t2_sl2.0   graine 424242 : pct  93.5  E_c -0.0260 R/t  (méd. 293/426 tr, EFFECTIF ÉCARTÉ)
+  NASDAQ     t2_sl2.0   graine 990001 : pct  95.5  E_c -0.0223 R/t  (méd. 293/426 tr, EFFECTIF ÉCARTÉ)
+  => NASDAQ t2_sl2.0 : pct méd  92.5, E_c méd -0.0214 R/t
+
+  XAUUSD     t3_sl2.0   graine 20260816 : pct  93.5  E_c -0.0271 R/t  (méd. 132/189 tr, EFFECTIF ÉCARTÉ)
+  XAUUSD     t3_sl2.0   graine 20260817 : pct  95.5  E_c -0.0192 R/t  (méd. 133/189 tr, EFFECTIF ÉCARTÉ)
+  XAUUSD     t3_sl2.0   graine 7 : pct  91.0  E_c -0.0186 R/t  (méd. 133/189 tr, EFFECTIF ÉCARTÉ)
+  XAUUSD     t3_sl2.0   graine 424242 : pct  94.5  E_c -0.0205 R/t  (méd. 133/189 tr, EFFECTIF ÉCARTÉ)
+  XAUUSD     t3_sl2.0   graine 990001 : pct  91.0  E_c -0.0168 R/t  (méd. 133/189 tr, EFFECTIF ÉCARTÉ)
+  => XAUUSD t3_sl2.0 : pct méd  93.5, E_c méd -0.0192 R/t
+
+
+Durée totale : 53.1 min

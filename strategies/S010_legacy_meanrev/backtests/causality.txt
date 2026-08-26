@@ -1,0 +1,19 @@
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s10_legacy_meanrev
+Instrument: SP500   (29962 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%    17977        183        183  OK
+      70%    20973        201        201  OK
+      80%    23969        222        222  OK
+      90%    26965        256        256  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.

@@ -1,0 +1,402 @@
+s91_claude_scratch — ASIAN-WINDOW FADE (H91) — WALK-FORWARD ET DIAGNOSTICS
+éligibles     : EURUSD, USDCHF, USDCAD, AUDUSD
+contrôle JPY  : USDJPY, EURJPY  (H91 prédit qu'ils ÉCHOUENT)
+timeframe     : H1   |   fenêtre = heure SERVEUR 22-06h (ou 23-04h)
+critères      : Tier1 = PnL train > 0, >= 20 trades, DD <= 12.0 R
+
+Conditions de falsification déclarées AVANT ce run — ANALYSIS.md §6.
+
+====================================================================================================
+R1 — INVARIANT DE CAUSALITÉ SUR PLUSIEURS POINTS DE LA GRILLE
+====================================================================================================
+  24 combinaisons testées sur EURUSD (31593 barres) — 24 OK, 0 en fuite.
+  VERDICT R1 : PASSÉ
+
+====================================================================================================
+DIAGNOSTIC PLEIN ÉCHANTILLON + ABLATION DU SPREAD + CONTRÔLE LONG/SHORT
+====================================================================================================
+  Ce n'est PAS un critère de validation (aucun hors-échantillon).
+  C'est le diagnostic qui dit d'où vient le comportement.
+
+  Cellule : configuration PAR DÉFAUT (z_min 2.0, sl_atr 2.5, rr 1.0,
+  fenêtre large). Choisie en Phase 1, pas après coup.
+
+  instrumentgroupe         n   R réel  R/tr réel  R/tr nul     coût    WR%    PF   nL   R/tr L   nS   R/tr S
+  --------------------------------------------------------------------------------------------------
+  EURUSD    ÉLIGIBLE     185     +3.7    +0.0200   +0.0811  +0.0610   54.1  1.04   87  +0.1109   98  -0.0606
+  USDCHF    ÉLIGIBLE     175     +2.2    +0.0126   +0.0971  +0.0845   54.9  1.03  107  +0.0707   68  -0.0788
+  USDCAD    ÉLIGIBLE     196     -8.4    -0.0428   +0.0510  +0.0938   52.6  0.91   90  +0.1033  106  -0.1668
+  AUDUSD    ÉLIGIBLE     391    -35.5    -0.0907   -0.0230  +0.0677   48.8  0.83  206  -0.0974  185  -0.0833
+  USDJPY    CONTRÔLE     360    -42.8    -0.1190   -0.0611  +0.0579   46.9  0.78  184  -0.0468  176  -0.1945
+  EURJPY    CONTRÔLE     249    -65.0    -0.2610   -0.2054  +0.0555   43.8  0.60  120  -0.0596  129  -0.4482
+  --------------------------------------------------------------------------------------------------
+  MOY ÉLIGIBLE           947             -0.0252   +0.0516
+  MOY CONTRÔLE JPY       609             -0.1900   -0.1333
+
+  --- F1 : le signal existe-t-il hors coûts ? ---
+  Espérance brute à SPREAD NUL, moyenne sur les 4 éligibles : +0.0516 R/trade
+  F1 déclenchée (<= 0) : non
+
+  --- F2 : le clivage JPY prédit par le mécanisme ---
+  R/trade éligibles -0.0252  vs  contrôle JPY -0.1900  (écart +0.1648)
+  F2 déclenchée (JPY >= éligibles) : non
+
+  --- F4a : contrôle directionnel ---
+  EURUSD     long +0.1109  short -0.0606   *** un seul sens porte le résultat ***
+  USDCHF     long +0.0707  short -0.0788   *** un seul sens porte le résultat ***
+  USDCAD     long +0.1033  short -0.1668   *** un seul sens porte le résultat ***
+  AUDUSD     long -0.0974  short -0.0833   cohérent
+  USDJPY     long -0.0468  short -0.1945   cohérent
+  EURJPY     long -0.0596  short -0.4482   cohérent
+
+====================================================================================================
+WALK-FORWARD ANCRÉ — 4 fenêtres, hors échantillon
+====================================================================================================
+
+>>> EURUSD [ÉLIGIBLE] — 31593 barres H1
+    5/54 configurations
+    10/54 configurations
+    15/54 configurations
+    20/54 configurations
+    25/54 configurations
+    30/54 configurations
+    35/54 configurations
+    40/54 configurations
+    45/54 configurations
+    50/54 configurations
+================================================================================================
+WALK-FORWARD — s91_claude_scratch / EURUSD
+================================================================================================
+31593 barres · 54 configurations · 99s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/54   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 24/54
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    rr1.5_sl_atr3.0_windowlarge_z_min2.0           +0.03   -3.43   -1.66  +11.92   +1.72      91
+    rr1.5_sl_atr3.0_windowetroite_z_min2.5         -0.18   +1.24   -3.72   +8.79   +1.53      25
+    rr1.0_sl_atr3.0_windowlarge_z_min2.0           -5.63   +4.88   -2.15   +8.27   +1.34     100
+    rr1.0_sl_atr3.0_windowetroite_z_min2.5         -1.16   +1.75   -2.25   +6.31   +1.16      26
+    rr1.5_sl_atr3.0_windowlarge_z_min2.5           -0.81   +2.68   -3.31   +5.73   +1.07      34
+    rr0.75_sl_atr3.0_windowlarge_z_min2.5          -1.33   +1.47   -1.35   +5.42   +1.05      36
+    rr1.5_sl_atr2.0_windowetroite_z_min2.5         -0.26   +1.11   -1.40   +3.96   +0.85      27
+    rr1.0_sl_atr3.0_windowlarge_z_min2.5           -2.29   +2.70   -2.33   +5.20   +0.82      35
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    rr1.5_sl_atr3.0_windowetroite_z_min2.0           +30.24      +7.67      75 %
+    rr1.5_sl_atr3.0_windowlarge_z_min2.0             +23.50      +6.86      71 %
+    rr1.0_sl_atr3.0_windowetroite_z_min2.0           +22.95      +1.76      92 %
+
+    => 75 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> USDCHF [ÉLIGIBLE] — 31594 barres H1
+    5/54 configurations
+    10/54 configurations
+    15/54 configurations
+    20/54 configurations
+    25/54 configurations
+    30/54 configurations
+    35/54 configurations
+    40/54 configurations
+    45/54 configurations
+    50/54 configurations
+================================================================================================
+WALK-FORWARD — s91_claude_scratch / USDCHF
+================================================================================================
+31594 barres · 54 configurations · 97s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/54   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 19/54
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    rr1.5_sl_atr2.0_windowetroite_z_min2.5         -6.01   +2.47   +0.59   +3.48   +0.13      29
+    rr1.5_sl_atr2.0_windowlarge_z_min2.5           -5.72   +2.47   -0.46   +4.04   +0.08      36
+    rr1.0_sl_atr3.0_windowetroite_z_min2.5         -2.35   +1.41   -0.25   +1.39   +0.05      26
+    rr1.5_sl_atr3.0_windowetroite_z_min2.5         -1.39   +1.44   -1.72   +1.38   -0.07      26
+    rr1.5_sl_atr2.5_windowetroite_z_min2.5         -3.55   +1.34   -1.76   +3.67   -0.07      28
+    rr1.0_sl_atr3.0_windowlarge_z_min2.5           -2.48   +1.41   -1.29   +1.13   -0.31      33
+    rr1.0_sl_atr2.0_windowlarge_z_min2.5           -6.68   +0.09   +0.47   +4.53   -0.40      36
+    rr0.75_sl_atr3.0_windowetroite_z_min2.5        -1.57   +0.20   -0.73   +0.19   -0.48      28
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    rr1.0_sl_atr2.0_windowlarge_z_min2.5              +7.02      -1.59     123 %
+    rr1.5_sl_atr2.0_windowlarge_z_min2.0              +6.64      -8.57     229 %
+    rr1.5_sl_atr3.0_windowlarge_z_min2.5              +6.35      -2.70     142 %
+
+    => 123 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> USDCAD [ÉLIGIBLE] — 31594 barres H1
+    5/54 configurations
+    10/54 configurations
+    15/54 configurations
+    20/54 configurations
+    25/54 configurations
+    30/54 configurations
+    35/54 configurations
+    40/54 configurations
+    45/54 configurations
+    50/54 configurations
+================================================================================================
+WALK-FORWARD — s91_claude_scratch / USDCAD
+================================================================================================
+31594 barres · 54 configurations · 97s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 1/54   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 11/54
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    rr0.75_sl_atr3.0_windowetroite_z_min2.5        +0.18   +0.28   +0.72   +2.67   +0.96      22
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    rr1.5_sl_atr2.0_windowetroite_z_min2.5         +3.48   +1.61   -2.04   +4.16   +1.80      22
+    rr0.75_sl_atr2.5_windowlarge_z_min2.5          +2.79   +0.42   +0.62   +2.05   +1.47      31
+    rr1.0_sl_atr3.0_windowetroite_z_min2.5         +1.39   +0.77   +1.43   +2.20   +1.45      22
+    rr0.75_sl_atr2.5_windowetroite_z_min2.5        +1.76   +0.24   +0.62   +2.51   +1.28      22
+    rr1.0_sl_atr2.0_windowetroite_z_min2.5         +3.01   +0.66   -2.49   +3.68   +1.21      22
+    rr1.5_sl_atr3.0_windowetroite_z_min2.5         +2.41   -0.70   +0.49   +2.21   +1.10      21
+    rr0.75_sl_atr3.0_windowetroite_z_min2.5        +0.18   +0.28   +0.72   +2.67   +0.96      22
+    rr1.0_sl_atr2.5_windowlarge_z_min2.5           +1.10   +1.38   -0.55   +1.82   +0.94      31
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    rr1.5_sl_atr2.0_windowetroite_z_min2.5            +8.48      +7.20      15 %
+    rr1.0_sl_atr2.0_windowetroite_z_min2.5            +7.17      +4.85      32 %
+    rr1.0_sl_atr2.5_windowetroite_z_min2.5            +6.33      +3.49      45 %
+
+    => 15 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> AUDUSD [ÉLIGIBLE] — 31594 barres H1
+    5/54 configurations
+    10/54 configurations
+    15/54 configurations
+    20/54 configurations
+    25/54 configurations
+    30/54 configurations
+    35/54 configurations
+    40/54 configurations
+    45/54 configurations
+    50/54 configurations
+================================================================================================
+WALK-FORWARD — s91_claude_scratch / AUDUSD
+================================================================================================
+31594 barres · 54 configurations · 111s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/54   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/54
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    rr1.5_sl_atr3.0_windowetroite_z_min1.5         -6.16   +2.35  -10.07  +19.84   +1.49     187
+    rr1.5_sl_atr2.5_windowetroite_z_min2.5         -4.22   -4.15   +3.66   +9.82   +1.28      60
+    rr1.5_sl_atr2.0_windowetroite_z_min1.5        -10.38   +9.88  -12.51  +18.01   +1.25     252
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    rr1.5_sl_atr2.5_windowetroite_z_min2.5            +8.08      +5.10      37 %
+    rr1.5_sl_atr2.5_windowetroite_z_min1.5            +6.80      -1.44     121 %
+    rr1.0_sl_atr3.0_windowetroite_z_min2.5            +6.19      +2.03      67 %
+
+    => 37 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> USDJPY [CONTRÔLE JPY] — 31594 barres H1
+    5/54 configurations
+    10/54 configurations
+    15/54 configurations
+    20/54 configurations
+    25/54 configurations
+    30/54 configurations
+    35/54 configurations
+    40/54 configurations
+    45/54 configurations
+    50/54 configurations
+================================================================================================
+WALK-FORWARD — s91_claude_scratch / USDJPY
+================================================================================================
+31594 barres · 54 configurations · 121s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/54   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 1/54
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    rr1.5_sl_atr2.5_windowetroite_z_min2.5         +1.08   -1.39   -2.97   +2.74   -0.13      62
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    rr1.5_sl_atr2.5_windowetroite_z_min2.5            +4.33      -0.53     112 %
+    rr1.5_sl_atr3.0_windowetroite_z_min2.5            +3.40      -2.83     183 %
+    rr1.5_sl_atr3.0_windowlarge_z_min2.5              +0.84      -0.02     102 %
+
+    => 112 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> EURJPY [CONTRÔLE JPY] — 31594 barres H1
+    5/54 configurations
+    10/54 configurations
+    15/54 configurations
+    20/54 configurations
+    25/54 configurations
+    30/54 configurations
+    35/54 configurations
+    40/54 configurations
+    45/54 configurations
+    50/54 configurations
+================================================================================================
+WALK-FORWARD — s91_claude_scratch / EURJPY
+================================================================================================
+31594 barres · 54 configurations · 98s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/54   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/54
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    rr1.5_sl_atr2.5_windowlarge_z_min1.5           +1.08   +9.54  -12.43  +13.15   +2.84     237
+    rr1.0_sl_atr2.5_windowlarge_z_min1.5           +5.00   +0.08  -13.59   +6.52   -0.50     273
+    rr1.5_sl_atr3.0_windowlarge_z_min2.0           +7.00   +2.68  -14.18   +0.00   -1.13      68
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+====================================================================================================
+SYNTHÈSE — TABLEAU PAR INSTRUMENT (F3, F5)
+====================================================================================================
+  Grille : 54 configurations par instrument.
+  Un edge NUL produirait ~2.7 « STRICT pass » par instrument
+  par pur hasard, soit ~10.8 sur les 4 éligibles.
+
+  instrument groupe          STRICT  attendu  TIER1  trades OOS  moy OOS R  meilleur
+  ----------------------------------------------------------------------------------
+  EURUSD     ÉLIGIBLE             0      2.7     24          84      -0.85     +1.92
+  USDCHF     ÉLIGIBLE             0      2.7     19          80      -1.64     +2.96
+  USDCAD     ÉLIGIBLE             1      2.7     11          73      -0.48     +3.10
+  AUDUSD     ÉLIGIBLE             0      2.7      0         136      -1.57     +1.49
+  USDJPY     CONTRÔLE JPY         0      2.7      1         127      -4.65     +0.62
+  EURJPY     CONTRÔLE JPY         0      2.7      0          72      -3.79     +2.84
+  ----------------------------------------------------------------------------------
+  TOTAL ÉLIGIBLE                  1     10.8
+  TOTAL CONTRÔLE JPY              0      5.4
+
+  --- F3 : STRICT contre hasard, sur les éligibles ---
+  observé 1  vs  attendu 10.8
+  F3 déclenchée (<= hasard) : OUI -> H91 RÉFUTÉE
+
+  --- F5 : puissance statistique ---
+  Effectif OOS médian sur les éligibles : 82 trades (seuil 20)
+  F5 déclenchée (< 20) : non
+
+====================================================================================================
+ROBUSTESSE — LA MEILLEURE CELLULE EST-ELLE ISOLÉE ?
+====================================================================================================
+  Un edge réel survit au déplacement d'un paramètre. Si seule la
+  cellule optimale est positive, c'est du sur-ajustement.
+  Référence : si le signe était aléatoire, ~50 % de voisins positifs.
+
+  EURUSD    [ÉLIGIBLE] meilleure = rr1.5_sl_atr3.0_windowetroite_z_min2.0
+            moy OOS +1.92 R sur 64 trades ; voisins positifs : 3/7
+  USDCHF    [ÉLIGIBLE] meilleure = rr1.5_sl_atr3.0_windowlarge_z_min1.5
+            moy OOS +2.96 R sur 168 trades ; voisins positifs : 1/7
+  USDCAD    [ÉLIGIBLE] meilleure = rr1.5_sl_atr3.0_windowetroite_z_min1.5
+            moy OOS +3.10 R sur 131 trades ; voisins positifs : 2/7
+  AUDUSD    [ÉLIGIBLE] meilleure = rr1.5_sl_atr3.0_windowetroite_z_min1.5
+            moy OOS +1.49 R sur 187 trades ; voisins positifs : 2/7
+  USDJPY    [CONTRÔLE] meilleure = rr1.5_sl_atr2.5_windowlarge_z_min2.5
+            moy OOS +0.62 R sur 78 trades ; voisins positifs : 0/7
+  EURJPY    [CONTRÔLE] meilleure = rr1.5_sl_atr2.5_windowlarge_z_min1.5
+            moy OOS +2.84 R sur 237 trades ; voisins positifs : 0/7
+
+====================================================================================================
+CONCENTRATION — LE RÉSULTAT TIENT-IL À UN SEUL INSTRUMENT ? (F4b)
+====================================================================================================
+  instrument  groupe           meilleure moy OOS   part éligible
+  ----------------------------------------------------------------
+  USDCAD      ÉLIGIBLE                     +3.10            33 %
+  USDCHF      ÉLIGIBLE                     +2.96            31 %
+  EURJPY      CONTRÔLE JPY                 +2.84               -
+  EURUSD      ÉLIGIBLE                     +1.92            20 %
+  AUDUSD      ÉLIGIBLE                     +1.49            16 %
+  USDJPY      CONTRÔLE JPY                 +0.62               -
+
+  Part du plus gros contributeur éligible : 33 %
+  F4b déclenchée (> 60 %) : non

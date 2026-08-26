@@ -1,0 +1,20 @@
+==========================================================================================
+HOLD-OUT EURJPY / {'family': 'ext', 'direction': 'long', 'lookback': 252, 'q': 0.1, 'exit': 'atr_1.5_1.5'}
+  net    :   10 tr,    +4.91 R,  +0.4907 R/t, WR 80.0 %
+  coût 0 :   10 tr,    +5.24 R,  +0.5240 R/t, WR 80.0 % (information)
+  témoin aléatoire : percentile  74.0  | nul méd   +3.41 R, p95   +7.31 R | 200 tirages de 10 trades (exéc. méd. 10, 100 % long) | R/trade aléatoire L +0.321 / S    n/a
+  -> F7 DÉCLENCHÉE (net>0 : True, percentile>=90 : False)
+
+==========================================================================================
+HOLD-OUT AUDCAD / {'family': 'ext', 'direction': 'long', 'lookback': 252, 'q': 0.1, 'exit': 'atr_1.5_1.5'}
+  net    :   11 tr,    +6.38 R,  +0.5796 R/t, WR 81.8 %
+  coût 0 :   11 tr,    +7.00 R,  +0.6364 R/t, WR 81.8 % (information)
+  témoin aléatoire : percentile  96.0  | nul méd   +1.23 R, p95   +5.87 R | 200 tirages de 11 trades (exéc. méd. 11, 100 % long) | R/trade aléatoire L +0.105 / S    n/a
+  -> F7 PASSE (net>0 : True, percentile>=90 : True)
+
+==========================================================================================
+HOLD-OUT EURCHF / {'family': 'mr', 'direction': 'short', 'n_down': 3, 'range_filter': True, 'exit': 'sym3'}
+  net    :   11 tr,    -0.45 R,  -0.0406 R/t, WR 72.7 %
+  coût 0 :   11 tr,    +0.01 R,  +0.0006 R/t, WR 72.7 % (information)
+  témoin aléatoire : percentile  24.0  | nul méd   +0.26 R, p95   +2.15 R | 200 tirages de 11 trades (exéc. méd. 10, 0 % long) | R/trade aléatoire L    n/a / S +0.017
+  -> F7 DÉCLENCHÉE (net>0 : False, percentile>=90 : False)

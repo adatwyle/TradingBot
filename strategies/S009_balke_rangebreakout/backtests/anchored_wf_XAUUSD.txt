@@ -1,0 +1,77 @@
+================================================================================================
+WALK-FORWARD — s09_balke_rangebreakout / XAUUSD
+================================================================================================
+30024 barres · 6 configurations · 49s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/6   (≈0 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 0/6
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_modepct_entry   +8.60   -6.56   +0.41  +12.88   +3.83     409
+        témoin aléatoire : percentile  72.0  | nul méd   +4.02 R, p95  +31.77 R | 200 tirages de 409 trades (exéc. méd. 367, 56 % long) | R/trade aléatoire L +0.066 / S -0.054
+    breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_modepct_range   +7.03   -5.85   -2.37   +9.20   +2.00     409
+        témoin aléatoire : percentile  57.0  | nul méd   +5.77 R, p95  +26.19 R | 200 tirages de 409 trades (exéc. méd. 368, 56 % long) | R/trade aléatoire L +0.065 / S -0.045
+    breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_moderange   +9.84   -6.17  -14.97  +19.08   +1.94     409
+        témoin aléatoire : percentile  49.5  | nul méd   +8.19 R, p95  +48.98 R | 200 tirages de 409 trades (exéc. méd. 376, 56 % long) | R/trade aléatoire L +0.099 / S -0.069
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_moderange     +86.30      +5.17      94 %
+    breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_moderange     +59.38      +7.77      87 %
+    breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_modepct_entry     +31.37     +15.33      51 %
+
+    => 94 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+    Beta directionnel mesuré : +0.142 R/trade d'écart entre
+    une entrée LONG au hasard et une entrée SHORT au hasard.
+    => la période MONTE. Une stratégie majoritairement longue
+       doit d'abord battre ce beta ; le témoin l'exige, la
+       convention n×0,05 ne le voyait pas.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.
+
+--- SORTIE TEMPORELLE : validation de l'approximation ---
+  sorties (config défaut, plein échantillon, 1277 trades)
+    par raison : {'EOD': np.int64(656), 'SL': np.int64(621)}
+    heure de sortie : méd 16h, p10 4h, p90 20h
+    part des sorties 17-19h : 28 %
+
+--- TÉMOIN PAR CONFIG (toutes les configs armées) ---
+  breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_moderange honest_r    +5.17 (504 trades OOS)
+      témoin aléatoire : percentile  49.5  | nul méd   +5.28 R, p95  +40.46 R | 200 tirages de 504 trades (exéc. méd. 444, 56 % long) | R/trade aléatoire L +0.087 / S -0.077
+  breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_modepct_entry honest_r   +15.33 (409 trades OOS)
+      témoin aléatoire : percentile  72.0  | nul méd   +4.02 R, p95  +31.77 R | 200 tirages de 409 trades (exéc. méd. 367, 56 % long) | R/trade aléatoire L +0.066 / S -0.054
+  breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_modepct_range honest_r    +8.01 (409 trades OOS)
+      témoin aléatoire : percentile  57.0  | nul méd   +5.77 R, p95  +26.19 R | 200 tirages de 409 trades (exéc. méd. 368, 56 % long) | R/trade aléatoire L +0.065 / S -0.045
+  breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_moderange honest_r    +7.77 (409 trades OOS)
+      témoin aléatoire : percentile  49.5  | nul méd   +8.19 R, p95  +48.98 R | 200 tirages de 409 trades (exéc. méd. 376, 56 % long) | R/trade aléatoire L +0.099 / S -0.069

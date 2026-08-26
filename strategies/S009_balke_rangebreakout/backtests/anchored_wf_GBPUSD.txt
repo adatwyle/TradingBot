@@ -1,0 +1,53 @@
+================================================================================================
+WALK-FORWARD — s09_balke_rangebreakout / GBPUSD
+================================================================================================
+31594 barres · 2 configurations · 15s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/2   (≈0 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 0/2
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    breakouts1_range_end_hour12_range_filter_pctNone_range_start_hour4_sl_moderange   -4.85   -1.60   -3.05   -7.60   -4.28     428
+        témoin aléatoire : percentile  52.5  | nul méd  -17.52 R, p95   +4.67 R | 200 tirages de 428 trades (exéc. méd. 391, 52 % long) | R/trade aléatoire L -0.029 / S -0.061
+    breakouts1_range_end_hour11_range_filter_pctNone_range_start_hour4_sl_moderange  -10.52   -5.94   -6.80   -4.23   -6.87     455
+        témoin aléatoire : percentile  22.0  | nul méd  -19.24 R, p95   +3.78 R | 200 tirages de 455 trades (exéc. méd. 419, 52 % long) | R/trade aléatoire L -0.027 / S -0.058
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+    Beta directionnel mesuré : +0.032 R/trade d'écart entre
+    une entrée LONG au hasard et une entrée SHORT au hasard.
+    => pas de dérive directionnelle exploitable sur la période.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.
+
+--- SORTIE TEMPORELLE : validation de l'approximation ---
+
+
+--- TÉMOIN PAR CONFIG (toutes les configs armées) ---
+  breakouts1_range_end_hour12_range_filter_pctNone_range_start_hour4_sl_moderange honest_r   -17.10 (428 trades OOS)
+      témoin aléatoire : percentile  52.5  | nul méd  -17.52 R, p95   +4.67 R | 200 tirages de 428 trades (exéc. méd. 391, 52 % long) | R/trade aléatoire L -0.029 / S -0.061
+  breakouts1_range_end_hour11_range_filter_pctNone_range_start_hour4_sl_moderange honest_r   -27.50 (455 trades OOS)
+      témoin aléatoire : percentile  22.0  | nul méd  -19.24 R, p95   +3.78 R | 200 tirages de 455 trades (exéc. méd. 419, 52 % long) | R/trade aléatoire L -0.027 / S -0.058

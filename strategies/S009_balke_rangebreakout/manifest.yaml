@@ -1,0 +1,54 @@
+# Manifest — Session Range Breakout
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s09_balke_rangebreakout
+display_name: "Session Range Breakout"
+version: "0.1.0"
+magic_number: 130009
+author: "claude:s09_balke_rangebreakout"
+source: "https://www.youtube.com/@ReneBalke"
+trader: "Rene Balke"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+symbols: [USDJPY, XAUUSD, GBPUSD, EURJPY]
+timeframe: "H1"
+warmup_bars: 0
+
+default_params:
+  range_start_hour: 3
+  range_end_hour: 6
+  last_entry_hour: 17
+  sl_mode: range          # range | pct_entry | pct_range
+  sl_pct: 1.0
+  breakouts: 1
+  range_filter_pct: null
+
+# Grille FIGÉE dans research/FALSIFICATION.md AVANT tout backtest.
+# Les fenêtres par instrument sont restreintes dans les scripts de backtest
+# (ses réglages tradés, pas un balayage) :
+#   USDJPY : fenêtres {3-6, 3-5} x SL {range, pct_entry, pct_range}
+#            x breakouts {1,2} x filtre {off, 0.2-0.4%}          -> 24 cellules
+#   XAUUSD : 3-6 x SL {range, pct_entry, pct_range} x {off, 0.15-0.85%} -> 6
+#   GBPUSD : {4-12, 4-11}, SL range, 1 breakout, sans filtre (F5) -> 2
+#   EURJPY : config par défaut (témoin d'échec documenté)          -> 1
+param_grid:
+  range_start_hour: [3, 4]
+  range_end_hour: [5, 6, 11, 12]
+  sl_mode: [range, pct_entry, pct_range]
+  breakouts: [1, 2]
+  range_filter_pct: [null, [0.2, 0.4], [0.15, 0.85]]
+
+# Sortie à heure fixe (18h ; 19h pour l'or) via engine_kwargs — transmis par le
+# harnais (commit 2188ac6) à run_walk_forward ET attach_control_arm :
+#   USDJPY/EURJPY : max_hold_bars 11 ; XAUUSD : 12 ; GBPUSD : 5
+#   cooldown_bars: 0, cb_losses: 999 (fidélité source)
+
+created: 2026-08-16
+notes: |
+  Reproduction du range breakout de session de René Balke (BM Trading).
+  Range M1 3h-6h serveur == high/low H1 des mêmes heures (bornes pleines).
+  Entrée au close H1 de cassure (substitut du stop order — dégradation
+  déclarée), SL = range opposé ou 1 %, PAS de TP, clôture forcée 18h.
+  Falsifications F1-F6 figées avant tout backtest (research/FALSIFICATION.md).

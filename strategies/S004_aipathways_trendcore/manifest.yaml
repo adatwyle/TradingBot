@@ -1,0 +1,58 @@
+# Manifest — AI Pathways - Trend Core (QQQ/GLD regime switch)
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de verite sur cette strategie.
+
+strategy_id: s04_aipathways_trendcore
+display_name: "AI Pathways - Trend Core (QQQ/GLD regime switch)"
+version: "1.0.0"
+magic_number: 130004
+author: "claude:s04_aipathways_trendcore"
+source: "https://www.youtube.com/watch?v=Fb7G5SNpaes"
+trader: "Brendan / AI Pathways"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+symbols: ["NASDAQ", "XAUUSD"]
+timeframe: "D1"
+warmup_bars: 260        # ma_len max (250) + marge ATR
+
+default_params:
+  ma_len: 200           # la valeur de la source
+  buffer_pct: 0.0       # bande morte ; 0.0 = la regle litterale
+  leg: "risk"           # "risk" (long au-dessus MM) | "hedge" (long en dessous)
+  regime_symbol: "NASDAQ"
+  stop_atr: 8.0         # PLANCHER DE CATASTROPHE — PAS l'invalidation (voir notes)
+  atr_len: 14
+  _symbol: ""
+
+param_grid:
+  ma_len: [100, 150, 200, 250]
+  buffer_pct: [0.0, 0.005, 0.01]
+  # 12 cellules -> ~0,6 reussite attendue par PUR HASARD.
+  # stop_atr et atr_len sont HORS grille : ce ne sont pas des parametres de la
+  # strategie, seulement le minimum impose par R3.
+
+created: 2026-08-16
+notes: |
+  AVERTISSEMENT — le contrat ne couvre pas cette famille de strategies.
+
+  Trend core est une bascule d'ALLOCATION : toujours investie, changeant
+  d'instrument, sortant UNIQUEMENT sur retournement de regime. Le contrat
+  Signal(entry, stop, target) suppose une strategie EPISODIQUE, et le moteur
+  commun ne connait que trois sorties (SL, TP, fin de tranche) — il n'accepte
+  aucun ordre de sortie sur signal.
+
+  Consequence mesuree : le walk-forward ancre produit 1 a 2 trades sur 5 ans.
+  Ces chiffres ne mesurent PAS la strategie. Le champ `stop` est un plancher de
+  catastrophe impose par R3, pas l'invalidation reelle.
+
+  La mesure qui fait foi est backtests/equity_analysis.txt.
+
+  VERDICT : NON CONCLUSIF (donnees insuffisantes) — 14 bascules sur 4,31 ans,
+  un seul episode baissier, avantage vs buy & hold indistinguable du bruit
+  (IC 95 % du differentiel de Sharpe [-0,40 ; +0,97]) et egale par un
+  portefeuille naif 50/50. Voir research/VERDICT.md.
+
+  R1 (causalite) : PASSE — 24 points de grille x 4 coupures, 0 fuite.
+  R4 : magic 130004 dans la plage reservee 130003-130009, PAS ENCORE inscrit
+  dans core/contracts/MAGIC_REGISTRY.md (core/ interdit de modification).

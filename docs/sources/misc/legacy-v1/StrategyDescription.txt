@@ -1,0 +1,101 @@
+voici un descriptif complémentaire de la lecture de video
+
+il y 4 stratégies décrites dans la vidéo, 
+elles devraient permettre de trader le marcher dans toutes ses conditions 
+elle sont dissociée en deux groupe distuncts 
+	- Les "reversal setups"
+	- Les trend fowlowing setups"
+
+il est conseillé d'utiliser les stratégie "reversal setups" quand le prix est dans un "range bound market"
+il est conseillà d'utiliser les stratégie "trend folowing SETUP" quand le prix est dans une phase de "trending market", elle permettrons de traker les pullbacks 
+
+travailler uniquement sur les closed market candels
+
+Description strategie #1
+	- est un "reversal SETUP"
+	- cette strategie est basées sur la divergenace entre higher_high/lower_low price level et lower_high/higher_low de MACD history + support and resistance level
+	
+	Princip:
+	- la divergeance est un fort signal "reversal", cependant il n'est pas possible de trader chaque divergeance, il est nécessaire d'identifier les zones potentielles de fort effet "reversal" tel que les zones de support et de resistance
+	- mecanisme ->> attendre le prix se trouve dans la zone de ces resistance et support level 
+		step 01: identify S/R level on higher timeframe -> par exemple 4H
+		Step 02 : Wait for MACD divergeance on lower timeframe -> par exemple 1H
+		
+	strategy Instruction :
+		Step 1 : identify resistance and support level
+		Step 2 : wait the price is inside the zone 
+		Step 3 : Check for entry point
+		step 3.1 : identify the lowest ( or highest ) macd histogramm point in the macd histogram divergeance zone 
+		Step 3.2 : draw a horizonatline at this point 
+		step 3.3 : wait the price to breake this line -> that the SELL entry point
+
+	i share you an image about the situation to identify on Strategy1_entry.png
+	This is a entry desciption for a SELL trade, the symetrical situation is to detect on a BUY trade
+		
+Description strategie #2
+	- est un "reversal SETUP"
+	- cette strategie est basées sur la divergeance entre higher_high/lower_low price level et higher_high/lower_low de MACD history + Bolliger bands
+	
+	SELL TRADE Princip :
+	- parameters for this specific strategy 
+		bollinger band length : 200
+		standard deviation : 2
+	- if the bollinger bands is used on a 200 EMA
+	- if the price is in an strong uptrend, the price is above BB for extended period
+	- after a priod above, we expect the price move back inside BB
+	- in this case look for a bearish MACD divergeance 
+	
+	strategy Instruction :
+		Step 1 : wait price for a longer period above or below BB
+		Step 2 : wait for a MACD histogram and Price divergeance 
+		Step 3 : wait the price close inside the BB = Entry candle
+	
+
+Description strategie #3
+	- est un "trend folowing SETUP"
+	- cette strategie est basées sur EMA bands + ZeroLine Pullbacks
+	- for this strategy we need 4 indicators MACD + 3 EMA
+		the 3 EMA are all 200 EMA from diffrent sources 
+		EMA_h is calculated on the highs of the candles 
+		EMA_c is calculated on the closing price of the candles 
+		EMA_l is calculated on the lows of the candles 
+	
+	princip	
+		if the price is trending this lines are providing support and resistance to the price
+		in an uptrend we often see the price often pullback to the EMAs and find support
+		similarly in a downtrend the price often pullback to the EMAS and find resistance
+		important : the price will not always bounce exactly from the bands sometimes the price goes deeper before reversal
+		combining with macd it became a strategy
+		
+	strategy Instruction for a buy setup
+		Step 1 : the price trend is based on EMAs direction, in case of the price made a strong upmove, the price is above the bands, this is the sign the price is in an uptrend
+		Step 2 : the price pullback to the EMA bands, in this case we expect the price to find support in the EMA bands area
+		Step 3 : MACD fastline cross over the Signal line below the zero line ->> in an uptrend we expect the price to bounce upward after the MACD fastline touche the macd zeroline (also a sign the pullback maybe over & the price may resume the uptrend again)
+		at this point we have a confluance confirmation of the MACD and the EMA bands
+		Step 4 : For the Entry point, create a short term price trend line (Strategy3_entry_buy.png) and enter on the breakout of this line
+	
+	The symetrical behavior will act as a SELL setup
+	(Strategy3_entry_sell.png)
+	
+		
+		
+
+Description strategie #4
+	- est un "trend folowing SETUP"
+	- cette strategie est basées sur les Swap Zones + Zeroline Pullbacks
+	
+	principe 
+		if the price cross a support zone, it can now act as a resistance zone
+		if the price cross a resistance zone, it can now act as a support zone 
+		this called Swapzones 
+		this concept combined with MACD will be the strategy
+	
+	strategy instructions for BUY trade
+		STEP 1 : identify the price is in a steady up  trend 
+		STEP 2 : identify resistance levels 
+		STEP 3 : wait the price cross this levels to became SWAP zones ->> now we have a resistance level
+		STEP 4 : wait the price pullback to the the zone, in this cas we expect the price to bounce and move upward
+		STEP 5 : if the MACD line is below the zero line showing signs of a support level
+		STEP 6 : wait for ENTRY signal ->> check for candelstick formations (DOJI, enGOLFING, evening star, etc...) at the support level
+		
+	 The symetrical behavior will act as a SELL setup

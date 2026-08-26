@@ -1,0 +1,108 @@
+================================================================================================
+s08_markov_regime — ÉVALUATION COMPLÈTE
+================================================================================================
+Contrat : ALLOCATION. Moteur : core.backtest.allocation_engine.run_allocation.
+Shorts : séries synthétiques SYM~S (coût de bord nul, cf. make_specs).
+Conditions de falsification déclarées AVANT mesure : research/FALSIFICATION.md
+
+################################################################################################
+# BTCUSD — 4376 barres D1 (2014-07-17 -> 2026-08-16) · 362 barres/an
+################################################################################################
+
+  --- long only -------------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop         12.19%     0.60   -45.48%       301.4%   67.3%     581
+  markov causal step=20 binaire      13.94%     0.51   -89.22%       384.2%   67.3%     223
+  markov causal step=1  binaire      21.66%     0.67   -75.64%       968.0%   36.9%     290
+  markov FUITÉ step=20 binaire       34.45%     0.86   -75.89%      3474.3%   58.5%     255
+  markov FUITÉ step=1  binaire       22.95%     0.71   -54.41%      1113.7%   33.2%     296
+  naïf momentum 20j                  22.95%     0.71   -54.41%      1113.7%   33.2%     296
+  markov horizon=5 (P^n)             46.05%     0.92   -83.42%      9613.5%   81.7%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  --- avec shorts -----------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop         11.34%     0.56   -47.03%       266.2%   72.0%     588
+  markov causal step=20 binaire       8.04%     0.43   -89.22%       154.5%   72.0%     228
+  markov causal step=1  binaire       4.05%     0.36   -88.32%        61.6%   60.4%     473
+  markov FUITÉ step=20 binaire       34.45%     0.86   -75.89%      3474.3%   58.5%     255
+  markov FUITÉ step=1  binaire        5.75%     0.38   -77.70%        96.5%   56.3%     536
+  naïf momentum 20j                   5.75%     0.38   -77.70%        96.5%   56.3%     536
+  markov horizon=5 (P^n)             46.05%     0.92   -83.42%      9613.5%   81.7%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  RÉFÉRENCES (rendues par le moteur, non optionnelles) :
+    B&H BTCUSD                   CAGR   46.74%  Sharpe   0.91  DD  -83.42%  total    10185.3%
+    cash (0 %)                   CAGR    0.00%  Sharpe   0.00  DD    0.00%  total        0.0%
+
+  F1 — CONTRIBUTION MARGINALE DE L'APPAREIL (comparaison position par position)
+  ----------------------------------------------------------------------------------------
+  n = 3576 barres après warmup
+  poids IDENTIQUES à 1e-9 près : 47.01 % des barres
+  même DIRECTION (long/short/plat) : 47.01 %
+  seuil F1 déclaré avant mesure : concordance >= 95 % ET |dCAGR| < 1 pt
+  CAGR markov +8.04 %  vs  naïf +5.75 %   (écart +2.29 pt)
+  -> F1 NON déclenchée
+
+  F5 — LE VERDICT CHANGE-T-IL DE SIGNE SELON QU'ON CORRIGE LA FUITE ?
+  ----------------------------------------------------------------------------------------
+  step=20   causal CAGR    8.04%  Sharpe   0.43   |   FUITÉ CAGR   34.45%  Sharpe   0.86   |   écart CAGR  +26.41 pt
+  step=1    causal CAGR    4.05%  Sharpe   0.36   |   FUITÉ CAGR    5.75%  Sharpe   0.38   |   écart CAGR   +1.70 pt
+
+  CONTRÔLE LONG / SHORT (docs/METHODOLOGY.md §5.2)
+  ----------------------------------------------------------------------------------------
+  Rendement annualisé PAR JOUR DÉTENU, par jambe :
+    BTCUSD           +50.54 %
+    BTCUSD~S         -67.99 %
+  Temps passé :
+    BTCUSD           67.3 %
+    CASH             28.0 %
+    BTCUSD~S          4.6 %
+
+  ABLATION DU SPREAD (docs/METHODOLOGY.md §5.1) ET COÛT DE PORTAGE
+  ----------------------------------------------------------------------------------------
+  coût                  CAGR   Sharpe    DD max        total
+  ------------------------------------------------------------
+  nul                 24.94%     0.67   -85.43%      1372.8%
+  nominal              8.04%     0.43   -89.22%       154.5%
+  pessimiste x2       -7.19%     0.18   -92.93%       -59.4%
+
+  Portage NON modélisé par le moteur : swap long 17.16 %/an sur BTCUSD.
+  Stratégie investie 72.0 % du temps -> ~12.35 %/an de portage, contre 17.16 %/an pour un buy & hold CFD (investi 100 %).
+  Le portage joue donc EN FAVEUR de la stratégie ; l'omettre des deux côtés
+  la désavantage. Sens conservateur, conservé tel quel.
+
+  MARKOV CACHÉ (concept 9) — les deux versions, comme exigé
+  ----------------------------------------------------------------------------------------
+  `docs/sources/aipathways/SYNTHESE.md` R7 classe déjà en rejet le HMM
+  ajusté sur l'échantillon complet puis utilisé pour l'étiqueter. Il est
+  reproduit ici uniquement pour chiffrer ce qu'il rapporte artificiellement.
+
+  version                                 CAGR   Sharpe    DD max    inv%
+  ------------------------------------------------------------------------
+  HMM glissant (honnête)               -23.90%    -0.58   -97.88%   20.7%
+  HMM plein échantillon (LE PIÈGE)     -18.44%    -0.38   -96.47%   17.7%
+
+  WALK-FORWARD ANCRÉ — fenêtres importées de core.backtest.anchored_wf
+  ----------------------------------------------------------------------------------------
+  4376 barres · 36 configurations · sélection sur le Sharpe du TRAIN uniquement
+  Espérance de hasard : 36 x 0,05 = 1.8 « réussites » par pur hasard au seuil 5 %.
+
+   W config retenue                          train Sh  OOS tot%   OOS Sh   OOS DD%   B&H tot%
+  --------------------------------------------------------------------------------------------
+   1 size_scale=1.0 thr=0.05 window=60           0.95    -28.56    -0.12    -60.82     -72.74
+   2 size_scale=1.0 thr=0.05 window=60           0.80     61.76     1.06    -39.42     271.77
+   3 size_scale=1.0 thr=0.05 window=60           0.82      2.23     0.27    -42.89      62.94
+   4 size_scale=1.0 thr=0.05 window=60           0.78     13.45     0.46    -24.48     -39.92
+
+  fenêtres OOS positives : 3/4 · battant le B&H : 2/4 · rendement OOS moyen +12.22 %
+  seuil F3 déclaré avant mesure : < 3/4 positives OU moyenne négative -> F3 déclenchée
+  -> F3 NON déclenchée
+  configurations retenues différentes d'une fenêtre à l'autre : 1/4 (un changement à chaque fenêtre = la grille suit le bruit)
+
+################################################################################################
+# DÉFAUTS DE DONNÉES DÉTECTÉS (signalés, non corrigés dans core/)
+################################################################################################
+  BTCUSD : 1 barre(s) à prix nul retirée(s) (2015-01-07). Sans ce filtre, le B&H de BTCUSD ressort à -100 %.

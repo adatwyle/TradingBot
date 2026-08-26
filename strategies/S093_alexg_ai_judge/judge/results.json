@@ -1,0 +1,87 @@
+{
+ "n_candidates": 191,
+ "n_missing_scores": 0,
+ "all": {
+  "n": 191,
+  "mean_r": -0.1538,
+  "median_r": -1.0713,
+  "wr_pct": 25.7,
+  "total_r": -29.38
+ },
+ "seed": 20260816,
+ "draws": 200,
+ "variants": {
+  "sans_cot": {
+   "50": {
+    "n": 11,
+    "mean_r": -0.2188,
+    "median_r": -1.0515,
+    "wr_pct": 27.3,
+    "total_r": -2.41,
+    "rr_planned_median": 2.63,
+    "freq_per_week": 0.042,
+    "null_median_mean_r": -0.2127,
+    "null_p95_mean_r": 0.7389,
+    "percentile_vs_null": 49.0,
+    "thin": true
+   },
+   "60": {
+    "n": 4,
+    "mean_r": 0.4291,
+    "median_r": 0.3566,
+    "wr_pct": 50.0,
+    "total_r": 1.72,
+    "rr_planned_median": 2.57,
+    "freq_per_week": 0.015,
+    "null_median_mean_r": -0.3337,
+    "null_p95_mean_r": 1.5421,
+    "percentile_vs_null": 77.5,
+    "thin": true
+   },
+   "70": {
+    "n": 0
+   }
+  },
+  "avec_cot": {
+   "50": {
+    "n": 39,
+    "mean_r": 0.2225,
+    "median_r": -1.0515,
+    "wr_pct": 38.5,
+    "total_r": 8.68,
+    "rr_planned_median": 2.57,
+    "freq_per_week": 0.147,
+    "null_median_mean_r": -0.1615,
+    "null_p95_mean_r": 0.3368,
+    "percentile_vs_null": 88.5,
+    "thin": false
+   },
+   "60": {
+    "n": 17,
+    "mean_r": -0.3849,
+    "median_r": -1.0515,
+    "wr_pct": 23.5,
+    "total_r": -6.54,
+    "rr_planned_median": 2.75,
+    "freq_per_week": 0.064,
+    "null_median_mean_r": -0.2405,
+    "null_p95_mean_r": 0.4541,
+    "percentile_vs_null": 35.0,
+    "thin": true
+   },
+   "70": {
+    "n": 5,
+    "mean_r": -0.4881,
+    "median_r": -1.0515,
+    "wr_pct": 20.0,
+    "total_r": -2.44,
+    "rr_planned_median": 2.51,
+    "freq_per_week": 0.019,
+    "null_median_mean_r": -0.2537,
+    "null_p95_mean_r": 1.2417,
+    "percentile_vs_null": 34.5,
+    "thin": true
+   }
+  }
+ }
+}

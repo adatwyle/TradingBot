@@ -1,0 +1,24 @@
+==============================================================================
+REJEU À L'AVEUGLE — juge IA (grille fxalexg) vs sélection aléatoire
+==============================================================================
+191 candidats jugés (0 sans score) — graine 20260816, 200 tirages/nul
+TOUS les candidats : {'n': 191, 'mean_r': -0.1538, 'median_r': -1.0713, 'wr_pct': 25.7, 'total_r': -29.38}
+
+--- Variante sans_cot ---
+ seuil  n_pris   R/trade    WR%  rr_med  freq/sem   nul_méd  pctile
+   50%      11    -0.219   27.3    2.63     0.042    -0.213   49.0%  [MINCE]
+   60%       4    +0.429   50.0    2.57     0.015    -0.334   77.5%  [MINCE]
+   70%       0       —
+
+--- Variante avec_cot ---
+ seuil  n_pris   R/trade    WR%  rr_med  freq/sem   nul_méd  pctile
+   50%      39    +0.222   38.5    2.57     0.147    -0.162   88.5%
+   60%      17    -0.385   23.5    2.75     0.064    -0.240   35.0%  [MINCE]
+   70%       5    -0.488   20.0    2.51     0.019    -0.254   34.5%  [MINCE]
+
+--- Contribution marginale COT (F6) ---
+  seuil 50% : avec +0.223 R/t (n=39) vs sans -0.219 R/t (n=11) -> delta +0.441
+  seuil 60% : avec -0.385 R/t (n=17) vs sans +0.429 R/t (n=4) -> delta -0.814
+
+distribution grade_core : {0: 15, 10: 46, 20: 51, 30: 40, 40: 28, 50: 7, 60: 4}
+distribution grade_cot : {0: 7, 10: 31, 20: 41, 30: 45, 40: 28, 50: 22, 60: 12, 70: 3, 80: 2}

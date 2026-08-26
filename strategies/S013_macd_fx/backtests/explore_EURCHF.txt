@@ -1,0 +1,232 @@
+### EURCHF — exploration 2006-08-23 -> 2025-02-14 (5748 barres), spread 3.5 pips + slippage 0.5
+
+===== A_mr =====
+================================================================================================
+WALK-FORWARD — s13_macd_fx / EURCHF
+================================================================================================
+5748 barres · 48 configurations · 35s
+Tier 1 : PnL train > 0, ≥ 60 trades, DD ≤ 12.0 R
+
+STRICT : 2/48   (≈2 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 22/48
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    directionshort_exitatr_2_3_familymr_n_down3_range_filterTrue   +1.92   +0.69   +3.48   +2.25   +2.09      40  [MINCE]
+    directionshort_exitatr_2_3_familymr_n_down5_range_filterTrue   +0.27   +0.70   +4.11   +3.19   +2.07      40  [MINCE]
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    directionshort_exitatr_2_3_familymr_n_down3_range_filterTrue   +1.92   +0.69   +3.48   +2.25   +2.09      40  [MINCE]
+    directionshort_exitatr_2_3_familymr_n_down5_range_filterTrue   +0.27   +0.70   +4.11   +3.19   +2.07      40  [MINCE]
+    directionshort_exitatr_2_3_familymr_n_down4_range_filterTrue   -0.34   +0.69   +4.11   +3.27   +1.93      39  [MINCE]
+    directionshort_exitatr_2_3_familymr_n_down4_range_filterFalse   +0.91   -0.34   +4.75   +2.25   +1.89      44  [MINCE]
+    directionshort_exitsym3_familymr_n_down3_range_filterTrue   +0.42   +0.66   +3.98   +1.77   +1.71      79
+        témoin aléatoire : percentile 100.0  | nul méd   -2.10 R, p95   +3.86 R | 200 tirages de 79 trades (exéc. méd. 73, 0 % long) | R/trade aléatoire L    n/a / S -0.031
+    directionshort_exitsym3_familymr_n_down3_range_filterFalse   -0.67   +0.84   +4.20   +1.98   +1.58     104
+        témoin aléatoire : percentile  99.5  | nul méd   -2.29 R, p95   +2.86 R | 200 tirages de 104 trades (exéc. méd. 93, 0 % long) | R/trade aléatoire L    n/a / S -0.028
+    directionshort_exitsym3_familymr_n_down4_range_filterFalse   -0.77   +0.98   +4.06   +1.98   +1.56      95
+        témoin aléatoire : percentile  99.0  | nul méd   -1.98 R, p95   +2.99 R | 200 tirages de 95 trades (exéc. méd. 85, 0 % long) | R/trade aléatoire L    n/a / S -0.025
+    directionshort_exitsym3_familymr_n_down4_range_filterTrue   -0.84   +0.43   +3.77   +1.87   +1.31      73
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    directionshort_exitatr_2_3_familymr_n_down5_range_filterTrue     +17.08      +8.27      52 %
+    directionshort_exitatr_2_3_familymr_n_down4_range_filterTrue     +16.70      +7.74      54 %
+    directionshort_exitatr_2_3_familymr_n_down3_range_filterTrue     +13.75      +8.34      39 %
+
+    => 52 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.
+
+===== B_cross =====
+================================================================================================
+WALK-FORWARD — s13_macd_fx / EURCHF
+================================================================================================
+5748 barres · 8 configurations · 5s
+Tier 1 : PnL train > 0, ≥ 60 trades, DD ≤ 12.0 R
+
+STRICT : 0/8   (≈0 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 0/8
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    directionshort_exitatr_2_3_familycross_triggersig   +0.90   -1.31   +2.54   +1.11   +0.81      54
+    directionshort_exitatr_2_3_familycross_triggerzero   +3.72   -1.62   -0.19   +0.67   +0.64      34
+    directionshort_exitatr_1.5_1.5_familycross_triggerzero   +2.40   -3.73   +0.52   -0.67   -0.37      40
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    directionshort_exitatr_2_3_familycross_triggersig      +0.01      +3.25  -63238 %
+
+    => -63238 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.
+
+===== B_hold =====
+================================================================================================
+WALK-FORWARD — s13_macd_fx / EURCHF
+================================================================================================
+5748 barres · 4 configurations · 2s
+Tier 1 : PnL train > 0, ≥ 60 trades, DD ≤ 12.0 R
+
+STRICT : 0/4   (≈0 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 2/4
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    directionshort_exithold20_sl3_familycross_triggersig   +6.13   -1.95   +1.87   +2.69   +2.18      68
+        témoin aléatoire : percentile  79.5  | nul méd   +4.20 R, p95  +12.19 R | 200 tirages de 68 trades (exéc. méd. 59, 0 % long) | R/trade aléatoire L    n/a / S +0.073
+    directionshort_exithold20_sl3_familycross_triggerzero   +5.89   -1.57   -1.44   -1.03   +0.46      36  [MINCE]
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    directionshort_exithold20_sl3_familycross_triggersig     +16.84      +8.73      48 %
+    directionshort_exithold20_sl3_familycross_triggerzero      +2.11      +1.84      13 %
+
+    => 48 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.
+
+===== C_ext =====
+================================================================================================
+WALK-FORWARD — s13_macd_fx / EURCHF
+================================================================================================
+5748 barres · 24 configurations · 16s
+Tier 1 : PnL train > 0, ≥ 60 trades, DD ≤ 12.0 R
+
+STRICT : 1/24   (≈1 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 4/24
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    directionlong_exitsym3_familyext_lookback126_q0.05   +1.54   +0.45   +0.76   +0.53   +0.82      63
+        témoin aléatoire : percentile  97.0  | nul méd   -2.70 R, p95   +1.70 R | 200 tirages de 63 trades (exéc. méd. 61, 100 % long) | R/trade aléatoire L -0.047 / S    n/a
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    directionlong_exitsym3_familyext_lookback126_q0.05   +1.54   +0.45   +0.76   +0.53   +0.82      63
+        témoin aléatoire : percentile  97.0  | nul méd   -2.70 R, p95   +1.70 R | 200 tirages de 63 trades (exéc. méd. 61, 100 % long) | R/trade aléatoire L -0.047 / S    n/a
+    directionlong_exitatr_1.5_1.5_familyext_lookback126_q0.05   +2.09   -0.87   -2.93   +3.85   +0.54      54  [MINCE]
+    directionlong_exitatr_2_3_familyext_lookback126_q0.05   +2.35   -1.05   -0.56   +1.33   +0.52      31  [MINCE]
+    directionlong_exitsym3_familyext_lookback252_q0.05   +0.35   -0.20   -0.66   +2.34   +0.46      65
+        témoin aléatoire : percentile  95.5  | nul méd   -3.20 R, p95   +1.12 R | 200 tirages de 65 trades (exéc. méd. 62, 100 % long) | R/trade aléatoire L -0.055 / S    n/a
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    directionshort_exitatr_1.5_1.5_familyext_lookback252_q0.1      +9.11      -2.18     124 %
+    directionlong_exitsym3_familyext_lookback126_q0.05      +6.88      +3.28      52 %
+    directionshort_exitatr_2_3_familyext_lookback252_q0.1      +6.79      +3.66      46 %
+
+    => 124 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.

@@ -1,0 +1,19 @@
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s01_fxalexg_swing
+Instrument: EURUSD   (31593 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%    18955         97         97  OK
+      70%    22115        112        112  OK
+      80%    25274        127        127  OK
+      90%    28433        144        144  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.

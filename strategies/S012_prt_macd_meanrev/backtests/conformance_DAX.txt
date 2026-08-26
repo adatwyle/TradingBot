@@ -1,0 +1,11 @@
+R5 CONFORMITÉ — s12_prt_macd_meanrev / DAX
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 16 en backtest, 16 en live
+
+  NOTE : on_bar() délègue à generate_signals(). La conformité est
+  ici une garantie STRUCTURELLE — il n'y a qu'un chemin de décision,
+  donc rien ne peut diverger. C'est un bon choix de conception, mais
+  ce test ne constitue pas une vérification indépendante.
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres

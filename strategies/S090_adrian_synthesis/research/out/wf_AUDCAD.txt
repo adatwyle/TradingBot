@@ -1,0 +1,45 @@
+================================================================================================
+WALK-FORWARD — s90_adrian_synthesis / AUDCAD
+================================================================================================
+31591 barres · 6 configurations · 29s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/6   (≈0 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 0/6
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    sl_atr2.0_threshold_atr4_tp_atr1.0             +3.32   +2.35   -3.87   +0.27   +0.52      42
+        témoin aléatoire : percentile  99.5  | nul méd   -5.14 R, p95   +0.36 R | 200 tirages de 42 trades (exéc. méd. 42, 24 % long) | R/trade aléatoire L -0.187 / S -0.104
+    sl_atr1.0_threshold_atr4_tp_atr1.0             -0.65   +0.82   -6.25   -0.38   -1.62      42
+    sl_atr2.0_threshold_atr3_tp_atr1.0             -1.44   -4.46   -3.69   -4.59   -3.54     165
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+    Beta directionnel mesuré : -0.119 R/trade d'écart entre
+    une entrée LONG au hasard et une entrée SHORT au hasard.
+    => la période BAISSE. Symétrique du cas précédent pour
+       une stratégie majoritairement short.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.

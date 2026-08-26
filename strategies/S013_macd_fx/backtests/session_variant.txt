@@ -1,0 +1,19 @@
+EURJPY {'family': 'ext', 'direction': 'long', 'lookback': 1512, 'q': 0.1, 'exit': 'atr_1.5_1.5'} — H4 toutes heures
+  plein échantillon :  682 tr,   -19.93 R,  -0.0292 R/t, WR 51.9 %
+  OOS honest_r +9.80 (298 tr)
+  témoin aléatoire : percentile  97.5  | nul méd  -19.07 R, p95   +5.92 R | 200 tirages de 298 trades (exéc. méd. 289, 100 % long) | R/trade aléatoire L -0.068 / S    n/a
+
+EURJPY {'family': 'ext', 'direction': 'long', 'lookback': 1512, 'q': 0.1, 'exit': 'atr_1.5_1.5'} — H4 fenêtre 12-19
+  plein échantillon :  417 tr,    -8.63 R,  -0.0207 R/t, WR 52.3 %
+  OOS honest_r +1.70 (186 tr)
+  témoin aléatoire : percentile  91.0  | nul méd  -13.64 R, p95   +5.88 R | 200 tirages de 186 trades (exéc. méd. 184, 100 % long) | R/trade aléatoire L -0.074 / S    n/a
+
+AUDCAD {'family': 'ext', 'direction': 'long', 'lookback': 1512, 'q': 0.1, 'exit': 'atr_1.5_1.5'} — H4 toutes heures
+  plein échantillon :  551 tr,   -36.12 R,  -0.0656 R/t, WR 51.4 %
+  OOS honest_r -13.84 (242 tr)
+  témoin aléatoire : percentile  86.5  | nul méd  -28.94 R, p95   -6.29 R | 200 tirages de 242 trades (exéc. méd. 236, 100 % long) | R/trade aléatoire L -0.122 / S    n/a
+
+AUDCAD {'family': 'ext', 'direction': 'long', 'lookback': 1512, 'q': 0.1, 'exit': 'atr_1.5_1.5'} — H4 fenêtre 12-19
+  plein échantillon :  375 tr,   -33.68 R,  -0.0898 R/t, WR 50.1 %
+  OOS honest_r -9.09 (161 tr)
+  témoin aléatoire : percentile  84.0  | nul méd  -19.60 R, p95   -3.19 R | 200 tirages de 161 trades (exéc. méd. 159, 100 % long) | R/trade aléatoire L -0.122 / S    n/a

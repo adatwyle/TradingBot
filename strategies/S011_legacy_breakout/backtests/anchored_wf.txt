@@ -1,0 +1,660 @@
+s11_legacy_breakout — WALK-FORWARD ANCRÉ ET DIAGNOSTICS
+instruments : DAX, NASDAQ, SP500, FTSE, NIKKEI, XAUUSD, EURJPY, USDJPY
+TF exécution : H1
+dépôt (core inclus) : commit c4d939d
+critères : Tier1 = PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+AVERTISSEMENT — aucun chiffre S2 antérieur n'est repris : le moteur
+historique valorisait les résiduels à closes[-1] (lookahead). Tout
+ce qui suit est mesuré de zéro.
+
+================================================================================================
+R1 — INVARIANT DE CAUSALITÉ SUR 16 POINTS DE GRILLE
+================================================================================================
+  Point sensible : `failed_rate200` consulte close[j+1..j+3] pour
+  évaluer une cassure ; sa causalité tient au décalage d'agrégation
+  (fenêtre arrêtée à i-4). C'est exactement ce que ce test contrôle.
+
+  16 combinaisons testées sur DAX (18121 barres) — 16 OK, 0 en fuite.
+  VERDICT R1 : PASSÉ
+
+================================================================================================
+ARTEFACT DE GAP — stops non remplis par le moteur commun
+================================================================================================
+  Le moteur exige `low <= stop <= high`. Un gap de week-end qui saute
+  par-dessus le stop ne le remplit pas : la position reste ouverte.
+  Borne d'un trade sain ici : R ∈ [-1,10 ; +2,80].
+
+  sym           n     R tot   R/trade  fantômes   R fantôme  R/trade sain  max barres
+  ------------------------------------------------------------------------------------
+  DAX         103    -188.9    -1.834         1      -210.6        +0.212       12875
+  NASDAQ      404     +35.8    +0.089         0        +0.0        +0.089         914
+  SP500       415     -15.6    -0.038         0        +0.0        -0.038         950
+  FTSE        351     -54.7    -0.156         0        +0.0        -0.156         204
+  NIKKEI      462     +29.8    +0.064         0        +0.0        +0.064         167
+  XAUUSD      452     +84.1    +0.186         0        +0.0        +0.186         160
+  EURJPY      499      +9.2    +0.018         7        -7.8        +0.035         213
+  USDJPY      476     -36.6    -0.077         7        -7.8        -0.061         386
+
+  Lecture : là où « R fantôme » domine « R tot », le chiffre de
+  l'instrument mesure le moteur, pas la stratégie.
+
+================================================================================================
+DIAGNOSTIC PLEIN ÉCHANTILLON — H1 (signal seul) vs H2 (filtre historique)
+================================================================================================
+  « sans filtre » = er_min 0,00 / fr_max 1,00.
+  « filtre hist. » = er_min 0,11 / fr_max 0,50 (valeurs choisies à l'œil).
+  Le filtre se juge sur le R/TRADE : il retire des trades, donc le
+  total baisse mécaniquement — ça ne dit rien sur leur qualité.
+
+  sym        n sans  R/tr sans    WR%  n filtré  R/tr filtré    WR%   Δ R/trade  % retirés
+  ----------------------------------------------------------------------------------------
+  DAX           103     -1.834   33.0       122       +0.012   27.9      +1.846      -18.4
+  NASDAQ        404     +0.089   30.0       187       -0.107   24.6      -0.196       53.7
+  SP500         415     -0.038   27.0       176       -0.213   22.2      -0.176       57.6
+  FTSE          351     -0.156   23.6       109       -0.119   24.8      +0.037       68.9
+  NIKKEI        462     +0.064   30.7       205       +0.099   31.7      +0.035       55.6
+  XAUUSD        452     +0.186   33.2       181       +0.166   32.6      -0.020       60.0
+  EURJPY        499     +0.018   30.9       179       +0.016   30.7      -0.002       64.1
+  USDJPY        476     -0.077   27.7       202       -0.057   28.2      +0.020       57.6
+  ----------------------------------------------------------------------------------------
+  MOYENNE               -0.218                        -0.025             +0.193
+
+  Instruments où le filtre historique AMÉLIORE le R/trade : 4/8   (hasard : 4.0)
+
+================================================================================================
+WALK-FORWARD ANCRÉ — 4 fenêtres, hors échantillon, 128 configurations
+================================================================================================
+
+>>> DAX — 18121 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD — s11_legacy_breakout / DAX
+================================================================================================
+18121 barres · 128 configurations · 48s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 1/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 51/128
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min20_donchian40_er_min0.09_fr_max0.45_tp_m4.0  +13.73  +12.17   +0.28   +0.29   +6.62      50
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min20_donchian20_er_min0.09_fr_max0.45_tp_m3.0  +13.72  +16.79   +0.00   +0.00   +7.63      29
+    adx_min20_donchian20_er_min0.11_fr_max0.45_tp_m3.0  +14.72  +14.80   +0.00   +0.00   +7.38      27
+    adx_min20_donchian20_er_min0.09_fr_max1.0_tp_m3.0  +14.59  +14.78   +0.00   +0.00   +7.34      42
+    adx_min25_donchian20_er_min0.11_fr_max0.45_tp_m3.0   +9.76  +17.79   +0.00   +0.00   +6.89      26
+    adx_min25_donchian20_er_min0.09_fr_max0.45_tp_m3.0   +8.75  +17.79   +0.00   +0.00   +6.64      27
+    adx_min25_donchian20_er_min0.11_fr_max0.55_tp_m3.0   +8.65  +16.79   +0.00   +0.00   +6.36      37
+    adx_min25_donchian20_er_min0.09_fr_max1.0_tp_m3.0   +9.59  +15.79   +0.00   +0.00   +6.34      43
+    adx_min25_donchian20_er_min0.13_fr_max0.45_tp_m3.0   +6.81  +17.79   +0.00   +0.00   +6.15      23
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    adx_min20_donchian20_er_min0.09_fr_max1.0_tp_m3.0     +68.05     +29.38      57 %
+    adx_min25_donchian20_er_min0.09_fr_max1.0_tp_m3.0     +66.21     +25.37      62 %
+    adx_min20_donchian20_er_min0.09_fr_max0.45_tp_m3.0     +64.02     +30.51      52 %
+
+    => 57 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> NASDAQ — 29958 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD — s11_legacy_breakout / NASDAQ
+================================================================================================
+29958 barres · 128 configurations · 96s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 4/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min20_donchian40_er_min0.0_fr_max1.0_tp_m3.0  +12.76  +22.63   +0.00   +0.00   +8.85      49
+    adx_min25_donchian40_er_min0.0_fr_max1.0_tp_m3.0  +10.82  +21.65   +0.00   +0.00   +8.12      43
+    adx_min25_donchian40_er_min0.09_fr_max0.55_tp_m3.0   +3.85  +17.71   +0.00   +0.00   +5.39      29
+    adx_min20_donchian40_er_min0.09_fr_max0.55_tp_m3.0   +3.80  +16.71   +0.00   +0.00   +5.13      33
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    adx_min25_donchian40_er_min0.0_fr_max1.0_tp_m3.0     +88.00     +32.47      63 %
+    adx_min20_donchian40_er_min0.0_fr_max1.0_tp_m3.0     +85.75     +35.39      59 %
+    adx_min25_donchian40_er_min0.0_fr_max0.55_tp_m3.0     +79.57     +25.55      68 %
+
+    => 63 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> SP500 — 29962 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD — s11_legacy_breakout / SP500
+================================================================================================
+29962 barres · 128 configurations · 111s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 2/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min20_donchian20_er_min0.0_fr_max0.45_tp_m4.0  +10.89   -2.20   +2.72   -2.81   +2.15      81
+    adx_min20_donchian20_er_min0.0_fr_max0.5_tp_m4.0  +14.09   -2.09   +3.37  -10.27   +1.28     113
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    adx_min20_donchian20_er_min0.0_fr_max0.5_tp_m4.0     +23.75      +5.10      79 %
+    adx_min20_donchian20_er_min0.0_fr_max0.45_tp_m4.0     +22.58      +8.60      62 %
+    adx_min20_donchian40_er_min0.0_fr_max0.45_tp_m4.0     +14.28     +16.71     -17 %
+
+    => 79 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> FTSE — 17849 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD — s11_legacy_breakout / FTSE
+================================================================================================
+17849 barres · 128 configurations · 58s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 9/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min20_donchian40_er_min0.11_fr_max0.5_tp_m3.0   +3.43   +2.72   +2.60   +0.95   +2.42      43
+    adx_min20_donchian40_er_min0.11_fr_max0.55_tp_m3.0   +3.43   +0.70   +4.56   -0.06   +2.16      47
+    adx_min25_donchian40_er_min0.11_fr_max0.5_tp_m3.0   +4.46   -0.25   +1.64   +0.95   +1.70      40
+    adx_min25_donchian40_er_min0.11_fr_max0.55_tp_m3.0   +4.46   -1.26   +3.60   -0.06   +1.68      43
+    adx_min25_donchian40_er_min0.11_fr_max1.0_tp_m3.0   +3.45   -1.39   +1.57   -0.06   +0.89      52
+    adx_min25_donchian40_er_min0.09_fr_max0.5_tp_m3.0   +3.45   -0.33   -1.40   +0.95   +0.67      47
+    adx_min25_donchian40_er_min0.09_fr_max0.55_tp_m3.0   +3.45   -1.34   +0.46   -0.06   +0.63      53
+    adx_min25_donchian20_er_min0.13_fr_max0.5_tp_m3.0   -2.20   -3.16   +5.68   -1.01   -0.17      27
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    adx_min25_donchian40_er_min0.09_fr_max0.5_tp_m3.0      +9.56      +2.67      72 %
+    adx_min25_donchian40_er_min0.11_fr_max0.5_tp_m3.0      +9.20      +6.80      26 %
+    adx_min25_donchian40_er_min0.11_fr_max0.55_tp_m3.0      +8.07      +6.73      17 %
+
+    => 72 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> NIKKEI — 27142 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD — s11_legacy_breakout / NIKKEI
+================================================================================================
+27142 barres · 128 configurations · 92s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 11/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min25_donchian40_er_min0.0_fr_max0.45_tp_m3.0   +7.15   -1.89   +7.96   +3.46   +4.17      76
+    adx_min25_donchian40_er_min0.09_fr_max0.45_tp_m3.0   +6.43   -2.37   +9.98   -2.38   +2.91      55
+    adx_min25_donchian20_er_min0.09_fr_max0.45_tp_m3.0   +7.32   -4.43  +13.56   -5.32   +2.78      70
+    adx_min25_donchian40_er_min0.11_fr_max0.5_tp_m3.0   +8.41   -4.41   +7.06   -2.35   +2.18      58
+    adx_min25_donchian40_er_min0.11_fr_max0.55_tp_m3.0   +8.33   -4.41   +7.91   -4.37   +1.86      65
+    adx_min20_donchian40_er_min0.11_fr_max1.0_tp_m3.0   +4.27   -1.83  +11.45   -7.47   +1.61      92
+    adx_min20_donchian40_er_min0.11_fr_max0.55_tp_m3.0   +7.32   -3.51   +9.67   -8.42   +1.27      76
+    adx_min25_donchian40_er_min0.13_fr_max0.55_tp_m3.0   +6.64   -0.33   +3.21   -6.18   +0.84      43
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    adx_min25_donchian40_er_min0.0_fr_max1.0_tp_m3.0     +41.49     +17.02      59 %
+    adx_min25_donchian20_er_min0.0_fr_max0.5_tp_m4.0     +35.75     +27.57      23 %
+    adx_min25_donchian40_er_min0.09_fr_max0.55_tp_m3.0     +32.41      +9.74      70 %
+
+    => 59 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> XAUUSD — 30024 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD — s11_legacy_breakout / XAUUSD
+================================================================================================
+30024 barres · 128 configurations · 103s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 25/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 68/128
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min20_donchian40_er_min0.0_fr_max1.0_tp_m4.0  +12.84  +24.29  +36.98   +0.64  +18.69     175
+    adx_min20_donchian40_er_min0.09_fr_max1.0_tp_m4.0  +10.47  +21.47  +36.37   +0.10  +17.10     138
+    adx_min25_donchian40_er_min0.0_fr_max1.0_tp_m4.0  +10.08  +17.41  +35.74   +3.01  +16.56     151
+    adx_min25_donchian40_er_min0.09_fr_max1.0_tp_m4.0  +10.89  +20.87  +28.83   +1.46  +15.51     119
+    adx_min20_donchian40_er_min0.0_fr_max0.55_tp_m4.0  +14.56  +10.51  +31.49   +1.37  +14.48     134
+    adx_min25_donchian20_er_min0.0_fr_max1.0_tp_m4.0  +11.21   +9.58  +29.54   +6.93  +14.31     188
+    adx_min20_donchian20_er_min0.0_fr_max1.0_tp_m4.0   +9.33   +8.89  +30.41   +8.21  +14.21     210
+    adx_min25_donchian20_er_min0.0_fr_max1.0_tp_m3.0   +8.71  +21.70  +20.37   +5.56  +14.08     207
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min25_donchian20_er_min0.0_fr_max1.0_tp_m3.0   +8.71  +21.70  +20.37   +5.56  +14.08     207
+    adx_min20_donchian40_er_min0.0_fr_max0.5_tp_m4.0  +13.97  +13.93  +29.85   -2.92  +13.71     119
+    adx_min20_donchian40_er_min0.11_fr_max1.0_tp_m4.0  +14.95  +13.75  +29.83   -4.46  +13.52      98
+    adx_min25_donchian40_er_min0.0_fr_max0.55_tp_m4.0  +13.96   +8.90  +25.58   +1.73  +12.54     120
+    adx_min20_donchian40_er_min0.0_fr_max0.5_tp_m3.0  +11.29  +15.21  +21.52   -0.28  +11.94     127
+    adx_min25_donchian40_er_min0.0_fr_max0.55_tp_m3.0  +11.28  +13.16  +19.58   +3.70  +11.93     127
+    adx_min25_donchian40_er_min0.0_fr_max0.5_tp_m4.0  +13.37  +11.31  +23.94   -2.56  +11.52     106
+    adx_min25_donchian40_er_min0.11_fr_max1.0_tp_m4.0  +13.35  +10.13  +26.57   -4.10  +11.49      88
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    adx_min20_donchian40_er_min0.0_fr_max1.0_tp_m4.0     +90.36     +74.76      17 %
+    adx_min20_donchian40_er_min0.09_fr_max1.0_tp_m4.0     +89.37     +68.40      23 %
+    adx_min25_donchian40_er_min0.0_fr_max1.0_tp_m4.0     +87.87     +66.23      25 %
+
+    => 17 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> EURJPY — 31594 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD — s11_legacy_breakout / EURJPY
+================================================================================================
+31594 barres · 128 configurations · 131s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 7/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_min25_donchian40_er_min0.13_fr_max0.5_tp_m4.0   -0.53   +0.38   +0.57   +0.57   +0.24      19  [MINCE]
+    adx_min25_donchian40_er_min0.13_fr_max0.55_tp_m4.0   -0.53   +0.41   -0.49   +0.57   -0.01      20
+    adx_min25_donchian40_er_min0.13_fr_max1.0_tp_m4.0   -0.53   +0.76   -0.17   -0.50   -0.11      27
+    adx_min20_donchian40_er_min0.13_fr_max1.0_tp_m3.0   -1.19   +1.29   +0.81   -2.84   -0.48      29
+    adx_min25_donchian40_er_min0.13_fr_max0.55_tp_m3.0   -1.19   +1.58   -1.74   -0.69   -0.51      21
+    adx_min25_donchian40_er_min0.13_fr_max0.5_tp_m3.0   -1.19   -0.26   -0.69   -0.69   -0.71      19  [MINCE]
+    adx_min20_donchian40_er_min0.13_fr_max0.55_tp_m3.0   -1.19   +1.58   -1.74   -1.77   -0.78      22
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    adx_min20_donchian20_er_min0.0_fr_max0.5_tp_m4.0     +20.35     +21.97      -8 %
+    adx_min25_donchian20_er_min0.0_fr_max0.5_tp_m4.0     +18.64     +23.06     -24 %
+    adx_min25_donchian20_er_min0.09_fr_max1.0_tp_m4.0     +18.61     +19.35      -4 %
+
+    => -8 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> USDJPY — 31594 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD — s11_legacy_breakout / USDJPY
+================================================================================================
+31594 barres · 128 configurations · 123s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    adx_min25_donchian20_er_min0.13_fr_max0.45_tp_m3.0   -3.99   +5.99   +2.20   -3.39   +0.20      41
+    adx_min25_donchian20_er_min0.11_fr_max0.45_tp_m3.0   -4.20   +3.92   +3.70   -2.78   +0.16      55
+    adx_min20_donchian20_er_min0.13_fr_max0.55_tp_m3.0   -5.36   +3.50   +5.38   -2.95   +0.14      69
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    adx_min20_donchian20_er_min0.13_fr_max0.45_tp_m3.0      +5.81      -3.66     163 %
+    adx_min20_donchian20_er_min0.0_fr_max0.45_tp_m4.0      +4.26     -23.30     647 %
+    adx_min20_donchian20_er_min0.11_fr_max0.45_tp_m4.0      +3.61     -10.43     389 %
+
+    => 163 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+================================================================================================
+SYNTHÈSE — TABLEAU PAR INSTRUMENT
+================================================================================================
+  Grille : 128 configurations par instrument.
+  Un edge NUL produirait ~6.4 « STRICT pass » par pur hasard,
+  soit ~51 sur les 8 instruments.
+
+  instrument    STRICT  attendu   TIER1  trades OOS  moy OOS R  meilleur moy
+  ----------------------------------------------------------------------------
+  DAX                1      6.4      51          38      +2.76         +7.66
+  NASDAQ             0      6.4       4          54      +1.08         +8.85
+  SP500              0      6.4       2          70      -2.40         +4.18
+  FTSE               0      6.4       9          40      -1.21         +2.58
+  NIKKEI             0      6.4      11          83      +1.63         +6.89
+  XAUUSD            25      6.4      68          94      +8.13        +18.69
+  EURJPY             0      6.4       7          71      -1.14         +5.76
+  USDJPY             0      6.4       0          90      -5.24         +0.20
+  ----------------------------------------------------------------------------
+  TOTAL             26     51.2
+
+  « trades OOS » = médiane, sur la grille, du nombre de trades hors
+  échantillon cumulés sur les 4 fenêtres. Seuil de crédibilité : 20.
+
+================================================================================================
+*** ROBUSTESSE DES SEUILS DU FILTRE — LA QUESTION CENTRALE ***
+================================================================================================
+  Chaque cellule agrège les 8 configurations de signal (donchian ×
+  adx_min × tp_m) partageant ce couple de seuils, hors échantillon.
+  Métrique : R par TRADE (pas R total — un filtre retire des trades).
+
+  er_min=0,00 et fr_max=1,00 DÉSACTIVENT la moitié correspondante du
+  filtre. La cellule (0,00 ; 1,00) est le témoin sans filtre.
+
+  --- DAX : R/trade hors échantillon (effectif entre parenthèses) ---
+      er_min v / fr_max >            1.00            0.45            0.50            0.55
+      0.00                  +nan(0.0)       +nan(0.0)       +nan(0.0)     +0.011(106.0)
+      0.09                +0.198(633.0)     +0.505(354.0)     +0.326(485.0)     +0.221(548.0)
+      0.11                +0.152(497.0)     +0.452(297.0)     +0.277(392.0)     +0.172(449.0)
+      0.13                +0.323(329.0)     +0.594(217.0)     +0.400(259.0)     +0.321(300.0)
+      témoin sans filtre +nan | point historique +0.277 (+nan) | voisinage 3×3 meilleur que le témoin : 0/9
+
+  --- NASDAQ : R/trade hors échantillon (effectif entre parenthèses) ---
+      er_min v / fr_max >            1.00            0.45            0.50            0.55
+      0.00                +0.249(838.0)     +0.039(560.0)     +0.078(770.0)     +0.196(688.0)
+      0.09                +0.188(614.0)     +0.085(435.0)     +0.006(576.0)     +0.155(515.0)
+      0.11                +0.138(459.0)     +0.004(342.0)     -0.137(434.0)     +0.027(382.0)
+      0.13                +0.157(371.0)     -0.249(254.0)     -0.320(354.0)     -0.013(316.0)
+      témoin sans filtre +0.249 | point historique -0.137 (-0.386) | voisinage 3×3 meilleur que le témoin : 0/9
+
+  --- SP500 : R/trade hors échantillon (effectif entre parenthèses) ---
+      er_min v / fr_max >            1.00            0.45            0.50            0.55
+      0.00                -0.138(1335.0)     -0.088(510.0)     -0.095(776.0)     -0.159(942.0)
+      0.09                -0.137(934.0)     -0.102(401.0)     -0.041(595.0)     -0.115(719.0)
+      0.11                -0.127(730.0)     -0.189(331.0)     -0.025(476.0)     -0.077(582.0)
+      0.13                -0.155(532.0)     -0.397(223.0)     -0.131(331.0)     -0.164(436.0)
+      témoin sans filtre -0.138 | point historique -0.025 (+0.113) | voisinage 3×3 meilleur que le témoin : 6/9
+
+  --- FTSE : R/trade hors échantillon (effectif entre parenthèses) ---
+      er_min v / fr_max >            1.00            0.45            0.50            0.55
+      0.00                -0.116(798.0)     -0.179(337.0)     -0.068(477.0)     -0.093(464.0)
+      0.09                -0.113(464.0)     -0.184(252.0)     -0.058(331.0)     -0.094(377.0)
+      0.11                -0.039(355.0)     -0.143(225.0)     -0.060(277.0)     -0.035(312.0)
+      0.13                -0.169(234.0)     -0.231(168.0)     -0.191(193.0)     -0.225(205.0)
+      témoin sans filtre -0.116 | point historique -0.060 (+0.056) | voisinage 3×3 meilleur que le témoin : 4/9
+
+  --- NIKKEI : R/trade hors échantillon (effectif entre parenthèses) ---
+      er_min v / fr_max >            1.00            0.45            0.50            0.55
+      0.00                +0.049(1477.0)     +0.162(734.0)     +0.113(1044.0)     +0.077(1166.0)
+      0.09                +0.011(1004.0)     +0.126(527.0)     +0.107(731.0)     +0.052(817.0)
+      0.11                +0.041(780.0)     +0.131(434.0)     +0.158(579.0)     +0.110(642.0)
+      0.13                -0.060(551.0)     -0.003(324.0)     +0.024(406.0)     +0.024(457.0)
+      témoin sans filtre +0.049 | point historique +0.158 (+0.110) | voisinage 3×3 meilleur que le témoin : 6/9
+
+  --- XAUUSD : R/trade hors échantillon (effectif entre parenthèses) ---
+      er_min v / fr_max >            1.00            0.45            0.50            0.55
+      0.00                +0.311(1516.0)     +0.326(744.0)     +0.312(1064.0)     +0.267(1178.0)
+      0.09                +0.308(1172.0)     +0.307(608.0)     +0.284(855.0)     +0.263(945.0)
+      0.11                +0.378(844.0)     +0.373(498.0)     +0.366(679.0)     +0.332(744.0)
+      0.13                +0.376(628.0)     +0.491(360.0)     +0.363(502.0)     +0.294(566.0)
+      témoin sans filtre +0.311 | point historique +0.366 (+0.054) | voisinage 3×3 meilleur que le témoin : 5/9
+
+  --- EURJPY : R/trade hors échantillon (effectif entre parenthèses) ---
+      er_min v / fr_max >            1.00            0.45            0.50            0.55
+      0.00                -0.050(1602.0)     +0.053(651.0)     +0.075(1000.0)     +0.016(1127.0)
+      0.09                -0.008(1006.0)     -0.125(491.0)     -0.039(729.0)     -0.044(798.0)
+      0.11                -0.216(622.0)     -0.185(309.0)     -0.169(454.0)     -0.198(495.0)
+      0.13                -0.116(284.0)     -0.246(157.0)     -0.162(200.0)     -0.118(224.0)
+      témoin sans filtre -0.050 | point historique -0.169 (-0.119) | voisinage 3×3 meilleur que le témoin : 2/9
+
+  --- USDJPY : R/trade hors échantillon (effectif entre parenthèses) ---
+      er_min v / fr_max >            1.00            0.45            0.50            0.55
+      0.00                -0.172(1634.0)     -0.237(849.0)     -0.216(1093.0)     -0.208(1256.0)
+      0.09                -0.250(1127.0)     -0.303(717.0)     -0.252(891.0)     -0.261(980.0)
+      0.11                -0.138(733.0)     -0.207(469.0)     -0.189(608.0)     -0.130(646.0)
+      0.13                -0.154(473.0)     -0.268(337.0)     -0.218(409.0)     -0.168(437.0)
+      témoin sans filtre -0.172 | point historique -0.189 (-0.017) | voisinage 3×3 meilleur que le témoin : 2/9
+
+------------------------------------------------------------------------------------------------
+  AGRÉGÉ SUR 7 INSTRUMENTS — moyenne des R/trade hors échantillon
+------------------------------------------------------------------------------------------------
+  Retenus : NASDAQ, SP500, FTSE, NIKKEI, XAUUSD, EURJPY, USDJPY
+  ÉCARTÉS : DAX — au moins une cellule sous 20 trades hors échantillon.
+     DAX : cellule la plus mince = 0.0 trades. Le comparer cellule par cellule n'a pas de sens.
+  (Toute cellule est moyennée sur EXACTEMENT le même jeu
+   d'instruments — sinon la comparaison est truquée.)
+
+      er_min v / fr_max >        1.00        0.45        0.50        0.55
+      0.00                +0.0189     +0.0110     +0.0281     +0.0136
+      0.09                -0.0002     -0.0280     +0.0011     -0.0064
+      0.11                +0.0053     -0.0309     -0.0080     +0.0042
+      0.13                -0.0173     -0.1291     -0.0909     -0.0529
+
+  Témoin sans filtre (0,00 ; 1,00) : +0.0189 R/trade
+  Point historique   (0,11 ; 0,50) : -0.0080 R/trade  (-0.0269)
+  Voisinage 3×3 meilleur que le témoin : 0/9
+
+  Détail du voisinage 3×3 (écart au témoin) :
+      er0.09/fr0.45 -0.0469  er0.09/fr0.50 -0.0178  er0.09/fr0.55 -0.0253
+      er0.11/fr0.45 -0.0498  er0.11/fr0.50 -0.0269  er0.11/fr0.55 -0.0147
+      er0.13/fr0.45 -0.1480  er0.13/fr0.50 -0.1098  er0.13/fr0.55 -0.0718
+
+  DÉCOMPTE PAR INSTRUMENT (le plus informatif — une moyenne peut être
+  portée par un seul instrument) :
+      instrument      témoin  point hist.     écart   voisinage 3×3
+      -------------------------------------------------------------
+      NASDAQ          +0.249       -0.137    -0.386             0/9
+      SP500           -0.138       -0.025    +0.113             6/9
+      FTSE            -0.116       -0.060    +0.056             4/9
+      NIKKEI          +0.049       +0.158    +0.110             6/9
+      XAUUSD          +0.311       +0.366    +0.054             5/9
+      EURJPY          -0.050       -0.169    -0.119             2/9
+      USDJPY          -0.172       -0.189    -0.017             2/9
+      -------------------------------------------------------------
+      Instruments où le point historique améliore : 4/7  (hasard : 3.5)
+      Cellules du voisinage meilleures que leur témoin : 25/63 = 40 %  (hasard : 50 %)
+
+  -> Critère ANALYSIS § 6 : le point historique améliore MAIS son
+     voisinage ne suit pas. SUR-AJUSTEMENT — le gain n'est pas
+     attribuable au filtre, mais au choix du point.
+
+================================================================================================
+ROBUSTESSE — LA MEILLEURE CELLULE EST-ELLE ISOLÉE ?
+================================================================================================
+  Un edge réel survit au déplacement d'UN paramètre. Si seule la
+  cellule optimale est positive, c'est du sur-ajustement.
+  Référence : si le signe était aléatoire, ~50 % de voisins positifs.
+
+  DAX       meilleure = adx_min20_donchian40_er_min0.09_fr_max0.5_tp_m4.0
+            moy OOS +7.66 R sur 64 trades ; voisins positifs : 8/9
+  NASDAQ    meilleure = adx_min20_donchian40_er_min0.0_fr_max1.0_tp_m3.0
+            moy OOS +8.85 R sur 49 trades ; voisins positifs : 8/9
+  SP500     meilleure = adx_min20_donchian40_er_min0.0_fr_max0.45_tp_m4.0
+            moy OOS +4.18 R sur 48 trades ; voisins positifs : 6/9
+  FTSE      meilleure = adx_min20_donchian40_er_min0.11_fr_max1.0_tp_m3.0
+            moy OOS +2.58 R sur 57 trades ; voisins positifs : 7/9
+  NIKKEI    meilleure = adx_min25_donchian20_er_min0.0_fr_max0.5_tp_m4.0
+            moy OOS +6.89 R sur 134 trades ; voisins positifs : 9/9
+  XAUUSD    meilleure = adx_min20_donchian40_er_min0.0_fr_max1.0_tp_m4.0
+            moy OOS +18.69 R sur 175 trades ; voisins positifs : 9/9
+  EURJPY    meilleure = adx_min25_donchian20_er_min0.0_fr_max0.5_tp_m4.0
+            moy OOS +5.76 R sur 130 trades ; voisins positifs : 7/9
+  USDJPY    meilleure = adx_min25_donchian20_er_min0.13_fr_max0.45_tp_m3.0
+            moy OOS +0.20 R sur 41 trades ; voisins positifs : 1/9
+
+================================================================================================
+CONCENTRATION — LE RÉSULTAT TIENT-IL À UN SEUL INSTRUMENT ?
+================================================================================================
+  Un book dont 93 % du résultat vient d'un instrument n'est pas un
+  système, c'est un pari (méthodologie projet).
+
+  instrument     meilleure moy OOS   part du total positif
+  ----------------------------------------------------------
+  XAUUSD                    +18.69                    34 %
+  NASDAQ                     +8.85                    16 %
+  DAX                        +7.66                    14 %
+  NIKKEI                     +6.89                    13 %
+  EURJPY                     +5.76                    11 %
+  SP500                      +4.18                     8 %
+  FTSE                       +2.58                     5 %
+  USDJPY                     +0.20                     0 %

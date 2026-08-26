@@ -1,0 +1,84 @@
+# Manifest — Legacy S1 : divergence MACD + S/R
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s10_legacy_meanrev
+display_name: "Legacy S1 — divergence MACD + S/R"
+version: "1.0.0"
+magic_number: 130010
+author: "claude:s10_legacy_meanrev"
+source: "projet TBOT 2026, historique (grid_search_v12_multi_variant.py)"
+trader: "TBOT interne"
+
+# BACKTESTED = « mesuré », PAS « validé ». Verdict : PAS D'EDGE sur 7 des 8
+# instruments, NON CONCLUSIF sur NIKKEI. Ne pas promouvoir en PAPER.
+status: BACKTESTED
+
+symbols:
+  - SP500       # 1er du portefeuille contaminé (+244 CHF/fenêtre) -> 0/108 STRICT ici
+  - NIKKEI      # seul résidu non écarté — NON CONCLUSIF
+  - FTSE        # 3e du portefeuille contaminé (+108) -> 0/108 STRICT ici
+  - AUDCHF      # 4e du portefeuille contaminé (+98)
+  - EURUSD
+  - EURCHF
+  - AUDUSD
+  - USDJPY      # 0/210 dans le run contaminé — contrôle négatif
+
+timeframe: H1
+warmup_bars: 300
+
+default_params:
+  variant: DIV_SR
+  rsi_band: 35
+  adx_max: 35
+  sl_atr: 2.0
+  rr: 2.0
+
+# 3 x 3 x 3 x 2 x 2 = 108 configurations.
+# `variant` = les 3 chemins de code RÉELS des 6 variantes historiques
+# (STRICT / WIDE_TOL / RSI40 partagent la même branche, HI_cons / HI_aggr aussi).
+# `rsi_band` = borne basse ; la borne haute vaut 100 - borne basse.
+# `rr` = TP exprimé en multiple du SL (TP_atr = rr * sl_atr).
+param_grid:
+  variant:  [DIV_SR, DIV_NOSR, HIST_INF]
+  rsi_band: [30, 35, 40]
+  adx_max:  [25, 35, 50]
+  sl_atr:   [1.5, 2.5]
+  rr:       [1.0, 2.0]
+
+# Fixés hors grille, arrêtés en Phase 1 AVANT tout résultat.
+fixed_constants:
+  macd: "12/26/9, signal en SMA (comportement MT5 iMACD)"
+  rsi_period: 14
+  adx_period: 14         # algorithme MT5 ADX.mq5, pas la variante Wilder
+  atr_period: 14
+  sr_lookback: 50
+  sr_swing: 5
+  sr_tol: 0.006
+  div_k: 5
+  div_gap: "5 à 50 barres"
+  div_hold: 6
+
+created: 2026-08-16
+notes: |
+  Ré-implémentation propre du S1 historique contre le contrat StrategyModule.
+  Le code historique a été LU, jamais importé.
+
+  AVERTISSEMENT : tous les chiffres S1 publiés avant le 15.08.2026 (dont le
+  « PORTFOLIO ROBUSTE » de SPEC.md §7.1, +612 CHF/an) proviennent d'un moteur
+  qui valorisait les positions résiduelles à closes[-1] au lieu de closes[n-1].
+  Ils ne sont ni citables ni comparables. Voir research/ANALYSIS.md §0.
+
+  Résultats propres (864 cellules, moteur commun, R1 passé sur 48 points de
+  grille ET sur les 11 tableaux d'indicateurs — 176 comparaisons, écart nul) :
+    - 19 réussites STRICT contre ~43 attendues par pur hasard
+    - espérance plein échantillon : -0.0017 R/trade au spread réel
+    - à spread nul : +0.0748 R/trade -> l'edge brut existe mais le spread
+      le consomme presque exactement (-0.0766 R/trade)
+    - avec 0.5 pip de slippage réaliste : -0.0271 R/trade. Même un broker à
+      spread nul ne suffirait pas.
+    - SP500 et FTSE, vedettes du portefeuille contaminé : 0/108 STRICT
+    - NIKKEI : 9/108 STRICT, long/short symétrique -> NON CONCLUSIF
+    - le filtre S/R, signature de la stratégie, n'apporte rien de mesurable
+
+  Non testés : TP dynamique par paliers, combinaisons multi-variantes.

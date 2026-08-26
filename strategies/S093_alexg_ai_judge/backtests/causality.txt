@@ -1,0 +1,19 @@
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s93_alexg_ai_judge
+Instrument: EURUSD   (31593 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%    18955         31         31  OK
+      70%    22115         36         36  OK
+      80%    25274         41         41  OK
+      90%    28433         50         50  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.

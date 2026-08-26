@@ -1,0 +1,377 @@
+### params {'family': 'mr', 'direction': 'long', 'n_down': 5, 'exit': 'sym10'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: EURUSD   (5747 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3448        435        435  OK
+      70%     4022        525        525  OK
+      80%     4597        602        602  OK
+      90%     5172        705        705  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'mr', 'direction': 'short', 'n_down': 3, 'range_filter': True, 'exit': 'atr_1.5_1.5'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: EURUSD   (5747 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3448        587        587  OK
+      70%     4022        639        639  OK
+      80%     4597        734        734  OK
+      90%     5172        785        785  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'cross', 'direction': 'long', 'trigger': 'sig', 'exit': 'atr_2_3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: EURUSD   (5747 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3448        136        136  OK
+      70%     4022        164        164  OK
+      80%     4597        189        189  OK
+      90%     5172        212        212  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'cross', 'direction': 'short', 'trigger': 'zero', 'exit': 'hold20_sl3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: EURUSD   (5747 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3448         55         55  OK
+      70%     4022         70         70  OK
+      80%     4597         78         78  OK
+      90%     5172         86         86  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'ext', 'direction': 'long', 'lookback': 252, 'q': 0.05, 'exit': 'sym3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: EURUSD   (5747 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3448        232        232  OK
+      70%     4022        281        281  OK
+      80%     4597        338        338  OK
+      90%     5172        376        376  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'ext', 'direction': 'short', 'lookback': 126, 'q': 0.1, 'exit': 'atr_1.5_1.5'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: EURUSD   (5747 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3448        417        417  OK
+      70%     4022        496        496  OK
+      80%     4597        548        548  OK
+      90%     5172        619        619  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'mr', 'direction': 'long', 'n_down': 5, 'exit': 'sym10'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: USDJPY   (5744 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3446        439        439  OK
+      70%     4020        498        498  OK
+      80%     4595        576        576  OK
+      90%     5169        618        618  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'mr', 'direction': 'short', 'n_down': 3, 'range_filter': True, 'exit': 'atr_1.5_1.5'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: USDJPY   (5744 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3446        545        545  OK
+      70%     4020        651        651  OK
+      80%     4595        750        750  OK
+      90%     5169        882        882  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'cross', 'direction': 'long', 'trigger': 'sig', 'exit': 'atr_2_3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: USDJPY   (5744 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3446        142        142  OK
+      70%     4020        168        168  OK
+      80%     4595        195        195  OK
+      90%     5169        218        218  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'cross', 'direction': 'short', 'trigger': 'zero', 'exit': 'hold20_sl3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: USDJPY   (5744 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3446         56         56  OK
+      70%     4020         67         67  OK
+      80%     4595         81         81  OK
+      90%     5169         91         91  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'ext', 'direction': 'long', 'lookback': 252, 'q': 0.05, 'exit': 'sym3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: USDJPY   (5744 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3446        206        206  OK
+      70%     4020        259        259  OK
+      80%     4595        277        277  OK
+      90%     5169        326        326  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'ext', 'direction': 'short', 'lookback': 126, 'q': 0.1, 'exit': 'atr_1.5_1.5'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: USDJPY   (5744 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3446        509        509  OK
+      70%     4020        577        577  OK
+      80%     4595        675        675  OK
+      90%     5169        745        745  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'mr', 'direction': 'long', 'n_down': 5, 'exit': 'sym10'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: AUDCAD   (5703 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3421        416        416  OK
+      70%     3992        507        507  OK
+      80%     4562        569        569  OK
+      90%     5132        668        668  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'mr', 'direction': 'short', 'n_down': 3, 'range_filter': True, 'exit': 'atr_1.5_1.5'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: AUDCAD   (5703 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3421        510        510  OK
+      70%     3992        581        581  OK
+      80%     4562        676        676  OK
+      90%     5132        753        753  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'cross', 'direction': 'long', 'trigger': 'sig', 'exit': 'atr_2_3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: AUDCAD   (5703 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3421        144        144  OK
+      70%     3992        169        169  OK
+      80%     4562        191        191  OK
+      90%     5132        210        210  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'cross', 'direction': 'short', 'trigger': 'zero', 'exit': 'hold20_sl3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: AUDCAD   (5703 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3421         55         55  OK
+      70%     3992         63         63  OK
+      80%     4562         72         72  OK
+      90%     5132         79         79  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'ext', 'direction': 'long', 'lookback': 252, 'q': 0.05, 'exit': 'sym3'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: AUDCAD   (5703 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3421        202        202  OK
+      70%     3992        252        252  OK
+      80%     4562        293        293  OK
+      90%     5132        309        309  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+### params {'family': 'ext', 'direction': 'short', 'lookback': 126, 'q': 0.1, 'exit': 'atr_1.5_1.5'}
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : s13_macd_fx
+Instrument: AUDCAD   (5703 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%     3421        466        466  OK
+      70%     3992        543        543  OK
+      80%     4562        618        618  OK
+      90%     5132        698        698  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.

@@ -1,0 +1,54 @@
+s09 — économie du trade et calibration (Phase 1)
+======================================================================
+
+--- calibration fuseau serveur (profil de volatilité EURUSD) ---
+  peak_server_hour : 16
+  implied_offset_gmt : 3
+  trough_server_hour : 22
+  peak_range_pips : 25.7
+  trough_range_pips : 7.0
+  ratio : 3.67
+  Lecture : pic Londres/NY ~13:00 GMT à l'heure serveur 16 => serveur = GMT+3.
+  IC Markets (broker Balke) : GMT+2 hiver / GMT+3 été, même convention
+  « heure de New York + 7 » que la plupart des brokers MT5.
+  contrôle USDJPY : pic serveur 14h (offset GMT+1), ratio 3.25
+
+=== USDJPY — fenêtre 3h-6h, clôture 18h ===
+  barres H1 : 31594   jours avec range complet : 1313
+  spread catalogue : 2.8 pips   (médiane colonne cache : 18 points MT5)
+  taille du range : méd 30.7 pips (p25 20.2, p75 45.2) = 0.214 %% du prix (p25 0.141, p75 0.320)
+  part des jours dans le filtre 0.2-0.4 %% : 42 %%   filtre 0.15-0.85 %% : 70 %%
+  drag SL=range  : spread/risque = 9.12 %%  (= péage attendu en R/trade : 0.0912)
+  drag SL=1%%     : distance 1%% méd = 146 pips -> drag 1.91 %% (0.0191 R/trade)
+  1re cassure (close H1) : 1280 jours cassants (97 %% des jours) ; heure méd 8h, p75 9h, p90 13h
+    -> barres de tenue jusqu'à 18h : méd 9, p10 4
+
+=== GBPUSD — fenêtre 4h-12h, clôture 18h ===
+  barres H1 : 31594   jours avec range complet : 1313
+  spread catalogue : 2.2 pips   (médiane colonne cache : 22 points MT5)
+  taille du range : méd 46.8 pips (p25 34.5, p75 63.0) = 0.361 %% du prix (p25 0.265, p75 0.498)
+  part des jours dans le filtre 0.2-0.4 %% : 52 %%   filtre 0.15-0.85 %% : 95 %%
+  drag SL=range  : spread/risque = 4.70 %%  (= péage attendu en R/trade : 0.0470)
+  drag SL=1%%     : distance 1%% méd = 129 pips -> drag 1.71 %% (0.0171 R/trade)
+  1re cassure (close H1) : 1061 jours cassants (81 %% des jours) ; heure méd 14h, p75 15h, p90 16h
+    -> barres de tenue jusqu'à 18h : méd 3, p10 1
+
+=== XAUUSD — fenêtre 3h-6h, clôture 19h ===
+  barres H1 : 30024   jours avec range complet : 1307
+  spread catalogue : 25.0 pips   (médiane colonne cache : 520 points MT5)
+  taille du range : méd 765.0 pips (p25 482.0, p75 1589.8) = 0.350 %% du prix (p25 0.246, p75 0.528)
+  part des jours dans le filtre 0.2-0.4 %% : 45 %%   filtre 0.15-0.85 %% : 86 %%
+  drag SL=range  : spread/risque = 3.27 %%  (= péage attendu en R/trade : 0.0327)
+  drag SL=1%%     : distance 1%% méd = 2036 pips -> drag 1.23 %% (0.0123 R/trade)
+  1re cassure (close H1) : 1279 jours cassants (98 %% des jours) ; heure méd 8h, p75 9h, p90 12h
+    -> barres de tenue jusqu'à 19h : méd 10, p10 6
+
+=== EURJPY — fenêtre 3h-6h, clôture 18h ===
+  barres H1 : 31594   jours avec range complet : 1313
+  spread catalogue : 3.6 pips   (médiane colonne cache : 25 points MT5)
+  taille du range : méd 29.8 pips (p25 21.1, p75 43.5) = 0.192 %% du prix (p25 0.137, p75 0.281)
+  part des jours dans le filtre 0.2-0.4 %% : 37 %%   filtre 0.15-0.85 %% : 67 %%
+  drag SL=range  : spread/risque = 12.08 %%  (= péage attendu en R/trade : 0.1208)
+  drag SL=1%%     : distance 1%% méd = 159 pips -> drag 2.26 %% (0.0226 R/trade)
+  1re cassure (close H1) : 1288 jours cassants (98 %% des jours) ; heure méd 8h, p75 9h, p90 11h
+    -> barres de tenue jusqu'à 18h : méd 9, p10 6

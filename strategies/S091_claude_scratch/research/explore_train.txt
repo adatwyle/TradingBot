@@ -1,0 +1,106 @@
+s91_claude_scratch — PHASE 1 : EXPLORATION SUR ENTRAÎNEMENT SEUL
+instruments : EURUSD, USDCHF, USDJPY, USDCAD, AUDUSD, EURJPY
+tranche     : 60 % premiers de l'historique (= train de la fenêtre W1)
+heures      : HEURE SERVEUR MT5 (~ GMT+2/+3)
+    EURUSD     31593 barres -> train  18955 (2021-07-18 .. 2024-08-01)
+    USDCHF     31594 barres -> train  18956 (2021-07-18 .. 2024-08-01)
+    USDJPY     31594 barres -> train  18956 (2021-07-18 .. 2024-08-01)
+    USDCAD     31594 barres -> train  18956 (2021-07-18 .. 2024-08-01)
+    AUDUSD     31594 barres -> train  18956 (2021-07-18 .. 2024-08-01)
+    EURJPY     31594 barres -> train  18956 (2021-07-18 .. 2024-08-01)
+
+====================================================================================================
+A. DÉRIVE APRÈS EXTENSION vs SPREAD — LE CALCUL QUI DÉCIDE
+====================================================================================================
+  z = (close - MM20) / ecart-type(20), barres H1.
+  dérive = -signe(z) x (close[t+H] - close[t]), en pips. >0 = ça revient.
+  Fenêtre horaire : DEAD (serveur 22-06h).
+  Tranche : 60 % PREMIERS de l'historique (entraînement).
+
+  Le nombre à battre est le SPREAD ALLER-RETOUR de l'instrument.
+
+  --- horizon H = 4 barres ---
+  instrument   spread     z>=1.5     z>=2.0     z>=2.5     z>=3.0  n(z>=2.0)
+  ------------------------------------------------------------------------------------
+  EURUSD          1.9      +0.20      +0.78      +8.88     +13.93        134
+  USDCHF          2.2      +1.51      +5.04     +11.23       +nan        123
+  USDJPY (JPY)     2.8      -2.64      -3.86      +1.75      -8.16        417
+  USDCAD          3.1      -0.54      -1.11      -3.44     +10.40        186
+  AUDUSD          2.0      -0.06      -0.91      -1.37      -4.15        469
+  EURJPY (JPY)     3.6      -2.97      -5.75      -6.97     +14.37        348
+
+  --- horizon H = 6 barres ---
+  instrument   spread     z>=1.5     z>=2.0     z>=2.5     z>=3.0  n(z>=2.0)
+  ------------------------------------------------------------------------------------
+  EURUSD          1.9      +0.31      +0.59      +7.12     +19.73        134
+  USDCHF          2.2      +1.90      +6.10     +10.42       +nan        123
+  USDJPY (JPY)     2.8      -3.55      -4.58      +0.93      -2.35        417
+  USDCAD          3.1      -0.60      -1.28      -6.29     +11.24        186
+  AUDUSD          2.0      +0.31      -0.79      -1.65      -3.87        469
+  EURJPY (JPY)     3.6      -3.08      -6.11      -8.94     +17.40        348
+
+  --- horizon H = 8 barres ---
+  instrument   spread     z>=1.5     z>=2.0     z>=2.5     z>=3.0  n(z>=2.0)
+  ------------------------------------------------------------------------------------
+  EURUSD          1.9      +1.81      +5.67     +10.82     +23.33        134
+  USDCHF          2.2      +2.00      +4.99     +13.26       +nan        123
+  USDJPY (JPY)     2.8      -4.50      -5.98      +0.18      -1.89        417
+  USDCAD          3.1      -1.17      -0.09      -9.37     +12.52        186
+  AUDUSD          2.0      +0.56      +0.05      -0.89      -4.50        469
+  EURJPY (JPY)     3.6      -3.49      -6.29      -8.81     +29.06        348
+
+  --- horizon H = 12 barres ---
+  instrument   spread     z>=1.5     z>=2.0     z>=2.5     z>=3.0  n(z>=2.0)
+  ------------------------------------------------------------------------------------
+  EURUSD          1.9      +4.12      +9.40      +9.70     +17.40        134
+  USDCHF          2.2      +1.90      +4.34      +9.06       +nan        123
+  USDJPY (JPY)     2.8      -8.73     -13.72      -8.79     -22.76        417
+  USDCAD          3.1      -0.10      +1.25      -5.43     +17.30        186
+  AUDUSD          2.0      +0.49      -0.71      -1.55      -1.36        469
+  EURJPY (JPY)     3.6      -6.16     -11.56     -13.66     +35.07        348
+
+
+====================================================================================================
+B. CLIVAGE HORAIRE ET CLIVAGE JPY — sur entraînement seul
+====================================================================================================
+  Dérive moyenne (pips), horizon 8 barres, |z| >= 2.0.
+
+  instrument   spread      DEAD      PEAK     AUTRE   n DEAD  DEAD-spread
+  --------------------------------------------------------------------------
+  EURUSD          1.9     +5.67     +0.32     +0.96      134        +3.77
+  USDCHF          2.2     +4.99     +0.77     +0.99      123        +2.79
+  USDJPY (JPY)     2.8     -5.98     +2.25     -4.93      417        -8.78
+  USDCAD          3.1     -0.09     +1.72     +2.62      186        -3.19
+  AUDUSD          2.0     +0.05     +1.65     +0.02      469        -1.95
+  EURJPY (JPY)     3.6     -6.29     +1.00     -2.87      348        -9.89
+  --------------------------------------------------------------------------
+  Marge nette moyenne (dérive DEAD - spread) :
+     non-JPY (4 paires) :   +0.35 pips
+     JPY     (2 paires) :   -9.33 pips
+
+  MÉCANISME TESTÉ : la fenêtre 22-06h serveur est creuse pour les
+  paires sans devise asiatique, mais c'est la SESSION DE TOKYO pour
+  les paires JPY (ATR@DEAD ≈ ATR global, cf. economics.txt §1).
+  H91 prédit donc : marge > 0 sur les non-JPY, <= 0 sur les JPY.
+
+====================================================================================================
+C. GÉOMÉTRIE DU TRADE — ATR de la fenêtre DEAD (entraînement)
+====================================================================================================
+  Le stop est dimensionné sur l'ATR(24), calculé sur toutes les barres
+  (causal, pas de moyenne par heure). Voici ce qu'il vaut dans DEAD.
+
+  instrument   ATR DEAD  risq 2.0x  risq 2.5x  drag 2.0x  drag 2.5x  seuilWR rr1
+  ------------------------------------------------------------------------------
+  EURUSD           13.2       26.3       32.9      7.22%      5.77%        52.9%
+  USDCHF           12.3       24.6       30.7      8.95%      7.16%        53.6%
+  USDJPY           19.6       39.1       48.9      7.15%      5.72%        52.9%
+  USDCAD           15.1       30.1       37.7     10.29%      8.23%        54.1%
+  AUDUSD           12.7       25.4       31.8      7.86%      6.29%        53.1%
+  EURJPY           22.7       45.3       56.7      7.94%      6.35%        53.2%
+
+  seuilWR rr1 = taux de réussite requis à R:R 1.0, spread inclus.
+  Sans spread il serait de 50,0 %. L'écart est le péage, en points de WR.
+
+====================================================================================================
+FIN — l'hypothèse H91 est figée à partir de ces chiffres, et de rien d'autre.
+====================================================================================================

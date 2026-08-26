@@ -1,0 +1,21 @@
+========================================================================================
+R5 — COHERENCE BACKTEST / LIVE — s05_flossbach_liqsweep
+========================================================================================
+
+NOTE SUR L'OUTILLAGE COMMUN :
+  `core/validation/conformance.py` N'EXISTE PAS dans le depot, alors que
+  CLAUDE.md Phase 3 et la checklist d'admission de STRATEGY_RULES.md le
+  prescrivent. core/validation/ ne contient que causality.py, intrabar.py
+  et selftest.py. La lacune est signalee, pas corrigee (core/ interdit).
+  Ce script fait localement le travail de R5.
+
+  EURUSD/H4 : 600 barres rejouees en live, 3 signaux backtest sur la fenetre, divergences : 0
+  XAUUSD/H4 : 600 barres rejouees en live, 4 signaux backtest sur la fenetre, divergences : 0
+  SP500/H1 : 600 barres rejouees en live, 0 signaux backtest sur la fenetre, divergences : 0
+
+  TOTAL : 1800 barres rejouees, 7 signaux compares, 0 divergences
+
+VERDICT R5 : PASSE
+  `on_bar` et `generate_signals` prennent la meme decision sur le
+  meme etat de marche. `on_bar` ne voit que ctx.bars — il ne peut
+  donc pas utiliser de barre posterieure.

@@ -1,0 +1,114 @@
+# Manifest — Confluence de quatre lectures (technique / sentiment / anticipations / Claude)
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s16_confluence
+display_name: "Confluence 4 lectures — score calibré (cadrage)"
+version: "0.1.0"
+magic_number: 130016
+author: "claude:s16_confluence"
+source: "Mandat Adrian 2026-08-20 — technique + sentiment + anticipations (COT, marchés prédictifs) + avis de Claude Code"
+trader: "interne (mandat Adrian)"
+
+# RESEARCH, et au sens FAIBLE du terme : aucun code de stratégie n'existe,
+# aucun backtest n'a été exécuté, AUCUN PROTOCOLE N'EST SCELLÉ.
+# Le seul livrable à ce jour est le cadrage research/ANALYSIS.md.
+# La condition de scellement est écrite d'avance : research/ANALYSIS.md §G.1.
+status: RESEARCH
+
+# Univers DÉCLARÉ, pas mesuré. Ce sont les quatre noms forex que le filtre
+# Tier-1 a effectivement admis dans les trois folds de config_walkforward_v4.
+# À lire avec research/ANALYSIS.md §A.1bis : sur ces quatre noms, l'agrégat OOS
+# honnête est +302 CHF (9,6 % du total) et EURCHF est NÉGATIF (−120).
+# Les indices (SP500, FTSE, NIKKEI) et DAX portent 90,4 % du résultat mesuré —
+# ils sont HORS de cet univers parce que le mandat dit « forex ».
+symbols: [AUDCHF, EURUSD, AUDUSD, EURCHF]
+
+# H1 : c'est le seul timeframe où le forex a montré un edge mesuré (S1).
+# ARBITRAGE OUVERT, à trancher au scellé et pas avant : le pilier
+# « anticipations » (COT) est HEBDOMADAIRE — un point couvre ~120 barres H1.
+# Il ne peut pas nourrir une décision H1 (research/ANALYSIS.md §A.3a).
+# Soit le pilier anticipations est cantonné à un état de fond très lent, soit
+# la base technique descend en D1 — où S1 n'a pas d'edge mesuré. Non résolu.
+timeframe: "H1"
+warmup_bars: 60
+
+# Aucun paramètre par défaut : il n'y a pas de stratégie à paramétrer.
+default_params: {}
+
+# Aucune grille. Une grille écrite avant le scellé serait exactement le
+# problème décrit au §B.1 : ~5 × 10⁶ configurations possibles pour ~115 trades
+# observables par an.
+param_grid: {}
+
+# Champ de configuration demandé par Adrian — déclaré ici (R7), PAS dans le
+# code du moteur. Sémantique figée au scellé ; research/ANALYSIS.md §D.3.
+# `portee` n'admettra JAMAIS qu'une valeur : l'avis se limite à prendre ou
+# ne pas prendre (dosage de taille mesuré NUL +0,022 ; ajustement SL/TP mesuré
+# NUISIBLE −6,2 → −10,0 R — studies/macd_ai_paper/VERDICT_REPLAY.md).
+conseil:
+  sentiment:     aucun        # requis | optionnel | aucun
+  anticipations: aucun        # requis | optionnel | aucun
+  claude:        aucun        # requis | optionnel | aucun
+  portee:        prendre_ou_pas   # FIGÉ — seule valeur admise
+
+created: 2026-08-20
+notes: |
+  CE N'EST PAS UN PROTOCOLE SCELLÉ, ET ÇA NE PEUT PAS L'ÊTRE AUJOURD'HUI.
+  Trois des quatre entrées ont une valeur INCONNUE :
+    · sentiment      — s14 en collecte, F1 au plus tôt 2026-10-17, valeur nulle
+                       démontrée à ce jour ;
+    · anticipations  — s15 (COT) EN SUSPENS (2-9 épisodes de hold-out contre un
+                       plancher dérivé de 12) ; marchés prédictifs : RIEN
+                       n'existe (ni collecteur, ni historique, ni mesure) ;
+    · avis de Claude — mesuré : NE PAS ARMER (percentile 95,6 groupé qui tombe
+                       à 90,0 stratifié ; trades pris toujours perdants à
+                       −0,065 R).
+  Sceller une combinaison sur des entrées qui bougent sous le protocole
+  reviendrait à sceller sur rien. CONDITION DE SCELLEMENT, écrite d'avance :
+  au moins 2 des 3 conseils ont un verdict RENDU (VALEUR CANDIDATE ou PAS DE
+  VALEUR — pas « en cours »). Détail : research/ANALYSIS.md §G.1.
+
+  LA REVENDICATION TESTABLE N'EST PAS « le score marche » MAIS « le score est
+  CALIBRÉ » : quand le système annonce X %, l'événement déclaré se produit X %
+  du temps. Événement figé d'avance et BINAIRE — « le trade atteint sa cible
+  avant son stop », à géométrie de sortie CONSTANTE (sinon la calibration
+  mesure la sortie, pas la lecture). Instruments : courbe de fiabilité avec
+  effectif par tranche, score de Brier et sa décomposition (fiabilité /
+  résolution / incertitude), témoin obligatoire = le score constant, qui est
+  parfaitement calibré et parfaitement inutile.
+
+  EFFECTIF DE CALIBRATION, DÉRIVÉ (n = (z/2e)², z = 1,96, p ≈ 0,5) :
+    ± 5   pts → 384/tranche × 5 tranches = 1 920 trades ≈ 17 ans
+    ± 8,5 pts → 133/tranche × 3 tranches =   399 trades ≈ 3,5 ans
+    ± 10  pts →  96/tranche × 2 tranches =   192 trades ≈ 1,7 an
+  à la cadence MESURÉE de 2,2 trades/semaine (livre complet). En forex seul la
+  cadence mesurée tombe à 0,63/semaine — sous le plancher de 1 demandé.
+  => NOMBRE DE TRANCHES FIGÉ À 3 AU MAXIMUM, décidé avant d'avoir vu la moindre
+  confiance produite.
+
+  ARCHITECTURE DE MESURE (constructible dès maintenant, généralise
+  macd_ai_paper) : bras parallèles A0 MECH (référence, À VIE) / A1 +sentiment /
+  A2 +anticipations / A3 +Claude / A4 combiné / A5 aléatoire au taux de prise
+  de A4, plus SHADOW (contrefactuel sur CHAQUE signal). SHADOW n'est pas un
+  confort : sans lui les tranches de confiance des trades non pris restent
+  vides et la calibration est INOBSERVABLE. Bras dont le taux de prise sort de
+  [0,10 ; 0,90] → déclaré NON INFORMATIF.
+
+  GESTION DE SORTIE : SORTIE DE CE DOSSIER. Elle ne dépend d'aucun des quatre
+  piliers et est mesurable aujourd'hui — étude autonome proposée (s17), avec un
+  préalable de plateforme vérifié : core/backtest/engine.py n'implémente AUCUNE
+  gestion dynamique (stop et cible constants pour la durée du trade), et
+  pulse/live_runner.py n'émet que des TRADE_ACTION_DEAL — aucune voie pour
+  modifier un ordre déjà chez le broker (R3, set & forget). Toute sortie
+  dynamique est donc une capacité du MOTEUR, ticket core/ séparé, avec stop
+  MONOTONE pour préserver R3.
+
+  RÉGIME VISÉ — avertissement : le swing « sur les tendances générales » est le
+  régime réfuté quatre fois sur ce dépôt (S2 cassure, S5 pullback, s13 famille
+  B croisements, s12 momentum). S1 en H4 : 0/11 paires. Les seules poches
+  positives jamais mesurées sont des RETOURS À LA MOYENNE.
+
+  Aucun ordre, aucun compte, aucun capital sur Polymarket, Kalshi ou toute
+  autre place prédictive : LECTURE SEULE, conformément au mandat.
+  Aucune promotion PAPER ou LIVE — R10, décision d'Adrian.

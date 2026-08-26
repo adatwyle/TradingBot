@@ -1,0 +1,201 @@
+========================================================================================
+R1 — CAUSALITÉ, s08_markov_regime (contrat allocation)
+========================================================================================
+
+COUCHE 0 — CE QUE LE GARDIEN DE core/ COUVRE RÉELLEMENT ICI
+----------------------------------------------------------------------------------------
+  `manifest.symbols` existe : False   (le CLI de core/ le lit -> AttributeError)
+  `generate_signals` présent : False   (l'invariant de core/ l'appelle)
+  CONSÉQUENCE : le CLI `python -m core.validation.causality` est
+  INAPPLICABLE. La couverture ci-dessous vient de ce fichier, qui
+  réutilise la primitive `_compare_precompute` de core/ en couche 1.
+
+########################################################################################
+# SP500 — 2774 barres D1
+########################################################################################
+
+  ### paramètres : défaut (step=20, causal)
+COUCHE 1 — INDICATEURS (primitive de core/)
+----------------------------------------------------------------------------------------
+  precompute() rend : DataFrame  (inspecté par core/)
+  colonnes réellement comparées (8) : SP500_ret, SP500_state, SP500_signal, SP500_pbull, SP500_pbear, SP500_ntrans, SP500_persist, SP500_naive
+
+   coupure       T  verdict
+  ------------------------------------------------------------
+      60%    1664  OK
+      70%    1941  OK
+      80%    2219  OK
+      90%    2496  OK
+
+COUCHE 2 — DÉCISIONS (invariant de troncature sur les allocations)
+----------------------------------------------------------------------------------------
+    generate_allocations(precompute(bars),     p, T)
+        ==
+    generate_allocations(precompute(bars[:T]), p, T)
+
+   coupure       T  allocs A  allocs B  verdict
+  ----------------------------------------------------------------------
+      60%    1664       115       115  OK
+      70%    1941       151       151  OK
+      80%    2219       194       194  OK
+      90%    2496       235       235  OK
+
+  ### paramètres : step=1 (recouvrant)
+COUCHE 1 — INDICATEURS (primitive de core/)
+----------------------------------------------------------------------------------------
+  precompute() rend : DataFrame  (inspecté par core/)
+  colonnes réellement comparées (8) : SP500_ret, SP500_state, SP500_signal, SP500_pbull, SP500_pbear, SP500_ntrans, SP500_persist, SP500_naive
+
+   coupure       T  verdict
+  ------------------------------------------------------------
+      60%    1664  OK
+      70%    1941  OK
+      80%    2219  OK
+      90%    2496  OK
+
+COUCHE 2 — DÉCISIONS (invariant de troncature sur les allocations)
+----------------------------------------------------------------------------------------
+    generate_allocations(precompute(bars),     p, T)
+        ==
+    generate_allocations(precompute(bars[:T]), p, T)
+
+   coupure       T  allocs A  allocs B  verdict
+  ----------------------------------------------------------------------
+      60%    1664       101       101  OK
+      70%    1941       152       152  OK
+      80%    2219       184       184  OK
+      90%    2496       218       218  OK
+
+  ### paramètres : horizon=5 (P^n)
+COUCHE 1 — INDICATEURS (primitive de core/)
+----------------------------------------------------------------------------------------
+  precompute() rend : DataFrame  (inspecté par core/)
+  colonnes réellement comparées (8) : SP500_ret, SP500_state, SP500_signal, SP500_pbull, SP500_pbear, SP500_ntrans, SP500_persist, SP500_naive
+
+   coupure       T  verdict
+  ------------------------------------------------------------
+      60%    1664  OK
+      70%    1941  OK
+      80%    2219  OK
+      90%    2496  OK
+
+COUCHE 2 — DÉCISIONS (invariant de troncature sur les allocations)
+----------------------------------------------------------------------------------------
+    generate_allocations(precompute(bars),     p, T)
+        ==
+    generate_allocations(precompute(bars[:T]), p, T)
+
+   coupure       T  allocs A  allocs B  verdict
+  ----------------------------------------------------------------------
+      60%    1664        73        73  OK
+      70%    1941       129       129  OK
+      80%    2219       174       174  OK
+      90%    2496       217       217  OK
+
+COUCHE 3 — SÉRIES SHORT SYNTHÉTIQUES
+----------------------------------------------------------------------------------------
+  `open_s[i]` ne doit dépendre que de barres d'indice <= i, sinon la
+  fuite entre par les DONNÉES et pas par le code de la stratégie.
+
+  SP500      écart max sur les 4 coupures : 0.000e+00   OK
+
+########################################################################################
+# BTCUSD — 4376 barres D1
+########################################################################################
+
+  ### paramètres : défaut (step=20, causal)
+COUCHE 1 — INDICATEURS (primitive de core/)
+----------------------------------------------------------------------------------------
+  precompute() rend : DataFrame  (inspecté par core/)
+  colonnes réellement comparées (8) : BTCUSD_ret, BTCUSD_state, BTCUSD_signal, BTCUSD_pbull, BTCUSD_pbear, BTCUSD_ntrans, BTCUSD_persist, BTCUSD_naive
+
+   coupure       T  verdict
+  ------------------------------------------------------------
+      60%    2625  OK
+      70%    3063  OK
+      80%    3500  OK
+      90%    3938  OK
+
+COUCHE 2 — DÉCISIONS (invariant de troncature sur les allocations)
+----------------------------------------------------------------------------------------
+    generate_allocations(precompute(bars),     p, T)
+        ==
+    generate_allocations(precompute(bars[:T]), p, T)
+
+   coupure       T  allocs A  allocs B  verdict
+  ----------------------------------------------------------------------
+      60%    2625       272       272  OK
+      70%    3063       358       358  OK
+      80%    3500       439       439  OK
+      90%    3938       516       516  OK
+
+  ### paramètres : step=1 (recouvrant)
+COUCHE 1 — INDICATEURS (primitive de core/)
+----------------------------------------------------------------------------------------
+  precompute() rend : DataFrame  (inspecté par core/)
+  colonnes réellement comparées (8) : BTCUSD_ret, BTCUSD_state, BTCUSD_signal, BTCUSD_pbull, BTCUSD_pbear, BTCUSD_ntrans, BTCUSD_persist, BTCUSD_naive
+
+   coupure       T  verdict
+  ------------------------------------------------------------
+      60%    2625  OK
+      70%    3063  OK
+      80%    3500  OK
+      90%    3938  OK
+
+COUCHE 2 — DÉCISIONS (invariant de troncature sur les allocations)
+----------------------------------------------------------------------------------------
+    generate_allocations(precompute(bars),     p, T)
+        ==
+    generate_allocations(precompute(bars[:T]), p, T)
+
+   coupure       T  allocs A  allocs B  verdict
+  ----------------------------------------------------------------------
+      60%    2625       314       314  OK
+      70%    3063       436       436  OK
+      80%    3500       512       512  OK
+      90%    3938       586       586  OK
+
+  ### paramètres : horizon=5 (P^n)
+COUCHE 1 — INDICATEURS (primitive de core/)
+----------------------------------------------------------------------------------------
+  precompute() rend : DataFrame  (inspecté par core/)
+  colonnes réellement comparées (8) : BTCUSD_ret, BTCUSD_state, BTCUSD_signal, BTCUSD_pbull, BTCUSD_pbear, BTCUSD_ntrans, BTCUSD_persist, BTCUSD_naive
+
+   coupure       T  verdict
+  ------------------------------------------------------------
+      60%    2625  OK
+      70%    3063  OK
+      80%    3500  OK
+      90%    3938  OK
+
+COUCHE 2 — DÉCISIONS (invariant de troncature sur les allocations)
+----------------------------------------------------------------------------------------
+    generate_allocations(precompute(bars),     p, T)
+        ==
+    generate_allocations(precompute(bars[:T]), p, T)
+
+   coupure       T  allocs A  allocs B  verdict
+  ----------------------------------------------------------------------
+      60%    2625       324       324  OK
+      70%    3063       421       421  OK
+      80%    3500       513       513  OK
+      90%    3938       605       605  OK
+
+COUCHE 3 — SÉRIES SHORT SYNTHÉTIQUES
+----------------------------------------------------------------------------------------
+  `open_s[i]` ne doit dépendre que de barres d'indice <= i, sinon la
+  fuite entre par les DONNÉES et pas par le code de la stratégie.
+
+  BTCUSD     écart max sur les 4 coupures : 0.000e+00   OK
+
+COUCHE 4 — CONTRE-ÉPREUVE : le test voit-il une fuite injectée ?
+----------------------------------------------------------------------------------------
+  moyenne mobile centrée       vue à 4/4 coupures   DÉTECTÉE
+  grille ancrée sur la FIN     vue à 4/4 coupures   DÉTECTÉE
+
+  Une couche 1 verte n'a de valeur que parce que ces deux fuites-ci,
+  elles, la font rougir.
+
+========================================================================================
+VERDICT R1 : PASSÉ — aucune information future détectée sur la surface couverte.
+========================================================================================

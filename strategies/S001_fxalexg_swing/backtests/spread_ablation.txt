@@ -1,0 +1,132 @@
+========================================================================================
+ABLATION DU SPREAD — le signal est-il rentable AVANT peage broker ?
+========================================================================================
+Meme signaux, meme moteur. Seul change spread_pips (reel -> 0).
+Un signal sans edge reste negatif a spread nul. Un signal a edge
+marginal bascule. C'est le seul moyen de separer les deux causes.
+
+  sym     htf  target      n  R/trade reel  R/trade spr=0    ecart   drag%
+  ------------------------------------------------------------------------
+  EURUSD  H4   struct    368       -0.1581        -0.0628  +0.0953    8.72
+  EURUSD  H4   ext27     353       -0.0941        +0.0013  +0.0954    8.20
+  EURUSD  H4   ext62     331       -0.1152        -0.0224  +0.0929    7.96
+  EURUSD  H4   rr3       311       -0.1178        -0.0252  +0.0926    7.90
+  EURUSD  D1   struct    147       -0.0074        +0.0947  +0.1021    7.97
+  EURUSD  D1   ext27     129       +0.0040        +0.1089  +0.1050    7.97
+  EURUSD  D1   ext62     121       -0.0000        +0.0978  +0.0978    7.97
+  EURUSD  D1   rr3       136       +0.0678        +0.1765  +0.1087    7.96
+
+  USDJPY  H4   struct    374       -0.1305        -0.0403  +0.0902    8.05
+  USDJPY  H4   ext27     349       -0.0705        +0.0166  +0.0871    7.74
+  USDJPY  H4   ext62     317       -0.0551        +0.0316  +0.0868    7.59
+  USDJPY  H4   rr3       291       +0.0254        +0.1134  +0.0880    7.52
+  USDJPY  D1   struct    141       -0.1598        -0.0824  +0.0774    6.69
+  USDJPY  D1   ext27     134       -0.1503        -0.0700  +0.0803    6.73
+  USDJPY  D1   ext62     127       -0.0600        +0.0258  +0.0857    6.77
+  USDJPY  D1   rr3       132       -0.0816        +0.0000  +0.0816    6.56
+
+  USDCHF  H4   struct    389       -0.2697        -0.1526  +0.1171   10.78
+  USDCHF  H4   ext27     369       -0.2653        -0.1539  +0.1115   10.53
+  USDCHF  H4   ext62     331       -0.2090        -0.0956  +0.1134   10.37
+  USDCHF  H4   rr3       309       -0.2688        -0.1586  +0.1102   10.66
+  USDCHF  D1   struct    148       -0.1760        -0.0596  +0.1164   10.48
+  USDCHF  D1   ext27     138       -0.2457        -0.1400  +0.1057   10.57
+  USDCHF  D1   ext62     124       -0.2873        -0.1823  +0.1050   10.77
+  USDCHF  D1   rr3       137       -0.2901        -0.1825  +0.1076   10.36
+
+  AUDUSD  H4   struct    371       -0.2039        -0.1002  +0.1037    9.74
+  AUDUSD  H4   ext27     363       -0.1529        -0.0518  +0.1011    9.38
+  AUDUSD  H4   ext62     326       -0.0968        +0.0078  +0.1046    9.34
+  AUDUSD  H4   rr3       305       -0.1704        -0.0689  +0.1015    9.40
+  AUDUSD  D1   struct    136       -0.1442        -0.0376  +0.1066    9.46
+  AUDUSD  D1   ext27     133       -0.0788        +0.0346  +0.1135    9.45
+  AUDUSD  D1   ext62     122       +0.0639        +0.1966  +0.1327    9.53
+  AUDUSD  D1   rr3       130       -0.1898        -0.0881  +0.1016    9.44
+
+  USDCAD  H4   struct    363       -0.1276        +0.0200  +0.1476   12.19
+  USDCAD  H4   ext27     348       -0.0778        +0.0596  +0.1374   11.80
+  USDCAD  H4   ext62     310       -0.0836        +0.0517  +0.1353   11.58
+  USDCAD  H4   rr3       295       -0.0534        +0.0847  +0.1382   11.45
+  USDCAD  D1   struct    145       -0.1604        -0.0330  +0.1275   12.59
+  USDCAD  D1   ext27     137       -0.2016        -0.0773  +0.1243   12.68
+  USDCAD  D1   ext62     129       -0.0284        +0.1113  +0.1397   12.68
+  USDCAD  D1   rr3       134       -0.1499        -0.0149  +0.1349   12.57
+
+  EURJPY  H4   struct    400       -0.0991        +0.0017  +0.1008    9.27
+  EURJPY  H4   ext27     375       -0.1446        -0.0496  +0.0950    8.65
+  EURJPY  H4   ext62     339       -0.1436        -0.0491  +0.0945    8.61
+  EURJPY  H4   rr3       315       -0.0901        +0.0097  +0.0998    8.65
+  EURJPY  D1   struct    122       -0.0509        +0.0425  +0.0933    7.99
+  EURJPY  D1   ext27     119       +0.0363        +0.1294  +0.0931    7.97
+  EURJPY  D1   ext62     110       +0.0603        +0.1578  +0.0975    7.99
+  EURJPY  D1   rr3       128       -0.0585        +0.0312  +0.0897    7.87
+
+  XAUUSD  H4   struct    364       +0.0506        +0.0841  +0.0335    2.64
+  XAUUSD  H4   ext27     336       -0.0493        -0.0185  +0.0308    2.62
+  XAUUSD  H4   ext62     314       +0.0235        +0.0536  +0.0302    2.46
+  XAUUSD  H4   rr3       280       +0.0998        +0.1286  +0.0288    2.33
+  XAUUSD  D1   struct    129       -0.1453        -0.1186  +0.0267    2.61
+  XAUUSD  D1   ext27     118       -0.0887        -0.0619  +0.0268    2.64
+  XAUUSD  D1   ext62     110       -0.1915        -0.1671  +0.0244    2.69
+  XAUUSD  D1   rr3       128       +0.0025        +0.0312  +0.0288    2.39
+
+  SYNTHESE
+    cellules mesurees            : 56
+    positives au spread REEL     : 10
+    positives a spread NUL       : 27
+    R/trade moyen, spread reel   : -0.1028
+    R/trade moyen, spread nul    : -0.0082
+    cout moyen du spread         : -0.0946 R/trade
+
+========================================================================================
+CONTROLE DIRECTIONNEL — les cellules STRICT sont-elles un pari sur la tendance ?
+========================================================================================
+Si le resultat vient presque entierement d'un seul cote, ce n'est pas une
+lecture de structure : c'est du beta sur un marche a sens unique.
+
+  XAUUSD  (meilleure cellule du walk-forward)  buy&hold 5,1 ans = +142%
+     LONG   n= 219  R=   +59.0  R/trade=+0.2693  WR=35.2%
+     SHORT  n= 187  R=   +27.6  R/trade=+0.1475  WR=28.9%
+     TOTAL  n= 406  R=   +86.6  R/trade=+0.2132
+
+  USDJPY  (meilleure cellule du walk-forward)  buy&hold 5,1 ans = +45%
+     LONG   n=  61  R=   +69.7  R/trade=+1.1432  WR=31.1%
+     SHORT  n=  38  R=   -10.0  R/trade=-0.2624  WR=13.2%
+     TOTAL  n=  99  R=   +59.8  R/trade=+0.6037
+
+  USDCAD  (meilleure cellule du walk-forward)  buy&hold 5,1 ans = +10%
+     LONG   n= 184  R=    +1.5  R/trade=+0.0083  WR=28.3%
+     SHORT  n= 157  R=   -38.2  R/trade=-0.2434  WR=21.0%
+     TOTAL  n= 341  R=   -36.7  R/trade=-0.1076
+
+
+========================================================================================
+XAUUSD — EXAMEN DEDIE DU SEUL RESIDU NON ECARTE
+========================================================================================
+
+1) VOISINAGE plein echantillon (un parametre deplace a la fois)
+   cellule                                            n        R   R/trade    WR%
+   ------------------------------------------------------------------------------
+   BASE 3/ext27                                     406    +86.6   +0.2132   32.3
+   htf=D1                                            93    -27.5   -0.2953   11.8
+   k_htf=2                                          484     -9.4   -0.0195   29.1
+   k_ltf=3                                          357    +20.1   +0.0564   33.6
+   retr_min=0.5                                     353    +45.5   +0.1289   29.5
+   retr_max=0.786                                   336    +55.7   +0.1659   33.0
+   target=struct                                    463    +64.7   +0.1397   41.5
+   target=ext62                                     377    +84.4   +0.2237   23.6
+   target=rr3                                       382    +25.4   +0.0666   27.5
+
+   Voisins a esperance POSITIVE : 6/8   (hasard pur ~ 4/8)
+
+2) STABILITE TEMPORELLE de la cellule de base (par annee)
+   annee        n        R   R/trade
+   ---------------------------------
+   2021        32    -18.3   -0.5714
+   2022        83    +62.2   +0.7493
+   2023        96     -2.0   -0.0205
+   2024        69    +15.3   +0.2220
+   2025        83    +13.9   +0.1680
+   2026        43    +15.4   +0.3570
+
+   annees positives : 4/6

@@ -1,0 +1,92 @@
+# Manifest — Gaussian Channel Trend Radar (Michael Ionita)
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s07_ionita_gaussian
+display_name: "Gaussian Channel Trend Radar (Ionita)"
+version: "1.0.0"
+magic_number: 130007
+author: "claude:s07_ionita_gaussian"
+source: "https://www.youtube.com/watch?v=fdGCGXcDByk"
+trader: "Michael Ionita"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+# ATTENTION — CONTRAT NON STANDARD
+# Cette stratégie implémente `AllocationModule` (core/contracts/allocation.py),
+# PAS `StrategyModule`. Elle répartit un capital entre plusieurs lignes ; elle
+# n'émet ni entrée, ni stop, ni cible. Conséquences pour la plateforme :
+#   - `python -m core.validation.causality --strategy s07_ionita_gaussian`
+#     NE FONCTIONNE PAS (le CLI est câblé sur le contrat épisodique).
+#     R1 est exécuté par `python -m strategies.s07_ionita_gaussian.validate_r1`,
+#     sortie archivée dans backtests/causality.txt
+#   - `core/backtest/anchored_wf.py` ne s'applique pas non plus ; le
+#     walk-forward est orchestré par run_backtest.py, qui appelle le moteur
+#     commun `run_allocation` (R9 respecté : aucune boucle de backtest maison)
+contract: allocation
+
+symbols: ["BTCUSD", "ETHUSD"]   # inventaire crypto COMPLET du broker, pas une sélection
+timeframe: D1
+warmup_bars: 450
+
+default_params:
+  period: 144                   # défauts du Pine Script d'origine
+  poles: 4
+  mult: 1.414
+  source: hlc3
+  enable_shorts: false
+  btc_regime_symbol: BTCUSD
+  short_tp_ratio: 0.65
+  bear_touch_ratio: 0.98
+  w_long_fresh: 0.08
+  w_long_stale: 0.02
+  w_short_hedge: 0.03
+  w_short_bear: 0.05
+  breakout_max_age_days: 25
+  donchian_lookback: 55         # substitution de `breakoutDate` (propriétaire)
+  sizing_mode: donchian         # donchian | uniform
+  weight_mode: normalized       # normalized | absolute
+  max_positions: 50
+
+param_grid:
+  period: [72, 108, 144, 180, 216]
+  poles: [3, 4, 5]
+  mult: [1.0, 1.414, 2.0]
+# 45 configurations -> environ 2,2 « réussites » attendues par pur hasard au
+# seuil 5 % (docs/METHODOLOGY.md §6). Grille volontairement petite : une grille
+# large ne trouve pas un meilleur edge, elle trouve un meilleur faux positif.
+
+max_single_weight: 1.0
+rebalance: daily
+allow_cash: true
+
+created: 2026-08-16
+notes: |
+  VERDICT : PAS D'EDGE au sens du critère n°1 (research/VERDICT.md).
+  Sur 2018-2026, BTCUSD + ETHUSD, la stratégie rend 786 % contre 1 141 % pour
+  l'équipondéré naïf des deux mêmes lignes, avec un Sharpe inférieur.
+
+  NE PAS PROMOUVOIR en PAPER en l'état.
+
+  Deux réserves majeures sur la portée du verdict :
+   1. Le « Trend Radar » de Signum n'est pas reproductible. L'univers est fixe,
+      donc l'effet de SÉLECTION est neutralisé, pas mesuré. Le verdict porte sur
+      le canal gaussien seul, jamais sur le produit de l'auteur.
+   2. L'univers crypto du broker compte DEUX lignes contre cinquante chez
+      l'auteur. Ce n'est pas son portefeuille.
+
+  Résultat robuste et transférable : le mécanisme protège réellement en marché
+  baissier (fenêtres OOS 3 et 4 : +22,7 % et -17,3 % contre -3,6 % et -39,2 %
+  pour BTC) et sous-performe en marché haussier. C'est un profil de suiveur de
+  tendance conforme à ce que l'auteur annonce — mais qui ne suffit pas à battre
+  la détention passive sur le cycle complet.
+
+  La jambe SHORT dégrade tout, alors même qu'elle est simulée SANS coût de bord.
+  L'auteur classe lui-même sa version long+short DERRIÈRE sa version long seul.
+
+  BUG core/ SIGNALÉ, NON CORRIGÉ : `allocation_engine` décale l'exécution d'une
+  barre et crédite un mouvement antérieur à la décision. Démonstration :
+  backtests/bug_allocation_engine.txt. Contourné dans strategy.py par un
+  décalage d'horodatage — À RETIRER quand core/ sera corrigé, sinon double
+  décalage. Sans ce contournement, la stratégie affichait 107 278 % au lieu
+  de 786 %.

@@ -1,0 +1,102 @@
+================================================================================================
+s08_markov_regime — ÉVALUATION COMPLÈTE
+================================================================================================
+Contrat : ALLOCATION. Moteur : core.backtest.allocation_engine.run_allocation.
+Shorts : séries synthétiques SYM~S (coût de bord nul, cf. make_specs).
+Conditions de falsification déclarées AVANT mesure : research/FALSIFICATION.md
+
+################################################################################################
+# NASDAQ — 2774 barres D1 (2016-01-12 -> 2026-08-14) · 262 barres/an
+################################################################################################
+
+  --- long only -------------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          4.74%     0.55   -16.89%        63.4%   66.6%     345
+  markov causal step=20 binaire      12.03%     0.67   -35.71%       233.0%   66.6%      49
+  markov causal step=1  binaire       9.53%     0.64   -30.89%       162.2%   62.3%      95
+  markov FUITÉ step=20 binaire       14.75%     0.77   -35.71%       329.4%   71.1%       1
+  markov FUITÉ step=1  binaire        9.53%     0.64   -30.89%       162.2%   62.3%      95
+  naïf momentum 20j                   4.44%     0.56   -12.13%        58.4%   19.1%     206
+  markov horizon=5 (P^n)             14.75%     0.77   -35.71%       329.4%   71.1%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  --- avec shorts -----------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          4.74%     0.55   -16.89%        63.4%   66.6%     345
+  markov causal step=20 binaire      12.03%     0.67   -35.71%       233.0%   66.6%      49
+  markov causal step=1  binaire       3.07%     0.25   -44.67%        37.7%   71.1%      95
+  markov FUITÉ step=20 binaire       14.75%     0.77   -35.71%       329.4%   71.1%       1
+  markov FUITÉ step=1  binaire        3.07%     0.25   -44.67%        37.7%   71.1%      95
+  naïf momentum 20j                  -1.72%    -0.04   -40.69%       -16.8%   27.9%     300
+  markov horizon=5 (P^n)             14.75%     0.77   -35.71%       329.4%   71.1%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  RÉFÉRENCES (rendues par le moteur, non optionnelles) :
+    B&H NASDAQ                   CAGR   20.11%  Sharpe   0.93  DD  -35.71%  total      595.7%
+    cash (0 %)                   CAGR    0.00%  Sharpe   0.00  DD    0.00%  total        0.0%
+
+  F1 — CONTRIBUTION MARGINALE DE L'APPAREIL (comparaison position par position)
+  ----------------------------------------------------------------------------------------
+  n = 1974 barres après warmup
+  poids IDENTIQUES à 1e-9 près : 24.82 % des barres
+  même DIRECTION (long/short/plat) : 24.82 %
+  seuil F1 déclaré avant mesure : concordance >= 95 % ET |dCAGR| < 1 pt
+  CAGR markov +12.03 %  vs  naïf -1.72 %   (écart +13.75 pt)
+  -> F1 NON déclenchée
+
+  F5 — LE VERDICT CHANGE-T-IL DE SIGNE SELON QU'ON CORRIGE LA FUITE ?
+  ----------------------------------------------------------------------------------------
+  step=20   causal CAGR   12.03%  Sharpe   0.67   |   FUITÉ CAGR   14.75%  Sharpe   0.77   |   écart CAGR   +2.72 pt
+  step=1    causal CAGR    3.07%  Sharpe   0.25   |   FUITÉ CAGR    3.07%  Sharpe   0.25   |   écart CAGR   +0.00 pt
+
+  CONTRÔLE LONG / SHORT (docs/METHODOLOGY.md §5.2)
+  ----------------------------------------------------------------------------------------
+  Rendement annualisé PAR JOUR DÉTENU, par jambe :
+    NASDAQ           +18.73 %
+  Temps passé :
+    NASDAQ           66.6 %
+    CASH             33.4 %
+    NASDAQ~S          0.0 %
+
+  ABLATION DU SPREAD (docs/METHODOLOGY.md §5.1) ET COÛT DE PORTAGE
+  ----------------------------------------------------------------------------------------
+  coût                  CAGR   Sharpe    DD max        total
+  ------------------------------------------------------------
+  nul                 12.12%     0.67   -35.71%       235.7%
+  nominal             12.03%     0.67   -35.71%       233.0%
+  pessimiste x2       11.95%     0.66   -35.71%       230.3%
+
+  Portage NON modélisé par le moteur : swap long 6.32 %/an sur NASDAQ.
+  Stratégie investie 66.6 % du temps -> ~4.21 %/an de portage, contre 6.32 %/an pour un buy & hold CFD (investi 100 %).
+  Le portage joue donc EN FAVEUR de la stratégie ; l'omettre des deux côtés
+  la désavantage. Sens conservateur, conservé tel quel.
+
+  MARKOV CACHÉ (concept 9) — les deux versions, comme exigé
+  ----------------------------------------------------------------------------------------
+  `docs/sources/aipathways/SYNTHESE.md` R7 classe déjà en rejet le HMM
+  ajusté sur l'échantillon complet puis utilisé pour l'étiqueter. Il est
+  reproduit ici uniquement pour chiffrer ce qu'il rapporte artificiellement.
+
+  version                                 CAGR   Sharpe    DD max    inv%
+  ------------------------------------------------------------------------
+  HMM glissant (honnête)                 4.17%     0.40   -24.73%   10.0%
+  HMM plein échantillon (LE PIÈGE)       3.04%     0.31   -24.73%    9.3%
+
+  WALK-FORWARD ANCRÉ — fenêtres importées de core.backtest.anchored_wf
+  ----------------------------------------------------------------------------------------
+  2774 barres · 36 configurations · sélection sur le Sharpe du TRAIN uniquement
+  Espérance de hasard : 36 x 0,05 = 1.8 « réussites » par pur hasard au seuil 5 %.
+
+   W config retenue                          train Sh  OOS tot%   OOS Sh   OOS DD%   B&H tot%
+  --------------------------------------------------------------------------------------------
+   1 size_scale=1.0 thr=0.08 window=10           0.91      5.66     1.20     -3.45      22.24
+   2 size_scale=1.0 thr=0.08 window=10           0.95      0.00     0.00      0.00      35.06
+   3 size_scale=1.0 thr=0.08 window=10           0.89     18.80     1.25     -2.63      15.23
+   4 size_scale=1.0 thr=0.08 window=10           0.79      0.00     0.00      0.00      29.50
+
+  fenêtres OOS positives : 2/4 · battant le B&H : 1/4 · rendement OOS moyen +6.12 %
+  seuil F3 déclaré avant mesure : < 3/4 positives OU moyenne négative -> F3 déclenchée
+  -> F3 DÉCLENCHÉE
+  configurations retenues différentes d'une fenêtre à l'autre : 1/4 (un changement à chaque fenêtre = la grille suit le bruit)

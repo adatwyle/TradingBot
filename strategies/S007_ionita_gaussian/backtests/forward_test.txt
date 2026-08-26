@@ -1,0 +1,57 @@
+==============================================================================
+REPRODUCTION DU FORWARD-TEST PUBLIÉ PAR L'AUTEUR
+==============================================================================
+Fenêtre    : 2024-10-15 -> 2025-09-09
+Instrument : BTCUSD (CFD Swissquote) — l'auteur mesure un spot
+Réglages   : 144 / 4 pôles / 1,414 (défauts du Pine Script)
+
+Ce que l'auteur annonce :
+    rendement total         51.74 %
+    drawdown max            -8.57 %
+    trades gagnants         44.44 %  (sur ~9 trades)
+    buy & hold, par lui     68.00 %  <- son propre chiffre
+
+Barres disponibles : 4343 au total, 330 dans la fenêtre mesurée (2024-10-15 -> 2025-09-09)
+
+Ce que NOUS mesurons :
+    rendement total         56.38 %   (effectif : 9 épisodes de détention)
+    drawdown max           -16.01 %
+    épisodes gagnants       55.56 %   (5/9)
+    buy & hold BTC          70.89 %   <- mesuré sur nos barres
+    investi                  61.8 % du temps
+
+    portage non modélisé : -8.7 %/an x 0.90 an = -7.9 pt
+    rendement après portage    48.50 %
+
+Détail des épisodes (l'auteur en énumère neuf à l'écran) :
+     1. 2024-10-16 -> 2024-12-30    +41.28 %
+     2. 2025-01-04 -> 2025-01-08     +0.30 %
+     3. 2025-01-19 -> 2025-01-29     -3.13 %
+     4. 2025-01-31 -> 2025-02-01     -1.26 %
+     5. 2025-04-24 -> 2025-06-20    +12.08 %
+     6. 2025-06-26 -> 2025-07-02     -0.25 %
+     7. 2025-07-04 -> 2025-08-03     +3.06 %
+     8. 2025-08-05 -> 2025-08-06     -0.78 %
+     9. 2025-08-08 -> 2025-08-19     +1.37 %
+    composé : +57.05 %   (total mesuré +56.38 % — écart 0.67 pt)
+
+------------------------------------------------------------------------------
+CONFRONTATION
+------------------------------------------------------------------------------
+                                   auteur         nous        écart
+  rendement total                  51.74%       56.38%       +4.64
+  drawdown max                     -8.57%      -16.01%       -7.44
+  trades/épisodes gagnants         44.44%       55.56%      +11.12
+  buy & hold                       68.00%       70.89%       +2.89
+
+  Stratégie moins buy & hold, chez l'auteur : -16.26 points
+  Stratégie moins buy & hold, chez nous     : -14.51 points
+
+  Lecture : le signe de cet écart est le résultat qui compte. Il est
+  négatif dans les DEUX mesures — celle de l'auteur comme la nôtre.
+
+  EFFECTIF : 9 épisodes. Sur un tel nombre, l'intervalle
+  de confiance du taux de réussite couvre pratiquement tout. Aucun
+  taux de réussite calculé sur cette fenêtre — le sien comme le
+  nôtre — n'est statistiquement interprétable.
+==============================================================================

@@ -1,0 +1,47 @@
+============================================================================================
+R1 — INVARIANT DE CAUSALITE — s05_flossbach_liqsweep
+============================================================================================
+
+--- 1. PREUVE QUE LA COUCHE INDICATEUR EST REELLEMENT INSPECTEE ---
+
+  type(precompute(...)) = DataFrame
+  isinstance DataFrame  = True
+  colonnes comparees (9) : close, atr, ema_htf, volratio, sig_side, sig_entry, sig_stop, sig_target, sig_ncluster
+  fuites detectees sur ces colonnes : 0
+
+  CONTROLES POSITIFS — on plante des fuites volontaires et on
+  verifie que le gardien les voit :
+
+    (a) normalisation plein echantillon  -> DETECTEE (ecart max 1.993e-02, 5714/5714 points)
+    (b) shift(-5) (valeur du futur)      -> *** NON DETECTEE ***
+        LIMITE DU GARDIEN COMMUN, a signaler et non a contourner :
+        sur la tranche tronquee, un shift(-k) produit des NaN sur les
+        k dernieres barres — exactement la ou la fuite se voit. Or
+        `_compare_precompute` masque les NaN (`both = isfinite(a) &
+        isfinite(b)`) et ne compare donc jamais ces points. La signature
+        la plus courante d'un look-ahead echappe a la couche indicateur.
+        Elle reste attrapee par la couche SIGNAUX si elle fait basculer
+        une decision — c'est le cas ici, cf. section 2.
+
+  => la couche indicateur est bien active sur NOS objets (nos 9
+     colonnes sont reellement comparees). Le '0 fuite' ci-dessus
+     est donc un resultat, pas un silence.
+
+--- 2. INVARIANT DE TRONCATURE SUR LA GRILLE ---
+
+  Pour chaque cellule : 4 coupures (60/70/80/90 %).
+  A = generate_signals(precompute(df), p, T)
+  B = generate_signals(precompute(df[:T]), p, T)   -> doivent etre egaux
+
+  EURUSD/H4 : 24 cellules x 4 coupures verifiees
+  XAUUSD/H4 : 24 cellules x 4 coupures verifiees
+  SP500/H1 : 24 cellules x 4 coupures verifiees
+
+  TOTAL : 72 cellules x 4 coupures = 288 comparaisons
+  Divergences de signaux   : 0
+  Fuites niveau indicateur : 0
+
+VERDICT R1 : PASSE
+  Aucune information future detectee, ni au niveau des signaux, ni
+  au niveau des indicateurs — et le controle positif prouve que la
+  couche indicateur etait bien sous surveillance.

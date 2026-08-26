@@ -1,0 +1,48 @@
+# Manifest — MACD Forex Design Search
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s13_macd_fx
+display_name: "MACD Forex Design Search"
+version: "1.0.0"
+magic_number: 130013
+author: "claude:s13_macd_fx"
+source: "s12 + mandat Adrian (exploration de conception MACD forex)"
+trader: "interne (mandat Adrian)"
+
+# BACKTESTED = « mesuré », PAS « validé ». Verdict : EDGE CANDIDAT (faible)
+# sur UNE survivante — AUDCAD ext-long D1 (hold-out scellé +0,58 R/t x 11,
+# percentile témoin 96). Suite proposée : forward scellé zéro argent (motif
+# gold_forward). PAS de promotion PAPER — décision Adrian (R10).
+status: PAPER
+
+# La survivante + la jumelle en observation d'hypothèse (EURJPY : hold-out
+# positif mais sous son beta, percentile 74).
+symbols: [AUDCAD, EURJPY]
+timeframe: "D1"
+warmup_bars: 60
+
+# Config de la survivante (figée par le hold-out — ne pas re-régler).
+default_params:
+  family: "ext"
+  direction: "long"
+  n_down: 5            # sans effet pour family=ext (dimension mr)
+  range_filter: false  # idem
+  trigger: "sig"       # idem (dimension cross)
+  lookback: 252
+  q: 0.10
+  exit: "atr_1.5_1.5"
+
+# Les grilles d'exploration complètes sont dans backtests/run_explore.py et
+# research/FALSIFICATION.md (gel 6405c80). Ici : la cellule survivante seule.
+param_grid: {}
+
+created: 2026-08-17
+notes: |
+  Exploration 756 cellules (3 familles x 2 sens x 9 paires, D1 20 ans),
+  hold-out 18 mois scellé ouvert une fois sur 3 candidates (liste close
+  commit 5fbedec). Familles A (s12 transposé) et B (croisements) : mortes.
+  Famille C (MACD/ATR sous percentile 10 glissant 252 j, long) : seule poche
+  large positive ; transfert à froid poolé +0,020 R/t x 1226. Survivante
+  AUDCAD F1-F7 passées ; réserve dominante : 11 trades de hold-out.
+  Détail : research/VERDICT.md.

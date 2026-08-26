@@ -1,0 +1,229 @@
+========================================================================================================
+COMPTABILITE D'EQUITY — s04_aipathways_trendcore (AI Pathways, Trend core)
+========================================================================================================
+Donnees : 1329 barres D1 alignees NASDAQ/XAUUSD/SP500, 2021-07-19 -> 2026-08-14
+Convention : decision a la CLOTURE de t-1, execution a l'OUVERTURE de t,
+             rendement open[t] -> open[t+1] de l'actif detenu.
+Couts : demi-spread a la sortie + demi-spread a l'entree, a chaque bascule.
+
+Fenetre evaluee : 1128 jours (4.31 ans, 261.8 barres/an) apres warmup MM200.
+
+--------------------------------------------------------------------------------------------------------
+EFFECTIF — a lire avant tout le reste
+--------------------------------------------------------------------------------------------------------
+  Bascules de regime sur la fenetre evaluee : **14**  (3.25 / an)
+  Annonce par la source                     : 5,3 / an
+  Episodes de detention                     : **14**
+
+  Precedent methodologique : un 'strict pass' sur 19 trades avait un IC 95 %
+  du taux de reussite de [27,3 % ; 68,3 %], seuil de rentabilite DEDANS.
+  Nous sommes ici a 14. Toute statistique par comptage d'episodes est
+  hors de portee. Les mesures ci-dessous s'appuient sur les rendements
+  JOURNALIERS (1128 observations), pas sur les 14 episodes.
+
+========================================================================================================
+1. LE CRITERE N°1 — BAT-ON L'ACHAT-CONSERVATION ?
+========================================================================================================
+                                                  CAGR   Sharpe      DD max        vol        total
+--------------------------------------------------------------------------------------------------------
+STRATEGIE Trend core (NASDAQ/XAUUSD, MM200)   +23.02 %     1.23    -16.96 %    18.17 %     +144.2 %
+
+buy & hold NASDAQ                             +20.01 %     0.90    -25.33 %    23.39 %     +119.5 %
+buy & hold XAUUSD                             +20.45 %     1.07    -26.63 %    19.16 %     +123.0 %
+buy & hold SP500                              +14.28 %     0.85    -20.20 %    17.46 %      +77.7 %
+buy & hold 50/50 NASDAQ+XAUUSD (rebal. quot.)  +21.36 %     1.26    -17.18 %    16.48 %     +130.3 %
+
+  Annonce par la source : CAGR +33,80 %, Sharpe 1,66, DD max -13,60 %
+
+  vs buy & hold NASDAQ  : CAGR   +3.01 pt, Sharpe  +0.33, DD   +8.37 pt
+  vs buy & hold XAUUSD  : CAGR   +2.57 pt, Sharpe  +0.16, DD   +9.67 pt
+  vs buy & hold SP500   : CAGR   +8.75 pt, Sharpe  +0.38, DD   +3.24 pt
+  vs 50/50               : CAGR   +1.67 pt, Sharpe  -0.03, DD   +0.22 pt
+
+========================================================================================================
+2. ATTRIBUTION PAR JAMBE — le caveat de l'auteur, teste de front
+========================================================================================================
+L'auteur signale lui-meme : 'le repli sur GLD tient en partie a la vigueur
+recente de l'or ; 2005-09 favorisait plutot un repli en cash'.
+C'est le piege USDJPY (+69,7 R long / -10,0 R short). Verification :
+
+  jambe                          jours  % du temps   contrib. compo.   % du gain   R/jour moyen   annualise
+  ----------------------------------------------------------------------------------------------------
+  NASDAQ (au-dessus MM)            861       76.3 %           +121.2 %       88.9 %        0.0985 %     +27.30 %
+  XAUUSD (en dessous MM)           267       23.7 %            +10.4 %       11.1 %        0.0436 %     +10.20 %
+
+  Total compose : +144.2 %
+
+  'annualise' = rendement compose de la jambe ramene a une annee de detention.
+  C'est la mesure qui NE depend PAS du temps passe dans la jambe — celle qui
+  compte (cf. 'ne jamais juger un filtre sur le PnL total').
+
+========================================================================================================
+3. VARIANTE CASH — la jambe or apporte-t-elle quelque chose ?
+========================================================================================================
+                                                  CAGR   Sharpe      DD max        vol        total
+--------------------------------------------------------------------------------------------------------
+Trend core NASDAQ/XAUUSD (la regle)           +23.02 %     1.23    -16.96 %    18.17 %     +144.2 %
+Variante CASH (hors marche sous la MM, 0 %)   +20.23 %     1.25    -14.25 %    15.81 %     +121.2 %
+buy & hold NASDAQ                             +20.01 %     0.90    -25.33 %    23.39 %     +119.5 %
+
+  Ecart or - cash : CAGR +2.79 pt, Sharpe -0.01, DD -2.71 pt
+  Note : le cash est remunere a 0 %. Avec des T-bills a ~4 % sur 2023-2026,
+  la variante cash gagnerait environ +1,4 pt de CAGR supplementaire
+  (elle passe 76 % du temps investie).
+
+========================================================================================================
+4. ABLATION DU SPREAD
+========================================================================================================
+                                                  CAGR   Sharpe      DD max        vol        total
+--------------------------------------------------------------------------------------------------------
+spread reel Swissquote                        +23.02 %     1.23    -16.96 %    18.17 %     +144.2 %
+spread NUL                                    +23.05 %     1.23    -16.94 %    18.17 %     +144.5 %
+
+  Cout total du spread sur 4.31 ans : 0.0880 % cumule, soit 0.0204 % / an.
+  Impact sur le CAGR : -0.0250 point.
+
+  Annonce en Phase 1 (ANALYSIS §8) : 'l'ablation du spread sera un
+  non-evenement'. C'est verifie. A 2-3 bascules/an, le peage est ~1/800e du
+  CAGR annonce. Le spread ne peut ni causer un echec ni excuser un succes.
+  Le cout NON modelise qui compte ici est le SWAP sur detention permanente.
+
+========================================================================================================
+5. CONTROLE LONG/SHORT — degenere, et il faut le dire
+========================================================================================================
+  Jours en position LONG  : 1128 / 1128 = 100.0 %
+  Jours en position SHORT : 0 / 1128 = 0,0 %
+
+  La strategie est 100 % longue en permanence, par construction. Le controle
+  directionnel ne peut donc PAS la disculper : il la classe d'office du cote
+  'exposition directionnelle'. C'est exactement pour cette raison que le
+  benchmark buy & hold du §1 est le seul juge possible.
+
+  Beta realise vs les deux actifs (regression des rendements journaliers) :
+    vs NASDAQ   beta  0.525   correlation  0.677
+    vs XAUUSD   beta  0.349   correlation  0.368
+
+========================================================================================================
+6. LA MM200 SEPARE-T-ELLE VRAIMENT DEUX POPULATIONS ? (critere I4)
+========================================================================================================
+  Rendement journalier NASDAQ quand NASDAQ > MM200 : +0.0985 % (n=861, ecart-type 1.117 %)
+  Rendement journalier NASDAQ quand NASDAQ < MM200 : +0.0208 % (n=267, ecart-type 2.195 %)
+  Difference : +0.0777 % / jour   t = 0.56   (|t| > 1,96 = significatif a 5 %)
+  Annualise  : +29.4 % vs +5.6 %
+
+  Volatilite annualisee au-dessus : 18.1 %   en dessous : 35.5 %
+
+========================================================================================================
+7. TEST DE PLATEAU — 12 configurations (~0,6 reussite par PUR HASARD)
+========================================================================================================
+   ma_len   buffer  bascules       CAGR   Sharpe     DD max |   variante CASH: CAGR   Sharpe
+  ----------------------------------------------------------------------------------------------------
+      100    0.000        41    +17.89 %     0.97    -20.77 % |              +14.59 %     0.97
+      100    0.005        33    +14.72 %     0.82    -20.72 % |              +13.51 %     0.90
+      100    0.010        23    +16.34 %     0.90    -22.64 % |              +12.82 %     0.86
+      150    0.000        27    +19.23 %     1.05    -23.55 % |              +17.56 %     1.11
+      150    0.005        19    +19.86 %     1.08    -20.52 % |              +16.96 %     1.08
+      150    0.010        15    +19.30 %     1.06    -19.05 % |              +15.80 %     1.02
+      200    0.000        14    +23.02 %     1.23    -16.96 % |              +20.23 %     1.25
+      200    0.005         6    +25.80 %     1.36    -16.04 % |              +21.54 %     1.30
+      200    0.010         6    +25.10 %     1.33    -16.04 % |              +20.88 %     1.27
+      250    0.000        18    +25.95 %     1.39    -13.92 % |              +18.04 %     1.12
+      250    0.005        12    +26.42 %     1.40    -13.92 % |              +17.76 %     1.10
+      250    0.010        10    +23.01 %     1.25    -17.03 % |              +16.54 %     1.03
+
+  Configurations battant le buy & hold NASDAQ en CAGR   : 6/12
+  Configurations battant le buy & hold NASDAQ en Sharpe : 11/12
+
+========================================================================================================
+8. STABILITE ANNUELLE — d'ou vient le resultat ?
+========================================================================================================
+   annee   jours    Trend core    B&H NASDAQ    B&H XAUUSD   variante cash   % temps en or
+  --------------------------------------------------------------------------------------------
+    2022     181         -6.4 %        -19.6 %         -6.4 %           +0.0 %          100.0 %
+    2023     260        +47.5 %        +52.6 %        +13.6 %          +39.6 %            7.3 %
+    2024     263        +23.3 %        +25.4 %        +26.5 %          +20.9 %            0.4 %
+    2025     262        +28.9 %        +19.9 %        +65.4 %          +15.9 %           18.7 %
+    2026     162        +11.3 %        +19.0 %         +0.2 %          +13.1 %           10.5 %
+
+========================================================================================================
+9. HORS ECHANTILLON ANCRE — ma_len choisi sur le train, mesure sur le test
+========================================================================================================
+  Memes fenetres que core/backtest/anchored_wf.py : train [0,x%], test (x%,y%].
+  Selection sur le Sharpe d'entrainement, parmi les 12 cellules.
+
+    fenetre           config train  Sharpe train |   CAGR test  Sharpe test   B&H NASDAQ  bascules
+  --------------------------------------------------------------------------------------------------
+  W1 60->70%         ma250/buf0.005          1.39 |     +41.62 %         1.91      +41.62 %         0
+  W2 70->80%         ma250/buf0.005          1.49 |     +24.00 %         1.16      +18.70 %         4
+  W3 80->90%         ma250/buf0.005          1.43 |      +9.29 %         0.63       +9.29 %         0
+  W4 90->100%         ma250/buf0.005          1.33 |     +53.16 %         1.90      +48.41 %         2
+
+  Fenetres ou la strategie bat le buy & hold NASDAQ : 2/4
+  **Effectif : 0 a 2 bascules par fenetre de test.** Un 4/4 comme un 0/4
+  sont ici du bruit. Cette section est publiee pour la transparence, PAS
+  comme element de preuve.
+
+========================================================================================================
+10. VARIANTE SP500 comme actif risque (robustesse de famille)
+========================================================================================================
+                                                  CAGR   Sharpe      DD max        vol        total
+--------------------------------------------------------------------------------------------------------
+Trend core SP500/XAUUSD (MM200 sur SP500)     +16.24 %     1.13    -16.04 %    14.15 %      +91.2 %
+buy & hold SP500                              +14.28 %     0.85    -20.20 %    17.46 %      +77.7 %
+Variante CASH SP500                           +13.42 %     1.20     -8.93 %    10.98 %      +72.1 %
+
+========================================================================================================
+11. CONCENTRATION TEMPORELLE — l'avantage tient-il a une seule annee ?
+========================================================================================================
+2022 est le SEUL episode baissier de l'echantillon (et il est tronque :
+le warmup MM200 ne libere le signal qu'en mai 2022).
+
+                                                  CAGR   Sharpe      DD max        vol        total
+--------------------------------------------------------------------------------------------------------
+Trend core — TOUT l echantillon               +23.02 %     1.23    -16.96 %    18.17 %     +144.2 %
+buy & hold NASDAQ — TOUT                      +20.01 %     0.90    -25.33 %    23.39 %     +119.5 %
+
+Trend core — HORS 2022                        +30.45 %     1.52    -16.96 %    18.69 %     +161.0 %
+variante CASH — HORS 2022                     +24.62 %     1.36    -14.25 %    17.27 %     +121.2 %
+buy & hold NASDAQ — HORS 2022                 +32.09 %     1.43    -25.33 %    21.09 %     +173.0 %
+
+  Avantage de Sharpe sur TOUT l'echantillon : +0.33
+  Avantage de Sharpe HORS 2022              : +0.09
+  Avantage de CAGR   sur TOUT l'echantillon : +3.01 pt
+  Avantage de CAGR   HORS 2022              : -1.64 pt
+  Jours concernes par 2022 : 181 / 1128 = 16.0 %
+
+========================================================================================================
+12. L'AVANTAGE EST-IL DISTINGUABLE DU BRUIT ? (bootstrap par blocs)
+========================================================================================================
+  Re-echantillonnage par blocs de 21 jours (1 mois) des rendements
+  APPARIES (strategie, B&H NASDAQ), 5000 tirages. On preserve ainsi la
+  dependance serielle et la correlation entre les deux series.
+
+  Difference de CAGR  (strategie - B&H NASDAQ) : observee +3.01 pt, IC 95 % [-14.92 ; +17.62] pt
+  Part des tirages ou la strategie fait MOINS bien : 38.6 %
+
+  Difference de Sharpe (strategie - B&H NASDAQ) : observee +0.33, IC 95 % [-0.40 ; +0.97]
+  Part des tirages ou la strategie fait MOINS bien : 19.0 %
+
+  Meme comparaison contre le portefeuille NAIF 50/50 :
+    CAGR   : observee +1.67 pt, IC 95 % [-12.30 ; +15.31] pt, 41.7 % des tirages defavorables
+    Sharpe : observee -0.03, IC 95 % [-0.74 ; +0.61], 55.5 % des tirages defavorables
+
+========================================================================================================
+13. SUR SA PROPRE FENETRE DE TEST (2023-01 -> 2026-07)
+========================================================================================================
+Comparaison a armes egales avec les chiffres annonces.
+
+                                                  CAGR   Sharpe      DD max        vol        total
+--------------------------------------------------------------------------------------------------------
+ANNONCE par la source (QQQ/GLD)               +33.80 %     1.66    -13.60 %        n/d          n/d
+NOTRE mesure (NASDAQ/XAUUSD), meme fenetre    +28.80 %     1.45    -16.96 %    18.68 %     +147.0 %
+  variante ma250/buf0.005 (la meilleure)      +30.28 %     1.51    -13.92 %    18.63 %     +157.3 %
+buy & hold NASDAQ, meme fenetre               +30.43 %     1.37    -25.33 %    21.10 %     +158.4 %
+buy & hold XAUUSD, meme fenetre               +25.17 %     1.24    -26.63 %    19.74 %     +123.0 %
+buy & hold 50/50, meme fenetre                +28.88 %     1.70    -14.38 %    15.64 %     +147.6 %
+
+  Jours : 938. Cette fenetre ne contient AUCUN marche baissier
+  durable — 2022 en est exclu par construction. C'est aussi vrai chez lui.
+

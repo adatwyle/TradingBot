@@ -1,0 +1,230 @@
+==============================================================================
+s07_ionita_gaussian — ÉVALUATION COMPLÈTE
+==============================================================================
+Univers  : BTCUSD, ETHUSD  (inventaire crypto COMPLET du broker)
+Période  : 2018-11-01 -> 2026-08-16  (2839 barres D1, 7.8 ans)
+Coûts    : spread mesuré sur MT5 + slippage ; swap chiffré à part
+
+CONTRÔLE — accord avec les références du moteur core/ :
+    B&H BTCUSD         moteur     901.25 %   reconstruit     901.25 %   écart 0.00e+00
+    B&H ETHUSD         moteur     852.84 %   reconstruit     852.84 %   écart 0.00e+00
+
+==============================================================================
+PLEIN ÉCHANTILLON (in-sample, réglages par défaut de la source)
+==============================================================================
+  Réglages : période=144, pôles=4, mult=1,414 — valeurs par défaut
+  du Pine Script d'origine. Aucune optimisation à ce stade.
+
+  poids normalized shorts non
+      total      786.5 %   CAGR   32.39 %   Sharpe  0.87   DD  -64.95 %
+      investi  39.8 % du temps   188 rebalancements   portage non modelise env. -5.7 %/an
+
+  poids normalized shorts oui
+      total      436.1 %   CAGR   24.09 %   Sharpe  0.69   DD  -68.77 %
+      investi  57.2 % du temps   267 rebalancements   portage non modelise env. -8.2 %/an
+
+  poids absolute   shorts non
+      total       17.8 %   CAGR    2.13 %   Sharpe  0.68   DD   -5.76 %
+      investi  39.8 % du temps   188 rebalancements   portage non modelise env. -5.7 %/an
+
+  poids absolute   shorts oui
+      total       18.0 %   CAGR    2.15 %   Sharpe  0.64   DD   -5.23 %
+      investi  57.2 % du temps   267 rebalancements   portage non modelise env. -8.2 %/an
+
+  RÉFÉRENCES sur la même période :
+      naïf équipondéré             1141.5 %
+      B&H BTCUSD                    901.3 %
+      B&H ETHUSD                    852.8 %
+
+==============================================================================
+VERDICT NATIF DU MOTEUR core/ (poids normalized, long seul)
+==============================================================================
+==============================================================================
+ALLOCATION — COURBE D'EQUITY ET RÉFÉRENCES
+==============================================================================
+2839 périodes · 136 bascules
+
+                                     CAGR   Sharpe      DD max        total
+  ------------------------------------------------------------------------
+  STRATÉGIE                       32.39 %     0.87    -64.95 %      786.5 %
+  ------------------------------------------------------------------------
+  naïf BTCUSD/ETHUSD équipondéré    38.24 %     0.82    -77.55 %     1141.5 %
+  B&H BTCUSD                      34.47 %     0.79    -76.92 %      901.3 %
+  B&H ETHUSD                      33.62 %     0.76    -81.20 %      852.8 %
+  cash (0 %)                       0.00 %     0.00      0.00 %        0.0 %
+
+  Temps passé par instrument :
+    CASH             60.2 %
+    BTCUSD           33.3 %
+    ETHUSD           32.7 %
+
+  Rendement annualisé PAR JOUR DÉTENU (ignore le temps passé) :
+  Une jambe qui fait moins bien que détenir l'actif n'apporte rien.
+    BTCUSD          +128.26 %   (B&H BTCUSD : +34.47 %)
+    ETHUSD           +26.97 %   (B&H ETHUSD : +33.62 %)
+
+  VERDICT : bat toutes les références. Meilleure = naïf BTCUSD/ETHUSD équipondéré (Sharpe 0.82 contre 0.87).
+
+==============================================================================
+ABLATION DU COÛT — séparer « pas d'edge » de « edge mangé par les coûts »
+==============================================================================
+  Les deux diagnostics appellent des décisions OPPOSÉES :
+    négatif avec coûts, positif sans -> signal réel, structure de coût
+      inadaptée. Piste : broker moins cher, moins de rotation.
+    négatif dans les deux cas -> il n'y a rien à sauver.
+
+  coût                        total %    CAGR %   Sharpe      DD %
+  ----------------------------------------------------------------
+  nul (0x)                     1224.1     39.39     1.00    -63.27
+  nominal (1x)                  786.5     32.39     0.87    -64.95
+  pessimiste (2x)               492.1     25.69     0.75    -66.62
+
+  Rappel : le coût de PORTAGE (~14 %/an sur un long crypto CFD) n'est
+  dans AUCUNE de ces lignes — le moteur ne le modélise pas. Il s'ajoute.
+
+==============================================================================
+CONCENTRATION — la performance vient-elle d'une seule ligne ?
+==============================================================================
+  BTCUSD     stratégie seule     1395.5 %   B&H      901.3 %   écart    +494.3 pt   DD  -31.28 %
+  ETHUSD     stratégie seule      457.1 %   B&H      852.8 %   écart    -395.7 pt   DD  -65.38 %
+
+==============================================================================
+TEST DE PLATEAU — la performance survit-elle au déplacement du réglage ?
+==============================================================================
+  Grille complète, plein échantillon, poids normalized, long seul.
+
+   période  pôles    mult      total %   Sharpe      DD %
+  --------------------------------------------------------
+        72      3     1.0       1973.7     1.17    -34.83
+        72      3   1.414        728.9     0.91    -47.63
+        72      3     2.0        770.8     0.98    -45.24
+        72      4     1.0       1401.7     1.05    -37.36
+        72      4   1.414       1270.9     1.05    -37.24
+        72      4     2.0        550.6     0.87    -44.01
+        72      5     1.0       1285.9     1.02    -42.00
+        72      5   1.414       2177.5     1.20    -37.24
+        72      5     2.0        985.0     1.02    -33.71
+       108      3     1.0       1234.6     1.02    -53.11
+       108      3   1.414       1749.8     1.13    -37.24
+       108      3     2.0       1676.0     1.13    -37.72
+       108      4     1.0       1059.4     0.95    -54.70
+       108      4   1.414       1294.6     1.03    -41.93
+       108      4     2.0       1433.7     1.08    -38.88
+       108      5     1.0        985.5     0.93    -70.79
+       108      5   1.414        767.8     0.88    -53.29
+       108      5     2.0       1607.0     1.10    -50.96
+       144      3     1.0        937.6     0.91    -68.27
+       144      3   1.414       1167.8     0.99    -50.90
+       144      3     2.0        787.4     0.89    -50.34
+       144      4     1.0       1072.0     0.95    -61.15
+       144      4   1.414        786.5     0.87    -64.95
+       144      4     2.0        433.2     0.73    -74.11
+       144      5     1.0        574.4     0.78    -69.49
+       144      5   1.414        555.5     0.78    -70.11
+       144      5     2.0        379.5     0.69    -74.41
+       180      3     1.0        613.2     0.80    -73.50
+       180      3   1.414        448.0     0.73    -73.63
+       180      3     2.0        634.8     0.83    -66.08
+       180      4     1.0        507.7     0.75    -76.04
+       180      4   1.414        473.6     0.74    -72.11
+       180      4     2.0        725.6     0.86    -64.76
+       180      5     1.0        496.5     0.74    -77.76
+       180      5   1.414        732.7     0.84    -72.07
+       180      5     2.0        644.5     0.81    -70.07
+       216      3     1.0        615.9     0.80    -74.86
+       216      3   1.414        522.9     0.77    -68.54
+       216      3     2.0        791.5     0.88    -56.43
+       216      4     1.0        328.5     0.65    -79.86
+       216      4   1.414        953.4     0.90    -69.24
+       216      4     2.0        716.8     0.84    -63.12
+       216      5     1.0        409.9     0.69    -70.42
+       216      5   1.414        306.4     0.63    -73.81
+       216      5     2.0        455.0     0.72    -68.22
+
+  45 cellules · Sharpe médian 0.88 · min 0.63 · max 1.20
+  Cellules à rendement positif        : 45 / 45
+  Cellules battant la MEILLEURE référence (1141 %) : 12 / 45
+  Lecture : un edge robuste donne un Sharpe homogène sur la grille.
+  Un pic isolé entouré de cellules médiocres est un sur-ajustement.
+
+
+### WALK-FORWARD — poids normalized, long seul
+==============================================================================
+WALK-FORWARD ANCRÉ — fenêtres importées de core.backtest.anchored_wf
+==============================================================================
+2839 barres D1 · 45 configurations · sélection sur sharpe du TRAIN
+Espérance de hasard : 45 configs x 0,05 = 2.2 « réussites » par pur hasard au seuil 5 %.
+
+   W config retenue                      train Sh  OOS tot%   OOS Sh   OOS DD%  rebal   inv%
+  --------------------------------------------------------------------------------------------
+   1 mult=1.414 period=72 poles=5            1.38     49.18     1.64    -22.33     37   52.5
+   2 mult=1.414 period=72 poles=5            1.41     29.80     1.32    -14.43     25   41.2
+   3 mult=1.414 period=72 poles=5            1.40     22.71     0.86    -17.69     28   39.4
+   4 mult=1.414 period=72 poles=5            1.34    -17.29    -1.34    -18.02     21   21.8
+
+  Comparaison hors échantillon aux références, fenêtre par fenêtre :
+   W   stratégie           B&H BTCUSD           B&H ETHUSD     naïf équipondéré
+  -------------------------------------------------------------------------------
+   1       49.18               103.23                58.56                81.24
+   2       29.80                63.69                 7.19                34.50
+   3       22.71                -3.60                -2.64                -0.63
+   4      -17.29               -39.18               -45.05               -41.76
+
+  Fenêtres où la stratégie bat TOUTES les références : 2 / 4
+  Rendement OOS moyen : +21.10 % (fenêtres : +49.2, +29.8, +22.7, -17.3)
+  Fenêtres OOS positives : 3 / 4
+
+
+### WALK-FORWARD — poids absolute, long seul
+==============================================================================
+WALK-FORWARD ANCRÉ — fenêtres importées de core.backtest.anchored_wf
+==============================================================================
+2839 barres D1 · 45 configurations · sélection sur sharpe du TRAIN
+Espérance de hasard : 45 configs x 0,05 = 2.2 « réussites » par pur hasard au seuil 5 %.
+
+   W config retenue                      train Sh  OOS tot%   OOS Sh   OOS DD%  rebal   inv%
+  --------------------------------------------------------------------------------------------
+   1 mult=2.0 period=108 poles=4             1.14      4.61     1.24     -3.38     39   56.0
+   2 mult=2.0 period=108 poles=3             1.18      4.48     1.56     -1.35     27   33.8
+   3 mult=2.0 period=108 poles=3             1.22      3.63     1.35     -1.32     15   37.3
+   4 mult=2.0 period=108 poles=3             1.23     -1.37    -1.45     -1.47     22   13.7
+
+  Comparaison hors échantillon aux références, fenêtre par fenêtre :
+   W   stratégie           B&H BTCUSD           B&H ETHUSD     naïf équipondéré
+  -------------------------------------------------------------------------------
+   1        4.61               103.23                58.56                81.24
+   2        4.48                63.69                 7.19                34.50
+   3        3.63                -3.60                -2.64                -0.63
+   4       -1.37               -39.18               -45.05               -41.76
+
+  Fenêtres où la stratégie bat TOUTES les références : 2 / 4
+  Rendement OOS moyen : +2.84 % (fenêtres : +4.6, +4.5, +3.6, -1.4)
+  Fenêtres OOS positives : 3 / 4
+
+
+### WALK-FORWARD — poids normalized, long + short
+==============================================================================
+WALK-FORWARD ANCRÉ — fenêtres importées de core.backtest.anchored_wf
+==============================================================================
+2839 barres D1 · 45 configurations · sélection sur sharpe du TRAIN
+Espérance de hasard : 45 configs x 0,05 = 2.2 « réussites » par pur hasard au seuil 5 %.
+
+   W config retenue                      train Sh  OOS tot%   OOS Sh   OOS DD%  rebal   inv%
+  --------------------------------------------------------------------------------------------
+   1 mult=1.414 period=72 poles=5            1.51     37.52     1.16    -31.79     54   74.6
+   2 mult=1.414 period=72 poles=5            1.47    -21.89    -0.48    -48.89     43   67.3
+   3 mult=1.414 period=108 poles=3           1.26     64.25     1.42    -32.68     34   82.4
+   4 mult=1.0 period=72 poles=4              1.34    -18.57    -0.55    -38.58     48   65.5
+
+  Comparaison hors échantillon aux références, fenêtre par fenêtre :
+   W   stratégie           B&H BTCUSD           B&H ETHUSD     naïf équipondéré
+  -------------------------------------------------------------------------------
+   1       37.52               103.23                58.56                81.24
+   2      -21.89                63.69                 7.19                34.50
+   3       64.25                -3.60                -2.64                -0.63
+   4      -18.57               -39.18               -45.05               -41.76
+
+  Fenêtres où la stratégie bat TOUTES les références : 2 / 4
+  Rendement OOS moyen : +15.33 % (fenêtres : +37.5, -21.9, +64.2, -18.6)
+  Fenêtres OOS positives : 2 / 4
+

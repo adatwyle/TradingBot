@@ -1,0 +1,308 @@
+
+
+################################################################################################
+# DAX — mode FADE — spread catalogue (8 pips)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s06_nil_pbd / DAX
+================================================================================================
+72472 barres · 32 configurations · 165s
+Tier 1 : PnL train > 0, ≥ 30 trades, DD ≤ 25.0 R
+
+STRICT : 0/32   (≈2 attendues par pur hasard si l'edge est nul)
+TIER 1 : 9/32
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    imp_atr1.5_stop_modeedge025_target_modepingpong_va_filter1   +8.71   +0.89   +4.31  -11.39   +0.63      29  [MINCE]
+    imp_atr2.5_stop_modeedge025_target_modepingpong_va_filter1   +5.28   +0.89   +1.49  -10.38   -0.68      27  [MINCE]
+    imp_atr2.5_stop_modeedge025_target_modeimpulse_start_va_filter1   -2.06   +4.16   +5.55  -10.38   -0.68      26  [MINCE]
+    imp_atr2.5_stop_modeextreme_target_modepingpong_va_filter1   +0.11   +0.06   +2.97   -6.07   -0.73      27  [MINCE]
+    imp_atr2.5_stop_modeedge05_target_modeimpulse_start_va_filter1   -2.17   +0.44   +5.29   -8.26   -1.18      26  [MINCE]
+    imp_atr2.5_stop_modeedge05_target_modepingpong_va_filter1   +2.26   -1.39   +2.59   -8.26   -1.20      27  [MINCE]
+    imp_atr2.5_stop_modeextreme_target_modeimpulse_start_va_filter1   -2.49   +4.12   -0.39   -6.07   -1.21      26  [MINCE]
+    imp_atr2.5_stop_modeedge10_target_modepingpong_va_filter1   +0.11   -2.68   +2.99   -6.07   -1.41      27  [MINCE]
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    imp_atr2.5_stop_modeedge05_target_modeimpulse_start_va_filter1      +0.34      -4.71    1504 %
+
+    => 1504 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+
+################################################################################################
+# DAX — mode FADE — spread réel mesuré (28 pips)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s06_nil_pbd / DAX
+================================================================================================
+72472 barres · 32 configurations · 132s
+Tier 1 : PnL train > 0, ≥ 30 trades, DD ≤ 25.0 R
+
+STRICT : 0/32   (≈2 attendues par pur hasard si l'edge est nul)
+TIER 1 : 5/32
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    imp_atr2.5_stop_modeextreme_target_modepingpong_va_filter1   -0.03   -0.14   +2.72   -6.15   -0.90      27  [MINCE]
+    imp_atr2.5_stop_modeedge025_target_modepingpong_va_filter1   +4.57   +0.62   +0.96  -10.61   -1.11      27  [MINCE]
+    imp_atr2.5_stop_modeextreme_target_modeimpulse_start_va_filter1   -2.55   +3.80   -0.60   -6.15   -1.37      26  [MINCE]
+    imp_atr2.5_stop_modeedge05_target_modeimpulse_start_va_filter1   -2.30   +0.28   +4.89   -8.39   -1.38      26  [MINCE]
+    imp_atr2.5_stop_modeedge10_target_modepingpong_va_filter1   -0.03   -2.74   +2.77   -6.15   -1.54      27  [MINCE]
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+
+################################################################################################
+# DAX — mode BREAK — spread catalogue (8 pips)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s06_nil_pbd / DAX
+================================================================================================
+72472 barres · 24 configurations · 101s
+Tier 1 : PnL train > 0, ≥ 30 trades, DD ≤ 25.0 R
+
+STRICT : 0/24   (≈1 attendues par pur hasard si l'edge est nul)
+TIER 1 : 13/24
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    imp_atr1.5_stop_modeopp_tgt_mult1.0_va_filter1   -1.15   +3.95   +1.13   +2.53   +1.61      43
+    imp_atr1.5_stop_modemid_tgt_mult1.0_va_filter1   -0.57   +7.46   -2.72   +2.18   +1.59      43
+    imp_atr1.5_stop_modeatr_tgt_mult1.0_va_filter1   -1.93   +5.86   -5.21   +2.52   +0.31      43
+    imp_atr2.5_stop_modeatr_tgt_mult1.0_va_filter1   -3.69   +4.25   -2.19   +1.56   -0.02      33
+    imp_atr2.5_stop_modeopp_tgt_mult1.0_va_filter1   -3.54   +1.64   +0.41   +1.32   -0.04      33
+    imp_atr2.5_stop_modemid_tgt_mult1.0_va_filter1   -4.66   +4.84   -2.44   +0.13   -0.53      33
+    imp_atr1.5_stop_modemid_tgt_mult2.0_va_filter1   -3.05   +5.11   -1.73   -2.48   -0.54      42
+    imp_atr1.5_stop_modeopp_tgt_mult2.0_va_filter1   -2.65   +1.95   -3.49   -2.53   -1.68      41
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    imp_atr2.5_stop_modemid_tgt_mult2.0_va_filter0     +65.75     -39.22     160 %
+    imp_atr2.5_stop_modeatr_tgt_mult2.0_va_filter0     +65.64     -24.34     137 %
+    imp_atr2.5_stop_modeopp_tgt_mult2.0_va_filter0     +56.10     -25.57     146 %
+
+    => 160 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+
+################################################################################################
+# DAX — mode BREAK — spread réel mesuré (28 pips)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s06_nil_pbd / DAX
+================================================================================================
+72472 barres · 24 configurations · 77s
+Tier 1 : PnL train > 0, ≥ 30 trades, DD ≤ 25.0 R
+
+STRICT : 0/24   (≈1 attendues par pur hasard si l'edge est nul)
+TIER 1 : 8/24
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    imp_atr1.5_stop_modeopp_tgt_mult1.0_va_filter1   -1.46   +3.70   +0.94   +2.36   +1.39      43
+    imp_atr1.5_stop_modemid_tgt_mult1.0_va_filter1   -1.14   +7.02   -3.02   +1.88   +1.18      43
+    imp_atr1.5_stop_modeatr_tgt_mult1.0_va_filter1   -2.51   +5.30   -5.48   +2.12   -0.14      43
+    imp_atr2.5_stop_modemid_tgt_mult1.0_va_filter1   -4.83   +4.46   -2.66   -0.12   -0.79      33
+    imp_atr1.5_stop_modemid_tgt_mult2.0_va_filter1   -3.59   +4.72   -2.08   -2.72   -0.92      42
+    imp_atr1.5_stop_modeopp_tgt_mult2.0_va_filter1   -2.95   +1.72   -3.65   -2.65   -1.88      41
+    imp_atr1.5_stop_modeatr_tgt_mult2.0_va_filter1   -6.94   +5.94   -7.19   -2.45   -2.66      42
+    imp_atr2.5_stop_modeopp_tgt_mult2.0_va_filter1   -4.79   -1.84   -1.60   -3.52   -2.94      32
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    imp_atr2.5_stop_modeopp_tgt_mult2.0_va_filter0     +38.13     -30.59     180 %
+    imp_atr2.5_stop_modemid_tgt_mult2.0_va_filter0     +30.06     -49.19     264 %
+    imp_atr1.5_stop_modeopp_tgt_mult2.0_va_filter0     +21.39     -43.84     305 %
+
+    => 180 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+
+################################################################################################
+# WTIUSD — mode FADE — spread catalogue (3 pips)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s06_nil_pbd / WTIUSD
+================================================================================================
+100000 barres · 32 configurations · 149s
+Tier 1 : PnL train > 0, ≥ 30 trades, DD ≤ 25.0 R
+
+STRICT : 0/32   (≈2 attendues par pur hasard si l'edge est nul)
+TIER 1 : 8/32
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    imp_atr1.5_stop_modeextreme_target_modepingpong_va_filter1   +2.80   +3.27   +4.39   +6.74   +4.30      36
+    imp_atr2.5_stop_modeedge025_target_modepingpong_va_filter1   +8.74   +0.02   +7.95   -0.15   +4.14      36
+    imp_atr1.5_stop_modeedge025_target_modepingpong_va_filter1   +4.50   +0.02   +7.95   +1.92   +3.60      36
+    imp_atr1.5_stop_modeedge05_target_modepingpong_va_filter1   +3.99   +2.08   +3.62   +3.74   +3.36      36
+    imp_atr1.5_stop_modeextreme_target_modeimpulse_start_va_filter1   -2.83   +0.41  +10.64   +2.54   +2.69      36
+    imp_atr2.5_stop_modeedge025_target_modeimpulse_start_va_filter1   -0.06   -1.62  +16.44   -4.94   +2.46      36
+    imp_atr1.5_stop_modeedge025_target_modeimpulse_start_va_filter1   -3.93   -1.62  +16.03   -2.87   +1.90      36
+    imp_atr1.5_stop_modeedge05_target_modeimpulse_start_va_filter1   -2.80   -1.58   +8.74   -0.11   +1.06      36
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    imp_atr1.5_stop_modeedge025_target_modeimpulse_start_va_filter1     +10.39      +7.61      27 %
+    imp_atr1.5_stop_modeedge05_target_modepingpong_va_filter1      +9.57     +13.43     -40 %
+    imp_atr1.5_stop_modeextreme_target_modepingpong_va_filter1      +8.80     +17.19     -95 %
+
+    => 27 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+
+################################################################################################
+# WTIUSD — mode FADE — spread réel mesuré (2.6 pips)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s06_nil_pbd / WTIUSD
+================================================================================================
+100000 barres · 32 configurations · 204s
+Tier 1 : PnL train > 0, ≥ 30 trades, DD ≤ 25.0 R
+
+STRICT : 0/32   (≈2 attendues par pur hasard si l'edge est nul)
+TIER 1 : 9/32
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    imp_atr1.5_stop_modeextreme_target_modepingpong_va_filter1   +2.92   +3.40   +4.54   +6.80   +4.42      36
+    imp_atr2.5_stop_modeedge025_target_modepingpong_va_filter1   +9.05   +0.19   +8.25   -0.06   +4.36      36
+    imp_atr1.5_stop_modeedge025_target_modepingpong_va_filter1   +4.88   +0.19   +8.25   +1.99   +3.83      36
+    imp_atr1.5_stop_modeedge05_target_modepingpong_va_filter1   +4.22   +2.19   +3.76   +3.79   +3.49      36
+    imp_atr2.5_stop_modeedge05_target_modepingpong_va_filter1   +4.59   +2.19   +3.76   +1.76   +3.07      36
+    imp_atr1.5_stop_modeextreme_target_modeimpulse_start_va_filter1   -2.74   +0.54  +10.85   +2.58   +2.81      36
+    imp_atr2.5_stop_modeedge025_target_modeimpulse_start_va_filter1   +0.14   -1.47  +16.83   -4.87   +2.66      36
+    imp_atr1.5_stop_modeedge025_target_modeimpulse_start_va_filter1   -3.66   -1.47  +16.41   -2.82   +2.12      36
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    imp_atr1.5_stop_modeedge025_target_modeimpulse_start_va_filter1     +12.25      +8.47      31 %
+    imp_atr1.5_stop_modeedge05_target_modepingpong_va_filter1     +10.66     +13.96     -31 %
+    imp_atr1.5_stop_modeextreme_target_modepingpong_va_filter1      +9.61     +17.66     -84 %
+
+    => 31 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+
+################################################################################################
+# WTIUSD — mode BREAK — spread catalogue (3 pips)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s06_nil_pbd / WTIUSD
+================================================================================================
+100000 barres · 24 configurations · 135s
+Tier 1 : PnL train > 0, ≥ 30 trades, DD ≤ 25.0 R
+
+STRICT : 0/24   (≈1 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/24
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    imp_atr2.5_stop_modemid_tgt_mult2.0_va_filter0  -23.89  +42.56  -14.29   -9.53   -1.29     353
+    imp_atr1.5_stop_modemid_tgt_mult2.0_va_filter0  -13.03  +36.73  -14.00  -15.81   -1.53     392
+    imp_atr2.5_stop_modeopp_tgt_mult1.0_va_filter1   -6.98   -0.34   +2.26   -2.63   -1.92      39
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+
+################################################################################################
+# WTIUSD — mode BREAK — spread réel mesuré (2.6 pips)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s06_nil_pbd / WTIUSD
+================================================================================================
+100000 barres · 24 configurations · 140s
+Tier 1 : PnL train > 0, ≥ 30 trades, DD ≤ 25.0 R
+
+STRICT : 0/24   (≈1 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/24
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    imp_atr2.5_stop_modemid_tgt_mult2.0_va_filter0  -22.67  +44.14  -13.35   -9.14   -0.26     353
+    imp_atr1.5_stop_modemid_tgt_mult2.0_va_filter0  -11.52  +38.39  -12.91  -15.34   -0.35     392
+    imp_atr2.5_stop_modeopp_tgt_mult1.0_va_filter1   -6.90   -0.27   +2.33   -2.61   -1.86      39
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.

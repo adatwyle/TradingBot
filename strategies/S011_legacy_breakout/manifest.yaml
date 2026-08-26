@@ -1,0 +1,68 @@
+# Manifest — Legacy S2 — cassure Donchian + filtre de régime
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s11_legacy_breakout
+display_name: "Legacy S2 — cassure Donchian + filtre de régime"
+version: "1.0.0"
+magic_number: 130011
+author: "claude:s11_legacy_breakout"
+source: "projet TBOT 2026, historique (s2_breakout.py / s2_breakout_filtered.py)"
+trader: "TBOT interne"
+
+status: PAPER        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+# S2 visait « indices et forex tendanciels ». DAX est retenu explicitement :
+# c'est l'instrument où le test de sensibilité antérieur signalait un pic isolé
+# sur le point (er_min=0.11 ; fr_max=0.50).
+symbols:
+  - DAX
+  - NASDAQ
+  - SP500
+  - FTSE
+  - NIKKEI
+  - XAUUSD
+  - EURJPY
+  - USDJPY
+
+timeframe: "H1"
+warmup_bars: 400        # ER100 lissé sur 200 (=300) ; taux de cassures ratées (~210)
+
+default_params:
+  er_min: 0.11          # valeur historique — choisie à l'œil, à ne PAS traiter en constante
+  fr_max: 0.50          # idem
+  donchian: 20
+  adx_min: 25
+  tp_m: 4.0
+  # Fixés aux valeurs historiques, volontairement hors grille.
+  sl_m: 1.5
+  atr_vol_ratio: 0.8
+  adx_rising_lookback: 5
+  rsi_long_max: 75.0
+  rsi_short_min: 25.0
+
+# 4 × 4 × 2 × 2 × 2 = 128 configurations.
+# 128 × 0,05 ≈ 6,4 « STRICT pass » attendues par pur hasard et par instrument.
+param_grid:
+  # Les seuils du filtre de régime SONT des paramètres de recherche.
+  # 0.00 et 1.00 désactivent respectivement chaque moitié du filtre :
+  # la cellule (er_min=0.00, fr_max=1.00) est le TÉMOIN sans filtre.
+  er_min:   [0.00, 0.09, 0.11, 0.13]
+  fr_max:   [1.00, 0.45, 0.50, 0.55]
+  donchian: [20, 40]
+  adx_min:  [20, 25]
+  tp_m:     [3.0, 4.0]
+
+created: 2026-08-16
+notes: |
+  Re-dérivation du S2 historique dans le contrat actuel. Les chiffres S2
+  antérieurs ne sont PAS repris : le moteur de l'époque valorisait les positions
+  résiduelles à `closes[-1]` (bug de lookahead, corrigé et testé par R1).
+
+  Composant NON reproduit : le trailing / passage au point mort (option
+  non-défaut de l'historique). `core/backtest/engine.py` ne déplace pas de stop
+  et R9 interdit d'écrire un autre moteur.
+
+  Question centrale du test : les seuils (0.11 ; 0.50), choisis par inspection
+  visuelle, survivent-ils au déplacement — ou seul le point exact fonctionne-t-il ?
+  Voir research/ANALYSIS.md § 6 pour le critère de robustesse, fixé avant mesure.

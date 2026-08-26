@@ -1,0 +1,24 @@
+# Manifest — Brendan - Claude comme gerant de portefeuille
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s03_brendan_llm_pm
+display_name: "Brendan - Claude comme gerant de portefeuille"
+version: "0.1.0"
+magic_number: 130003
+author: "claude:s03_brendan_llm_pm"
+source: "https://www.youtube.com/watch?v=RetsRS5u-8Q"
+trader: "Brendan (AI trading, ex-Raymond James)"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+symbols: []             # à remplir après l'analyse — quels instruments ?
+timeframe: ""           # H1 | H4 | M5 | D1
+warmup_bars: 0
+
+default_params: {}
+param_grid: {}
+
+created: 2026-08-16
+notes: |
+  À remplir par le Claude dédié après la Phase 1.

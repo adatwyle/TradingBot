@@ -1,0 +1,82 @@
+s91_claude_scratch — PHASE 1 : ÉCONOMIE DU TRADE (aucun backtest ici)
+instruments : EURUSD, USDCHF, USDJPY, USDCAD, AUDUSD, EURJPY
+timeframe   : H1   |   heures = HEURE SERVEUR MT5 (≈ GMT+2/+3)
+
+================================================================================================
+1. PROFIL HORAIRE DE VOLATILITÉ — le fait mesuré est-il général ?
+================================================================================================
+  Amplitude moyenne d'une barre H1 (pips), par heure serveur.
+  Le projet a mesuré 3,7× d'écart creux/pic sur EURUSD. Vérification
+  sur les 6 instruments : si le cycle n'est pas général, l'hypothèse
+  H91 ne peut pas être portée par un panier.
+
+  instrument   creux h    pips  pic h    pips   ratio  PEAK 13-17  DEAD 22-06  PEAK/DEAD
+  ----------------------------------------------------------------------------------------
+  EURUSD            22     7.0     16    25.7    3.67        21.9         9.0       2.44
+  USDCHF             5     6.7     16    22.6    3.39        19.0         8.6       2.21
+  USDJPY            22    11.6     14    37.6    3.25        30.3        19.6       1.54
+  USDCAD             6     8.4     16    28.5    3.41        23.2        10.1       2.30
+  AUDUSD            22     6.0     16    21.0    3.53        17.1        10.5       1.63
+  EURJPY            22    13.7     16    36.2    2.64        31.3        21.2       1.47
+
+================================================================================================
+2. PÉAGE DU SPREAD PAR FENÊTRE HORAIRE ET PAR GÉOMÉTRIE
+================================================================================================
+  drag = spread / distance de risque. C'est le coût en R par trade,
+  indépendant du R:R. C'est LUI qu'il faut battre en espérance brute.
+
+  Deux façons de dimensionner le stop :
+    ATR global   = ATR(24) toutes heures confondues (stop identique)
+    ATR fenêtre  = ATR moyen des barres de la fenêtre visée
+
+  instrument   spread  ATRglob  ATR@PEAK  ATR@DEAD  drag 2.0x  drag 2.5x  drag 3.0x  dragDEAD2.5
+  ----------------------------------------------------------------------------------------------
+  EURUSD          1.9     13.0      12.9      13.0      7.33%      5.86%      4.89%        5.83%
+  USDCHF          2.2     11.6      11.6      11.6      9.51%      7.61%      6.34%        7.61%
+  USDJPY          2.8     21.0      20.9      21.1      6.68%      5.34%      4.45%        5.31%
+  USDCAD          3.1     13.7      13.7      13.8     11.29%      9.03%      7.52%        9.00%
+  AUDUSD          2.0     11.7      11.6      11.7      8.57%      6.86%      5.72%        6.84%
+  EURJPY          3.6     22.6      22.6      22.6      7.95%      6.36%      5.30%        6.36%
+
+  Médiane drag @ ATR global × 2.5 : 6.61 %
+  Médiane drag @ ATR zone morte × 2.5 : 6.60 %
+
+  Rappel de la fonction de référence du projet (sl=2.0 ATR, rr=2.0) :
+    EURUSD    drag   7.41%  pénalité  2.47 pts WR  (risque  25.7 pips)
+    USDCHF    drag   9.61%  pénalité  3.20 pts WR  (risque  22.9 pips)
+    USDJPY    drag   6.81%  pénalité  2.27 pts WR  (risque  41.1 pips)
+    USDCAD    drag  11.45%  pénalité  3.82 pts WR  (risque  27.1 pips)
+    AUDUSD    drag   8.62%  pénalité  2.87 pts WR  (risque  23.2 pips)
+    EURJPY    drag   8.05%  pénalité  2.68 pts WR  (risque  44.7 pips)
+
+================================================================================================
+3. SIGNATURE DE RETOUR À LA MOYENNE, CONDITIONNÉE À L'HEURE
+================================================================================================
+  Test le moins cher de H91, AVANT toute règle de trading.
+
+  Pour chaque barre : z = (close - MM20) / ecart-type(20).
+  On regarde le rendement des 4 barres SUIVANTES, signé contre z.
+  Un retour à la moyenne donne une valeur POSITIVE (le prix revient).
+  Une continuation donne une valeur NÉGATIVE.
+  Unité : pips, spread NON déduit (on mesure le signal brut).
+
+  Sous-échantillon : |z| >= 1.5 seulement (les extensions).
+
+  instrument   n PEAK  rev PEAK  n DEAD  rev DEAD  n AUTRE  rev AUTRE  n TOUT  rev TOUT
+  --------------------------------------------------------------------------------------
+  EURUSD         3132    -0.093    1408    +0.811     4177     +0.273    8717    +0.228
+  USDCHF         3057    -0.387    1407    +0.954     4295     +0.553    8759    +0.290
+  USDJPY         2622    -0.773    2280    -3.016     3951     -0.646    8853    -1.294
+  USDCAD         3101    -0.011    1555    +0.694     4026     +0.728    8682    +0.458
+  AUDUSD         2531    +0.656    2294    +0.840     3934     -0.018    8759    +0.401
+  EURJPY         2608    +0.378    2008    -2.040     4265     +0.033    8881    -0.334
+  --------------------------------------------------------------------------------------
+  MOYENNE                -0.038            -0.293              +0.154            -0.042
+
+  LECTURE — prédiction de H91 : rev PEAK > 0 ET rev PEAK > rev DEAD.
+  Si rev PEAK <= 0, l'hypothèse est morte avant la première ligne de
+  stratégie et il faut le dire.
+
+================================================================================================
+FIN — ces chiffres décident si la stratégie mérite d'être écrite.
+================================================================================================

@@ -1,0 +1,475 @@
+====================================================================================================
+WALK-FORWARD ANCRE — s05_flossbach_liqsweep — H4
+====================================================================================================
+
+AVERTISSEMENT SUR L'EFFECTIF — a garder sous les yeux en permanence.
+
+  Il annonce skipper > 90 % des setups. Le motif est donc RARE par
+  construction. Une tranche de test vaut 10 % de l'historique : elle
+  contient souvent ZERO trade. Un 'STRICT pass' obtenu sur 0 a 2 trades
+  ne prouve RIEN — c'est exactement l'erreur des 19 trades documentee
+  dans docs/METHODOLOGY.md.
+
+  64 cellules de grille -> ~3,2 reussites STRICT attendues par PUR
+  HASARD et par instrument. Le chiffre est rappele par le harnais.
+
+  La mesure qui fait foi est backtests/pooled_study_*.txt.
+
+
+####################################################################################################
+# EURUSD / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / EURUSD
+================================================================================================
+8164 barres · 64 configurations · 60s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest   +0.00   -1.00   +0.00   +6.22   +1.30       3
+    band_atr0.5_chop_max1.5_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest   +0.00   -1.00   +0.00   +6.22   +1.30       3
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster3_stop_refsweep_target_modenearest   +0.00   +0.00   +0.00   +2.16   +0.54       1
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest      +7.55      +5.21      31 %
+    band_atr0.5_chop_max1.5_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest      +7.55      +5.21      31 %
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modefirst_rr      +6.14      +0.02     100 %
+
+    => 31 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# USDJPY / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / USDJPY
+================================================================================================
+8164 barres · 64 configurations · 57s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr   +5.33   +0.00   -2.02   -1.01   +0.57       4
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modefirst_rr   +3.26   +0.00   -1.78   -1.01   +0.12       4
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr   +5.16   -1.01   -2.02   -2.03   +0.02       6
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr      +2.82      +2.29      19 %
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest      +1.34      -1.78     233 %
+    band_atr1.0_chop_max1.5_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest      +1.34      -1.78     233 %
+
+    => 19 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# USDCHF / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / USDCHF
+================================================================================================
+8164 barres · 64 configurations · 98s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 2/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr   -2.03   -3.06   +1.75   -0.38   -0.93      11  [MINCE]
+    band_atr1.0_chop_max1.5_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr   -2.03   -3.06   +1.75   -0.38   -0.93      11  [MINCE]
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr1.0_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr     +11.64      +2.69      77 %
+    band_atr1.0_chop_max1.5_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr     +11.64      +2.69      77 %
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr      +8.72      -3.72     143 %
+
+    => 77 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# USDCAD / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / USDCAD
+================================================================================================
+8164 barres · 64 configurations · 61s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster3_stop_refhigherlow_target_modenearest   +6.18   +0.00   +0.00   +0.00   +1.55       1
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster3_stop_refhigherlow_target_modefirst_rr   +6.18   +0.00   +0.00   +0.00   +1.55       1
+    band_atr0.5_chop_max1.5_htf_modeoff_min_cluster3_stop_refhigherlow_target_modenearest   +6.18   +0.00   +0.00   +0.00   +1.55       1
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster3_stop_refhigherlow_target_modenearest      +6.18      +6.18       0 %
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster3_stop_refhigherlow_target_modefirst_rr      +6.18      +6.18       0 %
+    band_atr0.5_chop_max1.5_htf_modeoff_min_cluster3_stop_refhigherlow_target_modenearest      +6.18      +6.18       0 %
+
+    => 0 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# AUDUSD / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / AUDUSD
+================================================================================================
+8164 barres · 64 configurations · 78s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 2/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr   -3.24   +0.16   +2.88   +1.29   +0.27      11  [MINCE]
+    band_atr1.0_chop_max1.5_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr   -3.24   +0.16   +2.88   +1.29   +0.27      11  [MINCE]
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr     +12.53      +4.56      64 %
+    band_atr0.5_chop_max1.5_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr     +12.53      +4.56      64 %
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modenearest     +11.35      +6.50      43 %
+
+    => 64 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# XAUUSD / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / XAUUSD
+================================================================================================
+7866 barres · 64 configurations · 52s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr1.0_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modenearest   +0.00   -1.00   +0.00   +2.11   +0.28       2
+    band_atr1.0_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr   +0.00   -1.00   +0.00   +2.11   +0.28       2
+    band_atr1.0_chop_max1.5_htf_modewith_min_cluster2_stop_refhigherlow_target_modenearest   +0.00   -1.00   +0.00   +2.11   +0.28       2
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr      +4.64      -1.30     128 %
+    band_atr0.5_chop_max1.5_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr      +4.64      -1.30     128 %
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster3_stop_refhigherlow_target_modefirst_rr      +2.15      +0.00     100 %
+
+    => 128 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# XAGUSD / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / XAGUSD
+================================================================================================
+7866 barres · 64 configurations · 49s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr   +4.06   -0.08   +0.00   +5.20   +2.29       7
+    band_atr1.0_chop_max1.5_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr   +4.06   -0.08   +0.00   +5.20   +2.29       7
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modenearest   -1.02   +1.11   +0.00   +2.57   +0.66       4
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest      +7.45      +1.65      78 %
+    band_atr1.0_chop_max1.5_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest      +7.45      +1.65      78 %
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modenearest      +6.00      +2.65      56 %
+
+    => 78 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# SP500 / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / SP500
+================================================================================================
+7836 barres · 64 configurations · 81s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster3_stop_refsweep_target_modenearest   +0.00   +0.00   +0.00   +0.00   +0.00       0
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster3_stop_refsweep_target_modefirst_rr   +0.00   +0.00   +0.00   +0.00   +0.00       0
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster3_stop_refhigherlow_target_modenearest   +0.00   +0.00   +0.00   +0.00   +0.00       0
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modenearest      +0.63      -3.01     581 %
+
+    => 581 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# NASDAQ / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / NASDAQ
+================================================================================================
+7836 barres · 64 configurations · 58s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr0.5_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr   +0.00   +2.79   +0.00   +0.00   +0.70       1
+    band_atr0.5_chop_max1.5_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr   +0.00   +2.79   +0.00   +0.00   +0.70       1
+    band_atr1.0_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr   -1.00   +2.79   -1.00   +0.00   +0.20       3
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr1.0_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr      +1.34      +0.79      41 %
+    band_atr1.0_chop_max1.5_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr      +1.34      +0.79      41 %
+    band_atr0.5_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr      +0.70      +2.79    -296 %
+
+    => 41 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# DAX / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / DAX
+================================================================================================
+5179 barres · 64 configurations · 29s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest   +0.00   +0.00   +0.00   +0.00   +0.00       0
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modefirst_rr   +0.00   +0.00   +0.00   +0.00   +0.00       0
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modenearest   +0.00   +0.00   +0.00   +0.00   +0.00       0
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modenearest      +8.59      +0.00     100 %
+    band_atr0.5_chop_max1.5_htf_modeoff_min_cluster2_stop_refhigherlow_target_modenearest      +8.59      +0.00     100 %
+    band_atr0.5_chop_max99.0_htf_modeoff_min_cluster2_stop_refhigherlow_target_modefirst_rr      +2.31      +0.00     100 %
+
+    => 100 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+####################################################################################################
+# WTIUSD / H4
+####################################################################################################
+================================================================================================
+WALK-FORWARD — s05_flossbach_liqsweep / WTIUSD
+================================================================================================
+7859 barres · 64 configurations · 55s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/64   (≈3 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/64
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    band_atr1.0_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modenearest   +0.00   +0.00   +2.38   +0.00   +0.60       1
+    band_atr1.0_chop_max1.5_htf_modewith_min_cluster2_stop_refhigherlow_target_modenearest   +0.00   +0.00   +2.38   +0.00   +0.60       1
+    band_atr1.0_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr   +0.00   -1.01   +2.38   +0.00   +0.34       2
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    band_atr1.0_chop_max99.0_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr      +4.57      +1.37      70 %
+    band_atr1.0_chop_max1.5_htf_modewith_min_cluster2_stop_refhigherlow_target_modefirst_rr      +4.57      +1.37      70 %
+    band_atr1.0_chop_max99.0_htf_modeoff_min_cluster2_stop_refsweep_target_modenearest      +2.57      -1.01     139 %
+
+    => 70 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+====================================================================================================
+RECAPITULATIF
+====================================================================================================
+  instrument    STRICT  attendu hasard  trades OOS med    max  moy OOS grille
+  ----------------------------------------------------------------------------
+  EURUSD             0             3.2               1     12           -0.12
+  USDJPY             0             3.2               0      6           -0.11
+  USDCHF             0             3.2               0     11           -0.16
+  USDCAD             0             3.2               1      8           +0.31
+  AUDUSD             0             3.2               1     11           +0.39
+  XAUUSD             0             3.2               0      9           -0.14
+  XAGUSD             0             3.2               0      7           +0.15
+  SP500              0             3.2               0      6           -0.20
+  NASDAQ             0             3.2               0     14           -0.14
+  DAX                0             3.2               0      2           -0.05
+  WTIUSD             0             3.2               0      9           -0.26
+  ----------------------------------------------------------------------------
+  TOTAL              0            35.2
+
+  Si STRICT <= attendu par hasard, la grille n'a rien montre : c'est
+  la condition de falsification F2 (research/ANALYSIS.md §7).
+
+Duree : 678s

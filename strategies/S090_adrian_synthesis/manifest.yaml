@@ -1,0 +1,58 @@
+# Manifest — Strategie Adrian (synthese) : « fade de l'échec »
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s90_adrian_synthesis
+display_name: "Fade de l'échec (excursion >= k ATR, cible 1 ATR)"
+version: "1.0.0"
+magic_number: 130090
+author: "claude:s90_adrian_synthesis"
+source: "synthèse des VERDICT.md validés — research/HYPOTHESIS.md (figé 2026-08-17)"
+trader: "Adrian Daetwyler"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+# Verdict 2026-08-17 : PAS D'EDGE — motif clos (research/VERDICT.md).
+# Ne pas promouvoir. F2 (généralité hors découverte) et F8 (dose-réponse)
+# déclenchées ; seul résidu XAUUSD t3_sl1, consigné comme anecdote.
+
+symbols:
+  # Univers déclaré a priori (HYPOTHESIS.md §2.3) — 17 instruments du
+  # catalogue avec snapshot H1 figé. EURUSD/XAUUSD/DAX = ensemble de
+  # DÉCOUVERTE (étude grid_per_entry) ; la mesure décisive est les 14 autres.
+  - EURUSD
+  - USDCHF
+  - USDJPY
+  - USDCAD
+  - AUDUSD
+  - EURCHF
+  - AUDCHF
+  - EURJPY
+  - AUDCAD
+  - SP500
+  - NASDAQ
+  - DAX
+  - FTSE
+  - NIKKEI
+  - XAUUSD
+  - XAGUSD
+  - WTIUSD
+
+timeframe: H1
+warmup_bars: 60
+
+default_params:
+  threshold_atr: 3      # cellule primaire désignée AVANT exécution
+  sl_atr: 1.0
+  tp_atr: 1.0
+
+param_grid:
+  threshold_atr: [2, 3, 4]   # 2 = sonde dose-réponse (H90 prédit <= 0), 4 = profondeur
+  sl_atr: [1.0, 2.0]
+  tp_atr: [1.0]              # figé — rétraction partielle H90, pas balayé
+
+created: 2026-08-16
+notes: |
+  Instruction du motif « fade de l'échec » (4 apparitions indépendantes :
+  s91, s09 §2.7, s10 NIKKEI, studies/grid_per_entry rang 3+).
+  Protocole, falsifications F1-F8 et règles de verdict : research/HYPOTHESIS.md.
+  Verdict : research/VERDICT.md.

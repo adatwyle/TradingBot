@@ -1,0 +1,537 @@
+s10_legacy_meanrev (Legacy S1) — WALK-FORWARD ANCRÉ ET DIAGNOSTICS
+instruments : SP500, NIKKEI, FTSE, AUDCHF, EURUSD, EURCHF, AUDUSD, USDJPY
+TF : H1   |   variantes : DIV_SR, DIV_NOSR, HIST_INF
+critères : Tier1 = PnL train > 0, >= 20 trades, DD <= 12.0 R
+
+AVERTISSEMENT : tous les chiffres S1 antérieurs au 15.08.2026 sont
+contaminés par un lookahead (clôture résiduelle à closes[-1]). Ils ne
+servent ici QUE de point de comparaison. Voir research/ANALYSIS.md §0.
+
+========================================================================================================
+R1 — INVARIANT DE CAUSALITÉ SUR PLUSIEURS POINTS DE GRILLE
+========================================================================================================
+  48 combinaisons testées sur SP500 (29962 barres) — 48 OK, 0 en fuite.
+  VERDICT R1 : PASSÉ
+
+========================================================================================================
+DIAGNOSTIC PLEIN ÉCHANTILLON (pas un critère — voir walk-forward)
+========================================================================================================
+  sym      variante       n        R   R/trade    WR%     PF  risqPips   drag%   TPn  TPméd h  TPp75 h
+  ----------------------------------------------------------------------------------------------------
+  SP500    DIV_SR        98     -7.4   -0.0759   31.6   0.89     217.5    2.30    31       17       26
+  SP500    DIV_NOSR     104     -7.6   -0.0726   31.7   0.90     223.8    2.23    33       17       26
+  SP500    HIST_INF     101    +16.6   +0.1640   39.6   1.27     225.7    2.22    40       22       38
+
+  NIKKEI   DIV_SR       106    +19.0   +0.1791   41.5   1.30     210.4    4.75    43       17       30
+  NIKKEI   DIV_NOSR     119    +20.6   +0.1733   41.2   1.29     226.1    4.42    48       16       30
+  NIKKEI   HIST_INF      88    +14.3   +0.1630   40.9   1.27     217.4    4.60    35       16       34
+
+  FTSE     DIV_SR        54     -7.0   -0.1293   29.6   0.82     394.4    2.03    16       30       50
+  FTSE     DIV_NOSR      61    -14.0   -0.2298   26.2   0.69     411.8    1.94    16       37       50
+  FTSE     HIST_INF      39     -6.7   -0.1711   28.2   0.76     426.9    1.87    11       26       38
+
+  AUDCHF   DIV_SR       103    +21.9   +0.2126   44.7   1.36      22.0   10.02    46       22       39
+  AUDCHF   DIV_NOSR     106    +24.5   +0.2311   45.3   1.40      22.1    9.97    48       22       40
+  AUDCHF   HIST_INF     109     -4.6   -0.0422   35.8   0.94      21.3   10.35    39       26       41
+
+  EURUSD   DIV_SR       113     +1.9   +0.0167   36.3   1.03      27.9    6.80    41       21       36
+  EURUSD   DIV_NOSR     114     +9.8   +0.0858   38.6   1.13      28.0    6.79    44       22       41
+  EURUSD   HIST_INF     123     -1.9   -0.0152   35.0   0.98      32.9    5.77    43       25       44
+
+  EURCHF   DIV_SR        85    +21.8   +0.2565   48.2   1.46      22.6   15.51    41       23       44
+  EURCHF   DIV_NOSR      85    +21.8   +0.2564   48.2   1.46      22.6   15.51    41       23       44
+  EURCHF   HIST_INF     101    -27.7   -0.2744   28.7   0.64      24.7   14.19    29       24       39
+
+  AUDUSD   DIV_SR       135    -11.2   -0.0826   33.3   0.88      24.2    8.27    45       23       41
+  AUDUSD   DIV_NOSR     137     -7.4   -0.0542   34.3   0.92      24.7    8.11    47       24       39
+  AUDUSD   HIST_INF     128    -15.4   -0.1202   32.0   0.83      24.2    8.25    41       23       32
+
+  USDJPY   DIV_SR       130    -18.8   -0.1444   30.8   0.80      41.8    6.71    40       21       38
+  USDJPY   DIV_NOSR     134    -14.0   -0.1042   32.1   0.85      43.1    6.50    43       27       48
+  USDJPY   HIST_INF     128    -33.8   -0.2637   26.6   0.65      46.6    6.00    34       22       34
+
+  Espérance moyenne par trade (R), moyenne sur les instruments :
+    variante       R/trade moyen   instr. positifs
+    DIV_SR               +0.0291            4/8
+    DIV_NOSR             +0.0357            4/8
+    HIST_INF             -0.0700            2/8
+
+  Seuil de rentabilité brut = 0.0000 R/trade. Le péage du spread est
+  DÉJÀ inclus (le moteur le facture à l'entrée ET à la sortie).
+
+  TEST DE FIDÉLITÉ (critère fixé en Phase 1, AVANT les résultats) :
+  S1 est une stratégie H1 avec SL/TP à 1,5-4 ATR. La détention médiane
+  des GAGNANTS doit tomber entre quelques heures et quelques jours.
+  Sinon l'implémentation ne teste pas S1 -> verdict NON REPRODUCTIBLE.
+    DIV_SR       médiane    21 h  ( 0.9 j)   p90    57 h  ( 2.4 j)   n=303
+    DIV_NOSR     médiane    22 h  ( 0.9 j)   p90    57 h  ( 2.4 j)   n=320
+    HIST_INF     médiane    23 h  ( 1.0 j)   p90    56 h  ( 2.3 j)   n=272
+
+========================================================================================================
+WALK-FORWARD ANCRÉ — 4 fenêtres, hors échantillon
+========================================================================================================
+
+>>> SP500 — 29962 barres H1
+    10/108 configurations
+    20/108 configurations
+    30/108 configurations
+    40/108 configurations
+    50/108 configurations
+    60/108 configurations
+    70/108 configurations
+    80/108 configurations
+    90/108 configurations
+    100/108 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s10_legacy_meanrev / SP500
+================================================================================================
+29962 barres · 108 configurations · 91s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/108   (≈5 attendues par pur hasard si l'edge est nul)
+TIER 1 : 7/108
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max35_rr2.0_rsi_band35_sl_atr1.5_variantHIST_INF   -2.25   +3.69   -0.48   +5.86   +1.70      43
+    adx_max50_rr1.0_rsi_band30_sl_atr1.5_variantDIV_SR   +2.77   +3.81   -1.23   -1.01   +1.08      19  [MINCE]
+    adx_max35_rr1.0_rsi_band30_sl_atr1.5_variantDIV_SR   +0.87   +3.86   -2.08   -1.01   +0.41      12  [MINCE]
+    adx_max50_rr2.0_rsi_band30_sl_atr1.5_variantDIV_SR   +0.82   +0.86   +0.67   -1.01   +0.33      19  [MINCE]
+    adx_max35_rr1.0_rsi_band30_sl_atr1.5_variantDIV_NOSR   -0.15   +2.85   -2.08   -1.01   -0.10      14  [MINCE]
+    adx_max35_rr2.0_rsi_band30_sl_atr1.5_variantDIV_SR   -0.09   +1.88   -4.07   -1.01   -0.82      12  [MINCE]
+    adx_max35_rr2.0_rsi_band30_sl_atr1.5_variantDIV_NOSR   -1.11   +1.88   -4.07   -1.01   -1.08      13  [MINCE]
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> NIKKEI — 27142 barres H1
+    10/108 configurations
+    20/108 configurations
+    30/108 configurations
+    40/108 configurations
+    50/108 configurations
+    60/108 configurations
+    70/108 configurations
+    80/108 configurations
+    90/108 configurations
+    100/108 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s10_legacy_meanrev / NIKKEI
+================================================================================================
+27142 barres · 108 configurations · 109s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 9/108   (≈5 attendues par pur hasard si l'edge est nul)
+TIER 1 : 41/108
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max35_rr2.0_rsi_band40_sl_atr2.5_variantDIV_NOSR   +4.57   +5.49  +10.43   +2.53   +5.75      70
+    adx_max25_rr2.0_rsi_band40_sl_atr2.5_variantDIV_NOSR   +2.74   +8.69   +3.78   +0.68   +3.97      38
+    adx_max25_rr1.0_rsi_band40_sl_atr2.5_variantDIV_NOSR   +4.70   +4.68   +0.80   +3.81   +3.50      41
+    adx_max35_rr2.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   +1.77   +4.75   +2.63   +3.59   +3.19      42
+    adx_max25_rr2.0_rsi_band40_sl_atr1.5_variantDIV_NOSR   +3.50   +3.45   +2.63   +3.08   +3.17      42
+    adx_max35_rr2.0_rsi_band35_sl_atr2.5_variantDIV_SR   +2.78   +2.76   +1.66   +3.64   +2.71      35
+    adx_max35_rr1.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   +0.78   +3.72   +2.57   +2.78   +2.46      45
+    adx_max25_rr2.0_rsi_band40_sl_atr1.5_variantDIV_SR   +4.51   +0.45   +1.70   +3.06   +2.43      39
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max25_rr2.0_rsi_band40_sl_atr1.5_variantHIST_INF   -4.32   +8.33  +30.98   -0.16   +8.71      26
+    adx_max50_rr1.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   +1.64   +4.41   +1.46  +10.59   +4.53      72
+    adx_max25_rr2.0_rsi_band40_sl_atr2.5_variantDIV_NOSR   +2.74   +8.69   +3.78   +0.68   +3.97      38
+    adx_max25_rr1.0_rsi_band40_sl_atr1.5_variantHIST_INF   -3.41  +18.52   +0.00   +0.00   +3.78      13  [MINCE]
+    adx_max25_rr1.0_rsi_band40_sl_atr2.5_variantDIV_NOSR   +4.70   +4.68   +0.80   +3.81   +3.50      41
+    adx_max50_rr2.0_rsi_band30_sl_atr1.5_variantDIV_NOSR   +0.75   -1.25   -0.28  +14.49   +3.43      30
+    adx_max35_rr2.0_rsi_band40_sl_atr2.5_variantDIV_SR   +3.60   +4.52   +5.49   -0.44   +3.29      65
+    adx_max35_rr2.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   +1.77   +4.75   +2.63   +3.59   +3.19      42
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> FTSE — 17849 barres H1
+    10/108 configurations
+    20/108 configurations
+    30/108 configurations
+    40/108 configurations
+    50/108 configurations
+    60/108 configurations
+    70/108 configurations
+    80/108 configurations
+    90/108 configurations
+    100/108 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s10_legacy_meanrev / FTSE
+================================================================================================
+17849 barres · 108 configurations · 47s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/108   (≈5 attendues par pur hasard si l'edge est nul)
+TIER 1 : 22/108
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max50_rr2.0_rsi_band30_sl_atr2.5_variantHIST_INF   -0.05   +4.88   +1.86   +4.95   +2.91      18  [MINCE]
+    adx_max50_rr1.0_rsi_band30_sl_atr2.5_variantHIST_INF   -1.04   +1.91   -1.11   +3.95   +0.93      18  [MINCE]
+    adx_max50_rr1.0_rsi_band30_sl_atr1.5_variantDIV_NOSR   +0.96   +2.83   +0.75   -1.06   +0.87      20
+    adx_max50_rr1.0_rsi_band40_sl_atr1.5_variantHIST_INF   -3.76   +7.00   -0.93   +0.89   +0.80     146
+    adx_max50_rr1.0_rsi_band30_sl_atr1.5_variantDIV_SR   +0.00   +3.84   -2.14   +0.98   +0.67      11  [MINCE]
+    adx_max50_rr2.0_rsi_band30_sl_atr2.5_variantDIV_SR   +0.00   +4.90   -2.07   -1.00   +0.46      10  [MINCE]
+    adx_max25_rr1.0_rsi_band40_sl_atr2.5_variantHIST_INF   +2.94   +0.88   -0.07   -2.05   +0.43      20
+    adx_max25_rr2.0_rsi_band40_sl_atr1.5_variantDIV_NOSR   +2.75   -0.08   -4.15   +2.76   +0.32      34
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> AUDCHF — 31592 barres H1
+    10/108 configurations
+    20/108 configurations
+    30/108 configurations
+    40/108 configurations
+    50/108 configurations
+    60/108 configurations
+    70/108 configurations
+    80/108 configurations
+    90/108 configurations
+    100/108 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s10_legacy_meanrev / AUDCHF
+================================================================================================
+31592 barres · 108 configurations · 115s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 4/108   (≈5 attendues par pur hasard si l'edge est nul)
+TIER 1 : 48/108
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max25_rr1.0_rsi_band40_sl_atr2.5_variantHIST_INF   +2.25   +4.15   +2.06   +2.03   +2.62      30
+    adx_max35_rr1.0_rsi_band35_sl_atr2.5_variantDIV_SR   +0.82   +0.06   +3.88   +4.62   +2.35      40
+    adx_max25_rr2.0_rsi_band40_sl_atr1.5_variantHIST_INF   +0.83   +4.53   +3.29   +0.47   +2.28      30
+    adx_max35_rr2.0_rsi_band30_sl_atr1.5_variantDIV_SR   +0.61   +1.28   +1.62   +1.02   +1.13      11  [MINCE]
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max35_rr2.0_rsi_band35_sl_atr1.5_variantDIV_SR   +5.52   +1.41   +8.64   +0.68   +4.06      41
+    adx_max35_rr2.0_rsi_band35_sl_atr1.5_variantDIV_NOSR   +5.52   -0.73   +8.64   +0.68   +3.53      43
+    adx_max25_rr2.0_rsi_band35_sl_atr1.5_variantDIV_SR   +8.05   +2.97   +0.48   +0.00   +2.88      15  [MINCE]
+    adx_max35_rr2.0_rsi_band35_sl_atr2.5_variantDIV_SR   +7.50   -0.89   +1.15   +3.43   +2.80      38
+    adx_max25_rr1.0_rsi_band40_sl_atr2.5_variantHIST_INF   +2.25   +4.15   +2.06   +2.03   +2.62      30
+    adx_max25_rr2.0_rsi_band35_sl_atr1.5_variantDIV_NOSR   +8.05   +1.92   +0.48   +0.00   +2.61      16  [MINCE]
+    adx_max35_rr2.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   +7.50   -1.94   +1.15   +3.43   +2.54      39
+    adx_max25_rr2.0_rsi_band35_sl_atr2.5_variantDIV_SR   +8.79   +3.36   -2.11   +0.00   +2.51      15  [MINCE]
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> EURUSD — 31593 barres H1
+    10/108 configurations
+    20/108 configurations
+    30/108 configurations
+    40/108 configurations
+    50/108 configurations
+    60/108 configurations
+    70/108 configurations
+    80/108 configurations
+    90/108 configurations
+    100/108 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s10_legacy_meanrev / EURUSD
+================================================================================================
+31593 barres · 108 configurations · 100s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/108   (≈5 attendues par pur hasard si l'edge est nul)
+TIER 1 : 16/108
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max25_rr2.0_rsi_band40_sl_atr2.5_variantDIV_NOSR   +2.29   +4.39   -4.68   +2.17   +1.04      47
+    adx_max25_rr1.0_rsi_band35_sl_atr1.5_variantHIST_INF   +1.62   +2.67   -1.05   +0.83   +1.02       9  [MINCE]
+    adx_max25_rr2.0_rsi_band40_sl_atr1.5_variantHIST_INF   +5.44   +3.72   -3.27   -2.97   +0.73      55
+    adx_max25_rr2.0_rsi_band40_sl_atr1.5_variantDIV_NOSR   +1.57   +2.94   -6.21   +4.44   +0.69      52
+    adx_max25_rr2.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   -3.21   +4.52   +0.68   -0.38   +0.40      24
+    adx_max25_rr1.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   -0.32   +0.63   +1.64   -0.40   +0.39      25
+    adx_max25_rr1.0_rsi_band40_sl_atr1.5_variantDIV_NOSR   -2.26   +0.90   -3.27   +5.83   +0.30      48
+    adx_max25_rr1.0_rsi_band40_sl_atr1.5_variantHIST_INF   +2.37   +6.56   -3.23   -4.96   +0.18      58
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> EURCHF — 31594 barres H1
+    10/108 configurations
+    20/108 configurations
+    30/108 configurations
+    40/108 configurations
+    50/108 configurations
+    60/108 configurations
+    70/108 configurations
+    80/108 configurations
+    90/108 configurations
+    100/108 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s10_legacy_meanrev / EURCHF
+================================================================================================
+31594 barres · 108 configurations · 102s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 4/108   (≈5 attendues par pur hasard si l'edge est nul)
+TIER 1 : 28/108
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max50_rr2.0_rsi_band30_sl_atr1.5_variantDIV_SR   +2.78   +1.51   +0.26   +2.97   +1.88      14  [MINCE]
+    adx_max50_rr2.0_rsi_band30_sl_atr1.5_variantDIV_NOSR   +2.78   +1.51   +0.26   +2.97   +1.88      14  [MINCE]
+    adx_max50_rr2.0_rsi_band30_sl_atr2.5_variantDIV_SR   +0.39   +1.69   +0.53   +1.07   +0.92      12  [MINCE]
+    adx_max50_rr2.0_rsi_band30_sl_atr2.5_variantDIV_NOSR   +0.39   +1.69   +0.53   +1.07   +0.92      12  [MINCE]
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max50_rr2.0_rsi_band30_sl_atr1.5_variantDIV_SR   +2.78   +1.51   +0.26   +2.97   +1.88      14  [MINCE]
+    adx_max50_rr2.0_rsi_band30_sl_atr1.5_variantDIV_NOSR   +2.78   +1.51   +0.26   +2.97   +1.88      14  [MINCE]
+    adx_max35_rr1.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   +2.07   +6.30   -1.18   -3.46   +0.93      35
+    adx_max50_rr2.0_rsi_band30_sl_atr2.5_variantDIV_SR   +0.39   +1.69   +0.53   +1.07   +0.92      12  [MINCE]
+    adx_max50_rr2.0_rsi_band30_sl_atr2.5_variantDIV_NOSR   +0.39   +1.69   +0.53   +1.07   +0.92      12  [MINCE]
+    adx_max50_rr1.0_rsi_band30_sl_atr2.5_variantDIV_SR   +2.34   +0.77   -0.37   +0.47   +0.80      14  [MINCE]
+    adx_max50_rr1.0_rsi_band30_sl_atr2.5_variantDIV_NOSR   +2.34   +0.77   -0.37   +0.47   +0.80      14  [MINCE]
+    adx_max35_rr1.0_rsi_band35_sl_atr2.5_variantDIV_SR   +2.07   +4.41   -1.18   -3.46   +0.46      35
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> AUDUSD — 31594 barres H1
+    10/108 configurations
+    20/108 configurations
+    30/108 configurations
+    40/108 configurations
+    50/108 configurations
+    60/108 configurations
+    70/108 configurations
+    80/108 configurations
+    90/108 configurations
+    100/108 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s10_legacy_meanrev / AUDUSD
+================================================================================================
+31594 barres · 108 configurations · 124s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 2/108   (≈5 attendues par pur hasard si l'edge est nul)
+TIER 1 : 22/108
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max50_rr2.0_rsi_band35_sl_atr2.5_variantDIV_NOSR   +3.15   +0.81   +2.78  +12.72   +4.86      77
+    adx_max35_rr2.0_rsi_band30_sl_atr1.5_variantDIV_NOSR   +1.67   +0.43   +3.02   +3.18   +2.08      24
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max35_rr2.0_rsi_band30_sl_atr2.5_variantDIV_SR   +5.12   +1.69   +3.39   +4.53   +3.68      22
+    adx_max35_rr2.0_rsi_band30_sl_atr2.5_variantDIV_NOSR   +5.12   +1.69   +3.39   +4.53   +3.68      22
+    adx_max50_rr2.0_rsi_band30_sl_atr2.5_variantDIV_SR   +4.02   +1.69   -2.89   +6.22   +2.26      33
+    adx_max35_rr2.0_rsi_band30_sl_atr1.5_variantDIV_SR   +1.67   +0.43   +3.02   +3.18   +2.08      24
+    adx_max35_rr2.0_rsi_band30_sl_atr1.5_variantDIV_NOSR   +1.67   +0.43   +3.02   +3.18   +2.08      24
+    adx_max50_rr1.0_rsi_band40_sl_atr2.5_variantDIV_NOSR   -7.33   +6.77   -3.80  +12.25   +1.97     133
+    adx_max35_rr1.0_rsi_band30_sl_atr2.5_variantDIV_SR   +4.17   -0.25   +0.52   +2.54   +1.74      23
+    adx_max35_rr1.0_rsi_band30_sl_atr2.5_variantDIV_NOSR   +4.17   -0.25   +0.52   +2.54   +1.74      23
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> USDJPY — 31594 barres H1
+    10/108 configurations
+    20/108 configurations
+    30/108 configurations
+    40/108 configurations
+    50/108 configurations
+    60/108 configurations
+    70/108 configurations
+    80/108 configurations
+    90/108 configurations
+    100/108 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s10_legacy_meanrev / USDJPY
+================================================================================================
+31594 barres · 108 configurations · 115s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/108   (≈5 attendues par pur hasard si l'edge est nul)
+TIER 1 : 1/108
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    adx_max35_rr2.0_rsi_band30_sl_atr2.5_variantDIV_NOSR   +1.85   +2.74   -5.15   +2.68   +0.53      15  [MINCE]
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+========================================================================================================
+SYNTHÈSE — TABLEAU PAR INSTRUMENT
+========================================================================================================
+  Grille : 108 configurations par instrument.
+  Un edge NUL produirait ~5.4 « STRICT pass » par pur hasard.
+
+  instrument    STRICT  attendu   TIER1  trades OOS  moy OOS R  meilleur moy
+  ----------------------------------------------------------------------------
+  SP500              0      5.4       7          34      +0.22         +4.78
+  NIKKEI             9      5.4      41          30      +1.27        +13.26
+  FTSE               0      5.4      22          20      -0.77         +4.91
+  AUDCHF             4      5.4      48          40      -0.02         +4.06
+  EURUSD             0      5.4      16          51      -1.45         +1.86
+  EURCHF             4      5.4      28          34      -1.38         +3.08
+  AUDUSD             2      5.4      22          51      +0.47        +10.36
+  USDJPY             0      5.4       1          48      -1.13         +1.84
+  ----------------------------------------------------------------------------
+  TOTAL             19     43.2
+
+  « trades OOS » = médiane, sur la grille, des trades hors échantillon
+  cumulés sur les 4 fenêtres. Seuil de crédibilité : 20.
+
+========================================================================================================
+ROBUSTESSE — LA MEILLEURE CELLULE EST-ELLE ISOLÉE ?
+========================================================================================================
+  Un edge réel survit au déplacement d'un paramètre. Si seule la
+  cellule optimale est positive, c'est du sur-ajustement.
+
+  SP500     meilleure = adx_max50_rr2.0_rsi_band35_sl_atr2.5_variantHIST_INF
+            moy OOS +4.78 R sur 105 trades ; voisins positifs : 3/8
+  NIKKEI    meilleure = adx_max35_rr2.0_rsi_band40_sl_atr1.5_variantHIST_INF
+            moy OOS +13.26 R sur 97 trades ; voisins positifs : 7/8
+  FTSE      meilleure = adx_max50_rr1.0_rsi_band40_sl_atr1.5_variantDIV_NOSR
+            moy OOS +4.91 R sur 83 trades ; voisins positifs : 6/8
+  AUDCHF    meilleure = adx_max35_rr2.0_rsi_band35_sl_atr1.5_variantDIV_SR
+            moy OOS +4.06 R sur 41 trades ; voisins positifs : 7/8
+  EURUSD    meilleure = adx_max35_rr2.0_rsi_band35_sl_atr1.5_variantHIST_INF
+            moy OOS +1.86 R sur 59 trades ; voisins positifs : 3/8
+  EURCHF    meilleure = adx_max50_rr2.0_rsi_band30_sl_atr1.5_variantHIST_INF
+            moy OOS +3.08 R sur 42 trades ; voisins positifs : 5/8
+  AUDUSD    meilleure = adx_max50_rr2.0_rsi_band40_sl_atr2.5_variantDIV_NOSR
+            moy OOS +10.36 R sur 117 trades ; voisins positifs : 7/8
+  USDJPY    meilleure = adx_max50_rr1.0_rsi_band30_sl_atr2.5_variantDIV_SR
+            moy OOS +1.84 R sur 33 trades ; voisins positifs : 5/8
+
+  Référence : si le signe était aléatoire, on attendrait ~50 %.
+
+========================================================================================================
+CONCENTRATION — LE RÉSULTAT TIENT-IL À UN SEUL INSTRUMENT ?
+========================================================================================================
+  instrument     meilleure moy OOS     part du positif
+  ------------------------------------------------------
+  NIKKEI                    +13.26                30 %
+  AUDUSD                    +10.36                23 %
+  FTSE                       +4.91                11 %
+  SP500                      +4.78                11 %
+  AUDCHF                     +4.06                 9 %
+  EURCHF                     +3.08                 7 %
+  EURUSD                     +1.86                 4 %
+  USDJPY                     +1.84                 4 %
+
+========================================================================================================
+ABLATION DU SPREAD — « pas d'edge » ou « edge mangé par les coûts » ?
+========================================================================================================
+  sym      variante       n   R/tr réel  R/tr spread=0      coût  WR réel  WR sp=0
+  ------------------------------------------------------------------------------------
+  SP500    DIV_SR        98     -0.0759        -0.0510   -0.0249     31.6     31.6
+  SP500    DIV_NOSR     104     -0.0726        -0.0481   -0.0245     31.7     31.7
+  SP500    HIST_INF     101     +0.1640        +0.1881   -0.0242     39.6     39.6
+
+  NIKKEI   DIV_SR       106     +0.1791        +0.2362   -0.0571     41.5     41.5
+  NIKKEI   DIV_NOSR     119     +0.1733        +0.2272   -0.0539     41.2     41.2
+  NIKKEI   HIST_INF      88     +0.1630        +0.2184   -0.0554     40.9     40.9
+
+  FTSE     DIV_SR        54     -0.1293        -0.1111   -0.0181     29.6     29.6
+  FTSE     DIV_NOSR      61     -0.2298        -0.2131   -0.0167     26.2     26.2
+  FTSE     HIST_INF      39     -0.1711        -0.1538   -0.0172     28.2     28.2
+
+  AUDCHF   DIV_SR       103     +0.2126        +0.3398   -0.1272     44.7     44.7
+  AUDCHF   DIV_NOSR     106     +0.2311        +0.3585   -0.1274     45.3     45.3
+  AUDCHF   HIST_INF     109     -0.0422        +0.0734   -0.1156     35.8     35.8
+
+  EURUSD   DIV_SR       113     +0.0167        +0.0885   -0.0718     36.3     36.3
+  EURUSD   DIV_NOSR     114     +0.0858        +0.1579   -0.0721     38.6     38.6
+  EURUSD   HIST_INF     123     -0.0152        +0.0488   -0.0640     35.0     35.0
+
+  EURCHF   DIV_SR        85     +0.2565        +0.4510   -0.1946     48.2     48.2
+  EURCHF   DIV_NOSR      85     +0.2564        +0.4510   -0.1947     48.2     48.2
+  EURCHF   HIST_INF     101     -0.2744        -0.1386   -0.1358     28.7     28.7
+
+  AUDUSD   DIV_SR       135     -0.0826        +0.0000   -0.0826     33.3     33.3
+  AUDUSD   DIV_NOSR     137     -0.0542        +0.0292   -0.0834     34.3     34.3
+  AUDUSD   HIST_INF     128     -0.1202        -0.0391   -0.0811     32.0     32.0
+
+  USDJPY   DIV_SR       130     -0.1444        -0.0769   -0.0675     30.8     30.8
+  USDJPY   DIV_NOSR     134     -0.1042        -0.0373   -0.0669     32.1     32.1
+  USDJPY   HIST_INF     128     -0.2637        -0.2031   -0.0606     26.6     26.6
+
+  ------------------------------------------------------------------------------------
+  MOYENNE                24     -0.0017        +0.0748   -0.0766
+  cellules positives : 10/24 au spread réel, 14/24 à spread nul.
+
+  Lecture : à spread nul, une pièce non biaisée donnerait ~50 % de
+  cellules positives et une espérance de 0,0000 R/trade.
+
+========================================================================================================
+CONTRÔLE LONG/SHORT — l'edge est-il un pari directionnel déguisé ?
+========================================================================================================
+  Une stratégie de RETOUR À LA MOYENNE ne doit pas avoir de côté
+  préféré. Si tout le résultat vient d'un seul sens sur 2021-2026,
+  c'est du beta sur le régime, pas un edge.
+
+  sym      variante     nL    R long    R/tr L    nS   R short    R/tr S            diagnostic
+  ----------------------------------------------------------------------------------------------
+  SP500    DIV_SR       38      -5.7   -0.1504    60      -1.7   -0.0288   négatif des 2 côtés
+  SP500    DIV_NOSR     41      -8.7   -0.2131    63      +1.2   +0.0189          UN SEUL CÔTÉ
+  SP500    HIST_INF     35      +3.3   +0.0947    66     +13.2   +0.2007            symétrique
+
+  NIKKEI   DIV_SR       52     +14.1   +0.2710    54      +4.9   +0.0906            symétrique
+  NIKKEI   DIV_NOSR     56     +13.1   +0.2335    63      +7.5   +0.1198            symétrique
+  NIKKEI   HIST_INF     48      +3.8   +0.0781    40     +10.6   +0.2649            symétrique
+
+  FTSE     DIV_SR       21      -0.4   -0.0190    33      -6.6   -0.1994   négatif des 2 côtés
+  FTSE     DIV_NOSR     25      -4.4   -0.1762    36      -9.6   -0.2671   négatif des 2 côtés
+  FTSE     HIST_INF     17      -2.3   -0.1350    22      -4.4   -0.1990   négatif des 2 côtés
+
+  AUDCHF   DIV_SR       40      +6.8   +0.1690    63     +15.1   +0.2403            symétrique
+  AUDCHF   DIV_NOSR     41      +5.7   +0.1392    65     +18.8   +0.2891            symétrique
+  AUDCHF   HIST_INF     45      -7.6   -0.1685    64      +3.0   +0.0466          UN SEUL CÔTÉ
+
+  EURUSD   DIV_SR       65      -9.3   -0.1428    48     +11.2   +0.2327          UN SEUL CÔTÉ
+  EURUSD   DIV_NOSR     65      -3.3   -0.0512    49     +13.1   +0.2677          UN SEUL CÔTÉ
+  EURUSD   HIST_INF     54      -6.3   -0.1170    69      +4.4   +0.0644          UN SEUL CÔTÉ
+
+  EURCHF   DIV_SR       33     +14.5   +0.4389    52      +7.3   +0.1407            symétrique
+  EURCHF   DIV_NOSR     33     +14.5   +0.4385    52      +7.3   +0.1408            symétrique
+  EURCHF   HIST_INF     51     -12.8   -0.2513    50     -14.9   -0.2980   négatif des 2 côtés
+
+  AUDUSD   DIV_SR       58     -11.3   -0.1946    77      +0.1   +0.0017          UN SEUL CÔTÉ
+  AUDUSD   DIV_NOSR     61      -8.7   -0.1423    76      +1.3   +0.0165          UN SEUL CÔTÉ
+  AUDUSD   HIST_INF     51      -6.9   -0.1354    77      -8.5   -0.1101   négatif des 2 côtés
+
+  USDJPY   DIV_SR       40      +8.3   +0.2087    90     -27.1   -0.3013          UN SEUL CÔTÉ
+  USDJPY   DIV_NOSR     41     +10.3   +0.2512    93     -24.3   -0.2609          UN SEUL CÔTÉ
+  USDJPY   HIST_INF     57      -6.1   -0.1073    71     -27.6   -0.3893   négatif des 2 côtés
+

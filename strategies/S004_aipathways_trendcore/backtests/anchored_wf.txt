@@ -1,0 +1,115 @@
+================================================================================================
+WALK-FORWARD ANCRE — s04_aipathways_trendcore
+================================================================================================
+
+AVERTISSEMENT — CES CHIFFRES NE MESURENT PAS LA STRATEGIE.
+
+  Trend core est une bascule d'allocation : toujours investie, sortie
+  UNIQUEMENT sur retournement de regime. Le moteur commun ne connait
+  que trois sorties : SL, TP, fin de tranche. Il n'accepte aucun ordre
+  de sortie sur signal (ANALYSIS.md §5).
+
+  Consequence : chaque position survit ici a la bascule de regime
+  jusqu'au stop de catastrophe (8xATR) ou a la fin de la tranche.
+  Ce qui est mesure = qualite du moment d'entree en regime avec un
+  plancher de desastre. PAS la strategie de la source.
+
+  Ces resultats sont publies par transparence (R1 doit passer, la
+  plateforme doit pouvoir charger la strategie). Le verdict s'appuie
+  sur run_analysis.py / equity_analysis.txt.
+
+EFFECTIF — a garder sous les yeux en permanence :
+  ~13 bascules de regime sur 5 ans. Les tranches de test font 10 % de
+  l'historique, soit ~1 episode chacune. Aucun 'pass' n'est ici une
+  preuve. 12 configurations -> ~0,6 reussite attendue par PUR HASARD.
+
+
+################################################################################################
+# JAMBE RISK — NASDAQ (long quand NASDAQ > MM)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s04_aipathways_trendcore / NASDAQ
+================================================================================================
+1331 barres · 12 configurations · 1s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/12   (≈1 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/12
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    buffer_pct0.0_ma_len100                        +0.00   +0.00   +0.00   +0.00   +0.00       0
+    buffer_pct0.0_ma_len150                        +0.00   +0.00   +0.00   +0.00   +0.00       0
+    buffer_pct0.0_ma_len200                        +0.00   +0.00   +0.00   +0.00   +0.00       0
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    buffer_pct0.01_ma_len200                          +8.44      +0.00     100 %
+    buffer_pct0.0_ma_len200                           +8.38      +0.00     100 %
+    buffer_pct0.005_ma_len200                         +8.38      +0.00     100 %
+
+    => 100 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+--- plein echantillon, cellule de la source (ma_len=200, buffer=0) ---
+    spread reel :   1 trades, total    +8.38 R, +8.3800 R/trade, WR 100.0, DD 0.00 R
+    spread NUL  :   1 trades, total    +8.38 R, +8.3800 R/trade, WR 100.0, DD 0.00 R
+
+
+################################################################################################
+# JAMBE HEDGE — XAUUSD (long quand NASDAQ < MM)
+################################################################################################
+================================================================================================
+WALK-FORWARD — s04_aipathways_trendcore / XAUUSD
+================================================================================================
+1329 barres · 12 configurations · 0s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/12   (≈1 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/12
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    buffer_pct0.01_ma_len200                       +0.00   +1.71   +0.00   +0.00   +0.43       1
+    buffer_pct0.005_ma_len200                      +0.00   +1.52   +0.00   +0.00   +0.38       1
+    buffer_pct0.0_ma_len100                        +0.00   +0.00   +0.00   +0.00   +0.00       0
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    buffer_pct0.01_ma_len100                         +20.16      +0.00     100 %
+    buffer_pct0.0_ma_len150                          +14.41      +0.00     100 %
+    buffer_pct0.005_ma_len150                        +14.41      +0.00     100 %
+
+    => 100 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+--- plein echantillon, cellule de la source (ma_len=200, buffer=0) ---
+    spread reel :   2 trades, total   +12.28 R, +6.1400 R/trade, WR 50.0, DD 0.00 R
+    spread NUL  :   2 trades, total   +12.29 R, +6.1450 R/trade, WR 50.0, DD 0.00 R
+

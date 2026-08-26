@@ -1,0 +1,43 @@
+# Manifest — AlexG AI Judge
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s93_alexg_ai_judge
+display_name: "AlexG AI Judge"
+version: "0.2.0"
+magic_number: 130093
+author: "claude:s93_alexg_ai_judge"
+source: "https://www.youtube.com/@fxalexg__"
+trader: "fxalexg + juge IA"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+# GBPJPY/GBPCHF (paires documentées de la source) indisponibles ->
+# substituées GBPUSD/EURJPY. Écart documenté dans research/ANALYSIS.md.
+symbols: [EURUSD, USDJPY, USDCHF, AUDCAD, GBPUSD, EURJPY]
+timeframe: "H1"
+warmup_bars: 2500
+
+default_params:
+  pip: 0.0001            # fixé par le runner selon l'instrument (0.01 JPY)
+  aoi_width_pips: 60.0
+  aoi_touch_min: 3
+  aoi_lookback_days: 1095
+  visit_window: 48
+  rr_min: 2.0
+  sl_buf_atr: 0.1
+  tp_margin_atr: 0.1
+  ema_period: 50
+  min_gap_bars: 6
+param_grid: {}           # pas d'optimisation : l'étude porte sur la couche juge
+
+created: 2026-08-16
+notes: |
+  Couche 1 : détecteur mécanique v2 de la spec publique fxalexg 2025
+  (docs/sources/fxalexg/SYNTHESE.md §1) — réglé pour le rappel, dossier de
+  confluences objectivables par candidat dans Signal.meta['dossier'].
+  Couche 2 : juge IA (grille de notation d'Alex, 1 confluence = 10 %) en
+  rejeu à l'aveugle — voir judge/ (anonymisation, batches, logs, mesure).
+  Confluence COT (positionnement non-commercials CFTC, percentile 3 ans,
+  décalage de publication mardi->vendredi 15h30 ET appliqué strictement).
+  Falsifications déclarées AVANT jugement : research/FALSIFICATION.md.

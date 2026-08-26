@@ -1,0 +1,26 @@
+==============================================================================
+R5 — COHÉRENCE BACKTEST / LIVE (contrat d'allocation)
+==============================================================================
+  Univers BTCUSD, ETHUSD · 2839 barres D1
+  1131 barres investies sur 2388 décisions ; les coupures ciblent les deux états.
+
+        T  poids backtest                     poids live                         verdict
+  ------------------------------------------------------------------------------------------
+      671  {'ETHUSD': 1.0}                    {'ETHUSD': 1.0}                    OK
+     1081  {'BTCUSD': 0.5, 'ETHUSD': 0.5}     {'BTCUSD': 0.5, 'ETHUSD': 0.5}     OK
+     1760  {}                                 {}                                 OK
+     1851  {'BTCUSD': 0.8, 'ETHUSD': 0.2}     {'BTCUSD': 0.8, 'ETHUSD': 0.2}     OK
+     2015  {}                                 {}                                 OK
+     2356  {}                                 {}                                 OK
+     2394  {'BTCUSD': 0.2, 'ETHUSD': 0.8}     {'BTCUSD': 0.2, 'ETHUSD': 0.8}     OK
+     2668  {}                                 {}                                 OK
+     2729  {'BTCUSD': 1.0}                    {'BTCUSD': 1.0}                    OK
+     2810  {}                                 {}                                 OK
+
+  Coupures avec portefeuille NON VIDE : 5 / 10
+
+VERDICT : R5 PASSÉ.
+  Le chemin live et le chemin backtest rendent la même décision.
+  Garanti par construction : `on_bar` appelle `generate_allocations`
+  au lieu de dupliquer la logique.
+==============================================================================

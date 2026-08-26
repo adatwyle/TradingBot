@@ -1,0 +1,54 @@
+================================================================================================
+WALK-FORWARD — s09_balke_rangebreakout / EURJPY
+================================================================================================
+31594 barres · 1 configurations · 8s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/1   (≈0 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 0/1
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_moderange   -7.68   +7.95  -15.59  -15.35   -7.67     513
+        témoin aléatoire : percentile  55.5  | nul méd  -33.34 R, p95   +2.18 R | 200 tirages de 513 trades (exéc. méd. 452, 54 % long) | R/trade aléatoire L -0.040 / S -0.114
+
+--- BRAS TÉMOIN : ENTRÉE ALÉATOIRE ---
+    Chaque configuration affichée ci-dessus est comparée à 200 jeux
+    d'entrées TIRÉES AU HASARD ayant le même effectif, la même
+    répartition long/short, les mêmes stops et cibles en ATR et
+    les mêmes heures de séance. Seul le moment de l'entrée change.
+    Graine 20260816 — le rapport est rejouable à l'identique.
+
+    Percentile 50 = la stratégie fait ce que ferait un tirage au
+    sort. Il faut dépasser 95 pour parler d'un edge, et encore :
+    les configurations affichées ont été SÉLECTIONNÉES sur ces
+    mêmes données, donc leur percentile est optimiste.
+
+    Beta directionnel mesuré : +0.074 R/trade d'écart entre
+    une entrée LONG au hasard et une entrée SHORT au hasard.
+    => la période MONTE. Une stratégie majoritairement longue
+       doit d'abord battre ce beta ; le témoin l'exige, la
+       convention n×0,05 ne le voyait pas.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+[EFFECTIF TÉMOIN ÉCARTÉ] = le moteur a refusé trop de signaux
+    aléatoires ; les deux bras ne comparent plus le même nombre
+    de trades et le percentile est à lire avec méfiance.
+
+--- SORTIE TEMPORELLE : validation de l'approximation ---
+  sorties (config défaut, plein échantillon, 1288 trades)
+    par raison : {'EOD': np.int64(733), 'SL': np.int64(555)}
+    heure de sortie : méd 17h, p10 9h, p90 20h
+    part des sorties 17-19h : 38 %
+
+--- TÉMOIN PAR CONFIG (toutes les configs armées) ---
+  breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_moderange honest_r   -30.68 (513 trades OOS)
+      témoin aléatoire : percentile  55.5  | nul méd  -33.34 R, p95   +2.18 R | 200 tirages de 513 trades (exéc. méd. 452, 54 % long) | R/trade aléatoire L -0.040 / S -0.114

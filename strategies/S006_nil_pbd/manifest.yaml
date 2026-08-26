@@ -1,0 +1,71 @@
+# Manifest — PBD Impulse-Range (Patrick Nil)
+# Lu par la plateforme (dashboard, orchestrateur, backtester).
+# R7 : ce fichier est la seule source de vérité sur cette stratégie.
+
+strategy_id: s06_nil_pbd
+display_name: "PBD Impulse-Range (Patrick Nil)"
+version: "1.0.0"
+magic_number: 130006
+author: "claude:s06_nil_pbd"
+source: "https://www.youtube.com/watch?v=2ZmIn274eds"
+trader: "Patrick Nil"
+
+status: RESEARCH        # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED
+
+symbols: [DAX, WTIUSD]  # « I'm an oil trader » (30:02) ; graphique DAX (7:26)
+timeframe: "M15"        # « for the trade I take the 15 minutes chart » (10:33)
+warmup_bars: 600        # ATR(14) + fenêtre d'impulsion + une semaine de M15
+
+default_params:
+  mode: fade            # "fade" (range fade) | "break" (cassure)
+  imp_bars: 12          # 3 h de M15
+  imp_atr: 2.0          # amplitude minimale de l'impulsion, en ATR
+  imp_eff: 0.60         # directionnalité : déplacement net / amplitude
+  range_min_bars: 12    # 3 h avant qu'un range soit tradable
+  range_life: 192       # 2 jours de M15
+  range_frac: 0.60      # largeur max du range, en fraction de l'impulsion
+  stop_mode: edge05
+  target_mode: pingpong
+  stop_atr: 1.5
+  tgt_mult: 1.0
+  va_filter: 0
+  va_tol: 0.5
+  va_bins: 60
+  va_pct: 0.70
+  atr_len: 14
+  _symbol: ""
+
+# ── DEUX grilles, jamais fondues ────────────────────────────────────────────
+# « le range tient » (fade) et « le range cède » (break) sont deux hypothèses
+# économiques opposées. Les mettre dans une même grille reviendrait à laisser
+# l'optimiseur choisir son camp cellule par cellule = faux positif garanti.
+# `param_grid` porte le mode FADE, lecture première de la source
+# (« I trade the range (…) play ping pong », 6:35). La grille BREAK est
+# déclarée ci-dessous et passée explicitement par backtests/run_wf.py.
+
+param_grid:               # 32 cellules -> ~1,6 réussite STRICT par pur hasard
+  stop_mode: [edge025, edge05, edge10, extreme]
+  target_mode: [pingpong, impulse_start]
+  imp_atr: [1.5, 2.5]
+  va_filter: [0, 1]
+
+param_grid_break:         # 24 cellules -> ~1,2 réussite STRICT par pur hasard
+  stop_mode: [mid, opp, atr]
+  tgt_mult: [1.0, 2.0]
+  imp_atr: [1.5, 2.5]
+  va_filter: [0, 1]
+
+created: 2026-08-16
+notes: |
+  Modèle « PBD » : une impulsion, puis un range — il ne trade PAS l'impulsion.
+  Cible = retour à l'origine de l'impulsion. Stop traité en paramètre balayé
+  parce que la source refuse explicitement une règle unique (18:05).
+
+  RÉSERVE MAJEURE — le profil de volume hebdomadaire, second ingrédient qu'il
+  juge essentiel (« they are so important », 9:39), est bâti sur `tick_volume`
+  (changements de cotation) faute de volume réel (real_volume = 0 sur tous nos
+  instruments). Ce n'est pas la même grandeur. `va_filter` ∈ {0,1} est dans la
+  grille pour MESURER cet écart au lieu de le supposer négligeable.
+
+  Voir research/ANALYSIS.md §4-5 et research/VERDICT.md avant d'interpréter
+  le moindre chiffre.

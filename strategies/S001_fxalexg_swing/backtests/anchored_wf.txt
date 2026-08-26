@@ -1,0 +1,402 @@
+s01_fxalexg_swing — WALK-FORWARD ANCRÉ ET DIAGNOSTICS
+instruments : EURUSD, USDJPY, USDCHF, AUDUSD, USDCAD, EURJPY, XAUUSD
+TF exécution : H1   |   structure : H4 / D1 (rééchantillonnées)
+critères : Tier1 = PnL train > 0, >= 20 trades, DD <= 12.0 R
+
+================================================================================================
+R1 — INVARIANT DE CAUSALITÉ SUR PLUSIEURS POINTS DE GRILLE
+================================================================================================
+  32 combinaisons testées sur EURUSD (31593 barres) — 32 OK, 0 en fuite.
+  VERDICT R1 : PASSÉ
+
+================================================================================================
+DIAGNOSTIC PLEIN ÉCHANTILLON (pas un critère — voir walk-forward)
+================================================================================================
+  sym     htf  target       n        R  R/trade    WR%     PF  risqPips  drag%   TPn  TPmed j  TPp75 j
+  --------------------------------------------------------------------------------------------
+  EURUSD  H4   struct     368    -58.2   -0.158   40.2   0.74      21.8   8.72   156      0.2      0.7
+  EURUSD  H4   ext27      353    -33.2   -0.094   33.7   0.86      23.2   8.20   123      0.5      1.1
+  EURUSD  H4   ext62      331    -38.1   -0.115   26.6   0.85      23.9   7.96    88      0.9      1.9
+  EURUSD  H4   rr3        311    -36.6   -0.118   24.4   0.85      24.1   7.90    75      1.0      2.1
+  EURUSD  D1   struct     147     -1.1   -0.007   29.3   0.99      23.8   7.97    43      1.1      1.7
+  EURUSD  D1   ext27      129     +0.5   +0.004   19.4   1.00      23.8   7.97    25      2.4      4.0
+  EURUSD  D1   ext62      121     -0.0   -0.000   13.2   1.00      23.8   7.97    16      4.1      6.2
+  EURUSD  D1   rr3        136     +9.2   +0.068   29.4   1.09      23.9   7.96    40      0.8      1.8
+
+  USDJPY  H4   struct     374    -48.8   -0.130   45.2   0.77      34.8   8.05   176      0.2      0.5
+  USDJPY  H4   ext27      349    -24.6   -0.070   37.8   0.89      36.2   7.74   134      0.3      0.8
+  USDJPY  H4   ext62      317    -17.5   -0.055   28.1   0.93      36.9   7.59    88      0.8      1.6
+  USDJPY  H4   rr3        291     +7.4   +0.025   27.8   1.03      37.2   7.52    81      0.9      2.4
+  USDJPY  D1   struct     141    -22.5   -0.160   26.2   0.79      41.9   6.69    37      1.6      2.4
+  USDJPY  D1   ext27      134    -20.1   -0.150   18.7   0.82      41.6   6.73    25      2.9      5.1
+  USDJPY  D1   ext62      127     -7.6   -0.060   14.2   0.93      41.4   6.77    18      3.2      8.1
+  USDJPY  D1   rr3        132    -10.8   -0.082   25.0   0.90      42.7   6.56    33      1.8      2.8
+
+  USDCHF  H4   struct     389   -104.9   -0.270   41.1   0.55      20.4  10.78   172      0.2      0.4
+  USDCHF  H4   ext27      369    -97.9   -0.265   31.7   0.63      20.9  10.53   121      0.4      0.9
+  USDCHF  H4   ext62      331    -69.2   -0.209   27.2   0.73      21.2  10.37    91      0.7      1.5
+  USDCHF  H4   rr3        309    -83.0   -0.269   21.0   0.68      20.6  10.66    65      1.2      2.0
+  USDCHF  D1   struct     148    -26.0   -0.176   26.4   0.78      21.0  10.48    39      0.8      1.6
+  USDCHF  D1   ext27      138    -33.9   -0.246   18.8   0.72      20.8  10.57    26      1.7      3.5
+  USDCHF  D1   ext62      124    -35.6   -0.287   13.7   0.69      20.4  10.77    17      2.5      6.6
+  USDCHF  D1   rr3        137    -39.7   -0.290   20.4   0.66      21.2  10.36    28      1.4      3.0
+
+  AUDUSD  H4   struct     371    -75.6   -0.204   39.1   0.67      20.5   9.74   156      0.2      0.6
+  AUDUSD  H4   ext27      363    -55.5   -0.153   32.0   0.79      21.3   9.38   118      0.5      1.0
+  AUDUSD  H4   ext62      326    -31.6   -0.097   27.6   0.87      21.4   9.34    91      0.8      2.0
+  AUDUSD  H4   rr3        305    -52.0   -0.170   23.3   0.79      21.3   9.40    71      1.0      2.1
+  AUDUSD  D1   struct     136    -19.6   -0.144   23.5   0.82      21.1   9.46    32      0.9      2.0
+  AUDUSD  D1   ext27      133    -10.5   -0.079   19.5   0.91      21.2   9.45    26      1.9      3.0
+  AUDUSD  D1   ext62      122     +7.8   +0.064   16.4   1.07      21.0   9.53    19      3.5      5.1
+  AUDUSD  D1   rr3        130    -24.7   -0.190   23.1   0.77      21.2   9.44    29      1.1      2.7
+
+  USDCAD  H4   struct     363    -46.3   -0.128   46.8   0.77      25.4  12.19   179      0.2      0.5
+  USDCAD  H4   ext27      348    -27.1   -0.078   38.5   0.88      26.3  11.80   137      0.5      1.0
+  USDCAD  H4   ext62      310    -25.9   -0.084   28.7   0.89      26.8  11.58    91      0.8      1.6
+  USDCAD  H4   rr3        295    -15.8   -0.053   27.1   0.93      27.1  11.45    80      0.9      1.9
+  USDCAD  D1   struct     145    -23.3   -0.160   30.3   0.78      24.6  12.59    45      0.7      1.4
+  USDCAD  D1   ext27      137    -27.6   -0.202   20.4   0.76      24.4  12.68    28      2.4      3.7
+  USDCAD  D1   ext62      129     -3.7   -0.028   16.3   0.97      24.4  12.68    21      3.6      4.8
+  USDCAD  D1   rr3        134    -20.1   -0.150   24.6   0.81      24.7  12.57    33      1.3      2.5
+
+  EURJPY  H4   struct     400    -39.6   -0.099   46.0   0.82      38.8   9.27   191      0.2      0.5
+  EURJPY  H4   ext27      375    -54.2   -0.145   35.2   0.79      41.6   8.65   133      0.5      1.1
+  EURJPY  H4   ext62      339    -48.7   -0.144   26.5   0.81      41.8   8.61    90      1.0      1.8
+  EURJPY  H4   rr3        315    -28.4   -0.090   25.4   0.88      41.6   8.65    79      1.2      2.2
+  EURJPY  D1   struct     122     -6.2   -0.051   29.5   0.93      45.0   7.99    37      0.8      1.4
+  EURJPY  D1   ext27      119     +4.3   +0.036   21.0   1.04      45.2   7.97    25      2.2      5.0
+  EURJPY  D1   ext62      110     +6.6   +0.060   15.5   1.07      45.0   7.99    17      3.8      7.3
+  EURJPY  D1   rr3        128     -7.5   -0.058   25.8   0.92      45.7   7.87    33      1.8      2.7
+
+  XAUUSD  H4   struct     364    +18.4   +0.051   47.8   1.10     947.9   2.64   175      0.2      0.6
+  XAUUSD  H4   ext27      336    -16.6   -0.049   32.1   0.93     955.1   2.62   108      0.6      1.0
+  XAUUSD  H4   ext62      314     +7.4   +0.023   27.1   1.03    1017.9   2.46    84      0.9      1.8
+  XAUUSD  H4   rr3        280    +27.9   +0.100   28.2   1.14    1074.0   2.33    79      1.2      2.7
+  XAUUSD  D1   struct     129    -18.7   -0.145   24.0   0.81     956.5   2.61    31      1.2      2.2
+  XAUUSD  D1   ext27      118    -10.5   -0.089   17.8   0.89     946.4   2.64    21      1.7      3.7
+  XAUUSD  D1   ext62      110    -21.1   -0.192   10.0   0.79     928.2   2.69    11      5.2     10.2
+  XAUUSD  D1   rr3        128     +0.3   +0.002   25.8   1.00    1047.0   2.39    33      1.4      1.7
+
+  Espérance moyenne par trade (R), moyenne sur les 7 instruments :
+    htf  target      R/trade moyen   instr. positifs
+    D1   ext27             -0.1035            2/7
+    D1   ext62             -0.0633            2/7
+    D1   rr3               -0.0999            2/7
+    D1   struct            -0.1206            0/7
+    H4   ext27             -0.1221            0/7
+    H4   ext62             -0.0971            1/7
+    H4   rr3               -0.0822            2/7
+    H4   struct            -0.1340            1/7
+
+  Rappel : seuil de rentabilité brut = 0.000 R/trade. Le péage du
+  spread est DÉJÀ inclus (le moteur le facture à l'entrée et à la sortie).
+
+================================================================================================
+WALK-FORWARD ANCRÉ — 4 fenêtres, hors échantillon
+================================================================================================
+
+>>> EURUSD — 31593 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s01_fxalexg_swing / EURUSD
+================================================================================================
+31593 barres · 128 configurations · 114s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    htfD1_k_htf2_k_ltf2_retr_max1.0_retr_min0.5_targetstruct   +5.23   +3.28  +13.28   -5.02   +4.19      60
+    htfD1_k_htf2_k_ltf3_retr_max1.0_retr_min0.5_targetstruct   +0.82   +6.27   +8.15   -1.47   +3.44      59
+    htfD1_k_htf2_k_ltf3_retr_max0.786_retr_min0.382_targetstruct   +3.42   +6.23   +1.87   -0.28   +2.81      60
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> USDJPY — 31594 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s01_fxalexg_swing / USDJPY
+================================================================================================
+31594 barres · 128 configurations · 137s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 8/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 4/128
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    htfD1_k_htf3_k_ltf3_retr_max1.0_retr_min0.5_targetext27  +12.38  +18.85   +6.88   +9.14  +11.81      42
+    htfD1_k_htf3_k_ltf3_retr_max1.0_retr_min0.5_targetstruct   +7.72  +13.70   +0.19  +11.82   +8.36      47
+    htfD1_k_htf3_k_ltf2_retr_max1.0_retr_min0.5_targetext27  +12.47   +1.79  +11.11   +7.73   +8.28      43
+    htfD1_k_htf3_k_ltf3_retr_max0.786_retr_min0.5_targetext27  +14.77   +0.56   +7.95   +2.24   +6.38      36
+    htfD1_k_htf3_k_ltf2_retr_max0.786_retr_min0.5_targetstruct  +11.20   +0.80   +4.17   +6.20   +5.59      41
+    htfD1_k_htf3_k_ltf2_retr_max1.0_retr_min0.5_targetstruct   +8.44   +0.07   +3.09   +9.53   +5.28      49
+    htfD1_k_htf3_k_ltf2_retr_max1.0_retr_min0.382_targetext27   +1.35   +9.02   +3.15   +0.10   +3.40      51
+    htfD1_k_htf3_k_ltf3_retr_max0.786_retr_min0.5_targetrr3   +3.49   +5.06   +0.21   +3.15   +2.98      37
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    htfD1_k_htf3_k_ltf3_retr_max1.0_retr_min0.5_targetrr3   +1.42   +6.77   -0.86  +12.61   +4.98      44
+    htfD1_k_htf3_k_ltf3_retr_max0.786_retr_min0.5_targetrr3   +3.49   +5.06   +0.21   +3.15   +2.98      37
+    htfD1_k_htf2_k_ltf3_retr_max1.0_retr_min0.5_targetstruct   +6.66   -1.92   -4.09   +9.92   +2.64      59
+    htfD1_k_htf3_k_ltf2_retr_max0.786_retr_min0.5_targetrr3   +6.19   +1.35   -3.57   +4.66   +2.16      40
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> USDCHF — 31594 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s01_fxalexg_swing / USDCHF
+================================================================================================
+31594 barres · 128 configurations · 123s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    htfD1_k_htf2_k_ltf2_retr_max0.786_retr_min0.382_targetext62   +6.66  +18.16  +11.25   -0.97   +8.77      56
+    htfD1_k_htf2_k_ltf3_retr_max1.0_retr_min0.382_targetext62   -3.42  +12.76   +9.54   -3.42   +3.87      61
+    htfD1_k_htf2_k_ltf2_retr_max0.786_retr_min0.382_targetext27   +3.69   +7.31   +6.02   -4.91   +3.03      58
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> AUDUSD — 31594 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s01_fxalexg_swing / AUDUSD
+================================================================================================
+31594 barres · 128 configurations · 114s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 1/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    htfD1_k_htf3_k_ltf3_retr_max0.786_retr_min0.5_targetstruct  +12.11   +0.13  -10.74   -8.44   -1.73      39
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> USDCAD — 31594 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s01_fxalexg_swing / USDCAD
+================================================================================================
+31594 barres · 128 configurations · 154s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    htfH4_k_htf3_k_ltf3_retr_max1.0_retr_min0.382_targetext62   +3.87  +24.56   -3.08  +16.42  +10.44     134
+    htfD1_k_htf3_k_ltf2_retr_max1.0_retr_min0.5_targetext62   +6.26   -9.45   +9.94  +33.03   +9.95      33
+    htfD1_k_htf3_k_ltf2_retr_max0.786_retr_min0.5_targetext62   +6.30   -6.27   +4.90  +34.11   +9.76      29
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> EURJPY — 31594 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s01_fxalexg_swing / EURJPY
+================================================================================================
+31594 barres · 128 configurations · 133s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 0/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/128
+
+--- STRICT (4/4 fenêtres) ---
+    aucune
+
+--- TIER 1 ---
+    aucune
+
+--- meilleurs échecs (pour information) ---
+    htfH4_k_htf2_k_ltf2_retr_max0.786_retr_min0.5_targetstruct  +24.03   -5.31   -5.23   -3.47   +2.51     149
+    htfD1_k_htf3_k_ltf3_retr_max0.786_retr_min0.5_targetstruct   -4.41   +8.86   +7.51   -3.39   +2.14      36
+    htfH4_k_htf3_k_ltf2_retr_max1.0_retr_min0.5_targetext27  +14.73  -15.69   -4.30  +11.71   +1.61     155
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+>>> XAUUSD — 30024 barres H1
+    12/128 configurations
+    24/128 configurations
+    36/128 configurations
+    48/128 configurations
+    60/128 configurations
+    72/128 configurations
+    84/128 configurations
+    96/128 configurations
+    108/128 configurations
+    120/128 configurations
+================================================================================================
+WALK-FORWARD ANCRÉ — s01_fxalexg_swing / XAUUSD
+================================================================================================
+30024 barres · 128 configurations · 147s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 11/128   (≈6 attendues par pur hasard si l'edge est nul)
+TIER 1 : 0/128
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    htfH4_k_htf3_k_ltf2_retr_max1.0_retr_min0.382_targetext27  +30.56   +9.44   +4.86  +11.46  +14.08     159
+    htfH4_k_htf3_k_ltf2_retr_max1.0_retr_min0.382_targetext62  +19.69   +4.03  +16.83   +4.93  +11.37     144
+    htfH4_k_htf3_k_ltf3_retr_max1.0_retr_min0.382_targetrr3   +8.96   +4.40   +7.67  +12.77   +8.45     132
+    htfH4_k_htf3_k_ltf2_retr_max1.0_retr_min0.382_targetstruct  +11.25  +11.50   +1.22   +9.34   +8.33     179
+    htfD1_k_htf2_k_ltf2_retr_max1.0_retr_min0.5_targetext62  +10.44   +6.53  +13.05   +0.18   +7.55      35
+    htfH4_k_htf3_k_ltf3_retr_max0.786_retr_min0.382_targetrr3   +8.07   +9.13   +4.76   +5.91   +6.97      96
+    htfH4_k_htf3_k_ltf2_retr_max1.0_retr_min0.5_targetstruct   +9.04   +9.81   +0.49   +3.70   +5.76     153
+    htfH4_k_htf3_k_ltf3_retr_max1.0_retr_min0.5_targetrr3   +6.32   +5.46   +2.69   +5.74   +5.05     126
+
+--- TIER 1 ---
+    aucune
+
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+================================================================================================
+SYNTHÈSE — TABLEAU PAR INSTRUMENT
+================================================================================================
+  Grille : 128 configurations par instrument.
+  Un edge NUL produirait ~6.4 « STRICT pass » par pur hasard.
+
+  instrument    STRICT  attendu   TIER1  trades OOS  moy OOS R  meilleur moy
+  ----------------------------------------------------------------------------
+  EURUSD             0      6.4       0          82      -3.08         +4.19
+  USDJPY             8      6.4       4          83      +0.40        +11.81
+  USDCHF             0      6.4       0          82      -5.37         +8.77
+  AUDUSD             0      6.4       1          76      -3.78         +5.96
+  USDCAD             0      6.4       0          78      +0.89        +10.44
+  EURJPY             0      6.4       0          72      -4.00         +2.51
+  XAUUSD            11      6.4       0          66      +3.21        +14.08
+  ----------------------------------------------------------------------------
+  TOTAL             19     44.8
+
+  « trades OOS » = médiane, sur la grille, du nombre de trades hors
+  échantillon cumulés sur les 4 fenêtres. Seuil de crédibilité : 20.
+
+================================================================================================
+ROBUSTESSE — LA MEILLEURE CELLULE EST-ELLE ISOLÉE ?
+================================================================================================
+  Un edge réel survit au déplacement d'un paramètre. Si seule la
+  cellule optimale est positive, c'est du sur-ajustement.
+
+  EURUSD    meilleure = htfD1_k_htf2_k_ltf2_retr_max1.0_retr_min0.5_targetstruct
+            moy OOS +4.19 R sur 60 trades ; voisins immédiats positifs : 5/8
+  USDJPY    meilleure = htfD1_k_htf3_k_ltf3_retr_max1.0_retr_min0.5_targetext27
+            moy OOS +11.81 R sur 42 trades ; voisins immédiats positifs : 8/8
+  USDCHF    meilleure = htfD1_k_htf2_k_ltf2_retr_max0.786_retr_min0.382_targetext62
+            moy OOS +8.77 R sur 56 trades ; voisins immédiats positifs : 4/8
+  AUDUSD    meilleure = htfD1_k_htf2_k_ltf2_retr_max0.786_retr_min0.382_targetext62
+            moy OOS +5.96 R sur 50 trades ; voisins immédiats positifs : 3/8
+  USDCAD    meilleure = htfH4_k_htf3_k_ltf3_retr_max1.0_retr_min0.382_targetext62
+            moy OOS +10.44 R sur 134 trades ; voisins immédiats positifs : 6/8
+  EURJPY    meilleure = htfH4_k_htf2_k_ltf2_retr_max0.786_retr_min0.5_targetstruct
+            moy OOS +2.51 R sur 149 trades ; voisins immédiats positifs : 0/8
+  XAUUSD    meilleure = htfH4_k_htf3_k_ltf2_retr_max1.0_retr_min0.382_targetext27
+            moy OOS +14.08 R sur 159 trades ; voisins immédiats positifs : 7/8
+
+  Référence : si le signe du résultat était aléatoire, on attendrait
+  ~50 % de voisins positifs.
+
+================================================================================================
+CONCENTRATION — LE RÉSULTAT TIENT-IL À UN SEUL INSTRUMENT ?
+================================================================================================
+  instrument     meilleure moy OOS   part du total positif
+  ----------------------------------------------------------
+  XAUUSD                    +14.08                    24 %
+  USDJPY                    +11.81                    20 %
+  USDCAD                    +10.44                    18 %
+  USDCHF                     +8.77                    15 %
+  AUDUSD                     +5.96                    10 %
+  EURUSD                     +4.19                     7 %
+  EURJPY                     +2.51                     4 %

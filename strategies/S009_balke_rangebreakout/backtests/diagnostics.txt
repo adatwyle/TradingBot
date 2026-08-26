@@ -1,0 +1,102 @@
+s09 — diagnostics (ablation, long/short, permutation, F5, stabilité)
+==============================================================================
+
+### 1. F4 — ABLATION DU SPREAD (plein échantillon, R/trade)
+
+--- USDJPY (spread 2.8 pips) ---
+    config                                                         réel      nul    péage      n
+    breakouts1_range_end_hour5_range_filter_pctNone_range_start_hour3_sl_moderange  +0.0085  +0.1103   0.1018   1298
+    breakouts1_range_end_hour5_range_filter_pctNone_range_start_hour3_sl_modepct_entry  -0.0025  +0.0173   0.0199   1298
+    breakouts1_range_end_hour5_range_filter_pctNone_range_start_hour3_sl_modepct_range  -0.0018  +0.0170   0.0187   1298
+    breakouts1_range_end_hour5_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_moderange  -0.0658  -0.0082   0.0575    460
+    breakouts1_range_end_hour5_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_modepct_entry  -0.0231  -0.0035   0.0196    460
+    breakouts1_range_end_hour5_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_modepct_range  -0.0221  -0.0039   0.0182    460
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_moderange  -0.0029  +0.0869   0.0898   1280
+      -> tranche test 60-100%% : réel -0.0137 | nul +0.0637 | péage 0.0774 (512 trades)
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_modepct_entry  -0.0072  +0.0126   0.0198   1280
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_modepct_range  -0.0037  +0.0150   0.0187   1280
+    breakouts1_range_end_hour6_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_moderange  -0.0060  +0.0522   0.0582    542
+    breakouts1_range_end_hour6_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_modepct_entry  +0.0013  +0.0211   0.0197    542
+    breakouts1_range_end_hour6_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_modepct_range  +0.0031  +0.0214   0.0183    542
+    breakouts2_range_end_hour5_range_filter_pctNone_range_start_hour3_sl_moderange  +0.0206  +0.1235   0.1029   1752
+    breakouts2_range_end_hour5_range_filter_pctNone_range_start_hour3_sl_modepct_entry  -0.0012  +0.0186   0.0199   1341
+    breakouts2_range_end_hour5_range_filter_pctNone_range_start_hour3_sl_modepct_range  -0.0019  +0.0167   0.0186   1340
+    breakouts2_range_end_hour5_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_moderange  -0.0453  +0.0129   0.0582    594
+    breakouts2_range_end_hour5_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_modepct_entry  -0.0183  +0.0013   0.0196    478
+    breakouts2_range_end_hour5_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_modepct_range  -0.0192  -0.0011   0.0181    478
+    breakouts2_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_moderange  +0.0175  +0.1093   0.0918   1647
+    breakouts2_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_modepct_entry  -0.0036  +0.0162   0.0199   1301
+    breakouts2_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_modepct_range  -0.0016  +0.0170   0.0186   1298
+    breakouts2_range_end_hour6_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_moderange  +0.0025  +0.0609   0.0583    670
+    breakouts2_range_end_hour6_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_modepct_entry  +0.0060  +0.0257   0.0198    554
+    breakouts2_range_end_hour6_range_filter_pct(0.2, 0.4)_range_start_hour3_sl_modepct_range  +0.0066  +0.0248   0.0182    552
+    agrégat : réel moy -0.0067 (8/24 cellules >0) | nul moy +0.0318 (20/24 >0) | péage moy 0.0385
+
+--- XAUUSD (spread 25.0 pips) ---
+    config                                                         réel      nul    péage      n
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_moderange  +0.0676  +0.0988   0.0312   1277
+      -> tranche test 60-100%% : réel +0.0106 | nul +0.0241 | péage 0.0136 (504 trades)
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_modepct_entry  +0.0220  +0.0330   0.0109   1277
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_modepct_range  +0.0191  +0.0290   0.0099   1277
+    breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_moderange  +0.0534  +0.0837   0.0304   1113
+    breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_modepct_entry  +0.0282  +0.0394   0.0112   1113
+    breakouts1_range_end_hour6_range_filter_pct(0.15, 0.85)_range_start_hour3_sl_modepct_range  +0.0205  +0.0307   0.0102   1113
+    agrégat : réel moy +0.0351 (6/6 cellules >0) | nul moy +0.0524 (6/6 >0) | péage moy 0.0173
+
+--- GBPUSD (spread 2.2 pips) ---
+    config                                                         réel      nul    péage      n
+    breakouts1_range_end_hour11_range_filter_pctNone_range_start_hour4_sl_moderange  -0.0511  -0.0052   0.0459   1135
+    breakouts1_range_end_hour12_range_filter_pctNone_range_start_hour4_sl_moderange  -0.0572  -0.0151   0.0421   1057
+      -> tranche test 60-100%% : réel -0.0400 | nul +0.0054 | péage 0.0453 (428 trades)
+    agrégat : réel moy -0.0542 (0/2 cellules >0) | nul moy -0.0102 (0/2 >0) | péage moy 0.0440
+
+--- EURJPY (spread 3.6 pips) ---
+    config                                                         réel      nul    péage      n
+    breakouts1_range_end_hour6_range_filter_pctNone_range_start_hour3_sl_moderange  -0.0484  +0.0511   0.0996   1288
+      -> tranche test 60-100%% : réel -0.0617 | nul +0.0322 | péage 0.0939 (514 trades)
+    agrégat : réel moy -0.0484 (0/1 cellules >0) | nul moy +0.0511 (1/1 >0) | péage moy 0.0996
+
+### 2. F2 — CONTRÔLE LONG/SHORT (config défaut, plein échantillon, réel)
+    sym          L R/t    nL     S R/t    nS   L total   S total
+    USDJPY     +0.0306   736   -0.0483   544    +22.52    -26.26
+    XAUUSD     +0.0410   670   +0.0969   607    +27.48    +58.81
+    GBPUSD     -0.0351   528   -0.0793   529    -18.54    -41.93
+    EURJPY     +0.0130   729   -0.1286   559     +9.50    -71.87
+
+### 3. F3 — PERMUTATION HORAIRE (USDJPY, spread nul, géométrie figée)
+    Contrat identique décalé en bloc : range 9-12h, entrées 12-23h,
+    même max_hold_bars. Post-hoc, hors manifest — ne promeut rien.
+    variante                                full R/t     train      test      n
+    H09  3-6h, entrées 6-17h (défaut)        +0.0869   +0.1023   +0.0637   1280
+    ctrl 9-12h, entrées 12-23h               +0.0590   +0.0797   +0.0275   1222
+    ctrl 12-15h, entrées 15-2h(+j)           +0.0518   +0.0412   +0.0672   1081
+    (à spread réel :)
+    H09  3-6h, entrées 6-17h (défaut)        -0.0029             -0.0137   1280
+    ctrl 9-12h, entrées 12-23h               -0.0142             -0.0414   1222
+    ctrl 12-15h, entrées 15-2h(+j)           -0.0159             +0.0006   1081
+
+### 4. F5 — CONFORMITÉ INVERSE GBPUSD (sa config exacte : 4-11:30≈4-12h,
+    SL=range, 1 breakout, sans filtre, clôture 18h ; live fin mars 2024)
+    pré-live  (2021-07 -> 2024-03) : 555 trades, -36.72 R (-0.0662 R/trade) = -18,362 EUR à 500 EUR/trade
+    post-live (2024-04 -> 2026-08) : 502 trades, -23.74 R (-0.0473 R/trade) = -11,872 EUR à 500 EUR/trade
+    référence live déclarée : -8 778 EUR sur ~360 trades (~-17,6 R)
+    par année (toute la période) :
+      2021 :   -8.98 R sur  102 trades
+      2022 :  -12.85 R sur  206 trades
+      2023 :   -9.05 R sur  200 trades
+      2024 :  -14.48 R sur  207 trades
+      2025 :   -9.26 R sur  205 trades
+      2026 :   -5.85 R sur  137 trades
+
+### 5. STABILITÉ ANNUELLE — USDJPY config défaut (réel)
+      2021 :   -9.52 R sur  119 trades (-0.0800 R/trade)
+      2022 :  +32.97 R sur  251 trades (+0.1314 R/trade)
+      2023 :  -35.88 R sur  250 trades (-0.1435 R/trade)
+      2024 :  +19.18 R sur  253 trades (+0.0758 R/trade)
+      2025 :  +11.97 R sur  252 trades (+0.0475 R/trade)
+      2026 :  -22.47 R sur  155 trades (-0.1450 R/trade)
+      TOTAL : -3.74 R sur 1280 trades (-0.0029)
+
+### 6. 1 vs 2 BREAKOUTS — au R/TRADE (USDJPY 3-6h SL=range, réel)
+    breakouts=1 : total -3.74 R / 1280 trades (-0.0029 R/t) | #1 : -0.0029 x1280 | #2 : +0.0000 x0
+    breakouts=2 : total +28.84 R / 1647 trades (+0.0175 R/t) | #1 : -0.0029 x1280 | #2 : +0.0888 x367

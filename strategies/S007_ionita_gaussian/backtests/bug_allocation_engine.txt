@@ -1,0 +1,35 @@
+==============================================================================
+BUG — allocation_engine : décalage d'exécution d'une barre
+==============================================================================
+
+MONTAGE
+  Prix d'OUVERTURE : 100 les jours 0-2, puis 200 à partir du jour 3.
+  Le saut se produit donc entre la clôture du jour 2 et l'ouverture
+  du jour 3. Aucun coût, aucun slippage.
+
+  Une stratégie qui décide à la CLÔTURE du jour 2 est exécutée, selon
+  le docstring du moteur, à l'OUVERTURE du jour 3 — où le prix vaut
+  déjà 200. Elle achète à 200, le prix reste à 200 : son gain doit
+  être de 0 %. Tout gain positif est un mouvement qu'elle n'a pas pu
+  capter.
+
+  opens = [100, 100, 100, 200, 200, 200, 200, 200, 200, 200]
+
+  décision au close du jour    poids appliqués                gain   attendu
+  ----------------------------------------------------------------------------
+  1                            [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]   100.0%     100.0%
+  2                            [0, 0, 0, 1, 1, 1, 1, 1, 1, 1]   100.0%       0.0%
+  3                            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1]     0.0%       0.0%
+  4                            [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]     0.0%       0.0%
+
+  DIVERGENCES :
+    décision au close du jour 2 : le moteur crédite 100.0 % alors que l'exécution à l'ouverture du jour 3 (prix 200) ne permet que 0.0 %.
+
+  DIAGNOSTIC : `target.iloc[pos + 1]` devrait être
+  `target.iloc[pos + 2]` pour que le premier rendement subi soit
+  open[i+1] -> open[i+2], conformément au docstring du module.
+
+  R1 NE VOIT RIEN : test_r1_truncature passe, et légitimement —
+  aucune barre postérieure à T n'influence [0, T). Le défaut est
+  un décalage systématique, invisible à l'invariant de troncature.
+==============================================================================

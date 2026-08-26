@@ -1,0 +1,47 @@
+s91_claude_scratch — SENSIBILITÉ AU SLIPPAGE
+Coût de bord = demi-spread + slippage, payé à l'entrée ET à la sortie.
+Balayage : [0.0, 0.1, 0.2, 0.3, 0.5] pips  (0,2-0,5 = ordre de grandeur FX liquide)
+Grille complète : 54 configurations par instrument.
+
+====================================================================================================
+R/trade moyen sur la grille — PLEIN ÉCHANTILLON
+====================================================================================================
+  instrument groupe            slip 0.0    slip 0.1    slip 0.2    slip 0.3    slip 0.5
+  ----------------------------------------------------------------------------------------
+  EURUSD     ÉLIGIBLE           +0.0698     +0.0633     +0.0568     +0.0503     +0.0375
+  USDCHF     ÉLIGIBLE           +0.0187     +0.0114     +0.0042     -0.0030     -0.0172
+  USDCAD     ÉLIGIBLE           -0.0265     -0.0324     -0.0384     -0.0443     -0.0560
+  AUDUSD     ÉLIGIBLE           -0.0544     -0.0613     -0.0681     -0.0749     -0.0883
+  USDJPY     CONTRÔLE JPY       -0.1159     -0.1200     -0.1240     -0.1280     -0.1359
+  EURJPY     CONTRÔLE JPY       -0.2031     -0.2062     -0.2093     -0.2124     -0.2186
+  ----------------------------------------------------------------------------------------
+  MOY ÉLIGIBLES                 +0.0019     -0.0048     -0.0114     -0.0180     -0.0310
+
+====================================================================================================
+R/trade moyen sur la grille — TRANCHE DE TEST SEULE (60-100 %)
+====================================================================================================
+  C'est le chiffre qui compte : l'hypothèse a été formée sur le train.
+
+  instrument groupe            slip 0.0    slip 0.1    slip 0.2    slip 0.3    slip 0.5
+  ----------------------------------------------------------------------------------------
+  EURUSD     ÉLIGIBLE           -0.0129     -0.0189     -0.0250     -0.0309     -0.0428
+  USDCHF     ÉLIGIBLE           -0.0831     -0.0902     -0.0972     -0.1041     -0.1179
+  USDCAD     ÉLIGIBLE           +0.0201     +0.0136     +0.0071     +0.0007     -0.0120
+  AUDUSD     ÉLIGIBLE           -0.0423     -0.0497     -0.0571     -0.0644     -0.0788
+  USDJPY     CONTRÔLE JPY       -0.1446     -0.1482     -0.1517     -0.1552     -0.1622
+  EURJPY     CONTRÔLE JPY       -0.3226     -0.3252     -0.3277     -0.3303     -0.3354
+  ----------------------------------------------------------------------------------------
+  MOY ÉLIGIBLES                 -0.0295     -0.0363     -0.0430     -0.0497     -0.0629
+
+====================================================================================================
+LECTURE
+====================================================================================================
+  Plein échantillon, éligibles : +0.0019 (slip 0) -> -0.0310 (slip 0,5)
+  Hors échantillon, éligibles  : -0.0295 (slip 0) -> -0.0629 (slip 0,5)
+  Coût marginal de 0,5 pip de slippage : -0.0329 R/trade
+
+  Le verdict PAS D'EDGE est établi à slippage NUL, c'est-à-dire dans
+  l'hypothèse la PLUS FAVORABLE. Le slippage ne fait que l'aggraver :
+  aucune valeur du balayage ne ramène les éligibles à l'équilibre hors
+  échantillon. La limite « slippage non modélisé » est donc chiffrée,
+  et elle va dans le sens du verdict.

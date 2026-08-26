@@ -1,0 +1,254 @@
+================================================================================================
+s08_markov_regime — ÉVALUATION COMPLÈTE
+================================================================================================
+Contrat : ALLOCATION. Moteur : core.backtest.allocation_engine.run_allocation.
+Shorts : séries synthétiques SYM~S (coût de bord nul, cf. make_specs).
+Conditions de falsification déclarées AVANT mesure : research/FALSIFICATION.md
+
+################################################################################################
+# XAUUSD — 3554 barres D1 (2013-01-14 -> 2026-08-14) · 262 barres/an
+################################################################################################
+
+  --- long only -------------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          0.45%     0.42    -4.02%         6.3%   16.3%     135
+  markov causal step=20 binaire       5.30%     0.63   -26.63%       101.6%   16.3%      79
+  markov causal step=1  binaire       1.29%     0.20   -19.05%        19.0%   12.9%     135
+  markov FUITÉ step=20 binaire       10.26%     0.75   -26.63%       276.6%   77.4%       1
+  markov FUITÉ step=1  binaire        1.29%     0.20   -19.05%        19.0%   12.9%     135
+  naïf momentum 20j                   1.29%     0.20   -19.05%        19.0%   12.9%     135
+  markov horizon=5 (P^n)              4.57%     0.52   -26.63%        83.5%   17.2%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  --- avec shorts -----------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop         -0.10%    -0.05    -9.02%        -1.4%   56.4%     295
+  markov causal step=20 binaire       1.63%     0.19   -45.61%        24.5%   56.4%     133
+  markov causal step=1  binaire      -0.46%    -0.01   -28.39%        -6.1%   17.7%     225
+  markov FUITÉ step=20 binaire       10.26%     0.75   -26.63%       276.6%   77.4%       1
+  markov FUITÉ step=1  binaire       -0.46%    -0.01   -28.39%        -6.1%   17.7%     225
+  naïf momentum 20j                  -0.46%    -0.01   -28.39%        -6.1%   17.7%     225
+  markov horizon=5 (P^n)             -0.27%     0.04   -49.36%        -3.5%   50.4%       3
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  RÉFÉRENCES (rendues par le moteur, non optionnelles) :
+    B&H XAUUSD                   CAGR    7.32%  Sharpe   0.51  DD  -37.79%  total      161.0%
+    cash (0 %)                   CAGR    0.00%  Sharpe   0.00  DD    0.00%  total        0.0%
+
+  F1 — CONTRIBUTION MARGINALE DE L'APPAREIL (comparaison position par position)
+  ----------------------------------------------------------------------------------------
+  n = 2754 barres après warmup
+  poids IDENTIQUES à 1e-9 près : 23.64 % des barres
+  même DIRECTION (long/short/plat) : 23.64 %
+  seuil F1 déclaré avant mesure : concordance >= 95 % ET |dCAGR| < 1 pt
+  CAGR markov +1.63 %  vs  naïf -0.46 %   (écart +2.09 pt)
+  -> F1 NON déclenchée
+
+  F5 — LE VERDICT CHANGE-T-IL DE SIGNE SELON QU'ON CORRIGE LA FUITE ?
+  ----------------------------------------------------------------------------------------
+  step=20   causal CAGR    1.63%  Sharpe   0.19   |   FUITÉ CAGR   10.26%  Sharpe   0.75   |   écart CAGR   +8.63 pt
+  step=1    causal CAGR   -0.46%  Sharpe  -0.01   |   FUITÉ CAGR   -0.46%  Sharpe  -0.01   |   écart CAGR   +0.00 pt
+
+  CONTRÔLE LONG / SHORT (docs/METHODOLOGY.md §5.2)
+  ----------------------------------------------------------------------------------------
+  Rendement annualisé PAR JOUR DÉTENU, par jambe :
+    XAUUSD           +37.76 %
+    XAUUSD~S          -8.45 %
+  Temps passé :
+    CASH             43.6 %
+    XAUUSD~S         40.2 %
+    XAUUSD           16.3 %
+
+  ABLATION DU SPREAD (docs/METHODOLOGY.md §5.1) ET COÛT DE PORTAGE
+  ----------------------------------------------------------------------------------------
+  coût                  CAGR   Sharpe    DD max        total
+  ------------------------------------------------------------
+  nul                  1.68%     0.20   -45.61%        25.4%
+  nominal              1.63%     0.19   -45.61%        24.5%
+  pessimiste x2        1.58%     0.19   -45.61%        23.7%
+
+  Portage NON modélisé par le moteur : swap long 2.00 %/an sur XAUUSD.
+  Stratégie investie 56.4 % du temps -> ~1.13 %/an de portage, contre 2.00 %/an pour un buy & hold CFD (investi 100 %).
+  Le portage joue donc EN FAVEUR de la stratégie ; l'omettre des deux côtés
+  la désavantage. Sens conservateur, conservé tel quel.
+
+################################################################################################
+# DAX — 2692 barres D1 (2016-01-13 -> 2026-08-14) · 254 barres/an
+################################################################################################
+
+  --- long only -------------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          1.45%     0.27   -11.22%        16.4%   44.1%     224
+  markov causal step=20 binaire       7.38%     0.57   -38.31%       112.4%   44.1%     111
+  markov causal step=1  binaire       1.63%     0.28   -14.36%        18.7%   12.0%     121
+  markov FUITÉ step=20 binaire        8.17%     0.55   -38.31%       129.6%   70.2%       1
+  markov FUITÉ step=1  binaire        1.63%     0.28   -14.36%        18.7%   12.0%     121
+  naïf momentum 20j                   1.63%     0.28   -14.36%        18.7%   12.0%     121
+  markov horizon=5 (P^n)              8.17%     0.55   -38.31%       129.6%   70.2%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  --- avec shorts -----------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop          1.45%     0.27   -11.22%        16.4%   44.1%     224
+  markov causal step=20 binaire       7.38%     0.57   -38.31%       112.4%   44.1%     111
+  markov causal step=1  binaire       0.39%     0.09   -32.51%         4.2%   17.5%     195
+  markov FUITÉ step=20 binaire        8.17%     0.55   -38.31%       129.6%   70.2%       1
+  markov FUITÉ step=1  binaire        0.39%     0.09   -32.51%         4.2%   17.5%     195
+  naïf momentum 20j                   0.39%     0.09   -32.51%         4.2%   17.5%     195
+  markov horizon=5 (P^n)              8.17%     0.55   -38.31%       129.6%   70.2%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  RÉFÉRENCES (rendues par le moteur, non optionnelles) :
+    B&H DAX                      CAGR    9.50%  Sharpe   0.57  DD  -38.31%  total      161.4%
+    cash (0 %)                   CAGR    0.00%  Sharpe   0.00  DD    0.00%  total        0.0%
+
+  F1 — CONTRIBUTION MARGINALE DE L'APPAREIL (comparaison position par position)
+  ----------------------------------------------------------------------------------------
+  n = 1892 barres après warmup
+  poids IDENTIQUES à 1e-9 près : 48.89 % des barres
+  même DIRECTION (long/short/plat) : 48.89 %
+  seuil F1 déclaré avant mesure : concordance >= 95 % ET |dCAGR| < 1 pt
+  CAGR markov +7.38 %  vs  naïf +0.39 %   (écart +6.98 pt)
+  -> F1 NON déclenchée
+
+  F5 — LE VERDICT CHANGE-T-IL DE SIGNE SELON QU'ON CORRIGE LA FUITE ?
+  ----------------------------------------------------------------------------------------
+  step=20   causal CAGR    7.38%  Sharpe   0.57   |   FUITÉ CAGR    8.17%  Sharpe   0.55   |   écart CAGR   +0.79 pt
+  step=1    causal CAGR    0.39%  Sharpe   0.09   |   FUITÉ CAGR    0.39%  Sharpe   0.09   |   écart CAGR   +0.00 pt
+
+  CONTRÔLE LONG / SHORT (docs/METHODOLOGY.md §5.2)
+  ----------------------------------------------------------------------------------------
+  Rendement annualisé PAR JOUR DÉTENU, par jambe :
+    DAX              +17.76 %
+  Temps passé :
+    CASH             55.9 %
+    DAX              44.1 %
+    DAX~S             0.0 %
+
+  ABLATION DU SPREAD (docs/METHODOLOGY.md §5.1) ET COÛT DE PORTAGE
+  ----------------------------------------------------------------------------------------
+  coût                  CAGR   Sharpe    DD max        total
+  ------------------------------------------------------------
+  nul                  7.47%     0.58   -38.31%       114.5%
+  nominal              7.38%     0.57   -38.31%       112.4%
+  pessimiste x2        7.28%     0.57   -38.31%       110.4%
+
+  Portage NON modélisé par le moteur : swap long 4.00 %/an sur DAX.
+  Stratégie investie 44.1 % du temps -> ~1.76 %/an de portage, contre 4.00 %/an pour un buy & hold CFD (investi 100 %).
+  Le portage joue donc EN FAVEUR de la stratégie ; l'omettre des deux côtés
+  la désavantage. Sens conservateur, conservé tel quel.
+
+################################################################################################
+# ETHUSD — 2840 barres D1 (2018-11-01 -> 2026-08-16) · 365 barres/an
+################################################################################################
+
+  --- long only -------------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop        -11.09%    -0.46   -68.50%       -60.0%   57.6%     389
+  markov causal step=20 binaire      -2.42%     0.22   -84.79%       -17.4%   57.6%     119
+  markov causal step=1  binaire       7.51%     0.38   -63.86%        75.7%   26.9%     174
+  markov FUITÉ step=20 binaire       -5.66%     0.12   -81.97%       -36.5%   47.0%     205
+  markov FUITÉ step=1  binaire       12.64%     0.50   -53.83%       152.7%   25.8%     170
+  naïf momentum 20j                  12.64%     0.50   -53.83%       152.7%   25.8%     170
+  markov horizon=5 (P^n)              7.99%     0.44   -81.20%        82.0%   71.8%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  --- avec shorts -----------------------------------------------------------------------------
+  variante                             CAGR   Sharpe    DD max        total    inv%   rebal
+  ----------------------------------------------------------------------------------------
+  markov causal step=20 prop        -13.08%    -0.56   -73.32%       -66.4%   65.8%     396
+  markov causal step=20 binaire     -20.09%    -0.07   -96.21%       -82.6%   65.8%     123
+  markov causal step=1  binaire     -17.20%    -0.00   -94.17%       -77.0%   57.6%     299
+  markov FUITÉ step=20 binaire      -29.46%    -0.20   -97.60%       -93.4%   71.8%     205
+  markov FUITÉ step=1  binaire      -15.77%    -0.00   -91.09%       -73.7%   50.6%     364
+  naïf momentum 20j                 -15.77%    -0.00   -91.09%       -73.7%   50.6%     364
+  markov horizon=5 (P^n)              7.99%     0.44   -81.20%        82.0%   71.8%       1
+  markov horizon=5 (scalaire)         0.00%     0.00     0.00%         0.0%    0.0%       0
+
+  RÉFÉRENCES (rendues par le moteur, non optionnelles) :
+    B&H ETHUSD                   CAGR   33.56%  Sharpe   0.76  DD  -81.20%  total      852.8%
+    cash (0 %)                   CAGR    0.00%  Sharpe   0.00  DD    0.00%  total        0.0%
+
+  F1 — CONTRIBUTION MARGINALE DE L'APPAREIL (comparaison position par position)
+  ----------------------------------------------------------------------------------------
+  n = 2040 barres après warmup
+  poids IDENTIQUES à 1e-9 près : 46.86 % des barres
+  même DIRECTION (long/short/plat) : 46.86 %
+  seuil F1 déclaré avant mesure : concordance >= 95 % ET |dCAGR| < 1 pt
+  CAGR markov -20.09 %  vs  naïf -15.77 %   (écart -4.32 pt)
+  -> F1 NON déclenchée
+
+  F5 — LE VERDICT CHANGE-T-IL DE SIGNE SELON QU'ON CORRIGE LA FUITE ?
+  ----------------------------------------------------------------------------------------
+  step=20   causal CAGR  -20.09%  Sharpe  -0.07   |   FUITÉ CAGR  -29.46%  Sharpe  -0.20   |   écart CAGR   -9.38 pt
+  step=1    causal CAGR  -17.20%  Sharpe  -0.00   |   FUITÉ CAGR  -15.77%  Sharpe  -0.00   |   écart CAGR   +1.42 pt
+
+  CONTRÔLE LONG / SHORT (docs/METHODOLOGY.md §5.2)
+  ----------------------------------------------------------------------------------------
+  Rendement annualisé PAR JOUR DÉTENU, par jambe :
+    ETHUSD            -0.59 %
+    ETHUSD~S         -91.03 %
+  Temps passé :
+    ETHUSD           57.6 %
+    CASH             34.2 %
+    ETHUSD~S          8.3 %
+
+  ABLATION DU SPREAD (docs/METHODOLOGY.md §5.1) ET COÛT DE PORTAGE
+  ----------------------------------------------------------------------------------------
+  coût                  CAGR   Sharpe    DD max        total
+  ------------------------------------------------------------
+  nul                -18.37%    -0.04   -95.81%       -79.4%
+  nominal            -20.09%    -0.07   -96.21%       -82.6%
+  pessimiste x2      -21.77%    -0.11   -96.57%       -85.2%
+
+  Portage NON modélisé par le moteur : swap long 14.40 %/an sur ETHUSD.
+  Stratégie investie 65.8 % du temps -> ~9.48 %/an de portage, contre 14.40 %/an pour un buy & hold CFD (investi 100 %).
+  Le portage joue donc EN FAVEUR de la stratégie ; l'omettre des deux côtés
+  la désavantage. Sens conservateur, conservé tel quel.
+
+################################################################################################
+# PORTEFEUILLE XAUUSD+DAX+ETHUSD — index commun, 1979 barres
+################################################################################################
+==============================================================================
+ALLOCATION — COURBE D'EQUITY ET RÉFÉRENCES
+==============================================================================
+1979 périodes · 200 bascules
+
+                                     CAGR   Sharpe      DD max        total
+  ------------------------------------------------------------------------
+  STRATÉGIE                        5.35 %     0.37    -32.24 %       50.0 %
+  ------------------------------------------------------------------------
+  B&H XAUUSD                      17.81 %     1.03    -26.63 %      258.0 %
+  B&H ETHUSD                      33.63 %     0.76    -78.95 %      854.8 %
+  B&H DAX                         11.37 %     0.64    -38.31 %      131.2 %
+  naïf DAX/DAX~S/ETHUSD/ETHUSD~S/XAUUSD/XAUUSD~S équipondéré    -0.00 %     0.00     -0.00 %       -0.0 %
+  cash (0 %)                       0.00 %     0.00      0.00 %        0.0 %
+  B&H DAX~S                      -13.66 %    -0.64    -74.90 %      -68.1 %
+  B&H ETHUSD~S                   -60.75 %    -0.76    -99.98 %      -99.9 %
+  B&H XAUUSD~S                   -17.65 %    -1.03    -81.66 %      -78.0 %
+
+  Temps passé par instrument :
+    XAUUSD           58.4 %
+    ETHUSD           45.6 %
+    CASH             40.5 %
+    DAX~S            17.4 %
+    DAX              14.5 %
+    ETHUSD~S          9.6 %
+    XAUUSD~S          0.0 %
+
+  Rendement annualisé PAR JOUR DÉTENU (ignore le temps passé) :
+  Une jambe qui fait moins bien que détenir l'actif n'apporte rien.
+    XAUUSD            +7.08 %   (B&H XAUUSD : +17.81 %)
+    DAX~S             +5.16 %   (B&H DAX~S : -13.66 %)
+    DAX               +4.21 %   (B&H DAX : +11.37 %)
+    ETHUSD~S          +3.85 %   (B&H ETHUSD~S : -60.75 %)
+    ETHUSD            +1.20 %   (B&H ETHUSD : +33.63 %)
+
+  VERDICT : NE BAT PAS « B&H XAUUSD » (Sharpe 1.03 contre 0.37).
+  Critère n°1 de la méthodologie non satisfait : une stratégie qui
+  ne bat pas l'effort zéro n'a pas d'intérêt, quel que soit son DD.

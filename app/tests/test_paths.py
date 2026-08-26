@@ -112,12 +112,12 @@ def test_rbf_root_seul_pilote_factory_serveur_et_tools(monkeypatch, tmp_path):
     assert factory.ROOT == racine
 
     # Le serveur de supervision : il doit découvrir la stratégie de la sandbox.
-    spec = importlib.util.spec_from_file_location(
-        "server_app_paths_test", pathlib.Path(APP_DIR) / "server" / "app.py")
-    server = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(server)
-    ids = {s["id"] for s in server.build_strats()}
-    assert ids == {"s99_sonde"}
+    # (refonte SPEC_ui-dynamique : la découverte vit dans server/state.py et
+    # se résout À L'APPEL via core.paths — RBF_ROOT doit suffire, seul.)
+    from server.state import build_card, scan_strategy_folders
+    assert scan_strategy_folders() == ["s99_sonde"]
+    carte = build_card("s99_sonde", spark=False)
+    assert carte["name"] == "Sonde" and carte["magic"] == 130099
 
     # L'outil de scaffolding : même racine pour le gabarit et la création.
     spec = importlib.util.spec_from_file_location(

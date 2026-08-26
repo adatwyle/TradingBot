@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- SPEC_ui-dynamique UI-2/UI-3 — overview by exploitation level.
+     Shell only: every figure comes from /api/state (polling, app.js). -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TradingBot — supervision</title>
+  <link rel="stylesheet" href="/ui/style.css">
+</head>
+<body data-page="index">
+  <header>
+    <h1>NIVEAUX D'EXPLOITATION</h1>
+    <nav>
+      <a href="/">stratégies</a>
+      <a href="/services">services communs</a>
+    </nav>
+    <span id="stamp">chargement…</span>
+    <span id="conn" class="ok">live</span>
+  </header>
+
+  <main>
+    <div class="subtitle">le niveau vient du <code>status:</code> du manifeste
+      (R7, source unique de vérité), confronté au réel : une instance vivante
+      vaut PAPER, quoi qu'annonce le manifeste — la divergence s'affiche au
+      lieu de dormir</div>
+
+    <div id="divergences" class="divergences" style="display:none"></div>
+
+    <section class="panel">
+      <h2>PRODUCTION — ARGENT RÉEL</h2>
+      <div class="subtitle">status: LIVE</div>
+      <div id="prod"></div>
+    </section>
+
+    <section class="panel">
+      <h2>PAPER — VALIDATION EN LIVE, CAPITAL VIRTUEL</h2>
+      <div class="subtitle">status: PAPER, ou activité vivante constatée</div>
+      <div id="paper"></div>
+    </section>
+
+    <section class="panel">
+      <h2>DEV — RECHERCHE, BACKTEST, MISE AU POINT</h2>
+      <div class="subtitle">status: RESEARCH / BACKTESTED — aucune ne prend de position</div>
+      <div id="dev"></div>
+    </section>
+
+    <section class="panel">
+      <details>
+        <summary>RETIRED — <span id="retired-count">0</span> stratégie(s) close(s)</summary>
+        <div id="retired-content"></div>
+      </details>
+    </section>
+  </main>
+
+  <script src="/ui/app.js"></script>
+</body>
+</html>

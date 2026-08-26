@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- SPEC_ui-dynamique UI-5 — common services view.
+     Shell only: everything renders from /api/services (app.js, 10 s poll). -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services communs — supervision</title>
+  <link rel="stylesheet" href="/ui/style.css">
+</head>
+<body data-page="services">
+  <header>
+    <h1>SERVICES COMMUNS</h1>
+    <nav>
+      <a href="/">stratégies</a>
+      <a href="/services">services communs</a>
+    </nav>
+    <span id="stamp">chargement…</span>
+    <span id="conn" class="ok">live</span>
+  </header>
+
+  <main>
+    <section class="panel" id="factory">
+      <h2>FACTORY / WORKERS</h2>
+      <div class="subtitle">vivante si le verrou est touché depuis moins que
+        LOCK_STALE_SEC — panneau de contrôle et derniers résultats parsés des
+        logs de la console</div>
+      <div id="factory-content"></div>
+    </section>
+
+    <section class="panel" id="telegram">
+      <h2>TELEGRAM</h2>
+      <div class="subtitle">présence des tokens (jamais leur valeur), curseurs
+        state.json</div>
+      <div id="telegram-content"></div>
+    </section>
+
+    <section class="panel" id="datas">
+      <h2>DATAS</h2>
+      <div class="subtitle">datasets présents sous la db (nom, taille, date)</div>
+      <div id="datas-content"></div>
+    </section>
+
+    <section class="panel" id="backup">
+      <h2>BACKUP</h2>
+      <div class="subtitle">db/backup/status.json (SPEC_backup-github)</div>
+      <div id="backup-content"></div>
+    </section>
+
+    <section class="panel" id="watcher" style="display:none">
+      <h2>WATCHER PROD</h2>
+      <div class="subtitle">db/watcher/status.json (SPEC_prod-watcher) —
+        section visible seulement si le fichier existe</div>
+      <div id="watcher-content"></div>
+    </section>
+
+    <section class="panel" id="tickets">
+      <h2>TICKETS</h2>
+      <div class="subtitle">tickets/TCK-*.md — bloquants ouverts en tête</div>
+      <div id="tickets-content"></div>
+    </section>
+
+    <section class="panel" id="etudes">
+      <h2>ÉTUDES SCELLÉES HÉRITÉES</h2>
+      <div class="subtitle">visibles ici tant que E6 n'a pas migré la famille
+        paper_S0NN — protocoles hashés, la seule preuve qui compte est
+        prospective</div>
+      <div id="etudes-content"></div>
+    </section>
+  </main>
+
+  <script src="/ui/app.js"></script>
+</body>
+</html>

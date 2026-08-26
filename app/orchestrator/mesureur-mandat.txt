@@ -1,0 +1,18 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# MANDAT DU MESUREUR — lu à chaque tick de orchestrator/robinbot-mesureur.py
+# ═══════════════════════════════════════════════════════════════════════════
+# Ce fichier est un interrupteur. Une ligne utile = le mesureur travaille au
+# prochain passage. Aucune ligne utile (vide, ou seulement des `#`) = il se
+# tait, sans lancer de session et sans dépenser un token. C'est le cas normal.
+#
+# UN SEUL mandat à la fois, et son objet doit être EN COURS dans
+# FILE_ETUDES.md — travailler hors de l'encours est exactement ce que la file
+# interdit. Le mesureur fait UN pas, le teste, écrit
+# orchestrator/mesureur-rapport.md, et rend la main. Il ne scelle rien,
+# n'arme rien, ne commite rien.
+#
+# Exemple :
+#   portfolio_forward — P1 : porter la cellule S1 sur core/, avec ses tests.
+#   Ne rien armer : le protocole reste non-armé tant que le coût réel n'est
+#   pas remesuré.
+# ═══════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,28 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# PANNEAU DE CONTRÔLE RobinBot — relu à CHAQUE cycle de la factory
+# ═══════════════════════════════════════════════════════════════════════════
+# Modifier ce fichier prend effet AU TICK SUIVANT. Aucun redémarrage.
+#
+#   worker = on           actif, cadence du catalogue
+#   worker = on:1800      actif, cadence forcée à 1800 s
+#   worker = off          éteint
+#
+# Un worker ABSENT de ce fichier est OFF : ce panneau est une surface de
+# CONTRÔLE, pas un recensement. Ce qui n'est pas explicitement allumé est
+# éteint — un panneau à moitié écrit doit taire l'usine, jamais l'ouvrir.
+#
+# En revanche AJOUTER ou RETIRER un worker se fait dans le CATALOGUE
+# (orchestrator/robinbot-factory.py, section WORKERS) et exige un redémarrage.
+# ═══════════════════════════════════════════════════════════════════════════
+
+gold_forward = on          # tick toutes les 3600s
+s13_forward = on          # tick toutes les 3600s
+macd_ai_paper = on          # tick toutes les 3600s
+supervision = on          # service persistant
+notify = on          # tick toutes les 300s
+s14_sentiment = on          # tick 1800s — collecte (news general) + jugement
+gateway = on          # tick 30s (repondeur Telegram, lecture seule)
+pilot = on          # tick horaire, parle 1x/jour des 08h SI evenement (tokens)
+portier = on          # tick horaire, trie la file — no-op si ENTREE vide
+mesureur = on          # tick 2h, avance UN mandat — no-op si pas de mandat
+alexg_paper = on          # tick 3600s - essai a blanc fxalexg + juge IA (26 paires H1)

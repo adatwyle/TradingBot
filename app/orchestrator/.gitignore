@@ -1,0 +1,11 @@
+# Artefacts d'execution de la factory : ils decrivent CETTE machine a CET
+# instant, pas le projet.
+#
+# Le PANNEAU en fait partie depuis le 2026-08-21 : un panneau = un poste.
+# Versionne, deux machines se disputeraient la meme surface de controle et
+# un AUTO-OFF d'incident deviendrait un conflit de merge. Le depot garde le
+# gabarit `robinbot-panel.exemple.txt` ; le panneau reel vit dans C:\db	bot\.
+logs/
+.robinbot-factory.lock
+.stop
+robinbot-panel.txt

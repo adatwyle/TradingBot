@@ -789,6 +789,9 @@ def test_faute_de_frappe_ne_declenche_aucun_passage(monkeypatch):
 def test_finbert_ne_telecharge_jamais_dans_un_tick(monkeypatch):
     """440 Mo dans un tick plafonné à 20 min ferait tuer l'arbre en plein vol,
     tick après tick, en vidant le bras témoin en silence."""
+    # Le chemin testé (from_pretrained local_files_only) n'existe que si torch
+    # est importable — dépendance optionnelle, absente du runner CI ubuntu.
+    pytest.importorskip("torch")
     vus = {}
 
     class FauxAuto:

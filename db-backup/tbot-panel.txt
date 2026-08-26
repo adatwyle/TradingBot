@@ -1,0 +1,76 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# PANNEAU DE CONTRÔLE tBot factory — relu à CHAQUE cycle
+# ═══════════════════════════════════════════════════════════════════════════
+# Gabarit versionné (app/orchestrator/tbot-panel.exemple.txt). Le panneau RÉEL
+# vit HORS du dépôt : C:/db/tradingBot/tbot-panel.txt — un panneau = un poste.
+# La factory le crée depuis ce gabarit au premier démarrage sur une machine.
+#
+# Modifier le panneau réel prend effet AU TICK SUIVANT. Aucun redémarrage.
+#
+#   worker = on           actif, cadence du catalogue
+#   worker = on:1800      actif, cadence forcée à 1800 s
+#   worker = off          éteint
+#
+# Un worker ABSENT de ce fichier est OFF : ce panneau est une surface de
+# CONTRÔLE, pas un recensement. Ce qui n'est pas explicitement allumé est
+# éteint — un panneau à moitié écrit doit taire l'usine, jamais l'ouvrir.
+#
+# AJOUTER ou RETIRER un worker se fait dans le CATALOGUE
+# (app/orchestrator/tbot-factory.py, section WORKERS) et exige un redémarrage.
+#
+# DÉFAUTS ÉCONOMES (décision TCK-005) : seul le collecteur py pur naît allumé.
+# Tout worker `claude:` (TOKENS) et tout worker à secrets naît éteint — Adrian
+# allume à chaud, en conscience du coût.
+# ═══════════════════════════════════════════════════════════════════════════
+
+# ── Collecteurs de données (py pur — ZÉRO token) ────────────────────────────
+# gex_S017 : snapshot GEX pré-market S017 (SPY). Jour ouvré US, heure locale
+# >= 14:55, snapshot du jour absent — rattrapage inclus si la console démarre
+# tard. En dehors de la fenêtre : no-op silencieux gratuit. Coût : 0 token.
+gex_S017 = on           # tick 900s — la fenêtre horaire est DANS le wrapper
+
+# ── CC stratégies (sessions Claude headless — TOKENS) ───────────────────────
+# cc_S017 : développement + amélioration continue de S017 par cc-S017.
+# Garde gratuite : ne lance une session QUE si >= 3 nouveaux jours de
+# snapshots GEX depuis le dernier run (TBF_S017_MIN_NEW_DAYS). Mandat éditable
+# à chaud : strategies/S017_ireland_gex/mandat-cc.txt.
+# Coût : une session complète (max-turns 40) par lancement — plusieurs
+# dizaines de milliers de tokens. Allumer quand on veut que S017 avance seule.
+cc_S017 = off           # tick 3600s — garde matière : >= 3 nouveaux jours GEX
+
+# ── CC constructeurs d'application (sessions Claude headless — TOKENS) ──────
+# La file tickets/ anime cc-app et cc-spec : un tick = UN ticket ouvert
+# (`to: cc-app` resp. `to: cc-spec`, `status: open`). File vide = veille
+# Python gratuite. Un ticket déjà tenté ne rejoue pas avant 6 h (cooldown
+# anti-boucle facturée). Coût par lancement : une session de développement.
+cc_app_queue = off      # tick 1800s — un ticket cc-app par tick
+cc_spec_queue = off     # tick 1800s — un ticket cc-spec par tick
+
+# cc_support_block : un ticket `blocking: true` ouvert déclenche une session
+# cc-support qui débloque selon support/CLAUDE.md (réponse évidente → répond
+# seul ; sinon QA Adrian avec préconisation). Cadence courte : un bloquant
+# doit être vu vite. Pas de bloquant = veille gratuite.
+cc_support_block = off  # tick 300s — garde : ticket bloquant ouvert
+
+# ── Canal Telegram (py pur — scripts du prototype réutilisés tels quels) ────
+# gateway : porte ENTRANTE — chaque message Telegram d'Adrian déclenche une
+#           session Claude headless LECTURE SEULE qui répond (cc-support-
+#           telegram). Coût : une petite session par message reçu.
+# notify  : sorties Telegram (nouveautés journaux, AUTO-OFF, digest). 0 token.
+# SANS SECRETS (C:/db/tradingBot/gateway/gateway_token.txt + config.json,
+# C:/db/tradingBot/secrets/… — voir TCK-004), chaque tick sort en code 2
+# « ressource externe indisponible » : la factory réessaie sans crier, rien ne
+# crashe — comportement vérifié dans le code des deux workers. OFF par défaut
+# tant que les tokens ne sont pas posés, pour des logs propres.
+gateway = on            # tick 30s — répondeur Telegram (migré depuis robinbot 2026-08-26)
+notify = on             # tick 300s — notifications sortantes
+
+# ── Famille paper_S0NN (PRÉVUE — aucun worker : aucune stratégie PAPER) ─────
+# Le registre strategies/*/manifest.yaml est affiché au démarrage de la
+# factory. Quand Adrian promeut une stratégie en PAPER (décision R10), son
+# worker se dérive AU CATALOGUE (à froid — modèle documenté dans
+# tbot-factory.py, section WORKERS), puis s'allume ici. Garde-fou R4 dans le
+# code : la factory refuse tout marqueur de trading réel — elle ne peut
+# JAMAIS armer un trade live.
+supervision = on        # service — serveur web UI (TBOT_UI_PORT=8790 sur ce PC jusqu'a E6)
+backup = on             # tick 3600s — journaux/etats -> db-backup/ (branche dev uniquement)

@@ -1,0 +1,34 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# PANNEAU DE CONTRÔLE RobinBot — relu à CHAQUE cycle de la factory
+# ═══════════════════════════════════════════════════════════════════════════
+# Modifier ce fichier prend effet AU TICK SUIVANT. Aucun redémarrage.
+#
+#   worker = on           actif, cadence du catalogue
+#   worker = on:1800      actif, cadence forcée à 1800 s
+#   worker = off          éteint
+#
+# Un worker ABSENT de ce fichier est OFF : ce panneau est une surface de
+# CONTRÔLE, pas un recensement. Ce qui n'est pas explicitement allumé est
+# éteint — un panneau à moitié écrit doit taire l'usine, jamais l'ouvrir.
+#
+# En revanche AJOUTER ou RETIRER un worker se fait dans le CATALOGUE
+# (app/orchestrator/robinbot-factory.py, section WORKERS) et exige un
+# redémarrage.
+# ═══════════════════════════════════════════════════════════════════════════
+
+# ── Études scellées : NON MIGRÉES (elles tournent dans le prototype jusqu'à
+#    E6). Déclarées au catalogue mais éteintes ici — les rallumer sans les
+#    fichiers studies/ ne produit que des ticks en sortie 2.
+gold_forward = off          # étude non migrée (E3/E6) — tick 3600s
+s13_forward = off          # étude non migrée (E3/E6) — tick 3600s
+macd_ai_paper = off          # étude non migrée (E3/E6) — tick 3600s
+s14_sentiment = off          # étude non migrée (E3/E6) — tick 1800s
+alexg_paper = off          # étude non migrée (E3/E6) — tick 3600s
+
+# ── Services et workers de la plateforme (migrés E2)
+supervision = on          # service persistant (serveur Flask)
+notify = on          # tick toutes les 300s
+gateway = on          # tick 30s (répondeur Telegram, lecture seule)
+pilot = on          # tick horaire, parle 1x/jour dès 08h SI événement (tokens)
+portier = on          # tick horaire, trie la file — no-op si ENTRÉE vide
+mesureur = on          # tick 2h, avance UN mandat — no-op si pas de mandat

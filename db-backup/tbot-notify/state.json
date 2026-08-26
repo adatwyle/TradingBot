@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "armed_at_utc": "2026-08-26T18:55:45Z",
+  "trade_cursor": null,
+  "etude_cursors": {},
+  "autooff_seen": [
+    "4e30e517522394fa"
+  ],
+  "last_digest_date": null,
+  "last_monthly": "2026-07",
+  "last_annual": "2025"
+}

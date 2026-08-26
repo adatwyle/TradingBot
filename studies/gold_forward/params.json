@@ -1,0 +1,50 @@
+{
+  "study": "gold_forward",
+  "sealed_at": "2026-08-16",
+  "engine_commit_at_seal": "0a55bf9",
+  "strategy_id": "s11_legacy_breakout",
+  "instrument": "XAUUSD",
+  "timeframe": "H1",
+  "cell": {
+    "adx_min": 20,
+    "donchian": 40,
+    "er_min": 0.0,
+    "fr_max": 1.0,
+    "tp_m": 4.0
+  },
+  "fixed_params": {
+    "sl_m": 1.5,
+    "atr_vol_ratio": 0.8,
+    "adx_rising_lookback": 5,
+    "rsi_long_max": 75.0,
+    "rsi_short_min": 25.0
+  },
+  "spec": {
+    "symbol": "XAUUSD",
+    "pip": 0.01,
+    "spread_pips": 25.0,
+    "max_spread_pips": 60.0,
+    "pip_value_per_lot": 1.0,
+    "slippage_pips": 0.0
+  },
+  "engine": {
+    "max_positions": 1,
+    "cooldown_bars": 2,
+    "cb_losses": 3,
+    "cb_cooldown_bars": 24,
+    "max_hold_bars": null
+  },
+  "sizing": {
+    "capital_initial": 10000.0,
+    "risk_per_trade_pct": 1.0
+  },
+  "control": {
+    "draws": 200,
+    "seed": 20260816
+  },
+  "stop_rules": {
+    "fail": {"min_trades": 40, "percentile_below": 20},
+    "success": {"min_trades": 100, "percentile_at_least": 95},
+    "time": {"months": 12, "min_trades": 40}
+  }
+}

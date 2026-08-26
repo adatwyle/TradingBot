@@ -1,0 +1,5 @@
+# Le scelle porte sur les OCTETS de params.json (SHA-256). Sans cette ligne,
+# une normalisation eol (racine: * text=auto eol=lf, core.autocrlf) pourrait
+# reecrire le fichier a un checkout et casser le hash — fausse alerte de
+# violation du scelle sur simple re-clone. Couvre tous les params.json de studies/.
+params.json -text

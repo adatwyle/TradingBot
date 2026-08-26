@@ -69,7 +69,8 @@ except Exception:  # noqa: BLE001
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from core.paths import db_dir, panel_file, project_root  # noqa: E402
 
-ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or project_root())
+# RBF_ROOT est lu DANS project_root() (un seul seam canonique).
+ROOT = project_root()
 PILOT_DIR = pathlib.Path(os.environ.get("ROBINBOT_PILOT_DIR")
                          or (db_dir() / "pilot"))
 STATE_FILE = PILOT_DIR / "state.json"

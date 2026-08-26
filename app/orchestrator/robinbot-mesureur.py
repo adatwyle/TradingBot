@@ -77,7 +77,8 @@ _HERE = pathlib.Path(__file__).resolve().parent           # app/orchestrator
 sys.path.insert(0, str(_HERE.parent))
 from core.paths import db_dir, project_root  # noqa: E402
 
-ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or project_root())
+# RBF_ROOT est lu DANS project_root() (un seul seam canonique).
+ROOT = project_root()
 # Le mandat et le rapport vivent À CÔTÉ du script (app/orchestrator/) : ce sont
 # des fichiers de travail versionnés, pas de l'état vivant.
 MANDAT_FILE = pathlib.Path(os.environ.get("ROBINBOT_MESUREUR_MANDAT")

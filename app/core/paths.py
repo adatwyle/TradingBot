@@ -23,10 +23,14 @@ Everything is resolved at CALL time and overridable by environment variables:
 that is the testability seam (tests mount a throwaway layout in tmp_path
 without a single `if TEST` branch in production code).
 
-    project_root()  TBOT_PROJECT_ROOT  or parent of app/
-    app_root()      (fixed)            the app/ directory itself
-    db_dir()        TBOT_DB_DIR        or C:\\db\\tradingBot
-    panel_file()    RBF_PANEL          or db_dir()/robinbot-panel.txt
+    project_root()  RBF_ROOT, then TBOT_PROJECT_ROOT  or parent of app/
+    app_root()      (fixed)                           the app/ directory itself
+    db_dir()        TBOT_DB_DIR                       or C:\\db\\tradingBot
+    panel_file()    RBF_PANEL                         or db_dir()/robinbot-panel.txt
+
+RBF_ROOT is the factory's historical sandbox/test seam. It MUST steer EVERY
+consumer — factory, workers, server, tools — to the same root: a sandboxed
+launch must never make the supervision server read the REAL repo's manifests.
 
 The control panel default is shared by the factory (writes AUTO-OFF), the
 notifier and the pilot (both read it): the three MUST resolve the same file.
@@ -50,8 +54,13 @@ def app_root() -> pathlib.Path:
 
 
 def project_root() -> pathlib.Path:
-    """The repo root — parent of app/, where strategies/ and studies/ live."""
-    env = os.environ.get("TBOT_PROJECT_ROOT")
+    """The repo root — parent of app/, where strategies/ and studies/ live.
+
+    RBF_ROOT (the factory's historical sandbox/test seam) takes precedence,
+    then TBOT_PROJECT_ROOT: ONE canonical resolution for every consumer, so a
+    sandboxed launch steers the server and the tools too, not just the
+    orchestrator scripts."""
+    env = os.environ.get("RBF_ROOT") or os.environ.get("TBOT_PROJECT_ROOT")
     return pathlib.Path(env) if env else APP_ROOT.parent
 
 

@@ -120,7 +120,9 @@ HERE = pathlib.Path(__file__).resolve().parent           # app/orchestrator
 sys.path.insert(0, str(HERE.parent))
 from core.paths import panel_file, project_root  # noqa: E402
 
-ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or project_root())
+# RBF_ROOT est lu DANS project_root() (un seul seam canonique — il pilote
+# aussi le serveur et les tools, pas seulement les scripts orchestrateur).
+ROOT = project_root()
 
 # LE PANNEAU VIT HORS DU DÉPÔT — un panneau, un poste.
 #
@@ -541,6 +543,24 @@ def _tick_log_path(name: str) -> pathlib.Path:
 def launch(name: str, dry: bool = False) -> None:
     """Lance UN tick. Ne bloque pas : la récolte se fait dans un thread."""
     _name, cwd, spec, _interval, kind = WORKER_BY_NAME[name]
+
+    # FICHIER INTROUVABLE ≠ « ressource externe indisponible ». Lancé quand
+    # même, python sortirait en 2 et l'absence tournerait en boucle SILENCIEUSE
+    # au niveau info. Cas concret : un worker d'étude allumé au panneau avant
+    # la migration E3/E6. On crie une fois par cadence (pas par poll — le
+    # _last_run est calé), et on ne lance rien.
+    if spec.startswith("py:"):
+        toks = spec[3:].split()
+        cible = toks[0] if toks else ""
+        if cible and not (ROOT / cible).exists():
+            _last_run[name] = time.time()
+            alerte(
+                f"[{name}] fichier INTROUVABLE : {ROOT / cible}\n"
+                f"Étude non migrée (E3/E6) ou faute de frappe au CATALOGUE.\n"
+                f"Éteins le worker au panneau, ou corrige le catalogue (à froid)."
+            )
+            return
+
     try:
         cmd = build_cmd(spec)
     except ValueError as e:  # noqa: BLE001

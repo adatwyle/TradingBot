@@ -74,16 +74,57 @@ def test_panel_par_defaut_dans_db_dir(monkeypatch):
 
 # == LES SURCHARGES (le seam de testabilité) ===================================
 def test_surcharges_env(monkeypatch, tmp_path):
+    _sans_seams(monkeypatch)
     monkeypatch.setenv("TBOT_PROJECT_ROOT", str(tmp_path / "racine"))
     monkeypatch.setenv("TBOT_DB_DIR", str(tmp_path / "db"))
     assert paths.project_root() == tmp_path / "racine"
     assert paths.db_dir() == tmp_path / "db"
+    # RBF_ROOT prime sur TBOT_PROJECT_ROOT : c'est LE seam sandbox historique
+    # de la factory, et il doit piloter TOUS les consommateurs.
+    monkeypatch.setenv("RBF_ROOT", str(tmp_path / "sandbox"))
+    assert paths.project_root() == tmp_path / "sandbox"
+    monkeypatch.delenv("RBF_ROOT", raising=False)
     # Sans RBF_PANEL, le panneau suit db_dir.
-    monkeypatch.delenv("RBF_PANEL", raising=False)
     assert paths.panel_file() == tmp_path / "db" / "robinbot-panel.txt"
     # RBF_PANEL prime sur tout.
     monkeypatch.setenv("RBF_PANEL", str(tmp_path / "p.txt"))
     assert paths.panel_file() == tmp_path / "p.txt"
+
+
+# == RÉGRESSION : RBF_ROOT PILOTE AUSSI LE SERVEUR ET LES TOOLS ================
+def test_rbf_root_seul_pilote_factory_serveur_et_tools(monkeypatch, tmp_path):
+    """Défaut relevé en revue : les scripts orchestrateur honoraient RBF_ROOT
+    mais server/app.py et tools/new_strategy.py appelaient project_root() nu —
+    un lancement sandboxé via RBF_ROOT seul faisait lire au serveur les
+    manifests de la VRAIE racine. RBF_ROOT vit désormais DANS project_root()
+    et doit suffire, seul, à orienter les trois."""
+    _sans_seams(monkeypatch)
+    racine = tmp_path / "sandbox"
+    sdir = racine / "strategies" / "s99_sonde"
+    sdir.mkdir(parents=True)
+    (sdir / "manifest.yaml").write_text(
+        'strategy_id: s99_sonde\ndisplay_name: "Sonde"\n'
+        "magic_number: 130099\nstatus: RESEARCH\n", encoding="utf-8")
+    monkeypatch.setenv("RBF_ROOT", str(racine))
+
+    # La factory.
+    factory = _charger("robinbot-factory")
+    assert factory.ROOT == racine
+
+    # Le serveur de supervision : il doit découvrir la stratégie de la sandbox.
+    spec = importlib.util.spec_from_file_location(
+        "server_app_paths_test", pathlib.Path(APP_DIR) / "server" / "app.py")
+    server = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(server)
+    ids = {s["id"] for s in server.build_strats()}
+    assert ids == {"s99_sonde"}
+
+    # L'outil de scaffolding : même racine pour le gabarit et la création.
+    spec = importlib.util.spec_from_file_location(
+        "new_strategy_paths_test", pathlib.Path(APP_DIR) / "tools" / "new_strategy.py")
+    tool = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(tool)
+    assert pathlib.Path(tool.ROOT) == racine
 
 
 # == RÉGRESSION : UN SEUL PANNEAU POUR FACTORY, NOTIFY ET PILOT ================

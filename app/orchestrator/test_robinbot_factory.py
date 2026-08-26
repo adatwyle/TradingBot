@@ -176,3 +176,30 @@ def test_stop_present_refuse_de_demarrer(usine, tmp_path):
     (tmp_path / ".stop").write_text("", encoding="utf-8")
     assert usine.stop_requested() is True
     assert usine.run(dry=True, once=True) == 1      # refus explicite
+
+
+# == FICHIER INTROUVABLE (étude non migrée E3/E6) ==============================
+def test_fichier_introuvable_alerte_et_ne_lance_rien(usine, capsys):
+    """Régression (revue E2) : lancé sur un fichier absent, python sortirait
+    en 2 et l'absence tournerait en boucle SILENCIEUSE « ressource externe
+    indisponible ». Un worker d'étude allumé au panneau avant la migration
+    E3/E6 doit CRIER, pas chuchoter — et ne rien lancer."""
+    usine.launch("etude")                     # studies/x/run.py absent du tmp
+    out = capsys.readouterr().out
+    assert "INTROUVABLE" in out
+    assert "etude" not in usine._running      # aucun processus parti
+    # L'essai suivant est calé sur la CADENCE du worker, pas sur le poll :
+    # l'alerte se répète à l'heure, pas toutes les 30 secondes.
+    assert "etude" in usine._last_run
+
+
+def test_fichier_present_part_normalement(usine, tmp_path, capsys):
+    """Le garde-fou ne vise que l'ABSENT : un fichier présent part comme
+    avant (vérifié en dry — même chemin de code jusqu'au lancement)."""
+    f = tmp_path / "studies" / "x" / "run.py"
+    f.parent.mkdir(parents=True, exist_ok=True)
+    f.write_text("", encoding="utf-8")
+    usine.launch("etude", dry=True)
+    out = capsys.readouterr().out
+    assert "DRY-RUN [etude]" in out
+    assert "INTROUVABLE" not in out

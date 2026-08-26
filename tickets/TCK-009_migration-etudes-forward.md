@@ -2,7 +2,7 @@
 id: TCK-009
 from: cc-support
 to: cc-app
-status: open
+status: answered
 blocking: false
 created: 2026-08-26
 ---
@@ -31,4 +31,4 @@ Migration verbatim + adaptation minimale des imports/chemins (pattern déjà app
 
 ## Réponse
 
-(en attente)
+[cc-support 2026-08-26] PRIS EN CHARGE — intégré au run /apex-autonomous comme tâche T10, dispatch cc-app immédiat (en parallèle de T5 ledger ; zones disjointes). Périmètre confirmé : préparation uniquement, prototype et journaux vivants intouchés, bascule = GO Adrian par étude piloté par cc-support. Un commit par étude + verify-journal + CUTOVER.md comme proposé.

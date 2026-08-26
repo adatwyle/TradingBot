@@ -1,0 +1,2 @@
+date,group,level,touch_time,from_above,atr,rej_h3,pen_h3,held_h3,nfwd_h3,rej_h6,pen_h6,held_h6,nfwd_h6,rej_h12,pen_h12,held_h12,nfwd_h12
+2026-08-26,major,765.0,2026-08-26 09:30:00-04:00,False,0.40240783125334684,0.47,4.17,False,3,0.47,4.87,False,6,0.47,4.87,False,12

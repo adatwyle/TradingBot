@@ -28,6 +28,15 @@ DB_DIR = Path("C:/db/tradingBot/S017")
 
 def snapshot_chain_and_gex(db_dir: Path, intraday: bool) -> gex_calc.GexMap:
     today = datetime.now().strftime("%Y-%m-%d")
+    # Never overwrite the day's canonical premarket snapshot: if it already
+    # exists, this run auto-degrades to an intraday snapshot (suffixed _HHMM).
+    # (2026-08-26: a second same-day run silently replaced the 09:18 ET
+    # premarket capture with an 11:28 ET one — canonical files must be
+    # write-once so H1 event studies stay premarket-clean.)
+    if not intraday and (db_dir / "gex" / f"SPY_gex_{today}.csv").exists():
+        print("[guard] canonical premarket snapshot already exists for today "
+              "-> auto-switch to intraday snapshot")
+        intraday = True
     suffix = f"_{datetime.now().strftime('%H%M')}" if intraday else ""
 
     chain = gex_calc.fetch_chain("SPY")

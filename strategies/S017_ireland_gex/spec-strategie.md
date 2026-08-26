@@ -106,6 +106,14 @@ volume(barre de cassure) ≥ vol_mult × SMA20(volume)     (défaut 1.5, plage 1
 
 Pas de spike de volume → skip systématique (la vidéo montre le fake-out évité, frame 15). Fenêtre d'entrée : uniquement pendant la session régulière US (15:30-22:00 CH), premières `entry_cutoff_min` minutes optionnellement exclues/limitées (plage à tester).
 
+**Variante déclarée 2026-08-26 (avant mesure) — plafond de volume (`vol_cap`)** : l'étude 01 bootstrap (134 cassures, n par tranche faible) suggère que les spikes extrêmes (> 2× SMA20) suivent MOINS bien que la tranche 1.5-2× — interprétation candidate : volume extrême = épuisement/news, pas confirmation. Hypothèse dérivée **H3b** (§4) : la fenêtre de volume est bornée des deux côtés :
+
+```
+vol_mult × SMA20 ≤ volume(cassure) < vol_cap × SMA20    (vol_cap : none | 2.0 | 2.5 | 3.0)
+```
+
+Défaut V1 : `vol_cap = none` (fidèle à la vidéo) ; la variante est mesurée en Phase A (étude 03) et ne devient un défaut que si l'effet persiste avec n suffisant.
+
 ### 3.6 Risque et sorties (condition 5)
 
 Conformément à R2, la stratégie n'émet que `entry / stop / target` — la taille appartient à `core/risk/` :
@@ -130,6 +138,7 @@ Conformément à R2, la stratégie n'émet que `entry / stop / target` — la ta
 | **H1** | Les niveaux GEX majeurs produisent des réactions de prix mesurables : au premier contact intraday, la probabilité de rejet/rebond et l'excursion opposée dans les 30-60 min sont supérieures à celles de **niveaux placebo** (strikes ronds non-majeurs, niveaux décalés de ±half-strike) | Event study contacts réels vs placebo, même jour même méthode | Pas de différence (effet ≤ placebo + bruit) sur ≥ 100 contacts |
 | **H2** | Le régime gamma net pré-market prédit la volatilité réalisée du jour : RV(gamma−) > RV(gamma+) | Comparaison RV intraday 5min par régime | Différence nulle ou inversée sur ≥ 60 jours |
 | **H3** | Les cassures de compression AVEC volume ≥ 1.5× ont un taux de suivi (atteinte de +1R avant le stop) supérieur aux cassures SANS volume | Comparaison appariée des deux populations de cassures | Taux de suivi équivalent (le filtre volume n'apporte rien) |
+| **H3b** (déclarée 2026-08-26, dérivée de l'étude 01 — §3.5) | La fenêtre bornée `[vol_mult, vol_cap)` suit mieux que `≥ vol_mult` sans plafond : les spikes extrêmes (≥ 2×) sont de l'épuisement, pas de la confirmation | Balayage `vol_cap` ∈ {none, 2.0, 2.5, 3.0} sur les mêmes populations de cassures (étude 03) | La tranche haute (≥ 2×) suit aussi bien ou mieux que 1.5-2× sur n ≥ 30 par tranche |
 | **H4** | Le système complet (5 conditions) a une expectancy nette positive après coûts sur SPY spot | Backtest via backtester commun (R9) sur historique GEX suffisant | Expectancy ≤ 0 après coûts, ou nombre de trades < 30 (non conclusif, pas validé) |
 | **H5** | Pinning : les jours gamma positif, la clôture est attirée par le plus gros niveau positif (distance close→niveau inférieure à celle d'un modèle nul de marche aléatoire) | Distance normalisée close vs niveau, jours + vs − | Pas d'effet d'attraction mesurable |
 

@@ -1,9 +1,14 @@
 # manifest — S017 ireland_gex (source unique de vérité, R7)
+# Clés plateforme (SPEC_ui-dynamique §3 — schéma commun aux 20 stratégies) :
+# display_name, magic_number, status, symbols.
 strategy_id: S017
 name: ireland_gex
-magic: 130017
+display_name: "Ireland GEX — SPY intraday"
+magic_number: 130017
 status: RESEARCH            # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED — promotion = décision Adrian (R4/R10)
 version: 1.0.0
+
+symbols: [SPY]              # instances plateforme (D-UI-5) — dérive S017.SPY
 
 instruments:
   - symbol: SPY             # V1 : signal validé sur le sous-jacent (spot). Couche options = phase ultérieure (spec §8).

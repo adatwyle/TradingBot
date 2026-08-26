@@ -1,0 +1,16 @@
+# manifest — S0NN <slug> (source unique de vérité, R7)
+# Schéma plateforme (SPEC_ui-dynamique §3) — clés lues par le serveur de
+# supervision ET le registre de la factory. Les 4 premières sont OBLIGATOIRES,
+# noms EXACTS : display_name / magic_number (pas name / magic).
+strategy_id: S0NN
+display_name: "Nom lisible de la stratégie"
+magic_number: 1300NN          # unique (R5), jamais réutilisé
+status: RESEARCH              # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED — promotion = décision Adrian (R4/R10)
+version: 1.0.0
+
+# Instances plateforme (D-UI-5) : une paire FX 6 lettres devient S0NN.XXX-YYY,
+# tout autre symbole S0NN.<SYMBOL>. Alternative : liste explicite `instances:`.
+symbols: []                   # ex. [AUDCAD, EURJPY] ou [SPY]
+
+# Libre au-delà de cette ligne : timeframes, data, params, references… —
+# le CC stratégie enrichit, la plateforme ignore ce qu'elle ne connaît pas.

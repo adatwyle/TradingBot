@@ -1,0 +1,53 @@
+{
+  "study": "s14_sentiment",
+  "sealed_at": "2026-08-17",
+  "universe": ["AUDCHF", "EURUSD", "AUDCAD", "EURJPY", "XAUUSD"],
+  "sentiment_labels": ["positive", "negative", "neutral"],
+  "collect": {
+    "source": "finnhub",
+    "endpoint": "https://finnhub.io/api/v1/news",
+    "category": "general",
+    "interval_s": 1800,
+    "max_headline_chars": 300,
+    "max_news_age_h": 6
+  },
+  "judge": {
+    "name": "claude-cli",
+    "cli": "claude",
+    "timeout_s": 180,
+    "retries": 1,
+    "batch_max_news": 40,
+    "max_reason_chars": 300,
+    "bounds": {
+      "confidence_min": 0.0,
+      "confidence_max": 1.0
+    }
+  },
+  "witness": {
+    "name": "finbert",
+    "model": "ProsusAI/finbert"
+  },
+  "bar_mapping": {
+    "server_utc_offset_winter": 2,
+    "server_utc_offset_summer": 3,
+    "dst_rule": "US"
+  },
+  "falsification": {
+    "n_min_verdicts": 150,
+    "min_days": 60,
+    "confidence_threshold_high": 0.8,
+    "hitrate_floor": 0.52,
+    "halves_floor": 0.50,
+    "witness_delta_floor": 0.0,
+    "halves_rule": true,
+    "value_requires_ci95_low_above_floor": true,
+    "f2_requires_ci95_high_below_floor": true,
+    "ci_level": 0.95,
+    "ci_method": "wilson",
+    "ci_sided": "one"
+  },
+  "stop": {
+    "max_months": 6
+  },
+  "seed": 20260817
+}

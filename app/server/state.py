@@ -254,6 +254,11 @@ def build_card(folder: str, *, spark: bool = True) -> dict:
             st["equity"] = equity_points(short, inst, limit=SPARK_POINTS)
         instances.append(st)
 
+    # Études héritées instanciant cette stratégie : elles vivent SUR la carte
+    # (directive Adrian 2026-08-26 — plus de monde séparé côté stratégies).
+    etudes = [dict(study_state(folder), dossier=folder, libelle=label)
+              for folder, strat, label in LEGACY_STUDIES if strat == short]
+
     declared = "RESEARCH"
     name = folder
     magic = 0
@@ -272,8 +277,10 @@ def build_card(folder: str, *, spark: bool = True) -> dict:
         "magic": magic,
         "declared": declared,
         "manifest_error": error,
-        "alive": any(i["alive"] for i in instances),
+        "alive": (any(i["alive"] for i in instances)
+                  or any(e.get("vivante") for e in etudes)),
         "instances": instances,
+        "etudes": etudes,
     }
 
 
@@ -327,24 +334,13 @@ def study_state(folder: str) -> dict:
     }
 
 
-def living_study_strategies() -> set[str]:
-    """S0NN ids instantiated by a LIVING legacy study — they count as real
-    paper activity in the declared-vs-real confrontation."""
-    out = set()
-    for folder, strat, _label in LEGACY_STUDIES:
-        if strat and study_state(folder).get("vivante"):
-            out.add(strat)
-    return out
-
-
 # ── declared vs real (D-UI-4, kept from the legacy build_niveaux) ───────────
 def build_niveaux(cards: list[dict]) -> dict:
     """{prod, paper, dev, retired: [folder ids], divergences: [messages]}.
 
     Placement follows the DECLARED status (R7 single source of truth) except
-    the inherited rule: real paper activity pulls a dev card up to PAPER,
-    with the divergence displayed."""
-    study_paper = living_study_strategies()
+    the inherited rule: real paper activity (living instance OR living study
+    attached to the card) pulls a dev card up to PAPER, divergence displayed."""
     niveaux = {"prod": [], "paper": [], "dev": [], "retired": [],
                "divergences": []}
     for card in cards:
@@ -352,7 +348,8 @@ def build_niveaux(cards: list[dict]) -> dict:
         short = card["short"]
         living = [i for i in card["instances"] if i["alive"]]
         living_modes = {i.get("mode") for i in living}
-        has_real_paper = bool(living) or short in study_paper
+        has_real_paper = (bool(living)
+                          or any(e.get("vivante") for e in card["etudes"]))
 
         if declared == "LIVE":
             niveaux["prod"].append(card["id"])

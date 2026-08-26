@@ -134,23 +134,50 @@ function instanceLine(inst) {
     "</span>" + body + "</div>";
 }
 
+/* One attached legacy study (sealed protocol) rendered on its strategy card. */
+function studyLine(e) {
+  const state = e.vivante ? '<span class="badge alive">vivante</span>'
+    : e.mesure === "jamais"
+      ? '<span class="never">en attente du premier passage</span>'
+      : '<span class="stale">périmée — dernière mesure ' + esc(e.mesure) + "</span>";
+  const nums = e.mesure !== "jamais"
+    ? '<span class="num">' + esc(e.trades) + " clos</span>" +
+      '<span class="num">' + signed(e.cum_r, 2, "R") + "</span>"
+    : "";
+  const pos = e.position
+    ? ' <span class="badge open-pos">position ouverte</span>' : "";
+  return '<div class="instance"><span class="iid">' + esc(e.libelle) +
+    "</span>" + nums + pos + state + "</div>";
+}
+
+/* Minimal card (directive Adrian 2026-08-26) : identité + activité réelle.
+ * Les instances jamais passées sont résumées en UNE ligne, jamais listées. */
 function strategyCard(card, level) {
   const badgeCls = card.declared === "LIVE" ? "live"
     : card.declared === "PAPER" ? "paper" : "";
-  let body;
+  let rows = [];
   if (card.manifest_error) {
-    body = '<div class="manifest-error">' + esc(card.manifest_error) + "</div>";
-  } else if (!card.instances.length) {
-    body = '<div class="instance"><span class="never">aucune instance déclarée</span></div>';
+    rows.push('<div class="manifest-error">' + esc(card.manifest_error) + "</div>");
   } else {
-    body = card.instances.map(instanceLine).join("");
+    const active = card.instances.filter(i => i.state !== "never");
+    rows = active.map(instanceLine)
+      .concat((card.etudes || []).map(studyLine));
+    const nNever = card.instances.length - active.length;
+    if (!rows.length) {
+      rows.push('<div class="instance"><span class="never">aucune activité' +
+        (card.instances.length
+          ? " — " + card.instances.length + " instance(s) déclarée(s)" : "") +
+        "</span></div>");
+    } else if (nNever > 0) {
+      rows.push('<div class="instance"><span class="never">+ ' + nNever +
+        " instance(s) jamais passée(s)</span></div>");
+    }
   }
   return '<div class="card ' + (level === "prod" ? "prod" : "") + '">' +
     '<h3><a href="/strategy/' + esc(card.short) + '">' + esc(card.short) +
     " — " + esc(card.name) + '</a> <span class="badge ' + badgeCls + '">' +
     esc(card.declared) + "</span></h3>" +
-    '<div class="meta">' + esc(card.id) + " · magic " + esc(card.magic) + "</div>" +
-    body + "</div>";
+    rows.join("") + "</div>";
 }
 
 function renderLevel(elId, ids, byId, emptyHtml, level) {
@@ -277,6 +304,25 @@ async function refreshStrategy() {
       }).join("") + "</table>";
   }
   html += "</section>";
+
+  /* attached legacy studies (sealed protocol) — since 2026-08-26 they live
+   * on the strategy, not in a separate world */
+  if (card.etudes && card.etudes.length) {
+    html += '<section class="panel"><h2>ÉTUDES (protocole scellé)</h2>' +
+      '<table class="grid"><tr><th>étude</th><th>état</th><th>trades clos</th>' +
+      "<th>R cumulé</th><th>capital</th><th>position</th><th>dernière mesure</th></tr>" +
+      card.etudes.map(e => {
+        const etat = e.vivante ? '<span class="ok-line">vivante</span>'
+          : e.mesure === "jamais" ? "jamais passée"
+          : '<span class="err-line">périmée</span>';
+        return "<tr><td>" + esc(e.libelle) + " (" + esc(e.dossier) + ")</td><td>" +
+          etat + "</td><td>" + esc(e.trades != null ? e.trades : "—") +
+          "</td><td>" + (e.mesure !== "jamais" ? signed(e.cum_r, 2, "R") : "—") +
+          "</td><td>" + esc(e.capital != null ? fmtNum(e.capital, 2) : "—") +
+          "</td><td>" + (e.position ? "ouverte" : "—") + "</td><td>" +
+          esc(e.mesure) + "</td></tr>";
+      }).join("") + "</table></section>";
+  }
 
   /* equity curves — per instance and cumulated (ledger, fallback §3.2) */
   html += '<section class="panel"><h2>COURBES DE GAINS / PERTES</h2>' +

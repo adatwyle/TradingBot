@@ -189,15 +189,14 @@ def test_tickets_empty_dir_clean(client, ui_env):
 
 
 # ── études scellées héritées (UI-9) ─────────────────────────────────────────
-def test_etudes_inherited_panels_present(client, ui_env):
+def test_etudes_services_seulement_sans_strategie(client, ui_env):
+    # Depuis 2026-08-26 (directive Adrian) les études instanciant une
+    # stratégie vivent sur la carte de celle-ci (/api/state) — /api/services
+    # ne garde que les études SANS stratégie (s14_sentiment).
     ui_env.write_study("gold_forward", fresh=True)
     etudes = {e["dossier"]: e
               for e in client.get("/api/services").get_json()["etudes"]}
-    assert set(etudes) == {"gold_forward", "s13_forward", "macd_ai_paper",
-                           "s14_sentiment", "alexg_paper"}          # F5
-    assert etudes["gold_forward"]["vivante"] is True
-    assert etudes["gold_forward"]["trades"] == 7
-    assert etudes["s13_forward"]["vivante"] is False    # jamais passée
+    assert set(etudes) == {"s14_sentiment"}
 
 
 # ── pages HTML + assets (UI-8 : vanilla, pas de CDN) ────────────────────────

@@ -349,8 +349,12 @@ def build_tickets() -> dict:
 
 # ── inherited sealed studies (UI-9) ─────────────────────────────────────────
 def build_etudes() -> list[dict]:
+    """Only the studies WITHOUT a strategy (e.g. s14_sentiment) — the others
+    live on their strategy's card since 2026-08-26 (directive Adrian)."""
     out = []
     for folder, strat, label in LEGACY_STUDIES:
+        if strat:
+            continue
         e = study_state(folder)
         e.update({"dossier": folder, "strategie": strat, "libelle": label})
         out.append(e)

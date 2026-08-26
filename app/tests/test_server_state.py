@@ -140,6 +140,20 @@ def test_living_legacy_study_counts_as_real_paper(client, ui_env):
     assert any("S011" in d and "attendu PAPER" in d for d in n["divergences"])
 
 
+def test_etudes_rattachees_a_la_carte(client, ui_env):
+    # Directive Adrian 2026-08-26 : l'étude héritée s'affiche SUR la carte de
+    # la stratégie qu'elle instancie, et rend la carte vivante.
+    ui_env.make_strategy("S011_legacy_breakout", status="PAPER")
+    ui_env.write_study("gold_forward", fresh=True)
+    cards = {c["short"]: c
+             for c in client.get("/api/state").get_json()["strategies"]}
+    etudes = cards["S011"]["etudes"]
+    assert [e["dossier"] for e in etudes] == ["gold_forward"]
+    assert etudes[0]["vivante"] is True
+    assert etudes[0]["trades"] == 7
+    assert cards["S011"]["alive"] is True
+
+
 def test_alexg_paper_joint_aux_etudes_heritees(client, ui_env):
     """F5 : alexg_paper manquait aux jointures — même patron que les 4 autres,
     mappée sur la stratégie qu'elle instancie (S093_alexg_ai_judge,

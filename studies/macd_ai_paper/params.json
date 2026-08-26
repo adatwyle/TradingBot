@@ -1,0 +1,56 @@
+{
+  "study": "macd_ai_paper",
+  "sealed_at": "2026-08-16",
+  "strategy_id": "s12_prt_macd_meanrev",
+  "instruments": ["SP500", "NASDAQ", "DAX"],
+  "timeframe": "D1",
+  "cell": {
+    "range_len": 20,
+    "pos_max": 0.20,
+    "no_friday": false,
+    "sl_atr": 3.0,
+    "close_down": true,
+    "macd_rel": false
+  },
+  "specs": {
+    "SP500":  {"symbol": "SP500",  "pip": 0.1, "spread_pips": 5.0, "max_spread_pips": 12.0, "pip_value_per_lot": 1.0, "slippage_pips": 0.0},
+    "NASDAQ": {"symbol": "NASDAQ", "pip": 0.1, "spread_pips": 8.0, "max_spread_pips": 20.0, "pip_value_per_lot": 1.0, "slippage_pips": 0.0},
+    "DAX":    {"symbol": "DAX",    "pip": 0.1, "spread_pips": 8.0, "max_spread_pips": 20.0, "pip_value_per_lot": 1.0, "slippage_pips": 0.0}
+  },
+  "engine": {
+    "max_positions": 1,
+    "cooldown_bars": 2,
+    "cb_losses": 3,
+    "cb_cooldown_bars": 24,
+    "max_hold_bars": null
+  },
+  "sizing": {
+    "capital_initial": 10000.0,
+    "risk_per_trade_pct": 1.0
+  },
+  "ai": {
+    "timeout_s": 120,
+    "retries": 1,
+    "bounds": {
+      "size_min": 0.0,
+      "size_max": 1.0,
+      "sl_adjust_min": 0.5,
+      "sl_adjust_max": 1.0,
+      "tp_adjust_min": 0.5,
+      "tp_adjust_max": 1.0
+    }
+  },
+  "random_arm": {
+    "seed": 20260816,
+    "default_take_rate": 1.0
+  },
+  "control": {
+    "draws": 1000,
+    "seed": 20260816
+  },
+  "stop_rules": {
+    "fail_ai": {"min_decisions": 40, "percentile_below": 80},
+    "fail_base": {"min_signals": 40, "cum_r_nocost_below": 0.0},
+    "time": {"months": 12, "min_decisions": 40}
+  }
+}

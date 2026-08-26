@@ -29,9 +29,16 @@
 5. **CI/CD + watcher PC prod** : n'existent pas dans le prototype.
 6. Dette documentaire : `PROMOTION_POLICY.md` et `registry.py` référencés mais inexistants ; divergence de chemin du panneau entre factory et notifier ; devise mixte USD/CHF dans le catalogue d'instruments.
 
-## Études en vol (ne pas perturber)
+## Études en vol — migration vers la tbot factory (directive Adrian 2026-08-26)
 
-`gold_forward`, `s13_forward`, `s14_sentiment` (verdict mi-octobre), `alexg_paper` — elles tournent dans le prototype jusqu'à E6.
+`gold_forward`, `s13_forward`, `s14_sentiment` (verdict mi-octobre), `macd_ai_paper`, `alexg_paper` tournent dans le prototype (journaux dans `C:/db/tbot/<étude>/`). **La tbot factory doit devenir capable de les faire tourner** — sans attendre la bascule E6 complète, et sans trou dans les journaux scellés.
+
+Protocole de bascule par étude (une à la fois, à chaud) :
+1. Code de l'étude migré dans `studies/` du repo (verbatim + adaptation chemins vers `C:/db/tradingBot/`), worker ajouté au catalogue tbot (off par défaut) — préparable sans toucher au prototype.
+2. Au GO Adrian, entre deux ticks (cadences 1800-3600 s → fenêtre de plusieurs minutes) : worker off dans le panneau robinbot (à chaud) → déplacement du journal `C:/db/tbot/<étude>/` → `C:/db/tradingBot/<étude>/` → vérification d'intégrité de la chaîne de hachage → worker on dans le panneau tbot. Gap de quelques minutes = zéro trou de données (ticks horaires).
+3. Jamais deux factories actives sur le même journal (entrelacement = fausse alarme d'altération, interdit par le protocole).
+
+**Chaque bascule d'étude = GO Adrian explicite** (le prototype est en exploitation). L'extinction complète de robinbot factory reste conditionnée à la checklist E6 (études migrées ou scellées, Telegram migré, supervision reprise, ~1 semaine de cohabitation sans incident).
 
 ## Leçons contraignantes pour toute nouvelle spec
 

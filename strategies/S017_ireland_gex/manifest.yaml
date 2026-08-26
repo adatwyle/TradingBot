@@ -1,0 +1,60 @@
+# manifest — S017 ireland_gex (source unique de vérité, R7)
+strategy_id: S017
+name: ireland_gex
+magic: 130017
+status: RESEARCH            # RESEARCH | BACKTESTED | PAPER | LIVE | RETIRED — promotion = décision Adrian (R4/R10)
+version: 1.0.0
+
+instruments:
+  - symbol: SPY             # V1 : signal validé sur le sous-jacent (spot). Couche options = phase ultérieure (spec §8).
+    exchange: NYSE Arca
+    session: "09:30-16:00 America/New_York"   # 15:30-22:00 heure suisse
+
+timeframes:
+  signal: 5min              # déclencheur compression/cassure/volume
+  trend: daily              # alignement de séquence EMA obligatoire (barre J-1 close, R1)
+
+data:
+  options_chain: cboe_delayed          # cdn.cboe.com delayed quotes — gratuit, ~15 min
+  gex: computed_local                  # calcul maison méthodo Perfiliev (research/gex_calc.py)
+  ohlcv: yfinance                      # fallback daily : stooq
+  store: "C:/db/tradingBot/S017/"      # RULE db-separation
+
+warmup_bars:
+  5min: 60                  # EMA50 + ATR14 + SMA20 volume
+  daily: 60
+
+# Paramètres initiaux (défauts figés AVANT mesure — spec §3) + plages de variantes à explorer
+params:
+  # §3.1 carte GEX
+  gex_expiry_window:        { default: all,  variants: [all, 7, 30] }        # jours d'expiration inclus
+  # §3.2 niveau majeur + proximité
+  level_major_frac:         { default: 0.50, range: [0.30, 0.70], step: 0.10 }
+  level_top_k:              { default: 5,    range: [3, 8] }
+  level_universe_pct:       { default: 2.0,  range: [1.0, 3.0] }             # % autour du spot
+  near_level_pct:           { default: 0.10, range: [0.05, 0.30] }           # % du prix = "au contact"
+  # §3.3 régime gamma
+  regime_mode:              { default: net,  variants: [net, flip, local] }
+  neg_gamma_size_factor:    { default: 0.5,  range: [0.5, 0.7] }             # métadonnée pour core/risk (R2)
+  neg_gamma_partial_frac:   { default: 0.5,  range: [0.3, 0.7] }             # part prise à 1R en gamma négatif
+  # §3.4 EMA stack
+  ema_fast:                 { default: 9,    fixed: true }
+  ema_mid:                  { default: 21,   fixed: true }
+  ema_slow:                 { default: 50,   fixed: true }
+  ema_spread_min_5m:        { default: 0.15, range: [0.05, 0.40] }           # en ATR14
+  ema_spread_min_daily:     { default: 0.30, range: [0.10, 0.60] }           # en ATR14
+  # §3.5 compression + volume
+  compress_bars:            { default: 6,    range: [4, 12] }
+  compress_range_atr:       { default: 1.5,  range: [1.0, 2.5] }
+  vol_mult:                 { default: 1.5,  range: [1.2, 2.5] }
+  vol_sma_bars:             { default: 20,   fixed: true }
+  entry_cutoff_min:         { default: 0,    variants: [0, 15, 30] }         # minutes post-open exclues
+  # §3.6 risque / sorties (émission entry/stop/target uniquement — R2)
+  stop_buffer_atr:          { default: 0.25, range: [0.10, 0.50] }
+  rr_min:                   { default: 2.0,  range: [1.5, 3.0] }
+  eod_close:                { default: true, fixed: true }                   # day trading, pas d'overnight
+
+references:
+  spec: spec-strategie.md
+  input: input-adrian.md
+  source_video: sources/video/

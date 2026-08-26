@@ -38,7 +38,7 @@ import pandas as pd                                             # noqa: E402
 
 from core.validation.causality import check, _compare_precompute  # noqa: E402
 from core.data.source import load_bars                          # noqa: E402
-from strategies.s05_flossbach_liqsweep.strategy import Strategy  # noqa: E402
+from strategies.S005_flossbach_liqsweep.strategy import Strategy  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "causality.txt")
 

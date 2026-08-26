@@ -59,7 +59,7 @@ CE QUI N'EST PAS COUVERT ICI, ET DOIT ÊTRE DIT
 
 USAGE
 -----
-    python -m strategies.s07_ionita_gaussian.validate_r1
+    python -m strategies.S007_ionita_gaussian.validate_r1
 """
 from __future__ import annotations
 
@@ -74,8 +74,8 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from core.validation.causality import _compare_precompute  # primitive de core
-from strategies.s07_ionita_gaussian.gaussian import prove_causality
-from strategies.s07_ionita_gaussian.strategy import Strategy
+from strategies.S007_ionita_gaussian.gaussian import prove_causality
+from strategies.S007_ionita_gaussian.strategy import Strategy
 
 CUTS = (0.60, 0.70, 0.80, 0.90)
 
@@ -249,7 +249,7 @@ def check_synthetic_shorts(bars: dict[str, pd.DataFrame]) -> tuple[list[str], bo
     reste — une construction « évidemment causale » est exactement le genre
     d'évidence qui a coûté des mois à ce projet.
     """
-    from strategies.s07_ionita_gaussian.run_backtest import build_short_series
+    from strategies.S007_ionita_gaussian.run_backtest import build_short_series
     L = ["COUCHE 4 — SÉRIES SHORT SYNTHÉTIQUES", "-" * 78]
     ok = True
     for sym, df in bars.items():
@@ -314,7 +314,7 @@ def run(bars: dict[str, pd.DataFrame], params: dict | None = None,
 
 
 def main() -> int:
-    from strategies.s07_ionita_gaussian.run_backtest import load_universe, UNIVERSE_CRYPTO
+    from strategies.S007_ionita_gaussian.run_backtest import load_universe, UNIVERSE_CRYPTO
 
     bars = load_universe(UNIVERSE_CRYPTO)
     report, ok = run(bars, universe=UNIVERSE_CRYPTO)

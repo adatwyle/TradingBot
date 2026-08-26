@@ -25,7 +25,7 @@ supérieur au naïf ?
 
 USAGE
 -----
-    python -m strategies.s07_ionita_gaussian.significance
+    python -m strategies.S007_ionita_gaussian.significance
 """
 from __future__ import annotations
 
@@ -40,10 +40,10 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from core.backtest.allocation_engine import run_allocation
-from strategies.s07_ionita_gaussian.run_backtest import (
+from strategies.S007_ionita_gaussian.run_backtest import (
     load_universe, make_specs, UNIVERSE_CRYPTO,
 )
-from strategies.s07_ionita_gaussian.strategy import Strategy
+from strategies.S007_ionita_gaussian.strategy import Strategy
 
 PPY = 365.0
 BLOCK = 21

@@ -48,7 +48,7 @@ from core.contracts.strategy import Side, Signal  # noqa: E402
 from core.data.instruments import get_spec  # noqa: E402
 from core.data.source import load_bars  # noqa: E402
 
-from strategies.s90_adrian_synthesis.strategy import (  # noqa: E402
+from strategies.S090_adrian_synthesis.strategy import (  # noqa: E402
     ADX_GATE, ATR_PERIOD, SPACING_ATR, Strategy, SYMBOLS, WARMUP,
 )
 

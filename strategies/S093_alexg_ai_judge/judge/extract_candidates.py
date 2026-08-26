@@ -34,7 +34,7 @@ sys.path.insert(0, ROOT)
 from core.backtest.engine import InstrumentSpec, run as run_engine          # noqa: E402
 from core.data.instruments import get_spec                                  # noqa: E402
 from core.data.source import load_bars                                      # noqa: E402
-from strategies.s93_alexg_ai_judge.strategy import Strategy                 # noqa: E402
+from strategies.S093_alexg_ai_judge.strategy import Strategy                 # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SLIPPAGE_PIPS = 0.5

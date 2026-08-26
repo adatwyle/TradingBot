@@ -23,7 +23,7 @@ sys.path.insert(0, ROOT)
 
 from core.validation import causality, conformance                     # noqa: E402
 from core.data.source import load_bars                                  # noqa: E402
-from strategies.s13_macd_fx.strategy import Strategy                    # noqa: E402
+from strategies.S013_macd_fx.strategy import Strategy                    # noqa: E402
 
 HERE = os.path.dirname(__file__)
 SEAL = pd.Timestamp("2025-02-16")     # hold-out scellé — jamais chargé ici

@@ -27,7 +27,7 @@ surface testée est donc déclarée, pas maquillée en « conformité totale ».
 
 USAGE
 -----
-    python -m strategies.s08_markov_regime.validate_r5
+    python -m strategies.S008_markov_regime.validate_r5
 """
 from __future__ import annotations
 
@@ -43,8 +43,8 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from core.contracts.allocation import AllocationContext
-from strategies.s08_markov_regime.run_backtest import load_universe
-from strategies.s08_markov_regime.strategy import Strategy
+from strategies.S008_markov_regime.run_backtest import load_universe
+from strategies.S008_markov_regime.strategy import Strategy
 
 N_BARS = 250          # barres rejouées, en fin d'historique
 SYMBOLS = ["SP500", "BTCUSD"]

@@ -9,7 +9,7 @@ deux questions sur les MÊMES fenêtres (60/70/80/90 %), avec le moteur commun
 Agrégation : pour chaque fenêtre, on ne garde que les trades ENTRÉS après la fin
 de la tranche d'entraînement — exactement la définition de `anchored_wf`.
 
-    python -m strategies.s06_nil_pbd.backtests.run_oos_stats
+    python -m strategies.S006_nil_pbd.backtests.run_oos_stats
 """
 from __future__ import annotations
 
@@ -31,10 +31,10 @@ from core.backtest.engine import run as run_engine                # noqa: E402
 from core.contracts.strategy import Side                          # noqa: E402
 from core.data.instruments import get_spec                        # noqa: E402
 from core.data.source import load_bars                            # noqa: E402
-from strategies.s06_nil_pbd.backtests.run_wf import (              # noqa: E402
+from strategies.S006_nil_pbd.backtests.run_wf import (              # noqa: E402
     GRIDS, REAL_SPREAD_PIPS, SYMBOLS,
 )
-from strategies.s06_nil_pbd.strategy import Strategy              # noqa: E402
+from strategies.S006_nil_pbd.strategy import Strategy              # noqa: E402
 
 MAX_HOLD = 288
 L: list[str] = []

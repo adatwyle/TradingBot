@@ -33,7 +33,7 @@ except Exception:
 from core.backtest.anchored_wf import run_walk_forward           # noqa: E402
 from core.data.instruments import get_spec                       # noqa: E402
 from core.data.source import load_bars                           # noqa: E402
-from strategies.s05_flossbach_liqsweep.strategy import Strategy   # noqa: E402
+from strategies.S005_flossbach_liqsweep.strategy import Strategy   # noqa: E402
 
 SYMBOLS = ["EURUSD", "USDJPY", "USDCHF", "USDCAD", "AUDUSD",
            "XAUUSD", "XAGUSD", "SP500", "NASDAQ", "DAX", "WTIUSD"]

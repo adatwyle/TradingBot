@@ -30,7 +30,7 @@ from core.backtest.anchored_wf import run_walk_forward, attach_control_arm  # no
 from core.backtest.engine import BacktestResult, run as run_engine          # noqa: E402
 from core.data.instruments import get_spec                                  # noqa: E402
 from core.data.source import load_bars                                      # noqa: E402
-from strategies.s12_prt_macd_meanrev.strategy import Strategy               # noqa: E402
+from strategies.S012_prt_macd_meanrev.strategy import Strategy               # noqa: E402
 
 HERE = os.path.dirname(__file__)
 ENGINE_KWARGS = dict(cooldown_bars=0, cb_losses=999)

@@ -28,7 +28,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")
 sys.path.insert(0, ROOT)
 
 from core.backtest.engine import InstrumentSpec, run as run_engine  # noqa: E402
-from strategies.s12_prt_macd_meanrev.strategy import Strategy       # noqa: E402
+from strategies.S012_prt_macd_meanrev.strategy import Strategy       # noqa: E402
 
 HERE = os.path.dirname(__file__)
 DATA = r"C:\db\tbot\datasets\LONGHIST"

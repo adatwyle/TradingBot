@@ -20,7 +20,7 @@ sys.path.insert(0, ROOT)
 
 from core.data.source import load_bars                       # noqa: E402
 from core.validation import causality, conformance           # noqa: E402
-from strategies.s12_prt_macd_meanrev.strategy import Strategy  # noqa: E402
+from strategies.S012_prt_macd_meanrev.strategy import Strategy  # noqa: E402
 
 HERE = os.path.dirname(__file__)
 DAYS = 365 * 30          # Swissquote sert 2016+ (~2770 barres D1)

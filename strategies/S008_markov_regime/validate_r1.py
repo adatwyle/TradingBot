@@ -45,7 +45,7 @@ re-teste pas.
 
 USAGE
 -----
-    python -m strategies.s08_markov_regime.validate_r1
+    python -m strategies.S008_markov_regime.validate_r1
 """
 from __future__ import annotations
 
@@ -60,11 +60,11 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from core.validation.causality import _compare_precompute
-from strategies.s08_markov_regime import markov as mk
-from strategies.s08_markov_regime.run_backtest import (
+from strategies.S008_markov_regime import markov as mk
+from strategies.S008_markov_regime.run_backtest import (
     build_short_series, load_universe, with_shorts,
 )
-from strategies.s08_markov_regime.strategy import Strategy, is_short_symbol
+from strategies.S008_markov_regime.strategy import Strategy, is_short_symbol
 
 CUTS = (0.60, 0.70, 0.80, 0.90)
 SYMBOLS = ["SP500", "BTCUSD"]

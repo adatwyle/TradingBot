@@ -22,7 +22,7 @@ sans objet — parce qu'on mesurerait alors autre chose que ce qu'on croit.
 
 USAGE
 -----
-    python -m strategies.s08_markov_regime.probe_apparatus
+    python -m strategies.S008_markov_regime.probe_apparatus
 """
 from __future__ import annotations
 
@@ -36,8 +36,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from strategies.s08_markov_regime import markov as mk
-from strategies.s08_markov_regime.run_backtest import load_universe
+from strategies.S008_markov_regime import markov as mk
+from strategies.S008_markov_regime.run_backtest import load_universe
 
 UNIVERSE = ["SP500", "NASDAQ", "BTCUSD"]
 LBL = ["bear", "side", "bull"]

@@ -19,7 +19,7 @@ DEUX ÉCARTS ASSUMÉS PAR RAPPORT À `run_wf.py`, tous deux dans le même sens
    soit 94 % du résultat du mode cassure. Voir research/VERDICT.md §7.
    Le défaut est SIGNALÉ, pas corrigé — `core/` est hors périmètre.
 
-    python -m strategies.s06_nil_pbd.backtests.run_analysis
+    python -m strategies.S006_nil_pbd.backtests.run_analysis
 """
 from __future__ import annotations
 
@@ -40,10 +40,10 @@ from core.backtest.engine import run as run_engine                # noqa: E402
 from core.contracts.strategy import Side                          # noqa: E402
 from core.data.instruments import get_spec                        # noqa: E402
 from core.data.source import load_bars                            # noqa: E402
-from strategies.s06_nil_pbd.backtests.run_wf import (              # noqa: E402
+from strategies.S006_nil_pbd.backtests.run_wf import (              # noqa: E402
     GRIDS, REAL_SPREAD_PIPS, SYMBOLS,
 )
-from strategies.s06_nil_pbd.strategy import Strategy              # noqa: E402
+from strategies.S006_nil_pbd.strategy import Strategy              # noqa: E402
 
 MAX_HOLD = 288          # 3 jours de M15 — la borne haute de la source
 L: list[str] = []

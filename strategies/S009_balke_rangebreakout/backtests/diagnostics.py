@@ -31,8 +31,8 @@ sys.path.insert(0, ROOT)
 from core.backtest.engine import InstrumentSpec, run as run_engine   # noqa: E402
 from core.data.instruments import get_spec                           # noqa: E402
 from core.data.source import CACHE_DIR                               # noqa: E402
-from strategies.s09_balke_rangebreakout.strategy import Strategy     # noqa: E402
-from strategies.s09_balke_rangebreakout.backtests.run_wf import (    # noqa: E402
+from strategies.S009_balke_rangebreakout.strategy import Strategy     # noqa: E402
+from strategies.S009_balke_rangebreakout.backtests.run_wf import (    # noqa: E402
     GRIDS, load_bars, spec_for)
 
 HERE = os.path.dirname(__file__)

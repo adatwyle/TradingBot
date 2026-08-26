@@ -32,7 +32,7 @@ calcul parallèle.
 
 USAGE
 -----
-    python -m strategies.s07_ionita_gaussian.run_backtest
+    python -m strategies.S007_ionita_gaussian.run_backtest
 """
 from __future__ import annotations
 
@@ -53,7 +53,7 @@ from core.backtest.allocation_engine import run_allocation
 from core.backtest.anchored_wf import WINDOWS
 from core.backtest.engine import InstrumentSpec
 from core.data.source import load_bars
-from strategies.s07_ionita_gaussian.strategy import (
+from strategies.S007_ionita_gaussian.strategy import (
     Strategy, short_symbol, is_short_symbol, base_symbol,
 )
 

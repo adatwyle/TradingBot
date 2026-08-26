@@ -34,7 +34,7 @@ from core.backtest.anchored_wf import control_arm                        # noqa:
 from core.backtest.engine import BacktestResult, run as run_engine       # noqa: E402
 from core.data.instruments import get_spec                               # noqa: E402
 from core.data.source import load_bars                                   # noqa: E402
-from strategies.s13_macd_fx.strategy import Strategy                     # noqa: E402
+from strategies.S013_macd_fx.strategy import Strategy                     # noqa: E402
 
 HERE = os.path.dirname(__file__)
 SEAL = pd.Timestamp("2025-02-16")

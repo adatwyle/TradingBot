@@ -37,7 +37,7 @@ from core.backtest.engine import run as run_engine                  # noqa: E402
 from core.data.instruments import get_spec                          # noqa: E402
 from core.data.source import load_bars                              # noqa: E402
 from core.validation.causality import check as causality_check      # noqa: E402
-from strategies.s10_legacy_meanrev.strategy import Strategy         # noqa: E402
+from strategies.S010_legacy_meanrev.strategy import Strategy         # noqa: E402
 
 MIN_TRADES = 20
 MAX_DD_R = 12.0

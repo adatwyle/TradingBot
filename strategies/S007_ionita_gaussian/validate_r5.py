@@ -20,7 +20,7 @@ gestion d'état du portefeuille, qui est reconstruite depuis zéro à chaque app
 
 USAGE
 -----
-    python -m strategies.s07_ionita_gaussian.validate_r5
+    python -m strategies.S007_ionita_gaussian.validate_r5
 """
 from __future__ import annotations
 
@@ -34,8 +34,8 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from core.contracts.allocation import AllocationContext
-from strategies.s07_ionita_gaussian.run_backtest import load_universe, UNIVERSE_CRYPTO
-from strategies.s07_ionita_gaussian.strategy import Strategy
+from strategies.S007_ionita_gaussian.run_backtest import load_universe, UNIVERSE_CRYPTO
+from strategies.S007_ionita_gaussian.strategy import Strategy
 
 CUTS = (0.62, 0.71, 0.83, 0.94, 0.99)
 

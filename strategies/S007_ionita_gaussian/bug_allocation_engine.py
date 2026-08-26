@@ -57,7 +57,7 @@ le décalage s'appliquerait deux fois. `strategy.py` porte la même consigne.
 
 USAGE
 -----
-    python -m strategies.s07_ionita_gaussian.bug_allocation_engine
+    python -m strategies.S007_ionita_gaussian.bug_allocation_engine
 """
 from __future__ import annotations
 

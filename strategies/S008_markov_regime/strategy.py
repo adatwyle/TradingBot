@@ -71,15 +71,17 @@ from core.contracts.allocation import (
 
 # Import adapted for the new runtime (strategy.py loaded standalone via
 # importlib.spec_from_file_location, no parent package). Logic unchanged.
-try:
-    from . import markov as mk  # package-style import (prototype layout)
-except ImportError:
+# Explicit guard instead of try/except ImportError: a genuinely missing
+# dependency must propagate with a clear traceback.
+if __package__ in (None, ""):
     import importlib.util as _ilu
     import os as _os
     _spec = _ilu.spec_from_file_location(
         "markov", _os.path.join(_os.path.dirname(__file__), "markov.py"))
     mk = _ilu.module_from_spec(_spec)
     _spec.loader.exec_module(mk)
+else:
+    from . import markov as mk  # package-style import (prototype layout)
 
 SHORT_SUFFIX = "~S"
 

@@ -41,7 +41,7 @@ import pandas as pd                                              # noqa: E402
 from core.contracts.strategy import MarketContext                # noqa: E402
 from core.data.instruments import get_spec                       # noqa: E402
 from core.data.source import load_bars                           # noqa: E402
-from strategies.s05_flossbach_liqsweep.strategy import Strategy   # noqa: E402
+from strategies.S005_flossbach_liqsweep.strategy import Strategy   # noqa: E402
 
 
 def main() -> int:

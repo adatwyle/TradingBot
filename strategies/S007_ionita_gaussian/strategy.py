@@ -99,13 +99,21 @@ from core.contracts.allocation import (
     Allocation, AllocationContext, AllocationManifest, AllocationModule,
 )
 
-try:
-    from .gaussian import gaussian_channel
-except ImportError:  # loaded standalone (spec_from_file_location, no parent package)
+if __package__ in (None, ""):
+    # Loaded standalone (spec_from_file_location, no parent package): load the
+    # sibling gaussian.py explicitly under a qualified module name. No sys.path
+    # mutation, no bare "gaussian" registration in sys.modules — the module
+    # lives in a local variable only.
+    import importlib.util as _ilu
     import os as _os
-    import sys as _sys
-    _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
-    from gaussian import gaussian_channel
+    _spec = _ilu.spec_from_file_location(
+        "strategies.S007_ionita_gaussian.gaussian",
+        _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "gaussian.py"))
+    _gaussian = _ilu.module_from_spec(_spec)
+    _spec.loader.exec_module(_gaussian)
+    gaussian_channel = _gaussian.gaussian_channel
+else:
+    from .gaussian import gaussian_channel
 
 SHORT_SUFFIX = "~S"
 

@@ -28,7 +28,7 @@ if ROOT not in sys.path:
 
 from core.data.source import load_bars                       # noqa: E402
 from core.validation.causality import check                  # noqa: E402
-from strategies.s04_aipathways_trendcore.strategy import Strategy  # noqa: E402
+from strategies.S004_aipathways_trendcore.strategy import Strategy  # noqa: E402
 
 LEGS = [("risk", "NASDAQ"), ("hedge", "XAUUSD")]
 

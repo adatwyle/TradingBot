@@ -38,7 +38,7 @@ from core.backtest.engine import run as run_engine              # noqa: E402
 from core.contracts.strategy import Side                        # noqa: E402
 from core.data.instruments import get_spec                      # noqa: E402
 from core.data.source import load_bars                          # noqa: E402
-from strategies.s11_legacy_breakout.strategy import Strategy    # noqa: E402
+from strategies.S011_legacy_breakout.strategy import Strategy    # noqa: E402
 
 OFF = {"er_min": 0.00, "fr_max": 1.00}      # témoin sans filtre
 HIST = {"er_min": 0.11, "fr_max": 0.50}     # seuils historiques, choisis à l'œil

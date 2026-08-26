@@ -38,7 +38,7 @@ from core.backtest.anchored_wf import _grid                     # noqa: E402
 from core.backtest.engine import run as run_engine              # noqa: E402
 from core.data.instruments import get_spec                      # noqa: E402
 from core.data.source import load_bars                          # noqa: E402
-from strategies.s91_claude_scratch.strategy import (            # noqa: E402
+from strategies.S091_claude_scratch.strategy import (            # noqa: E402
     CONTROL_JPY, ELIGIBLE, Strategy,
 )
 

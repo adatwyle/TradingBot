@@ -33,7 +33,7 @@ from core.backtest.engine import run as run_engine          # noqa: E402
 from core.contracts.strategy import Side                    # noqa: E402
 from core.data.instruments import get_spec                  # noqa: E402
 from core.data.source import load_bars                      # noqa: E402
-from strategies.s10_legacy_meanrev.strategy import Strategy  # noqa: E402
+from strategies.S010_legacy_meanrev.strategy import Strategy  # noqa: E402
 
 
 def rule(c="=", n=104):

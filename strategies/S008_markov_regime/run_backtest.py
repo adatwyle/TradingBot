@@ -18,8 +18,8 @@ que les découpages restent comparables d'une stratégie à l'autre. Même lacun
 
 USAGE
 -----
-    python -m strategies.s08_markov_regime.run_backtest            # tout
-    python -m strategies.s08_markov_regime.run_backtest --quick    # sans WF ni HMM
+    python -m strategies.S008_markov_regime.run_backtest            # tout
+    python -m strategies.S008_markov_regime.run_backtest --quick    # sans WF ni HMM
 """
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ from core.backtest.allocation_engine import run_allocation
 from core.backtest.anchored_wf import WINDOWS
 from core.backtest.engine import InstrumentSpec
 from core.data.source import load_bars
-from strategies.s08_markov_regime.strategy import (
+from strategies.S008_markov_regime.strategy import (
     Strategy, is_short_symbol, short_symbol,
 )
 

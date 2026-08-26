@@ -7,7 +7,7 @@ jamais dans la même grille : « le range tient » et « le range cède » sont 
 hypothèses opposées, et les fondre reviendrait à laisser l'optimiseur choisir
 son camp cellule par cellule.
 
-    python -m strategies.s06_nil_pbd.backtests.run_wf
+    python -m strategies.S006_nil_pbd.backtests.run_wf
 """
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ if ROOT not in sys.path:
 from core.backtest.anchored_wf import run_walk_forward          # noqa: E402
 from core.data.instruments import get_spec                       # noqa: E402
 from core.data.source import load_bars                           # noqa: E402
-from strategies.s06_nil_pbd.strategy import Strategy             # noqa: E402
+from strategies.S006_nil_pbd.strategy import Strategy             # noqa: E402
 
 SYMBOLS = ["DAX", "WTIUSD"]
 

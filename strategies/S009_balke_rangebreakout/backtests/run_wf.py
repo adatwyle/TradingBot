@@ -25,7 +25,7 @@ from core.backtest.anchored_wf import run_walk_forward, attach_control_arm  # no
 from core.backtest.engine import InstrumentSpec                              # noqa: E402
 from core.data.instruments import get_spec                                   # noqa: E402
 from core.data.source import CACHE_DIR                                       # noqa: E402
-from strategies.s09_balke_rangebreakout.strategy import Strategy             # noqa: E402
+from strategies.S009_balke_rangebreakout.strategy import Strategy             # noqa: E402
 
 HERE = os.path.dirname(__file__)
 

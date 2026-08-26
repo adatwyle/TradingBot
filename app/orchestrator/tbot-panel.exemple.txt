@@ -65,6 +65,20 @@ cc_support_block = off  # tick 300s — garde : ticket bloquant ouvert
 gateway = off           # tick 30s — répondeur Telegram (lecture seule)
 notify = off            # tick 300s — notifications sortantes
 
+# ── Études scellées en vol (py pur — migrées du prototype, TCK-009) ─────────
+# Les 5 études tournent ENCORE dans la robinbot factory (journaux vivants dans
+# C:/db/tbot/<étude>/, prototype en exploitation). OFF ici tant que la bascule
+# n'a pas eu lieu : chaque étude s'allume UNIQUEMENT sur GO Adrian explicite,
+# APRÈS off-robinbot + déplacement du journal vers C:/db/tradingBot/<étude>/ +
+# verify-journal OK (séquence exacte : studies/CUTOVER.md). JAMAIS deux
+# factories sur le même journal — entrelacement = fausse alarme d'altération.
+# Coût : 0 token hors juge IA sur signal (macd_ai_paper, alexg_paper, s14).
+gold_forward = off      # tick 3600s — forward s11/XAUUSD H1 (ARMÉE au prototype)
+s13_forward = off       # tick 3600s — forward s13 AUDCAD D1 (ARMÉE au prototype)
+macd_ai_paper = off     # tick 3600s — essai à blanc s12+IA (VERDICT RENDU : ne pas armer l'IA)
+s14_sentiment = off     # tick 1800s — sentiment Finnhub + juges IA (verdict mi-octobre)
+alexg_paper = off       # tick 3600s — essai à blanc fxalexg+IA 26 paires (ARMÉE 22.08)
+
 # ── Famille paper_S0NN (PRÉVUE — aucun worker : aucune stratégie PAPER) ─────
 # Le registre strategies/*/manifest.yaml est affiché au démarrage de la
 # factory. Quand Adrian promeut une stratégie en PAPER (décision R10), son

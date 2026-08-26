@@ -472,6 +472,17 @@ WORKERS: list[tuple[str, pathlib.Path, str, int, str]] = [
     # tokens ne sont pas posés (TCK-004).
     ("gateway",   ROOT, "py:app/orchestrator/robinbot-gateway.py", 30, "tick"),
     ("notify",    ROOT, "py:app/orchestrator/robinbot-notify.py",  300, "tick"),
+    # Études scellées en vol, migrées du prototype (TCK-009/T10) : py pur,
+    # cadences IDENTIQUES à robinbot. Codes 0/2/3/4 contractuels (AUTO-OFF
+    # sur 3/4). OFF par défaut au panneau : chaque bascule d'étude = GO
+    # Adrian explicite après déplacement du journal (studies/CUTOVER.md) —
+    # JAMAIS deux factories sur le même journal (entrelacement = fausse
+    # alarme d'altération). État : C:/db/tradingBot/<étude>/ via core.paths.
+    ("gold_forward",  ROOT, "py:studies/gold_forward/run_forward.py",    3600, "tick"),
+    ("s13_forward",   ROOT, "py:studies/s13_forward/run_forward.py",     3600, "tick"),
+    ("macd_ai_paper", ROOT, "py:studies/macd_ai_paper/run_paper.py",     3600, "tick"),
+    ("s14_sentiment", ROOT, "py:studies/s14_sentiment/run_sentiment.py", 1800, "tick"),
+    ("alexg_paper",   ROOT, "py:studies/alexg_paper/run_paper.py",       3600, "tick"),
 ]
 
 # SEAM DE TEST (et uniquement ça) : un catalogue JSON injecté par

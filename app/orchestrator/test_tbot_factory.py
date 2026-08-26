@@ -180,7 +180,11 @@ def test_catalogue_reel_coherent(usine_reelle):
     noms = [w[0] for w in u.WORKERS]
     assert len(noms) == len(set(noms)), "noms de workers non uniques"
     attendus = {"gex_S017", "cc_S017", "cc_app_queue", "cc_spec_queue",
-                "cc_support_block", "gateway", "notify"}
+                "cc_support_block", "gateway", "notify",
+                # Études scellées migrées du prototype (TCK-009/T10) —
+                # cadences identiques à robinbot, off par défaut au panneau.
+                "gold_forward", "s13_forward", "macd_ai_paper",
+                "s14_sentiment", "alexg_paper"}
     assert attendus == set(noms)
     for name, cwd, spec, interval, kind in u.WORKERS:
         assert kind in ("tick", "service")

@@ -69,7 +69,8 @@ def test_db_dir_par_defaut_est_tradingbot_jamais_tbot(monkeypatch):
 
 def test_panel_par_defaut_dans_db_dir(monkeypatch):
     _sans_seams(monkeypatch)
-    assert paths.panel_file() == pathlib.Path(r"C:\db\tradingBot\robinbot-panel.txt")
+    # Construit comme le code (base / nom) : portable Windows ET runner Linux CI.
+    assert paths.panel_file() == pathlib.Path(r"C:\db\tradingBot") / "robinbot-panel.txt"
 
 
 # == LES SURCHARGES (le seam de testabilité) ===================================
@@ -137,7 +138,7 @@ def test_factory_notify_pilot_resolvent_le_meme_panneau(monkeypatch):
     notify = _charger("robinbot-notify")
     pilot = _charger("robinbot-pilot")
 
-    attendu = pathlib.Path(r"C:\db\tradingBot\robinbot-panel.txt")
+    attendu = pathlib.Path(r"C:\db\tradingBot") / "robinbot-panel.txt"
     assert factory.PANEL_FILE == attendu
     assert pathlib.Path(notify.panel_path()) == attendu
     assert pilot.PANEL_FILE == attendu

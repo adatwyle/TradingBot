@@ -27,3 +27,4 @@ ruff
 # des sources YouTube (transcripts, frames).
 # yt-dlp
 # imageio-ffmpeg
+pyyaml

@@ -1,0 +1,32 @@
+# Mandat cc-S017 — session headless lancée par la tbot factory (worker cc_S017)
+# ============================================================================
+# Fichier ÉDITABLE À CHAUD : la factory le relit à chaque lancement de session.
+# Adrian (via cc-support) ajuste ici le cap de la stratégie sans rien
+# redémarrer. La garde de la factory ne lance une session que s'il y a
+# matière (>= 3 nouveaux jours de snapshots GEX depuis le dernier passage).
+
+Mission du passage :
+
+1. Relance la mesure : `python research/phase_a.py` (recharge TOUS les jours
+   de snapshots présents dans C:/db/tradingBot/S017/ et réécrit
+   research/PHASE_A_LOG.md).
+2. Analyse le log produit : évolution de H1 (réaction aux niveaux majeurs vs
+   placebo), H2 (régime gamma pré-market vs comportement réalisé), setups A+.
+   Compare avec l'état du passage précédent (git porte l'historique).
+3. Poursuis les études et améliorations déclarées dans spec-strategie.md
+   (variantes de paramètres du manifest, falsifications déclarées d'avance,
+   études research/etude_*.md en cours). Amélioration d'abord : un verdict
+   négatif est une donnée d'entrée, pas un arrêt.
+4. Observe les erreurs de collecte (trous de jours dans C:/db/tradingBot/
+   S017/gex/, snapshots vides ou incomplets, warnings yfinance dans les logs)
+   et corrige ce qui relève de ton périmètre (research/ de TA stratégie).
+   Un problème hors périmètre (app/, wrapper de la factory) → ticket dans
+   tickets/ avec proposition de résolution.
+5. Mets à jour spec-strategie.md et manifest.yaml si tes mesures le
+   justifient (statut : promotion PAPER/LIVE = décision Adrian UNIQUEMENT).
+6. `git add` + `git commit` sur la branche dev de TES fichiers uniquement
+   (strategies/S017_ireland_gex/). Pas de push.
+
+Règles rappelées : cloisonnement total (jamais une autre stratégie, jamais
+app/), backtester commun obligatoire (R9 — pas de moteur parallèle), sources
+gratuites d'abord, données vivantes sous C:/db/tradingBot/S017/.

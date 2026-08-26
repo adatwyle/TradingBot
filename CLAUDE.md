@@ -42,4 +42,4 @@ Plateforme de trading algorithmique : héberge des stratégies indépendantes et
 
 - Spec bootstrap : `support/designs/SPEC_tradingbot-bootstrap_2026-08-25.md`
 - Corpus intentions Adrian : `support/input-adrian/` (9 chapitres — source de vérité fonctionnelle)
-- Plan de migration : phases E1-E7 (spec §10). État courant : E1 fait, E2 (migration socle G3 → `app/`) à dispatcher.
+- Plan de migration : phases E1-E7 (spec §10). État courant : E1-E5 faits + tbot factory + préparation bascule études (v1.1.0, CHANGELOG.md). Restent : E6 bascule (GO Adrian par étude, `studies/CUTOVER.md`), E7 lancement dev stratégies, broker (TCK-006), tokens Telegram (TCK-007).

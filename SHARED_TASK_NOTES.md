@@ -36,3 +36,9 @@ Plan : `support/designs/PLAN_apex-autonomous-e3-e5_2026-08-26-1740.md`. Une entr
 
 ## CI (T3) — VALIDÉE EN PRODUCTION — 2026-08-26 ~18:56 UTC+2
 - Après enregistrement du workflow sur la branche par défaut (bootstrap unique dev→main documenté) et fix assertions de chemins portables : run vert → main=83ce5e5 auto-publié + tag v1.0.0 auto-créé. Pipeline complet opérationnel.
+
+## Phase X — clôture — 2026-08-26
+- Revue finale cumul : GO-avec-correctifs, 12 findings → F1-F10 corrigés (commit 6e38e00, 524 tests), F11 acté (chat_id dans backup, repo privé), F12 noté. De-sloppify : 13 items (2841644).
+- Écarts assumés : alexg_paper mappée S093 (l'étude instancie S093, pas S001) ; suppressions run-factory.bat/demarrer-detache.ps1 embarquées dans le commit 2c1de60 d'une session concurrente.
+- Tickets ouverts vers Adrian : TCK-006 (broker/risque), TCK-007 (tokens Telegram — dossiers tbot-gateway/tbot-notify) ; vers cc-spec : TCK-008/011/012 (alignement specs). Bascules études : CUTOVER.md, GO Adrian par étude.
+- Release 1.1.0 : CHANGELOG.md créé, VERSION bumpé.

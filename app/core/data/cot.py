@@ -76,7 +76,9 @@ RESOURCES = {
     "tff": "gpe5-46if",
 }
 
-DB_DIR = pathlib.Path(os.environ.get("TBOT_DB_DIR") or r"C:\db\tbot")
+from core.paths import db_dir as _db_dir  # noqa: E402
+
+DB_DIR = _db_dir()
 COT_DIR = pathlib.Path(os.environ.get("TBOT_COT_DIR") or (DB_DIR / "datasets" / "cot"))
 
 HTTP_TIMEOUT = 60

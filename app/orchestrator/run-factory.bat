@@ -5,6 +5,7 @@ rem (règle d'or). Le `pause` final garde la fenêtre ouverte après une sortie
 rem pour qu'un incident (verrou, .stop, crash) reste lisible.
 title RobinBot factory
 chcp 65001 >nul
-cd /d "%~dp0.."
-python orchestrator\robinbot-factory.py %*
+rem La racine PROJET est deux niveaux au-dessus (app\orchestrator\ -> racine).
+cd /d "%~dp0..\.."
+python app\orchestrator\robinbot-factory.py %*
 pause

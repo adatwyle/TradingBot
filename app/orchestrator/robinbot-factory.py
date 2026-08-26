@@ -21,7 +21,7 @@ et l'oublie. Le processus lit l'état sur disque, produit, écrit, sort. Un work
 
 L'ÉTAT VIT DANS LES FICHIERS, JAMAIS DANS UN PROCESSUS
 -------------------------------------------------------
-Ici l'état, ce sont les journaux scellés `C:/db/tbot/<étude>/journal.csv` et
+Ici l'état, ce sont les journaux scellés `C:/db/tradingBot/<étude>/journal.csv` et
 `status.json` — append-only, chaînés par hachage. Conséquence directe : un tick
 tué (timeout, Ctrl-C, coupure de courant) laisse l'état exactement où il est, et
 le tick suivant reprend. C'est ce qui autorise la factory à être brutale avec un
@@ -30,10 +30,9 @@ tick bloqué : elle ne peut rien corrompre qui ne soit déjà protégé en amont
 CHAUD vs FROID — CE QUI SE CHANGE SANS REDÉMARRER
 --------------------------------------------------
   À CHAUD (relu à CHAQUE cycle, effet au tick suivant, aucun redémarrage) :
-      le PANNEAU DE CONTRÔLE `C:\db	bot
-obinbot-panel.txt`
+      le PANNEAU DE CONTRÔLE `C:/db/tradingBot/robinbot-panel.txt`
       (HORS du dépôt : un panneau = un poste. Gabarit versionné :
-       `orchestrator/robinbot-panel.exemple.txt`)
+       `app/orchestrator/robinbot-panel.exemple.txt`)
         · `worker = on` / `worker = off`
         · cadence par worker : `worker = on:1800` (secondes)
 
@@ -69,12 +68,12 @@ dans le panneau et crie, pour qu'un humain vienne LIRE avant de rallumer.
 
 USAGE
 -----
-    python orchestrator/robinbot-factory.py            # la console
-    python orchestrator/robinbot-factory.py --once     # un seul cycle (sonde)
-    python orchestrator/robinbot-factory.py --dry-run  # n'exécute rien, montre
-    ou double-clic sur orchestrator/run-factory.bat
+    python app/orchestrator/robinbot-factory.py            # la console
+    python app/orchestrator/robinbot-factory.py --once     # un seul cycle (sonde)
+    python app/orchestrator/robinbot-factory.py --dry-run  # n'exécute rien, montre
+    ou double-clic sur app/orchestrator/run-factory.bat
 
-Arrêt : Ctrl-C, ou créer le fichier `orchestrator/.stop`. Les deux sont PROPRES —
+Arrêt : Ctrl-C, ou créer le fichier `app/orchestrator/.stop`. Les deux sont PROPRES —
 on cesse de lancer, on laisse finir ce qui vole, puis on sort.
 
 QUI DOIT LANCER CETTE CONSOLE — et surtout, qui ne doit PAS
@@ -114,8 +113,14 @@ except Exception:  # noqa: BLE001
 # Tout est surchargeable par l'environnement RBF_* : c'est ce qui rend ce
 # fichier testable (les tests montent une usine jetable dans un tmp_path) sans
 # la moindre branche « if TEST » dans le code de production.
-HERE = pathlib.Path(__file__).resolve().parent
-ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or HERE.parent)
+HERE = pathlib.Path(__file__).resolve().parent           # app/orchestrator
+# `core` vit dans app/ ; ce script est lancé en direct (pas en module), on rend
+# donc app/ importable AVANT l'import de core.paths — la résolution de racine
+# unique du dépôt (code dans app/, strategies/ et studies/ à la racine projet).
+sys.path.insert(0, str(HERE.parent))
+from core.paths import panel_file, project_root  # noqa: E402
+
+ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or project_root())
 
 # LE PANNEAU VIT HORS DU DÉPÔT — un panneau, un poste.
 #
@@ -128,10 +133,12 @@ ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or HERE.parent)
 #
 # Le dépôt garde un GABARIT versionné ; la factory en tire le panneau réel au
 # premier démarrage sur une machine neuve.
-PANEL_FILE = pathlib.Path(
-    os.environ.get("RBF_PANEL")
-    or (pathlib.Path(os.environ.get("TBOT_DB_DIR") or r"C:\db\tbot")
-        / "robinbot-panel.txt"))
+#
+# La résolution vit dans core/paths.py (panel_file) : factory, notify et pilot
+# doivent résoudre LE MÊME fichier par défaut. Le prototype divergeait ici
+# (factory écrivait dans <db>, notify/pilot lisaient à côté du script) — défaut
+# documenté, corrigé par la centralisation.
+PANEL_FILE = panel_file()
 PANEL_TEMPLATE = HERE / "robinbot-panel.exemple.txt"
 LOG_DIR    = pathlib.Path(os.environ.get("RBF_LOG_DIR") or (HERE / "logs"))
 FACTORY_LOG = LOG_DIR / "factory.log"
@@ -194,6 +201,12 @@ PYTHON = sys.executable or "python"
 # compris les études D1 : un passage horaire sur une bougie quotidienne ne fait
 # rien 23 fois sur 24, et fait le travail dès que la bougie est là — sans
 # dépendre d'une heure de rendez-vous que MT5 pourrait manquer.
+# NOTE MIGRATION (E2) : les workers d'études référencent `studies/*/run_*.py`
+# à la RACINE PROJET — les études scellées ne sont PAS encore migrées (elles
+# tournent dans le prototype jusqu'à E6). Les workers restent DÉCLARABLES mais
+# INERTES : le gabarit du panneau les livre `off`, et le panneau fail-closed
+# couvre le reste (absent = OFF). Les rallumer sans les fichiers d'études ne
+# produit qu'un tick en sortie 2 (ressource indisponible), jamais un incident.
 WORKERS: list[tuple[str, pathlib.Path, str, int, str]] = [
     ("gold_forward",  ROOT, "py:studies/gold_forward/run_forward.py", 3600, "tick"),
     ("s13_forward",   ROOT, "py:studies/s13_forward/run_forward.py",  3600, "tick"),
@@ -213,20 +226,20 @@ WORKERS: list[tuple[str, pathlib.Path, str, int, str]] = [
     # Porte ENTRANTE : chaque message Telegram d'Adrian déclenche une session
     # Claude headless en lecture seule. 60 s = le délai de réponse ressenti
     # depuis un téléphone ; le tick ne coûte rien quand la boîte est vide.
-    ("gateway",       ROOT, "py:orchestrator/robinbot-gateway.py", 30, "tick"),
+    ("gateway",       ROOT, "py:app/orchestrator/robinbot-gateway.py", 30, "tick"),
     # Le pilote regarde chaque heure mais ne PARLE qu'une fois par jour, et
     # seulement s'il s'est passé quelque chose : la veille est en Python pur,
     # la session Claude n'est appelée qu'une fois la matière constatée.
-    ("pilot",         ROOT, "py:orchestrator/robinbot-pilot.py", 3600, "tick"),
+    ("pilot",         ROOT, "py:app/orchestrator/robinbot-pilot.py", 3600, "tick"),
     # Le PORTIER trie les idees neuves avant qu'elles ne deviennent des
     # etudes : deja testee ? assez de donnees ? quel effectif ? Il annote,
     # Adrian tranche. ENTREE vide = no-op gratuit, le cas normal.
-    ("portier",       ROOT, "py:orchestrator/robinbot-portier.py", 3600, "tick"),
+    ("portier",       ROOT, "py:app/orchestrator/robinbot-portier.py", 3600, "tick"),
     # Le MESUREUR fait avancer UN mandat et s'arrete a toute porte qui
     # demande une decision. Pas de mandat = il dort et ne coute rien.
-    ("mesureur",      ROOT, "py:orchestrator/robinbot-mesureur.py", 7200, "tick"),
-    ("notify",        ROOT, "py:orchestrator/robinbot-notify.py",      300, "tick"),
-    ("supervision",   ROOT, "py:server/app.py",  SERVICE_RESTART_BACKOFF_SEC, "service"),
+    ("mesureur",      ROOT, "py:app/orchestrator/robinbot-mesureur.py", 7200, "tick"),
+    ("notify",        ROOT, "py:app/orchestrator/robinbot-notify.py",      300, "tick"),
+    ("supervision",   ROOT, "py:app/server/app.py",  SERVICE_RESTART_BACKOFF_SEC, "service"),
 ]
 
 # SEAM DE TEST (et uniquement ça) : un catalogue JSON injecté par l'environnement
@@ -364,7 +377,7 @@ PANEL_HEADER = """\
 # éteint — un panneau à moitié écrit doit taire l'usine, jamais l'ouvrir.
 #
 # En revanche AJOUTER ou RETIRER un worker se fait dans le CATALOGUE
-# (orchestrator/robinbot-factory.py, section WORKERS) et exige un redémarrage.
+# (app/orchestrator/robinbot-factory.py, section WORKERS) et exige un redémarrage.
 # ═══════════════════════════════════════════════════════════════════════════
 """
 

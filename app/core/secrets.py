@@ -8,7 +8,8 @@ n'a rien à faire dans le dossier de données d'une étude scellée.
 
 POURQUOI CE MODULE EXISTE (l'erreur qu'il corrige)
 ---------------------------------------------------
-La clé Finnhub avait d'abord été logée dans `C:\\db\\tbot\\s14_sentiment\\`.
+La clé Finnhub avait d'abord été logée dans `C:\\db\\tbot\\s14_sentiment\\`
+(chemin historique du prototype G3, conservé ici comme trace de la leçon).
 Trois conséquences, toutes mauvaises :
   · une deuxième étude consommant Finnhub aurait exigé une COPIE de la clé,
     donc deux endroits à mettre à jour le jour où elle tourne ;
@@ -18,12 +19,13 @@ Trois conséquences, toutes mauvaises :
 
 ORDRE DE RECHERCHE, ET POURQUOI CELUI-LÀ
 -----------------------------------------
-  1. variable d'environnement `<NOM>_API_KEY`  — override ponctuel, tests, CI
-  2. `C:\\db\\tbot\\secrets\\<nom>_key.txt`     — L'EMPLACEMENT CANONIQUE
-  3. chemins hérités passés par l'appelant     — compatibilité
+  1. variable d'environnement `<NOM>_API_KEY`      — override ponctuel, tests, CI
+  2. `C:\\db\\tradingBot\\secrets\\<nom>_key.txt`   — L'EMPLACEMENT CANONIQUE
+  3. chemins hérités passés par l'appelant         — compatibilité
 
 Le point 3 existe pour une raison précise : le protocole SCELLÉ de s14 nomme
-`C:\\db\\tbot\\s14_sentiment\\finnhub_key.txt`. Un document scellé ne doit pas
+`C:\\db\\tbot\\s14_sentiment\\finnhub_key.txt` (prototype G3, encore en vol).
+Un document scellé ne doit pas
 devenir un mensonge — on ÉTEND donc la recherche, on ne la remplace pas. Ce
 qui y était déposé continue de fonctionner.
 
@@ -44,9 +46,12 @@ from __future__ import annotations
 import os
 import pathlib
 
+from core.paths import db_dir as _db_dir  # noqa: E402
+
 # Racine des données du projet (convention : le code ne contient jamais de
-# données). Surchargeable pour les tests.
-DB_DIR = pathlib.Path(os.environ.get("TBOT_DB_DIR") or r"C:\db\tbot")
+# données). Résolution unique dans core/paths.py, surchargeable pour les tests
+# (TBOT_DB_DIR / TBOT_SECRETS_DIR).
+DB_DIR = _db_dir()
 SECRETS_DIR = pathlib.Path(os.environ.get("TBOT_SECRETS_DIR")
                            or (DB_DIR / "secrets"))
 

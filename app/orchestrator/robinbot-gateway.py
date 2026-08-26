@@ -48,8 +48,8 @@ Jamais 3/4 : ce worker ne touche à aucun scellé.
 
 USAGE
 -----
-    python orchestrator/robinbot-gateway.py            # un passage
-    python orchestrator/robinbot-gateway.py --dry-run  # montre, n'appelle rien
+    python app/orchestrator/robinbot-gateway.py            # un passage
+    python app/orchestrator/robinbot-gateway.py --dry-run  # montre, n'appelle rien
 """
 from __future__ import annotations
 
@@ -71,11 +71,14 @@ try:
 except Exception:  # noqa: BLE001
     pass
 
-ROOT = pathlib.Path(os.environ.get("RBF_ROOT")
-                    or pathlib.Path(__file__).resolve().parent.parent)
+# `core` vit dans app/ ; script lancé en direct -> app/ importable d'abord.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+from core.paths import db_dir, project_root  # noqa: E402
+
+ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or project_root())
 
 GATEWAY_DIR = pathlib.Path(os.environ.get("ROBINBOT_GATEWAY_DIR")
-                           or r"C:\db\tbot\gateway")
+                           or (db_dir() / "gateway"))
 STATE_FILE = GATEWAY_DIR / "state.json"
 CONFIG_FILE = GATEWAY_DIR / "config.json"
 # Le token du bot DÉDIÉ. Fichier hors dépôt (C:\db\), jamais commité.
@@ -95,12 +98,12 @@ TELEGRAM_LIMIT = 4000          # 4096 réel, marge pour les entêtes
 
 CONSIGNE = (
     "Tu réponds à Adrian par Telegram, depuis le dépôt RobinBot "
-    "(TradingBot_9.0.0.x). Réponds en français, court et factuel : un écran de "
+    "(TradingBot). Réponds en français, court et factuel : un écran de "
     "téléphone, pas un rapport. Tu es en LECTURE SEULE — tu ne peux ni écrire, "
     "ni lancer un runner, ni passer un ordre ; si on te le demande, dis "
     "simplement ce qu'il faudrait faire et qui doit le faire. Les chiffres "
-    "viennent des fichiers (journaux C:/db/tbot/, status.json, TODO.md, "
-    "orchestrator/logs/factory.log), jamais de mémoire. Pour un état de "
+    "viennent des fichiers (journaux C:/db/tradingBot/, status.json, TODO.md, "
+    "app/orchestrator/logs/factory.log), jamais de mémoire. Pour un état de "
     "situation, suis .claude/skills/robinbot-etat/SKILL.md."
 )
 

@@ -235,9 +235,21 @@ def test_session_headless_est_en_lecture_seule():
 
 # == LE MENU DES COMMANDES =====================================================
 
-def test_menu_decouvre_les_skills_du_projet():
+def test_menu_decouvre_les_skills_du_projet(tmp_path, monkeypatch):
     """Les skills du PROJET, pas les skills globales d'Adrian : ce bot répond
-    de RobinBot, pas de tout son écosystème."""
+    de RobinBot, pas de tout son écosystème.
+
+    ADAPTATION E2 : les skills du prototype ne sont PAS migrées (elles arrivent
+    en E5 avec le nouveau canal Telegram). On éprouve donc la MÉCANIQUE de
+    découverte sur une skill jetable — même frontmatter, même contrat — au lieu
+    du contenu du dépôt."""
+    d = tmp_path / "skills" / "robinbot-etat"
+    d.mkdir(parents=True)
+    (d / "SKILL.md").write_text(
+        "---\nname: robinbot-etat\ndescription: >\n  Etat de l'usine. "
+        "Suite ignorée par le menu.\n---\ncorps\n", encoding="utf-8")
+    monkeypatch.setattr(mod, "SKILLS_DIR", tmp_path / "skills")
+
     cmds = mod.decouvrir_commandes()
     assert cmds, "aucune skill projet découverte"
     noms = {c["command"] for c in cmds}
@@ -247,6 +259,13 @@ def test_menu_decouvre_les_skills_du_projet():
         assert all(ch.isalnum() or ch == "_" for ch in c["command"])
         assert 1 <= len(c["command"]) <= 32     # contraintes Telegram
         assert 0 < len(c["description"]) <= 256
+
+
+def test_menu_vide_sans_dossier_skills(monkeypatch, tmp_path):
+    """État réel du dépôt jusqu'à E5 : pas de .claude/skills — le menu est
+    vide, sans erreur (mieux vaut un menu vide qu'un crash du répondeur)."""
+    monkeypatch.setattr(mod, "SKILLS_DIR", tmp_path / "inexistant")
+    assert mod.decouvrir_commandes() == []
 
 
 def test_prefixe_robinbot_retire():

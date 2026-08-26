@@ -1,3 +1,8 @@
+> **Document de reference G3 (migre tel quel en E2).** Les chemins quil
+> cite refletent le layout du PROTOTYPE (code a la racine, etat dans
+> C:\db\tbot\). Dans ce depot : le code vit dans app/, letat dans
+> C:\db\tradingBot\ (resolution : app/core/paths.py).
+
 # RobinBot — Architecture
 
 **Version** 2.0 — 2026-08-16

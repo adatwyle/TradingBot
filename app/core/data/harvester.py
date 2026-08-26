@@ -37,7 +37,7 @@ Désormais : un dataset figé et daté pour la recherche, un rafraîchissement
 
 STOCKAGE
 --------
-    C:\\db\\tbot\\datasets\\<SYMBOLE>\\<TF>\\<AAAA-MM>.parquet
+    C:\\db\\tradingBot\\datasets\\<SYMBOLE>\\<TF>\\<AAAA-MM>.parquet
 
 Parquet : compressé, typé, relu instantanément. Ordre de grandeur — M5 sur
 20 instruments et 5 ans ≈ 600 Mo. Seul le tick justifierait un disque dédié.
@@ -62,8 +62,9 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 from core.data.source import broker_symbol  # noqa: E402
+from core.paths import db_dir as _db_dir    # noqa: E402
 
-DATASETS = os.path.join(os.environ.get("TBOT_DB_DIR", r"C:\db\tbot"), "datasets")
+DATASETS = os.path.join(str(_db_dir()), "datasets")
 
 # Une tranche est considérée vide si elle contient moins que ça. MT5 renvoie
 # parfois 1 barre isolée au lieu d'un tableau vide quand l'historique manque.

@@ -58,8 +58,8 @@ Jamais 3/4 : ces deux codes appartiennent aux runners scellés.
 
 USAGE
 -----
-    python orchestrator/robinbot-portier.py             # un passage
-    python orchestrator/robinbot-portier.py --dry-run   # montre, n'appelle rien
+    python app/orchestrator/robinbot-portier.py             # un passage
+    python app/orchestrator/robinbot-portier.py --dry-run   # montre, n'appelle rien
 """
 from __future__ import annotations
 
@@ -80,12 +80,15 @@ try:
 except Exception:  # noqa: BLE001
     pass
 
-ROOT = pathlib.Path(os.environ.get("RBF_ROOT")
-                    or pathlib.Path(__file__).resolve().parent.parent)
+# `core` vit dans app/ ; script lancé en direct -> app/ importable d'abord.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+from core.paths import db_dir, project_root  # noqa: E402
+
+ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or project_root())
 FILE_ETUDES = pathlib.Path(os.environ.get("ROBINBOT_FILE_ETUDES")
                            or (ROOT / "FILE_ETUDES.md"))
 PORTIER_DIR = pathlib.Path(os.environ.get("ROBINBOT_PORTIER_DIR")
-                           or r"C:\db\tbot\portier")
+                           or (db_dir() / "portier"))
 STATE_FILE = PORTIER_DIR / "state.json"
 
 SKILL = "robinbot-portier"
@@ -98,7 +101,7 @@ LIMITE_ENCOURS = int(os.environ.get("ROBINBOT_LIMITE_ENCOURS") or 2)
 
 CONSIGNE = (
     "Tu es le portier de la file des études de RobinBot (dépôt "
-    "TradingBot_9.0.0.x). Tu annotes les idées brutes de la section ENTRÉE de "
+    "TradingBot). Tu annotes les idées brutes de la section ENTRÉE de "
     "FILE_ETUDES.md, et tu n'écris nulle part ailleurs. Pour chaque idée : "
     "a-t-elle déjà été instruite (cite le fichier exact et le verdict), la "
     "donnée peut-elle répondre (source, fréquence, profondeur mesurée sur le "

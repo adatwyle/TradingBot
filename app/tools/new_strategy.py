@@ -11,9 +11,17 @@ stratégie vide ne puisse jamais être confondue avec une stratégie neutre).
 import argparse
 import os
 import re
+import sys
 from datetime import date
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+APP_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # app/
+# `core` vit dans app/ ; script lancé en direct -> app/ importable d'abord.
+sys.path.insert(0, APP_DIR)
+from core.paths import project_root  # noqa: E402
+
+# Les stratégies vivent à la RACINE PROJET, pas dans app/ (résolution unique
+# core/paths.py, seam TBOT_PROJECT_ROOT).
+ROOT = str(project_root())
 TEMPLATE = os.path.join(ROOT, "strategies", "_TEMPLATE", "CLAUDE.md")
 
 

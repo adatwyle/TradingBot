@@ -51,8 +51,8 @@ Jamais 3/4 : ces deux codes appartiennent aux runners scellés.
 
 USAGE
 -----
-    python orchestrator/robinbot-mesureur.py             # un passage
-    python orchestrator/robinbot-mesureur.py --dry-run   # montre, n'appelle rien
+    python app/orchestrator/robinbot-mesureur.py             # un passage
+    python app/orchestrator/robinbot-mesureur.py --dry-run   # montre, n'appelle rien
 """
 from __future__ import annotations
 
@@ -72,14 +72,20 @@ try:
 except Exception:  # noqa: BLE001
     pass
 
-ROOT = pathlib.Path(os.environ.get("RBF_ROOT")
-                    or pathlib.Path(__file__).resolve().parent.parent)
+# `core` vit dans app/ ; script lancé en direct -> app/ importable d'abord.
+_HERE = pathlib.Path(__file__).resolve().parent           # app/orchestrator
+sys.path.insert(0, str(_HERE.parent))
+from core.paths import db_dir, project_root  # noqa: E402
+
+ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or project_root())
+# Le mandat et le rapport vivent À CÔTÉ du script (app/orchestrator/) : ce sont
+# des fichiers de travail versionnés, pas de l'état vivant.
 MANDAT_FILE = pathlib.Path(os.environ.get("ROBINBOT_MESUREUR_MANDAT")
-                           or (ROOT / "orchestrator" / "mesureur-mandat.txt"))
+                           or (_HERE / "mesureur-mandat.txt"))
 RAPPORT_FILE = pathlib.Path(os.environ.get("ROBINBOT_MESUREUR_RAPPORT")
-                            or (ROOT / "orchestrator" / "mesureur-rapport.md"))
+                            or (_HERE / "mesureur-rapport.md"))
 MESUREUR_DIR = pathlib.Path(os.environ.get("ROBINBOT_MESUREUR_DIR")
-                            or r"C:\db\tbot\mesureur")
+                            or (db_dir() / "mesureur"))
 STATE_FILE = MESUREUR_DIR / "state.json"
 
 SKILL = "robinbot-mesureur"
@@ -92,8 +98,8 @@ CLAUDE_TIMEOUT_S = int(os.environ.get("ROBINBOT_MESUREUR_TIMEOUT") or 900)
 CLAUDE_MAX_TURNS = int(os.environ.get("ROBINBOT_MESUREUR_MAX_TURNS") or 120)
 
 CONSIGNE = (
-    "Tu es le mesureur de RobinBot (dépôt TradingBot_9.0.0.x). Tu fais avancer "
-    "UN seul mandat, celui d'orchestrator/mesureur-mandat.txt, et seulement si "
+    "Tu es le mesureur de RobinBot (dépôt TradingBot). Tu fais avancer "
+    "UN seul mandat, celui d'app/orchestrator/mesureur-mandat.txt, et seulement si "
     "son objet est EN COURS dans FILE_ETUDES.md. Tu fais UN pas mécanique, "
     "complet et testé — pas dix entamés — puis tu rends la main. Tu prépares et "
     "tu rends compte, tu ne décides pas : sceller, armer, promouvoir, trancher "
@@ -105,7 +111,7 @@ CONSIGNE = (
     "panneau, tu ne passes aucun ordre. pytest doit être vert avant que tu "
     "rendes la main. Respecte core/contracts/STRATEGY_RULES.md (R1 causalité, "
     "R3 stop obligatoire, R5 même code backtest et live, R9 backtester commun). "
-    "Écris ton rapport dans orchestrator/mesureur-rapport.md au format imposé "
+    "Écris ton rapport dans app/orchestrator/mesureur-rapport.md au format imposé "
     "par la skill. Français sobre, aucun enthousiasme : un chiffre sans son "
     "effectif ne veut rien dire."
 )

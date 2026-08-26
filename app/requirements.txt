@@ -1,0 +1,27 @@
+# requirements.txt — app/ (socle commun TradingBot)
+# Déduit des imports du socle G3 migré (E2). Le prototype n'en avait pas.
+# Python 3.11+.
+
+# ── Cœur (backtest, data, validation, risk) ─────────────────────────────────
+numpy
+pandas
+pyarrow            # moteur parquet de pandas (datasets, COT)
+
+# ── Broker / données de marché ──────────────────────────────────────────────
+# Import paresseux dans core/data/source.py et harvester.py : le reste du
+# socle (tests inclus) fonctionne sans terminal MT5 installé.
+MetaTrader5
+
+# ── Orchestrateur et serveur de supervision ─────────────────────────────────
+flask              # server/app.py (service « supervision »)
+requests           # workers Telegram (notify, gateway, pilot) + COT Socrata
+
+# ── Développement / qualité ─────────────────────────────────────────────────
+pytest
+ruff
+
+# ── Optionnel : outils d'ingestion vidéo (tools/video_*.py uniquement) ──────
+# Lourds et hors du chemin des tests — installer seulement si on dépouille
+# des sources YouTube (transcripts, frames).
+# yt-dlp
+# imageio-ffmpeg

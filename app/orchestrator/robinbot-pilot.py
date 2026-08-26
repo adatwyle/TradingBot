@@ -41,9 +41,9 @@ Jamais 3/4 : aucun scellé n'est touché.
 
 USAGE
 -----
-    python orchestrator/robinbot-pilot.py             # un passage
-    python orchestrator/robinbot-pilot.py --force     # parle même sans événement
-    python orchestrator/robinbot-pilot.py --dry-run   # montre, n'appelle rien
+    python app/orchestrator/robinbot-pilot.py             # un passage
+    python app/orchestrator/robinbot-pilot.py --force     # parle même sans événement
+    python app/orchestrator/robinbot-pilot.py --dry-run   # montre, n'appelle rien
 """
 from __future__ import annotations
 
@@ -65,26 +65,30 @@ try:
 except Exception:  # noqa: BLE001
     pass
 
-ROOT = pathlib.Path(os.environ.get("RBF_ROOT")
-                    or pathlib.Path(__file__).resolve().parent.parent)
+# `core` vit dans app/ ; script lancé en direct -> app/ importable d'abord.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+from core.paths import db_dir, panel_file, project_root  # noqa: E402
+
+ROOT = pathlib.Path(os.environ.get("RBF_ROOT") or project_root())
 PILOT_DIR = pathlib.Path(os.environ.get("ROBINBOT_PILOT_DIR")
-                         or r"C:\db\tbot\pilot")
+                         or (db_dir() / "pilot"))
 STATE_FILE = PILOT_DIR / "state.json"
 # Le pilote emprunte le canal du notifier : même destinataire, même bot.
 NOTIFY_DIR = pathlib.Path(os.environ.get("ROBINBOT_NOTIFY_DIR")
-                          or r"C:\db\tbot\notifier")
+                          or (db_dir() / "notifier"))
 TELEGRAM_ENV = pathlib.Path(os.environ.get("ROBINBOT_TELEGRAM_ENV")
                             or (pathlib.Path.home() / ".claude" / "channels"
                                 / "telegram" / ".env"))
-PANEL_FILE = pathlib.Path(os.environ.get("RBF_PANEL")
-                          or (pathlib.Path(__file__).resolve().parent
-                              / "robinbot-panel.txt"))
+# Même résolution que la factory (core.paths.panel_file) : le pilote lit la
+# surface de contrôle que la factory écrit. Le prototype divergeait ici
+# (lecture à côté du script) — défaut corrigé par la centralisation.
+PANEL_FILE = panel_file()
 
 ETUDES = [
-    ("gold_forward", os.environ.get("GOLD_FORWARD_DIR", r"C:\db\tbot\gold_forward")),
-    ("s13_forward", os.environ.get("S13_FORWARD_DIR", r"C:\db\tbot\s13_forward")),
-    ("macd_ai_paper", os.environ.get("MACD_AI_PAPER_DIR", r"C:\db\tbot\macd_ai_paper")),
-    ("s14_sentiment", os.environ.get("S14_SENTIMENT_DIR", r"C:\db\tbot\s14_sentiment")),
+    ("gold_forward", os.environ.get("GOLD_FORWARD_DIR") or str(db_dir() / "gold_forward")),
+    ("s13_forward", os.environ.get("S13_FORWARD_DIR") or str(db_dir() / "s13_forward")),
+    ("macd_ai_paper", os.environ.get("MACD_AI_PAPER_DIR") or str(db_dir() / "macd_ai_paper")),
+    ("s14_sentiment", os.environ.get("S14_SENTIMENT_DIR") or str(db_dir() / "s14_sentiment")),
 ]
 
 API = "https://api.telegram.org/bot{token}/sendMessage"
@@ -100,9 +104,10 @@ PALIERS_VERDICTS = (10, 50, 100, 150, 300, 600)
 
 CONSIGNE = (
     "Tu es le pilote de RobinBot, l'usine de forward-tests scellés du dépôt "
-    "TradingBot_9.0.0.x. Tu écris à Adrian par Telegram, une fois par jour au "
+    "TradingBot. Tu écris à Adrian par Telegram, une fois par jour au "
     "plus. Lis l'état réel dans les fichiers (journaux et status.json sous "
-    "C:/db/tbot/, orchestrator/logs/factory.log, TODO.md, les PROTOCOL.md des "
+    "C:/db/tradingBot/, app/orchestrator/logs/factory.log, TODO.md, les "
+    "PROTOCOL.md des "
     "études) et rends une LECTURE, pas un tableau : ce qui a changé, ce que "
     "ça vaut, ce qui mérite son attention. Sois bref (10 lignes maximum, "
     "phrases complètes, pas de markdown lourd — c'est un écran de téléphone). "

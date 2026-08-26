@@ -4,7 +4,7 @@
 # Le PANNEAU en fait partie depuis le 2026-08-21 : un panneau = un poste.
 # Versionne, deux machines se disputeraient la meme surface de controle et
 # un AUTO-OFF d'incident deviendrait un conflit de merge. Le depot garde le
-# gabarit `robinbot-panel.exemple.txt` ; le panneau reel vit dans C:\db	bot\.
+# gabarit `robinbot-panel.exemple.txt` ; le panneau reel vit dans C:\db\tradingBot\.
 logs/
 .robinbot-factory.lock
 .stop

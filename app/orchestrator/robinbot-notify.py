@@ -3,10 +3,10 @@
 robinbot-notify.py — LE NOTIFIER TELEGRAM DE LA FACTORY
 ========================================================
 
-Worker « tick » de la factory (orchestrator/robinbot-factory.py) : lit les
+Worker « tick » de la factory (app/orchestrator/robinbot-factory.py) : lit les
 journaux des études forward, détecte les nouveautés, pousse UN message
-Telegram par passage. LECTURE SEULE stricte sur C:/db/tbot/<étude>/ — ce
-worker n'écrit QUE dans son propre dossier C:/db/tbot/notifier/.
+Telegram par passage. LECTURE SEULE stricte sur C:/db/tradingBot/<étude>/ — ce
+worker n'écrit QUE dans son propre dossier C:/db/tradingBot/notifier/.
 
 POURQUOI un watcher séparé plutôt qu'une notification dans les runners : les
 runners sont SCELLÉS (hash des paramètres, journaux chaînés). Y greffer un
@@ -54,7 +54,7 @@ CODES DE SORTIE (contrat de la factory)
 
 USAGE
 -----
-    python orchestrator/robinbot-notify.py
+    python app/orchestrator/robinbot-notify.py
 """
 from __future__ import annotations
 
@@ -74,18 +74,22 @@ try:
 except Exception:  # noqa: BLE001
     pass
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.dirname(os.path.abspath(__file__))        # app/orchestrator
+# `core` vit dans app/ ; script lancé en direct -> app/ importable d'abord.
+sys.path.insert(0, os.path.dirname(HERE))
+from core import paths as _paths  # noqa: E402
 
 
 # == SOURCES (une ligne par étude — extensible) ================================
-# (nom, variable d'environnement, dossier par défaut). La variable d'env est
-# celle des études elles-mêmes (motif Paths/default_data_dir) : les tests
-# montent des études jetables dans un tmp_path sans toucher au code.
-ETUDES: list[tuple[str, str, str]] = [
-    ("gold_forward",  "GOLD_FORWARD_DIR",  r"C:\db\tbot\gold_forward"),
-    ("s13_forward",   "S13_FORWARD_DIR",   r"C:\db\tbot\s13_forward"),
-    ("macd_ai_paper", "MACD_AI_PAPER_DIR", r"C:\db\tbot\macd_ai_paper"),
-    ("s14_sentiment", "S14_SENTIMENT_DIR", r"C:\db\tbot\s14_sentiment"),
+# (nom, variable d'environnement). Le dossier par défaut est <db>/<nom>, résolu
+# à l'appel via core.paths.db_dir(). La variable d'env est celle des études
+# elles-mêmes (motif Paths/default_data_dir) : les tests montent des études
+# jetables dans un tmp_path sans toucher au code.
+ETUDES: list[tuple[str, str]] = [
+    ("gold_forward",  "GOLD_FORWARD_DIR"),
+    ("s13_forward",   "S13_FORWARD_DIR"),
+    ("macd_ai_paper", "MACD_AI_PAPER_DIR"),
+    ("s14_sentiment", "S14_SENTIMENT_DIR"),
 ]
 
 # gold_forward ne journalise pas de colonne symbol : l'instrument est unique.
@@ -98,17 +102,20 @@ FRIDAY = 4                       # weekday() Python — section « Semaine »
 
 # == RÉSOLUTION DES CHEMINS (à l'appel, pas à l'import — testable) =============
 def notify_dir() -> str:
-    return os.environ.get("ROBINBOT_NOTIFY_DIR", r"C:\db\tbot\notifier")
+    return os.environ.get("ROBINBOT_NOTIFY_DIR") or str(_paths.db_dir() / "notifier")
 
 
 def etude_dirs() -> list[tuple[str, str]]:
-    return [(name, os.environ.get(env, default)) for name, env, default in ETUDES]
+    return [(name, os.environ.get(env) or str(_paths.db_dir() / name))
+            for name, env in ETUDES]
 
 
 def panel_path() -> str:
-    # Même variable que la factory (RBF_PANEL) : le notifier lit la même
-    # surface de contrôle que celle que la factory écrit sur incident.
-    return os.environ.get("RBF_PANEL", os.path.join(HERE, "robinbot-panel.txt"))
+    # Même résolution que la factory (core.paths.panel_file, RBF_PANEL en
+    # tête) : le notifier lit la même surface de contrôle que celle que la
+    # factory écrit sur incident. Le prototype divergeait ici (lecture à côté
+    # du script, écriture dans <db>) — défaut corrigé par la centralisation.
+    return str(_paths.panel_file())
 
 
 def telegram_env_path() -> str:

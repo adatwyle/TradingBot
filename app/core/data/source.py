@@ -37,7 +37,9 @@ from typing import Optional
 
 import pandas as pd
 
-CACHE_DIR = os.path.join(os.environ.get("TBOT_DB_DIR", r"C:\db\tbot"), "bars_cache")
+from core.paths import db_dir as _db_dir  # noqa: E402
+
+CACHE_DIR = os.path.join(str(_db_dir()), "bars_cache")
 
 # Nom interne -> symbole broker. Le reste du code n'utilise QUE les noms internes.
 SYMBOL_MAP = {

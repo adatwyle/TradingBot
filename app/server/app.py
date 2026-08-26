@@ -9,15 +9,16 @@ JavaScript (`STRATS`, `LEDGER`) écrites à la main lors du prototypage — donc
 figées et périmées. Plutôt que de réécrire l'interface, ce serveur remplace ces
 deux constantes AU MOMENT DE SERVIR par des données reconstruites depuis :
 
-  - `strategies/*/manifest.yaml` + `research/VERDICT.md`  (état des stratégies)
-  - `C:\\db\\tbot\\gold_forward\\`                          (forward-test scellé)
+  - `strategies/*/manifest.yaml` + `research/VERDICT.md`  (état des stratégies,
+    à la RACINE PROJET — le code vit dans app/, les stratégies à côté)
+  - `C:\\db\\tradingBot\\gold_forward\\`                    (forward-test scellé)
   - `studies/*/VERDICT.md`                                 (études)
 
 Lecture seule stricte : ce serveur n'écrit RIEN, ne lance RIEN, n'expose aucun
 ordre. La supervision qui pourrait agir sur les positions viendra plus tard,
 derrière la couche de risque — jamais dans un serveur de consultation.
 
-Lancement : via .claude/launch.json (preview) ou `python server/app.py`.
+Lancement : via .claude/launch.json (preview) ou `python app/server/app.py`.
 """
 from __future__ import annotations
 
@@ -25,13 +26,19 @@ import csv
 import json
 import os
 import re
+import sys
 from datetime import datetime
 
 from flask import Flask, jsonify
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-UI = os.path.join(ROOT, "server", "ui", "dashboard.html")
-GOLD_DIR = "C:/db/tbot/gold_forward"
+APP_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # app/
+# `core` vit dans app/ ; script lancé en direct -> app/ importable d'abord.
+sys.path.insert(0, APP_DIR)
+from core.paths import db_dir, project_root  # noqa: E402
+
+UI = os.path.join(APP_DIR, "server", "ui", "dashboard.html")
+DB_DIR = str(db_dir())
+GOLD_DIR = os.path.join(DB_DIR, "gold_forward")
 
 # Les trois forward-tests scellés — la seule activité vivante du projet.
 # Chemins en slashs : Windows les accepte et ils sont immunisés contre les
@@ -43,9 +50,9 @@ GOLD_DIR = "C:/db/tbot/gold_forward"
 # factory — un tableau de bord qui désigne un mécanisme mort induit en erreur
 # exactement au moment où l'on cherche pourquoi rien ne tourne.
 FORWARDS = [
-    ("Or — s11 XAUUSD H1",       "C:/db/tbot/gold_forward",  "factory:gold_forward",  "horaire"),
-    ("MACD-IA — indices D1",     "C:/db/tbot/macd_ai_paper", "factory:macd_ai_paper", "horaire"),
-    ("s13 — AUDCAD ext-MACD D1", "C:/db/tbot/s13_forward",   "factory:s13_forward",   "horaire"),
+    ("Or — s11 XAUUSD H1",       os.path.join(DB_DIR, "gold_forward"),  "factory:gold_forward",  "horaire"),
+    ("MACD-IA — indices D1",     os.path.join(DB_DIR, "macd_ai_paper"), "factory:macd_ai_paper", "horaire"),
+    ("s13 — AUDCAD ext-MACD D1", os.path.join(DB_DIR, "s13_forward"),   "factory:s13_forward",   "horaire"),
 ]
 
 # L'étude sentiment ne se lit pas comme un forward-test : elle ne prend aucune
@@ -53,7 +60,7 @@ FORWARDS = [
 # (verdicts par juge, backlog, avancement F1) — les afficher dans le tableau
 # des trades donnerait « 0 trade, +0.00 R », lecture fausse d'une étude qui
 # travaille.
-SENTIMENT_DIR = "C:/db/tbot/s14_sentiment"
+SENTIMENT_DIR = os.path.join(DB_DIR, "s14_sentiment")
 
 app = Flask(__name__)
 
@@ -97,7 +104,9 @@ def _verdict_of(sdir: str) -> tuple[str, str]:
 
 def build_strats() -> list[dict]:
     out = []
-    sroot = os.path.join(ROOT, "strategies")
+    # Les stratégies vivent à la RACINE PROJET, pas dans app/ — résolution
+    # unique via core.paths.project_root (seam TBOT_PROJECT_ROOT pour les tests).
+    sroot = os.path.join(str(project_root()), "strategies")
     for d in sorted(os.listdir(sroot)):
         sdir = os.path.join(sroot, d)
         if d.startswith("_") or not os.path.isdir(sdir):
@@ -288,12 +297,11 @@ ETUDES_VIVANTES = [
     ("s14_sentiment", None, "Sentiment des news (étude)"),
     ("portfolio_forward", None, "Portefeuille Tier-1 naïf"),
 ]
-DB_TBOT = "C:/db/tbot"
 
 
 def _etude_etat(dossier: str) -> dict:
     """L'état réel d'une étude : ce que le disque dit, pas ce qu'on espère."""
-    p = os.path.join(DB_TBOT, dossier, "status.json")
+    p = os.path.join(DB_DIR, dossier, "status.json")
     st = {}
     if os.path.exists(p):
         try:

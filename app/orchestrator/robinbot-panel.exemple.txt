@@ -12,17 +12,23 @@
 # éteint — un panneau à moitié écrit doit taire l'usine, jamais l'ouvrir.
 #
 # En revanche AJOUTER ou RETIRER un worker se fait dans le CATALOGUE
-# (orchestrator/robinbot-factory.py, section WORKERS) et exige un redémarrage.
+# (app/orchestrator/robinbot-factory.py, section WORKERS) et exige un
+# redémarrage.
 # ═══════════════════════════════════════════════════════════════════════════
 
-gold_forward = on          # tick toutes les 3600s
-s13_forward = on          # tick toutes les 3600s
-macd_ai_paper = on          # tick toutes les 3600s
-supervision = on          # service persistant
+# ── Études scellées : NON MIGRÉES (elles tournent dans le prototype jusqu'à
+#    E6). Déclarées au catalogue mais éteintes ici — les rallumer sans les
+#    fichiers studies/ ne produit que des ticks en sortie 2.
+gold_forward = off          # étude non migrée (E3/E6) — tick 3600s
+s13_forward = off          # étude non migrée (E3/E6) — tick 3600s
+macd_ai_paper = off          # étude non migrée (E3/E6) — tick 3600s
+s14_sentiment = off          # étude non migrée (E3/E6) — tick 1800s
+alexg_paper = off          # étude non migrée (E3/E6) — tick 3600s
+
+# ── Services et workers de la plateforme (migrés E2)
+supervision = on          # service persistant (serveur Flask)
 notify = on          # tick toutes les 300s
-s14_sentiment = on          # tick 1800s — collecte (news general) + jugement
-gateway = on          # tick 30s (repondeur Telegram, lecture seule)
-pilot = on          # tick horaire, parle 1x/jour des 08h SI evenement (tokens)
-portier = on          # tick horaire, trie la file — no-op si ENTREE vide
+gateway = on          # tick 30s (répondeur Telegram, lecture seule)
+pilot = on          # tick horaire, parle 1x/jour dès 08h SI événement (tokens)
+portier = on          # tick horaire, trie la file — no-op si ENTRÉE vide
 mesureur = on          # tick 2h, avance UN mandat — no-op si pas de mandat
-alexg_paper = on          # tick 3600s - essai a blanc fxalexg + juge IA (26 paires H1)

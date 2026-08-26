@@ -16,7 +16,8 @@
 # Adrian, lui, n'a pas besoin de ce script : un double-clic sur run-factory.bat
 # donne explorer.exe comme ancetre, ce qui est deja propre.
 
-$racine = Split-Path -Parent $PSScriptRoot
+# Racine PROJET : deux niveaux au-dessus (app/orchestrator/ -> racine).
+$racine = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $bat = Join-Path $PSScriptRoot 'run-factory.bat'
 if (-not (Test-Path $bat)) { Write-Error "introuvable : $bat"; exit 1 }
 

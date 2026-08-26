@@ -1,0 +1,61 @@
+{
+  "study": "s13_forward",
+  "sealed_at": "2026-08-17",
+  "engine_commit_at_seal": "dd624e4",
+  "strategy_id": "s13_macd_fx",
+  "timeframe": "D1",
+  "primary_symbol": "AUDCAD",
+  "instruments": {
+    "AUDCAD": "PRIMARY",
+    "EURJPY": "OBSERVATION"
+  },
+  "cell": {
+    "family": "ext",
+    "direction": "long",
+    "n_down": 5,
+    "range_filter": false,
+    "trigger": "sig",
+    "lookback": 252,
+    "q": 0.10,
+    "exit": "atr_1.5_1.5"
+  },
+  "specs": {
+    "AUDCAD": {
+      "symbol": "AUDCAD",
+      "pip": 0.0001,
+      "spread_pips": 3.2,
+      "max_spread_pips": 5.5,
+      "pip_value_per_lot": 7.3,
+      "slippage_pips": 0.5
+    },
+    "EURJPY": {
+      "symbol": "EURJPY",
+      "pip": 0.01,
+      "spread_pips": 3.6,
+      "max_spread_pips": 6.0,
+      "pip_value_per_lot": 6.7,
+      "slippage_pips": 0.5
+    }
+  },
+  "engine": {
+    "max_positions": 1,
+    "cooldown_bars": 0,
+    "cb_losses": 999,
+    "cb_cooldown_bars": 0,
+    "max_hold_bars": null
+  },
+  "sizing": {
+    "capital_initial": 10000.0,
+    "risk_per_trade_pct": 1.0
+  },
+  "control": {
+    "draws": 200,
+    "seed": 20260817
+  },
+  "stop_rules": {
+    "fail": {"min_trades": 20, "percentile_below": 20},
+    "success": {"min_trades": 40, "percentile_at_least": 95},
+    "time": {"months": 36, "min_trades": 12},
+    "horizon": {"months": 72}
+  }
+}

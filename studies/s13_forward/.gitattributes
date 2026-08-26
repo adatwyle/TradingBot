@@ -1,0 +1,4 @@
+# Le scellé porte sur les OCTETS de params.json (SHA-256). Sans cette ligne,
+# core.autocrlf=true convertirait LF -> CRLF à un futur checkout et casserait
+# le hash — fausse alerte de violation du scellé sur simple re-clone.
+params.json -text

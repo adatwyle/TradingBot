@@ -52,6 +52,18 @@ cc_spec_queue = off     # tick 1800s — un ticket cc-spec par tick
 # doit être vu vite. Pas de bloquant = veille gratuite.
 cc_support_block = off  # tick 300s — garde : ticket bloquant ouvert
 
+# ── Serveur de supervision (service persistant — py pur, ZÉRO token) ────────
+# supervision : le serveur web UI (app/server/app.py), LECTURE SEULE, relancé
+#               par la factory s'il meurt (backoff 60 s — même mécanique que
+#               robinbot). Port : variable d'environnement TBOT_UI_PORT,
+#               défaut 8742.
+# ⚠ PC DEV : 8742 est tenu par le PROTOTYPE robinbot jusqu'à E6 → poser
+#   TBOT_UI_PORT=8790 dans l'environnement AVANT de lancer la console
+#   (`setx TBOT_UI_PORT 8790` puis NOUVELLE console), sinon le service meurt
+#   en boucle « port déjà pris » (backoff 60 s, visible au tableau d'état).
+#   PC prod : rien à faire, défaut 8742.
+supervision = on        # service — http://127.0.0.1:8742 (ou TBOT_UI_PORT)
+
 # ── Canal Telegram TradingBot (T7 — deux bots DÉDIÉS, py pur) ───────────────
 # gateway : porte ENTRANTE (tbot-gateway.py) — chaque message Telegram
 #           d'Adrian déclenche une session Claude headless LECTURE SEULE qui

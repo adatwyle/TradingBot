@@ -464,6 +464,12 @@ WORKERS: list[tuple[str, pathlib.Path, str, int, str]] = [
     ("cc_spec_queue", ROOT / "spec", "claude:cc_spec_queue", 1800, "tick"),
     # Débloqueur : un ticket bloquant ouvert → session cc-support immédiate.
     ("cc_support_block", ROOT / "support", "claude:cc_support_block", 300, "tick"),
+    # Serveur de supervision (SPEC_ui-dynamique, T6) : service PERSISTANT,
+    # relancé par la factory s'il meurt (backoff SERVICE_RESTART_BACKOFF_SEC —
+    # même mécanique que robinbot). Port : TBOT_UI_PORT, défaut 8742 ; sur le
+    # PC dev, 8742 est tenu par le PROTOTYPE jusqu'à E6 → TBOT_UI_PORT=8790
+    # dans l'environnement AVANT de lancer la console (note au panneau).
+    ("supervision", ROOT, "py:app/server/app.py", SERVICE_RESTART_BACKOFF_SEC, "service"),
     # Canal Telegram TradingBot (T7, SPEC_telegram-reporting) : deux bots
     # DÉDIÉS (getUpdates exclusif par bot — les bots du prototype ne sont pas
     # réutilisés). tbot-notify (sortant, source = ledger, formats exacts

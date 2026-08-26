@@ -209,3 +209,16 @@ def test_assets_served_without_cdn(client, ui_env):
         html = client.get(page).get_data(as_text=True)
         assert "https://" not in html and "http://" not in html
     assert "https://" not in js.get_data(as_text=True)
+
+
+# ── port du serveur (seam TBOT_UI_PORT — worker « supervision », T4) ────────
+def test_ui_port_seam(monkeypatch):
+    """Défaut 8742 ; TBOT_UI_PORT le remplace (PC dev : 8790 jusqu'à E6) ;
+    valeur illisible → défaut, jamais un crash de serveur de supervision."""
+    from server.app import ui_port
+    monkeypatch.delenv("TBOT_UI_PORT", raising=False)
+    assert ui_port() == 8742
+    monkeypatch.setenv("TBOT_UI_PORT", "8790")
+    assert ui_port() == 8790
+    monkeypatch.setenv("TBOT_UI_PORT", "pouet")
+    assert ui_port() == 8742

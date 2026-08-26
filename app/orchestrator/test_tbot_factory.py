@@ -181,11 +181,17 @@ def test_catalogue_reel_coherent(usine_reelle):
     assert len(noms) == len(set(noms)), "noms de workers non uniques"
     attendus = {"gex_S017", "cc_S017", "cc_app_queue", "cc_spec_queue",
                 "cc_support_block", "gateway", "notify",
+                # Serveur de supervision (T6/T4) : service persistant relancé
+                # avec backoff — même mécanique que robinbot.
+                "supervision",
                 # Études scellées migrées du prototype (TCK-009/T10) —
                 # cadences identiques à robinbot, off par défaut au panneau.
                 "gold_forward", "s13_forward", "macd_ai_paper",
                 "s14_sentiment", "alexg_paper"}
     assert attendus == set(noms)
+    # supervision est le SEUL service persistant du catalogue v1.
+    services = [w[0] for w in u.WORKERS if w[4] == "service"]
+    assert services == ["supervision"]
     for name, cwd, spec, interval, kind in u.WORKERS:
         assert kind in ("tick", "service")
         assert interval > 0

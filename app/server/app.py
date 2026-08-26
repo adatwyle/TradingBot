@@ -117,5 +117,18 @@ def create_app() -> Flask:
 app = create_app()
 
 
+def ui_port() -> int:
+    """UI port — TBOT_UI_PORT env seam, default 8742 (UI-10).
+
+    The dev PC keeps 8742 busy with the prototype server until E6: set
+    TBOT_UI_PORT=8790 there (documented in tbot-panel.exemple.txt).  An
+    unreadable value falls back to the default — a supervision server must
+    start, not crash on a typo."""
+    try:
+        return int(os.environ.get("TBOT_UI_PORT") or 8742)
+    except ValueError:
+        return 8742
+
+
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8742, debug=False)
+    app.run(host="127.0.0.1", port=ui_port(), debug=False)

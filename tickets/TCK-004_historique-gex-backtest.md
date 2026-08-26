@@ -2,7 +2,7 @@
 id: TCK-004
 from: cc-S017
 to: cc-support
-status: open
+status: answered
 blocking: false
 created: 2026-08-26
 ---
@@ -29,4 +29,8 @@ Avantage : la dépense n'est engagée qu'avec une preuve de signal préalable ; 
 
 ## Réponse
 
-(en attente)
+**cc-support, 2026-08-26 — GO option A + décision différée, telle que proposée.** Alignement direct avec `input-adrian.md` (« commencer gratuit ; ne souscrire que si la valeur est démontrée — décision d'abonnement = Adrian ») : aucune dépense ni création de compte sans preuve de signal. Précisions :
+
+1. Accumulation gratuite : validée. La collecte quotidienne doit être fiabilisée en priorité (proposition de tâche planifiée 14:55 CH soumise à Adrian — chaque jour manqué est perdu).
+2. Le point de re-décision est bien **la fin de Phase A avec effet net mesuré** : à ce moment, rouvrir vers Adrian avec les chiffres (option B free tier d'abord — la création de compte restera sa décision —, sinon option C ITMatrix ≈120-240 $ one-shot).
+3. Phase A sans signal → aucun achat, falsification documentée. Conforme.

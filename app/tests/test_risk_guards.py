@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from datetime import datetime
 
 from core.contracts.strategy import Side, Signal
-from core.risk.guards import Decision, Rejection, RiskLayer, RiskLimits
+from core.risk.guards import Rejection, RiskLayer, RiskLimits
 
 TS = datetime(2026, 8, 16, 10, 0)
 

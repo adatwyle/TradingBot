@@ -57,7 +57,7 @@ from __future__ import annotations
 
 import os
 import pathlib
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, timedelta
 from typing import Optional
 
 import pandas as pd

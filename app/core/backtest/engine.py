@@ -38,7 +38,7 @@ futur. Le bug a faussé des mois de walk-forward sans jamais lever d'alerte.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional
 
 import numpy as np
@@ -173,11 +173,6 @@ def run(
     highs = bars["high"].to_numpy()
     lows = bars["low"].to_numpy()
     closes = bars["close"].to_numpy()
-
-    # Barre de référence pour toute position encore ouverte à la coupure.
-    # closes[n - 1], JAMAIS closes[-1]. Voir l'en-tête du module.
-    last_close = float(closes[n - 1])
-    last_time = idx[n - 1]
 
     pos_at = {idx[i]: i for i in range(n)}
     half_spread = spec.spread_pips * spec.pip / 2.0

@@ -37,7 +37,7 @@ for _p in (ROOT, os.path.join(ROOT, "app")):
 
 from core.contracts.strategy import Side, Signal                  # noqa: E402
 from studies.gold_forward.forward_step import (                    # noqa: E402
-    JournalError, Paths, SealError, load_sealed_params, load_state,
+    JournalError, Paths, SealError, load_sealed_params,
     read_journal, run_step, sha256_file,
 )
 

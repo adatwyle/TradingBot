@@ -29,7 +29,6 @@ import os
 import pathlib
 import re
 import subprocess
-import sys
 from datetime import datetime, timedelta, timezone
 
 import pytest

@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import numpy as np
 import pandas as pd
 
-from core.contracts.strategy import (MarketContext, Side, Signal,
+from core.contracts.strategy import (Side, Signal,
                                      StrategyManifest, StrategyModule)
 from core.validation.conformance import check
 

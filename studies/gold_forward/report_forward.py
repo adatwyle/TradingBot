@@ -22,7 +22,6 @@ mêmes barres. Sous le percentile 20 après >= 40 trades, le protocole dit STOP.
 """
 from __future__ import annotations
 
-import json
 import math
 import os
 import sys

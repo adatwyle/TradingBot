@@ -10,10 +10,8 @@ sinon le fichier fait trois fois la taille utile et sature la lecture.
 import argparse
 import os
 import re
-import subprocess
 import sys
 
-import imageio_ffmpeg
 import yt_dlp
 
 OPTS = {

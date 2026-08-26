@@ -10,7 +10,9 @@ pyarrow            # moteur parquet de pandas (datasets, COT)
 # ── Broker / données de marché ──────────────────────────────────────────────
 # Import paresseux dans core/data/source.py et harvester.py : le reste du
 # socle (tests inclus) fonctionne sans terminal MT5 installé.
-MetaTrader5
+# Marqueur win32 (SPEC_ci-cd D-CI-2) : le paquet pip n'existe pas sous Linux,
+# la CI ubuntu ne l'installe donc pas.
+MetaTrader5 ; sys_platform == "win32"
 
 # ── Orchestrateur et serveur de supervision ─────────────────────────────────
 flask              # server/app.py (service « supervision »)

@@ -1,0 +1,126 @@
+# =============================================================================
+# CI TradingBot — dev -> main (SPEC_ci-cd.md v1.0.0)
+#
+# Push sur dev => suite pytest complète (app + strategies). Verte => publication
+# automatique sur main (fast-forward strict, jamais de force-push) + tag
+# v<VERSION> s'il n'existe pas encore. Un échec de tests n'atteint JAMAIS main.
+#
+# Protections côté repo (CI-6 — à configurer UNE FOIS dans Settings > Branches) :
+#   - main : force-push interdit, suppression interdite ; personne ne pushe main
+#     à la main — seul ce workflow publie.
+#   - dev  : force-push interdit.
+#
+# Rappels de discipline :
+#   - CI-7 : toute évolution fonctionnelle de l'app bumpe le BUILD dans le
+#     fichier VERSION racine (MAJOR.MINOR.BUILD — discipline cc-app).
+#   - D-CI-6 : un commit contenant [skip ci] n'est ni testé ni publié
+#     (comportement GitHub natif, rien à implémenter ici) — réservé au worker
+#     backup (SPEC_backup-github).
+#   - CI-9 : aucune étape n'installe ni ne contacte MT5, Telegram ou un broker ;
+#     MetaTrader5 porte le marqueur `sys_platform == "win32"` (D-CI-2) et n'est
+#     donc pas installé sur ubuntu.
+# =============================================================================
+name: CI
+
+# CI-1 — uniquement push sur dev + relance manuelle. Aucun déclencheur sur main.
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+# CI-2 — jamais deux publications en parallèle (course sur main interdite).
+concurrency:
+  group: ci-dev
+  cancel-in-progress: false
+
+# CI-5 — le GITHUB_TOKEN intégré suffit (push main + tag) ; aucun autre secret.
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # CI-3.1 — profondeur complète : requise pour le ff-check et le tag.
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # CI-3.2 — Python 3.11 + cache pip clé sur app/requirements.txt.
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: app/requirements.txt
+
+      # CI-3.3
+      - name: Install dependencies
+        run: pip install -r app/requirements.txt
+
+      # CI-3.4 — suite complète depuis la racine. Écart documenté vs la lettre
+      # de CI-3 : `-o "python_files=test_*.py"` restreint la collecte à la
+      # convention réelle du repo (test_*.py). Sans lui, pytest collecte aussi
+      # les scripts de recherche nommés *_test.py sous strategies/ (ex :
+      # S007_ionita_gaussian/forward_test.py, script prototype aux imports
+      # morts) et la collecte explose. Signalé à cc-spec (ticket TCK-008).
+      - name: Run test suite
+        run: python -m pytest app strategies -q -o "python_files=test_*.py"
+
+  publish:
+    # CI-4 — publication seulement après tests verts, et seulement depuis dev
+    # (un workflow_dispatch sur une autre ref ne publie pas).
+    needs: test
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # CI-4.1 — lecture stricte de VERSION (même regex que app/core/version.py).
+      - name: Read VERSION
+        id: version
+        run: |
+          V="$(tr -d '[:space:]' < VERSION)"
+          if ! printf '%s' "$V" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::VERSION invalide: '$V' (attendu MAJOR.MINOR.BUILD)"
+            exit 1
+          fi
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+
+      # CI-4.2 — fast-forward strict : main doit être un ancêtre de HEAD.
+      - name: Fast-forward check
+        run: |
+          git fetch origin main
+          if ! git merge-base --is-ancestor origin/main HEAD; then
+            echo "::error::main a divergé — intervention manuelle requise (jamais de force-push, D-CI-3)"
+            exit 1
+          fi
+
+      # CI-4.3 — fast-forward garanti par l'étape précédente.
+      - name: Publish dev -> main (fast-forward)
+        run: git push origin HEAD:main
+
+      # CI-4.4 — un tag = une version nommée, jamais déplacé (D-CI-4).
+      # Tag absent => créé. Tag présent sur HEAD ou un ancêtre => version
+      # inchangée, succès. Tag présent ailleurs (non-ancêtre) => erreur : il
+      # faut bumper VERSION, on ne déplace jamais un tag.
+      - name: Tag version if new
+        run: |
+          V="${{ steps.version.outputs.version }}"
+          git fetch --tags origin
+          if git rev-parse -q --verify "refs/tags/v$V" >/dev/null; then
+            TAGGED="$(git rev-list -n 1 "v$V")"
+            if [ "$TAGGED" = "$(git rev-parse HEAD)" ] || git merge-base --is-ancestor "$TAGGED" HEAD; then
+              echo "version inchangée, pas de nouveau tag (v$V)"
+            else
+              echo "::error::le tag v$V existe sur un commit non-ancêtre — bump VERSION requis (un tag n'est jamais déplacé)"
+              exit 1
+            fi
+          else
+            git tag "v$V"
+            git push origin "v$V"
+          fi

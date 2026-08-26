@@ -1,0 +1,586 @@
+0:00 Price action trading kept me stuck for
+0:02 years. Not because I wasn't putting in
+0:04 the work, but because the whole concept
+0:07 is built on a flawed premise. You're
+0:09 reading what price just did and hoping
+0:12 that it repeats. The levels are
+0:13 arbitrary. In fact, I go as far as
+0:15 saying that trying to trade price action
+0:17 is the number one reason that traders
+0:20 fail. Without exaggeration, yes, it's
+0:22 that bad and I don't say [music] this
+0:24 lightly. I say this as someone who's
+0:27 been successful with trading and lost
+0:30 multiple five-figures trying to trade
+0:32 price action alone. Not because I wasn't
+0:34 skilled enough, but because I wasn't
+0:37 reading the right thing. The reason
+0:40 price action is so bad is because every
+0:42 single trader is taught from day one
+0:44 that price action is king. That if you
+0:46 can just read candles the right way,
+0:49 you'll be profitable. But, if you
+0:51 actually look at the stats, just the
+0:53 overall trader success rate, it's clear
+0:55 that this
+0:55 >> [music]
+0:55 >> approach just doesn't work. You don't
+0:58 need to be a genius or highly skilled to
+1:01 succeed in trading. It's not an
+1:03 exceedingly difficult [music] task to
+1:05 take a few good trades a week and come
+1:07 out positive. In this video, I'm going
+1:10 to walk you through exactly why price
+1:13 action fails, what gamma exposure
+1:16 actually is, and how I use it to take
+1:18 trades like this $1,012
+1:21 I made this week and this $855 before
+1:23 that. And I'm going to explain all of it
+1:25 as simple as I can because this is not
+1:28 complicated once you understand the
+1:30 mechanics behind it. [music] Let's get
+1:32 into it. My name is Nick and I've been
+1:34 trading options for over seven years and
+1:37 I still work a regular 9-5. What I want
+1:40 to do is go through some of my broker
+1:42 statements from last year so that you
+1:44 can see the transparency. And this was
+1:47 for February. This was plus $9,486.
+1:50 Let's go back and look at a couple more.
+1:53 This was for June. You can see plus
+1:56 $9,352.
+1:59 This looks for May. You can see plus
+2:02 $6,649. Now,
+2:05 I have red months, too. I don't only
+2:07 have green months. These were some of my
+2:09 better months for 2025,
+2:11 but if you want to catch all of my
+2:13 trades, you can go over to my X account.
+2:16 I post every single trade that I ever
+2:18 get into in the market. I post the red
+2:19 days, the green days. I don't hide
+2:21 anything. I'm not going to be that
+2:22 person who only shows the green days.
+2:25 So, if you want to check out all my
+2:26 trades, go over to my X account. What
+2:28 I'm going to do now is log into my
+2:30 WeBull. I'll do a live login so we can
+2:32 see what my current account is at.
+2:35 Recently swapped over to margin. Just
+2:37 get my
+2:38 passcode here.
+2:40 >> [snorts]
+2:40 >> You can see the current small account
+2:42 challenge is sitting at $29,711.
+2:46 And I originally grew this from $1,000.
+2:50 And none of this came from reading price
+2:51 action. All right? And I want to show
+2:53 you exactly why. Because understanding
+2:55 what was wrong is what finally made the
+2:58 right approach click for me.
+3:02 Main reason price action doesn't work in
+3:05 the long run is because price action
+3:07 itself is random. You may have heard
+3:09 this before, but I can't emphasize
+3:11 enough how important it is to actually
+3:13 understand this because most traders
+3:16 never do. Price action is just a visual
+3:18 representation of people buying and
+3:20 selling. If there is more buying volume
+3:22 than selling volume, price gets pushed
+3:25 higher and that prints a green candle.
+3:27 If the opposite happens, price goes down
+3:29 and you get a red candle. That is
+3:31 literally all that it is. It's a
+3:33 scoreboard, not a signal. Now, I'm sure
+3:35 you've seen the typical patterns that
+3:37 get taught everywhere. Head and
+3:39 shoulders, bull flags, double bottoms,
+3:41 engulfing candles. And if you've
+3:43 actually tried trading them, you've
+3:46 realized they aren't as reliable as
+3:48 they're made out to be. The reason is is
+3:50 price action has no predictive power on
+3:52 its own. It's simply the reflection of
+3:54 thousands of people buying and selling
+3:57 at once. There is no way of knowing who,
+4:00 when, or how many people are going to
+4:01 show up at that specific price at that
+4:03 specific moment. You can't consistently
+4:06 predict the market through price action
+4:08 alone. Even the largest firms in the
+4:10 world know this. There's a scene in The
+4:12 Wolf of Wall Street where Matthew
+4:15 character says this,
+4:18 "Nobody, whether you're Warren Buffett
+4:20 or Jimmy Buffett, nobody knows if a
+4:22 stock is going to go up, down, sideways,
+4:25 or in circles." That is correct. And
+4:27 those firms have thousands of analysts,
+4:29 billions in capital, and access to every
+4:31 data source imaginable. If pure price
+4:34 action analysis were the answer, they'd
+4:36 be using it. Now, people make the
+4:39 mistake of assuming that this is a skill
+4:40 issue, that if they just studied harder,
+4:43 watched more charts, spent more time on
+4:46 the screen, they'd eventually crack the
+4:47 code. But even the sharpest traders at
+4:50 the top aren't trading pure price
+4:52 action. It's not that it's hard to
+4:54 master, it's that you can't get skilled
+4:56 at reading information that doesn't
+4:58 predict anything. You'd be trying to
+5:01 predict when you'll roll a six on a pair
+5:03 of dice, but studying the past rolls.
+5:05 The dice doesn't know what it just
+5:07 rolled. Every roll is independent, and
+5:10 so is every candle. The trap is that it
+5:12 works just often enough to keep you
+5:14 believing. You get a win streak and you
+5:16 think you've finally figured it out.
+5:17 Then you blow it on a fake out. You
+5:19 study harder, find a new pattern, and
+5:22 stay stuck because the foundation was
+5:24 wrong the whole time.
+5:29 Now, some traders figure this out part
+5:31 way and add structure on top of price
+5:33 action. They add a moving average, they
+5:36 only trade in a certain direction, they
+5:38 have rules about when not to trade.
+5:41 That's better, way better. Adding
+5:42 structure reduces the randomness. You're
+5:45 not trading whatever, whenever, you have
+5:47 a filter, but here's the problem. Most
+5:49 traders already have some version of
+5:51 this. EMA stack, trend filter, time of
+5:54 day rules, and most traders with
+5:56 structure are still losing because
+5:58 structure still leaves the most
+5:59 important question unanswered. Where
+6:02 exactly does price react? You've got
+6:04 direction right, you've got timing
+6:06 right, but when you put your entry at
+6:08 this level, why not five points lower?
+6:11 Why not 10 higher? It's still a guess.
+6:13 Structure tells you what direction and
+6:15 when, it doesn't tell you where, and
+6:18 that's the gap.
+6:22 You don't need more structure. You need
+6:25 something mechanical, something that
+6:28 tells you exactly where price is likely
+6:30 to react before it gets there, derived
+6:33 from data that already exists. Not a
+6:35 line you drew, not a zone you eyeballed
+6:38 from old price action, actual
+6:40 institutional data from the options
+6:41 market. And that's where gamma exposure
+6:44 comes in. Before I show you the system,
+6:47 I want to explain what gamma actually is
+6:49 because once this clicks, you'll never
+6:51 look at a chart the same way ever again.
+6:58 Every time you buy an options contract
+7:00 on spy, somebody has to sell it to you.
+7:02 That somebody is almost always a market
+7:05 maker. Firms like Citadel, SIG,
+7:07 Wolverine, their job is to be on the
+7:09 other side of your trade so you can
+7:11 actually get filled. They don't want
+7:13 directional risk. They're not betting on
+7:16 whether the market is going to go up or
+7:17 down. They just want to collect the
+7:19 spread. That's their business model. Let
+7:21 me explain both of those. Directional
+7:24 risk just means having a position that
+7:26 wins or loses based on which way the
+7:28 market moves. If you buy a call and the
+7:31 market goes up, you win. That's
+7:33 directional risk. Market makers don't
+7:35 want that. They want to be completely
+7:37 neutral. The spread is the difference
+7:40 between what they charge you for the
+7:42 contract and what it actually costs them
+7:45 to hedge it. Every time a trade happens,
+7:47 they're making a small cut on both
+7:49 sides. Think of it like a casino that
+7:51 runs the table, but doesn't bet on any
+7:53 of the hands. They just make money every
+7:54 time a hand is dealt, regardless of who
+7:57 wins. That's why they're called market
+7:59 makers. They're not trading for profit
+8:02 on a direction, they're profiting from
+8:04 the volume of trades happening around
+8:07 them. But the moment they sell you that
+8:09 call option, they have a problem.
+8:11 They're now exposed to a directional bet
+8:13 they didn't want to take. If spy goes
+8:16 up, they owe you money. So, they
+8:17 immediately go into the market and
+8:19 hedge. Hedging just means taking an
+8:21 opposite position to protect yourself
+8:24 from a loss. Market makers do this
+8:26 constantly. The moment they sell you a
+8:29 call, they buy shares of spy so that if
+8:31 the market goes against them, the shares
+8:33 cover the loss on the option they just
+8:35 sold. That's called delta hedging. And
+8:38 they don't hedge once and walk away. As
+8:40 price moves, their delta changes and
+8:42 they keep having to adjust. Price goes
+8:45 up, they need to buy more. Price goes
+8:47 down, they need to sell more. All day
+8:49 long, automatically. Here's where gamma
+8:52 comes in. Gamma is the rate at which
+8:54 their delta changes as price moves. The
+8:57 higher the gamma exposure at a specific
+8:59 strike price, the more aggressively they
+9:01 have to buy or sell shares when price
+9:03 approaches it. So, imagine a massive
+9:05 concentration of options sitting at the
+9:08 750 strike on spy. Market makers sold
+9:10 all of those contracts. As spy moves
+9:12 towards 750, they are mechanically
+9:14 forced to transact. They have to adjust
+9:17 their hedge. That forced buying or
+9:19 selling is what creates the price action
+9:21 at that level. This is not random. This
+9:24 isn't, "Oh, price bounced because it
+9:26 bounced here before." Dealers are
+9:28 obligated to transact there because of
+9:30 the options positioning that they were
+9:33 already holding.
+9:34 The first thing that I do every morning
+9:37 is identify the largest gamma exposure
+9:39 levels for the day. The platform I use
+9:42 to read this data is IT Matrix HQ. You
+9:46 can find it at IT Matrix HQ.com.
+9:49 It gives you the gamma exposure map for
+9:52 spy before the market even opens. So you
+9:54 know exactly where the major levels are
+9:57 before price actually gets there. The
+9:59 biggest concentration is where the most
+10:01 dealer activity will be. Price
+10:04 gravitates toward these levels and
+10:06 reacts to them. That's where I wait. My
+10:09 rule is simple. If price is not at or
+10:11 near a major gamma exposure level, I'm
+10:14 not trading. I don't care how clean the
+10:16 pattern looks. I don't care how perfect
+10:19 the EMA stack is. If price is floating
+10:21 in no man's land between levels, there's
+10:23 nothing forcing a reaction. The setup
+10:26 has no institutional backing. Here's
+10:28 what that looks like in practice. On
+10:30 April 2nd, the gamma map showed a major
+10:34 level at 6:45 before the market even
+10:37 opened. I marked it on the chart before
+10:40 the bell.
+10:41 And spy opened around 6:46 then
+10:44 immediately dipped to that 6:45
+10:47 almost to the tick. And then bounced
+10:49 aggressively back toward 6:50. That
+10:53 bounce wasn't random. The dealers were
+10:55 positioned there. As price pressed into
+10:58 that 6:45 level, they were mechanically
+11:00 buying shares to stay hedged on their
+11:02 positions. That's what created the move.
+11:04 The trader who doesn't know about gamma
+11:06 looked at the chart and thought that oh,
+11:08 that's just support. But I knew that
+11:11 that was the pivot level before price
+11:13 actually got there. And when price
+11:15 breaks through a major gamma level on
+11:18 high volume, that's information, too.
+11:21 The resistance flips to support. The
+11:25 dealer hedging
+11:26 has reversed direction. The move that
+11:29 follows the break is often just as
+11:31 strong as what would have been seen on
+11:34 the rejection. Either way, you're not
+11:36 guessing. You're reading the
+11:38 institutional data and letting price
+11:40 confirm. Now, the map also tells me what
+11:42 kind of environment I'm in for the day.
+11:45 And this changes how I manage every
+11:47 single trade. Look at these purple
+11:49 areas. These are positive gamma zones.
+11:51 In a positive gamma environment, dealers
+11:53 are net long gamma. So, when price goes
+11:56 up, they have to sell shares. And when
+11:58 price goes down, they have to buy
+12:00 shares. They're doing the opposite of
+12:02 the market all day long automatically.
+12:05 The result is suppressed volatility.
+12:08 Price moves more smoothly. Trends are
+12:10 much cleaner and compression patterns
+12:12 hold better. And they usually resolve in
+12:15 the direction of the trend. This is a
+12:17 much easier environment to trade in.
+12:19 This is what a positive gamma day looks
+12:21 like on a chart. Clean compression,
+12:24 clean breakout, price grinds toward the
+12:28 target without a lot of noise. In a
+12:30 positive gamma environment, I size
+12:32 normally. I hold for my full one to two
+12:34 target, and I trust that the pullbacks
+12:37 will hold because the mechanics are
+12:39 working in my favor. Now, the teal
+12:41 areas. These are negative gamma zones.
+12:44 In negative gamma, dealers are net short
+12:46 gamma. When price goes up, they have to
+12:49 buy more. When price goes down, they
+12:52 have to sell more. They're hedging with
+12:55 the direction of the market instead of
+12:57 against it. The result is amplified
+12:59 moves. Breakouts go further, and
+13:01 breakdowns get more violent, and
+13:03 reversals can happen fast. This is what
+13:05 a negative gamma day looks like. Bigger,
+13:08 faster moves, less predictability on how
+13:11 far they go before reversing. In a
+13:14 negative gamma environment, I size down
+13:16 30 to 50%. If I'd normally take two
+13:19 contracts, I take one. I take partial
+13:22 profits at a one to one instead of
+13:23 holding for a full one to two because
+13:25 the move I'm in could reverse violently
+13:28 before hitting the actual target.
+13:30 >> [snorts]
+13:30 >> The conditions I need don't change. How
+13:33 I manage the trade does. And the only
+13:36 thing that tells me which version I'm in
+13:38 is the gamma map. Now, at this point in
+13:41 my premarket prep, I know where the
+13:42 major gamma levels are. I know the
+13:44 environment, but I still need to know
+13:46 which direction I'm actually trading.
+13:49 And that's what the EMA stack is for.
+13:51 EMA stands for exponential moving
+13:53 average. All it does is smooth out price
+13:55 action into a line on your chart. I use
+13:57 three of them, the nine, the 21, and the
+14:00 50. Now, when the nine EMA is on top of
+14:03 the 21, on top of the 50, with good
+14:06 spacing between, this is a bullish EMA
+14:09 sequence. This is a bullish trend. I'm
+14:12 only looking to play calls when the
+14:14 market's trending like this. Now, when
+14:17 it's opposite and the 50 is on top of
+14:20 the 21, on top of the nine, this is a
+14:23 bearish EMA sequence. This is a bearish
+14:26 trend. We have some good spacing here.
+14:28 I'm only looking to play puts when the
+14:31 market is trending like this. Now, when
+14:33 the market is moving sideways and
+14:35 there's no clear direction, it's called
+14:38 consolidation or chop. The EMAs are
+14:41 clustered together. There's no real good
+14:43 spacing. I'm looking to sit out of the
+14:45 market, sit on my hands, and wait for a
+14:48 better trading environment. Now, the
+14:49 next important thing that you want to do
+14:51 is make sure that you're matching the
+14:53 intraday chart with the daily. So, for
+14:57 example, if the nine is on top of the
+14:59 21, on top of the 50 on the daily time
+15:02 frame, then I want to make sure that
+15:03 when I go down to my intraday time
+15:05 frame, such as the 5-minute, I match
+15:08 that same sequence. So, if you can see
+15:10 here, a sequence like this on this day
+15:14 right here, where we have the nine on
+15:16 top of the 21, on top of the 50, this is
+15:18 also a bullish EMA sequence. This is a
+15:21 bullish trend. So, the larger time frame
+15:24 matches up with the intraday time frame.
+15:27 This is going to give you the highest
+15:28 probability of being directionally right
+15:30 in the market. Now, the actual trigger
+15:33 for my entry is compression or a flag
+15:35 pattern forming at a major gamma level.
+15:39 After a directional move up, price will
+15:42 often consolidate, move sideways, or
+15:44 compress before it ends up moving
+15:47 higher. In that time, you'll see the
+15:49 candles get a little bit smaller, the
+15:50 volume might dry up, and that's just the
+15:54 compression that is forming.
+15:56 Now, what I do is wait for a break of
+15:59 that compression, and it needs to have
+16:01 noticeably higher volume on the breakout
+16:04 candle.
+16:05 And that volume confirmation is what
+16:07 tells me that this move is real. Now,
+16:11 without the volume spike, I skip it
+16:13 every time.
+16:15 Here's another example. We have price
+16:16 consolidating right here forming a bull
+16:18 flag. Bullish EMA sequence, 9 on top of
+16:21 the 21 on top of the 50. We get the
+16:24 breakout candle. But, there's no volume
+16:27 on the breakout candle. You can see it.
+16:30 Immediately, price reverses and dumps
+16:33 below the 50 EMA.
+16:35 Would have been stopped out. But, that
+16:37 one condition saved me from this losing
+16:40 trade. The system caught it before I was
+16:43 in.
+16:46 Now, let me show you everything working
+16:48 together in a real trade.
+16:50 This was the week where I took zero
+16:52 trades on Monday, zero trades on
+16:55 Tuesday, and zero trades on Wednesday.
+16:58 It's not that there wasn't anything
+16:59 happening in the market. The market was
+17:01 moving, but none of my conditions were
+17:02 fully met, so I just waited. And then
+17:05 Thursday morning, I opened the gamma map
+17:07 and two big levels stood out to me.
+17:10 The level at 750, which was a negative
+17:12 gamma level with over 60 million in
+17:14 cumulative volume, and the level at 755,
+17:18 which was a positive gamma level with
+17:19 over 180 million in cumulative volume.
+17:22 The plan for me that day was clear. If
+17:24 we could hold 750, the path of least
+17:27 resistance was up to 755.
+17:30 As you can see, when the market opened,
+17:32 we actually dipped below that 750 level.
+17:35 I wasn't concentrated on playing
+17:37 downside though anyway, because the
+17:39 daily EMA sequence was in a bullish EMA
+17:42 sequence. I'm only looking to play calls
+17:45 here. You can see that we did actually
+17:47 start to flag once we did open. We broke
+17:50 back above the EMAs and reclaimed them
+17:53 with strength. Once I saw that strength
+17:55 come in here, I entered a call position
+17:58 with my stop below the 50 EMA. 5 minutes
+18:02 later, we got a massive aggressive push
+18:04 to that 755 level. I was up 330% on the
+18:09 contracts here, and I sold most into
+18:11 that strength. I left a few runners for
+18:13 the 755 profit that we ended up hitting
+18:16 later in the day.
+18:18 The key to this week was patience.
+18:20 Waiting for all of the confirmations to
+18:22 align.
+18:26 The $855 trade is a clean example of how
+18:30 a positive gamma magnet level actually
+18:33 works. In the morning, the gamma map was
+18:35 showing a large positive gamma level at
+18:37 735 and a massive positive gamma level
+18:40 at 745, backed by over 100 million in
+18:44 cumulative volume. In a positive gamma
+18:46 environment, that 745 level isn't just a
+18:49 target. It's a magnet. Dealers are
+18:52 forced to pin price toward the largest
+18:54 gamma levels on the board. The mechanics
+18:57 of their hedging pull price towards
+18:59 large positive gamma levels like this
+19:01 one at 745. So, the thesis for me was
+19:04 very clear. If spy was able to hold 735,
+19:07 the path of least resistance was up
+19:09 toward that largest positive gamma level
+19:12 at 7:45.
+19:14 When spy opened, it actually tested 7:35
+19:17 twice, and it held on both times. It
+19:20 then started to rally back towards the
+19:23 pre-market high. It started flagging
+19:26 underneath the pre-market high, and once
+19:28 it broke above on the very next candle,
+19:30 we got an increase in volume. This is
+19:32 exactly what I was looking forward to
+19:34 take my entry. It gave us plenty of time
+19:36 to get a bullish EMA sequence on the
+19:38 EMAs, so I took my entry with a stop
+19:40 below the 50 EMA. Sure enough, 45
+19:44 minutes later we get a massive push
+19:45 towards that 7:45 gamma level. Contract
+19:48 spiked over 220%.
+19:51 I sold very heavy into the strength,
+19:53 locked in all of the profits.
+19:55 The gamma map gave me the framework
+19:57 before the market even opened. All I had
+19:59 to do was execute, and I was done before
+20:02 lunch.
+20:05 Before I move on, I want to cover the
+20:07 last piece because everything I just
+20:11 showed you falls apart without it. You
+20:13 can read gamma perfectly, get the
+20:15 direction right, nail the entry, and
+20:17 still blow up your account if you are
+20:19 not managing risk properly. I never risk
+20:22 more than 1 to 2% of my account on a
+20:24 single trade. That number gets
+20:26 calculated before I enter, not after. On
+20:29 a $3,000 account, that means $30 to $60
+20:32 maximum risk. If the stop distance
+20:34 requires more than that, I size down or
+20:36 skip the trade. My stop always goes at a
+20:39 structural level, below the EMAs for
+20:41 longs, above the EMAs for shorts. The
+20:43 risk is defined before I enter the
+20:45 position, and I do not touch it. And I
+20:48 only take trades where the potential
+20:49 reward is at least twice my risk. If I'm
+20:52 risking $50, I need to see a path to
+20:54 100. If the target is too close or the
+20:56 stop is too wide, and that math just
+20:58 doesn't work, I walk away regardless of
+21:00 how clean everything else looks. In a
+21:02 negative gamma environment, I may size
+21:04 down on top of all of this because the
+21:06 whipsaw risk is real, and I would rather
+21:09 be smaller and stay in the trade than
+21:11 get stopped out before the move actually
+21:14 happens. That covers the full system.
+21:16 Once you start reading the Gamma Map,
+21:19 the chart stops being a guessing game.
+21:21 And it starts being a map. You stop
+21:23 sitting at the screen all day waiting
+21:25 for something to feel right. You pull up
+21:27 the map before the market opens,
+21:29 identify the major levels, check the
+21:31 environment, confirm the direction, and
+21:33 then you wait for price to come to you.
+21:36 When it does and all the conditions line
+21:38 up, you execute. When they don't, you
+21:40 close the laptop and you go live your
+21:42 life. That's how I made over $1,012 on
+21:45 Thursday after sitting on my hands all
+21:47 week. That's how I made $855 in 20
+21:50 minutes on Tuesday morning. That's how
+21:52 HVAC made over $16,000 in his first 2
+21:55 months with zero trading background. The
+21:58 map works because the mechanics behind
+22:00 it are real. Dealers have to hedge. That
+22:03 hedging moves price. That data is
+22:05 available to you before the market
+22:07 opens. Stop trading blind. I built the
+22:10 entire system into a checklist. It's
+22:11 free. It's not a PDF you download once
+22:13 and lose. I built it into an interactive
+22:15 web app because I use it myself every
+22:17 single session. It lives on my second
+22:19 monitor every time I trade. Two pages.
+22:22 Page one breaks down all five components
+22:24 that I just walked you through. Page two
+22:27 is the actual checklist. Five items. You
+22:29 can run through them before every trade
+22:31 entry. All five green means you're
+22:33 looking at an A+ setup. One missing, you
+22:36 wait. First link in the description,
+22:38 grab it. Open it tomorrow morning before
+22:40 the market. Run it on whatever setup
+22:42 you're watching and see what you notice
+22:45 when you actually have the framework in
+22:48 front of you. DM me on Instagram if you
+22:50 have any questions. I'm at Nickel Ninja
+22:52 Trades. I post every day. Green days,
+22:54 red days, trade breakdowns with the
+22:56 Gamma Map, the entry, and the reasoning.
+22:59 Send me a DM and I'll respond. If you're
+23:01 not subscribed yet, fix that. Trade
+23:03 recaps and gamma breakdowns every week.
+23:06 Stay sharp.

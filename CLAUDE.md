@@ -33,7 +33,7 @@ Plateforme de trading algorithmique : héberge des stratégies indépendantes et
 
 ## Stratégies
 
-- Numérotation `S0NN`, mapping conservé du prototype (`s13` → `S013`). `S014` réservé (étude sentiment). Prochain numéro libre : `S017`.
+- Numérotation `S0NN`, mapping conservé du prototype (`s13` → `S013`). `S014` réservé (étude sentiment). `S017` = ireland_gex (GEX SPY, 2026-08-26). Prochain numéro libre : `S018`.
 - Multi-paires : instances `S0NN.XXX-YYY` (ex. `S013.AUD-CAD`), déclarées dans `manifest.yaml`, paramètres propres par paire.
 - Cycle : `RESEARCH → BACKTESTED → PAPER → LIVE → RETIRED`. « BACKTESTED = mesuré, pas validé. »
 - **Directive Adrian (D2, 2026-08-23)** : reprise sans préavis — pas de refus fondé sur les seuls verdicts du prototype. Chaque CC stratégie évalue, tente des chemins d'amélioration, et seul son propre constat de non-pérennité justifie l'archivage.

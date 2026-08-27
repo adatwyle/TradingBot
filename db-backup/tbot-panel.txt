@@ -74,3 +74,8 @@ notify = on             # tick 300s — notifications sortantes
 # JAMAIS armer un trade live.
 supervision = on        # service — serveur web UI (TBOT_UI_PORT=8790 sur ce PC jusqu'a E6)
 backup = on             # tick 3600s — journaux/etats -> db-backup/ (branche dev uniquement)
+macd_ai_paper = on      # BASCULE 2026-08-26 GO Adrian — tick 3600s, journal migre intact (verify 0/0)
+s13_forward = on        # BASCULE 2026-08-26 GO Adrian — tick 3600s, journal migre intact (verify 0/0, sha d0ebd3ba)
+gold_forward = on       # BASCULE 2026-08-26 GO Adrian (migration totale) — tick 3600s, verify 0/0, sha 611c3c81
+alexg_paper = on        # BASCULE 2026-08-26 GO Adrian (migration totale) — tick 3600s, verify 0/0, sha b72541f4 — NB: aucune mesure cote robinbot depuis le 22.08, surveiller le premier tick
+s14_sentiment = on:1800 # BASCULE 2026-08-26 GO Adrian (migration totale) — journal 1745 lignes intact (verify 0/0, sha 952ef054), cle finnhub copiee dans C:/db/tradingBot/secrets/

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "started_at": "2026-08-17T06:59:50Z",
+  "symbols": {
+    "AUDCAD": {
+      "seal_bar_time": "2026-08-16T00:00:00",
+      "last_bar_time": "2026-08-26T00:00:00",
+      "capital": 10000.0,
+      "open_position": null,
+      "cooldown_bars_left": 0,
+      "consecutive_losses": 0,
+      "n_closed": 0,
+      "cum_r": 0.0
+    },
+    "EURJPY": {
+      "seal_bar_time": "2026-08-13T00:00:00",
+      "last_bar_time": "2026-08-26T00:00:00",
+      "capital": 10000.0,
+      "open_position": null,
+      "cooldown_bars_left": 0,
+      "consecutive_losses": 0,
+      "n_closed": 0,
+      "cum_r": 0.0
+    }
+  },
+  "journal_bytes": 168,
+  "journal_sha256": "d0ebd3ba6cd5e677b216926dcf37b2eae9facd584ebbe6079ab8f58db2ad4f72"
+}

@@ -1,0 +1,100 @@
+{
+  "schema": 2,
+  "started_at": "2026-08-16T21:55:09Z",
+  "symbols": {
+    "SP500": {
+      "seal_bar_time": "2026-08-13T00:00:00",
+      "last_bar_time": "2026-08-26T00:00:00"
+    },
+    "NASDAQ": {
+      "seal_bar_time": "2026-08-13T00:00:00",
+      "last_bar_time": "2026-08-26T00:00:00"
+    },
+    "DAX": {
+      "seal_bar_time": "2026-08-13T00:00:00",
+      "last_bar_time": "2026-08-26T00:00:00"
+    }
+  },
+  "arms": {
+    "MECH": {
+      "capital": 10000.0,
+      "n_closed": 0,
+      "cum_r": 0.0,
+      "by_symbol": {
+        "SP500": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        },
+        "NASDAQ": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        },
+        "DAX": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        }
+      }
+    },
+    "AI": {
+      "capital": 10000.0,
+      "n_closed": 0,
+      "cum_r": 0.0,
+      "by_symbol": {
+        "SP500": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        },
+        "NASDAQ": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        },
+        "DAX": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        }
+      }
+    },
+    "RND": {
+      "capital": 10000.0,
+      "n_closed": 0,
+      "cum_r": 0.0,
+      "by_symbol": {
+        "SP500": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        },
+        "NASDAQ": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        },
+        "DAX": {
+          "open_position": null,
+          "cooldown_bars_left": 0,
+          "consecutive_losses": 0
+        }
+      }
+    }
+  },
+  "ai_stats": {
+    "n_decisions": 0,
+    "n_takes": 0,
+    "n_na": 0
+  },
+  "ai_recent": [],
+  "shadow_open": [],
+  "shadow": {
+    "n_closed": 0,
+    "cum_r": 0.0,
+    "cum_r_nocost": 0.0
+  },
+  "journal_bytes": 237,
+  "journal_sha256": "b72541f44b3b69c94c206d47ac4f4b3b9a88b0b500f2380c530cbde8dd4e13bc"
+}

@@ -2,11 +2,32 @@
   "schema": 1,
   "armed_at_utc": "2026-08-26T18:55:45Z",
   "trade_cursor": null,
-  "etude_cursors": {},
+  "etude_cursors": {
+    "macd_ai_paper": {
+      "bytes": 237,
+      "lines": 0
+    },
+    "s13_forward": {
+      "bytes": 168,
+      "lines": 0
+    },
+    "gold_forward": {
+      "bytes": 2245,
+      "lines": 10
+    },
+    "s14_sentiment": {
+      "bytes": 473718,
+      "lines": 1947
+    },
+    "alexg_paper": {
+      "bytes": 3456,
+      "lines": 12
+    }
+  },
   "autooff_seen": [
     "4e30e517522394fa"
   ],
-  "last_digest_date": null,
+  "last_digest_date": "2026-08-26",
   "last_monthly": "2026-07",
   "last_annual": "2025"
 }

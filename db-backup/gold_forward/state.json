@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "started_at": "2026-08-16T20:59:28Z",
+  "seal_bar_time": "2026-08-14T21:00:00",
+  "last_bar_time": "2026-08-27T17:00:00",
+  "capital": 9858.233747790693,
+  "open_position": null,
+  "cooldown_bars_left": 23,
+  "consecutive_losses": 0,
+  "n_closed": 5,
+  "cum_r": -1.3730942704343594,
+  "journal_bytes": 2245,
+  "journal_sha256": "323921bc36fe2dd79b2dd1078795d7bc5299dbbe1867cf0486d72a6a242fa421"
+}

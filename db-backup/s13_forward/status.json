@@ -1,0 +1,39 @@
+{
+  "generated_at_utc": "2026-08-27T18:18:57Z",
+  "first_pass": false,
+  "primary_symbol": "AUDCAD",
+  "opened_this_pass": 0,
+  "closed_this_pass": 0,
+  "months_elapsed": 0.33,
+  "arms": {
+    "AUDCAD": {
+      "arm": "PRIMARY",
+      "seal_bar_time": "2026-08-16T00:00:00",
+      "last_bar_time": "2026-08-26T00:00:00",
+      "n_closed_total": 0,
+      "cum_r": 0.0,
+      "mean_r": null,
+      "capital": 10000.0,
+      "open_position": null,
+      "unrealized_r": null
+    },
+    "EURJPY": {
+      "arm": "OBSERVATION",
+      "seal_bar_time": "2026-08-13T00:00:00",
+      "last_bar_time": "2026-08-26T00:00:00",
+      "n_closed_total": 0,
+      "cum_r": 0.0,
+      "mean_r": null,
+      "capital": 10000.0,
+      "open_position": null,
+      "unrealized_r": null
+    }
+  },
+  "stop_criteria": {
+    "scope": "bras principal AUDCAD UNIQUEMENT — l'observation n'entre dans aucun critère",
+    "fail": "actif dès 20 trades clôturés (n = 0) ; verdict au percentile témoin < 20 — voir report_forward.py",
+    "success": "actif dès 40 trades (n = 0) ; percentile témoin >= 95",
+    "time": "NON CONCLUSIF si < 12 trades après 36 mois (écoulés : 0.3)",
+    "horizon": "lecture finale obligatoire à 72 mois si ni (a) ni (b)"
+  }
+}

@@ -1,0 +1,1 @@
+measured_at_utc,event,arm,symbol,signal_id,trade_id,bar_time,side,entry_price,stop_price,target_price,size_lots,risk_ccy,exit_price,exit_reason,pnl_r,pnl_r_nocost,pnl_ccy,capital_after,decision,size_frac,sl_adjust,tp_adjust,reason,chain

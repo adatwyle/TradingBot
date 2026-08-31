@@ -573,36 +573,45 @@
     "8423052",
     "8423153",
     "8423454",
-    "8424155"
+    "8424155",
+    "8424257",
+    "8424457",
+    "8424859",
+    "8424860",
+    "8425574",
+    "8425675",
+    "8425776",
+    "8426078",
+    "8426079"
   ],
-  "n_news_total": 471,
+  "n_news_total": 480,
   "n_rejected_items_total": 0,
   "judges": {
     "claude-cli": {
-      "cursor": 471,
-      "n_verdicts_total": 750,
+      "cursor": 480,
+      "n_verdicts_total": 775,
       "n_na": 0,
-      "n_stale_news": 253,
+      "n_stale_news": 256,
       "last_batch": {
-        "news_id": "8421545..8421545",
+        "news_id": "8426079..8426079",
         "n_news": 1,
-        "measured_at_utc": "2026-08-29T19:22:00Z",
+        "measured_at_utc": "2026-08-30T17:36:12Z",
         "n_na": 0
       }
     },
     "finbert": {
-      "cursor": 471,
-      "n_verdicts_total": 750,
+      "cursor": 480,
+      "n_verdicts_total": 775,
       "n_na": 0,
-      "n_stale_news": 253,
+      "n_stale_news": 256,
       "last_batch": {
-        "news_id": "8421545..8421545",
+        "news_id": "8426079..8426079",
         "n_news": 1,
-        "measured_at_utc": "2026-08-29T19:22:00Z",
+        "measured_at_utc": "2026-08-30T17:36:12Z",
         "n_na": 0
       }
     }
   },
-  "journal_bytes": 532331,
-  "journal_sha256": "1ff023909358a7c97153b781acdf95f58a84e4631690d5616ab6bcf5b9600a76"
+  "journal_bytes": 548393,
+  "journal_sha256": "f6c4e170def503d13930f3f619d1ad89384a35edc1a8ce1eaacaa9da7d83ede0"
 }

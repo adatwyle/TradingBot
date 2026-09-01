@@ -1,20 +1,30 @@
 {
-  "generated_at_utc": "2026-08-30T17:55:52Z",
+  "generated_at_utc": "2026-09-01T16:10:47Z",
   "first_pass": false,
   "seal_bar_time": "2026-08-14T21:00:00",
-  "last_bar_time": "2026-08-28T21:00:00",
+  "last_bar_time": "2026-09-01T15:00:00",
   "opened_this_pass": 0,
   "closed_this_pass": 0,
   "n_closed_total": 5,
   "cum_r": -1.3731,
   "mean_r": -0.2746,
   "capital": 9858.23,
-  "open_position": null,
-  "unrealized_r": null,
-  "months_elapsed": 0.43,
+  "open_position": {
+    "trade_id": "SHORT_20260901_1000",
+    "side": "SHORT",
+    "entry_bar_time": "2026-09-01T10:00:00",
+    "entry_price": 4370.321,
+    "stop_price": 4397.8135,
+    "target_price": 4297.466,
+    "risk_distance": 27.49250000000029,
+    "size_lots": 0.035857902147096804,
+    "risk_ccy": 98.58233747790693
+  },
+  "unrealized_r": 0.2022,
+  "months_elapsed": 0.49,
   "stop_criteria": {
     "fail": "actif dès 40 trades clôturés (n = 5) ; verdict au percentile témoin < 20 — voir report_forward.py",
     "success": "actif dès 100 trades (n = 5) ; percentile témoin >= 95",
-    "time": "NON CONCLUSIF si < 40 trades après 12 mois (écoulés : 0.4)"
+    "time": "NON CONCLUSIF si < 40 trades après 12 mois (écoulés : 0.5)"
   }
 }

@@ -2,13 +2,13 @@
   "schema": 1,
   "started_at": "2026-08-16T20:59:28Z",
   "seal_bar_time": "2026-08-14T21:00:00",
-  "last_bar_time": "2026-09-02T15:00:00",
-  "capital": 10119.028270106526,
+  "last_bar_time": "2026-09-03T15:00:00",
+  "capital": 10386.645729853899,
   "open_position": null,
   "cooldown_bars_left": 0,
   "consecutive_losses": 0,
-  "n_closed": 6,
-  "cum_r": 1.2723544883179838,
-  "journal_bytes": 2663,
-  "journal_sha256": "746e0503217b0c8493604308348c94f97e81fafced49e4ce69fc0a337e3ed693"
+  "n_closed": 7,
+  "cum_r": 3.9170497357654424,
+  "journal_bytes": 3080,
+  "journal_sha256": "4d8cffea1af3e1e1b5700bcd9709b2e3bcedbdf1b12989354ad53505a1c9b92e"
 }

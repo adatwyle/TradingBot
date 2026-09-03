@@ -1,18 +1,18 @@
 {
-  "generated_at_utc": "2026-09-02T16:24:16Z",
+  "generated_at_utc": "2026-09-03T16:35:14Z",
   "first_pass": false,
   "symbols": {
     "SP500": {
       "seal_bar_time": "2026-08-13T00:00:00",
-      "last_bar_time": "2026-08-31T00:00:00"
+      "last_bar_time": "2026-09-02T00:00:00"
     },
     "NASDAQ": {
       "seal_bar_time": "2026-08-13T00:00:00",
-      "last_bar_time": "2026-08-31T00:00:00"
+      "last_bar_time": "2026-09-01T00:00:00"
     },
     "DAX": {
       "seal_bar_time": "2026-08-13T00:00:00",
-      "last_bar_time": "2026-08-31T00:00:00"
+      "last_bar_time": "2026-09-01T00:00:00"
     }
   },
   "opened_this_pass": 0,
@@ -47,10 +47,10 @@
     "cum_r": 0.0,
     "cum_r_nocost": 0.0
   },
-  "months_elapsed": 0.53,
+  "months_elapsed": 0.56,
   "stop_criteria": {
     "fail_ai": "actif dès 40 décisions IA (n = 0) ; verdict au percentile sélection < 80 — voir report_paper.py",
     "fail_base": "actif dès 40 signaux shadow clos (n = 0) ; verdict si R cumulé SANS coût < 0.0 (actuel +0.00)",
-    "time": "NON CONCLUSIF si < 40 décisions IA après 12 mois (écoulés : 0.5)"
+    "time": "NON CONCLUSIF si < 40 décisions IA après 12 mois (écoulés : 0.6)"
   }
 }

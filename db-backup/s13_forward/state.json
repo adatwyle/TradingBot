@@ -4,7 +4,7 @@
   "symbols": {
     "AUDCAD": {
       "seal_bar_time": "2026-08-16T00:00:00",
-      "last_bar_time": "2026-09-02T00:00:00",
+      "last_bar_time": "2026-09-03T00:00:00",
       "capital": 10000.0,
       "open_position": null,
       "cooldown_bars_left": 0,
@@ -14,7 +14,7 @@
     },
     "EURJPY": {
       "seal_bar_time": "2026-08-13T00:00:00",
-      "last_bar_time": "2026-09-02T00:00:00",
+      "last_bar_time": "2026-09-03T00:00:00",
       "capital": 10000.0,
       "open_position": null,
       "cooldown_bars_left": 0,

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-03T16:36:25Z",
+  "generated_at_utc": "2026-09-04T16:45:55Z",
   "study": "alexg_paper",
   "first_pass": false,
   "opened_this_pass": 0,
@@ -34,7 +34,7 @@
     "cum_r": -2.2098446500152096,
     "cum_r_nocost": -1.5803106999695806
   },
-  "months_elapsed": 0.39,
+  "months_elapsed": 0.43,
   "stop_criteria": {
     "fail_ai": "actif dès 40 décisions IA (n = 2) ; ÉCHEC si percentile sélection < 80, apport conclu seulement à >= 95 — voir report_paper.py",
     "fail_base": "actif dès 40 signaux shadow clos (n = 2) ; verdict si R cumulé SANS coût < 0.0 (actuel -1.58)",

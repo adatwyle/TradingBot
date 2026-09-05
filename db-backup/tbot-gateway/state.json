@@ -1,6 +1,6 @@
 {
-  "offset": 75175169,
-  "n_served": 2,
+  "offset": 75175172,
+  "n_served": 5,
   "menu": "[[\"etat\", \"État de situation TradingBot — factory, workers, stratégies, études, PnL, tickets bloquants\"], [\"mesureur\", \"Mesureur des études TradingBot\"], [\"portier\", \"Portier de la file des études TradingBot\"]]",
-  "last_seen_utc": "2026-08-26T18:55:40Z"
+  "last_seen_utc": "2026-09-05T08:53:05Z"
 }

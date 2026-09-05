@@ -2,7 +2,7 @@
   "schema": 1,
   "started_at": "2026-08-16T20:59:28Z",
   "seal_bar_time": "2026-08-14T21:00:00",
-  "last_bar_time": "2026-09-04T15:00:00",
+  "last_bar_time": "2026-09-04T21:00:00",
   "capital": 10386.645729853899,
   "open_position": null,
   "cooldown_bars_left": 0,

@@ -211,3 +211,40 @@ Consequence pour S019 : la fenetre d'entree n'est pas T-2 min mais **T+5 a
 T+20 min**, la traduction D9 du podcast est a ecarter, et TCK-016 reste
 necessaire mais pour une raison inversee — savoir qu'il faut ATTENDRE le
 retracement, et distinguer les jours a choc des jours ordinaires.
+
+### T14 — recherche inversee : le vocabulaire non cartographie — 2026-09-06
+
+`docs/sources/doudtrading/SYNTHESE_GEOMETRIE.md`. Les passes precedentes
+cherchaient ce que je connaissais deja ; celle-ci traque le vocabulaire NON
+cartographie — constructions de nommage (« j'appelle ca... »), collocations
+`zone + X`, termes reperes mais jamais elucides. 145 fichiers, 3,2 M caracteres.
+
+**Trouvaille principale — la ZONE FATIDIQUE**, absente de toutes les syntheses
+precedentes. Niveaux historiques FIXES (« pas des prix qui bougent »), qu'elle ne
+trade JAMAIS, et dont la **double cassure fait basculer son biais directionnel**
+(« si on vient casser mes zones fatidiques et qu'on passe en tendance baissiere,
+je vendrai le gold »). C'est le commutateur acheteur/vendeur cherche depuis le
+debut. Et l'aveu le plus utile du corpus : **aux ATH elle n'en a pas et elle est
+aveugle** — sa methode est dependante de l'historique, elle le dit.
+
+**Le code couleur decode**, chaque zone a une fonction distincte :
+- zone d'impulsion (176x) : ou le mouvement demarre
+- zone jaune (95x) : frontiere directionnelle ET **ancrage du stop suiveur**
+  (« ton SL va se mettre sur la zone jaune ») — exactement le stop structurel que
+  la mesure imposait
+- zone de retournement (46x) : ou l'on prend ses gains
+- zone blanche (23x) : l'equilibre = **la zone d'entree**
+- tete de mort (12x) : marqueur d'une poche de liquidite majeure, cible du balayage
+
+**Le sabre laser** (16x) : le balayage, nomme et ATTENDU — « c'est fait pour
+sortir tout le monde a SL », « j'aimerais vraiment prendre un beau sabre laser ».
+Le 60 % contre 39 % mesure n'est donc pas un artefact : c'est le setup qu'elle
+guette, et les deux chemins (mesure et discours) convergent independamment.
+
+Plus : prix psychologiques (aimant ET piege), mid-asian (niveau de reference de
+session), salade de doji (etat d'indecision, pas signal).
+
+Restent opaques : la construction exacte des zones (a reconstruire nous-memes,
+chaque objet ayant desormais une definition fonctionnelle testable), leur nombre
+et duree de vie, le filtre de refus C6, et les surnoms jamais definis (« la
+bouteille », « la flute », « bougie sautoir »).

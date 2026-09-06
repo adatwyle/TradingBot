@@ -116,3 +116,39 @@ fractionnement d'entrée (core/risk, TCK-015).
 Plan proposé en 6 étapes, ordonné par ce que chacune apprend — étape 2 (S019,
 entrée seule) est le point de décision : si son déclencheur n'a pas d'edge,
 TCK-014 devient sans objet.
+
+### T11 — depouillement A-Z de doudtrading.fr + tradermade.io — 2026-09-06
+
+`docs/sources/doudtrading/SYNTHESE_SITE.md`. Sitemap (7 pages) + 2 pages d'offre
+hors sitemap + la plateforme partenaire, son blog et ses pages legales.
+
+Ce que ca cherchait : pas de la methode (elle est ailleurs) mais le **contexte
+probatoire** — existe-t-il un relevé de performance auditable ?
+
+**Reponse : non demontre.** Trois formulations coexistent : le marketing dit
+« tous nos coachs, audit independant chaque trimestre » ; le blog de recrutement
+en fait un critere de rejet systematique ; mais l'avis sur les risques § 06, seul
+texte contraignant, dit « **peuvent** faire l'objet d'un audit **a intervalle
+regulier** ». Et aucun audit n'est publie. La lecture de la source ne change
+pas : hypotheses de marche oui, resultats non.
+
+**Trouvaille exploitable** : pour etre accepte chez Tradermade, un coach doit
+fournir (a) un export complet de journal de trading avec les pertes et les jours
+sans, (b) une presentation ECRITE de sa methode avec ses limites, ses biais et
+ses cas ou elle ne marche pas. Si Doud a passe ce filtre, **les deux artefacts
+que cette session a passe des heures a reconstituer depuis 54 h de parole
+existent sous forme ecrite**, detenus par Tradermade. Non publics, mais leur
+existence est affirmee par la plateforme. Demande directe = geste gratuit.
+
+Autres constats factuels : robots.txt avec Content-Signal `ai-train=no,
+use=reference` (reservation art. 4 dir. UE 2019/790) ; chiffres +145 % / 89 % /
+Sharpe 5,6 / DD 28 % repetes sans source et contredits en interne (+127 % en 2024
+sur la meme page) ; mentions legales et CGV de doudtrading.fr redirigent vers
+l'accueil (absentes) ; mentions legales de Tradermade publiees avec les
+identifiants societe en `[A completer]` ; les deux pages payantes les plus cheres
+(1 790 EUR et VIP) decrivent Doud au masculin (« le fondateur », « il ») alors que
+tout le reste du site dit « tradeuse ».
+
+Prix releves : lives 39,99 EUR/mois, accompagnement classique 1 790 EUR (+ 4,99 EUR
+pour reserver l'appel), VIP sur candidature, seminaire 500-770 EUR, PAMM ticket
+1 000 EUR, boutique 14,99-59,99 EUR.

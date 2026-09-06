@@ -1,6 +1,6 @@
 # TikTok @doudtrading_ — la doctrine, en clair
 
-> **Source** : `tiktok/` — 67 clips transcrits sur **276 listés**, sous-titres
+> **Source** : `tiktok/` — **108 clips transcrits** sur **276 listés**, sous-titres
 > `fra-FR` fournis par TikTok. Sélection : les 120 clips dont le titre porte un
 > terme de méthode, puis lecture prioritaire des **19 clips originaux de 2025**
 > (les publications d'août-septembre 2026 sont, elles, des remontages du podcast

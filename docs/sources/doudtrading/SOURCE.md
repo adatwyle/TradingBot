@@ -60,7 +60,7 @@ Sur demande d'Adrian, les trois liens restants ont été testés un par un.
 
 **276 clips listés**, 168 minutes cumulées. Sous-titres `fra-FR` fournis par
 TikTok, donc transcriptibles. 120 clips retenus sur critère de titre (terme de
-méthode), **67 transcrits** et versionnés dans `tiktok/`.
+méthode), **108 transcrits** et versionnés dans `tiktok/`.
 
 Première évaluation (sur 15 clips) : « remontages du podcast, faible valeur ».
 **Elle était fausse**, et la correction vaut d'être notée : les publications

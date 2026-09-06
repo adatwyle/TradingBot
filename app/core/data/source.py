@@ -51,7 +51,10 @@ SYMBOL_MAP = {
     "WTIUSD": "OILUSD",
 }
 
-_TF = {"M5": 5, "M15": 15, "H1": 16385, "H4": 16388, "D1": 16408}  # constantes MT5
+_TF = {"M1": 1, "M5": 5, "M15": 15, "H1": 16385, "H4": 16388, "D1": 16408}  # constantes MT5
+# M1 ajouté 2026-09-06 : la source étudiée décide ses entrées en M1
+# (« H2 tendance globale, M15 zone de travail, M1 point d'entrée »), et aucune
+# vérification de ses points d'entrée n'est possible à un grain plus grossier.
 
 
 def broker_symbol(name: str) -> str:

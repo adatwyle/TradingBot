@@ -152,3 +152,32 @@ tout le reste du site dit « tradeuse ».
 Prix releves : lives 39,99 EUR/mois, accompagnement classique 1 790 EUR (+ 4,99 EUR
 pour reserver l'appel), VIP sur candidature, seminaire 500-770 EUR, PAMM ticket
 1 000 EUR, boutique 14,99-59,99 EUR.
+
+### T12 — croisement des entrees Doud contre nos barres M1 — 2026-09-06
+
+`studies/meteo_doud/croisement_entrees.py` + `VERDICT_croisement-entrees.md`.
+Ajout de `M1` au catalogue `core/data/source._TF` (elle decide ses entrees en M1,
+aucune verification possible a un grain plus grossier).
+
+**Validation prealable** : 32 entrees extraites des lives, placees par
+release_timestamp + offset + GMT+2. Le prix annonce sert de somme de controle :
+**20/32 alignees a moins de 0,3 %, dont 15 tombant DANS la bougie M5** de
+l'instant cite (meilleures a 0,01 %). Ses prix sont reels et notre horodatage est
+bon. Bonus : les heures se groupent d'elles-memes sur 14h07-15h44 + deux en
+session asiatique, exactement ses fenetres declarees.
+
+**Test** (parametres fixes avant mesure, temoin de 200 tirages aux memes heures) :
+- balayage de liquidite : **12/20 = 60 % contre 39 % au hasard, p = 0,047** ->
+  significatif de justesse. Son declencheur EST detectable mecaniquement.
+- rejet net (meche >= 50 %) : 30 % contre 18 %, p = 0,136 -> **non significatif,
+  ecarte de S019**.
+
+**Le resultat qui decide de l'architecture** : MAE mediane 729 pips, MFE mediane
+1315 pips (rapport 1,80). Mais notre stop de 1,5 x ATR(H1) = 858 pips aurait
+**coupe 8 entrees sur 20 (40 %) dans l'heure**, alors que 60 % atteignent +858 en
+faveur. Un systeme qui copierait son entree en gardant notre geometrie de sortie
+detruirait ce qui fait sa performance. TCK-014 conditionne la mesure elle-meme.
+
+Limites ecrites : 20 observations, p franchi de justesse, biais de selection (ce
+sont les entrees qu'elle annonce a voix haute), chiffres bruts sans spread ni
+slippage.

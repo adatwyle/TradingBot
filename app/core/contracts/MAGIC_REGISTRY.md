@@ -38,6 +38,7 @@ individuelle, ou de bloquer une seule stratégie.
 | `130016` | `s16_confluence` | Mandat Adrian — confluence de 4 lectures (technique, sentiment, anticipations, avis de Claude), score calibré | RESEARCH |
 | `130017` | `S017_ireland_gex` | Ireland GEX — SPY intraday piloté par la carte GEX | RESEARCH |
 | `130018` | `S018_gold_doud_v2` | Or v2 — cassure S011 + entrée à l'équilibre (MoneyTalk #29, Doud Trading) | RESEARCH |
+| `130019` | `S019_gold_sweep` | Or — balayage de liquidité et réintégration, stop structurel (méthode Doud, mesurée) | RESEARCH |
 | `130090` | `s90_adrian_synthesis` | Synthèse des verdicts validés | RESEARCH |
 | `130091` | `s91_claude_scratch` | Conception autonome Claude | RESEARCH |
 | `130092` | `s92_claudetrader` | Agent headless cyclique (concept Hermes) | RESEARCH |
@@ -49,7 +50,7 @@ individuelle, ou de bloquer une seule stratégie.
   `studies/s14_sentiment/` (étude scellée sur le sentiment des news, sans
   trading donc sans magic). Laisser `130014` libre évite qu'il existe deux
   objets « s14 » de nature différente dans le dépôt. Ne pas le réattribuer.
-- `130019` – `130089` : futures stratégies internes
+- `130020` – `130089` : futures stratégies internes
 - `130094` – `130099` : expérimentations Claude
 
 ## Historique (v1 — ne pas réutiliser)

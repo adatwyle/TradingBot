@@ -248,3 +248,31 @@ Restent opaques : la construction exacte des zones (a reconstruire nous-memes,
 chaque objet ayant desormais une definition fonctionnelle testable), leur nombre
 et duree de vie, le filtre de refus C6, et les surnoms jamais definis (« la
 bouteille », « la flute », « bougie sautoir »).
+
+## S019 — balayage de liquidité — 2026-09-06
+
+- **Créé** : `strategies/S019_gold_sweep/` (strategy, manifest, 15 tests, harnais,
+  CLAUDE.md, input-adrian.md, research/FALSIFICATION.md + ANALYSIS.md).
+  Magic `130019` enregistré ; réservation décalée à `130020`–`130089`.
+- **Mesuré** : XAUUSD M15, 119 992 barres, spread réel 52 pips. R1 et R5 passés.
+- **Verdict : ÉCHEC, et échec informatif.** 0/16 STRICT, témoin au percentile
+  42,5 au mieux et 6,5 au défaut. Le résidu (R/trade + coût) est nul dans 15
+  cellules sur 16 : le taux de réussite colle au seuil d'équilibre géométrique à
+  un point près. **Le déclencheur est neutre ; toute la perte est le spread.**
+- **Cause identifiée** : j'ai codé une condition nécessaire (60 % de ses entrées
+  suivent un balayage) comme si elle était suffisante. Mais sa sélectivité n'est
+  que de 2,5× (1,68 entrée/jour contre ~4,2 balayages offerts) — trop faible pour
+  extraire un avantage d'un vivier neutre. L'hypothèse la plus plausible est que
+  son avantage vit dans la **sortie** (partielles + suiveur), pas dans le choix
+  du balayage.
+- **Conséquence** : **TCK-014 devient la question qui commande** — arbitrage
+  Adrian. Sans partielles ni stop suiveur, on ne peut tester que son déclencheur.
+- **Piste suivante côté entrée** : les « zones fatidiques » (porte directionnelle
+  à niveaux historiques fixes, `SYNTHESE_GEOMETRIE.md` § 1), seul filtre du
+  corpus jamais mesuré.
+- **TCK-018 confirmé sur pièce** : 25 pips → −275 R ; 52 pips → −531 R sur la
+  même cellule. Le catalogue cachait la moitié de la facture, sur toutes les
+  stratégies or.
+- **Non fait** : aucun réglage d'après-coup (interdit par FALSIFICATION.md),
+  aucune promotion (R10). S011 et l'étude scellée `studies/gold_forward/`
+  intactes.

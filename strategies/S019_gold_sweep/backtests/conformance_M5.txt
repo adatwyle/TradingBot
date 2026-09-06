@@ -1,0 +1,13 @@
+R5 CONFORMITÉ — S019_gold_sweep / XAUUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 13 en backtest, 13 en live
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+R5 CONFORMITÉ — S019_gold_sweep / XAUUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 5 en backtest, 5 en live
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres

@@ -1,0 +1,59 @@
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : S019_gold_sweep
+Instrument: XAUUSD   (358624 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%   215174       9404       9404  OK
+      70%   251036      11100      11100  OK
+      80%   286899      12763      12763  OK
+      90%   322761      14193      14193  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : S019_gold_sweep
+Instrument: XAUUSD   (358624 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%   215174       2058       2058  OK
+      70%   251036       2424       2424  OK
+      80%   286899       2766       2766  OK
+      90%   322761       3046       3046  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : S019_gold_sweep
+Instrument: XAUUSD   (358624 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%   215174       4707       4707  OK
+      70%   251036       5462       5462  OK
+      80%   286899       6306       6306  OK
+      90%   322761       6888       6888  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.

@@ -1,0 +1,66 @@
+# manifest — S019 gold_sweep (source unique de vérité, R7)
+# Clés plateforme (SPEC_ui-dynamique §3) : display_name / magic_number / status / symbols.
+
+strategy_id: S019_gold_sweep
+name: gold_sweep
+display_name: "Or — balayage de liquidité et réintégration"
+magic_number: 130019          # unique (R4), jamais réutilisé
+status: RESEARCH              # promotion = décision Adrian (R10)
+version: 1.0.0
+
+symbols: [XAUUSD]             # instance plateforme : S019.XAUUSD
+timeframe: "M15"
+warmup_bars: 300
+
+# ── Origine ──────────────────────────────────────────────────────────────────
+# Ne traduit pas un discours mais une MESURE. Les entrées réelles de la source,
+# extraites de ses lives publics et validées par le prix, tombent sur un balayage
+# de liquidité dans 60 % des cas contre 39 % au hasard à la même heure de session
+# (p = 0,047, n = 20). Le raffinement « mèche de rejet » est mesuré NON
+# significatif (p = 0,136) et volontairement exclu.
+source: "docs/sources/doudtrading/ — 35 lives publics, 54 h"
+mesures:
+  declencheur: studies/meteo_doud/VERDICT_croisement-entrees.md
+  annonces: studies/meteo_doud/VERDICT_annonces.md
+  geometrie: docs/sources/doudtrading/SYNTHESE_GEOMETRIE.md
+parent: null                  # pas une v2 de S018 — autre déclencheur, autre dossier
+
+# ── Grille : 4 commutateurs binaires = 16 cellules ───────────────────────────
+# À 5 %, ≈ 0,8 réussite attendue par pur hasard. Grille délibérément petite :
+# chaque commutateur code une hypothèse mesurée, aucun n'est là « pour voir ».
+param_grid:
+  min_stop_atr:   [0.5, 1.0]              # plancher de stop — protège du spread
+  tp_r:           [2.0, 4.0]              # cible en multiples de R
+  htf_bias:       ["off", daily_ema]      # porte de tendance journalière
+  session_filter: ["off", doud]           # US + Asie, jamais Londres
+
+default_params:
+  sweep_lookback: 60          # profondeur de la poche de liquidité de référence
+  sweep_window: 5             # délai maximal de réintégration, en barres
+  stop_buffer_atr: 0.10       # marge sous le plus-bas balayé
+  min_stop_atr: 0.5
+  tp_r: 2.0
+  htf_bias: "off"
+  session_filter: "off"
+  side_mode: both
+  htf_ema_days: 20
+  cooldown_bars: 3
+
+created: 2026-09-06
+notes: |
+  STOP STRUCTUREL, ET PLANCHER OBLIGATOIRE. Le stop se place sous le plus-bas du
+  balayage, pas à une distance ATR fixe : la mesure montre qu'un stop de
+  1,5 × ATR(H1) aurait coupé 40 % des entrées de la source dans l'heure, alors
+  que 60 % atteignent la même distance en leur faveur.
+
+  Mais les profondeurs de balayage mesurées vont de 34 à 218 pips quand le spread
+  réel de XAUUSD est de 52 pips (TCK-018). Un stop collé sous la mèche coûterait
+  jusqu'à 150 % de son propre risque en frais. `min_stop_atr` est donc une
+  condition de survie, pas un réglage de confort — et le harnais imprime le
+  rapport coût/R à chaque mesure pour que le piège reste visible.
+
+  NON REPRODUIT : clôtures partielles et stop suiveur, cœur de la gestion de la
+  source et, d'après l'arithmétique du dossier, l'essentiel de son edge. Le
+  moteur commun ne sait pas les exprimer (TCK-014). S019 mesure donc son ENTRÉE
+  avec une sortie inférieure à la sienne — la seule question que notre moteur
+  sache poser aujourd'hui.

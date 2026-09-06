@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-09-05T17:05:15Z",
+  "generated_at_utc": "2026-09-06T17:15:08Z",
   "first_pass": false,
   "primary_symbol": "AUDCAD",
   "opened_this_pass": 0,
   "closed_this_pass": 0,
-  "months_elapsed": 0.62,
+  "months_elapsed": 0.66,
   "arms": {
     "AUDCAD": {
       "arm": "PRIMARY",
@@ -33,7 +33,7 @@
     "scope": "bras principal AUDCAD UNIQUEMENT — l'observation n'entre dans aucun critère",
     "fail": "actif dès 20 trades clôturés (n = 0) ; verdict au percentile témoin < 20 — voir report_forward.py",
     "success": "actif dès 40 trades (n = 0) ; percentile témoin >= 95",
-    "time": "NON CONCLUSIF si < 12 trades après 36 mois (écoulés : 0.6)",
+    "time": "NON CONCLUSIF si < 12 trades après 36 mois (écoulés : 0.7)",
     "horizon": "lecture finale obligatoire à 72 mois si ni (a) ni (b)"
   }
 }

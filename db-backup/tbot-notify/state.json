@@ -16,8 +16,8 @@
       "lines": 14
     },
     "s14_sentiment": {
-      "bytes": 791365,
-      "lines": 3290
+      "bytes": 825783,
+      "lines": 3440
     },
     "alexg_paper": {
       "bytes": 3456,
@@ -27,7 +27,7 @@
   "autooff_seen": [
     "4e30e517522394fa"
   ],
-  "last_digest_date": "2026-09-04",
+  "last_digest_date": "2026-09-05",
   "last_monthly": "2026-08",
   "last_annual": "2025"
 }

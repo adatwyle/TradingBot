@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T17:05:10Z",
+  "generated_at_utc": "2026-09-06T17:13:28Z",
   "first_pass": false,
   "seal_bar_time": "2026-08-14T21:00:00",
   "last_bar_time": "2026-09-04T21:00:00",
@@ -11,10 +11,10 @@
   "capital": 10386.65,
   "open_position": null,
   "unrealized_r": null,
-  "months_elapsed": 0.62,
+  "months_elapsed": 0.66,
   "stop_criteria": {
     "fail": "actif dès 40 trades clôturés (n = 7) ; verdict au percentile témoin < 20 — voir report_forward.py",
     "success": "actif dès 100 trades (n = 7) ; percentile témoin >= 95",
-    "time": "NON CONCLUSIF si < 40 trades après 12 mois (écoulés : 0.6)"
+    "time": "NON CONCLUSIF si < 40 trades après 12 mois (écoulés : 0.7)"
   }
 }

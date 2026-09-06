@@ -86,3 +86,33 @@ contractuel qui est une décision Adrian, pas une décision technique.
 **L'architecture proposée est en revanche la bonne pour le calendrier** : un worker
 de la factory, cadencé, qui maintient un fichier versionné depuis les sources
 publiques. C'est l'option A du ticket.
+
+### T10 — analyse de fond des 54 h de lives + inventaire outils — 2026-09-06
+
+`support/designs/SPEC_methode-doud-reconstruite_2026-09-06.md`. Corpus **mesuré**
+et non échantillonné : lexique compté sur les 35 lives, ratios extraits (n=24,
+médiane 7,50), amplitudes (n=209, médiane 3000 points), puis 7 étages de méthode
+sourcés à l'horodatage, puis inventaire outil par outil de ce qui manque à tbot.
+
+Trois constats qui engagent la suite :
+1. Son système est **zones + liquidité** (1581 occurrences) et non « équilibre »
+   (87). S018 avait fait de l'équilibre son commutateur central — erreur de
+   pondération autant que de traduction.
+2. Ses « 89 % de réussite » et ses « R:R 7-17 » **ne portent pas sur la même
+   population** : le stop suiveur fabrique une majorité de petits gains, les
+   ratios cités sont les runners. Un backtest à sortie unique ne peut pas
+   reproduire cette distribution — c'est une raison de fond, pas un détail.
+3. **TCK-018** (découverte incidente, transverse au projet) : le catalogue
+   déclare 25 pips de spread sur XAUUSD, nos barres en enregistrent 50-58
+   (médiane, heures actives comprises). Facteur 2. Edge H1 recalculé : +0,236 →
+   +0,205 R/trade (tient) ; M15 : −0,096 → −0,150 (empire). Aucun verdict ne
+   bascule ; tous les chiffres or du dépôt sont optimistes d'un montant
+   désormais connu, là où `gold_forward/PROTOCOL.md` §2.2 le disait inconnu.
+
+Manques outillage identifiés : M1 et H2 absents de `_TF`, calendrier économique
+(TCK-016), sorties partielles + trailing (TCK-014), spread par barre (TCK-018),
+fractionnement d'entrée (core/risk, TCK-015).
+
+Plan proposé en 6 étapes, ordonné par ce que chacune apprend — étape 2 (S019,
+entrée seule) est le point de décision : si son déclencheur n'a pas d'edge,
+TCK-014 devient sans objet.

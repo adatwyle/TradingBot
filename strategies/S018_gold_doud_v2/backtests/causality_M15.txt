@@ -1,0 +1,99 @@
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : S018_gold_doud_v2
+Instrument: XAUUSD   (119992 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%    71995       1938       1938  OK
+      70%    83994       2265       2265  OK
+      80%    95993       2642       2642  OK
+      90%   107992       2985       2985  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : S018_gold_doud_v2
+Instrument: XAUUSD   (119992 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%    71995        655        655  OK
+      70%    83994        754        754  OK
+      80%    95993        841        841  OK
+      90%   107992        932        932  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : S018_gold_doud_v2
+Instrument: XAUUSD   (119992 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%    71995        335        335  OK
+      70%    83994        391        391  OK
+      80%    95993        440        440  OK
+      90%   107992        488        488  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : S018_gold_doud_v2
+Instrument: XAUUSD   (119992 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%    71995       1483       1483  OK
+      70%    83994       1792       1792  OK
+      80%    95993       2106       2106  OK
+      90%   107992       2473       2473  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.
+
+==============================================================================
+R1 — INVARIANT DE CAUSALITÉ
+==============================================================================
+Stratégie : S018_gold_doud_v2
+Instrument: XAUUSD   (119992 barres)
+
+Compare, à chaque coupure T :
+  A = generate_signals(precompute(df),     params, T)
+  B = generate_signals(precompute(df[:T]), params, T)
+A et B DOIVENT être identiques. Toute différence = fuite.
+
+   coupure        T  signaux A  signaux B  verdict
+  --------------------------------------------------------------------
+      60%    71995        160        160  OK
+      70%    83994        192        192  OK
+      80%    95993        210        210  OK
+      90%   107992        252        252  OK
+
+VERDICT : R1 PASSÉ — aucune information future détectée.

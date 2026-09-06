@@ -68,3 +68,21 @@ Run /apex-autonomous sur la demande Adrian « analyse les 2 vidéos, reproduis l
 - La branche `v2/gold` n'est **pas** fusionnée dans `dev` : S018 est en RESEARCH et rien n'y dépend. Le worktree peut être retiré (`git worktree remove`) une fois la branche poussée.
 - Collision de numéros de tickets possible : TCK-014/015/016 pris sur cette branche pendant qu'un autre acteur travaille sur `dev` (dernier ticket vu côté `dev` : TCK-013). À vérifier au merge.
 - Adjacent constaté, non corrigé : `strategies/S017_ireland_gex` et `S093` déclarent un `strategy_id` qui ne correspond pas à leur nom de dossier, ce qui casse `core/validation/*.load_strategy` en CLI pour elles. S018 aligne les deux (`S018_gold_doud_v2`).
+
+### T9 — captation des lives Doud : évaluation (idée Adrian) — 2026-09-06
+
+`tickets/TCK-017_captation-lives-doud.md` (vers Adrian). Réponse : **non nécessaire**.
+Un flux de ses appels ne lève aucun des trois obstacles du VERDICT — il ne rend pas
+ses sorties rejouables (TCK-014), il produit 100-250 observations par an quand il en
+faudrait 2-3 ans pour conclure, et il ne fournit pas le calendrier économique
+(TCK-016, disponible gratuitement chez la Fed et le BLS). Ce qu'on obtiendrait est un
+signal de copy-trading : non backtestable, donc R1 sans objet et R10 infranchissable.
+
+Deux obstacles pratiques consignés : ses lives sont payants (39,99 €/mois, migration
+vers sa plateforme propre) — je ne peux ni créer de compte, ni payer, ni saisir
+d'identifiants ; et la captation automatisée d'un flux payant engage un risque
+contractuel qui est une décision Adrian, pas une décision technique.
+
+**L'architecture proposée est en revanche la bonne pour le calendrier** : un worker
+de la factory, cadencé, qui maintient un fichier versionné depuis les sources
+publiques. C'est l'option A du ticket.

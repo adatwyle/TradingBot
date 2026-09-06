@@ -1,9 +1,16 @@
 ================================================================================================
 S018 — OR v2 (méthode Doud) · XAUUSD H1
 ================================================================================================
-dépôt b8c06b8 (arbre modifié) · 30024 barres · 2021-08-09 00:00:00 → 2026-09-04 22:00:00
+dépôt c40ce5f (arbre modifié) · 30024 barres · 2021-08-09 00:00:00 → 2026-09-04 22:00:00
 spread 25 pips · slippage 0.0 pip · moteur {'max_positions': 1, 'cooldown_bars': 2, 'cb_losses': 3, 'cb_cooldown_bars': 24, 'max_hold_bars': None}
 Slippage à 0 : comme la v1 et son témoin. Les chiffres restent comparables au dossier gold_forward, et optimistes d'un montant inconnu.
+
+================================================================================================
+0. COÛT DE BORD — ce que le spread pèse à ce timeframe
+================================================================================================
+ATR14 médian : 572 pips · risque médian (1,5 ATR) : 858 pips
+coût aller-retour : 25 pips = 2.9 % du R
+Ce pourcentage se soustrait de l'espérance par trade, quel que soit le signal. Il ne baisse pas quand on descend de timeframe — l'amplitude, si.
 
 ================================================================================================
 1. CELLULE NEUTRE vs V1 (S011, paramètres scellés du forward)
@@ -82,7 +89,7 @@ htf_bias              0.224      0.255    0.031    3764    2541
 ================================================================================================
 WALK-FORWARD — S018_gold_doud_v2 / XAUUSD
 ================================================================================================
-30024 barres · 32 configurations · 18s
+30024 barres · 32 configurations · 15s
 Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
 
 STRICT : 7/32   (≈2 attendues par pur hasard si l'edge est nul —

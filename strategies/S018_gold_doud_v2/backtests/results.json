@@ -1,9 +1,16 @@
 {
   "symbol": "XAUUSD",
-  "commit": "b8c06b8 (arbre modifié)",
+  "timeframe": "H1",
+  "commit": "c40ce5f (arbre modifié)",
   "bars": 30024,
   "from": "2021-08-09 00:00:00",
   "to": "2026-09-04 22:00:00",
+  "edge_cost": {
+    "atr_median_pips": 571.9,
+    "risk_median_pips": 857.8,
+    "cost_pips": 25.0,
+    "cost_pct_of_r": 2.91
+  },
   "neutral_equals_v1": true,
   "v1_full_sample": {
     "n_trades": 402,

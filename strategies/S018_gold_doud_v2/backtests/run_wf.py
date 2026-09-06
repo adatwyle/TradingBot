@@ -61,6 +61,11 @@ from strategies.S011_legacy_breakout.strategy import Strategy as V1   # noqa: E4
 from strategies.S018_gold_doud_v2.strategy import Strategy            # noqa: E402
 
 SYMBOL = "XAUUSD"
+# Le timeframe est un ARGUMENT, pas une constante : la source scalpe en intraday
+# et le dossier H1 s'est conclu sur un manque d'effectif. Descendre d'un cran est
+# donc une mesure, pas un réglage — et le coût de bord, lui, ne descend pas avec
+# l'amplitude des barres. C'est ce que le § 0 chiffre avant tout le reste.
+TIMEFRAME = os.environ.get("S018_TF", "H1")
 MIN_TRADES = 20
 MAX_DD_R = 12.0
 
@@ -78,6 +83,15 @@ BASE = {"donchian": 40, "adx_min": 20.0, "tp_m": 4.0, "sl_m": 1.5,
         "rsi_long_max": 75.0, "rsi_short_min": 25.0}
 
 OUT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def _out(name: str) -> str:
+    """H1 garde les noms canoniques (dossier de référence) ; tout autre timeframe
+    écrit à côté, sans jamais écraser la mesure de référence."""
+    if TIMEFRAME != "H1":
+        stem, ext = os.path.splitext(name)
+        name = f"{stem}_{TIMEFRAME}{ext}"
+    return os.path.join(OUT_DIR, name)
 
 
 def rule(c="=", n=96):
@@ -146,16 +160,17 @@ def by_year(res) -> dict:
 
 
 def main() -> int:
-    bars = load_bars(SYMBOL, "H1")
+    bars = load_bars(SYMBOL, TIMEFRAME)
     if bars is None or len(bars) < 5000:
         print("barres XAUUSD indisponibles — mesure impossible")
         return 2
     spec = get_spec(SYMBOL)
-    report: dict = {"symbol": SYMBOL, "commit": head(), "bars": len(bars),
+    report: dict = {"symbol": SYMBOL, "timeframe": TIMEFRAME, "commit": head(),
+                    "bars": len(bars),
                     "from": str(bars.index[0]), "to": str(bars.index[-1])}
 
     rule()
-    print(f"S018 — OR v2 (méthode Doud) · {SYMBOL} H1")
+    print(f"S018 — OR v2 (méthode Doud) · {SYMBOL} {TIMEFRAME}")
     rule()
     print(f"dépôt {report['commit']} · {len(bars)} barres · "
           f"{bars.index[0]} → {bars.index[-1]}")
@@ -164,8 +179,31 @@ def main() -> int:
     print("Slippage à 0 : comme la v1 et son témoin. Les chiffres restent "
           "comparables au dossier gold_forward, et optimistes d'un montant inconnu.")
 
+    # ── 0. Ce que coûte le timeframe ────────────────────────────────────────
+    section("0. COÛT DE BORD — ce que le spread pèse à ce timeframe")
+    from strategies.S011_legacy_breakout.strategy import _atr as _atr_v1
+    atr = _atr_v1(bars["high"].to_numpy(float), bars["low"].to_numpy(float),
+                  bars["close"].to_numpy(float))
+    atr_med = float(np.nanmedian(atr)) / spec.pip
+    risk_med = 1.5 * atr_med                      # sl_m = 1,5 ATR
+    cost = spec.spread_pips + 2.0 * spec.slippage_pips   # payé aux deux extrémités
+    print(f"ATR14 médian : {atr_med:.0f} pips · risque médian (1,5 ATR) : "
+          f"{risk_med:.0f} pips")
+    print(f"coût aller-retour : {cost:.0f} pips = {100 * cost / risk_med:.1f} % du R")
+    print("Ce pourcentage se soustrait de l'espérance par trade, quel que soit le "
+          "signal. Il ne baisse pas quand on descend de timeframe — l'amplitude, si.")
+    report["edge_cost"] = {"atr_median_pips": round(atr_med, 1),
+                           "risk_median_pips": round(risk_med, 1),
+                           "cost_pips": cost,
+                           "cost_pct_of_r": round(100 * cost / risk_med, 2)}
+
     # ── 1. La cellule neutre EST la v1 ──────────────────────────────────────
     section("1. CELLULE NEUTRE vs V1 (S011, paramètres scellés du forward)")
+    if TIMEFRAME != "H1":
+        print(f"ATTENTION — timeframe {TIMEFRAME}. La v1 scellée est en H1 : ce qui "
+              f"est comparé ici est S011 APPLIQUÉE À DES BARRES {TIMEFRAME}, pas la "
+              f"référence du forward. L'égalité ci-dessous prouve l'équivalence des "
+              f"deux CODES, elle ne rattache pas ces chiffres au dossier gold_forward.")
     v1 = V1({**BASE, "er_min": 0.0, "fr_max": 1.0})
     v1._symbol = SYMBOL
     s_v1 = v1.generate_signals(v1.precompute(bars, v1.params), v1.params, len(bars))
@@ -203,7 +241,7 @@ def main() -> int:
         print(line)
         causality_lines.append(rep.render())
     report["causality_ok"] = bool(all_ok)
-    with open(os.path.join(OUT_DIR, "causality.txt"), "w", encoding="utf-8") as f:
+    with open(_out("causality.txt"), "w", encoding="utf-8") as f:
         f.write("\n\n".join(causality_lines))
 
     # ── 3. R5 conformance ───────────────────────────────────────────────────
@@ -215,7 +253,7 @@ def main() -> int:
         rep = conformance_check(strat, bars, SYMBOL)
         print(f"{label(cell):28s} {'OK' if rep.ok else 'DIVERGENCE'}")
         conf_lines.append(rep.render())
-    with open(os.path.join(OUT_DIR, "conformance.txt"), "w", encoding="utf-8") as f:
+    with open(_out("conformance.txt"), "w", encoding="utf-8") as f:
         f.write("\n\n".join(conf_lines))
 
     # ── 4. Plein échantillon, 32 cellules ───────────────────────────────────
@@ -335,7 +373,7 @@ def main() -> int:
                 "r_per_trade": round(rpt, 4)}
         print("  " + "  ".join(line))
 
-    with open(os.path.join(OUT_DIR, "results.json"), "w", encoding="utf-8") as f:
+    with open(_out("results.json"), "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False, default=str)
     print(f"\nrésultats : {os.path.join(OUT_DIR, 'results.json')}")
     return 0

@@ -1,0 +1,1844 @@
+{
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "commit": "c40ce5f (arbre modifié)",
+  "bars": 358624,
+  "from": "2021-08-09 00:00:00",
+  "to": "2026-09-04 22:50:00",
+  "edge_cost": {
+    "atr_median_pips": 152.0,
+    "risk_median_pips": 228.0,
+    "cost_pips": 25.0,
+    "cost_pct_of_r": 10.97
+  },
+  "neutral_equals_v1": true,
+  "v1_full_sample": {
+    "n_trades": 5064,
+    "total_r": -548.73,
+    "win_rate": 27.3,
+    "profit_factor": 0.86,
+    "max_dd_r": 562.46,
+    "skipped_spread": 0,
+    "skipped_cooldown": 6047,
+    "skipped_open": 0,
+    "r_per_trade": -0.1084,
+    "n_long": 2604,
+    "n_short": 2460,
+    "r_long": -0.0569,
+    "r_short": -0.1628
+  },
+  "v1_by_year": {
+    "2021": [
+      -85.3,
+      351
+    ],
+    "2022": [
+      -129.5,
+      995
+    ],
+    "2023": [
+      -153.3,
+      984
+    ],
+    "2024": [
+      -113.5,
+      1007
+    ],
+    "2025": [
+      -47.4,
+      1068
+    ],
+    "2026": [
+      -19.6,
+      659
+    ]
+  },
+  "causality_ok": true,
+  "full_sample": [
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "extremes",
+        "side_mode": "both",
+        "session_filter": "off",
+        "htf_bias": "off"
+      },
+      "label": "brk ext both - -",
+      "n_trades": 5064,
+      "total_r": -548.73,
+      "win_rate": 27.3,
+      "profit_factor": 0.86,
+      "max_dd_r": 562.46,
+      "skipped_spread": 0,
+      "skipped_cooldown": 6047,
+      "skipped_open": 0,
+      "r_per_trade": -0.1084,
+      "n_long": 2604,
+      "n_short": 2460,
+      "r_long": -0.0569,
+      "r_short": -0.1628,
+      "by_year": {
+        "2021": [
+          -85.3,
+          351
+        ],
+        "2022": [
+          -129.5,
+          995
+        ],
+        "2023": [
+          -153.3,
+          984
+        ],
+        "2024": [
+          -113.5,
+          1007
+        ],
+        "2025": [
+          -47.4,
+          1068
+        ],
+        "2026": [
+          -19.6,
+          659
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "extremes",
+        "side_mode": "both",
+        "session_filter": "off",
+        "htf_bias": "daily_ema"
+      },
+      "label": "brk ext both - BIAS",
+      "n_trades": 2775,
+      "total_r": -382.2,
+      "win_rate": 26.5,
+      "profit_factor": 0.82,
+      "max_dd_r": 391.18,
+      "skipped_spread": 0,
+      "skipped_cooldown": 2934,
+      "skipped_open": 0,
+      "r_per_trade": -0.1377,
+      "n_long": 1715,
+      "n_short": 1060,
+      "r_long": -0.0946,
+      "r_short": -0.2075,
+      "by_year": {
+        "2021": [
+          -50.1,
+          183
+        ],
+        "2022": [
+          -78.2,
+          548
+        ],
+        "2023": [
+          -92.2,
+          530
+        ],
+        "2024": [
+          -98.0,
+          538
+        ],
+        "2025": [
+          -53.8,
+          594
+        ],
+        "2026": [
+          -9.9,
+          382
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "extremes",
+        "side_mode": "both",
+        "session_filter": "doud",
+        "htf_bias": "off"
+      },
+      "label": "brk ext both SESS -",
+      "n_trades": 2563,
+      "total_r": -221.82,
+      "win_rate": 27.6,
+      "profit_factor": 0.89,
+      "max_dd_r": 259.33,
+      "skipped_spread": 0,
+      "skipped_cooldown": 2573,
+      "skipped_open": 0,
+      "r_per_trade": -0.0865,
+      "n_long": 1355,
+      "n_short": 1208,
+      "r_long": -0.0173,
+      "r_short": -0.1642,
+      "by_year": {
+        "2021": [
+          -59.4,
+          182
+        ],
+        "2022": [
+          -26.1,
+          471
+        ],
+        "2023": [
+          -49.3,
+          502
+        ],
+        "2024": [
+          -80.8,
+          470
+        ],
+        "2025": [
+          8.1,
+          574
+        ],
+        "2026": [
+          -14.3,
+          364
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "extremes",
+        "side_mode": "both",
+        "session_filter": "doud",
+        "htf_bias": "daily_ema"
+      },
+      "label": "brk ext both SESS BIAS",
+      "n_trades": 1410,
+      "total_r": -110.28,
+      "win_rate": 27.9,
+      "profit_factor": 0.9,
+      "max_dd_r": 137.24,
+      "skipped_spread": 0,
+      "skipped_cooldown": 1310,
+      "skipped_open": 0,
+      "r_per_trade": -0.0782,
+      "n_long": 887,
+      "n_short": 523,
+      "r_long": -0.0281,
+      "r_short": -0.1633,
+      "by_year": {
+        "2021": [
+          -8.1,
+          83
+        ],
+        "2022": [
+          -14.3,
+          252
+        ],
+        "2023": [
+          -25.8,
+          275
+        ],
+        "2024": [
+          -69.2,
+          254
+        ],
+        "2025": [
+          2.0,
+          337
+        ],
+        "2026": [
+          5.0,
+          209
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "extremes",
+        "side_mode": "long_only",
+        "session_filter": "off",
+        "htf_bias": "off"
+      },
+      "label": "brk ext LONG - -",
+      "n_trades": 2808,
+      "total_r": -195.24,
+      "win_rate": 28.4,
+      "profit_factor": 0.91,
+      "max_dd_r": 208.65,
+      "skipped_spread": 0,
+      "skipped_cooldown": 3179,
+      "skipped_open": 0,
+      "r_per_trade": -0.0695,
+      "n_long": 2808,
+      "n_short": 0,
+      "r_long": -0.0695,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -38.5,
+          208
+        ],
+        "2022": [
+          -45.8,
+          537
+        ],
+        "2023": [
+          -34.1,
+          516
+        ],
+        "2024": [
+          -48.3,
+          584
+        ],
+        "2025": [
+          -8.7,
+          616
+        ],
+        "2026": [
+          -19.8,
+          347
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "extremes",
+        "side_mode": "long_only",
+        "session_filter": "off",
+        "htf_bias": "daily_ema"
+      },
+      "label": "brk ext LONG - BIAS",
+      "n_trades": 1715,
+      "total_r": -162.49,
+      "win_rate": 27.6,
+      "profit_factor": 0.88,
+      "max_dd_r": 163.31,
+      "skipped_spread": 0,
+      "skipped_cooldown": 1941,
+      "skipped_open": 0,
+      "r_per_trade": -0.0947,
+      "n_long": 1715,
+      "n_short": 0,
+      "r_long": -0.0947,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -34.0,
+          103
+        ],
+        "2022": [
+          -36.5,
+          257
+        ],
+        "2023": [
+          -14.7,
+          292
+        ],
+        "2024": [
+          -38.9,
+          389
+        ],
+        "2025": [
+          -12.5,
+          492
+        ],
+        "2026": [
+          -25.9,
+          182
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "extremes",
+        "side_mode": "long_only",
+        "session_filter": "doud",
+        "htf_bias": "off"
+      },
+      "label": "brk ext LONG SESS -",
+      "n_trades": 1437,
+      "total_r": -24.09,
+      "win_rate": 29.7,
+      "profit_factor": 0.98,
+      "max_dd_r": 75.54,
+      "skipped_spread": 0,
+      "skipped_cooldown": 1412,
+      "skipped_open": 0,
+      "r_per_trade": -0.0168,
+      "n_long": 1437,
+      "n_short": 0,
+      "r_long": -0.0168,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -30.8,
+          111
+        ],
+        "2022": [
+          28.7,
+          247
+        ],
+        "2023": [
+          18.0,
+          277
+        ],
+        "2024": [
+          -46.1,
+          276
+        ],
+        "2025": [
+          23.0,
+          338
+        ],
+        "2026": [
+          -16.9,
+          188
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "extremes",
+        "side_mode": "long_only",
+        "session_filter": "doud",
+        "htf_bias": "daily_ema"
+      },
+      "label": "brk ext LONG SESS BIAS",
+      "n_trades": 886,
+      "total_r": -16.6,
+      "win_rate": 29.6,
+      "profit_factor": 0.97,
+      "max_dd_r": 51.56,
+      "skipped_spread": 0,
+      "skipped_cooldown": 895,
+      "skipped_open": 0,
+      "r_per_trade": -0.0187,
+      "n_long": 886,
+      "n_short": 0,
+      "r_long": -0.0187,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -11.7,
+          52
+        ],
+        "2022": [
+          6.6,
+          115
+        ],
+        "2023": [
+          10.5,
+          152
+        ],
+        "2024": [
+          -34.6,
+          185
+        ],
+        "2025": [
+          24.6,
+          281
+        ],
+        "2026": [
+          -11.9,
+          101
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "bodies",
+        "side_mode": "both",
+        "session_filter": "off",
+        "htf_bias": "off"
+      },
+      "label": "brk BOD both - -",
+      "n_trades": 6613,
+      "total_r": -597.03,
+      "win_rate": 27.8,
+      "profit_factor": 0.88,
+      "max_dd_r": 621.95,
+      "skipped_spread": 0,
+      "skipped_cooldown": 15914,
+      "skipped_open": 0,
+      "r_per_trade": -0.0903,
+      "n_long": 3373,
+      "n_short": 3240,
+      "r_long": -0.0692,
+      "r_short": -0.1122,
+      "by_year": {
+        "2021": [
+          -57.0,
+          466
+        ],
+        "2022": [
+          -123.7,
+          1304
+        ],
+        "2023": [
+          -189.2,
+          1247
+        ],
+        "2024": [
+          -157.1,
+          1321
+        ],
+        "2025": [
+          -66.9,
+          1374
+        ],
+        "2026": [
+          -3.1,
+          901
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "bodies",
+        "side_mode": "both",
+        "session_filter": "off",
+        "htf_bias": "daily_ema"
+      },
+      "label": "brk BOD both - BIAS",
+      "n_trades": 3666,
+      "total_r": -332.84,
+      "win_rate": 27.8,
+      "profit_factor": 0.88,
+      "max_dd_r": 349.1,
+      "skipped_spread": 0,
+      "skipped_cooldown": 7741,
+      "skipped_open": 0,
+      "r_per_trade": -0.0908,
+      "n_long": 2230,
+      "n_short": 1436,
+      "r_long": -0.0551,
+      "r_short": -0.1462,
+      "by_year": {
+        "2021": [
+          -40.1,
+          237
+        ],
+        "2022": [
+          -82.1,
+          737
+        ],
+        "2023": [
+          -132.8,
+          703
+        ],
+        "2024": [
+          -56.1,
+          705
+        ],
+        "2025": [
+          -20.0,
+          775
+        ],
+        "2026": [
+          -1.7,
+          509
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "bodies",
+        "side_mode": "both",
+        "session_filter": "doud",
+        "htf_bias": "off"
+      },
+      "label": "brk BOD both SESS -",
+      "n_trades": 3452,
+      "total_r": -239.37,
+      "win_rate": 28.1,
+      "profit_factor": 0.91,
+      "max_dd_r": 289.26,
+      "skipped_spread": 0,
+      "skipped_cooldown": 6717,
+      "skipped_open": 0,
+      "r_per_trade": -0.0693,
+      "n_long": 1777,
+      "n_short": 1675,
+      "r_long": -0.0349,
+      "r_short": -0.1059,
+      "by_year": {
+        "2021": [
+          -41.5,
+          241
+        ],
+        "2022": [
+          -8.1,
+          632
+        ],
+        "2023": [
+          -103.1,
+          669
+        ],
+        "2024": [
+          -85.7,
+          681
+        ],
+        "2025": [
+          -16.8,
+          738
+        ],
+        "2026": [
+          15.9,
+          491
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "bodies",
+        "side_mode": "both",
+        "session_filter": "doud",
+        "htf_bias": "daily_ema"
+      },
+      "label": "brk BOD both SESS BIAS",
+      "n_trades": 1898,
+      "total_r": -108.47,
+      "win_rate": 28.5,
+      "profit_factor": 0.92,
+      "max_dd_r": 153.92,
+      "skipped_spread": 0,
+      "skipped_cooldown": 3398,
+      "skipped_open": 0,
+      "r_per_trade": -0.0571,
+      "n_long": 1177,
+      "n_short": 721,
+      "r_long": -0.0393,
+      "r_short": -0.0864,
+      "by_year": {
+        "2021": [
+          6.1,
+          108
+        ],
+        "2022": [
+          11.8,
+          334
+        ],
+        "2023": [
+          -60.1,
+          389
+        ],
+        "2024": [
+          -69.5,
+          363
+        ],
+        "2025": [
+          1.4,
+          424
+        ],
+        "2026": [
+          1.7,
+          280
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "bodies",
+        "side_mode": "long_only",
+        "session_filter": "off",
+        "htf_bias": "off"
+      },
+      "label": "brk BOD LONG - -",
+      "n_trades": 3701,
+      "total_r": -202.18,
+      "win_rate": 28.9,
+      "profit_factor": 0.93,
+      "max_dd_r": 219.84,
+      "skipped_spread": 0,
+      "skipped_cooldown": 7962,
+      "skipped_open": 0,
+      "r_per_trade": -0.0546,
+      "n_long": 3701,
+      "n_short": 0,
+      "r_long": -0.0546,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -41.1,
+          271
+        ],
+        "2022": [
+          -58.0,
+          699
+        ],
+        "2023": [
+          -43.0,
+          690
+        ],
+        "2024": [
+          -30.0,
+          773
+        ],
+        "2025": [
+          6.0,
+          805
+        ],
+        "2026": [
+          -36.1,
+          463
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "bodies",
+        "side_mode": "long_only",
+        "session_filter": "off",
+        "htf_bias": "daily_ema"
+      },
+      "label": "brk BOD LONG - BIAS",
+      "n_trades": 2233,
+      "total_r": -133.16,
+      "win_rate": 28.6,
+      "profit_factor": 0.92,
+      "max_dd_r": 137.38,
+      "skipped_spread": 0,
+      "skipped_cooldown": 4777,
+      "skipped_open": 0,
+      "r_per_trade": -0.0596,
+      "n_long": 2233,
+      "n_short": 0,
+      "r_long": -0.0596,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -35.1,
+          133
+        ],
+        "2022": [
+          -50.1,
+          333
+        ],
+        "2023": [
+          -28.7,
+          391
+        ],
+        "2024": [
+          0.4,
+          498
+        ],
+        "2025": [
+          3.4,
+          649
+        ],
+        "2026": [
+          -23.0,
+          229
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "bodies",
+        "side_mode": "long_only",
+        "session_filter": "doud",
+        "htf_bias": "off"
+      },
+      "label": "brk BOD LONG SESS -",
+      "n_trades": 1919,
+      "total_r": -41.04,
+      "win_rate": 29.7,
+      "profit_factor": 0.97,
+      "max_dd_r": 104.42,
+      "skipped_spread": 0,
+      "skipped_cooldown": 3436,
+      "skipped_open": 0,
+      "r_per_trade": -0.0214,
+      "n_long": 1919,
+      "n_short": 0,
+      "r_long": -0.0214,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -18.2,
+          150
+        ],
+        "2022": [
+          33.2,
+          336
+        ],
+        "2023": [
+          -5.6,
+          374
+        ],
+        "2024": [
+          -46.0,
+          386
+        ],
+        "2025": [
+          10.2,
+          423
+        ],
+        "2026": [
+          -14.6,
+          250
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "breakout",
+        "channel_source": "bodies",
+        "side_mode": "long_only",
+        "session_filter": "doud",
+        "htf_bias": "daily_ema"
+      },
+      "label": "brk BOD LONG SESS BIAS",
+      "n_trades": 1183,
+      "total_r": -49.14,
+      "win_rate": 29.0,
+      "profit_factor": 0.94,
+      "max_dd_r": 63.3,
+      "skipped_spread": 0,
+      "skipped_cooldown": 2151,
+      "skipped_open": 0,
+      "r_per_trade": -0.0415,
+      "n_long": 1183,
+      "n_short": 0,
+      "r_long": -0.0415,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -8.1,
+          68
+        ],
+        "2022": [
+          11.4,
+          158
+        ],
+        "2023": [
+          -6.3,
+          215
+        ],
+        "2024": [
+          -31.8,
+          257
+        ],
+        "2025": [
+          0.0,
+          353
+        ],
+        "2026": [
+          -14.4,
+          132
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "extremes",
+        "side_mode": "both",
+        "session_filter": "off",
+        "htf_bias": "off"
+      },
+      "label": "EQU ext both - -",
+      "n_trades": 2744,
+      "total_r": -168.83,
+      "win_rate": 28.5,
+      "profit_factor": 0.92,
+      "max_dd_r": 201.74,
+      "skipped_spread": 0,
+      "skipped_cooldown": 360,
+      "skipped_open": 0,
+      "r_per_trade": -0.0615,
+      "n_long": 1355,
+      "n_short": 1389,
+      "r_long": -0.0421,
+      "r_short": -0.0805,
+      "by_year": {
+        "2021": [
+          -19.2,
+          229
+        ],
+        "2022": [
+          -43.9,
+          562
+        ],
+        "2023": [
+          -62.3,
+          536
+        ],
+        "2024": [
+          -13.0,
+          527
+        ],
+        "2025": [
+          -2.0,
+          559
+        ],
+        "2026": [
+          -28.5,
+          331
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "extremes",
+        "side_mode": "both",
+        "session_filter": "off",
+        "htf_bias": "daily_ema"
+      },
+      "label": "EQU ext both - BIAS",
+      "n_trades": 1488,
+      "total_r": -96.23,
+      "win_rate": 28.5,
+      "profit_factor": 0.91,
+      "max_dd_r": 112.58,
+      "skipped_spread": 0,
+      "skipped_cooldown": 90,
+      "skipped_open": 0,
+      "r_per_trade": -0.0647,
+      "n_long": 865,
+      "n_short": 623,
+      "r_long": -0.0517,
+      "r_short": -0.0827,
+      "by_year": {
+        "2021": [
+          -22.5,
+          113
+        ],
+        "2022": [
+          -21.0,
+          315
+        ],
+        "2023": [
+          -14.1,
+          293
+        ],
+        "2024": [
+          -21.2,
+          297
+        ],
+        "2025": [
+          3.2,
+          286
+        ],
+        "2026": [
+          -20.6,
+          184
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "extremes",
+        "side_mode": "both",
+        "session_filter": "doud",
+        "htf_bias": "off"
+      },
+      "label": "EQU ext both SESS -",
+      "n_trades": 1459,
+      "total_r": 1.64,
+      "win_rate": 29.8,
+      "profit_factor": 1.0,
+      "max_dd_r": 64.47,
+      "skipped_spread": 0,
+      "skipped_cooldown": 154,
+      "skipped_open": 0,
+      "r_per_trade": 0.0011,
+      "n_long": 736,
+      "n_short": 723,
+      "r_long": -0.0079,
+      "r_short": 0.0103,
+      "by_year": {
+        "2021": [
+          -11.3,
+          129
+        ],
+        "2022": [
+          18.3,
+          269
+        ],
+        "2023": [
+          -45.6,
+          282
+        ],
+        "2024": [
+          15.5,
+          266
+        ],
+        "2025": [
+          23.2,
+          311
+        ],
+        "2026": [
+          1.7,
+          202
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "extremes",
+        "side_mode": "both",
+        "session_filter": "doud",
+        "htf_bias": "daily_ema"
+      },
+      "label": "EQU ext both SESS BIAS",
+      "n_trades": 784,
+      "total_r": 27.47,
+      "win_rate": 30.7,
+      "profit_factor": 1.05,
+      "max_dd_r": 30.45,
+      "skipped_spread": 0,
+      "skipped_cooldown": 45,
+      "skipped_open": 0,
+      "r_per_trade": 0.035,
+      "n_long": 467,
+      "n_short": 317,
+      "r_long": -0.0145,
+      "r_short": 0.108,
+      "by_year": {
+        "2021": [
+          -9.1,
+          60
+        ],
+        "2022": [
+          8.6,
+          143
+        ],
+        "2023": [
+          -13.8,
+          155
+        ],
+        "2024": [
+          18.1,
+          147
+        ],
+        "2025": [
+          23.1,
+          169
+        ],
+        "2026": [
+          0.6,
+          110
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "extremes",
+        "side_mode": "long_only",
+        "session_filter": "off",
+        "htf_bias": "off"
+      },
+      "label": "EQU ext LONG - -",
+      "n_trades": 1437,
+      "total_r": -63.7,
+      "win_rate": 29.1,
+      "profit_factor": 0.94,
+      "max_dd_r": 75.94,
+      "skipped_spread": 0,
+      "skipped_cooldown": 88,
+      "skipped_open": 0,
+      "r_per_trade": -0.0443,
+      "n_long": 1437,
+      "n_short": 0,
+      "r_long": -0.0443,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          5.9,
+          126
+        ],
+        "2022": [
+          -42.4,
+          283
+        ],
+        "2023": [
+          -9.7,
+          279
+        ],
+        "2024": [
+          11.6,
+          307
+        ],
+        "2025": [
+          4.2,
+          288
+        ],
+        "2026": [
+          -33.2,
+          154
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "extremes",
+        "side_mode": "long_only",
+        "session_filter": "off",
+        "htf_bias": "daily_ema"
+      },
+      "label": "EQU ext LONG - BIAS",
+      "n_trades": 863,
+      "total_r": -42.69,
+      "win_rate": 28.9,
+      "profit_factor": 0.93,
+      "max_dd_r": 46.57,
+      "skipped_spread": 0,
+      "skipped_cooldown": 55,
+      "skipped_open": 0,
+      "r_per_trade": -0.0495,
+      "n_long": 863,
+      "n_short": 0,
+      "r_long": -0.0495,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -6.8,
+          69
+        ],
+        "2022": [
+          -19.8,
+          135
+        ],
+        "2023": [
+          12.8,
+          150
+        ],
+        "2024": [
+          2.1,
+          212
+        ],
+        "2025": [
+          -7.4,
+          220
+        ],
+        "2026": [
+          -23.7,
+          77
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "extremes",
+        "side_mode": "long_only",
+        "session_filter": "doud",
+        "htf_bias": "off"
+      },
+      "label": "EQU ext LONG SESS -",
+      "n_trades": 768,
+      "total_r": -1.52,
+      "win_rate": 29.8,
+      "profit_factor": 1.0,
+      "max_dd_r": 49.38,
+      "skipped_spread": 0,
+      "skipped_cooldown": 36,
+      "skipped_open": 0,
+      "r_per_trade": -0.002,
+      "n_long": 768,
+      "n_short": 0,
+      "r_long": -0.002,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          3.3,
+          70
+        ],
+        "2022": [
+          -7.4,
+          129
+        ],
+        "2023": [
+          -18.5,
+          149
+        ],
+        "2024": [
+          4.7,
+          159
+        ],
+        "2025": [
+          18.7,
+          173
+        ],
+        "2026": [
+          -2.2,
+          88
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "extremes",
+        "side_mode": "long_only",
+        "session_filter": "doud",
+        "htf_bias": "daily_ema"
+      },
+      "label": "EQU ext LONG SESS BIAS",
+      "n_trades": 467,
+      "total_r": -6.78,
+      "win_rate": 29.3,
+      "profit_factor": 0.98,
+      "max_dd_r": 24.83,
+      "skipped_spread": 0,
+      "skipped_cooldown": 25,
+      "skipped_open": 0,
+      "r_per_trade": -0.0145,
+      "n_long": 467,
+      "n_short": 0,
+      "r_long": -0.0145,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -6.8,
+          38
+        ],
+        "2022": [
+          -6.6,
+          59
+        ],
+        "2023": [
+          -4.1,
+          81
+        ],
+        "2024": [
+          12.6,
+          112
+        ],
+        "2025": [
+          0.7,
+          135
+        ],
+        "2026": [
+          -2.6,
+          42
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "bodies",
+        "side_mode": "both",
+        "session_filter": "off",
+        "htf_bias": "off"
+      },
+      "label": "EQU BOD both - -",
+      "n_trades": 3926,
+      "total_r": -246.57,
+      "win_rate": 28.5,
+      "profit_factor": 0.92,
+      "max_dd_r": 284.39,
+      "skipped_spread": 0,
+      "skipped_cooldown": 996,
+      "skipped_open": 0,
+      "r_per_trade": -0.0628,
+      "n_long": 1906,
+      "n_short": 2020,
+      "r_long": -0.0728,
+      "r_short": -0.0533,
+      "by_year": {
+        "2021": [
+          5.0,
+          314
+        ],
+        "2022": [
+          -51.2,
+          803
+        ],
+        "2023": [
+          -121.7,
+          757
+        ],
+        "2024": [
+          -38.9,
+          758
+        ],
+        "2025": [
+          -10.9,
+          799
+        ],
+        "2026": [
+          -28.8,
+          495
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "bodies",
+        "side_mode": "both",
+        "session_filter": "off",
+        "htf_bias": "daily_ema"
+      },
+      "label": "EQU BOD both - BIAS",
+      "n_trades": 2163,
+      "total_r": -128.0,
+      "win_rate": 28.7,
+      "profit_factor": 0.92,
+      "max_dd_r": 167.5,
+      "skipped_spread": 0,
+      "skipped_cooldown": 294,
+      "skipped_open": 0,
+      "r_per_trade": -0.0592,
+      "n_long": 1266,
+      "n_short": 897,
+      "r_long": -0.0392,
+      "r_short": -0.0874,
+      "by_year": {
+        "2021": [
+          -17.3,
+          165
+        ],
+        "2022": [
+          -9.3,
+          458
+        ],
+        "2023": [
+          -26.8,
+          430
+        ],
+        "2024": [
+          -70.3,
+          416
+        ],
+        "2025": [
+          0.1,
+          423
+        ],
+        "2026": [
+          -4.3,
+          271
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "bodies",
+        "side_mode": "both",
+        "session_filter": "doud",
+        "htf_bias": "off"
+      },
+      "label": "EQU BOD both SESS -",
+      "n_trades": 2139,
+      "total_r": -64.2,
+      "win_rate": 29.1,
+      "profit_factor": 0.96,
+      "max_dd_r": 133.07,
+      "skipped_spread": 0,
+      "skipped_cooldown": 388,
+      "skipped_open": 0,
+      "r_per_trade": -0.03,
+      "n_long": 1037,
+      "n_short": 1102,
+      "r_long": -0.0142,
+      "r_short": -0.0449,
+      "by_year": {
+        "2021": [
+          -6.6,
+          167
+        ],
+        "2022": [
+          19.4,
+          388
+        ],
+        "2023": [
+          -80.6,
+          421
+        ],
+        "2024": [
+          -14.7,
+          410
+        ],
+        "2025": [
+          20.1,
+          462
+        ],
+        "2026": [
+          -1.9,
+          291
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "bodies",
+        "side_mode": "both",
+        "session_filter": "doud",
+        "htf_bias": "daily_ema"
+      },
+      "label": "EQU BOD both SESS BIAS",
+      "n_trades": 1154,
+      "total_r": 12.22,
+      "win_rate": 30.2,
+      "profit_factor": 1.01,
+      "max_dd_r": 61.11,
+      "skipped_spread": 0,
+      "skipped_cooldown": 116,
+      "skipped_open": 0,
+      "r_per_trade": 0.0106,
+      "n_long": 696,
+      "n_short": 458,
+      "r_long": 0.0358,
+      "r_short": -0.0277,
+      "by_year": {
+        "2021": [
+          -7.7,
+          78
+        ],
+        "2022": [
+          27.2,
+          214
+        ],
+        "2023": [
+          -20.8,
+          231
+        ],
+        "2024": [
+          -18.7,
+          221
+        ],
+        "2025": [
+          26.8,
+          255
+        ],
+        "2026": [
+          5.4,
+          155
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "bodies",
+        "side_mode": "long_only",
+        "session_filter": "off",
+        "htf_bias": "off"
+      },
+      "label": "EQU BOD LONG - -",
+      "n_trades": 2095,
+      "total_r": -128.44,
+      "win_rate": 28.6,
+      "profit_factor": 0.92,
+      "max_dd_r": 158.39,
+      "skipped_spread": 0,
+      "skipped_cooldown": 270,
+      "skipped_open": 0,
+      "r_per_trade": -0.0613,
+      "n_long": 2095,
+      "n_short": 0,
+      "r_long": -0.0613,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          1.6,
+          183
+        ],
+        "2022": [
+          -46.3,
+          413
+        ],
+        "2023": [
+          -39.7,
+          410
+        ],
+        "2024": [
+          -9.2,
+          422
+        ],
+        "2025": [
+          -5.5,
+          421
+        ],
+        "2026": [
+          -29.4,
+          246
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "bodies",
+        "side_mode": "long_only",
+        "session_filter": "off",
+        "htf_bias": "daily_ema"
+      },
+      "label": "EQU BOD LONG - BIAS",
+      "n_trades": 1267,
+      "total_r": -50.66,
+      "win_rate": 29.2,
+      "profit_factor": 0.95,
+      "max_dd_r": 70.65,
+      "skipped_spread": 0,
+      "skipped_cooldown": 153,
+      "skipped_open": 0,
+      "r_per_trade": -0.04,
+      "n_long": 1267,
+      "n_short": 0,
+      "r_long": -0.04,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -1.6,
+          102
+        ],
+        "2022": [
+          -10.8,
+          195
+        ],
+        "2023": [
+          14.1,
+          230
+        ],
+        "2024": [
+          -18.0,
+          287
+        ],
+        "2025": [
+          -15.5,
+          331
+        ],
+        "2026": [
+          -19.0,
+          122
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "bodies",
+        "side_mode": "long_only",
+        "session_filter": "doud",
+        "htf_bias": "off"
+      },
+      "label": "EQU BOD LONG SESS -",
+      "n_trades": 1118,
+      "total_r": -14.96,
+      "win_rate": 29.7,
+      "profit_factor": 0.98,
+      "max_dd_r": 75.63,
+      "skipped_spread": 0,
+      "skipped_cooldown": 101,
+      "skipped_open": 0,
+      "r_per_trade": -0.0134,
+      "n_long": 1118,
+      "n_short": 0,
+      "r_long": -0.0134,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          7.0,
+          92
+        ],
+        "2022": [
+          7.2,
+          203
+        ],
+        "2023": [
+          -31.0,
+          217
+        ],
+        "2024": [
+          -16.5,
+          225
+        ],
+        "2025": [
+          20.4,
+          247
+        ],
+        "2026": [
+          -2.1,
+          134
+        ]
+      }
+    },
+    {
+      "cell": {
+        "entry_mode": "equilibrium",
+        "channel_source": "bodies",
+        "side_mode": "long_only",
+        "session_filter": "doud",
+        "htf_bias": "daily_ema"
+      },
+      "label": "EQU BOD LONG SESS BIAS",
+      "n_trades": 696,
+      "total_r": 24.9,
+      "win_rate": 31.0,
+      "profit_factor": 1.05,
+      "max_dd_r": 23.88,
+      "skipped_spread": 0,
+      "skipped_cooldown": 58,
+      "skipped_open": 0,
+      "r_per_trade": 0.0358,
+      "n_long": 696,
+      "n_short": 0,
+      "r_long": 0.0358,
+      "r_short": null,
+      "by_year": {
+        "2021": [
+          -1.3,
+          49
+        ],
+        "2022": [
+          15.8,
+          97
+        ],
+        "2023": [
+          7.2,
+          121
+        ],
+        "2024": [
+          -3.9,
+          160
+        ],
+        "2025": [
+          7.3,
+          201
+        ],
+        "2026": [
+          -0.2,
+          68
+        ]
+      }
+    }
+  ],
+  "marginal": {
+    "entry_mode": {
+      "off": -0.0684,
+      "on": -0.0263,
+      "delta": 0.0421,
+      "trades_off": 43323,
+      "trades_on": 24568,
+      "cells_off": 16,
+      "cells_on": 16
+    },
+    "channel_source": {
+      "off": -0.0507,
+      "on": -0.0441,
+      "delta": 0.0066,
+      "trades_off": 28668,
+      "trades_on": 39223,
+      "cells_off": 16,
+      "cells_on": 16
+    },
+    "side_mode": {
+      "off": -0.0594,
+      "on": -0.0354,
+      "delta": 0.024,
+      "trades_off": 43298,
+      "trades_on": 24593,
+      "cells_off": 16,
+      "cells_on": 16
+    },
+    "session_filter": {
+      "off": -0.0718,
+      "on": -0.0229,
+      "delta": 0.0489,
+      "trades_off": 44558,
+      "trades_on": 23333,
+      "cells_off": 16,
+      "cells_on": 16
+    },
+    "htf_bias": {
+      "off": -0.0494,
+      "on": -0.0453,
+      "delta": 0.0041,
+      "trades_off": 43243,
+      "trades_on": 24648,
+      "cells_off": 16,
+      "cells_on": 16
+    }
+  },
+  "wf": {
+    "n_configs": 32,
+    "strict": [],
+    "tier1": []
+  },
+  "notable": {
+    "v1 / neutre": {
+      "label": "brk ext both - -",
+      "n_trades": 5064,
+      "total_r": -548.73,
+      "by_year": {
+        "2021": [
+          -85.3,
+          351
+        ],
+        "2022": [
+          -129.5,
+          995
+        ],
+        "2023": [
+          -153.3,
+          984
+        ],
+        "2024": [
+          -113.5,
+          1007
+        ],
+        "2025": [
+          -47.4,
+          1068
+        ],
+        "2026": [
+          -19.6,
+          659
+        ]
+      }
+    },
+    "meilleure R/trade": {
+      "label": "EQU BOD LONG SESS BIAS",
+      "n_trades": 696,
+      "total_r": 24.9,
+      "by_year": {
+        "2021": [
+          -1.3,
+          49
+        ],
+        "2022": [
+          15.8,
+          97
+        ],
+        "2023": [
+          7.2,
+          121
+        ],
+        "2024": [
+          -3.9,
+          160
+        ],
+        "2025": [
+          7.3,
+          201
+        ],
+        "2026": [
+          -0.2,
+          68
+        ]
+      }
+    },
+    "meilleur R total": {
+      "label": "EQU ext both SESS BIAS",
+      "n_trades": 784,
+      "total_r": 27.47,
+      "by_year": {
+        "2021": [
+          -9.1,
+          60
+        ],
+        "2022": [
+          8.6,
+          143
+        ],
+        "2023": [
+          -13.8,
+          155
+        ],
+        "2024": [
+          18.1,
+          147
+        ],
+        "2025": [
+          23.1,
+          169
+        ],
+        "2026": [
+          0.6,
+          110
+        ]
+      }
+    }
+  },
+  "control": {
+    "v1 / neutre": {
+      "label": "brk ext both - -",
+      "total_r": -548.73,
+      "percentile": 27.0
+    },
+    "meilleure R/trade": {
+      "label": "EQU BOD LONG SESS BIAS",
+      "total_r": 24.9,
+      "percentile": 98.5
+    },
+    "meilleur R total": {
+      "label": "EQU ext both SESS BIAS",
+      "total_r": 27.47,
+      "percentile": 100.0
+    }
+  },
+  "max_hold": {
+    "v1 / neutre": {
+      "None": {
+        "n": 5064,
+        "total_r": -548.73,
+        "r_per_trade": -0.1084
+      },
+      "24": {
+        "n": 5638,
+        "total_r": -686.32,
+        "r_per_trade": -0.1217
+      },
+      "48": {
+        "n": 5454,
+        "total_r": -550.72,
+        "r_per_trade": -0.101
+      }
+    },
+    "meilleure R/trade": {
+      "None": {
+        "n": 696,
+        "total_r": 24.9,
+        "r_per_trade": 0.0358
+      },
+      "24": {
+        "n": 714,
+        "total_r": 1.42,
+        "r_per_trade": 0.002
+      },
+      "48": {
+        "n": 710,
+        "total_r": 21.85,
+        "r_per_trade": 0.0308
+      }
+    },
+    "meilleur R total": {
+      "None": {
+        "n": 784,
+        "total_r": 27.47,
+        "r_per_trade": 0.035
+      },
+      "24": {
+        "n": 805,
+        "total_r": -6.31,
+        "r_per_trade": -0.0078
+      },
+      "48": {
+        "n": 801,
+        "total_r": 8.91,
+        "r_per_trade": 0.0111
+      }
+    }
+  }
+}

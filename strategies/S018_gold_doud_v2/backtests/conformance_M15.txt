@@ -1,0 +1,13 @@
+R5 CONFORMITÉ — S018_gold_doud_v2 / XAUUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 2 en backtest, 2 en live
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres
+
+R5 CONFORMITÉ — S018_gold_doud_v2 / XAUUSD
+==============================================================
+  400 barres rejouées barre par barre
+  signaux : 0 en backtest, 0 en live
+
+  RÉSULTAT : CONFORME — 0 divergence sur 400 barres

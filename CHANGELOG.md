@@ -1,5 +1,29 @@
 # CHANGELOG — TradingBot
 
+## 1.2.0 — 2026-09-06 (branche `v2/gold`)
+
+Run /apex-autonomous « analyse les deux vidéos, reproduis la méthode, renforce l'or ».
+Livré dans un worktree séparé : la v1 or est en forward scellé et ne peut pas bouger.
+
+- **Corpus source** `docs/sources/moneytalk/` : deux podcasts MoneyTalk transcrits
+  intégralement (Doud Trading sur le gold, Rababian sur le carnet d'ordre), `SOURCE.md`
+  (provenance + relevé des claims commerciaux) et `SYNTHESE.md` (méthode reconstituée,
+  sourcée à l'horodatage, tri de ce qui est reproductible chez nous).
+- **S018_gold_doud_v2** : v2 du résidu or de S011, magic 130018, statut RESEARCH.
+  Cinq commutateurs (entrée à l'équilibre, canal sur les corps, long-only, sessions,
+  biais journalier) dont la **cellule neutre reproduit exactement la v1** (784 signaux,
+  égalité stricte vérifiée par test sur 30 024 barres réelles).
+- **Mesure** : R1 et R5 passés sur données réelles, walk-forward ancré sur 32 cellules,
+  effet marginal par ingrédient, bras témoin aléatoire, stabilité annuelle.
+  **Verdict `NON RETENU en l'état`** : canal sur les corps et sortie au temps falsifiés,
+  entrée à l'équilibre nulle (+0,010 R/trade), long-only positif au R/trade (+0,145)
+  mais au prix du R total (−12 %) et du drawdown (+42 %), en aggravant la concentration
+  2025 que le dossier devait instruire. Une piste de décorrélation reste ouverte.
+- **19 tests** S018 + suite complète verte (544).
+- **Tickets** TCK-014 (sorties partielles + trailing), TCK-015 (arrêt sur gain,
+  règle de portefeuille), TCK-016 (calendrier économique) vers cc-spec.
+- Registre des magic : lignes S017 et S018 ajoutées, plage réservée resserrée.
+
 ## 1.1.0 — 2026-08-26
 
 Run /apex-autonomous « GO E3 + E4, terminer l'application » (E3, E4, E5 + tbot factory + préparation bascule études). Détail des tâches : `SHARED_TASK_NOTES.md`.

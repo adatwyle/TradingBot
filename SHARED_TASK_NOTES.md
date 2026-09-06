@@ -42,3 +42,29 @@ Plan : `support/designs/PLAN_apex-autonomous-e3-e5_2026-08-26-1740.md`. Une entr
 - Écarts assumés : alexg_paper mappée S093 (l'étude instancie S093, pas S001) ; suppressions run-factory.bat/demarrer-detache.ps1 embarquées dans le commit 2c1de60 d'une session concurrente.
 - Tickets ouverts vers Adrian : TCK-006 (broker/risque), TCK-007 (tokens Telegram — dossiers tbot-gateway/tbot-notify) ; vers cc-spec : TCK-008/011/012 (alignement specs). Bascules études : CUTOVER.md, GO Adrian par étude.
 - Release 1.1.0 : CHANGELOG.md créé, VERSION bumpé.
+
+## S018 — or v2 « méthode Doud » — 2026-09-06 — cc-support (branche `v2/gold`, worktree `C:\projects	radingBot-v2`)
+
+Run /apex-autonomous sur la demande Adrian « analyse les 2 vidéos, reproduis la méthode, renforce le gold forward », arbitrée en cours de route : **v1 scellée intouchée, v2 = nouvelle stratégie S018 dans un worktree séparé**.
+
+- **T1 worktree** : `git worktree add C:/projects/tradingBot-v2 -b v2/gold` depuis `b8c06b8`. Motif : la factory tourne depuis le clone principal avec 5 études en vol ; un `checkout` y aurait échangé le code sous les études pendant leur exécution.
+- **T2 corpus** : `docs/sources/moneytalk/` — transcripts FR intégraux des deux podcasts (`youtube_transcript_api`, horodatage par segment), `SOURCE.md`, `SYNTHESE.md`.
+- **T3/T4 stratégie** : `strategies/S018_gold_doud_v2/` — manifest (magic 130018, RESEARCH), `strategy.py` (5 commutateurs), CLAUDE.md, input-adrian.md.
+- **T5 tests** : 19 tests, dont l'égalité stricte cellule neutre = v1 sur 30 024 barres réelles (784 signaux).
+- **T6 mesure** : `backtests/run_wf.py` → `grid.txt`, `results.json`, `causality.txt`, `conformance.txt`.
+- **T7 recherche** : `research/{ANALYSIS,FALSIFICATION,VERDICT}.md`.
+- **T8 câblage** : registre magic, tickets TCK-014/015/016, CHANGELOG, VERSION 1.2.0.
+
+**Décisions structurantes**
+1. `studies/gold_forward/run_forward.py:43` importe `S011.strategy` en direct : le scellé protège `params.json` par hash mais **pas le code**. Toute v2 devait donc être un module séparé — c'est la raison technique de S018, pas une préférence d'organisation.
+2. Les indicateurs sont **importés** de S011 plutôt que recopiés : c'est ce qui rend l'égalité de la cellule neutre vraie par construction et pas par intention.
+3. Le filtre de régime ER/failed-rate de la v1 n'est pas repris — la cellule scellée le neutralise identiquement (`er_min=0,00`, `fr_max=1,00`).
+4. `EQUILIBRIUM_RATIO`, `PULLBACK_MAX_BARS`, `HTF_EMA_DAYS` sont **hors grille** : ce sont les hypothèses, pas des réglages. Grille tenue à 32 cellules (≈ 1,6 réussite attendue par hasard).
+
+**Résultat** : `NON RETENU en l'état`. Détail et chiffres dans `research/VERDICT.md`.
+
+**Suites ouvertes**
+- Piste de décorrélation (§ 5 du VERDICT) : la cellule équilibre+session+biais produit un profil annuel presque inverse de celui de la v1, sur 78 trades — à instruire par effectif, sur décision Adrian.
+- La branche `v2/gold` n'est **pas** fusionnée dans `dev` : S018 est en RESEARCH et rien n'y dépend. Le worktree peut être retiré (`git worktree remove`) une fois la branche poussée.
+- Collision de numéros de tickets possible : TCK-014/015/016 pris sur cette branche pendant qu'un autre acteur travaille sur `dev` (dernier ticket vu côté `dev` : TCK-013). À vérifier au merge.
+- Adjacent constaté, non corrigé : `strategies/S017_ireland_gex` et `S093` déclarent un `strategy_id` qui ne correspond pas à leur nom de dossier, ce qui casse `core/validation/*.load_strategy` en CLI pour elles. S018 aligne les deux (`S018_gold_doud_v2`).

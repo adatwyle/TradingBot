@@ -1,0 +1,2797 @@
+[00:00] Tu vas rentrer avec 20 % pour monter le
+[00:03] marché pour que les autres ils voient
+[00:04] que le marché il monte dans ton sens et
+[00:06] ben tu te retournes c'est-à-dire tu te
+[00:07] positionne à la vente ou à la chat dans
+[00:09] dans sens inverse avec tes gros volumes
+[00:11] puisque tu sais que avec 2000 contrats
+[00:13] tu as attiré 10000 contrats. Ça c'est
+[00:16] Karen Arababion trader indépendant
+[00:18] spécialiste du carnet d'or et auteur de
+[00:19] l'un des seuls livres francophones
+[00:21] consacrés à cette approche du marché.
+[00:23] Mais Karen n'est pas un trader comme les
+[00:25] autres notamment avec une grosse part
+[00:26] aux États-Unis. Je me suis fait former
+[00:28] chez un trader qui sortait de la
+[00:30] citadelle et après je suis allé me faire
+[00:31] former à au Chicago au Sibot. Commença
+[00:33] très tôt, on commença à 6h30.
+[00:35] On parle jamais d'argent.
+[00:36] Jamais d'argent. À quoi ça sert j'ai
+[00:37] gagné 1 million, 2 millions, 3 millions
+[00:39] ? Mais ça sert à rien.
+[00:40] Comment on devrait juger la performance
+[00:41] d'un trader ?
+[00:42] Je dirais par rapport à sa réputation et
+[00:44] le respect qu'il a. Lui, il part de
+[00:45] liquidité et surtout de ce que la
+[00:47] majorité des traders ne voi jamais ce
+[00:49] qui se passe derrière le prix.
+[00:51] Tu as déjà vu des moments où quelqu'un
+[00:52] fait un fat finger et puis il y a rien
+[00:54] et détruit le carnet ou pas ? Comment tu
+[00:55] utilises aujourd'hui les données du
+[00:57] carnet d'ordre ? On peut apprendre le
+[00:58] trading pro juste en regardant des
+[00:59] vidéos sur YouTube. C'est vrai, c'est
+[01:01] faux. Tu as quoi comme pire souvenir ?
+[01:03] Tu as fait peut-être le truc qu'il
+[01:04] fallait pas faire ou tu as franchi un
+[01:05] peu la Tu as quoi en pire souvenir comme
+[01:07] ça ?
+[01:07] Alors regardez bien tout ce podcast
+[01:09] parce qu'au fil de l'échange, j'ai
+[01:10] compris une seule chose et c'est là que
+[01:11] je lui ai posé une question simple.
+[01:13] Il y a un mouvement qui s'appelle le SMC
+[01:15] dont on parle souvent que lorsqu'on fait
+[01:16] des stop loss et le marché vient
+[01:18] chercher de la liquidité. Est-ce que
+[01:19] c'est réel ou c'est juste une excuse de
+[01:21] perdant ? le marché.
+[01:25] Bonjour tout le monde, bienvenue sur mon
+[01:28] Aujourd'hui, je vous ai amené une
+[01:29] personne dont on va parler d'un concept
+[01:31] de trading qui est différent de ce qu'on
+[01:32] a l'habitude de voir. Je sais que pour
+[01:34] beaucoup d'entre vous, le trading c'est
+[01:35] des Lamborghini, c'est Dubaï, c'est des
+[01:38] millions d'euros, c'est Jordan Bfort.
+[01:40] Mais aujourd'hui, j'ai avec moi un
+[01:42] trader qui est déjà passé sur ma chaîne
+[01:44] YouTube. Karen. Bonjour.
+[01:45] Bonjour Chris.
+[01:46] Tu vas bien ?
+[01:47] Merci. l'homme qui passe sur ma chaîne
+[01:49] YouTube pour dire qu'on gagne pas
+[01:50] d'argent avec le trading. Et je me suis
+[01:52] dit que c'était intéressant pour moi
+[01:54] d'amener une personne bah en fait qui
+[01:56] parle de cette approche là et il y a des
+[01:58] gens qui aiment bien ça qu'on parle un
+[02:00] peu du côté du côté technique. Mais
+[02:02] juste avant en tout cas, je tenais à
+[02:03] vous dire merci. N'oubliez pas de de
+[02:05] vous abonner à la chaîne YouTube, ça
+[02:06] permet de la soutenir. Aujourd'hui, on
+[02:07] est présent sur YouTube et sur Spotify.
+[02:09] Et aussi, s'il y a des plateformes sur
+[02:11] laquelle vous voulez nous retrouver,
+[02:12] hésitez pas à dire dans les
+[02:13] commentaires. Mais vraiment, en tout
+[02:14] cas, merci pour votre soutien d'être
+[02:15] plus nombreux sur ces plateformes. C'est
+[02:17] grâce à vous aujourd'hui qu'on existe.
+[02:18] Et maintenant, Karen, on va rentrer dans
+[02:20] le vif du sujet. Qui tu es ?
+[02:21] Alors, je m'appelle Karen Rababian, j'ai
+[02:24] 50 ans. Voilà, je viens de les faire en
+[02:26] plus et je suis tradur indépendant et
+[02:29] formateur en même temps. Voilà.
+[02:30] Pour pour faire un peu simple,
+[02:31] Arababion, c'est c'est de quelle origine
+[02:33] ? Euh arménien.
+[02:35] Ah, c'est c'est d'origine arménienne. Tu
+[02:36] viens d'Arménie ou tu tu es n
+[02:38] Non, je suis n en Arménie.
+[02:39] D'accord. Donc
+[02:40] je suis arrivé à l'âge de 15 ans
+[02:41] ou
+[02:41] et ben après je me suis intégré et daté
+[02:43] en
+[02:43] Et comment on vient de l'Arménie pour
+[02:45] finir trader indépendant au carnet
+[02:47] d'ordre ? C'est quoi ta carrière ?
+[02:48] Qu'est-ce que tu as fait comme étude ?
+[02:49] Par quoi tu es passé ?
+[02:50] Il y a un long chemin. Oui,
+[02:52] effectivement quand on est arrivé, ben
+[02:54] j'avais 15 ans comme je dis, l'école
+[02:56] quand je le bac et cetera et après ben
+[02:58] en fait ce qui me plaisait c'était
+[03:00] l'entrepreneuriat. Voilà. des le jeune
+[03:02] âge, j'ai commencé à avoir créé des
+[03:04] affaires, avoir des affaires, le
+[03:06] commerce, ça genait dans le sang.
+[03:07] Dans quoi ? C'était quoi ? Tu as vendu ?
+[03:09] Dans la restauration, dans dans
+[03:11] maroquinerie, un peu de tout en fait.
+[03:13] Oui, j'ai essayé plein de choses fort
+[03:15] mesure et j'ai évolué et en fait le
+[03:17] commerce était un peu le le noyau de
+[03:19] tout. Voilà. Et à la fin, ben on fait,
+[03:22] je me retrouve en tant que trader,
+[03:23] toujours faire du commerce mais avec le
+[03:26] marché financier.
+[03:27] Alors Karen, merci pour ta petite
+[03:28] présentation rapide. Juste pour qu'on
+[03:30] sache un peu qui tu es, je vais te poser
+[03:32] des questions. Vrai ou faux ? Tu
+[03:33] développes pas hein, d'accord ? Juste
+[03:34] vrai ou faux ? Et tu me réponds et après
+[03:36] euh on développera ça à travers à
+[03:38] travers le podcast. On peut apprendre le
+[03:40] trading pro juste en regardant des
+[03:41] vidéos sur YouTube. C'est vrai ? C'est
+[03:43] faux ? Faux. C'est faux. Les propres
+[03:45] firmes sont une arnaque organisée qui
+[03:46] profite de l'échec des traders. C'est
+[03:48] vrai ou c'est faux ? tu as le droit zone
+[03:49] grise,
+[03:49] ça veut dire
+[03:50] genre bah tu réponds au milieu.
+[03:52] Non, c'est pas c'est un business plan
+[03:54] mais ça peut être très bien pour les
+[03:56] traders.
+[03:57] Les traders institutionnels savent à
+[03:59] l'avance ce que va faire le marché.
+[04:00] C'est vrai, c'est faux.
+[04:01] Oui.
+[04:02] Les meilleurs traders sont ceux qui
+[04:03] prennent le plus de risqu.
+[04:04] Oui.
+[04:05] Ah ouais.
+[04:05] Oui.
+[04:06] OK. C'est c'est drôle hein parce que les
+[04:08] réponses changent en fonction des gens.
+[04:09] Si tu n'as pas de compte à 100000, tu ne
+[04:12] peux pas réussir dans le trading.
+[04:13] Faux.
+[04:14] Tous les traders qui gagnent finissent
+[04:15] un jour par tout perdre.
+[04:16] Faux. La plupart des traders qui
+[04:18] réussissent n'ont pas de vie social.
+[04:19] Ah ça y est contribué.
+[04:22] OK. Tu peux devenir millionnaire en
+[04:24] trading si tu ne maîtrise que l'analyse
+[04:26] technique.
+[04:27] Oui.
+[04:28] Un bon trader, c'est quelqu'un qui gagne
+[04:29] 90 % de ses trade.
+[04:31] Un bon trader qui gagne 90 % de
+[04:33] Ouais. Win rate 90 %.
+[04:34] J'en connais pas beaucoup qui gagne 90 %
+[04:36] de leur trade.
+[04:37] OK. Donc c'est faux. Je dirais oui.
+[04:39] Plus tu as un gros effet de levier, plus
+[04:41] tu as de chance de te faire un gros
+[04:42] coup.
+[04:43] Gros effet de levier, gros risque.
+[04:45] Gros effet de levier. Donc c'est vrai,
+[04:46] c'est faux. Mais oui, perte aussi. Perte
+[04:48] aussi. Le monnaie management c'est plus
+[04:50] important que la stratégie. C'est vrai
+[04:51] ou c'est faux ?
+[04:52] Le monnaie management plus important que
+[04:54] la stratégie. Oui, puisqu'on gère les
+[04:56] pertes d'abord.
+[04:57] La majorité des formations en ligne sont
+[04:59] créées par des traders non rentables.
+[05:00] C'est vrai ou c'est faux ? Je les
+[05:03] connais pas tous mais il y a de tout. Il
+[05:05] y a bord et à manger sur internet. Faut
+[05:08] pas croire ce qu'on dit.
+[05:09] C'est c'est vraiment bien parce que je
+[05:11] connaissais pas cette partie de toi et
+[05:13] je vais appuyer sur certains points.
+[05:14] Donc tu étais entrepreneur dans la
+[05:16] restauration, c'est un domaine où on n
+[05:18] pas de temps.
+[05:18] Exact.
+[05:19] Tu arrives à faire de l'argent dans
+[05:20] cette période où tu es dans le
+[05:21] restaurant, tu es dans le jus puis non,
+[05:23] tu arrives pas. Non non non.
+[05:25] D'accord. Pourquoi ? OK, c'est bien
+[05:26] parce que aujourd'hui, tu le vois, on
+[05:29] prône une certaine facilité du trading,
+[05:31] trader avec un travail et tout ça.
+[05:33] Pourquoi c'était difficile pour toi en
+[05:34] tant qu'entrepreneur particulièrement de
+[05:36] de réussir dessus ?
+[05:37] parce que mon travail c'était 90 % mais
+[05:39] je disais 99,9 % de de mes gains en fait
+[05:42] c'est mon travail qui m'a rapporté.
+[05:43] C'était plus pas par passion parce que
+[05:45] c'était pas encore une passion par
+[05:46] curiosité où je me dis OK c'est possible
+[05:49] de faire ça ah oui mais il existe des
+[05:50] des figures, il existe des choses. Voilà
+[05:52] c'était plus par rapport à ça. Et non,
+[05:54] c'était pas d'abord, j'avais pas le
+[05:56] temps comme tu dis et secondo, c'était
+[05:58] plus par curiosité de dire alors je suis
+[06:02] très curieux de base, j'aime bien
+[06:05] fouiller, comprendre et je me dis c'est
+[06:07] en fait il y en a qui qui gagnent leur
+[06:08] vie quand même alors que c'est possible.
+[06:10] Alors c'était c'est plus ça qui a fait.
+[06:11] Et du coup comment vient la bascule ? Tu
+[06:14] tu vas pas quand même vendre tes
+[06:16] restaurants pour au f à mesure je l'aig
+[06:19] pour j'ai j'avais du monde.
+[06:20] Alors j'ai je vois que tu veux aller un
+[06:23] peu vite mais c'est c'est vraiment
+[06:24] important là-dessus ce processus. J'ai
+[06:27] vraiment besoin de comprendre. Ouais.
+[06:29] Comment tu es passé d'aujourd'hui, parce
+[06:31] qu'en plus tu es venu avec tes livres,
+[06:32] mais on en reparlera tout à l'heure,
+[06:34] mais comment tu es passé de de cet
+[06:35] entrepreneur qui comprend qu'il il y a
+[06:37] quelque chose à comprendre à Karen
+[06:40] Arababan, trader au carnet d'ordre qui
+[06:42] fait des salons, des séminaires qui est
+[06:44] aujourd'hui accompagné.
+[06:45] Alors j'ai alors j'étais associé à
+[06:46] l'époque du coup petit à petit bah j'ai
+[06:49] plus à mon associé et je je commençais à
+[06:51] m'intéresser plus plus de plus en plus
+[06:52] ou d'accord. Donc tu te mets dessus et
+[06:54] tu te formes au début.
+[06:55] Ah oui,
+[06:56] première formation. Alors au début non,
+[06:57] au début je me forme pas. Au début, je
+[06:58] me jette sur YouTube les graphiques.
+[07:02] Si, il y avait des livres quand même. On
+[07:03] avait on a quelques-uns qui ont fait des
+[07:05] livres un peu qui sont assz connus et
+[07:07] mais comme
+[07:08] il y a Benoir Rousseau, il y a Tamis
+[07:10] Cabache, il y a voilà, on lit, on lit,
+[07:12] on c'est on pense que c'est une recette
+[07:15] magique à chaque fois j'ai dit ça y est,
+[07:16] on a lu le livre, on va devenir Freder
+[07:18] en table, on ouvre un compte IG ou IRP
+[07:21] et cetera dans un broker et on se jette
+[07:23] dans le dans la
+[07:25] Et ben non, ça marche pas,
+[07:27] ça marche pas. Ça marche pas de lire des
+[07:28] livres, de regarder ?
+[07:29] Non non, ça marche pas du tout parce que
+[07:31] alors le problème que j'avais c'était
+[07:33] ben j'étais collé tout le temps au
+[07:34] téléphone.
+[07:35] Ouais.
+[07:35] On prend une position et on est tout le
+[07:37] temps en train d'ouvrir. Ah oui, j'ai
+[07:38] gagné. Ah oui, j'ai gagné 10 € ainsi de
+[07:40] suite. Va toujours plus.
+[07:41] On met
+[07:43] trader, je sais en général, on met un SL
+[07:45] très loin, un TP en espérant d' gagner.
+[07:48] Ben oui, on rentre dans l'espérance. On
+[07:51] en reparlera tout à l'heure, mais on
+[07:52] rentre dans l'espérance et forcément le
+[07:54] prix vient peut-être jamais toucher un
+[07:56] autre TP.
+[07:57] Ouais. Et euh
+[07:58] mais les stoploss souvent stoplos
+[08:00] souvent ouais et là on accuse le broker
+[08:02] on accuse l' on accuse le marché mais
+[08:04] jamais soit
+[08:05] et après ben
+[08:06] tu en penses quoi sans te couper tu en
+[08:08] penses quoi de il y a il y a un
+[08:09] mouvement qui s'appelle le SMC dont on
+[08:12] parle souvent que lorsqu'on fait des
+[08:13] stop loss et le marché vient chercher de
+[08:14] la liquidité tu en penses quoi de ça
+[08:17] est-ce que c'est réel ou c'est juste une
+[08:18] excuse de perdant
+[08:19] le marché vient chercher la liquidité
+[08:21] oui c'est vrai parce que en fait quand
+[08:24] tu trades alors quand les personnes qui
+[08:26] tradent au graphique ils ne voient
+[08:27] Oui, ce qu'il v voir c'est que le marché
+[08:28] il va venir chercher au bout des mèches
+[08:29] et il va repartir. Mais quand tu traites
+[08:31] au carnet, ben c'est là où tu vois les
+[08:33] grosses liquidités positionné en fait.
+[08:36] Et c'est ce que je dis, on en parlera
+[08:38] tout à l'heure, c'est que quand
+[08:39] l'avantage pour moi, je parle pour moi,
+[08:41] quand on trade au carmé, on voit
+[08:43] toujours ce qui fait le voisin,
+[08:44] c'est-à-dire il y a un carnet d'ordre
+[08:46] pour tous les instruments mais la
+[08:48] personne qui trade par exemple sur le
+[08:49] NASDAQ, le S, il a juste son graphique,
+[08:51] il voit pas ce qu'ils font les autres.
+[08:52] Ça veut dire que la personne quand il va
+[08:53] se positionner en il va se mettre à chat
+[08:55] ou à la vente sur son graphique, moi je
+[08:57] vais le voir sur le carnet. C'est mon
+[08:58] carnet, je vais le voir. Et forcément
+[09:00] les market makers ou les institutionnels
+[09:02] ou les gros traders quand ils ont besoin
+[09:03] de liquider beaucoup de positions et ben
+[09:06] ils vont jouer à l'inverse à l'inverse
+[09:07] de nous. Ouais.
+[09:08] C'està-dire nous on va rentrer à l'achat
+[09:09] ou à la vente au bout des mèches des des
+[09:11] 4 heur par exemple un truc facile,
+[09:13] logique et ben eux nous on va se mettre
+[09:15] ils vont se mettre à l'inverse de nous
+[09:16] parce que quand les ce qui rographiques
+[09:19] il se positionnent ils apportent la
+[09:21] liquidité dans le carnet. On parle sur
+[09:22] les futurs, pas sur les CFD. CFD ça
+[09:24] marche pas et et ben eux ils vont pour
+[09:27] liquider leur leur volume de liquide et
+[09:29] de leur volume de contrat, ben ils vont
+[09:31] jouer à l'inverse de nous. Et ceux qui
+[09:33] traent au graphique, ils vont se dire
+[09:34] "Ah oui, non mais ils sont allés
+[09:35] chercher mon stop." Bah non, en fait,
+[09:36] ils sont allés chercher des volumes
+[09:38] liquidité.
+[09:39] Alors, on en vient, merci pour ça et on
+[09:41] reviendra un peu plus tard sur le carnet
+[09:42] d'ordre. Mais donc tu te tu es là, tu
+[09:46] fais ton CFD, tout ça. Le carnet
+[09:48] d'ordre, il arrive quand dans ta
+[09:49] carrière ? Au bout de combien d'années
+[09:50] de training ? Tu as dit ça fait 10 ans.
+[09:52] Alors euh Oui. Alors, au bout de 3 ans.
+[09:54] Donc, tu as 3 ans sur le CP 3 ans sur le
+[09:56] CP, je ram je mouline au bas et cetera.
+[09:59] Je voilà.
+[10:00] Mais tu fais ta bosse ?
+[10:02] Oui. Oui, c'est je vivote, on va dire.
+[10:04] Mais après, c'est là où je je commence à
+[10:06] à je commence je sais plus comment je
+[10:08] fais sur quelle vidéo je tombe et tout.
+[10:10] Je tombe sur les vidéos des marchés
+[10:11] futur. C'est là où j'entends de parler.
+[10:13] Alors voilà, c'est ça qui m'a fait c'est
+[10:15] que j'avais plusieurs brokers. J'avais
+[10:17] XRP et non pas sûr X XTB
+[10:20] XTB
+[10:22] eBay
+[10:22] non IG et euh
+[10:25] et je sais plus l'autre broker. J'avais
+[10:27] trois brokers et je tradis sur le Gold à
+[10:29] l'époque et quand je regardais j'avais
+[10:32] les trois ouverts et ben j'avais trois
+[10:33] prix différents.
+[10:34] Oui.
+[10:34] Et ça m'a dit c'est pas possible
+[10:36] puisqu'on traite sur le même instrument.
+[10:38] Comment ça se fait qu'on a trois prix
+[10:39] différents ? Et ça m'a c'est la base
+[10:42] comme je suis curieux, je dis c'est pas
+[10:43] possible c'est il y a un problème. La
+[10:45] question d'après, c'est OK, je suis sur
+[10:46] les marchés futurs mais qu'est-ce qui se
+[10:48] passe en fait la bougie se forme comment
+[10:50] ? D'ailleurs, j'ai fait j'ai fait une
+[10:52] vidéo aussi, j'ai j'ai posé la question,
+[10:54] la même question j'ai posé au salon
+[10:56] trading il y a pas longtemps où tu
+[10:57] étais, j'ai posé au aux personnes qui
+[11:00] passaient, j'ai dit mais comment à votre
+[11:02] avis comment le marché se forme en fait
+[11:04] ? Ben j'ai eu toutes les réponses.
+[11:05] C'est-à-dire mais les bougies, les
+[11:06] machins, je sais pas, c'est une bougie.
+[11:08] OK, d'accord. Mais il y a il y a bien
+[11:10] quelque chose qui se font les
+[11:11] transactions des achats et des ventes
+[11:13] quelque part qui fait former la bougie.
+[11:15] Ouais.
+[11:16] Et ben c'est ça qui m'a ramené sur les
+[11:17] sur les carnes énormes.
+[11:18] D'accord. D'aller à la source.
+[11:20] D'aller à la source d'aller à la source
+[11:21] pour voir comment le marché se comporte.
+[11:23] Exactement.
+[11:24] Parenthèse, on pourra mettre un bip si
+[11:25] tu veux pas citer. Tu t'es formé chez
+[11:26] qui ?
+[11:27] Chez un trader qui sortait de la
+[11:28] citadelle. Eux ils sont spécialisés sur
+[11:30] les bons du trésor américain.
+[11:32] D'accord.
+[11:33] 2 ans, 5 ans, 10 ans, c'était ou peu
+[11:35] importe
+[11:35] de quoi
+[11:36] le le le
+[11:37] Ah lui il faisait tout, faisait voilà.
+[11:39] l'année, il faisait tout.
+[11:40] Voilà. Voilà, il faisait tout. Il était
+[11:41] spécialisé sur les bons et et surtout
+[11:43] sur les carnets parce qu'en fait si tu
+[11:44] vas chez eux, bah il y a pas de
+[11:46] graphique, c'est que des carnets. Tu tu
+[11:48] vrais c'est tous les traders, ils
+[11:49] avaient que des que des carnets.
+[11:50] D'ailleurs, j' sûr que tu en connais un,
+[11:52] je te dirai son nom. Et du coup, on a
+[11:54] commencé à discuter et tout. Ben en
+[11:55] fait, c'est devenu mon mentor. On s'est
+[11:57] rencontré en Belgique, on s'est
+[11:58] rencontré en France et et après je suis
+[12:00] allé me faire former à au Chicago au
+[12:02] Sibot. Et je vais te raconter une blague
+[12:03] en plus concernant ça parce que en fait
+[12:06] euh quand on est resté euh 3 mois 3 mois
+[12:10] aussi bême.
+[12:11] Donc 3 mois tu quittes la France ?
+[12:12] Ouais, je quitte la France, je vais
+[12:13] là-bas. Chicago, donc tu es parti te
+[12:14] former directement là-bas. C'était qui
+[12:16] cette personne ? C'est francophone,
+[12:18] je m'invite.
+[12:19] Voilà.
+[12:19] Je me C'est qui ? Tu es qui ?
+[12:21] Euh,
+[12:24] tu le connais ?
+[12:25] Ah, OK. Bon, continuons. Donc, tu pars à
+[12:29] 3 mois à Chicago.
+[12:30] Voilà, on part là-bas. Mais la en fait
+[12:33] lui ça a été le départ, c'est lui qui
+[12:34] m'a montré un peu les carnets. Et euh en
+[12:36] fait la blague je te racontaé c'était
+[12:38] euh on était aussi bot même euh le matin
+[12:40] nous on commençait très tôt, on commença
+[12:41] à 6h30, on on trade et cetera pendant 3h
+[12:44] et cetera et on descend au on descend à
+[12:47] la cafète parce que dans le bâtiment du
+[12:48] Cbot, il y a une grande caféterria et
+[12:50] tout. Nous le matin, on prend un café et
+[12:52] cetera et du coup euh le serveur, il
+[12:54] voit arriver de loin. En fait, là-bas,
+[12:56] il y avait aussi bot même, il reste plus
+[12:57] que la dans le pit même, il reste plus
+[12:59] que les euh ce qu'il font les matières
+[13:01] premières.
+[13:01] OK.
+[13:02] Voilà. Et tout le reste sont partis à
+[13:03] New York où ça a été informatisé et
+[13:05] cetera.
+[13:05] Voilà. Et
+[13:06] donc il y a encore des traders humains.
+[13:07] Voilà, il y a encore il sur le marché.
+[13:09] Très peu, très peu. Voilà. Très peu.
+[13:11] C'était quelle année ça ?
+[13:12] Euh
+[13:12] 10 12 15 20 17
+[13:15] Il y a exactement
+[13:17] 7 ans.
+[13:17] 7 ans avant le Covid. Donc 17. Oui,
+[13:19] avant le Covid. Oui,
+[13:21] et du coup, on est au comptoir, on boit
+[13:24] notre café et cetera et la particularité
+[13:26] de ces traders, ils avaient une
+[13:28] combinaison vert vert foncé.
+[13:30] D'accord.
+[13:30] Voilà. Et du coup, on discute avec le
+[13:33] serveur de loin, en fait, ils vont
+[13:34] arriver deux gars, deux traders
+[13:38] 50 50, tu vois. Et euh il cherche pas à
+[13:41] comprendre. Il voit arriver de loin, il
+[13:43] prend deux verts donc deux balaises, la
+[13:45] vodka mais rempli à bas à bloc à bord.
+[13:49] Il met deux bouteilles de Coca et il met
+[13:50] on se regarde et me dit eux ils ont fini
+[13:53] la journée.
+[13:53] OK. C'était le matin.
+[13:55] C'était c'était 10h.
+[13:57] 10h.
+[13:57] Voilà. Eux ils ont fini la journée.
+[13:58] C'était le rituel.
+[13:59] Voilà. Ça veut dire
+[14:00] ça fait que il savaient déjà tous les
+[14:02] jours
+[14:02] voilà ils ont fini la journée jour. Donc
+[14:04] toi tu es en train de faire ta commande.
+[14:06] J'ai Nous on boit le café café
+[14:07] on boit le café. Nous on a fini la
+[14:08] journée. On boit le café mais on se
+[14:10] regarde
+[14:11] au moment où il les voit
+[14:12] et il les voit et il ditutom
+[14:13] automatique. Il met les deux verrs il
+[14:15] remplit de votre cas. Il me coca.
+[14:16] Qu'est-ce qu'il fait ? Eux eux ils ont
+[14:19] fini la journée. Si
+[14:20] tu penses c'était une journée à combien
+[14:21] qu'ils aient
+[14:22] je sais pas c'est c'est en fait ce qu'il
+[14:24] faut c'est
+[14:26] honnêtement à ces traders on on parle
+[14:28] même plus d'argent parce que je crois
+[14:29] qu'ils ont même plus la notion d'argent.
+[14:31] Ouais c'est
+[14:32] voilà ils sont ils sont ils sont
+[14:34] complètement sur un monde parallèle
+[14:35] c'està-dire ils parlent même pas
+[14:36] d'argent. Je pense qu'ils parlent de
+[14:38] points ou de niveaux ou des machins ou
+[14:39] des scénarios et cetera mais jamais
+[14:41] d'argent.
+[14:41] Ouais
+[14:42] on parle jamais d'argent.
+[14:43] Jamais d'argent.
+[14:43] Toi qui a été là-bas tu as fait 3 mois
+[14:45] du coup
+[14:45] on parle jamais d'argent.
+[14:46] D'accord. On parle jamais d'argent et en
+[14:48] fait c'est tu as gardé au fait un peu
+[14:50] j'ai gardé oui mais après non mais je
+[14:52] veux dire c'est ça à quoi ça sert j'ai
+[14:54] gagné 1 million 2 millions 3 millions
+[14:55] mais ça sert à rien en fait c'est je je
+[14:57] vois que c'est à mon avis c'est c'est
+[14:59] pas parce que tu as gagné plus que les
+[15:02] gens ils vont te te dire ah oui il est
+[15:04] bon il est pas bon et cetera non mais
+[15:06] mais ceux qui disent ta m moi je suis
+[15:07] content pour eux c'est très bien.
+[15:08] Alors j'ai du mal à te faire parler de
+[15:10] tes réussites de tes résultats. Tu veux
+[15:12] pas parler d'argent dans ce cas-là,
+[15:13] c'est pas grave. Mais est-ce que tu as
+[15:14] pas une anecdote sympa à nous raconter
+[15:16] sur toi ?
+[15:16] Ouais, un truc sympa qui que j'ai mis
+[15:18] dans le on a mis dans le livre en fait,
+[15:20] c'était c'était mes débuts. Je perdais,
+[15:23] j'ai gagné un jour. Bah en fait, à
+[15:24] chaque fois je perdais, j'ai gagné, j'ai
+[15:25] appelé mon mentor, on discutait et tout,
+[15:26] pourquoi comment tu
+[15:27] c'est après le retour des États-Unis.
+[15:28] Voilà, c'est ça. C'est c'est la première
+[15:30] fois et du coup un jour je l'appelle, je
+[15:32] dis voilà j'ai gagné 1500 1500 dollars
+[15:35] et tout, je suis content et tout. Me dis
+[15:36] bravo félicitations et tout. Pour moi,
+[15:38] la journée était terminée. Mais comme on
+[15:40] a la pas du gain, qu'est-ce que je fais
+[15:41] ? Je me rassois encore devant les
+[15:42] écrans, j'avais pas fermé et pour
+[15:45] prendre plus bien sûr, toujours plus. Et
+[15:47] euh et 1 heure 2 heures après, ben on se
+[15:50] rappelle encore, il m'a dit Karen
+[15:51] qu'est-ce ? Elle a dit non, ça va ça va.
+[15:53] Il me dit ça va, ça s'est bien passé
+[15:54] aujourd'hui pour toi ? Dit non, j'ai
+[15:55] perdu 100, il me dit ça va allez tu
+[15:57] aurais pas dû t'aider mais bon tu as
+[15:58] fini à zéro et cetera. J'ai dit non, je
+[16:01] suis à moins 100 me dit tu es un fou
+[16:03] quoi et voilà et à partir de là à chaque
+[16:05] fois qu'on se connectait il m'a dit
+[16:07] voilà je vais les baptiser ce trait de
+[16:08] la carenade c'està dire quand tu arriv
+[16:10] tu gagn stop tu arrêt
+[16:12] comment comment on devrait juger la
+[16:13] performance d'un trader au risque reward
+[16:15] à combien tu as mis combien tu as
+[16:17] multiplié combien de performance
+[16:19] non je pense que
+[16:19] si on parle pas en argent demain tu
+[16:21] rencontres un de tes anciens que tu as
+[16:23] croisé là-bas
+[16:25] à Chicago je dirais par rapport à sa
+[16:26] réputation
+[16:27] par rapport à sa réputation
+[16:28] par rapport à sa réputation et le
+[16:30] respect qu'il a.
+[16:31] Ouais.
+[16:31] Voilà. Parce que si c'est un gars qui
+[16:33] forme des élèves que ses élèves voient
+[16:35] que ils perdent du matin au soir, il
+[16:36] raconte que des conneries machin et
+[16:37] cetera et ben ça va vite parce que les
+[16:39] élèves en fait c'est eux qui font parce
+[16:41] qu'on est pratiquement tous les traders
+[16:43] on est des on forme aussi. Voilà. Après
+[16:45] en plus
+[16:45] ah bon on forme
+[16:46] bien sûr.
+[16:47] Non parce que les gens ils disent si tu
+[16:48] es si bon pourquoi tu formes ou pourquoi
+[16:50] tu vends de la formation
+[16:51] ? Alors s'il y a pas de formateur
+[16:53] comment les nouveaux quand ils viennent
+[16:55] sur le marché ils vont apprendre ?
+[16:56] Je sais pas faut dire ça à YouTube et au
+[16:57] fond. Non mais non mais non mais non
+[16:59] mais non je sais c'est c'est c'est un
+[17:01] sujet qui fait polémique mais non mais
+[17:03] c'est en plus moi personnellement je
+[17:05] prends plaisir former mais en fait
+[17:07] l'expérience que j'ai acquis pendant 10
+[17:08] ans, ben ça ça vaut quand même quelque
+[17:11] chose quand même. Et la personne qui
+[17:13] veut
+[17:14] moi j'ai débarqué sur le marché si je me
+[17:16] fais pas former par l'un ou par l'autre
+[17:18] ben je vais au lieu de passer 3 ans, je
+[17:20] vais passer 10 ans à me chercher. Je
+[17:21] vais faire des erreurs. Ben ton mentor
+[17:23] il est là pour t'aiguiller pour ne pas
+[17:25] que tu fasses des erreurs. C'est
+[17:27] primordial pour moi. Je sais pas. Après
+[17:29] oui, il y a un prix à payer bien sûr
+[17:30] parce queen fait on est passé par des
+[17:32] étapes, tu peux pas servir pour sur un
+[17:34] plateau. Même si tu ser un plateau ça
+[17:36] marchera pas parce qu'en fait alors ce
+[17:38] que j'ai remarqué c'est que les gens
+[17:39] quand c'est gratuit ils s'en foutent.
+[17:41] Ouais. Ils mettent pas de ou quand c'est
+[17:42] pas cher.
+[17:43] Je ou c'est pas cher ou c'est pas cher
+[17:44] ou peu importe. Mais quand ils disent
+[17:46] "Ah non mais ça pas de valeur."
+[17:47] Ouais.
+[17:48] Quand tu me donnes la même chose, je te
+[17:49] mets à 10000 € je dire "Ah oui c'est
+[17:50] vrai que j'ai payé 10000 € je vais me je
+[17:52] vais mettre dedans. Par contre c'est
+[17:53] tiens mon ami c'est gratuit c'est tout
+[17:55] pour toi ? Ah non, c'est
+[17:57] venons un peu plus sur le carnet
+[17:58] d'ordre. Aujourd'hui, tu m'as ramené de
+[18:01] deux de deux de deux de tes livres.
+[18:03] Alors, le premier, c'est le mien avec
+[18:04] mon ami Guillaume Graf. On est
+[18:06] spécialisé sur les carnets, on a écrit
+[18:08] alors celui-là c'est je fais la pub
+[18:10] aussi pour Willy Beck,
+[18:11] il est au salon hein.
+[18:12] Alors non, il est dans la Réunion lui.
+[18:13] La Réunion c'est un ancien champion de
+[18:15] de ta kwando.
+[18:17] Par contre lui, il est coach sportif et
+[18:18] préparateur mental. Et du coup dedans,
+[18:21] tu verras si tu fates un peu, il y a
+[18:22] plein de traders qu'on a intervenu. On a
+[18:24] donné notre manière de voir les choses,
+[18:26] l'évolution des d'un débutant jusqu'à
+[18:28] arriver à un moment donné, en fait toute
+[18:29] la partie psychologique. Voilà.
+[18:31] D'accord. Alors ça
+[18:32] ça on va décer, on en parlera plus tard.
+[18:34] On en parlera plus tard. Là on est là.
+[18:36] Alors
+[18:36] est-ce que ici il y a ce que tu as
+[18:38] appris à Chicago ? Moi ça m'excite hein.
+[18:41] Est-ce que il y a ce que tu as appris à
+[18:42] Chicago ? Les techniques, les
+[18:43] manipulations ? parce que Ah d'accord,
+[18:47] je montre pas aux gens comme ça.
+[18:49] Non, tu peux montrer à peu près. Voilà,
+[18:50] bien sûr. Ça fait plaisir. Alors, pour
+[18:53] en revenir en livre, pourquoi pourquoi
+[18:54] on a fait le livre ? Alors, à partir de
+[18:56] 2020 quand on reprend d'ailleurs je
+[18:59] crois que pendant le Covid André
+[19:01] Mappelle, il a voulu faire un salon et
+[19:02] ça avait bloqué. Dès qu'il a repris en
+[19:04] 2021, je crois, j'ai participé et j'ai
+[19:07] gagné en fait quelques années d'affilé.
+[19:10] J'ai gagné les concours, pas le total
+[19:12] parce que c'est sur trois trois rondes,
+[19:14] j'ai gagné les indices ou alors sur les
+[19:16] bons et cetera et à chaque fois ben on
+[19:19] était sur le devant de la scène et du
+[19:22] coup à un moment donné il y a j'ai trois
+[19:24] quatre quatre quatre victoires ou trois
+[19:25] victoires d'affilé et un des un des
+[19:28] éditeurs maison d'éduction l'extenzo ben
+[19:31] qui nous a proposé a dit on peut ben vo
+[19:33] je vois que vous maîtrisez votre sujet
+[19:35] le quar des d'en serait bien qu'on
+[19:37] arrive à à faire ce livre et en fait ce
+[19:39] livre On a fait avec Guillaume Graf qui
+[19:40] est aussi spécialisé sur le carnet, je
+[19:42] sais pas si tu as entendu parler. Euh et
+[19:44] lui il est carrément que sur les bons du
+[19:45] trésor.
+[19:46] Du coup, on a fait un mélange des deux.
+[19:48] On a créé ce livre pour expliquer un peu
+[19:50] aux gens qu'est-ce que c'était le carnet
+[19:51] d'or et l'avantage, c'est que sur les
+[19:53] marchés francophones, il y a pas de
+[19:54] livre sur le carnet d'ordre. Oui.
+[19:56] Al c'est le seul livre.
+[19:57] C'est le seul livre. Alors, c'est pas
+[19:58] une recette magique. C'est pas parce que
+[20:00] tu vas lire le livre, tu vas devenir
+[20:01] trader. Je encore ça en fait, c'est un
+[20:02] livre qui t'explique un peu comment
+[20:05] fonctionne un carnet, à quoi il sert,
+[20:07] pourquoi une bougie se forme, d'après
+[20:10] quoi, où est-ce qu'ils sont posés les
+[20:11] ordres, quel type de manipulation,
+[20:13] quelle stratégie on peut avoir et en
+[20:15] même temps on associé et le carnet
+[20:17] d'ordre et le market profile pour tout
+[20:18] ce qui est analyse technique.
+[20:19] C'est ce que j'allais dire. Il y a le
+[20:20] market profile dedans. Je vais
+[20:22] ex. market profile, on rentre pas dans
+[20:24] le vif du sujet, c'est-à-dire on va pas
+[20:26] dépesser comme le créateur de du market
+[20:28] profile, mais on survole en disant
+[20:30] voilà, il y a il y a l'analyse, on peut
+[20:32] le faire sur le market profile sur
+[20:33] certaines zones on peut voir ça
+[20:35] accordement à ça en fait. C'est c'est
+[20:36] assez
+[20:37] le carn on l'utilise que pour le swing,
+[20:39] pas pour l'infrad.
+[20:40] Ah non euh
+[20:40] que pardon, on utilise que pour le
+[20:42] scalping, excuse-moi.
+[20:43] Alors le le le je tu vas répondre tout
+[20:45] seul à ta question. En swing, tu as
+[20:46] besoin de quoi ? Tu vas en swing
+[20:48] niveau clé
+[20:49] vo niveau clé indicateur
+[20:50] la fonda on va dire
+[20:52] la beaucoup de fonda indicateur voilà
+[20:54] après en dtrading tu as besoin un
+[20:57] quelque chose de plus plus
+[20:58] plus précis
+[20:59] plus précis peut-être pas forcément le
+[21:01] carnet le carnet peut te donner des
+[21:03] entrées et garder ton trade. Par contre,
+[21:05] en scalping, c'est quelque chose qui est
+[21:07] rapide. C'està-dire en scalping, alors
+[21:08] les gens qui tradent en scalping en
+[21:10] bougie de 5 minutes et cetera, j'ai rien
+[21:12] contre. Mais ce que je dis, c'est que ce
+[21:14] que vous allez faire vous, vous allez
+[21:15] regarder les mèches, c'est la chose
+[21:17] seule que vous allez regarder. Vous
+[21:18] allez regarder les mèches, les volumes
+[21:20] et cetera mais c'est bien de savoir ce
+[21:23] qui se passe dans chaque bougie, qui
+[21:25] fait quoi. Voilà. Et c'est là où le
+[21:26] carnet intervient.
+[21:27] D'accord. Je vois, il y a beaucoup de
+[21:29] chapitres euh donc carnet, gestion des
+[21:32] risques et des performances. Comment
+[21:34] aujourd'hui, je vois une question dans
+[21:36] le livre que je vais te poser tout de
+[21:37] suite parce que beaucoup de personnes se
+[21:38] posent cette question là, comment on
+[21:40] comment on gère son risque aujourd'hui
+[21:42] sur avec le carnet ? Est-ce que tu vois
+[21:45] tu dis je mets un contrat, deux
+[21:47] contrats, on parle sur sur par exemple
+[21:49] sur l'ES. Euh comment tu gères à partir
+[21:52] du prenons l'exemple, je cite une propre
+[21:54] firme là, j'ai pas le choix mais c'est
+[21:56] pas une publicité. Une prof comme Top
+[21:58] Steep ou comme Apex compte 50000, j'ai
+[22:01] 2000 de Draw.
+[22:02] Comment tu gères ton Drawdown de de 2000
+[22:05] ? Est-ce que tu prends des trades à 100
+[22:07] balles par trade, à 200 balles par
+[22:08] trade, à 300 balles par trade, est-ce
+[22:09] que tu dis je joue le draw sur ma
+[22:11] position, sur mon compte ? Comment tu
+[22:14] gérerais ce passage ? Alors, pour
+[22:16] revenir au compte 50000, eux ils te
+[22:18] disent quatre contrats max, mais eux,
+[22:20] ils vont te dire 10 contrats si tu veux.
+[22:21] Leur objectif c'est que tu exploses tes
+[22:23] comptes. Déjà on va partir de ce
+[22:24] principe. Moins tu vas mettre des
+[22:26] contrats, moins tu vas prendre de
+[22:27] risque. Voilà. Et je dirais en deux
+[22:29] étapes. Pour valider les comptes, vite
+[22:31] valider ou pas, passer sur les minimes.
+[22:33] Et après, une fois que vous êtes en PA,
+[22:34] c'est là vous gardez votre capital
+[22:36] passant sur les micros.
+[22:37] OK ?
+[22:37] Donc ça c'est plus vous êtes plus
+[22:39] rassurant, plus sûr. Voilà, on est tu
+[22:41] vas me dire tous la même chose mais on
+[22:42] est tous différents. C'est peut-être que
+[22:45] moi j'ai pas beaucoup d'argent, ben j'ai
+[22:48] acheté un compte à 100 €. Moi
+[22:49] financièrement c'est 100 € de compte que
+[22:52] ça compte pour moi. Je vais trembler
+[22:53] dessus, je vais pas prendre beaucoup de
+[22:55] risques, tu vois. Je vais toujours
+[22:56] trader un lot et toi tu à bloqu tu vas
+[22:58] prendre cinq comptes et ben tu vas
+[23:00] bouriner comme un malade, tu vas réussir
+[23:02] de suite. C'est pas dit que après tu vas
+[23:05] garder en PA parce que il faut à
+[23:07] l'époque à l'époque entre parenthèses,
+[23:09] je voulais créer un propre firme et on
+[23:11] s'était renseigné avec chez rythmique et
+[23:13] cetera mais en fait quand ils nous ont
+[23:14] donné les chiffres c'est affolant. Euh
+[23:16] quand euh ben en fait quand ils disent
+[23:18] qu'95 % des traders ils perdent les
+[23:20] comptes réel les comptes c'est réel et
+[23:22] après il y a que 3 % qui garde les
+[23:24] comptes premier paiement.
+[23:26] Ouais.
+[23:26] 2è paiement il y a très peu de gens qui
+[23:28] vont
+[23:28] D'accord. Donc c'est un bon business.
+[23:30] Ah ah non mais pour le profil s Ah non
+[23:32] mais d'ailleurs leur business plan,
+[23:34] c'est plus il y a des gens qui échouent,
+[23:36] ça les arrange en fait. C'est ils payent
+[23:38] les payouts avec ceux qui échouent.
+[23:40] Maintenant, de plus en plus, il commence
+[23:42] à vous à te à vouloir te passer au bout
+[23:44] de deux trois retraits en réel.
+[23:46] Et c'est ce que beaucoup font ça.
+[23:47] Certains Apex ne fait pas ça. Par
+[23:49] exemple, Apex, ils sont en SIM complet
+[23:50] parce qu'en fait leur business plan
+[23:52] c'est
+[23:52] Tu peux expliquer la différence entre le
+[23:53] SIM complet et le réel ?
+[23:55] Alors, le réel c'est le réel, tu le vois
+[23:57] bien quand tu quand tu ouvres un carnet
+[23:59] quand je vais rentrer par exemple sur le
+[24:01] on va prendre les l'exemple du NASDAQ.
+[24:03] Voilà, sur le carnet, tu as des par
+[24:05] exemple je vais te montrer avec un
+[24:07] exemple, au moins on le voit direct. un
+[24:09] incarné. Allez, imaginons là. Là, tu as
+[24:12] il
+[24:12] voit pas, il faut que
+[24:13] alors là, on voit par exemple, il y a
+[24:14] 600 contrats à l'achat. 600 contrats à
+[24:17] l'achat. Imaginons que tu rentres avec
+[24:19] un contrat.
+[24:20] Ouais.
+[24:20] Si tu as un SIM, les 600, ils vont pas
+[24:22] changer.
+[24:23] Ouais.
+[24:23] En réel, toi, tu es toi, tu es sur le
+[24:25] marché réel.
+[24:26] Ouais. Finalement, ça doit devenir 599,
+[24:28] c'est ça ?
+[24:29] Non, si tu as si tu rentres un contrat à
+[24:30] l'achat, il va passer 601.
+[24:33] Ça veut dire que tu es sur le marché
+[24:34] réel. Ton contrat, il est pris en
+[24:35] compte. Par contre que quand tu es en
+[24:36] SIM, tu peux en mettre tant que tu veux,
+[24:38] il change pas.
+[24:39] D'accord ?
+[24:40] C'est ça la différence. Sauf que quand
+[24:42] on est en propre firme euh eux euh par
+[24:44] exemple Apex, ils te donnent le même
+[24:46] marché quand tu rentres un contrat, tu
+[24:49] vois changer mais sauf que tu es en SIM,
+[24:51] c'est pas tu es sur le marché réel mais
+[24:52] en parallèle.
+[24:53] OK.
+[24:54] Le même prix mais en parallèle.
+[24:55] Prime en parallèle. OK. Ça change
+[24:56] quelque chose dans l'analyse ça ou pas ?
+[24:58] Non. L'analyse non. Le trading non. Ça
+[25:00] change rien. On est sur les vrais
+[25:02] marchés et les mêmes prix. Mais euh on
+[25:04] est on est en Sime en fait.
+[25:06] Sauf qu'il payent avec leur poche.
+[25:07] Exactement.
+[25:08] Mais quand tu es trop rentable
+[25:09] ou il te radie parce que j'ai eu
+[25:11] beaucoup de personnes même Apex ben
+[25:13] malheureusement même moi ils m'ont pas
+[25:14] payé. Il y en a j'ai des collègues qu's
+[25:16] ont pas payé mais des des jolies sommes
+[25:18] hein des des coûts de 160000 € ils ont
+[25:20] pas payé. Ah oui. Ah on n pas
+[25:22] oui. Ah non non non. Ils ont banni, ils
+[25:24] ont pas payé. Euh c'est
+[25:27] c'est méchant aussi les prof. Ouais mais
+[25:28] c'est c'est en fait ils ont tous les
+[25:30] droits puisque ils peuvent faire ce
+[25:33] qu'ils veulent.
+[25:33] Ouais
+[25:34] c'est vous êtes pas en réel.
+[25:35] Et quand tu passes en réel il y a
+[25:37] alors quand tu passes en réel ils
+[25:39] prennent moins de risque. Je crois que
+[25:40] certains props te passent en réel les
+[25:42] conditions changent.
+[25:43] Oui. C'est c'était la question qui
+[25:44] allait venir. Est-ce que les conditions
+[25:45] changent ?
+[25:46] Oui les certaines conditions changent.
+[25:47] C'est-à-dire tu n'as plus le droit la
+[25:48] même taille de l'eau. Au fur et à mesure
+[25:50] que tu vas accumuler ton capital ben tu
+[25:52] vas augmenter ta taille de l'eau.
+[25:53] C'est-à-dire peut-être au début tu vas
+[25:54] démarrer avec 2000 de drawdown avec un
+[25:57] lot. Ben une fois que tu auras passer
+[25:58] 3000, tu vas avoir droit de l'eau ainsi
+[26:00] de suite. En fait, il se protège parce
+[26:02] que cet argent là euh c'est eux qui
+[26:05] l'ont mis à ta disposition.
+[26:07] Ouais.
+[26:07] Parce qu'ils ont vu que avec le temps et
+[26:09] ben tu as tu étais performant. Voilà.
+[26:12] Mais par contre après l'inconvénient
+[26:13] c'est que si tu crames ce compte, tu es
+[26:15] banni 6 mois.
+[26:16] D'accord.
+[26:17] Tu es banni 6 mois.
+[26:18] Voilà. Tu peux Ouais. Tu peux pas
+[26:20] tu peux pas traer.
+[26:21] Non. Il y a certains profils te
+[26:22] bannissent
+[26:22] parce que tu étais passé en réel.
+[26:24] Exactement. Ben tu l'auras bouffé leur
+[26:25] sous.
+[26:27] C'est logique. C'est pas c'est pas un
+[26:28] gentil marché tout ça. Est-ce que les le
+[26:30] marché futur était plus dur en compte
+[26:33] propre comme propre firme comme comme
+[26:35] toi qui a vu cette transition là ?
+[26:36] Alors le l'arrivée des propres firmes,
+[26:37] c'était extraordinaire parce que je
+[26:40] reprends encore l'exemple des des
+[26:41] élèves, c'est-à-dire OK, bon je vais me
+[26:43] former très bien voilà, il faut faire
+[26:44] ça, ça maintenant je veux ouvrir pour
+[26:47] pour travailler en fait pour faire ce
+[26:49] que
+[26:49] bah il faut mettre des sous. Ah mais
+[26:51] j'ai pas
+[26:52] Ouais.
+[26:52] Non fait comment ?
+[26:53] Ouais.
+[26:53] Voilà. Donc euh c'est
+[26:55] où en fait le l'acheminement s'arrête là
+[26:57] en fait et l'arrivée avec des propres
+[26:58] firmes ben je parle même pas d'ouverture
+[27:00] de contre elle. Je dis OK ben tu prends
+[27:02] n'importe quel propre firme, tu choisis,
+[27:03] tu mets 100 balles, tu as accès à un
+[27:05] vrai marché marché futur à à un prix où
+[27:07] tout le monde voit le même prix même si
+[27:10] entre parenthèses on est en SIM on s'en
+[27:12] fout au moins tu te fais la main. Et si
+[27:14] tu réussis à passer les balles, ben
+[27:15] banco, tu tu continues. Ça veut dire que
+[27:17] tu as tu as passé certaines étapes et tu
+[27:19] commences à être bon et tu retires.
+[27:21] Quand tu as été dans cette période
+[27:22] là-bas, trois choses qui t'ont vraiment
+[27:24] marqué
+[27:24] quand tu as été au botaifo, c'est quoi ?
+[27:27] Trois choses qui t'ont vraiment marqué
+[27:28] où tu t'es dit waouh alors il y a
+[27:30] quelque chose que je vais dire, c'est un
+[27:31] paradoxe. J'ai dis il parle pas d'argent
+[27:33] les traders, ils disent pas les traders
+[27:35] qui sont là-bas, ils disent pas voilà je
+[27:36] fais tel montant, tel montant. Par
+[27:38] contre, quand tu sors là-bas, il y a
+[27:40] plein de barres et café il y a
+[27:42] énormément de traders qui sont autour du
+[27:43] bâtiment. Dire que tu es un trader,
+[27:45] c'est pas tabou.
+[27:46] OK.
+[27:47] Alors, ici en France, le problème qu'on
+[27:49] a, c'est que tu dis à quelqu'un, "Tu es
+[27:51] trader, mais en fait, tu fais quoi ?
+[27:53] C'est quoi ?"
+[27:54] Ah, ils savent pas,
+[27:54] ils savent pas. Ils savent pas. Et pour
+[27:57] eux, malheureusement que ce que je vais
+[27:58] dire, peut-être que ça va ça ça va
+[28:00] énerver beaucoup de gens quand on dit en
+[28:01] France qu'on est trader dire "Mais en
+[28:03] fait, tu vas pas travailler."
+[28:04] C'est pas un travail. C'est pas un
+[28:05] travail.
+[28:05] C'est un hobby.
+[28:06] C'est pas un travail malheureusement.
+[28:08] C'est pas considéré comme un travail.
+[28:10] Par contre, ben on passe 2 heures à suer
+[28:14] devant les écrans comme ça, on a la
+[28:15] goutte. Peut-être on a perdu autant
+[28:17] d'énergie que qu si on avait fait 8h.
+[28:19] Mais par contre aux États-Unis non. On
+[28:21] dit un trader et du coup on rentre dans
+[28:22] le vive sujet. C'est c'est normal.
+[28:24] Voilà. Là c'est ça cette différence.
+[28:27] Peut-être qu'avec les années ça viendra
+[28:28] parce que ça se ça se démocratise de
+[28:30] plus en plus le trading. Mais ça c'est
+[28:32] pas mal.
+[28:32] Ça ça t' une surprise
+[28:33] ? Ça c'est
+[28:34] Et une chose qui t'a peut-être un peu
+[28:36] dégoûté du métier ou peut-être tu as vu
+[28:38] les choses complètement différentes
+[28:39] quand tu étais làbas aux États-Unis,
+[28:40] c'était quoi ou tu as tout de suite
+[28:41] kiffer
+[28:42] ? Les gens ils te jugent pas.
+[28:43] Les gens ne jugent pas.
+[28:44] Pourquoi tu dis ça les gens ils jugent
+[28:45] pas ? Est-ce que c'est le fait que tu
+[28:46] sois arménien qui a grandi en France ?
+[28:49] Pas du tout. Personne
+[28:52] ou
+[28:52] je sais pas, c'est l'impression que j'ai
+[28:54] eu. J'ai les gens ils jugent pas.
+[28:56] Ouais,
+[28:56] tu peux gagner, tu peux être à côté d'un
+[28:59] d'un milliardaire ou un millionnaire
+[29:00] trader, il va être au même niveau que
+[29:02] toi. Il s'en fout complet. Tu as côtoyé
+[29:03] des traders milliardaires ?
+[29:04] Oui. Des milliardaires ? Non, mais des
+[29:05] des millionnaires.
+[29:06] Des traders multimillionnaires ?
+[29:07] Oui. Oui.
+[29:08] Qu'est-ce qu'est-ce que tu penses qui a
+[29:09] fait leur réussite à ces personnes là
+[29:11] toi qui les a côté ?
+[29:12] Je sais pas. Peut-être le leur
+[29:13] expérience ou leur parcours.
+[29:14] Le parcours peut-être le capital de
+[29:15] départ.
+[29:16] Peut-être les capitales départ on sait
+[29:17] pas après parce queil y en a beaucoup
+[29:18] qui travaillent pour les hedge fund
+[29:20] après ils se sait pas.
+[29:21] Ouais.
+[29:21] Ou alors qui travaillent pour les market
+[29:22] makers ben ils se mettent à leur compte
+[29:23] parce qu'ils savent déjà un peu comment
+[29:24] ça fonctionne. Comment
+[29:25] comment ça fonctionne. Tu fais 3 mois.
+[29:27] Oui. France. Reviens. Je reviens.
+[29:29] Ouais.
+[29:29] Je suis chargé à bloc.
+[29:30] Là c'est bon.
+[29:31] Là je suis chargé à bloc. Je commence à
+[29:33] comprendre.
+[29:34] Ouais.
+[29:36] Non, avant je comprenais pas parce
+[29:37] que ça faisait 4 ans.
+[29:38] Non, je comprenais pas en fait. Je Alors
+[29:40] ce que j'avais toujours c'était je me
+[29:42] mettais en tant que trader. Ouais. Je me
+[29:44] mettais en tant que trader. J'ai dit
+[29:46] "OK, je je prends mon trade, je veux
+[29:48] gagner." Mais en fait à partir du moment
+[29:49] que tu raisonnes dans l'autre sens, OK,
+[29:51] ben il y a bien d'autres personnes qui
+[29:54] sont beaucoup plus gros que nous, mais
+[29:55] c'est pas nous qui faisons le marché qui
+[29:57] sont là en train d'attendre. Et eux, ils
+[29:58] feraient quoi ?
+[29:59] Ben, ils attendent qu'il y a des
+[30:00] liquidités. Et nous on est apporteur de
+[30:02] liquidité sur les marchés.
+[30:03] C'est vraiment vrai ça. C'est vraiment
+[30:05] Oui.
+[30:05] Le retail ou les petits portefeuilles ?
+[30:07] Alors c'est pareil les retail et les
+[30:09] petits portefeuilles c'est pareil. On
+[30:10] est porteur de liquidité.
+[30:11] Ouais mais moi j'ai
+[30:12] je te prends un exemple je te coupe je
+[30:14] te prends un exemple. Tu as 10000
+[30:16] contrats à passés.
+[30:17] Ah mais ça rentre pas ça.
+[30:18] Ça rentre pas d'un coup.
+[30:19] Oui.
+[30:19] Qu'est-ce que tu vas faire ? Tu vas
+[30:20] étaler.
+[30:20] Oui.
+[30:21] Tu vas étaler sur quel niveau ? Là il y
+[30:23] a des volumes.
+[30:23] Oui. Sur une résistance.
+[30:25] Exactement. Bien sûr. Ben voilà, c'est
+[30:26] exactement pareil. Alors si tu commences
+[30:28] à raisonner comment et réfléchir les
+[30:30] autres et ben peut-être ton trading il
+[30:31] change complet.
+[30:32] D'accord ?
+[30:33] Et c'est là où le carnet il est très
+[30:34] important. Je dis toujours que voir ce
+[30:36] qu' font les voisins pour être en
+[30:38] réaction rapide par rapport à ça.
+[30:40] D'accord. Ça c'est
+[30:41] alors là-dessus parce que moi des gars
+[30:42] qui m'avaient formé m'avait toujours dit
+[30:44] que les gens qui font bouger le marché
+[30:46] ce sont les gros. Mais notre rôle nous
+[30:48] en tant que que petit et retail, c'est
+[30:50] de suivre les mouvements des gros et pas
+[30:52] de vouloir prendre le marché en reverse.
+[30:55] Oui.
+[30:55] Je vois, tu es pas d'accord avec ça ?
+[30:57] Oui. Si. Alors, souvent on voit la
+[31:00] manipulation sur le carnet.
+[31:01] Ouais.
+[31:02] Souvent on voit la manipulation sur le
+[31:03] carnet.
+[31:03] Ça existe vraiment la manipulation.
+[31:05] Mais heureusement,
+[31:05] c'est quoi que tu as Mais heureusement,
+[31:07] tu es le premier qui passe, tu es l'un
+[31:08] des premiers qui passe ici sur mon qui
+[31:10] dit que la manipulation, ça existe tout
+[31:11] droit et heureusement qu'elle existe.
+[31:13] Heureusement.
+[31:13] Pourquoi ?
+[31:14] Ben, comment vous faites pour attirer du
+[31:15] monde ? Quand tu vas à la pêche ? Tu
+[31:17] mets quoi au bout de ton hameçon ?
+[31:18] Tu mets quoi ?
+[31:19] Je mets de la nourriture.
+[31:20] Pour pour faire quoi ?
+[31:21] Ben pour attirer des poissons.
+[31:22] Ben, il y en a des poissons.
+[31:22] D'accord.
+[31:23] Alors, pour attirer les poissons, pour
+[31:25] dégrossir sur le carnet, tu vois que le
+[31:27] carnet il est normal sans de volume. Tu
+[31:29] vas mettre un gros volume. Je sais rien,
+[31:31] je te prends l'exemple. Sur le S, on a
+[31:33] une moyenne d'entre 30 et 40 50
+[31:34] contrats. Et ben, tu vas mettre 200
+[31:36] contrats. Tu vas dire "Ah, il y a un bon
+[31:38] volume, le prix va forcément être
+[31:39] attiré."
+[31:40] Ouais.
+[31:40] Et ben quand le prix va commencer à être
+[31:42] attiré, ben tu on va enlever les 200
+[31:43] contrats, tu vas te mettre dans l'autre
+[31:44] sens. En fait, tu fais quoi ? Tu attires
+[31:46] les volumes. Souvent ce qu'on appelle
+[31:47] les spoofing, on met des voilà, il y a
+[31:50] plusieurs manières en fait de manipuler.
+[31:52] Oui, logiquement c'est interdit. Mais ça
+[31:53] va tellement vite. Bien sûr, ça se fait
+[31:55] toujours. On l'incarné, on le voit tous
+[31:56] les jours ça.
+[31:57] Tous les jours
+[31:58] Ah oui, bien sûr.
+[31:59] Alors, tu connais, il y a une histoire
+[32:00] par rapport à ça. Crash crash en 2010
+[32:02] avec du spoofing, des algorithmes et
+[32:04] tout ça. Donc, on dit que aujourd'hui ça
+[32:06] a été un peu interdit. Alors là, je
+[32:08] m'adresse à la communauté. Tout le monde
+[32:09] ne connaît pas cette histoire. Il y a,
+[32:11] je crois c'était l'histoire de Navinder
+[32:13] Saro, un petit trader qui tradait depuis
+[32:15] la maison et puis il mettait beaucoup
+[32:18] d'ordre sur le marché et puis le le
+[32:19] marché avait un flash crash d'à peu près
+[32:21] une trentaine de minutes. Alors, c'était
+[32:23] pas que lui mais lui, il a été condamné
+[32:24] parce que il avait un algorithme et
+[32:26] c'était l'époque où le le HFT arrivé.
+[32:28] Du coup, je crois qu'il avait aménagé sa
+[32:30] peine de prison en aidant un peu le le
+[32:34] comment s'appelle le gendarme financier
+[32:36] américain, j'ai perdu le nom. C'est pas
+[32:37] le FBI, c'est le Je vous laisse dans les
+[32:39] commentaires vous dire ça. J'ai j'ai
+[32:41] perdu le nom. En fait, ce qui s'est
+[32:43] passé malgré tout, c'est interdit. Mais
+[32:44] toi, tu me dis qu'aujourd'hui dans le
+[32:46] carnet en 2026, il y a toujours ces
+[32:48] mêmes petites techniques de mettre des
+[32:50] ordres.
+[32:51] Et on peut se faire complètement avaler
+[32:53] si on sait pas les repérer.
+[32:54] Euh, bien sûr.
+[32:55] Donc, on clique, on suit le marché et
+[32:56] puis et comment on met et on enlève 200
+[32:58] 200, tu as dit par exemple 200 contrats
+[33:01] sans que moi-même je perde de l'argent
+[33:02] pour prendre le mouvement contraire. Tu
+[33:04] es bien d'accord que si tu rentres, je
+[33:05] dis une connerie, tu rentres au niveau
+[33:06] euh donne des chiffres simples, hein. Tu
+[33:09] rentres au niveau 1000, le prix il est à
+[33:10] 1000 points disons.
+[33:12] Euh toi tu veux partir vendeur mais tu
+[33:14] il te faut de la liquidité. Donc tu fais
+[33:15] quoi ? Tu rentres au niveau 1000, tu
+[33:17] amènes le marché jusqu'à 1000 et à 100
+[33:20] quand il y a beaucoup de volume, tu mets
+[33:21] une grosse position vendeur pour
+[33:23] descendre à 900.
+[33:24] Alors oui, alors ça c'est ce qu'on
+[33:25] appelle pump pump dump, c'est-à-dire
+[33:27] alors il y a deux types de manipulation.
+[33:29] Il y a le fameux spoofing, c'est-à-dire
+[33:30] on met les ordres, on l'enlève pour une
+[33:31] dur en erreur. Ou alors si par exemple
+[33:33] tu as 10000 contrats à passer, et ben tu
+[33:35] vas sacrifier 20 ou 30 % de tes contrat.
+[33:37] Ah d'accord.
+[33:38] Oui. Tu vas sacrifier 20 % de tes
+[33:39] contrats pour tirer le marché d'un sens
+[33:41] et reprendre de l'autre côté.
+[33:42] C'est-à-dire tu vas rentrer avec 20 %
+[33:44] pour monter le marché pour que les
+[33:46] autres ils voient que le marché il monte
+[33:47] dans ton sens. et ben tu te retournes,
+[33:49] c'est-à-dire tu te positionnes à la
+[33:51] vente ou à l'achat dans dans le sens
+[33:52] inverse avec tes gros volumes puisque tu
+[33:54] sais que avec 2000 contrats, tu as
+[33:56] attirer 10000 contrats
+[33:58] et ben de l'autre côté avec tes 10000
+[33:59] contrats la place
+[34:01] parce que là alors ce qu'il faut dire au
+[34:03] au au traders c'est que quand on est
+[34:05] dans le marché quand on achète un
+[34:07] contrat chose qu'on voit pas sur les CFD
+[34:09] quand on achète un contrat sur le carnet
+[34:11] il faut un vendeur. Si vous avez pas de
+[34:13] vendeur votre vous êtes pas exécuté.
+[34:15] Oui,
+[34:16] sur les CFD, on peut cliquer n'importe
+[34:17] quel moment, rentrer, sortir parce que
+[34:18] c'est le broker qui fait la différence.
+[34:20] Voilà. Par contre, sur les marchés
+[34:21] futurs, non. Quand vous achetez, il faut
+[34:23] qu' quelqu'un qui vous donne un contrat
+[34:25] à la vente. Voilà.
+[34:26] Donc à chaque fois, quand on a un ordre
+[34:27] exécuté, c'est parce que
+[34:28] il y a quelqu'un qui vous a donné la
+[34:29] contrepartie.
+[34:30] Tu as déjà vu des moments où quelqu'un
+[34:31] fait un fat finger et puis il y a rien
+[34:33] et détruit le carnet ou pas ? Tu as déjà
+[34:34] vu ça ou pas ?
+[34:35] Un spread, tu veux dire ?
+[34:36] Oui, on spread genre. Oui, parce qu' il
+[34:37] pourra être exécuté, ben c'est 4 ou 5.
+[34:40] Alors, on alors on voit alors pour
+[34:42] parler un peu des carnets, alors ça on
+[34:44] voit souvent sur les carnets légers.
+[34:45] Pour moi, le carnet le plus léger, c'est
+[34:46] le NASDAQ.
+[34:47] Ouais.
+[34:48] Pas le MNQ, le NQ parce que le NQ on
+[34:50] tourne à 3 4 5 contrats par niveau de
+[34:52] prix. C'est-à-dire sur chaque niveau de
+[34:54] prix, on voit 4 c contrats à l'achat,
+[34:55] l'intention de des ce qu'on appelle les
+[34:57] limites à l'achat. Par contre, si
+[34:59] imaginons que sur chaque niveau de prix,
+[35:01] vous avez cinq contrats. Si vous si vous
+[35:03] tu rentres avec 50 contrats d'un coup,
+[35:05] market, c'est-à-dire tu vas forcer
+[35:07] l'achat
+[35:08] et ben à un moment donné, tu vas avaler
+[35:10] tous les contrats à la vente jusqu'à se
+[35:12] retrouver à tes 50 contrats et ben tu
+[35:14] vas créer un spread. Et c'est là où le
+[35:16] marché décale. Et souvent nous on voit
+[35:18] une une accélération sur les marchés
+[35:20] légers, sur les carnets légers ou sur le
+[35:22] Nasdaq ou éventuellement sur le S, il
+[35:24] est un peu dur parce que le S il est un
+[35:25] peu plus chargé et on voit absolument
+[35:27] pas sur les bons
+[35:28] d'accord
+[35:29] parce que regarde le Nasdaq pour te
+[35:31] donner exemple on est à 5 si contrats le
+[35:33] S on est entre 3 30 et 40 50 contrats à
+[35:36] chaque niveau de prix forcément le
+[35:37] carnet il est lourd le marché il est
+[35:39] moins volatile. Ouais.
+[35:40] Si on va sur le ZN, ben on est sur 10000
+[35:43] contrats par niveau de prix. À
+[35:44] 10000
+[35:45] 10000 contrats.
+[35:46] Donc pour faire bouger le prix, il te
+[35:48] faut mettre 10000.
+[35:49] Exactement. Pour faire un tic.
+[35:51] Ouais, pour faire un tic.
+[35:52] Si tu rentres avec 30000 contrats, ben
+[35:54] tu vas faire peut-être deux tics.
+[35:55] Oh, mais ça tu fais rien du tout.
+[35:56] Ben non.
+[35:58] C'est pour ça que beaucoup Mais c'est
+[36:00] pour ça que si tu regardes par exemple
+[36:01] les graphiques du des bons du trésor,
+[36:03] ben c'est très compact.
+[36:04] C'est compact et ça bouge très très peu.
+[36:06] Exactement. Voilà. Et ça, tu le
+[36:07] détailles dans le carnet, tu vois que
+[36:08] ben en fait et sous 90 % du temps, ils
+[36:11] rangent en fait, ils font le haut, le
+[36:12] bas. Voilà. D'accord. Et c'est ça un peu
+[36:14] ton style de de de tra
+[36:16] Alors, j'ai tradé beaucoup sur les
+[36:17] bancs.
+[36:18] J'ai tradé beaucoup sur les ZN et après
+[36:19] j'ai
+[36:20] C'est ce que tu trais sans sans coupé,
+[36:21] c'est ce que tu trais quand tu étais à
+[36:22] Chicago ?
+[36:22] Oui. Oui. Je faisais énormément le ZN et
+[36:25] le ZB.
+[36:25] D'accord.
+[36:26] C'est le ZB, c'est le rendement de 30
+[36:28] ans et le ZN, c'est 10 ans. Et après,
+[36:30] j'ai basculé plus sur le UB, l'ultra bon
+[36:32] parce qu'il était beaucoup plus rapide.
+[36:34] Et en fait euh je tris sur les deux
+[36:36] instruments, c'était le UB et le ZB.
+[36:38] C'est les deux, ils sont en fait
+[36:39] parallèles, ils sont je travaille les
+[36:40] deux en même temps. Alors l'étape
+[36:42] d'après, c'est quand je reviens en
+[36:44] France, je commence à voir des choses,
+[36:46] je commence à à trader un peu plus sur
+[36:48] le carnet, je commence à me faire la
+[36:49] main et c'est là où je rentre en contact
+[36:51] avec Ninja, on sympathise et cetera et
+[36:54] et je remonte par intermédiaire de
+[36:57] quelqu'un, je remonte, je retourne une
+[36:58] deuxième fois.
+[36:59] OK. 6 mois cette fois-ci et c'est là où
+[37:01] je découvre carrément les fameuses
+[37:03] manipulations, les machins et cetera.
+[37:05] Voilà. Et là je je me prends un kiff de
+[37:07] trader sur c'est donc je c'est pour ça
+[37:10] qu' aujourd'hui je suis un peu
+[37:11] partenaire avec Ninja et je reste
+[37:13] toujours sur Ninja. Voilà. Tu es
+[37:14] toujours sur Ninja. Tu tu es pas
+[37:16] ailleurs.
+[37:17] Euh à cette période là tu vis de quoi ?
+[37:20] Je vis de quoi ?
+[37:20] Ouais parce que tu là tu vois tu pars 3
+[37:23] mois il y a des frais. Oui
+[37:25] ben en fait j'avais j'avais vendu tes
+[37:27] boes
+[37:28] oui j'avais j'avais tout vendu. Ça y est
+[37:29] j'é j'avais pleuréadé. Là c'était bon là
+[37:31] tuavais compris
+[37:31] pas persuadé mais je me dis OK ben j'ai
+[37:34] j'ai un peu de temps devant moi où je
+[37:36] peux éventuellement travailler le peu me
+[37:38] suffisait et cetera voilà et au fur à
+[37:40] mesure bon malheureusement on passe par
+[37:42] des étapes ou des haut et des bas comme
+[37:46] n'importe quel trader tu vois. Voilà
+[37:47] j'ai failli arrêter plusieurs fois.
+[37:49] Tu as failli arrêter plusieurs fois.
+[37:50] Ah oui
+[37:50] malgré que tu sois parti aux États-Unis.
+[37:53] Pourquoi ? C'est intéressant ça.
+[37:55] Oui.
+[37:56] Non mais parce que
+[37:56] parce que quand alors euh j'ai j'
+[38:00] impulsif à l'époque.
+[38:02] Après j'ai su géré Ouais. J'ai su gérer
+[38:04] mes mais mes en fait mon tempérament et
+[38:07] j'ai su gérer mon calme. Mais quand on
+[38:09] perd on perd ben c'est on s'énerve
+[38:12] forcément. Quand on s'énerve
+[38:14] tu as fait du renting aussi. Ah
+[38:15] oui ça répercute sur la famille
+[38:17] forcément on s'enferme sur soi-même
+[38:20] on s'énerve. J'ai cassé j'ai cassé deux
+[38:23] fois. deux fois les ordi. Voilà.
+[38:25] Ah, tu as cassé les ordis ? Ou ou
+[38:27] tu as tuas tu es marié ? Tu as été marié
+[38:29] ? On a pas parlé un peu de la vie.
+[38:30] Oui oui, je suis marié. Oui, je suis
+[38:31] marié. J'ai deux enfants.
+[38:33] Voilà. Après, c'est compliqué de gérer
+[38:35] les pertes. On perd forcément, il faut
+[38:37] prendre sur soi-même ou il faut pas que
+[38:39] les enfants ils sachent ou la femme et
+[38:41] cetera. Voilà, c'est il faut pas c'est
+[38:43] mais c'est facile à dire hein.
+[38:44] Ouais.
+[38:45] Mais ça se ressent. parenthèse dans la
+[38:47] parenthèse puisque pareil euh et c'est
+[38:49] bien parce que quand tu reçois beaucoup
+[38:50] de jeunes des gens, ils sont pas passés
+[38:52] par là ou ils sont pas encore dans cette
+[38:53] étape de construction de la vie et il y
+[38:55] a toute une audience à qui on ne parle
+[38:58] pas. Restons un peu sur ce sujet-là, on
+[39:01] reviendra sur sur ton retour en France.
+[39:03] Comment selon toi aujourd'hui
+[39:05] un père de famille marié pas marié enfin
+[39:07] un père de famille devrait gérer ? tu as
+[39:10] parlé de ne pas ne pas dire les pertes.
+[39:12] Souvent on parle on aaime pas parler des
+[39:14] des pertes surtout des pertes
+[39:15] conséquentes.
+[39:16] Comment toi comment toi tu comment toi
+[39:18] déjà personnellement tu as géré ça ?
+[39:20] Alors j'ai eu la chance de me retrouver
+[39:22] entre quelques groupes de traders où on
+[39:24] pouvait discuter. Je dis souvent aux
+[39:26] élèves, c'est que euh si tu perds
+[39:28] l'argent ou si tu par bonheur tu gagnes
+[39:30] l'argent, c'est normal. Ne va pas dire à
+[39:32] tout le monde, ne va pas raconter à tes
+[39:34] collègues, quoi que ce soit. Si tu perds
+[39:36] l'argent, si tu n'en parles pas à
+[39:37] quelqu'un qui si qui n'est pas du
+[39:39] métier. Hm
+[39:39] hm.
+[39:40] Parce que souvent tu vas dire "Ouais,
+[39:42] j'ai perdu. J'ai perdu." Il va te dire
+[39:44] "Laisse tomber, tu as eu, je te l'ai
+[39:45] dit, allez arrête arrête, c'est de la
+[39:46] merde." Voilà, tu vois. Et et être
+[39:48] entouré avec des traders, c'est dire
+[39:51] "OK, ben l'ami, j'ai perdu et ben
+[39:54] qu'est-ce que tu as fait ? Tu as pas vu
+[39:55] ça ?" En fait, on rentre, on n'est pas
+[39:57] là dans le jugement. Hm
+[39:58] hm. Parce que si quelqu'un ne connaît
+[40:00] pas le métier qui traite pas, de suite,
+[40:02] il va vous juger, il va vous arrêter
+[40:04] dans votre élan tandis que vous c'est
+[40:05] votre passion, vous y croyez dur comme
+[40:08] faire mais à un moment donné ils vont
+[40:09] vous casser un peu le votre délire.
+[40:12] Ouais.
+[40:12] Voilà. Mais être entouré avec des
+[40:14] traders, je pense que c'est
+[40:18] la meilleure des choses dans un bon
+[40:19] groupe. Ouais. Tu as quoi comme pire
+[40:20] souvenir de famille euh d'une journée
+[40:23] perdante ? Et tu as fait peut-être le
+[40:25] truc qu'il fallait pas faire ou tu as
+[40:26] franchi un peu la limite ? Tu as quoi en
+[40:28] pire souvenir comme ça ?
+[40:29] Alors, c'était le Covid.
+[40:31] Ouais,
+[40:31] c'était le Covid. Je m'étais mis bien
+[40:33] pendant le Covid parce que bon le marché
+[40:35] il a fait que monter. Il la chuté il a
+[40:37] fait que monter. Euh, j'ai commencé, on
+[40:38] se sent à l'aise, on a un bon
+[40:40] portefeuille, tout machin. Et un jour,
+[40:44] je me rappellerai toujours, c'était
+[40:45] mercredi. Ben mercredi, ça me réussit
+[40:46] pas.
+[40:47] Sur quel actif c'était
+[40:47] ? Sur le S. sur le essai.
+[40:49] Bah sur le et le matin je me lève, il y
+[40:52] a des jours comme ça, tu te lèves le
+[40:53] matin, tu es pas bien, tu as pas envie
+[40:54] mais en fait je m'entêtais, je dis voilà
+[40:56] aujourd'hui je vais traiter quand même.
+[40:57] On se connecte avec les collègues, le
+[40:59] marché il a fait que monter. Moi je
+[41:00] faisais shorter. Alors je suis plus à
+[41:01] l'aise sur les shorts que sur les
+[41:02] achats. Je sais pas pourquoi. Voilà
+[41:04] c'est c'est c'est mon je sais pas. Voilà
+[41:06] c'est l'inverse.
+[41:07] Bah voilà tu vois.
+[41:09] Et plus dans les ranges, c'est plus à
+[41:10] l'aise dans les ranges que dans les
+[41:11] directions dans la dynamique.
+[41:12] Voilà et le marché il faisait que
+[41:14] monter. Et ben je shortte, je shortte,
+[41:15] je shortte, je shortte, je shortte. Et
+[41:16] ben et à l'époque je mettais pas du tout
+[41:18] mon PNL.
+[41:18] OK.
+[41:19] Voilà, c'était un truc que j'avais. Je
+[41:20] mettais pas mon PNL. Je regardais pas
+[41:21] mon PNL.
+[41:22] Vois pas les PNL ?
+[41:23] Tu voyais que les points ou
+[41:25] je regardais voilà, je je vois je voyais
+[41:26] juste ma position mais je savais pas du
+[41:28] tout. Voilà, c'était juste alors je
+[41:29] traitais sur à l'époque je traité sur
+[41:31] Titi. Bon, j'avais pas mis mon PNL. À un
+[41:33] moment donné, j'entends les collègues
+[41:35] dis voilà j'ai pris ça, je suis à laché
+[41:37] un machin mais je suis j'étais tout le
+[41:38] temps en short quand je regarde mon PNL.
+[41:41] 32000
+[41:42] 32000 réel. réel réel de réel
+[41:46] réel réel je Oh arrête tout
+[41:49] arrête tout
+[41:51] je mets flat je regarde l'écran je dis
+[41:53] mais qu'est-ce que tu as fait et c'est
+[41:55] en fait tu te retrouves dans une bulle
+[41:57] désespoir dit qu'est-ce qui se
+[41:59] passe et je suis dit stop arrête
+[42:01] ouais
+[42:01] ouais arrête arrête tout
+[42:03] pire souvenir
+[42:03] arrête tout voilà ça c'est géré combien
+[42:05] avec la famille ou là à ce momentlà
+[42:07] alors j'ai pas beaucoup parlé j'ai dit
+[42:08] beaucoup plus tard
+[42:09] j'ai dit beaucoup plus tard et en fait
+[42:11] ce qu'il y a c'est que j'ai pris sur
+[42:12] moi, j'ai fermé,
+[42:15] j'ai pas touché pendant quelques jours
+[42:16] l'ordi et j'ai essayé de faire autre
+[42:18] chose pour me changer les idées et
+[42:19] cetera. Voilà, c'est ça. C'était Comment
+[42:21] tu as remonté la pente ? Parce que au
+[42:23] moins 32, ça travaille. Et là, tu te dis
+[42:26] euh est-ce que tu t'es dit bon je dois
+[42:28] me refaire j'ai 6 mois pour me refaire
+[42:31] ou
+[42:31] alors au début au début j'aurais dit oui
+[42:33] il faut que je me refasse. Au début,
+[42:34] j'aurais dit oui comme n'importe quel
+[42:36] trader quand on perd on veut on taille
+[42:38] on augmente taille de l'eau pour se
+[42:40] refaire et cetera pour compenser mais ça
+[42:42] c'est une erreur. Et maintenant non je
+[42:44] je perds ben c'est pas grave tant pis
+[42:45] j'ai perdu.
+[42:46] Ouais
+[42:47] et souvent je dis ben les pertes font
+[42:48] partie de notre métier.
+[42:49] Ouais parlons un peu plus des pertes
+[42:51] parce que je sais que tu veux parler de
+[42:52] ça. C'est quoi ta ta
+[42:54] pire journée ou tu as fait encore plus
+[42:57] que ça à perte ? Ça c'est le maximum
+[43:00] depuis le mercredi c'est à chaque fois
+[43:03] je me pose des questions si je tr le
+[43:04] mercredi
+[43:04] du coup le mercredi tu fais quoi tu tu
+[43:06] vas jouer avec les enfants
+[43:08] ouais je c'est journée des enfant du
+[43:09] coup je traite pas longtemps je reste
+[43:11] pas longtemps ou alors ou alors je je
+[43:12] reviens vraiment vers la clôture. Ça
+[43:14] c'est
+[43:14] heure américaine on parle hein.
+[43:15] Oui oui. Toujours je fais que le marché
+[43:17] US.
+[43:18] Ouais donc 22h à peu près 2h 2h.
+[43:20] C'est ça. 22h en fait je me connecte
+[43:21] vers 20h et entre 20h et 22h j'aime bien
+[43:23] parce que c'est il y a pas d'annonce le
+[43:25] marché il est très stable il assaisonne
+[43:28] et cetera.
+[43:29] Et et souvent on a on arrive à avoir des
+[43:31] des trucs assez sympas avec avant le
+[43:33] cluton parce que il y a beaucoup d'algos
+[43:34] qui se qui se dégagent en fait et
+[43:37] souvent le prix bah tout dépend où il
+[43:38] est, il retourne à sa zone de
+[43:40] Ouais, il aime bien il aime bien
+[43:41] retracer un peu à
+[43:42] Exactement. Voilà, ça çaavance souvent
+[43:44] vendredi. Vendredi, j'aime énormément
+[43:46] parce que ça correspond aussi avec la
+[43:47] clôture des options parce que en rapport
+[43:49] avec
+[43:49] c'est 21h je crois non ou 22h
+[43:51] de 21h45
+[43:54] et tu profites un peu de ce mouvement de
+[43:55] clôture des options
+[43:57] pour pour prendre quand tu trades comme
+[43:59] ça en session aujourd'hui on va revenir
+[44:01] encore un peu après mais là comme on y
+[44:02] est quand tu trades aujourd'hui comme ça
+[44:04] tu vas chercher quoi en terme de
+[44:05] performance sur le SP par
+[44:08] je je pas alors je fais pas de je mets
+[44:09] pas les points moi c'est quantique
+[44:12] c'estantique pour un point c'est ça
+[44:13] ouais c'est J'ai pas de montant.
+[44:15] Ouais,
+[44:15] je peux dire
+[44:17] performance moyenne, c'est quoi ? C'est
+[44:19] 10 stick 15 stick par trade
+[44:21] que tu vas chercher pas le nombre de
+[44:23] trade.
+[44:24] Alors non, pas par trade, je dirais pas
+[44:25] par trade parce que tout dépend où je
+[44:27] suis, je peux garder mon trade ou pas.
+[44:29] OK.
+[44:29] Alors, je fais énormément de scalping,
+[44:31] mais scalping, ça veut pas dire tu vas
+[44:32] prendre 45000 trade. Les gens pensent
+[44:34] ça.
+[44:34] Non, j'ai je fais pas du
+[44:35] Comment tu définirais le scalping selon
+[44:37] toi ? Alors,
+[44:37] ben aller chercher le point bien, on va
+[44:40] dire la perfection, être un sniper, on
+[44:41] va dire. Un sniper il tire pas 46 fois,
+[44:44] il tire une deux fois pour il vise bien.
+[44:46] Alors l'avantage aussi, je reviens
+[44:48] toujours sur le carnet, c'est que sur le
+[44:49] carnet, on peut avoir un stop assez
+[44:50] serré.
+[44:50] Ouais.
+[44:51] Alors ça c'est un gros avantage. Du coup
+[44:52] quatre tics, deux tics.
+[44:54] Alors sur le S, j'ai 10 tics.
+[44:55] Toi tu mets des tics.
+[44:55] Ouais. De points de 2 points et demi.
+[44:57] Voilà. Et euh sur Nasdaq c'est un peu
+[44:58] plus parce qu'il est beaucoup plus
+[44:59] volatile logique. En fait c'est un stop
+[45:01] de sécurité même. Je dirais pas voilà si
+[45:03] je vois que je rentre ben les autres ils
+[45:06] peent le dessus à à l'inverse de moi.
+[45:08] Ben je sors rapidement, je laisse pas
+[45:10] aller tapis.
+[45:11] dans l'histoire, je préfère prendre deux
+[45:13] trois trades, sortir à trois tic et le
+[45:15] 5e ben il va dans le bon sens que
+[45:17] toujours laisser tester mon stop ou
+[45:19] rentrer dans l'espérance ou ainsi de
+[45:20] suite. Après voilà, on parle plus de
+[45:21] technique mais voilà mais j'ai pas de je
+[45:24] peux faire du 300 500
+[45:27] m'est déjà arrivé des des journées des
+[45:29] 2000 3000 ça dépend en fait il y a pas
+[45:31] de
+[45:31] il y a pas de
+[45:32] voilà mais souvent ce que je dis au gars
+[45:34] c'est que si un jour vous avez fait une
+[45:36] belle perf le lendemain oubliez ce que
+[45:38] vous avez fait le avant
+[45:39] pas de surconfance
+[45:40] voilà parce que c'est
+[45:41] souvent on détruit hein
+[45:42] exactement ben oui on est on a notre
+[45:44] coussin c'est ce qui m'était arrivé on a
+[45:46] un beau coussin dit ça y est j'ai la
+[45:47] marge je peux laisser couler le marché
+[45:49] dans tous les cas je serai gagnant parce
+[45:50] que j'ai un gros poussin. Ben non, le
+[45:51] marché il te il te ramasse.
+[45:52] Ouais,
+[45:53] tu fais les 6 mois, on revient sur sur
+[45:55] ton sur là. J'oublie pas, je
+[45:58] je vois je vois je vois je vois.
+[45:59] Donc tu fais les 6 mois, le deuxième
+[46:00] truc, tu apprends la manipulation, tu
+[46:02] rentres en France,
+[46:04] tu es chargé là, on est en quoi ? 20189
+[46:06] euh oui. Toujours avant le covid.
+[46:08] Toujours toujours avant le Covid. Il y a
+[46:09] toujours pas de propre firme. Tu es
+[46:11] toujours en propre firme. Ah non, si je
+[46:13] crois que mes premiers prof firmes,
+[46:14] c'était Lilou.
+[46:15] OK. Tu connais pas ça à ce momentlà, je
+[46:16] connais Lilou Trading, c'était en 2000.
+[46:19] D'ailleurs, j'avais mis les trucs dans
+[46:20] mon Discord. Je crois que c'était en
+[46:22] 2020 ou 2021 2020, je crois.
+[46:24] Voilà, c'est là où les premiers propr
+[46:26] ils arrivent.
+[46:27] Ça coûtait combien à l'époque ? C'est
+[46:28] les prix d'aujourd'hui ou c'était
+[46:29] euh non, je je me rappelle plus. C'est
+[46:32] dans les 100 dollars en général en fait.
+[46:34] Euh alors maintenant le foris c'est on
+[46:36] achète un compte, on a tout le pack
+[46:38] complet. Maintenant avant non, on
+[46:39] achetait on payait 100 dollars et on
+[46:41] payait la l'activation aussi. Il y avait
+[46:43] deux étapes à payer parce que bon, il s
+[46:45] gavit un peu plus avant.
+[46:46] Ouais. Aujourd'hui, c'est Aujourd'hui
+[46:49] Ouais, ils ont réduit un peu le ils ont
+[46:50] remis.
+[46:50] Quand tu arrives au prop, est-ce que
+[46:52] pour toi, je sais qu'on va parler
+[46:54] d'argent, tu aimes pas ça, mais
+[46:55] laisse-moi venir, est-ce que pour toi
+[46:57] l'occasion de te dire "Ah, je vais enfin
+[46:59] devenir millionnaire, comprends mon
+[47:01] idée." Si avant tu avais 10000 10000 €
+[47:04] pour que tu mettais chez ton broker, bah
+[47:07] du coup, tu te dis à ces 10000 là, je
+[47:09] les enlève de chez mon broker et
+[47:10] j'achète que des comptes en propre
+[47:11] firme. Est-ce que c'est ce que tu as
+[47:12] fait ? Est-ce que c'est comme ça que tu
+[47:13] as vu les choses ?
+[47:14] Non, c'est pas ce que j'ai fait. Sauf
+[47:15] que je me dis OK ben c'est la facilité.
+[47:17] Alors, il faut savoir que aucun moment,
+[47:19] il y a pas un seul trader qui va te
+[47:21] dire, tu en connais beaucoup, tu poseras
+[47:23] la question, est-ce que tu trades de la
+[47:24] même manière tes codes propres ?
+[47:26] Non. Non.
+[47:26] Ou les propres ?
+[47:28] Ben voilà, je te pose la question.
+[47:29] Voilà, en fait le compte qu'on a acheté
+[47:31] à 100 dollars, peu importe le montant à
+[47:33] 50000, peu importe, et ben on va on va
+[47:35] être beaucoup plus léger, beaucoup plus
+[47:37] de risque.
+[47:38] Oui.
+[47:38] On va laisser traîner le trade, tu vois.
+[47:40] On va on va on se dit allez c'est bon on
+[47:42] a perdu 100 dollars ou alors on se
+[47:43] retrouve avec un drodant de 500 dollars
+[47:45] allez ça va je m'en fous je mets le
+[47:46] paquet ça passe ou ça cass
+[47:48] tout le monde fait ça faut pas mentir
+[47:50] tout le monde ça non mais non mais je
+[47:51] dis moi je le dis je suis le premier à
+[47:52] le dire ça
+[47:53] les gens le disent pas oh faut pas dire
+[47:54] ça et
+[47:55] non mais non mais non mais non
+[47:57] il faut il faut le faut faut dire les
+[47:58] choses comme ils sont et par contre en
+[48:00] compte propre tu fais pas ça
+[48:01] oui
+[48:01] ben là c'est tes sous que tu vois
+[48:03] défiler là tu as la goutte qui descend
+[48:05] en même temps tu vois alors c'est pas
+[48:06] pareil alors j'ai les deux
+[48:08] aujourd'hui tu es hybride
+[48:09] oui effectivement J'ai les deux. Alors,
+[48:10] j'ai j'ai on va dire les prop firmes, je
+[48:12] vais plus les à mon niveau, je vais plus
+[48:14] les utiliser pour gambler. C'est-à-dire
+[48:16] il y a des prop firmes qui t'autorise à
+[48:18] passer par exemple l'évaluation à une
+[48:19] journée à une seule trade. On va
+[48:20] attendre les annonces, on va charger,
+[48:22] bou, on a réussi. Après, on va commencer
+[48:23] à travailler, prendre un peu plus de
+[48:25] risque en tradant, en reliant plusieurs
+[48:27] comptes parce que c'est l'objectif quand
+[48:29] même. Voilà. Parce que si on gagne des
+[48:30] grosses sommes en propme en payout,
+[48:32] c'est pas avec un compte. C'est dire on
+[48:34] relie plein de comptes. Voà, tu sais de
+[48:36] quoi je parle. Très bien. Ouais.
+[48:37] Quon peut pas faire avec les comptes
+[48:39] réels.
+[48:40] C'est c'est plus en fait l'autre c'est
+[48:41] plus on va dire plus régulier. C'està
+[48:43] dire je vais prendre 10 trades sur l'un,
+[48:45] je vais prendre un ou deux trades si ou
+[48:46] alors pas du tout parce que si je vois
+[48:48] que une belle opportunité ben je vais
+[48:49] mettre les deux en même temps
+[48:51] sinon ben je tourne à 80 % avec les
+[48:53] propres firmes. Ou
+[48:53] avec les propres firmes aujourd'hui ça
+[48:54] fait une protection de capital aussi.
+[48:56] Mais oui bien sûr. Au moins tu sais que
+[48:57] si tu perds tu payes comme ça.
+[48:59] Il y a pas de bou journée en moins 32000
+[49:01] ch.
+[49:02] Donc donc il y a quand même il y a quand
+[49:03] même aujourd'hui un avantage. Donc tu
+[49:05] lances ta première tu c'est Lulu, tu as
+[49:07] dit
+[49:08] Lilou.
+[49:08] Lilou pardon. Tu es sur Lilou les
+[49:10] espace. Euh petite question dans ton
+[49:13] parcours de trader, donc là on arrive en
+[49:15] 2001, à ce moment-là tu vis déjà du
+[49:17] trading ?
+[49:17] Oui.
+[49:18] Tu arrives déjà à payer, je veux dire,
+[49:20] tes factures, ton train de vie, les
+[49:21] voitures, les voyages.
+[49:23] C'est c'est tu as commencé à vivre du
+[49:24] trading à partir de quand ? 2017 quand
+[49:26] tu es parti aux États-Unis. Euh deè
+[49:28] retour.
+[49:28] Deè retour. premier première premier
+[49:30] retour, ça commençait à pivoter flat
+[49:32] voilà et et le deuxième retour ça
+[49:35] commençait à aller un peu mieux parce
+[49:36] qu'en fait ce qu'il y a dans parce que
+[49:38] en tant que trader, on est en constant
+[49:40] apprentissage, on peut pas rester sur
+[49:41] nos acquis parce que en fait le le le
+[49:43] marché il change tellement tous les
+[49:46] jours qu'on est obligé de s'adapter. On
+[49:47] peut pas avoir une seule manière de
+[49:49] trader, une seule manière de une seule
+[49:50] technique pour trader et dire "OK, ben
+[49:52] avec je vais gagner tout le temps avec
+[49:53] ça." Non, ça existe pas. On est obligé
+[49:55] de s'adapter. C'est
+[49:57] venons au fait là. pendant le parcours,
+[49:59] je veux dire, après à partir du moment
+[50:00] où les les propres firmes arrivent,
+[50:02] c'est le trading qui est récent. Euh là,
+[50:04] il y a beaucoup plus de facilité. Je
+[50:06] pense aussi pour toi, il y a plus de
+[50:07] gain à ce moment-là. Je vais pas rentrer
+[50:09] très longtemps parce que sinon, je vais
+[50:10] devoir parler d'argent, d'argent et puis
+[50:12] et puis tu vas tu t' dit un trader gagne
+[50:14] pas d'argent. Un
+[50:14] trader gagne pas d'argent. Si je reviens
+[50:17] encore une fois euh au au trading, au
+[50:19] carnet d'ordre, euh dans mes notes, j'ai
+[50:22] noté des choses du style absorption,
+[50:24] iceberg, spoofing, on en a parlé un peu
+[50:27] euh false breakout, tout ça. Comment euh
+[50:30] aujourd'hui toi tu utilises euh toutes
+[50:32] ces données ? Alors, je te demande pas
+[50:33] de m'expliquer ta stratégie, mais
+[50:34] comment tu utilises aujourd'hui les
+[50:36] données du carnet d'ordre ?
+[50:38] Non, il y a pas de Je peux t'expliquer,
+[50:39] c'est très facile en fait. Alors au
+[50:41] début les traders qui arrivent sur le
+[50:43] sur le marché, ils me disent "Oui, le
+[50:44] carnet c'est très compliqué parce qu'on
+[50:45] voit passer énormément de chiffres."
+[50:47] Oui, on va passer tous les contrats.
+[50:49] Sauf que pour le moment, ne tradez pas
+[50:50] au carnet. Ce que vous faites, c'est que
+[50:52] restez comme vous faisiez avant,
+[50:54] c'estàdire votre analyse sur les
+[50:55] graphiques et cetera. Voilà, ça c'est
+[50:57] mon scénario éventuellement d'achat ou à
+[50:59] la vente. Mais avant d'acheter ou de
+[51:01] vendre, regardez s'il se passe pas
+[51:02] quelque chose dans le carnet. Alors euh
+[51:05] on va parler concret, c'est-à-dire on va
+[51:07] à un moment donné on doit acheter sur un
+[51:09] niveau. Le prix il arrive sur ton
+[51:10] niveau. Pour que tu te positionne à
+[51:12] l'achat, qu'est-ce qu'il faut qu'il se
+[51:14] valide dans le carnet ? On va pas parler
+[51:16] de du du des bougies. Il va falloir que
+[51:18] les acheteurs absorbent les contrats
+[51:20] vendeurs. Tu es d'accord ? En fait, pour
+[51:22] visualiser, moi j'ai dit souvent c'est
+[51:24] l'armée rouge, l'armée bleue tue l'armée
+[51:26] rouge.
+[51:26] Voilà. Et on a en fait dans le carnet,
+[51:28] on a deux deux choses les plus
+[51:29] importantes, c'est l'intention des
+[51:31] acheteurs et des venteurs, c'est-à-dire
+[51:33] la colonne rouge et le bleu. Et il y a
+[51:35] une colonne au milieu qui s'appelle
+[51:36] l'inside print.
+[51:37] OK ?
+[51:38] Inside print, ça veut dire que
+[51:39] l'impression des contrats à l'intérieur
+[51:41] du carnet. Alors l'inside print, moi je
+[51:43] le je le comme si c'était le champ de
+[51:46] bataille.
+[51:46] Voilà, en fait il y a l'armée bleue,
+[51:48] l'armée rouge. Si l'armée bleue
+[51:50] tue plus de soldats, ben ça veut dire
+[51:52] qu'ils absorbent les contrats vendeurs.
+[51:54] Qu'est-ce qu'ils vont faire ? Ils vont
+[51:55] commencer à pousser le marché vers
+[51:56] l'eau, ben ça te valide ton entrée.
+[51:58] J'ai un trader qui m'avait dit euh un
+[52:01] des gars qui qui a bossé à London qui
+[52:03] m'a formé pas sur le carnet mais qui lui
+[52:05] regardait beaucoup le carnet euh m'avait
+[52:08] dit "Faut que tu te dises que à tout
+[52:09] prix, à tout temps notamment sur les
+[52:11] résistances, c'est une bataille de
+[52:13] billes et en gros c'est celui qui bouffe
+[52:15] plus de billes que l'autre. Et quand
+[52:16] l'autre n'a plus de bille et il sait
+[52:18] plus tirer,
+[52:19] bah il se retire et
+[52:20] et le prix s'effondra ou montrera."
+[52:22] C'est ça. Ben c'est exactement c'est
+[52:24] pour pour voilà ça ça revient à la même
+[52:26] chose en fait. C'est pour démontrer un
+[52:27] peu ce que c'est le carnet d'ordre. En
+[52:29] fait c'est le champ de bataille à
+[52:30] l'instanté. Alors c'est les traders qui
+[52:32] tradent à scalping avec les indicateurs
+[52:35] s'il vous plaît ça sert à rien.
+[52:36] L'indicateur c'est vraiment pas
+[52:38] indicateur venir sur trading view
+[52:40] regarder les voilà les boullinger tout
+[52:43] ce que tu veux. Je connais même pas les
+[52:44] noms parce que je trade jamais avec
+[52:46] beaucoup ce genre de truc là.
+[52:47] Pas pas en scalping. Pas un scalping
+[52:49] parce qu'on est en time frame très très
+[52:50] court en fait. Et et alors le
+[52:52] commencement c'est le carnet d'ordre,
+[52:53] les contrats qui sont posés dans le
+[52:55] carnet d'ordre qui se font absorber dans
+[52:57] l'inside print qui font former la bougie
+[52:59] qui font former l'indicateur. Ça fait
+[53:01] que vous scalpez sur l'indicateur, vous
+[53:03] êtes vraiment dans le troisème wagon.
+[53:05] Ouais. En retard.
+[53:06] Oui.
+[53:06] C'est ça dont on dit que on est en
+[53:08] retard sur les indicateurs. D'accord.
+[53:10] Donc on regarde le carnet et ça pourrait
+[53:13] avoir un impact pour rentrer et exécuter
+[53:16] de façon assez propre. Encore une fois,
+[53:19] pour ça, on va parler d'un d'un je vois,
+[53:21] il est dans ton dans ton livre, mais moi
+[53:22] j'avais prévu déjà des notes dessus sur
+[53:24] la psychologie parce que le trading, je
+[53:26] définis à travers deux choses et que tu
+[53:28] je voudrais un peu que tu me parles un
+[53:29] peu de ça. Euh le trading, il y a le
+[53:31] travail, il y a la connaissance,
+[53:32] il y a la technique.
+[53:33] Donc ça, je mets ça dans la la
+[53:34] technique, je mets ça dans les
+[53:35] connaissances.
+[53:36] Et je pense que tu dois le voir
+[53:38] aujourd'hui, toi qui accompagne les
+[53:39] personnes. On a dans les groupes
+[53:40] Discord, on a beaucoup de connaissances,
+[53:42] on a beaucoup de savants hein, il y a
+[53:44] beaucoup de gens qui connaissent. Si tu
+[53:46] fais des lives, je sais moi je me balade
+[53:48] un peu des fois sur sur les lives. Tu as
+[53:49] toujours des gens dans les commentaires
+[53:51] ou dans les Discord, des fois des gens
+[53:52] que je reçoive euh soit je me balade
+[53:54] aussi, il me laisse un peu rentrer un
+[53:55] peu dans leur communauté. Je me rends
+[53:57] compte qu'il y a beaucoup de savants,
+[53:58] donc il y a beaucoup de connaissances
+[54:00] mais les gens ont beaucoup de mal à
+[54:02] transformer ses connaissances en
+[54:05] compétences pour devenir rentable. Et
+[54:08] donc comment toi tu pourrais expliquer
+[54:10] cette différence entre le savoir et
+[54:11] l'application du savoir ? Entre les
+[54:13] deux, il y a un mot, la pratique.
+[54:15] La pratique, il faut pratiquer. Et
+[54:17] oui.
+[54:17] Pratiquer comment ?
+[54:19] Ben entré dent.
+[54:20] OK. Mais quand on a des problèmes de
+[54:22] psychologie ou quand on est nerveux, tu
+[54:24] m'as parlé d'ailleurs que toi tu étais
+[54:25] quelqu'un de avec de l'oule
+[54:27] d'un boxeur. Alors euh dans la famille,
+[54:29] j'ai un un jeune boxeur. Il me
+[54:31] racontait, il me disait au début quand
+[54:33] il commence, il montait sur le ring,
+[54:34] c'était tous ses débuts. Quand un boxeur
+[54:36] il monte tout au début, qu'est-ce qu'il
+[54:37] est ? Il a peur, il a il a la boule au
+[54:39] ventre, tu vois, il sait pas comment ça
+[54:41] va se passer. Ben ce même boxeur s'il
+[54:43] monte 5 ans après sur le ring, il a pris
+[54:46] confiance.
+[54:46] Ouais. Ben
+[54:47] il a pris confiance. Il est il est il
+[54:48] est bien, il sait qu'est-ce qu'il va
+[54:50] faire, il connaît ses scénarios. C'est
+[54:52] exactement la même chose. Moi, je dis
+[54:54] alors personnellement, moi
+[54:55] apr on peut être un mauvais boxeur.
+[54:56] Ah non, mais mauvais ou pas, ben mauvais
+[54:58] ça devient de la de la connaissance,
+[54:59] c'est-à-dire de la de la technique.
+[55:01] Voilà. On parle pas on parle pas de ça
+[55:03] en fait, on parle entre les deux.
+[55:05] C'est-à-dire
+[55:06] oui, le chemin de pass de passer l'un à
+[55:08] l'autre. C'est que la pratique pour moi.
+[55:10] Il y a que la pratique
+[55:11] en fait. Plus tu vas pratiquer, plus ça
+[55:13] va devenir un automatisme, plus tu vas
+[55:15] prendre des trades que tu vas pas
+[55:17] pouvoir expliquer parce que ça va être
+[55:19] en plus marché financier, c'est une
+[55:20] récurrence en fait. Ça revient toujours
+[55:22] la même chose. Inconsciemment même toi
+[55:24] trader, inconsciemment, tu vas prendre
+[55:25] un trade, ben tu vas pas pouvoir
+[55:27] expliquer parce que ce setup tu l'as vu
+[55:28] revu, revu, revu.
+[55:29] Ou exactement.
+[55:30] Ben voilà, c'est c'est pareil.
+[55:31] Tu as parlé dans ton livre des biais
+[55:32] cognitifs. Est-ce que tu peux me parler
+[55:34] des biaills cognitifs qui sont
+[55:35] destructeurs en en trading rapidement ?
+[55:37] Il y a quand même ton livre pour ça.
+[55:38] Mais qu'est-ce que toi tu vois ou
+[55:40] qu'est-ce que tu as vu dans tes élèves ?
+[55:41] Des biais cognitifs qui sont très
+[55:43] mauvais ou très bons pour le trading ?
+[55:46] Les billets cognitifs
+[55:47] ou un mauvais biais ou un bon billet.
+[55:48] C'està-dire de 4ugment
+[55:52] taille de l'eau. Oui.
+[55:53] Ouais. Ben en statistique, ben tu vois
+[55:56] si tu vises le rouge, ben le rouge il a
+[55:57] 30 % de sortir et d'avoir ça. Ça c'est
+[56:00] un truc que j'ai vu, moi j'ai vu des des
+[56:02] traders se détruire avec ça. Notamment
+[56:03] des mecs qui venaient du monde du
+[56:04] casino, du paris sportif à venir avec ce
+[56:07] genre de logique. Ouais bah tu peux pas
+[56:09] perdre autant de fois où tu as tant de
+[56:10] probabilité
+[56:11] Ouais.
+[56:12] de gagner que ça. Toi tu traes avec les
+[56:14] probabilités ou pas ?
+[56:15] Non
+[56:15] non
+[56:15] non. tu dis pas tu as pas une alors je
+[56:18] t'explique mon trading c'est quoi.
+[56:20] Alors avant, il y a quelques temps de
+[56:22] ça, j'aimais rester longtemps devant les
+[56:24] écrans et cetera parce que je voulais
+[56:26] être au courant de tout ce qui se passe
+[56:27] et maintenant non, c'est mon trading
+[56:29] c'est plus un travail. Je viens
+[56:31] finalement le trading c'est un travail.
+[56:33] Tu as quitté un travail pour faire un
+[56:34] autre travail.
+[56:35] Oui, mais un travail qui me passionne ou
+[56:39] ben en fait prendre le risque me
+[56:41] passionne, ça me plaît et ben on passe,
+[56:45] ça nous laisse beaucoup plus de temps de
+[56:46] libre.
+[56:46] Tu pourrais arrêter le trading un jour ?
+[56:48] Qu'est-ce qui pourrait te faire arrêter
+[56:49] le trading ? les training que tu fais
+[56:50] aujourd'hui, qu'est-ce qui pourrait te
+[56:52] faire arrêter ?
+[56:52] Ben, je dirais que le le le scalping,
+[56:55] c'est quelque chose où tu passes
+[56:56] beaucoup d'énergie, en peu de temps. Au
+[56:58] fur et à mesure, on va prendre on va
+[56:59] prendre de l'âge, on va passer plus dans
+[57:01] l'investissement que dans le scalping
+[57:03] euh trading actif en fait. Voilà, c'est
+[57:05] Tu investis pas aujourd'hui ?
+[57:06] Si, j'investis. Ouais.
+[57:06] Tu as investis dans quoi ?
+[57:07] Dans les actions, dans les cryptos.
+[57:09] Tu as profité du boom de l'intelligence
+[57:10] artificielle ?
+[57:11] Alors, tout ce qui est immédiia et
+[57:12] cetera. Oui, bien sûr.
+[57:14] É placé dessus. Est-ce que là-dedans tu
+[57:16] regardes ça t'arrive de regarder les
+[57:18] actions au carnet ou pas ? Ou ça tu t'en
+[57:20] fous ? Non, tu rentres
+[57:23] non, ça sert à rien au car
+[57:24] objectif long terme parce que j'ai vu il
+[57:26] y a des Américains qui le font qui euh
+[57:28] qui affichent il traite que les actions.
+[57:31] Euh je crois une très grosse chaîne
+[57:32] YouTube qui qui fonctionne, je j'ai
+[57:34] oublié le nom, au pire j'afficherai
+[57:36] comme il y a pas de pub. Euh assez
+[57:38] formatrice, pas formatrice mais
+[57:40] révélateur, elle montre vraiment le
+[57:41] marché, tu apparaît d'ins print et tout
+[57:43] ça. Tu tu peux voir des contrats qui
+[57:45] s'exécutent sur certaines boîtes et eux
+[57:46] en fait ils rentrent en logique intrad
+[57:48] scalping sur les actions. C'est pour ça
+[57:49] que je te posais la question. Toi pour
+[57:51] toi ça sert à rien de
+[57:52] Non sur les actions non parce qu'en fait
+[57:54] la différence avec les actions c'est pas
+[57:55] tous les ordres qui sont qui sont
+[57:57] exécutés dans le carnet au niveau des
+[57:58] actions.
+[57:59] D'accord.
+[57:59] Alors il y a des il y a des
+[58:00] institutionnels qui se passent qui se
+[58:02] font les transactions en dehors des
+[58:04] carnets.
+[58:04] Oui.
+[58:05] Voilà.
+[58:05] En dehors des comme ça porte un nom les
+[58:07] trades sous la table.
+[58:09] Ex
+[58:09] voilà, ils se font des trades euh en
+[58:12] même ça je sais dans les cryptos ça
+[58:13] serait beaucoup et pas forcément au même
+[58:15] prix que tu vois parce que il il tra ils
+[58:18] achètent et ils revendent des volumes
+[58:19] astronomiques en fait et forcément plus
+[58:21] de volume moins cher le prix. Voilà
+[58:22] donc on aurait pas une précision exacte
+[58:24] du prix pour faire du carnet en plus les
+[58:27] carnets des actions sont pas très
+[58:28] volatiles. Je veux dire c'est pas ça
+[58:29] vaut pas le coup. Voilà, nous en carnet
+[58:31] on cherche où la volatilité ou le les
+[58:33] indices ou alors vraiment être où on va
+[58:35] charger un peu plus sur les bons. C'est
+[58:37] des carnets beaucoup plus beaucoup plus
+[58:39] liquide en fait mais en ayant beaucoup
+[58:41] moins de risque
+[58:42] pour quelqu'un pour quelqu'un qui
+[58:43] commence tu l'enverrais plus sur le
+[58:45] marché des bons
+[58:45] Oui.
+[58:46] Oui. Parce que c'est moins volate. C'est
+[58:48] moins
+[58:49] moins volate. Et et ça et c'est là où on
+[58:52] comprend vraiment ce qui se passe dans
+[58:54] le carnet. En fait, un carnet, c'est
+[58:56] c'est pas très difficile à comprendre un
+[58:58] carnet à part euh on a les volumes, on a
+[59:01] le pic de volume, le vipoc, on a
+[59:03] l'intention des acheteurs et des
+[59:04] vendeurs et on les side print. Mais en
+[59:05] fait la particularité c'est de
+[59:07] comprendre qui fait quoi parce qu'on
+[59:09] voit comme on voit tous la même chose,
+[59:11] ben en fait c'est la loi du plus fort.
+[59:13] Il faut juste pouvoir déchiffrer qui
+[59:15] fait quoi. Ah c'est il y a que ça. La
+[59:17] difficulté elle est là.
+[59:18] Parlons un peu d'intelligence
+[59:19] artificielle. Oui,
+[59:20] qui aujourd'hui est un magnifique outil
+[59:23] qui change énormément de choses dans le
+[59:25] domaine du trading et du carnet. Est-ce
+[59:28] que tu penses qu'aujourd'hui on pourrait
+[59:29] automatiser ces ces stratégies ta
+[59:31] stratégie avec l'intelligence
+[59:32] artificielle ? Est-ce que tu penses
+[59:34] qu'elle pourrait remplacer l'homme ?
+[59:35] Alors, je vais te prendre l'exemple. Au
+[59:37] dernier salon, on était six ou sept
+[59:39] traders et à ma droite, il y avait un un
+[59:42] jeune avec euh 6IA. Et ben avec 6IA, je
+[59:47] me rappelle plus le portefeuille parce
+[59:48] que c'est un portefeuille effectif qu'il
+[59:49] avait mis. Et ben il a gagné les trois
+[59:51] roundes.
+[59:51] D'accord.
+[59:52] Voilà.
+[59:52] Donc il y a quand même de la
+[59:53] performance. Ouais. Je te pose cette
+[59:55] question parce que moi je track tout le
+[59:57] temps mes datas
+[59:58] et euh j'ai rencontré un trader de
+[60:00] d'HSBC qui m'a amené si tu veux cette
+[60:03] logique de probabilité un peu cette
+[60:05] logique quante par rapport à mes stats
+[60:07] et les a manipulé un peu pour que ça
+[60:09] sorte un certain edge. Et cette quand je
+[60:12] lui donnais mes paramètres d'entrée,
+[60:14] elle me sortait des points d'entrée qui
+[60:15] étaient beaucoup plus justes que ce que
+[60:17] moi je peux faire mais notamment elle
+[60:19] pouvait rentrer à des moments où moi, en
+[60:21] tant qu'humain,
+[60:23] en regardant l'heure, en regardant la
+[60:24] journée, en regardant l'actif, en
+[60:25] regardant le niveau, je ne serais
+[60:27] absolument pas rentré. Mon filtre humain
+[60:29] m'aurait empêché là où le bot, l'algo,
+[60:33] lui, aurait été alors
+[60:36] chirurgical. Toi, tu as essayé de de
+[60:38] travailler ce que tu fais avec
+[60:39] l'intelligence artificielle ou où tu
+[60:40] vois ?
+[60:41] Alors alors euh alors j'ai eu créé un
+[60:42] algo qui était basé sur les euh sur les
+[60:45] inside print. En fait, c'était en fait
+[60:46] c'est je sais pas si quand tu regardes
+[60:48] par exemple tu as déjà vu un footprint,
+[60:50] quand tu regardes un footprint, on a
+[60:51] toujours des impressions et cetera et il
+[60:53] y a sur les extrémités, on a zéro
+[60:55] quelque chose ou zéer quelque chose. En
+[60:56] fait, c'est ce qui fait retrouver.
+[60:58] Voilà. Et et j'avais et c'était un algo
+[61:01] qui était euh qui était basé sur les
+[61:03] volumes de des extrémités. En fait, tout
+[61:05] dépend quel temps on mettez et euh alors
+[61:07] ça marchait un coup, ça marchait pas et
+[61:09] cetera. Pour une anecdote, en fait,
+[61:11] j'avais rencontré un un financier qui
+[61:14] était à Luxembourg et euh lui il avait
+[61:16] il était à fond dans le trading,
+[61:18] c'est-à-dire moi, je voulais travailler
+[61:19] avec lui, mais un jour en discutant,
+[61:21] j'ai dit "Est-ce que tu cherches pas un
+[61:22] trader ?" il est en train de créer un
+[61:23] algo, ça faisait 3 4 ans mais c il
+[61:26] créait les algos pour vendre au banque
+[61:27] et il avait à peu près une vingtaine de
+[61:29] personnes qui travaillent pour lui. Mais
+[61:31] aucun trader, il crée un algorithme
+[61:33] qui qui a des agents qui créent des
+[61:35] algorithmes.
+[61:35] Non, il crée un algorithme qui était
+[61:37] basé sur les annonces économiques
+[61:38] uniquement pour les banques. Il vendait
+[61:40] après aux banques ou
+[61:42] mais il avait aucun trader. Alors j'ai
+[61:43] dit mais je comprends pas, tu as pas
+[61:45] besoin d'un trader dans ton équipe et
+[61:47] tout. ça m'aurait plu travailler dans
+[61:48] une équipe comme ça. Elle m'a dit "Non,
+[61:49] on n pas besoin de trader parce que
+[61:51] c'est que des programmeurs et des
+[61:52] codeurs." Il m'a dit "Ils vont
+[61:53] rechercher de la data 20 ans en arrière,
+[61:56] ils vont tout mélanger, ils vont faire
+[61:57] le sauce et ils vont créer la GO."
+[61:59] Voilà.
+[61:59] D'accord.
+[62:00] Et ils tradent pas et ils en fait il y a
+[62:02] des il y a des boîtes, ils ont pas
+[62:03] besoin de trader, ils font que de la
+[62:05] data,
+[62:05] ils ont besoin de de code.
+[62:06] Exactement.
+[62:07] Tu dirais quoi aujourd'hui à On approche
+[62:10] gentiment gentiment de la fin, on a
+[62:13] encore quelques minutes ensemble. Car
+[62:14] rababian, il a 15 ans 16 ans. Il vient
+[62:17] d'arriver de l'Arbénie en 2026. Il voit
+[62:21] là sur YouTube, il voit un tonton, un
+[62:23] monsieur avec des cheveux gris. Il voit
+[62:25] un tonton là, ils sont en train de
+[62:26] parler d'argent. Tu lui dirais quoi à
+[62:27] Karen qui regarde ce podcast qui a 15 16
+[62:30] ans là ? Tu lui dirais quoi ?
+[62:32] Ben vie tes rêves.
+[62:33] Vite tes rêves.
+[62:34] Lance-i dans le trading quand même ou
+[62:35] pas ?
+[62:36] Plus tôt. Lance-toi plutôt.
+[62:37] Oui. Oui. Et si je pouvais le faire
+[62:39] plutôt, j'aurais fait.
+[62:40] Oui. Comment ? Aujourd'hui, tu lui
+[62:41] dirais quoi avec tous les outils qu'il a
+[62:43] là ? Il a 16 ans. Allez 18 ans pour pas
+[62:45] avoir de problème. Voilà 18 ans. 18 ans.
+[62:48] Je trouve que on a tellement d'outils et
+[62:50] des vidéos et des formations que si tu
+[62:53] choisis à peu près les bons, tu peux tu
+[62:55] peux être Comment tu lui dirais de
+[62:56] choisir les bons ?
+[62:57] Je peux pas ça pourrai tu peux pas.
+[63:00] Mais il y a des carenes derrière l'écran
+[63:02] comme toi. Gentiment. Tu peux
+[63:04] ben un cherchant un cherchant un
+[63:07] cherchant on trouve toujours pas dire
+[63:08] lui il est bon il lui non. Alors, je je
+[63:11] vais juste dire un truc, c'est toutes
+[63:12] les formations sont bonnes parce que euh
+[63:15] comme j'ai dit tout à l'heure, on peut
+[63:16] pas trader qu'une seule manière. Tu vas
+[63:18] m'apprendre une manière ou ou pendant 3
+[63:20] jours ça va marcher, le le contexte du
+[63:23] marché va changer, ben ce que tu m'auras
+[63:25] appris peut-être que ça sera pas adapté.
+[63:27] Voilà, tu vois. Et c'est bien de se
+[63:29] former. Moi j'ai dis toujours il y a
+[63:31] autant de traders que de manière de
+[63:33] trader. H Donc, c'est ça que tu dirais à
+[63:35] Karen ?
+[63:35] Ouais.
+[63:36] Tu lui dirais de travailler ou pas ? De
+[63:37] mettre
+[63:37] Vas-y, frérot.
+[63:38] Ouais. Tu lui dirais de démarrer avec
+[63:40] combien ?
+[63:40] Démarrer avec les propres firmes.
+[63:42] Démarrer avec les propres firmes.
+[63:42] Démarre avec les propres firmes. Ça
+[63:44] c'est
+[63:45] de chercher un travail quand même.
+[63:46] Ah oui, ça c'est obligatoire. Il faut
+[63:48] jamais se lâcher
+[63:49] Non, parce que les les les gamins
+[63:50] d'aujourd'hui veulent pas travailler.
+[63:51] C'est pour ça que je dis non
+[63:53] vraiment carène toi-même ou à ou à ton
+[63:55] enfant.
+[63:55] Alors justement dans dans ce dans ce
+[63:57] livre au niveau du mental parce que là
+[63:59] on va parler de psychologie, c'est là
+[64:00] qu'on explique, c'est que les jeunes qui
+[64:03] veulent se former, ils lâchent tout, ils
+[64:04] sortent de l'école,
+[64:06] euh ils se mettent chômage ou pas, on
+[64:07] s'en fout. Mais ils disent "OK, je vais
+[64:09] devenir trader en 3 mois, je vais être
+[64:10] rentable". Ça n'existe pas ça. Ça c'est
+[64:13] faut oublier. Essayez d'avoir un boulot
+[64:14] au moins, vous avez une goutte à goutte.
+[64:16] Vous savez que dans le trading, le plus
+[64:18] dur, c'est de gérer ses émotions en à la
+[64:20] perte. C'està-dire si vous allez perdre
+[64:21] deux trois fois, vous allez dire "Le
+[64:23] trading c'est de la merde, je vais
+[64:23] arrêter, je vais passer autre chose."
+[64:25] Tandis que vous avez un travail, vous
+[64:26] avez gagné un peu d'argent par mois, ça
+[64:28] vous permet de vous apprendre, vous
+[64:30] habituer de de trader, de gagner, de
+[64:32] perdre, pratiquer et cetera. Et ben à
+[64:34] force, vous allez pouvoir prendre
+[64:36] confiance en vous. Et là, c'est là où
+[64:38] les changer vont commencer à changer.
+[64:39] Donc faut prendre confiance en soi.
+[64:40] Ben oui.
+[64:41] Donc à Karen tu lui dis prends confiance
+[64:42] en toi, trouve un travail quand même.
+[64:44] Ben
+[64:44] oui.
+[64:45] Trouve une femme vite ou pas ? Ouais. Ça
+[64:47] alors vite, je sais pas. Ça dépend.
+[64:51] Ouais. Bah, il a 18 ans. Est-ce qu'il
+[64:52] doit se concentrer sur les femmes ?
+[64:54] Est-ce qu'il se concentre sur son
+[64:54] trading ? Les jeunes maintenant c'est
+[64:56] plus business, travail, avoir une
+[64:59] situation correcte et après bah enfin ça
+[65:02] empêche pas hein. Mais voilà. Se
+[65:04] développer d'abord soi.
+[65:05] Bah oui, se développer d'abord soi plus
+[65:06] important.
+[65:07] Plus important. Ouais.
+[65:08] Ouais. Ça
+[65:09] alors j'ai des femmes qui traînent chez
+[65:10] moi dans mon groupe.
+[65:11] Ouais.
+[65:11] Elles sont plus minutieuses. Elles sont
+[65:13] plus
+[65:14] elles ont moins d' moins testu que nous.
+[65:15] Elles sont moins cones. On perd on perd,
+[65:18] on s'entête jusqu'à ce qu'on crame le
+[65:20] compte. Elles non. Voilà. Elles non.
+[65:22] Elles ont plus la notion de l'argent que
+[65:24] nous.
+[65:24] Ouais.
+[65:24] Ils sont moins nombreuses mais quand
+[65:26] elles viennent elles sont plus charpes,
+[65:29] plus précises
+[65:29] parce qu'elles sont plus Nous, on est
+[65:30] des sanguin.
+[65:31] Ouais.
+[65:33] Nous nous nous on est des sanguins.
+[65:36] Continue un peu sur ce sur la
+[65:38] psychologie mental de trader.
+[65:40] Aujourd'hui, ce livre, il est il est
+[65:42] destiné à qui ?
+[65:44] À tout public, à quelqu'un qui veut
+[65:46] démarrer ou quelqu'un qui va pour aller
+[65:49] trader, il dit "OK, ben qu'est-ce qui
+[65:50] m'attend En fait là on a on est
+[65:52] plusieurs traders où on a donné des
+[65:54] exemples. Tu peux tu peux tu peux le
+[65:56] donner hein. Il y a pas mal de personnes
+[65:58] que tu connais plus tu connais tout le
+[65:59] monde.
+[66:00] En fait on explique un peu quand un un
+[66:02] novice trader quand il démarre qu'est-ce
+[66:05] qui lui attend, comment il va réagir et
+[66:08] tout l'évolution jusqu'au moment où il
+[66:10] va devenir on va dire à peu près
+[66:11] indépendant et rentable parce qu'on
+[66:14] passe par plusieurs étapes. Au début on
+[66:15] va vouloir trader pour gagner de
+[66:16] l'argent comme on a dit on va pas se
+[66:18] donner le temps. Un exemple tout pour un
+[66:20] médecin. Il va faire combien ? 5 10 ans
+[66:22] 5 ans d'étude.
+[66:23] Ouai.
+[66:24] Il se donne le temps, il se consacre 5
+[66:26] ans de son temps pour devenir médecin.
+[66:29] Après, il va gagner son salaire. Et ben
+[66:31] là, c'est pareil, il faut sonner, tu
+[66:32] peux pas devenir très trader, c'est un
+[66:33] métier.
+[66:33] C'est pas la roulette russeit
+[66:36] ça.
+[66:36] Mais non, ça pas.
+[66:37] Tu as déjà vu entendu des des belles
+[66:39] histoires de gain ou pas ? Pas les
+[66:41] tiennes
+[66:41] sur ta chaîne ? Oui.
+[66:45] Alors, j'ai je vais pas dire son nom.
+[66:47] Ouais.
+[66:47] Euh que j'aime beaucoup. C'est un trader
+[66:49] que tu connais
+[66:50] aussi. Il est pas en France. Euh, un
+[66:53] jour je vais le voir et tout, on mange
+[66:54] ensemble et tout. Et je lui dis en
+[66:56] discutant, ben c'était une question que
+[66:57] j'ai posé parce que il est il est il est
+[66:59] assez costaud en en portefeuille. Et
+[67:01] j'ai dit "Allez, dis-moi dis-moi ton ta
+[67:03] plus grosse perte." Quand il m'a dit
+[67:04] "3000 €." 300000 300000 € c'est pas
+[67:09] possible. dit ouais
+[67:11] 300000
+[67:11] 300000
+[67:12] un/ers de million
+[67:13] ouais 300000
+[67:14] Ah ouais non ça c'est ça
+[67:16] bon il tournait avec un portefeuille de
+[67:18] 20 millions
+[67:18] il tournait avec portefeuille de 20
+[67:20] Ouais c'était qui
+[67:21] un ancien un ancien market maker il se
+[67:23] reconnaîtra
+[67:24] un ancien market maker qui a perdu 20000
+[67:26] et qui avec tr 20000
+[67:27] bon son objectif c'était quand même
+[67:29] mais voilà on va chercher quoi comme
+[67:30] objectif avec ça un million par an
+[67:32] million de ou même par mois ouais
+[67:34] ouais mais j'ai remarqué une chose alors
+[67:36] je sais pas si tu si tu as vu ça il il y
+[67:38] a une séri crois que C'est insider ou ça
+[67:41] si le nom est faux, je corrigerai au
+[67:43] montage. Ça parlait des traders
+[67:45] institutionnels. H
+[67:47] euh et puis généralement nous on pense
+[67:50] en tant que retail que les traders lors
+[67:52] qui tradent c'est tu sais je risque 1000
+[67:55] balles pour aller en chercher 3000. Et
+[67:57] je me suis rendu compte, tu vas me
+[67:58] confirmer ou pas ou infirmer que plus on
+[68:00] a une taille de portefeuille qui est
+[68:02] importante, moins on va on va mettre du
+[68:05] risque dans son dans cette aide. On va
+[68:07] chercher des risques reward neutre, voir
+[68:09] inverse en 0,2, en 05, 5. Quand tu mets
+[68:12] un million sur la table, ben 1 million
+[68:14] dans ton trade, j'exagère, mais
+[68:15] comprends, si tu mets un million dans
+[68:16] ton trade, bah tu vas pas chercher 3
+[68:18] millions.
+[68:18] Si tu mets un million dans ton trade, tu
+[68:20] vas chercher à 20000 ou 50000, tu vois.
+[68:22] Plus le portefeuille est petit, plus on
+[68:24] va prendre risque pour doubler,
+[68:25] redoubler.
+[68:25] Exactement.
+[68:26] Tandis que quand on arrive à un certain
+[68:27] niveau, ben non, ça s'inverse en fait.
+[68:29] Ça s'inverse. Exactement. Tu fais la
+[68:31] même chose aussi. Ouais, je suis pas à
+[68:32] ce niveau-là, hein. Mais mais oui, c'est
+[68:34] pour ça qu'on a dit sur les comptes
+[68:36] réels, je prends beaucoup moins de
+[68:37] risqu. Euh plus ta ton portefeuille il
+[68:39] augmente, tu prends moins de risque. Et
+[68:40] l'autre côté, non.
+[68:41] C'est comme je sais pas si tu connais
+[68:43] cette histoire, c'était George Soros le
+[68:45] jour où il a démonté la bande
+[68:46] d'Angleterre. Euh tout le monde parle de
+[68:48] 1 milliard en 24 heures. Alors quand tu
+[68:50] es retail, tu connais pas l'histoire et
+[68:51] tu te dis "Ouais un milliard, le mec il
+[68:53] est imposé combien ?" Mais en fait le
+[68:54] mec il a posé 7 millions. 7 milliards.
+[68:56] Donc en il a 7 milliards pour chercher
+[68:58] pour chercher un milliard. Donc c'était
+[69:00] un peu dans dans ce sens là. On a une
+[69:02] personne qui est en commun.
+[69:06] Ah bien, il y a on a une personne qui
+[69:08] est en commun dans le dernier salon du
+[69:10] trading. J'avais fini
+[69:12] par lui. Euh j'ai dit son prénom mais je
+[69:15] mettrai un bip quand même sur son prénom
+[69:18] où je enai un message. Je Oui, je peux.
+[69:21] En tout cas, euh ça c'était une très
+[69:22] belle histoire parce que euh il m'avait
+[69:25] dit qu'en fait bah dans sa recherche, il
+[69:28] était passé dans la vidéo qu'on avait
+[69:30] faite l'année dernière, c'était ton
+[69:31] profil qui lui avait le plus intéressé
+[69:33] et aujourd'hui euh
+[69:35] on travaille ensemble.
+[69:36] Ah vous travaillez ensemble, c'est ça ?
+[69:38] Mais même il a eu des résultats
+[69:39] aujourd'hui vous travaillez ensemble.
+[69:40] Quand il est arrivé chez toi, il était
+[69:42] comment dans son trading ? Est-ce qu'il
+[69:44] était cassé ? Est-ce qu'il était br ?
+[69:46] Est-ce qu' il rêvait ? comment il a toi
+[69:49] de ton point de vue comment tu parce
+[69:50] qu'aujourd'hui tu accompagnes les
+[69:51] personnes qu'est-ce que tu as pu lui
+[69:53] apporter ou comment tu as vu son
+[69:54] changement chez lui ?
+[69:55] Il a moins peur dans cette aide en fait
+[69:57] il cherche pas énormément de parce qu'en
+[69:59] fait au début quand on arrive on veut
+[70:01] trader, on a besoin énormément de
+[70:02] confirmation. Ouais,
+[70:04] c'est euh OK, ça c'est bon, ça c'est
+[70:05] bon, ça c'est bon, ça c'est bon. Voilà,
+[70:07] pour ne pas perdre parce que par peur de
+[70:08] perdre et maintenant non, c'est pas du
+[70:10] tout ça. Je rentre, je vois, je fais et
+[70:12] du coup comme il a basculé sur les
+[70:14] carnets, ben maintenant il se régale, il
+[70:16] se régale.
+[70:17] Ça se passe bien pour lui ?
+[70:18] Oui, ça va. Ouais, c'est bien.
+[70:19] Qu'est-ce qu'il m'a dit qu'il avait
+[70:20] arrêté son
+[70:21] Ouais, il fait pas mal.
+[70:21] Alors, je dois rester bag sur son
+[70:22] métier. Ce qu'il m'a dit
+[70:24] euh mais qu'il avait arrêté son le
+[70:27] métier qu'il avait pour se consacrer à
+[70:29] temps plein aujourd'hui dans le
+[70:30] training. Aujourd'hui, vous vous
+[70:31] travaillez ensemble. Le trading c'est
+[70:33] fait pour tout le monde ou pas ?
+[70:34] Oui.
+[70:34] Tout le monde peut réussir ?
+[70:35] Non.
+[70:36] Ah, c'est fait pour tout le monde mais
+[70:37] pas tout. Tu peux développer ?
+[70:38] Bah c'est fait pour tout le monde. Tout
+[70:39] le monde peut essayer le faire mais
+[70:41] après la vie de famille, le tempérament,
+[70:43] votre situation financière votre tout
+[70:46] fait que ben vous allez passer à
+[70:48] travailler les M du filet ou pas ?
+[70:49] Aujourd'hui, tu as une plateforme
+[70:50] d'accompagnement déjà. Tu as je crois
+[70:51] que tu as un Discord, c'est ça ?
+[70:53] OK. J'ai un Discord ouvert pour tout le
+[70:55] monde. Alors, il y a pas mal de par
+[70:57] en fait en fait il y a beaucoup de de
+[71:00] traders qui sont dedans. Nous tous les
+[71:01] jours, on se connecte à partir des 15h30
+[71:03] pour ouverture US. On trade en direct en
+[71:05] fait. On trade en direct, on discute, on
+[71:07] donne nos points de vue et cetera. Ça
+[71:09] permet de trader en communauté. C'est
+[71:11] pas un Discord payant, c'est un Discord
+[71:12] gratuit. Même si les gens font pas les
+[71:14] traders font pas partie d'AC trading,
+[71:16] ils peuvent venir quand même. Il y a
+[71:18] beaucoup de
+[71:18] C'est vraiment communautaire.
+[71:19] C'est communautaire. On va permet de
+[71:21] partager, de d'être à la page, de voir
+[71:23] un peu les infos, un peu tout. C'est
+[71:24] c'est assez sympa. C'est surtout le
+[71:26] partage et si des fois il y a des
+[71:28] problèmes, ben on communique entre nous.
+[71:30] Ça permet de de même alors que c'est
+[71:32] Ah oui oui oui. Ben en fait le but de de
+[71:34] ce Discord c'est un tradeou.
+[71:36] Voilà, on trade et voilà c'est
+[71:38] d'accord. Ça c'est Discord et après tu
+[71:40] as aujourd'hui AK trading.
+[71:42] Effectivement il y a j'ai un centre de
+[71:44] formation d'AK trading
+[71:46] où on
+[71:46] on apprend à quoi ? À trader au carnet
+[71:48] là-bas. On apprend trader au carnet. En
+[71:49] fait, aujourd'hui, on a un peu évolué
+[71:51] parce que dans le site, on apprend les
+[71:53] options, les actions. En fait, on
+[71:55] apprend pas, on devient pas trader
+[71:58] option mais on apprend un peu à quoi ça
+[72:00] correspond. On a pas mal de vidéos sur
+[72:01] ça, les actions, les indices et surtout
+[72:04] surtout en fait notre cheval de bataille
+[72:06] c'est le carnet. Bah, un accompagnement
+[72:08] sur le carnet d'ordre, sur les indices,
+[72:10] sur les bons et cetera. Voilà. OK, ça va
+[72:12] très bien. C'est fait pour qui
+[72:14] aujourd'hui euh ton ton accompagnement
+[72:16] monsieur tout le monde ? 18 ans 40 ans,
+[72:19] 50 ans, 60 ans euh capital
+[72:22] pour tous les gens qui sont curieux
+[72:24] pour les gens qui sont curieux qui
+[72:25] veulent vraiment rentrer dans le carnet
+[72:28] savoir euh c'est quel genre de profil
+[72:29] que tu as, tu as eu quoi comme belle
+[72:32] histoire aussi parmi les gens que tu as
+[72:33] accompagné de tête comme ça ? Qu'est-ce
+[72:35] qui te vient ? On a l'histoire de Yan,
+[72:38] on en a parlé. Il y a il y a il y a
+[72:39] d'autres en fait le truc un trader en
+[72:42] général les traders ils restent pas ils
+[72:44] tournent en fait après ils se mettent à
+[72:45] leur compte ou ils deviennent
+[72:46] indépendant ou alors ils vont ailleurs.
+[72:48] J'en ai brassé un peu des des élèves et
+[72:50] tout. On est je reste en bon contact
+[72:53] avec tout le monde parce que c'est bien
+[72:54] de savoir un peu l'évolution d'un
+[72:57] anné qui ont parti s'installer dans les
+[73:00] îles.
+[73:01] Ouais. qui ont gagné puis qui sont
+[73:02] partis ils sont ils sont allés
+[73:04] s'installer dans les îles. Après, on est
+[73:05] toujours en contact, on reste parce
+[73:07] qu'aujourd'hui quand on trade euh il y a
+[73:08] très peu de gens qui sont en France, ils
+[73:10] sont pratiquement beaucoup de 80 % ils
+[73:12] sont à l'extérieur. Canada, en Algérie,
+[73:14] à droite, à gauche, beaucoup de pays
+[73:15] francophones. En Belgique, j'ai beaucoup
+[73:17] de Belges et des Suisses aussi. C'est
+[73:19] assez sympa de côtoyer un peu.
+[73:20] La France, c'est compliqué. On peut
+[73:21] parler de la France 2 minutes ou pas sur
+[73:23] bien sûr.
+[73:24] Comment aujourd'hui on peut vivre en
+[73:25] tant que trader dans le contexte
+[73:28] français qui a fiscalement est forte ?
+[73:30] Tu vois, tu as parlé de beaucoup de gens
+[73:31] qui sont partis à l'étranger.
+[73:32] Bah la la fiscalité pour les traders est
+[73:35] important en France c'est je t'apprends
+[73:37] rien. Mais
+[73:37] toi tu changerais quoi par rapport à ça
+[73:39] ? Tu souhaiterais quoi comme président
+[73:41] pour la France ou qui pense au à nous ?
+[73:44] Tu souhaiterais quoi ? On arrive dans
+[73:46] une année électorale
+[73:46] si si beaucoup beaucoup de traders par
+[73:48] moment qui deviennent rentable, ils
+[73:50] quittent fiscalement parlant de la
+[73:51] France, pourquoi pas ne pas les faire
+[73:53] revenir. Il y a d'autres pays, ils sont
+[73:54] à 3 % ou à 5 % ou alors il y en a
+[73:56] beaucoup qui partent à Dubaï. Pourquoi ?
+[73:58] Parce que la fiscalité était très peu.
+[74:00] Ben pourquoi ne pas arriver à ce
+[74:01] niveau-là pour les attirer ? Et
+[74:03] forcément en les attirant, ben il va
+[74:05] avoir des flux de flux de liquidité
+[74:07] sur les marchés en France. Et après ben
+[74:10] plus de revenus, plus de gains, plus de
+[74:11] consommation sur le Après voilà eux on
+[74:14] peut-être oui on le voit différemment.
+[74:16] On dit OK bah il gagne, on va le taxer
+[74:18] mais tu plus tu vas taxer plus il va
+[74:20] partir. Alors si tu taxes très peu ou
+[74:22] alors tu essayes d'arranger les choses,
+[74:23] ben peut-être qu'ils vont revenir parce
+[74:24] que c'est partir euh à la base on est
+[74:26] français et partir de la France c'est un
+[74:28] peu compliqué moi.
+[74:29] Ouais. Tu devrais où faire ta retraite
+[74:31] pour finir sur ça ? Est-ce que tu
+[74:33] resterais
+[74:33] sur un catamaran ?
+[74:34] Sur un catamaran ? Tuour tu rentres pas
+[74:36] en Arménie ? Non. J'ai pas la mer
+[74:38] là-bas.
+[74:40] Il y a pas la mer là-bas.
+[74:41] Non, on a un très grand lac.
+[74:43] Un très grand lac. Mais a Oui, c'est
+[74:45] vrai, c'est
+[74:45] Il y a pas la mer. Ouais.
+[74:46] Ouais. Non, il y en a pas. On a plus la
+[74:48] mer.
+[74:48] Plus la mer. Oui, c'est une mer qui
+[74:50] c'est séché. Non, je crois.
+[74:51] Non, pas séché. Ça c'est
+[74:53] c'est un lac ça aussi, non ?
+[74:54] Oui, c'est un grand lac.
+[74:54] Ça c'est un grand lac. Ouais. On avait
+[74:56] plus la mer. Vous aviez la mer ou
+[74:58] on vous enlevait un bout de territoire
+[74:59] peut-être ?
+[74:59] Oui, mais bon, ça c'est l'histoire. On
+[75:00] va pas on va pas on va pas finir le
+[75:03] podcast sur tout ça. Le mot de la fin.
+[75:06] Si vraiment euh un message que tu
+[75:08] aimerais passer ou peut-être que tu as
+[75:09] tout dit hein, si tu as rien à dire mais
+[75:10] est-ce qu'il y a un mot de la fin que tu
+[75:11] aimerais dire ? Soyez curieux. Faut être
+[75:13] curieux.
+[75:14] Ouais.
+[75:14] Soyez curieux.
+[75:15] Soyez curieux. Karen arabien merci. Très
+[75:19] belle rencontre l'année dernière tu
+[75:20] avais passé sur la chaîne aujourd'hui.
+[75:21] Vraiment c'était important pour moi de
+[75:22] te faire passer. En description vous
+[75:24] trouverez les deux livres ici. C'est pas
+[75:27] un contenu sponsorisé. C'est pas du tout
+[75:29] un contenu sponsorisé. J'avais vraiment
+[75:31] envie de te faire passer sur la chaîne
+[75:32] YouTube.
+[75:33] On avait eu un un bon feeling. Moi, je
+[75:35] gagne je gagne rien euh pour ça. C'est
+[75:38] vrai qu'aujourd'hui on est dans le monde
+[75:39] du média. Oui, mais merci. Je veux pas
+[75:42] dire oui mais mais merci merci pour ça.
+[75:44] Et puis euh on on s'entend assez bien.
+[75:46] Donc il y a ces deux livres là. On
+[75:48] retrouvera toutes tes tous tes liens
+[75:50] dans dans la description. En tout cas,
+[75:51] j'espère que vous avez aimé notre
+[75:53] personnage euh du jour haut en couleur
+[75:57] avec ton accent du sud. Exactement.
+[75:59] J'espère que vous avez aimé ce podcast.
+[76:01] En tout cas, comme d'habitude, je vous
+[76:02] le dis tout le temps, faut soutenir le
+[76:03] soldat tonton. Donc, on n'hésite pas à
+[76:05] mettre un like, à mettre un commentaire,
+[76:06] à poser d'autres questions et s'il y a
+[76:08] des invités aussi que vous aimeriez voir
+[76:10] ou d'autres choses. Aujourd'hui, Money
+[76:12] Talk, on s'élargit. Il y a pas que le
+[76:14] trading, on parle aussi d'argent, de
+[76:16] finances, d'entrepreneuriat. Si vous
+[76:18] voulez en même temps, si vous passez sur
+[76:19] mon netalk, il y a l'adresse mail qui
+[76:21] s'affiche quelque part en bas, vous nous
+[76:23] envoyez un message et on se fera un
+[76:24] plaisir de revenir vers vous. Vous
+[76:26] trouverez ici sur la gauche les autres
+[76:29] podcasts qu'on a déjà fait parce que je
+[76:30] le dis tout le temps et c'est le plus
+[76:31] important, le marché ne récompense pas
+[76:33] celui qui clique vite mais celui qui
+[76:36] comprend lentement.
+[76:39] Je te mettra tausine
+[76:41] stu curry point curry je te mets ta je
+[76:45] te mets Alisien Steve curry

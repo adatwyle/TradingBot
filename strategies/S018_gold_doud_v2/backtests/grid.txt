@@ -1,0 +1,168 @@
+================================================================================================
+S018 — OR v2 (méthode Doud) · XAUUSD H1
+================================================================================================
+dépôt b8c06b8 (arbre modifié) · 30024 barres · 2021-08-09 00:00:00 → 2026-09-04 22:00:00
+spread 25 pips · slippage 0.0 pip · moteur {'max_positions': 1, 'cooldown_bars': 2, 'cb_losses': 3, 'cb_cooldown_bars': 24, 'max_hold_bars': None}
+Slippage à 0 : comme la v1 et son témoin. Les chiffres restent comparables au dossier gold_forward, et optimistes d'un montant inconnu.
+
+================================================================================================
+1. CELLULE NEUTRE vs V1 (S011, paramètres scellés du forward)
+================================================================================================
+v1 : 784 signaux · v2 neutre : 784 signaux · identiques : OUI
+témoin v1 plein échantillon : {'n_trades': 402, 'total_r': 94.73, 'win_rate': 34.6, 'profit_factor': 1.35, 'max_dd_r': 12.22, 'skipped_spread': 0, 'skipped_cooldown': 382, 'skipped_open': 0, 'r_per_trade': 0.2356, 'n_long': 229, 'n_short': 173, 'r_long': 0.3425, 'r_short': 0.0943}
+
+================================================================================================
+2. R1 — invariant de causalité (données réelles)
+================================================================================================
+brk ext both - -             OK  couche indicateur : oui
+EQU ext both - -             OK  couche indicateur : oui
+EQU ext both - BIAS          OK  couche indicateur : oui
+brk BOD both SESS -          OK  couche indicateur : oui
+EQU BOD LONG SESS BIAS       OK  couche indicateur : oui
+
+================================================================================================
+3. R5 — conformance backtest / live
+================================================================================================
+brk ext both - -             OK
+EQU ext both - -             OK
+
+================================================================================================
+4. PLEIN ÉCHANTILLON — 32 cellules (à lire avec le nombre de trades, jamais sans)
+================================================================================================
+cellule                            n        R     R/tr    WR%     PF      DD    nL    nS
+brk ext both - -                 402     94.7    0.236   34.6   1.35    12.2   229   173
+brk ext both - BIAS              249     55.0    0.221   34.1   1.33    24.2   164    85
+brk ext both SESS -              275     53.9    0.196   33.5   1.29    14.7   162   113
+brk ext both SESS BIAS           166     31.0    0.186   33.1   1.27    18.9   115    51
+brk ext LONG - -                 235     83.2    0.354   37.9   1.56    17.3   235     0
+brk ext LONG - BIAS              163     51.8    0.318   36.8   1.49    22.8   163     0
+brk ext LONG SESS -              166     52.3    0.315   36.7   1.49    18.4   166     0
+brk ext LONG SESS BIAS           116     38.4    0.331   37.1   1.52    17.1   116     0
+brk BOD both - -                 568     56.6    0.100   31.0   1.14    42.4   302   266
+brk BOD both - BIAS              366     32.0    0.088   30.6   1.12    51.4   221   145
+brk BOD both SESS -              409     43.0    0.105   31.1   1.15    26.2   223   186
+brk BOD both SESS BIAS           266     34.6    0.130   31.6   1.19    32.7   165   101
+brk BOD LONG - -                 316     87.8    0.278   35.8   1.42    34.1   316     0
+brk BOD LONG - BIAS              219     63.8    0.291   36.1   1.45    35.4   219     0
+brk BOD LONG SESS -              232     68.6    0.296   36.2   1.46    28.0   232     0
+brk BOD LONG SESS BIAS           167     51.8    0.310   36.5   1.48    29.2   167     0
+EQU ext both - -                 173     23.2    0.134   31.8   1.19    15.1    88    85
+EQU ext both - BIAS              125     28.3    0.226   34.4   1.34     9.1    73    52
+EQU ext both SESS -              112     38.2    0.341   37.5   1.54    12.1    62    50
+EQU ext both SESS BIAS            78     32.7    0.420   39.7   1.69     8.9    50    28
+EQU ext LONG - -                  94     27.7    0.294   36.2   1.46     7.6    94     0
+EQU ext LONG - BIAS               73     20.0    0.274   35.6   1.42     7.1    73     0
+EQU ext LONG SESS -               62     23.8    0.384   38.7   1.62     5.0    62     0
+EQU ext LONG SESS BIAS            50     21.5    0.431   40.0   1.71     5.0    50     0
+EQU BOD both - -                 300      9.5    0.032   29.0   1.04    26.0   142   158
+EQU BOD both - BIAS              203     21.0    0.103   31.0   1.15    13.1   111    92
+EQU BOD both SESS -              180      8.9    0.049   29.4   1.07    22.7    92    88
+EQU BOD both SESS BIAS           119     12.8    0.107   31.1   1.15    17.8    70    49
+EQU BOD LONG - -                 147     35.1    0.239   34.7   1.36    11.6   147     0
+EQU BOD LONG - BIAS              111     35.5    0.320   36.9   1.50     8.0   111     0
+EQU BOD LONG SESS -               93     21.4    0.230   34.4   1.35     7.5    93     0
+EQU BOD LONG SESS BIAS            70     23.1    0.330   37.1   1.52     6.7    70     0
+
+================================================================================================
+5. EFFET MARGINAL DE CHAQUE INGRÉDIENT (16 cellules ON vs 16 OFF)
+================================================================================================
+Moyenne du R/trade sur les cellules où l'ingrédient est actif, contre celles où il ne l'est pas.
+Un ingrédient qui n'améliore pas en moyenne n'est pas sauvé par une cellule isolée : 32 cellules produisent ≈ 1,6 réussite par hasard.
+
+ingrédient         OFF R/tr    ON R/tr        Δ   n OFF    n ON
+entry_mode            0.235      0.245    0.010    4315    1990
+channel_source        0.291      0.188   -0.103    2539    3766
+side_mode             0.167      0.312    0.145    3991    2314
+session_filter        0.219      0.260    0.041    3744    2561
+htf_bias              0.224      0.255    0.031    3764    2541
+
+================================================================================================
+6. WALK-FORWARD ANCRÉ — hors échantillon
+================================================================================================
+================================================================================================
+WALK-FORWARD — S018_gold_doud_v2 / XAUUSD
+================================================================================================
+30024 barres · 32 configurations · 18s
+Tier 1 : PnL train > 0, ≥ 20 trades, DD ≤ 12.0 R
+
+STRICT : 7/32   (≈2 attendues par pur hasard si l'edge est nul —
+          convention analytique : suppose les cellules indépendantes, elles ne le sont pas)
+TIER 1 : 10/32
+
+--- STRICT (4/4 fenêtres) ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    channel_sourceextremes_entry_modebreakout_htf_biasoff_session_filteroff_side_modeboth  +16.56  +21.70  +36.02   +5.31  +19.90     180
+    channel_sourceextremes_entry_modebreakout_htf_biasoff_session_filteroff_side_modelong_only  +17.79  +15.93  +40.11   +1.98  +18.95     115
+    channel_sourceextremes_entry_modeequilibrium_htf_biasoff_session_filteroff_side_modelong_only   +4.92   +5.48   +6.55   +2.91   +4.97      38
+    channel_sourcebodies_entry_modeequilibrium_htf_biasdaily_ema_session_filterdoud_side_modelong_only   +6.96   +5.44   +2.92   +0.63   +3.99      31
+    channel_sourcebodies_entry_modeequilibrium_htf_biasoff_session_filterdoud_side_modelong_only   +4.94   +4.43   +2.92   +1.27   +3.39      37
+    channel_sourceextremes_entry_modeequilibrium_htf_biasoff_session_filterdoud_side_modelong_only   +5.93   +1.22   +2.29   +1.64   +2.77      25
+    channel_sourcebodies_entry_modeequilibrium_htf_biasdaily_ema_session_filterdoud_side_modeboth   +5.95   +0.39   +2.92   +1.28   +2.64      40
+
+--- TIER 1 ---
+    configuration                                     W1      W2      W3      W4     moy  trades
+    ----------------------------------------------------------------------------------------
+    channel_sourcebodies_entry_modeequilibrium_htf_biasdaily_ema_session_filteroff_side_modelong_only   +5.96  +11.82   +8.82   -1.38   +6.31      47
+    channel_sourcebodies_entry_modeequilibrium_htf_biasoff_session_filteroff_side_modelong_only   +3.93  +13.46   +7.82   -0.11   +6.27      58
+    channel_sourceextremes_entry_modeequilibrium_htf_biasoff_session_filteroff_side_modelong_only   +4.92   +5.48   +6.55   +2.91   +4.97      38
+    channel_sourcebodies_entry_modeequilibrium_htf_biasdaily_ema_session_filterdoud_side_modelong_only   +6.96   +5.44   +2.92   +0.63   +3.99      31
+    channel_sourcebodies_entry_modeequilibrium_htf_biasoff_session_filterdoud_side_modelong_only   +4.94   +4.43   +2.92   +1.27   +3.39      37
+    channel_sourceextremes_entry_modeequilibrium_htf_biasdaily_ema_session_filteroff_side_modelong_only   +5.94   +2.84   +7.56   -3.01   +3.33      30
+    channel_sourceextremes_entry_modeequilibrium_htf_biasoff_session_filterdoud_side_modelong_only   +5.93   +1.22   +2.29   +1.64   +2.77      25
+    channel_sourceextremes_entry_modeequilibrium_htf_biasdaily_ema_session_filterdoud_side_modelong_only   +6.94   +1.22   +2.29   -1.00   +2.36      23
+    channel_sourceextremes_entry_modeequilibrium_htf_biasdaily_ema_session_filterdoud_side_modeboth   +6.94   -2.82   +2.29   +1.65   +2.01      28
+    channel_sourceextremes_entry_modeequilibrium_htf_biasdaily_ema_session_filteroff_side_modeboth   +6.52   -3.22   +5.55   -5.38   +0.87      47
+
+--- L'ILLUSION IN-SAMPLE ---
+    Ce qu'un backtest naïf afficherait (optimisé ET mesuré sur
+    tout l'historique) face au résultat hors échantillon.
+
+    meilleure config plein échantillon             illusion    honnête    perdu
+    ----------------------------------------------------------------------------
+    channel_sourceextremes_entry_modebreakout_htf_biasoff_session_filteroff_side_modeboth     +94.73     +79.60      16 %
+    channel_sourcebodies_entry_modebreakout_htf_biasoff_session_filteroff_side_modelong_only     +87.77     +75.26      14 %
+    channel_sourceextremes_entry_modebreakout_htf_biasoff_session_filteroff_side_modelong_only     +83.23     +75.81       9 %
+
+    => 16 % du rendement affiché par la meilleure config
+       disparaît une fois l'optimisation retirée.
+
+Mode : anchored  (entraînement ancré à l'origine)
+Résultats en R (multiples du risque) — indépendants du sizing.
+[MINCE] = effectif insuffisant : un « pass » n'y est pas une preuve.
+
+Réussites STRICT attendues par pur hasard sur 32 cellules à 5 % : ≈ 1,6
+Observées : 7
+
+================================================================================================
+7. STABILITÉ ANNUELLE — la v1 tenait 62 % de son résultat sur 2025
+================================================================================================
+
+v1 / neutre — brk ext both - - · 402 trades · R 94.73
+   2021 -10.1 (24 tr) | 2022 +9.8 (86 tr) | 2023 +10.0 (64 tr) | 2024 +14.9 (74 tr) | 2025 +55.9 (96 tr) | 2026 +14.2 (58 tr)
+   part du R total : 2021 -11% | 2022 10% | 2023 11% | 2024 16% | 2025 59% | 2026 15%
+
+meilleure R/trade — EQU ext LONG SESS BIAS · 50 trades · R 21.54
+   2021 +1.6 (2 tr) | 2022 +4.2 (10 tr) | 2023 +7.2 (7 tr) | 2024 +7.5 (14 tr) | 2025 -0.6 (15 tr) | 2026 +1.6 (2 tr)
+   part du R total : 2021 7% | 2022 20% | 2023 33% | 2024 35% | 2025 -3% | 2026 7%
+
+meilleur R total — brk ext both - - · 402 trades · R 94.73
+   2021 -10.1 (24 tr) | 2022 +9.8 (86 tr) | 2023 +10.0 (64 tr) | 2024 +14.9 (74 tr) | 2025 +55.9 (96 tr) | 2026 +14.2 (58 tr)
+   part du R total : 2021 -11% | 2022 10% | 2023 11% | 2024 16% | 2025 59% | 2026 15%
+
+================================================================================================
+8. BRAS TÉMOIN — entrée aléatoire, même dispositif de risque
+================================================================================================
+v1 / neutre          brk ext both - -               R    94.7 · percentile vs témoin : 100.0
+meilleure R/trade    EQU ext LONG SESS BIAS         R    21.5 · percentile vs témoin :  95.0
+meilleur R total     brk ext both - -               R    94.7 · percentile vs témoin : 100.0
+
+================================================================================================
+9. SECONDAIRE — sortie au temps (D10, « ne pas laisser tester son stop »)
+================================================================================================
+Hors grille principale : sweep exploratoire sur les cellules notables.
+  v1 / neutre          brk ext both - -                mh=None:  402 tr    94.7 R (+0.236/tr)  mh=  24:  429 tr    83.1 R (+0.194/tr)  mh=  48:  414 tr    80.6 R (+0.195/tr)
+  meilleure R/trade    EQU ext LONG SESS BIAS          mh=None:   50 tr    21.5 R (+0.431/tr)  mh=  24:   50 tr    18.4 R (+0.369/tr)  mh=  48:   50 tr    21.5 R (+0.431/tr)
+  meilleur R total     brk ext both - -                mh=None:  402 tr    94.7 R (+0.236/tr)  mh=  24:  429 tr    83.1 R (+0.194/tr)  mh=  48:  414 tr    80.6 R (+0.195/tr)
+
+résultats : C:\projects\tradingBot-v2\strategies\S018_gold_doud_v2\backtests\results.json

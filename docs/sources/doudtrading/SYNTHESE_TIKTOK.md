@@ -207,3 +207,46 @@ ce projet, retourné.
 | Zones | tracées à la main, inexplicables | **statistiques par session sur 3 ans** (§ 6) |
 | Sans stop | dogme | **conditionné à la discipline** (§ 7) |
 | Filtre de refus | soupçonné | **doctrine assumée** (§ 8) |
+
+
+---
+
+## 11. Addendum — moisson complète (108 clips) : deux éléments de plus
+
+### 11.1 Ses cibles sont des prix psychologiques
+
+> *« Quand on est sur une zone d'impulsion, on va chercher **les targets qui sont
+> plus haut, sur des prix… psychologiques** »* — `7497323474361273622`
+
+Ses TP cités tombent sur des ronds : 3 000, 3 100, 3 150, 3 750. C'est une règle
+de placement de cible **indépendante de l'ATR et du R:R** — cohérente avec son
+rejet du ratio théorique (§ 4), et codable trivialement (niveaux ronds à 50 ou
+100 $ selon le contexte).
+
+### 11.2 Des paires prévision → résultat, datées, hors Discord
+
+Treize clips évoquent la *météo de Doudi*, dont **six portent une cible chiffrée**
+publiée à l'avance :
+
+| Clip | Cible annoncée dans la météo |
+|---|---|
+| `7489170436106947842` | 3 100 → 3 150 |
+| `7492183111841631510` | 3 150 (« TP touché après la prédiction de ma météo de dimanche », daté du 10/04/2025) |
+| `7492470221496847618` | 3 150 |
+| `7511794156931534102` | 3 330 |
+| `7529584885074300162` | 3 373 |
+| `7553002216949370134` | 3 714 / 3 724 partiel / 3 750 |
+
+**Ce que ça vaut** : ce sont des prévisions **publiées avant l'événement**, avec
+un niveau chiffré et une date approximative (date de publication du clip). Elles
+sont donc **vérifiables contre nos propres barres XAUUSD** : le prix a-t-il
+atteint le niveau annoncé, en combien de temps, et après quel drawdown ?
+
+**Ce que ça ne vaut pas** : six observations ne scorent rien. Et le biais de
+publication est maximal — elle ne poste pas les météos ratées. Le comptage
+honnête exigerait **l'historique complet du canal Discord**, où les prévisions
+sont publiées qu'elles se réalisent ou non.
+
+C'est donc une **preuve de faisabilité, pas une mesure** : le protocole de
+scoring peut être écrit et testé sur ces six cas, puis appliqué tel quel dès
+qu'Adrian récupère l'historique complet.

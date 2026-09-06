@@ -181,3 +181,33 @@ detruirait ce qui fait sa performance. TCK-014 conditionne la mesure elle-meme.
 Limites ecrites : 20 observations, p franchi de justesse, biais de selection (ce
 sont les entrees qu'elle annonce a voix haute), chiffres bruts sans spread ni
 slippage.
+
+### T13 — verification des annonces eco sur ses trades — 2026-09-06
+
+`studies/meteo_doud/VERDICT_annonces.md`. Sans calendrier externe : les titres de
+ses lives nomment l'evenement, le choc de volatilite dans nos barres M1 date la
+publication. Reference fixee a 14h30 serveur (8h30 ET), controlee par le rapport
+amplitude(14:30) / mediane matinale.
+
+**Les evenements sont reels** : NFP du 2026-09-04 a **8 704 pips sur une bougie
+M1 = 64x la base** (87 $ en une minute) ; jobless claims a 3,4-6,2x. Mais **8
+entrees sur 17 ont lieu des jours SANS choc a 14:30** malgre des titres evoquant
+les jobless claims — dont le 4 juillet 2025, ferie US, ratio 0,6. La moitie de
+son activite n'est pas evenementielle.
+
+**Contradiction mesuree entre son discours et sa pratique.** Elle repete « on
+attend 28 » (T-2) et « on ne trade pas pendant l'annonce ». Sur les 9 entrees des
+jours a publication averee : **0/9 dans les 3 minutes avant**, 3/9 PENDANT le
+choc, 5/9 apres 14h35, **mediane +6 min APRES** la publication.
+
+Limite posee : les sous-titres disent « je suis rentree » au passe, donc
+l'horodatage capture l'annonce et non l'execution. Mais le decalage est borne par
+la mesure : dans 15 cas sur 20 le prix cite tombe DANS la bougie M5 de l'instant
+ou elle parle — si l'execution precedait de beaucoup, le prix ne collerait plus.
+
+**Les deux mesures se recoupent** : le choc de publication EST le balayage de
+liquidite. Elle ne prend pas le choc, elle prend la REINTEGRATION qui le suit.
+Consequence pour S019 : la fenetre d'entree n'est pas T-2 min mais **T+5 a
+T+20 min**, la traduction D9 du podcast est a ecarter, et TCK-016 reste
+necessaire mais pour une raison inversee — savoir qu'il faut ATTENDRE le
+retracement, et distinguer les jours a choc des jours ordinaires.

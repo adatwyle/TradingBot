@@ -1,0 +1,4 @@
+# Le 100% en trading n'existe pas Probabilités, gaps, incertitude : une...
+# id=7654159999433723168 duree=37s vues=1657
+
+Parce que on a l'habitude en fait, tous ceux qui voient le gap veulent aller le récupérer. On va le récupérer généralement à 92%. C'est pas du 100%. D'accord ? 100% trading n'existe pas. On a des probabilités de récupération de gap, mais en aucun cas c'est récupéré. On a déjà-vu des gap jamais récupéré, hein ? On ne peut jamais être sûr à 100% d'un gap. Ok, c'est important aujourd'hui de travailler les probabilités et comprendre pourquoi on récupère ses probabilités et pourquoi des gaps sont parfois récupérés, et pourquoi des fois ne sont pas récupérés.

@@ -1,0 +1,4 @@
+#  Backtest  trading réel 
+# id=7594521831558745366 duree=16s vues=1201
+
+Le bac test te donne 1 illusion de contrôle. Ça rassure, mais ça n'intègre ni la peur, ni l'hésitation, ni la pression réelle. Tu peux être rentable sur 10 ans de données et perdre dès que ton argent est en jeu. Le trading commence quand le mental entre dans l'équation.

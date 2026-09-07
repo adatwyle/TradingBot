@@ -1,0 +1,340 @@
+{
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "etude": [
+    "2020-09-08 19:30:00",
+    "2024-12-31 00:00:00"
+  ],
+  "n_bars": 304170,
+  "spread_pips": 52.0,
+  "resultats": {
+    "sl1.5_tp4.0": {
+      "0 TEMOIN v1 (S011)": {
+        "n": 4577,
+        "e_r": -0.0235,
+        "ic": [
+          -0.0704,
+          0.0235
+        ],
+        "seuil_detection": 0.047,
+        "taux_reussite": 26.63,
+        "taux_equilibre": 27.27,
+        "gain_pips": -4.5,
+        "risque_median_pips": 192.1,
+        "horizon_median_barres": 7.0,
+        "non_resolus": 4,
+        "ambigus": 12,
+        "temoin_moyen": -0.0038,
+        "significatif": false
+      },
+      "1 balayage haussier": {
+        "n": 3529,
+        "e_r": 0.039,
+        "ic": [
+          -0.0155,
+          0.0935
+        ],
+        "seuil_detection": 0.0545,
+        "taux_reussite": 28.34,
+        "taux_equilibre": 27.27,
+        "gain_pips": 8.2,
+        "risque_median_pips": 210.6,
+        "horizon_median_barres": 9.0,
+        "non_resolus": 7,
+        "ambigus": 5,
+        "temoin_moyen": 0.0027,
+        "significatif": false
+      },
+      "2 balayage baissier": {
+        "n": 4047,
+        "e_r": -0.0142,
+        "ic": [
+          -0.0643,
+          0.0358
+        ],
+        "seuil_detection": 0.0501,
+        "taux_reussite": 26.88,
+        "taux_equilibre": 27.27,
+        "gain_pips": -2.8,
+        "risque_median_pips": 194.6,
+        "horizon_median_barres": 9.0,
+        "non_resolus": 3,
+        "ambigus": 12,
+        "temoin_moyen": -0.0201,
+        "significatif": false
+      },
+      "3 equilibre 50%": {
+        "n": 8555,
+        "e_r": 0.0188,
+        "ic": [
+          -0.016,
+          0.0536
+        ],
+        "seuil_detection": 0.0348,
+        "taux_reussite": 27.78,
+        "taux_equilibre": 27.27,
+        "gain_pips": 3.7,
+        "risque_median_pips": 198.8,
+        "horizon_median_barres": 9.0,
+        "non_resolus": 11,
+        "ambigus": 23,
+        "temoin_moyen": -0.0089,
+        "significatif": false
+      },
+      "4 cassure donchian": {
+        "n": 7870,
+        "e_r": -0.036,
+        "ic": [
+          -0.0717,
+          -0.0004
+        ],
+        "seuil_detection": 0.0357,
+        "taux_reussite": 26.29,
+        "taux_equilibre": 27.27,
+        "gain_pips": -6.7,
+        "risque_median_pips": 186.7,
+        "horizon_median_barres": 6.0,
+        "non_resolus": 7,
+        "ambigus": 17,
+        "temoin_moyen": -0.0079,
+        "significatif": true
+      },
+      "5 niveau rond 50": {
+        "n": 1412,
+        "e_r": -0.0184,
+        "ic": [
+          -0.1031,
+          0.0663
+        ],
+        "seuil_detection": 0.0847,
+        "taux_reussite": 26.77,
+        "taux_equilibre": 27.27,
+        "gain_pips": -4.9,
+        "risque_median_pips": 265.6,
+        "horizon_median_barres": 8.0,
+        "non_resolus": 5,
+        "ambigus": 2,
+        "temoin_moyen": -0.0111,
+        "significatif": false
+      },
+      "6 mi-asiatique": {
+        "n": 1600,
+        "e_r": 0.0221,
+        "ic": [
+          -0.0585,
+          0.1027
+        ],
+        "seuil_detection": 0.0806,
+        "taux_reussite": 27.88,
+        "taux_equilibre": 27.27,
+        "gain_pips": 5.1,
+        "risque_median_pips": 231.1,
+        "horizon_median_barres": 8.0,
+        "non_resolus": 4,
+        "ambigus": 8,
+        "temoin_moyen": -0.0021,
+        "significatif": false
+      },
+      "7 extremes veille": {
+        "n": 3255,
+        "e_r": 0.0172,
+        "ic": [
+          -0.0392,
+          0.0736
+        ],
+        "seuil_detection": 0.0564,
+        "taux_reussite": 27.74,
+        "taux_equilibre": 27.27,
+        "gain_pips": 4.0,
+        "risque_median_pips": 231.9,
+        "horizon_median_barres": 7.0,
+        "non_resolus": 5,
+        "ambigus": 6,
+        "temoin_moyen": -0.0073,
+        "significatif": false
+      },
+      "8 compression": {
+        "n": 5982,
+        "e_r": -0.0493,
+        "ic": [
+          -0.09,
+          -0.0086
+        ],
+        "seuil_detection": 0.0407,
+        "taux_reussite": 25.93,
+        "taux_equilibre": 27.27,
+        "gain_pips": -9.0,
+        "risque_median_pips": 182.5,
+        "horizon_median_barres": 9.0,
+        "non_resolus": 8,
+        "ambigus": 9,
+        "temoin_moyen": -0.009,
+        "significatif": true
+      }
+    },
+    "sl1.0_tp2.0": {
+      "0 TEMOIN v1 (S011)": {
+        "n": 5805,
+        "e_r": -0.0109,
+        "ic": [
+          -0.0471,
+          0.0254
+        ],
+        "seuil_detection": 0.0363,
+        "taux_reussite": 32.97,
+        "taux_equilibre": 33.33,
+        "gain_pips": -1.4,
+        "risque_median_pips": 126.1,
+        "horizon_median_barres": 2.0,
+        "non_resolus": 0,
+        "ambigus": 20,
+        "temoin_moyen": 0.005,
+        "significatif": false
+      },
+      "1 balayage haussier": {
+        "n": 4024,
+        "e_r": -0.0129,
+        "ic": [
+          -0.0565,
+          0.0306
+        ],
+        "seuil_detection": 0.0436,
+        "taux_reussite": 32.9,
+        "taux_equilibre": 33.33,
+        "gain_pips": -1.7,
+        "risque_median_pips": 134.0,
+        "horizon_median_barres": 3.0,
+        "non_resolus": 0,
+        "ambigus": 16,
+        "temoin_moyen": 0.0029,
+        "significatif": false
+      },
+      "2 balayage baissier": {
+        "n": 4570,
+        "e_r": -0.0094,
+        "ic": [
+          -0.0503,
+          0.0315
+        ],
+        "seuil_detection": 0.0409,
+        "taux_reussite": 33.02,
+        "taux_equilibre": 33.33,
+        "gain_pips": -1.2,
+        "risque_median_pips": 126.9,
+        "horizon_median_barres": 3.0,
+        "non_resolus": 0,
+        "ambigus": 11,
+        "temoin_moyen": -0.0024,
+        "significatif": false
+      },
+      "3 equilibre 50%": {
+        "n": 17524,
+        "e_r": 0.0092,
+        "ic": [
+          -0.0118,
+          0.0302
+        ],
+        "seuil_detection": 0.021,
+        "taux_reussite": 33.64,
+        "taux_equilibre": 33.33,
+        "gain_pips": 1.1,
+        "risque_median_pips": 118.0,
+        "horizon_median_barres": 3.0,
+        "non_resolus": 0,
+        "ambigus": 60,
+        "temoin_moyen": 0.0003,
+        "significatif": false
+      },
+      "4 cassure donchian": {
+        "n": 11967,
+        "e_r": -0.0431,
+        "ic": [
+          -0.0682,
+          -0.0181
+        ],
+        "seuil_detection": 0.0251,
+        "taux_reussite": 31.9,
+        "taux_equilibre": 33.33,
+        "gain_pips": -5.3,
+        "risque_median_pips": 122.0,
+        "horizon_median_barres": 2.0,
+        "non_resolus": 0,
+        "ambigus": 51,
+        "temoin_moyen": -0.0001,
+        "significatif": true
+      },
+      "5 niveau rond 50": {
+        "n": 2244,
+        "e_r": 0.0816,
+        "ic": [
+          0.0219,
+          0.1412
+        ],
+        "seuil_detection": 0.0596,
+        "taux_reussite": 36.05,
+        "taux_equilibre": 33.33,
+        "gain_pips": 13.5,
+        "risque_median_pips": 165.7,
+        "horizon_median_barres": 2.0,
+        "non_resolus": 0,
+        "ambigus": 7,
+        "temoin_moyen": 0.0038,
+        "significatif": true
+      },
+      "6 mi-asiatique": {
+        "n": 2488,
+        "e_r": 0.0285,
+        "ic": [
+          -0.0274,
+          0.0845
+        ],
+        "seuil_detection": 0.056,
+        "taux_reussite": 34.28,
+        "taux_equilibre": 33.33,
+        "gain_pips": 4.2,
+        "risque_median_pips": 146.6,
+        "horizon_median_barres": 3.0,
+        "non_resolus": 0,
+        "ambigus": 9,
+        "temoin_moyen": -0.0089,
+        "significatif": false
+      },
+      "7 extremes veille": {
+        "n": 4965,
+        "e_r": -0.003,
+        "ic": [
+          -0.0423,
+          0.0363
+        ],
+        "seuil_detection": 0.0393,
+        "taux_reussite": 33.23,
+        "taux_equilibre": 33.33,
+        "gain_pips": -0.4,
+        "risque_median_pips": 146.9,
+        "horizon_median_barres": 2.0,
+        "non_resolus": 0,
+        "ambigus": 23,
+        "temoin_moyen": 0.0044,
+        "significatif": false
+      },
+      "8 compression": {
+        "n": 8889,
+        "e_r": -0.0385,
+        "ic": [
+          -0.0676,
+          -0.0094
+        ],
+        "seuil_detection": 0.0291,
+        "taux_reussite": 32.05,
+        "taux_equilibre": 33.33,
+        "gain_pips": -4.3,
+        "risque_median_pips": 111.7,
+        "horizon_median_barres": 3.0,
+        "non_resolus": 0,
+        "ambigus": 21,
+        "temoin_moyen": -0.0053,
+        "significatif": true
+      }
+    }
+  }
+}

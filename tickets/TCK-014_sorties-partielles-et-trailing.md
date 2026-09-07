@@ -3,9 +3,9 @@ id: TCK-014
 from: cc-S018
 to: cc-spec
 status: open
-blocking: true
+blocking: false
 created: 2026-09-06
-updated: 2026-09-07
+updated: 2026-09-07 (2e passe)
 ---
 
 ## Question
@@ -72,6 +72,67 @@ remesurer S019 **sans toucher à une seule ligne de sa règle**. Si le déclench
 neutre devient rentable par le seul changement de sortie, l'hypothèse est démontrée ;
 sinon elle est réfutée. C'est un test propre parce que la variable d'entrée est
 gelée et déjà mesurée.
+
+## Mise à jour 2026-09-07, seconde passe — NON BLOQUANT, et NE PAS démarrer sans lire ceci
+
+**Je retire le caractère bloquant que j'avais posé le matin même.** La justification que
+j'avais écrite — « l'avantage vit dans la sortie, c'est la seule hypothèse restante » — est
+**réfutée par une mesure qui n'exige aucune ligne de moteur**, faite le jour même.
+
+### La mesure
+
+Loi de chemin des 5 138 trades de S019. Pour une marche **sans dérive**, la probabilité
+d'atteindre +b avant −1 R en partant de +a vaut `(a+1)/(b+1)`. Observé :
+
+| Depuis | Observé P(suite) | Martingale |
+|---|---:|---:|
+| +1,0 R | 77,1 % | 75,0 % |
+| +1,5 R | 82,8 % | 80,0 % |
+| +2,0 R | 83,7 % | 83,3 % |
+| +3,0 R | 73,7 % | 75,0 % |
+| +4,0 R | 79,2 % | 80,0 % |
+
+Écarts de −1,3 à +2,8 points, sans direction systématique, calculés **hors spread** donc
+optimistes. Le chemin est indiscernable d'une martingale — et par le théorème d'arrêt
+optionnel, toute stratégie d'arrêt sur une martingale a la même espérance. **Aucune
+clôture partielle, aucun stop suiveur ne peut extraire d'avantage de ce déclencheur.**
+
+### Le danger que la première passe n'avait pas vu
+
+Toucher `core/backtest/engine.py` met en danger le forward scellé `studies/gold_forward/`,
+qui tourne depuis le 14 août. Deux couplages vérifiés :
+
+- `studies/gold_forward/run_forward.py:43` importe `strategies.S011_legacy_breakout.strategy` —
+  **le code de la stratégie n'est pas haché**, seul `params.json` l'est ;
+- `studies/gold_forward/report_forward.py:44` et `:174` recalculent le **bras témoin** via
+  `core.backtest.anchored_wf.control_arm` **à chaque lecture**, et les critères d'arrêt du
+  `PROTOCOL.md` § 3 sont des **percentiles contre ce témoin**.
+
+Et `app/orchestrator/tbot-prod-watcher.py:212` lance `pytest app -q` quand
+`.github/workflows/ci.yml:71` lance `pytest app strategies studies` : le test d'intégrité
+du scellé **ne garde pas** le rollback de production.
+
+### Ce que devient ce ticket
+
+TCK-014 reste une **dette de plateforme légitime** — le trailing de S011 n'a jamais été
+reproductible (`S011/research/ANALYSIS.md` § 4) et toute stratégie dont la sortie est la
+moitié du contrat sera mesurée à côté d'elle-même. Mais il n'est plus le chemin critique
+du dossier or, donc plus une raison de toucher `core/` dans l'urgence.
+
+**Trois préalables avant la moindre ligne de moteur, sur décision d'Adrian :**
+1. un **oracle de non-régression** trade par trade du moteur actuel sur barres réelles —
+   `studies/verify-journal.py` ne convient pas, il vérifie une chaîne de hachage et ne
+   rejoue aucun trade ;
+2. le **garde-fou de prod aligné sur la CI** (`pytest app strategies studies`) ;
+3. une **note de couplage** en fichier neuf sous `studies/gold_forward/` (jamais le
+   `PROTOCOL.md`, non amendable) actant que toute modification de `core/backtest/` déclare
+   l'invalidation du forward plutôt que de la contourner.
+
+**Périmètre à élargir quand il sera spécifié** : `_reference_profile` et `_random_signals`
+(`anchored_wf.py:236-355`) doivent apprendre à rejouer un plan de sortie, sinon le bras
+témoin restera à cible unique et la comparaison sera faussée. La conformance R5 suit.
+
+Détail complet : `support/designs/AUDIT_dossier-doud-etat-et-suite_2026-09-07.md`.
 
 ## Proposition de résolution
 

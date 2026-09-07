@@ -129,3 +129,34 @@ discours de la source, pas parce qu'ils prouvent quoi que ce soit.
 3. **TCK-018 est confirmé sur pièce.** À 25 pips de spread la cellule par défaut
    perd 275 R ; à 52 pips elle en perd 531. Le catalogue nous cachait la moitié
    de la facture — sur toutes les stratégies or du dépôt, pas seulement ici.
+
+---
+
+## Contrôle en M5 — déclaré exploratoire d'avance, et sans appel
+
+Sa maille de décision est M1-M5, pas M15 : le choix du M15 était une décision de
+conception, pas une mesure. J'ai donc refait la mesure complète en M5
+(358 624 barres), en déclarant d'avance qu'elle **ne pouvait pas sauver le
+verdict** — seulement vérifier que changer de maille change le nombre de tirages
+et non leur équité.
+
+C'est exactement ce qui se produit, en pire :
+
+| | M15 | M5 |
+|---|---|---|
+| Trades (cellule par défaut) | 2 955 | 9 017 |
+| Taux de réussite à 2 R (équilibre 33,33 %) | 33,4 % | 33,0 % |
+| Risque médian | 363 pips | 207 pips |
+| **Coût de bord** | **14,3 % du R** | **25,1 % du R** |
+| R/trade | −0,180 | −0,314 |
+| Cellules STRICT | 0/16 | 0/16 |
+| Percentile témoin (meilleure / défaut) | 42,5 / 6,5 | 13,5 / **0,0** |
+
+La neutralité du déclencheur est identique — le taux de réussite colle au seuil
+d'équilibre dans les deux mailles. Ce qui change est le prix : un stop structurel
+plus court paie le même spread sur un risque plus petit, et plus souvent. En M5
+la cellule par défaut est **au percentile 0,0** du bras témoin, c'est-à-dire
+battue par la totalité des tirages aléatoires.
+
+Conclusion : la maille n'était pas le problème, et il n'y a pas de maille de
+secours. Le déclencheur est vide dans les deux.

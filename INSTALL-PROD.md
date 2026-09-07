@@ -14,7 +14,7 @@
 
 ```
 PC dev (actuel)          GitHub Actions              PC prod (Dell)
-push sur dev ──────────► pytest app+strategies ────► clone en main
+push sur dev ──────────► pytest app+strategies+studies ► clone en main
 robinbot y reste           +studies ; vert →          run-tbot-prod.bat
 (exploitation, E6)         main ff + tag vVERSION     = watcher + factory
                                                       se met à jour seul
@@ -77,7 +77,7 @@ jamais dans ce clone — le Dell consomme, il ne produit pas.
 
 ## Étape 5 — gate local
 
-`python -m pytest app -q` → **vert exigé**. Rouge → diagnostiquer (dépendance
+`python -m pytest app strategies studies -q -o "python_files=test_*.py"` → **vert exigé** (même périmètre que la CI et que le watcher, cf. D-PW-3). Rouge → diagnostiquer (dépendance
 manquante, etc.), installer, re-tester. C'est la suite que le watcher rejouera
 à chaque mise à jour.
 

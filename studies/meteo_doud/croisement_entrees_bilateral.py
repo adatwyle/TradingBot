@@ -193,12 +193,21 @@ def main() -> int:
           f"{'balayage':>18s} {'il y a':>7s} {'profond':>8s} {'mèche':>6s} "
           f"{'MFE':>6s} {'MAE':>6s}")
     print("-" * 110)
+    hors_fenetre: list[str] = []
+    non_evaluables: list[str] = []
     for e in ents:
         i = int(idx.searchsorted(pd.Timestamp(e["dt"])))
         if i <= 0 or i >= len(bars):
+            # `load_bars(days=730)` est ancrée sur l'instant présent : une
+            # observation antérieure à la première barre disponible renvoie
+            # i = 0. La perdre en silence ferait rétrécir l'effectif au fil
+            # des jours sans que rien ne le signale — le corpus le plus ancien
+            # s'évaporerait à mesure que la fenêtre glisse.
+            hors_fenetre.append(f"{e['vid'][:12]} {e['dt'][:16]}")
             continue
         r = evalue(bars, i, e["sens"], float(e["prix"]))
         if not r:
+            non_evaluables.append(f"{e['vid'][:12]} {e['dt'][:16]}")
             continue
         used.append((e, r))
         if e["sens"] == "indetermine":
@@ -222,6 +231,21 @@ def main() -> int:
 
     connus = [(e, r) for e, r in used if e["sens"] != "indetermine"]
     indets = [(e, r) for e, r in used if e["sens"] == "indetermine"]
+    if hors_fenetre or non_evaluables:
+        print()
+        print("OBSERVATIONS ÉCARTÉES À LA MESURE — comptées, jamais silencieuses :")
+        for lib in hors_fenetre:
+            print(f"  hors fenêtre de données : {lib}")
+        for lib in non_evaluables:
+            print(f"  non évaluable           : {lib}")
+        print(f"  total écarté : {len(hors_fenetre) + len(non_evaluables)} "
+              f"sur {len(ents)} — effectif réellement mesuré : {len(used)}")
+        if hors_fenetre:
+            print("  ATTENTION : la fenêtre `load_bars(days=730)` glisse avec la date du")
+            print("  jour. Un effectif qui rétrécit d'une exécution à l'autre vient de là,")
+            print("  pas des données.")
+        print()
+
     dist = Counter(e["sens"] for e, _ in used)
 
     # ── Témoin : mêmes heures, même graine, sens tiré selon la même distribution ──

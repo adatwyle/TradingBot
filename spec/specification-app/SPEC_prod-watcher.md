@@ -18,7 +18,7 @@ Si les tests d'intégrité locaux échouent après pull : rollback au SHA préc�
 |---|----------|----------------------|
 | D-PW-1 | Le watcher est une **tâche englobante** (wrapper qui lance la factory en enfant), pas un worker de la factory | On ne se met pas à jour depuis l'intérieur du processus qu'on remplace : un worker ne peut ni arrêter ni relancer son propre parent proprement. |
 | D-PW-2 | Période de poll : **300 s** (`TBOT_WATCH_POLL`) | Une mise à jour n'est jamais urgente à la minute ; 5 min limite les fetchs réseau tout en restant réactif. |
-| D-PW-3 | Tests d'intégrité post-pull = `python -m pytest app -q` (suite app complète, pas `strategies/`) | C'est la même suite que la CI pour le code qui tourne en prod ; les tests stratégies n'exécutent rien en prod et allongeraient chaque mise à jour. |
+| D-PW-3 | Tests d'intégrité post-pull = `python -m pytest app strategies studies -q -o "python_files=test_*.py"` — **périmètre aligné sur la CI** (`.github/workflows/ci.yml`) | Amendé le 2026-09-07. La justification précédente (« c'est la même suite que la CI ») était factuellement fausse : la CI lançait déjà `app strategies studies`. Surtout, un périmètre `app` seul ne fait pas garder le rollback par le banc d'intégrité de l'étude scellée (`studies/gold_forward/test_forward_step.py`, hash SHA-256 de `params.json`) : une mise à jour cassant le scellé franchissait la porte. Coût mesuré du périmètre complet : 570 tests en ~90 s. |
 | D-PW-4 | Rollback = `git reset --hard <SHA précédent>` (SHA enregistré avant pull) | Le checkout prod est déclaré sans travail local (PW-4) : le SHA enregistré est le filet exigé par la règle git, le reset est donc sûr. |
 | D-PW-5 | Un diff `old..new` qui ne touche **que** `db-backup/` ⇒ pull sans redémarrage de la console | Un commit de backup ne change pas le code ; redémarrer la console pour lui interromprait les ticks pour rien (cohérence SPEC_backup-github). |
 | D-PW-6 | Alerte Telegram directe best-effort via le token notifier s'il existe, sinon log seul | Un rollback en prod doit réveiller Adrian ; réutiliser le token (simple POST sendMessage) évite tout couplage avec les curseurs du notifier. |
@@ -48,7 +48,7 @@ Si les tests d'intégrité locaux échouent après pull : rollback au SHA préc�
      processus + alerte « arrêt forcé » ;
   4. supprimer `.stop` ; `git pull --ff-only origin main` (échec ff → alerte, pas de retry
      automatique, factory relancée sur `OLD_SHA`) ;
-  5. `python -m pytest app -q` (D-PW-3). Vert → relancer la factory sur le nouveau code ;
+  5. `python -m pytest app strategies studies -q -o "python_files=test_*.py"` (D-PW-3, périmètre CI). Vert → relancer la factory sur le nouveau code ;
      rouge → `git reset --hard OLD_SHA`, relancer la factory, alerte « rollback » (PW-9) ;
   6. après un rollback, le SHA fautif est mémorisé dans l'état : il n'est **pas retenté**
      tant que `origin/main` n'a pas avancé au-delà (anti-boucle de rollback).

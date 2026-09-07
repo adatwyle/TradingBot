@@ -11,9 +11,20 @@ dès que ces deux fichiers ont existé. Cet addendum les dépouille. Il **compl�
 2026-09-04), agrégées en M15 (119 992 barres) et M5 (358 624 barres). **Exécution** :
 identique au VERDICT (spread catalogue 25 pips, slippage 0, moteur du forward scellé).
 **R1/R5** : PASSÉS sur les deux mailles (`causality_M15.txt`, `causality_M5.txt`,
-`conformance_M15.txt`, `conformance_M5.txt`). **Cellule neutre = v1** : égalité
-stricte des signaux vérifiée sur les deux mailles (3 271 signaux en M15, texte
-identique en M5) — même garantie qu'en H1.
+`conformance_M15.txt`, `conformance_M5.txt`). **Cellule neutre = code de la v1** : égalité
+stricte des signaux vérifiée sur les deux mailles (3 271 signaux en M15, 11 111 en M5).
+
+**Cette égalité ne dit PAS ce qu'on aimerait qu'elle dise**, et la sortie de mesure le
+porte déjà en capitales (`backtests/grid_M5.txt` ligne 18) : *« la v1 scellée est en H1 ;
+ce qui est comparé ici est S011 APPLIQUÉE À DES BARRES M5, pas la référence du forward.
+L'égalité prouve l'équivalence des deux CODES, elle ne rattache pas ces chiffres au
+dossier gold_forward. »* Une première rédaction de cet addendum affirmait « même garantie
+qu'en H1 » — c'était le contraire de sa source, et c'est corrigé ici.
+
+Ce que la comparaison mesure réellement : S011 hors de la maille pour laquelle elle a été
+sélectionnée. Et le chiffre est net — sur M5, la cellule neutre rend **−548,7 R sur
+5 064 trades** (−0,108 par trade, taux de réussite 27,3 %). La v1 ne survit pas au
+changement de maille.
 
 ---
 

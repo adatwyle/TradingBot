@@ -93,8 +93,26 @@ def known_symbols() -> list[str]:
 # `C:/db/tradingBot/bars_cache/<symbole>_*.pkl` (colonne brute exprimee en
 # POINTS de prix — 0,001 pour XAUUSD — convertie ici en pips au sens du
 # catalogue, pip=0,01 pour XAUUSD). Mesure faite le 2026-09-06, identique en
-# M1/M5/M15/H1. Le "regime courant" (annee la plus recente de la table) est
-# la mediane glissante sur les 365 derniers jours au moment de la mesure.
+# M15 (maille de reference retenue : intermediaire entre la cotation aux
+# heures rondes et l'echantillonnage fin).
+#
+# ATTENTION — ces medianes NE SONT PAS identiques a toutes les mailles avant
+# 2025, contrairement a ce qu'affirmait une premiere redaction. Mesure par
+# maille :
+#     annee    H1    M15    M5     M1
+#     2021   50,0   50,0  51,0      -
+#     2022   50,0   51,0  53,0      -
+#     2023   50,0   54,0  56,0      -
+#     2024   50,0   55,0  58,0   59,0
+#     2025   65,0   65,0  65,0   65,0
+#     2026   90,8   90,8  90,8   90,8
+# En H1 la valeur reste collee au plancher du courtier : une barre horaire
+# cote a l'heure ronde, moment liquide. Les mailles fines echantillonnent
+# aussi les moments ou le spread s'ecarte. La convergence de 2025-2026
+# s'explique par un plancher releve (82,8 points) que le spread ne quitte
+# quasiment plus. Consequence pratique : pour valoriser une strategie a une
+# maille donnee AVANT 2025, remesurer a cette maille plutot que de reprendre
+# cette table telle quelle.
 # Seul XAUUSD a ete mesure a ce jour ; les autres symboles n'ont pas encore
 # d'entree ici (cf. comportement explicite de `measured_spread_pips` plus bas).
 _MEASURED_SPREADS_PIPS: dict[str, dict[int, float]] = {

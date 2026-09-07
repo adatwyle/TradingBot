@@ -363,3 +363,41 @@ n'est pas une decision d'executant.
 **Constat annexe** : hors 2025, l'avantage de la v1 n'est pas detectable (+0,127 R/trade,
 t=1,39, contre +0,582 et t=3,57 pour la seule annee 2025). C'est exactement ce que le
 forward scelle est fait pour trancher — il en est a 7 trades sur 100.
+
+### Revue croisee T1-T4 — corrections appliquees le 2026-09-07
+
+La revue a trouve du vrai. Quatre corrections serieuses :
+
+1. **T3 affirmait le contraire de sa source.** L'addendum ecrivait « cellule neutre = v1,
+   meme garantie qu'en H1 » alors que `backtests/grid_M5.txt` ligne 18 porte en capitales
+   l'avertissement inverse : la v1 scellee est en H1, ce qui est compare en M5 est S011
+   APPLIQUEE a des barres M5, pas la reference du forward. Corrige, avec le chiffre qui
+   manquait : sur M5 la cellule neutre rend **-548,7 R sur 5 064 trades** (-0,108/trade).
+   La v1 ne survit pas au changement de maille.
+2. **T1 affirmait des medianes « identiques en M1/M5/M15/H1 »** — faux avant 2025 :
+   H1 reste colle au plancher (50,0) quand M5 monte a 58,0 en 2024. Convergence
+   seulement en 2025-2026 (65,0 puis 90,8). Table par maille ajoutee a la docstring,
+   avec la consequence pratique : remesurer a la maille visee avant 2025.
+3. **T4 laissait deux documents en contradiction avec le code** : `INSTALL-PROD.md:80`
+   et `SPEC_prod-watcher.md` (D-PW-3 et PW-5) prescrivaient encore `pytest app -q`.
+   Alignes sur le perimetre CI, avec la justification ecrite.
+4. **T2 avait un echec silencieux** : les observations hors fenetre de donnees etaient
+   ecartees sans compteur. Or `load_bars(days=730)` glisse avec la date du jour —
+   l'effectif aurait retreci au fil des executions sans que rien ne le signale.
+   Compteur + avertissement explicites ajoutes.
+
+**DEFAUT DE REPRODUCTIBILITE, decouvert par la revue et confirme a la main** :
+`croisement_entrees.py` relance INCHANGE rend aujourd'hui un temoin a 64/200 = 32 %
+la ou le verdict du 6 septembre publiait 78/200 = 39 %. Cause : la fenetre
+`load_bars(days=730)` est ancree sur l'instant present, donc les tirages de la graine
+pointent chaque jour sur des barres differentes. Un temoin a graine fixe sur fenetre
+mobile n'est pas reproductible — l'ecart de 7 points est ~2 erreurs-types, compatible
+avec du bruit pur. A corriger dans toute mesure future : fenetre bornee par dates fixes,
+et davantage de tirages.
+
+**Autre correction de chiffre** : le rapport MFE/MAE vaut **0,88** sur le corpus purge
+et oriente selon le sens, contre **1,80** publie le 6 septembre. Les excursions sont
+legerement defavorables, pas favorables — l'argument « 60 % atteignent 1,5 ATR en sa
+faveur » tombe avec.
+
+570 tests verts. Aucun chemin interdit touche.

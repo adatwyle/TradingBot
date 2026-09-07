@@ -41,8 +41,17 @@ SÉQUENCE DE MISE À JOUR (PW-5)
        tué + alerte « arrêt forcé ») ;
     3. `.stop` supprimé, `git pull --ff-only origin main` (échec ff → alerte,
        pas de retry, factory relancée sur OLD_SHA) ;
-    4. `python -m pytest app -q` (D-PW-3). Vert → relance sur le nouveau
-       code ; rouge → `git reset --hard OLD_SHA` + relance + alerte ROLLBACK ;
+    4. `python -m pytest app strategies studies -q -o "python_files=test_*.py"`
+       (D-PW-3 — périmètre ALIGNÉ SUR LA CI, `.github/workflows/ci.yml` : un
+       `app`-only ne garde PAS le banc d'intégrité de l'étude scellée
+       (`studies/gold_forward/test_forward_step.py`, hash SHA-256 de
+       `params.json`) — une mise à jour qui casserait le scellé passerait
+       la porte de prod sans que ce test s'y oppose. Le filtre
+       `-o python_files=test_*.py` est repris de la CI pour la même raison :
+       sans lui, les scripts de recherche `*_test.py` sous `strategies/`
+       (ex. prototypes aux imports morts) sont collectés à tort). Vert →
+       relance sur le nouveau code ; rouge → `git reset --hard OLD_SHA` +
+       relance + alerte ROLLBACK ;
     5. anti-boucle : le SHA fautif est mémorisé (watcher-state.json) et n'est
        PAS retenté tant que `origin/main` n'a pas avancé au-delà.
 
@@ -207,9 +216,17 @@ def factory_cmd() -> list[str]:
 
 
 def pytest_cmd() -> list[str]:
-    """Tests d'intégrité post-pull (D-PW-3) : la suite app, pas strategies/."""
+    """Tests d'intégrité post-pull (D-PW-3) : MÊME périmètre que la CI
+    (`.github/workflows/ci.yml`) — `app` + `strategies` + `studies`, avec le
+    même filtre de collecte `-o python_files=test_*.py`. Un périmètre plus
+    étroit (`app` seul) ne ferait pas garder le rollback par le banc
+    d'intégrité de l'étude scellée (`studies/gold_forward`, hash SHA-256 de
+    `params.json`) : une mise à jour qui casse le scellé passerait la porte
+    de prod. Le filtre `python_files` évite de collecter à tort les scripts
+    de recherche `*_test.py` sous `strategies/` (motif identique à la CI)."""
     return _cmd_from_env("TBOT_WATCH_PYTEST_CMD",
-                         [PYTHON, "-m", "pytest", "app", "-q"])
+                         [PYTHON, "-m", "pytest", "app", "strategies",
+                          "studies", "-q", "-o", "python_files=test_*.py"])
 
 
 # == JOURNAL (PW-7 — rotation naïve 2 Mo, motif factory) =======================

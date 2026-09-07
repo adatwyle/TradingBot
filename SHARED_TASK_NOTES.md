@@ -308,3 +308,58 @@ TCK-014 ne sauvera pas S019 et sort du chemin critique de l'or.
 reponses aux cinq questions d'Adrian, suite ordonnee par cout/information (P0 gratuit :
 spread, sens des entrees en bilateral, orphelins S018, garde-fou prod ; P1 arbitrage ;
 P2 TCK-014 seulement comme dette plateforme, avec oracle de non-regression d'abord).
+
+## T1-T5 — reproduction de la methode Doud — 2026-09-07
+
+Plan verrouille : `PLAN_doud-reproduction_2026-09-07-1930.md`.
+
+**T1 — spread mesure** (`app/core/data/instruments.py`) : table par annee + accesseur
+`measured_spread_pips()`, PUREMENT ADDITIF. La constante catalogue (25 pips) est
+inchangee et un test de non-regression l'affirme : `studies/gold_forward/PROTOCOL.md`
+§2.2 la cite, la modifier deplacerait un scelle en cours. KeyError explicite plutot
+qu'un repli silencieux.
+
+**T2 — corpus bilateral** : regle de purge ecrite AVANT application
+(`REGLE_purge_2026-09-07.md`), mecanique et reproductible par un tiers. Resultat :
+**9 observations survivent sur 32**, sous le seuil de 10 fixe d'avance
+=> VERDICT : EFFECTIF INSUFFISANT. Le critere qui mord n'est pas le doublon mais
+l'horodatage (10 purgees pour recit retrospectif, 12 pour prix non aligne).
+Le taux de balayage grandit en bilateral (5/7 = 71 % contre 33 % au temoin, p=0,045)
+mais n'est PAS revendique. Correction d'une de mes craintes : le corpus est
+massivement ACHETEUR (6 achats sur 7 sens etablis) — `sens_hints` decrivait le marche
+(« il est tres vendeur ») et non sa position.
+
+**T3 — orphelins S018** : `research/VERDICT_addendum_M15-M5_2026-09-07.md`, addendum
+date, VERDICT.md complete par renvoi et non reecrit.
+
+**T4 — garde-fou prod** : `tbot-prod-watcher.py` passe au perimetre de la CI
+(`app strategies studies` + filtre de collecte). Le test d'integrite du scelle garde
+desormais le rollback.
+
+**Casse reparee au passage** : `S018/test_strategy.py` et `S019/test_strategy.py`
+partageaient un basename ; sans `__init__.py` ni conftest, pytest cassait a la collecte
+et `pytest app strategies studies` s'interrompait. Introduite par moi le 2026-09-06.
+Renommes. Perimetre complet : **570 tests verts**.
+
+**T5 — cribleur de derive** (`studies/derive_screener/`) : mesure l'esperance en R d'un
+pari a barrieres pour une regle d'entree. Une premiere version etait FAUSSE (barrieres
+symetriques) et le temoin positif l'a dit avant publication. Corrigee puis validee
+(couverture 40/40, derive injectee retrouvee, plancher chiffre).
+Resultat : **aucun des 9 candidats ne survit**. Le seul positif (niveaux ronds) ne tient
+qu'a une geometrie sur deux, ce qu'une regle ecrite d'avance ecarte.
+=> **T6 n'a pas lieu** (prevu au plan), et **T7 non plus**.
+
+**Le vrai resultat, non cherche** : la meilleure derive brute vaut +15 pips quand l'ATR
+horaire de l'or en vaut 1854 — 0,8 % d'une amplitude horaire. Et l'or est
+l'instrument le MOINS cher du portefeuille rapporte a sa volatilite (4,9 % contre 10 a
+99 % pour le FX). Le probleme n'est donc pas le cout, c'est la faiblesse des
+declencheurs.
+
+**A PORTER A ADRIAN — urgent** : AUDCAD est valorise 3,2 pips au catalogue pour un cout
+mesure de 6,0 (1,9x), et c'est l'instrument principal de `studies/s13_forward/`, scelle
+EN COURS depuis le 16 aout. Meme ecart sur AUDCHF et CADCHF. Corriger un scelle en cours
+n'est pas une decision d'executant.
+
+**Constat annexe** : hors 2025, l'avantage de la v1 n'est pas detectable (+0,127 R/trade,
+t=1,39, contre +0,582 et t=3,57 pour la seule annee 2025). C'est exactement ce que le
+forward scelle est fait pour trancher — il en est a 7 trades sur 100.

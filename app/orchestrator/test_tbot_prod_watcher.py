@@ -424,3 +424,21 @@ def test_vocabulaire_git_ferme():
     for interdit in ('git("commit"', 'git("push"', 'git("checkout"',
                      '"--force"', '"push"'):
         assert interdit not in src, f"vocabulaire git interdit : {interdit}"
+
+
+# == D-PW-3 : périmètre des tests d'intégrité ALIGNÉ SUR LA CI ==================
+def test_pytest_cmd_perimetre_aligne_ci(env, monkeypatch):
+    """Sans TBOT_WATCH_PYTEST_CMD (défaut prod), le périmètre doit couvrir
+    app + strategies + studies — comme `.github/workflows/ci.yml` — sinon
+    le banc d'intégrité de l'étude scellée (studies/gold_forward) ne garde
+    plus le rollback (mission T4)."""
+    m = env
+    monkeypatch.delenv("TBOT_WATCH_PYTEST_CMD", raising=False)
+    cmd = m.pytest_cmd()
+    assert "app" in cmd
+    assert "strategies" in cmd
+    assert "studies" in cmd
+    # même filtre de collecte que la CI — sinon les scripts de recherche
+    # `*_test.py` sous strategies/ sont collectés à tort (motif CI-3.4).
+    assert "-o" in cmd
+    assert cmd[cmd.index("-o") + 1] == "python_files=test_*.py"

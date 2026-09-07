@@ -10,9 +10,14 @@ ajout ni réglage après lecture des résultats.
 
 ## 1. Verdict
 
-**Aucun candidat ne survit.** Et la raison n'est pas celle qu'on cherchait : ce n'est pas
-que les déclencheurs soient nuls, c'est que **leur meilleure dérive brute vaut le sixième
-de ce que coûte un aller-retour chez notre courtier.**
+**Aucun candidat ne survit.** Aucun ne montre de dérive directionnelle mesurable, et le
+seul résultat positif du criblage ne tient qu'à une géométrie sur deux — soit exactement
+ce que la multiplicité produit toute seule.
+
+Et leur faiblesse se chiffre : **la meilleure dérive brute vaut +15 pips, quand l'ATR
+horaire de l'or en vaut 1 854.** Huit dixièmes de pourcent d'une amplitude horaire. À
+cette échelle, aucune maille ne convient : trop fine, les frais mangent le risque ; trop
+large, il ne reste plus d'occasions.
 
 | | valeur |
 |---|---|
@@ -93,33 +98,65 @@ dans les deux sens, et −5 pips inversés font +5 pips contre 91 de coût.
 
 ---
 
-## 4. La vraie contrainte : notre coût, pas nos idées
+## 4. La vraie contrainte : la faiblesse des déclencheurs, pas le prix de l'or
 
-C'est le résultat le plus utile du criblage, et il n'était pas cherché.
+Première lecture, et elle était **fausse** : j'ai d'abord conclu que notre courtier était
+trop cher sur l'or. La mesure comparative dit le contraire.
 
-Le spread de XAUUSD dans nos données a un **plancher dur** : 50 pips de 2021 à 2025,
-**82,8 pips en 2026**, avec une médiane à 90,8. Il est **plat à toute heure** — aucun
-creux en session US ni en Asie. Ce n'est pas un artefact de mesure : la colonne prend
-358 valeurs distinctes et monte jusqu'à 890 pips lors des pics. C'est le tarif.
+Coût d'un aller-retour rapporté à l'amplitude horaire, tous instruments en cache,
+365 derniers jours :
 
-Rapporté au risque par trade, cela décide de tout :
-
-| Maille | Risque médian par trade | Spread 2026 | Part du R mangée par les frais |
+| instrument | spread mesuré | ATR H1 | coût / ATR |
 |---|---:|---:|---:|
-| **H1** (la v1) | ~2 400 pips | 90,8 | **3,8 %** |
-| M15 | 200 à 450 pips | 90,8 | 20 à 45 % |
-| M5 | 110 à 270 pips | 90,8 | **34 à 83 %** |
+| **XAUUSD** | 90,8 pips | 1 854 pips | **4,9 %** |
+| USDJPY | 1,9 | 18 | 10,6 % |
+| EURUSD | 1,8 | 11 | 16,4 % |
+| GBPJPY | 6,7 | 24 | 28,3 % |
+| AUDCAD | 6,0 | 11 | 55,5 % |
+| CADCHF | 6,3 | 6 | 99,1 % |
 
-**Sa méthode est du scalp intraday.** Chez nous, un trade intraday sur l'or paie entre un
-cinquième et quatre cinquièmes de son risque en frais avant d'avoir parié. Aucune dérive
-mesurée dans tout le corpus — la meilleure vaut +15 pips — n'a l'ordre de grandeur
-nécessaire.
+**L'or est l'instrument le MOINS cher du portefeuille**, rapporté à ce qu'il bouge. Sa
+volatilité absorbe son spread mieux que n'importe quelle paire FX. La contrainte n'est
+donc pas le prix de l'or.
 
-Un courtier compétitif cote l'or autour de 15 à 30 pips. Nous payons **trois à six fois
-cela**. La question « comment reproduire sa méthode » a donc une réponse préalable :
-**pas chez ce courtier, à cette maille.** Ce n'est pas un problème de stratégie.
+Ce qui reste vrai, et qui est le vrai obstacle : **la dérive des déclencheurs est
+minuscule**. La meilleure vaut +15 pips quand l'ATR horaire de l'or en vaut 1 854 —
+soit **0,8 % d'une amplitude horaire**. Un signal aussi faible ne devient exploitable à
+aucune maille :
 
----
+| Maille | Risque médian par trade | Part du R mangée par les frais |
+|---|---:|---:|
+| **H1** (la v1) | ~2 400 pips | **3,8 %** |
+| M15 | 200 à 450 pips | 20 à 45 % |
+| M5 | 110 à 270 pips | **34 à 83 %** |
+
+Descendre en maille pour multiplier les occasions réduit le risque par trade et fait
+exploser la part des frais. Monter en maille garde les frais négligeables mais raréfie
+le signal — et il n'y avait rien à raréfier. **Sa méthode est du scalp intraday ; les
+déclencheurs qu'on en a extraits n'ont pas la force nécessaire pour survivre à la maille
+qu'ils exigent.**
+
+### Deux erreurs de catalogue mises au jour au passage
+
+La comparaison a révélé que le catalogue `app/core/data/instruments.py` est juste pour
+presque tout — sauf là :
+
+| instrument | catalogue | mesuré | écart |
+|---|---:|---:|---:|
+| **XAUUSD** | 25,0 | 90,8 | **3,6×** |
+| **AUDCAD** | 3,2 | 6,0 | **1,9×** |
+| **AUDCHF** | 2,2 | 4,2 | **1,9×** |
+| **CADCHF** | 3,4 | 6,3 | **1,9×** |
+
+Les paires FX majeures collent au catalogue à 10 % près, ce qui valide la conversion et
+isole ces quatre cas.
+
+**AUDCAD demande une action, pas une note** : c'est l'instrument principal de
+`studies/s13_forward/`, un forward scellé **en cours** depuis le 16 août. Il valorise à
+3,2 pips ce qui en coûte 6,0, sur un instrument dont le coût représente déjà 55 % de
+l'amplitude horaire. Le dispositif ne mesure donc pas ce qu'il croit mesurer. À porter à
+Adrian — la correction d'un scellé en cours n'est pas une décision d'exécutant (§ 3d de
+son protocole : toute modification déclare l'invalidation plutôt que de la contourner).
 
 ## 5. Et la v1, au fait ?
 
@@ -150,14 +187,16 @@ sélectionnée, et c'est la seule chose qui puisse trancher. Il en est à 7 trad
    a posteriori que ce dispositif était fait pour empêcher.
 2. **Aucune stratégie de ce dossier n'est prête pour le paper trading**, et aucune ne le
    sera par un travail de stratégie supplémentaire. L'obstacle est en amont.
-3. **Le coût de transaction devient le sujet.** Vérifier auprès du courtier le coût réel
-   d'un aller-retour sur l'or, et ce qu'un courtier concurrent propose. Un spread ramené
-   de 91 à 25 pips ne rendrait pas ces déclencheurs rentables — leur dérive reste trop
-   faible — mais il rouvrirait la maille intraday à des hypothèses futures. Aujourd'hui
-   elle est fermée.
-4. **Sur l'or, chez nous, seule la grosse maille est jouable.** Un risque de 2 400 pips
-   absorbe 91 pips de frais ; un risque de 150 pips ne le peut pas. Toute future
-   stratégie or doit partir de là.
-5. **Le cribleur reste**, et il est réutilisable : il coûte quelques minutes et il aurait
+3. **L'or n'est pas le problème** — c'est l'instrument le moins cher du portefeuille
+   rapporté à sa volatilité (4,9 % contre 10 à 99 % pour le FX). Renégocier le spread ne
+   rendrait pas ces déclencheurs rentables : leur dérive est trop faible d'un ordre de
+   grandeur, pas d'un facteur.
+4. **Sur l'or, seule la grosse maille est jouable** — non par cherté, mais parce qu'un
+   risque de 2 400 pips absorbe les frais quand un risque de 150 pips ne le peut pas.
+   Toute future stratégie or doit partir de là.
+5. **Deux corrections de catalogue à porter à Adrian**, dont une urgente : AUDCAD est
+   valorisé à 3,2 pips pour un coût réel de 6,0, et c'est l'instrument principal du
+   forward scellé `studies/s13_forward/`, en cours depuis le 16 août.
+6. **Le cribleur reste**, et il est réutilisable : il coûte quelques minutes et il aurait
    évité les deux campagnes de walk-forward de S019. À passer avant toute construction
    de stratégie, sur n'importe quel instrument.

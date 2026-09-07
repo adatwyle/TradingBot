@@ -77,3 +77,66 @@ def get_spec(symbol: str) -> InstrumentSpec:
 
 def known_symbols() -> list[str]:
     return sorted(_CATALOG)
+
+
+# ── Spreads MESURES, par symbole et par annee ───────────────────────────────
+# Distinct de `_CATALOG[...]["spread_pips"]` ci-dessus, qui reste une valeur
+# FIGEE de reference historique — NE PAS la modifier : `_CATALOG["XAUUSD"]`
+# (25,0 pips) est citee telle quelle par `studies/gold_forward/PROTOCOL.md`
+# section 2.2 (etude scellee, en cours depuis le 14 aout 2026). La corriger
+# deplacerait retroactivement le cout de valorisation d'un test deja en
+# cours. Toute mesure NEUVE (nouvelle etude, nouveau sizing, audit spread)
+# doit passer par `measured_spread_pips()` ci-dessous, jamais relire
+# `_CATALOG` en pretendant que c'est une mesure a jour.
+#
+# Origine des nombres : mediane annuelle de la colonne "spread" des caches
+# `C:/db/tradingBot/bars_cache/<symbole>_*.pkl` (colonne brute exprimee en
+# POINTS de prix — 0,001 pour XAUUSD — convertie ici en pips au sens du
+# catalogue, pip=0,01 pour XAUUSD). Mesure faite le 2026-09-06, identique en
+# M1/M5/M15/H1. Le "regime courant" (annee la plus recente de la table) est
+# la mediane glissante sur les 365 derniers jours au moment de la mesure.
+# Seul XAUUSD a ete mesure a ce jour ; les autres symboles n'ont pas encore
+# d'entree ici (cf. comportement explicite de `measured_spread_pips` plus bas).
+_MEASURED_SPREADS_PIPS: dict[str, dict[int, float]] = {
+    "XAUUSD": {
+        2021: 50.0,
+        2022: 51.0,
+        2023: 54.0,
+        2024: 55.0,
+        2025: 65.0,
+        2026: 90.8,
+    },
+}
+
+
+def measured_spread_pips(symbol: str, year: int | None = None) -> float:
+    """
+    Spread MESURE (median annuelle, en pips) pour `symbol`.
+
+    `year=None` rend la valeur du regime courant, c'est-a-dire l'annee la
+    plus recente presente dans la table de mesure (au 2026-09-06 : 2026,
+    90,8 pips pour XAUUSD).
+
+    Comportement volontairement strict, sans fallback silencieux : leve
+    `KeyError` si `symbol` n'a aucune mesure enregistree, ou si `year` est
+    demande explicitement mais absent de la table de ce symbole. Un retour
+    silencieux (ex. repli automatique sur `_CATALOG`) masquerait un trou de
+    mesure reel — mieux vaut un plantage explicite qu'un chiffre perime pris
+    pour une mesure.
+    """
+    if symbol not in _MEASURED_SPREADS_PIPS:
+        raise KeyError(
+            f"aucun spread mesure enregistre pour '{symbol}'. "
+            f"Symboles mesures : {sorted(_MEASURED_SPREADS_PIPS)}. "
+            f"Mesurez-le (cf. docstring _MEASURED_SPREADS_PIPS) avant de "
+            f"l'utiliser — pas de repli devine sur _CATALOG."
+        )
+    by_year = _MEASURED_SPREADS_PIPS[symbol]
+    if year is None:
+        year = max(by_year)
+    if year not in by_year:
+        raise KeyError(
+            f"aucune mesure pour '{symbol}' en {year}. "
+            f"Annees mesurees : {sorted(by_year)}."
+        )
+    return by_year[year]

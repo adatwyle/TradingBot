@@ -1,0 +1,130 @@
+{
+  "_meta": {
+    "date": "2026-09-07",
+    "source": "_entries_aligned.json (32 observations)",
+    "regle_de_purge": "studies/meteo_doud/REGLE_purge_2026-09-07.md",
+    "application_mecanique": "studies/meteo_doud/purge_corpus.py",
+    "effectif_retenu": 9,
+    "videos_retenues": 9,
+    "repartition_sens_retenus": {"achat": 6, "vente": 1, "indetermine": 2},
+    "note_sens_hints": "Le champ `sens_hints` du corpus d'origine est une extraction par mots-cles. Sur la seule observation retenue qui en portait un (QbkYJMzeodI, `vendeur`), il est FAUX : le mot decrit le marche (« il est tres vendeur ») et non sa position, qu'elle declare achat douze secondes plus tard (« moi je l'achete hein »). Ce champ n'a pas ete utilise.",
+    "note_indice_pl": "Le champ `indice_non_retenu` consigne un faisceau qui n'entre PAS dans les criteres tranchants pre-enregistres (declaration directe, cible chiffree, stop chiffre). Il est reporte pour la transparence du lecteur et sert de variante de sensibilite explicitement post-hoc dans le verdict. Il ne determine pas `sens`.",
+    "champs": {
+      "sens": "achat | vente | indetermine — etabli selon REGLE_purge_2026-09-07.md section « Determination du sens »",
+      "justification": "citation verbatim de la transcription qui tranche, ou raison de l'indetermination",
+      "motif_purge": "null si retenue ; sinon le premier critere de la regle qui elimine l'observation"
+    }
+  },
+
+  "retenues": [
+    {
+      "vid": "VgZx8e4k2lE",
+      "offset_s": 4310,
+      "dt": "2025-04-10 15:19:26",
+      "prix": 3128.30,
+      "sens": "achat",
+      "justification": "« Moi, je vous dis, je vise les les 3150 et je vise beaucoup plus haut » — cible chiffree 3150, au-dessus du prix d'entree 3128,30, rattachee a cette position par « je vais essayer de la garder euh jusqu'a mon TP ».",
+      "motif_purge": null
+    },
+    {
+      "vid": "_YLBNaigG_w",
+      "offset_s": 2622,
+      "dt": "2025-10-10 14:42:13",
+      "prix": 3987.00,
+      "sens": "achat",
+      "justification": "« moi je je vends pas le gold, je l'achete. Euh quand les vendeurs ils prennent la main, je sors, j'attends euh une target pour l'acheter » — declaration directe de sa propre position, completee par « pour le moment euh non, je le vends pas la ».",
+      "motif_purge": null
+    },
+    {
+      "vid": "5IPouztc1_0",
+      "offset_s": 1127,
+      "dt": "2026-06-04 14:18:53",
+      "prix": 4492.00,
+      "sens": "indetermine",
+      "justification": "Aucune declaration directe de sens, aucune cible ni aucun stop chiffres rattaches a cette entree. « si je l'achete la, je vais le mettre a peu pres vers la » repond a une question sur son setup en general, pas sur cette position.",
+      "indice_non_retenu": "Le prix passe de 4492 a 4497 pendant qu'elle annonce un gain croissant (177 $, puis 227 $, puis 500 $) : gain qui monte avec le prix, donc position acheteuse. Faisceau materiel fort, mais hors des criteres tranchants pre-enregistres.",
+      "motif_purge": null
+    },
+    {
+      "vid": "9lp_5lvii3I",
+      "offset_s": 1101,
+      "dt": "2026-06-08 00:18:14",
+      "prix": 4314.00,
+      "sens": "indetermine",
+      "justification": "Aucune declaration directe ni niveau chiffre pour cette position. « j'ai pas l'habitude de vendre le gold » enonce une habitude, pas la position du jour ; « si ca casse ca, moi je sors » designe un niveau a l'ecran sans le chiffrer ; « je l'ai vendu a un moment mais je suis sortie de la vente » se rapporte a la seance de vendredi.",
+      "indice_non_retenu": "« donc forcement tu vois la ca rebondit la. Si ca casse ca, moi je sors » — sortie sur cassure a la baisse, coherent avec une position acheteuse. Non chiffre, donc non tranchant.",
+      "motif_purge": null
+    },
+    {
+      "vid": "QbkYJMzeodI",
+      "offset_s": 4021,
+      "dt": "2026-06-11 14:34:59",
+      "prix": 4064.90,
+      "sens": "achat",
+      "justification": "« Tant qu'on reste sur la zone des 59, moi je l'achete hein. Tant qu'il break pas la baisse, on est en structure » — declaration directe. Le `sens_hints` « vendeur » du corpus provient de « il est tres il est tres vendeur », qui decrit le marche ; elle precise d'ailleurs « quand tu traites contre tendance, faut pas s'etonner », donc elle achete un marche qu'elle juge vendeur.",
+      "motif_purge": null
+    },
+    {
+      "vid": "pO6DkqBIUFE",
+      "offset_s": 1448,
+      "dt": "2026-06-29 00:18:19",
+      "prix": 4063.00,
+      "sens": "achat",
+      "justification": "« Pour remonter euh sur mon niveau de perte avec un petit lot, faut que j'aille chercher les 4114 » — seuil d'equilibre chiffre a 4114, au-dessus de l'entree 4063,13 : la position gagne quand le prix monte. Coherent avec « belle prise de liquidite, rebond et zone d'impulsion » et « ca devrait partir plus haut ».",
+      "motif_purge": null
+    },
+    {
+      "vid": "tfh-B0Uroe4",
+      "offset_s": 483,
+      "dt": "2026-07-23 14:32:44",
+      "prix": 4075.00,
+      "sens": "achat",
+      "justification": "« point d'entree au 4075 86 » avec « le SL, il est exactement au 71 31 » (4071,31, SOUS l'entree) et « le TP les 4090 » (AU-DESSUS). Stop et cible chiffres, tous deux concordants.",
+      "motif_purge": null
+    },
+    {
+      "vid": "G7LP5bb6UhU",
+      "offset_s": 2004,
+      "dt": "2026-07-30 14:31:58",
+      "prix": 4080.00,
+      "sens": "achat",
+      "justification": "« Allez, je suis rentree. Le SL au 407199 » — stop chiffre a 4071,99, sous l'entree 4080, complete par « on d' chercher les 90 » (4090, au-dessus).",
+      "motif_purge": null
+    },
+    {
+      "vid": "a__0t9kh88w",
+      "offset_s": 3125,
+      "dt": "2026-09-04 14:50:21",
+      "prix": 4392.00,
+      "sens": "vente",
+      "justification": "« Je suis parti a la vente la. Allez, je vais tenter de le vendre. Je suis rentre au 4392 15 » — declaration directe, repetee : « Ah ouais ouais, je suis rentre au 4392 15 les gars. Ah je vais le vendre en scalpe ».",
+      "motif_purge": null
+    }
+  ],
+
+  "purgees": [
+    {"vid": "pcfFaoRSr9Q", "offset_s": 1845, "dt": "2025-03-27 14:53:38", "prix": 3051.00, "sens": null, "justification": "Non evaluee — purgee avant determination du sens.", "motif_purge": "prix-non-aligne"},
+    {"vid": "pcfFaoRSr9Q", "offset_s": 3891, "dt": "2025-03-27 15:27:44", "prix": 3040.00, "sens": null, "justification": "Non evaluee — purgee avant determination du sens.", "motif_purge": "prix-non-aligne"},
+    {"vid": "EdZNDaz1rkY", "offset_s": 1227, "dt": "2025-04-03 14:35:55", "prix": 3069.14, "sens": null, "justification": "Non evaluee. Recit d'un trade deja clos : « je suis rentre en vente hein j'ai cloture tout simplement ... j'ai cloture au 30 67 87 ». L'horodatage date la parole, pas l'entree.", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["j'ai cloture"]},
+    {"vid": "EdZNDaz1rkY", "offset_s": 2277, "dt": "2025-04-03 14:53:25", "prix": 3076.00, "sens": null, "justification": "Non evaluee. « je suis rentree sur ce niveau-la j'ai cloture pour securiser ».", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["j'ai cloture"]},
+    {"vid": "EdZNDaz1rkY", "offset_s": 4526, "dt": "2025-04-03 15:30:54", "prix": 390.00, "sens": null, "justification": "Non evaluee — « 390 » est un montant de gain en euros capte comme prix par la reconnaissance vocale.", "motif_purge": "prix-non-aligne"},
+    {"vid": "VgZx8e4k2lE", "offset_s": 1750, "dt": "2025-04-10 14:36:46", "prix": 3120.93, "sens": null, "justification": "Non evaluee. « Et la j'ai coupe a moin 300 € » — marqueur de position anterieure. La regle purge sans chercher a quel trade le marqueur se rapporte (clause de conservatisme).", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["j'ai coupe"]},
+    {"vid": "VgZx8e4k2lE", "offset_s": 1785, "dt": "2025-04-10 14:37:21", "prix": 3120.84, "sens": null, "justification": "Non evaluee. « Voila, je cloture ... je viens de cloturer a 3109 ».", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["viens de cloturer", "je cloture"]},
+    {"vid": "VgZx8e4k2lE", "offset_s": 1906, "dt": "2025-04-10 14:39:22", "prix": 3120.42, "sens": null, "justification": "Non evaluee. « Moi, j'y suis dedans ... Donc actuellement, je suis a 9,58 € » — position ouverte avant la parole, resultat courant cite.", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["j'y suis", "actuellement"]},
+    {"vid": "g0QZlUtQLvM", "offset_s": 3665, "dt": "2025-07-04 14:11:36", "prix": 3335.48, "sens": null, "justification": "Non evaluee. « Ah bah ouais, moi je suis deja dedans » — elle le dit explicitement.", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["deja dedans", "je suis deja"]},
+    {"vid": "g0QZlUtQLvM", "offset_s": 3678, "dt": "2025-07-04 14:11:49", "prix": 3335.48, "sens": null, "justification": "Non evaluee. Doublon exact de l'observation precedente (meme vid, meme prix, 13 s plus tard) ET recit retrospectif. La regle retient le premier motif dans l'ordre.", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["deja dedans", "je suis deja"]},
+    {"vid": "NpesTgZ6KbQ", "offset_s": 1171, "dt": "2025-08-28 14:26:33", "prix": 3407.50, "sens": null, "justification": "Non evaluee. Ce n'est pas un trade : « imaginons un certain exemple, je rentre 34075, d'accord ? Je je suis pas dedans mais c'est pour vous expliquer ».", "motif_purge": "hors-trade", "motifs_declencheurs": ["je suis pas dedans", "imaginons", "c'est pour vous expliquer"]},
+    {"vid": "_YLBNaigG_w", "offset_s": 3685, "dt": "2025-10-10 14:59:56", "prix": 3998.90, "sens": null, "justification": "Non evaluee — ecart de prix au-dela du seuil.", "motif_purge": "prix-non-aligne"},
+    {"vid": "Cc1Meko5FhA", "offset_s": 1905, "dt": "2026-03-05 15:27:06", "prix": 5106.37, "sens": null, "justification": "Non evaluee — ecart de prix au-dela du seuil.", "motif_purge": "prix-non-aligne"},
+    {"vid": "Cc1Meko5FhA", "offset_s": 2941, "dt": "2026-03-05 15:44:22", "prix": 5000.52, "sens": null, "justification": "Non evaluee — ecart 1,89 %, prix mal transcrit (« 5000 518 42 »).", "motif_purge": "prix-non-aligne"},
+    {"vid": "VYCurlHEpRs", "offset_s": 4106, "dt": "2026-04-30 15:10:24", "prix": 4139.50, "sens": null, "justification": "Non evaluee — ecart 10,7 %, elle se corrige a l'oral (« 4639 50 precisement »).", "motif_purge": "prix-non-aligne"},
+    {"vid": "cvpayfkumYs", "offset_s": 881, "dt": "2026-05-21 14:07:38", "prix": 4515.53, "sens": null, "justification": "Non evaluee. « 4515 53 exactement je suis rentre actuellement ca fait 560 points » — resultat courant cite, donc entree anterieure a la parole.", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["actuellement"]},
+    {"vid": "cvpayfkumYs", "offset_s": 6426, "dt": "2026-05-21 15:40:03", "prix": 4492.00, "sens": null, "justification": "Non evaluee. « Actuellement, je suis rentree au 4492 13 ... Actuellement, je suis a 24 dollars ».", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["actuellement"]},
+    {"vid": "cvpayfkumYs", "offset_s": 6683, "dt": "2026-05-21 15:44:20", "prix": 4000.00, "sens": null, "justification": "Non evaluee — « 4000 » est une amorce de phrase, elle se corrige aussitot (« 4000 4492 05 »).", "motif_purge": "prix-non-aligne"},
+    {"vid": "LTN-S3DC5Fg", "offset_s": 3323, "dt": "2026-05-28 14:55:44", "prix": 4000.00, "sens": null, "justification": "Non evaluee — « 4000 points » est un nombre de points de gain, pas un prix.", "motif_purge": "prix-non-aligne"},
+    {"vid": "1kVYJ160yOI", "offset_s": 868, "dt": "2026-06-18 14:14:20", "prix": 4243.83, "sens": null, "justification": "Non evaluee — ecart de prix au-dela du seuil.", "motif_purge": "prix-non-aligne"},
+    {"vid": "pO6DkqBIUFE", "offset_s": 1722, "dt": "2026-06-29 00:22:53", "prix": 4063.00, "sens": null, "justification": "Non evaluee. « La, je suis rentre au 4063 et j'ai renforce au 40600 » — rappel d'une position ouverte 4 min plus tot (doublon exact de l'observation retenue) avec renforcement.", "motif_purge": "recit-retrospectif", "motifs_declencheurs": ["j'ai renforce"]},
+    {"vid": "KBqRb5_UJ8Y", "offset_s": 1910, "dt": "2026-07-09 14:31:21", "prix": 4159.60, "sens": null, "justification": "Non evaluee — ecart de prix au-dela du seuil.", "motif_purge": "prix-non-aligne"},
+    {"vid": "G7LP5bb6UhU", "offset_s": 3034, "dt": "2026-07-30 14:49:08", "prix": 4055.40, "sens": null, "justification": "Non evaluee — ecart de prix au-dela du seuil.", "motif_purge": "prix-non-aligne"}
+  ]
+}

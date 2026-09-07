@@ -1,1 +1,2 @@
 measured_at_utc,event,arm,symbol,trade_id,bar_time,side,entry_price,stop_price,target_price,size_lots,risk_ccy,exit_price,exit_reason,pnl_r,pnl_ccy,capital_after,chain
+2026-09-07T06:18:23Z,OPEN,OBSERVATION,EURJPY,EURJPY_LONG_20260904,2026-09-04T00:00:00,LONG,181.45900,179.97264,182.89936,0.1004,100.00,,,,,10000.00,d0ebd3ba6cd5e677b216926dcf37b2eae9facd584ebbe6079ab8f58db2ad4f72

@@ -276,3 +276,35 @@ bouteille », « la flute », « bougie sautoir »).
 - **Non fait** : aucun réglage d'après-coup (interdit par FALSIFICATION.md),
   aucune promotion (R10). S011 et l'étude scellée `studies/gold_forward/`
   intactes.
+
+## Audit croise du dossier Doud — 2026-09-07
+
+Quatre lectures independantes + quatre feuilles de route + trois critiques adversariales.
+Trois constats graves, tous REVERIFIES a la main :
+
+1. **Spread perime.** Le regime courant est a **90,8 pips** (2026), pas 52 (mediane
+   historique) ni 25 (catalogue). Le cout de S019 valait 25 % du R en M15 et 44 % en M5,
+   pas 14,3 %. Sa refutation en sort renforcee ; le chiffre publie etait faux.
+2. **Mesure fondatrice contaminee.** Le 60/39 repose sur un test **unilateral** (balayage
+   haussier seul, MFE/MAE calcules en long) applique a 20 observations dont les 4 seules
+   dont le sens est connu sont des **ventes** ; 2 paires de doublons exacts ; horodatage =
+   moment ou elle PARLE, souvent d'une position deja ouverte — confondant qui joue dans le
+   sens du resultat obtenu.
+3. **TCK-014 menacait le scelle.** `run_forward.py:43` importe le code VIVANT de S011 (non
+   hache) ; `report_forward.py:174` recalcule le bras temoin via `core.backtest.anchored_wf`
+   a chaque lecture, et les criteres d'arret sont des percentiles contre ce temoin. Toucher
+   `engine.py` deplace donc les criteres d'un test qui tourne depuis le 14 aout. Et
+   `tbot-prod-watcher.py:212` lance `pytest app` quand la CI lance `app strategies studies` :
+   le test d'integrite du scelle ne garde pas le rollback de prod.
+
+**Mesure qui tranche TCK-014, 4 minutes, zero ligne de moteur** : loi de chemin des 5 138
+trades S019. P(atteindre +b avant -1R | +a) observee contre la martingale `(a+1)/(b+1)` :
+77,1/75,0 · 82,8/80,0 · 83,7/83,3 · 73,7/75,0 · 79,2/80,0. Ecarts de -1,3 a +2,8 points,
+sans direction, calcules HORS spread donc optimistes. Le chemin est sans derive : par le
+theoreme d'arret optionnel, **aucune regle de sortie ne peut creer d'esperance**.
+TCK-014 ne sauvera pas S019 et sort du chemin critique de l'or.
+
+**Livrable** : `support/designs/AUDIT_dossier-doud-etat-et-suite_2026-09-07.md` — corrections,
+reponses aux cinq questions d'Adrian, suite ordonnee par cout/information (P0 gratuit :
+spread, sens des entrees en bilateral, orphelins S018, garde-fou prod ; P1 arbitrage ;
+P2 TCK-014 seulement comme dette plateforme, avec oracle de non-regression d'abord).

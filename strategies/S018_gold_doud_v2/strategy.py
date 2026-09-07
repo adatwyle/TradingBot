@@ -40,7 +40,7 @@ LA CELLULE NEUTRE EST LA V1, AU SIGNAL PRÈS
     · session_filter=off · htf_bias=off
 
 produit **exactement** les signaux de S011 avec les paramètres scellés.
-`test_strategy.py::test_cellule_neutre_reproduit_la_v1` le vérifie sur les 30 000
+`test_s018_strategy.py::test_cellule_neutre_reproduit_la_v1` le vérifie sur les 30 000
 barres réelles de XAUUSD H1, signal par signal. C'est ce qui rend chaque
 commutateur mesurable : tout écart observé vient du commutateur, pas d'une
 réécriture.

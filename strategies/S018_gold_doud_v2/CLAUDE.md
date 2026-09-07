@@ -26,7 +26,7 @@ Cinq commutateurs binaires, chacun traçable à une affirmation datée de `docs/
 | `session_filter` | D5 (@ 35:35) | toutes heures → US + Asie, jamais Londres |
 | `htf_bias` | D2 (@ 23:32) | aucun biais → porte de tendance journalière |
 
-**La cellule neutre est la v1.** `test_strategy.py::test_cellule_neutre_reproduit_la_v1` le vérifie signal par signal sur 30 024 barres réelles. C'est ce qui rend chaque commutateur mesurable isolément : sans cette égalité, un écart pourrait venir d'une réécriture plutôt que de l'hypothèse.
+**La cellule neutre est la v1.** `test_s018_strategy.py::test_cellule_neutre_reproduit_la_v1` le vérifie signal par signal sur 30 024 barres réelles. C'est ce qui rend chaque commutateur mesurable isolément : sans cette égalité, un écart pourrait venir d'une réécriture plutôt que de l'hypothèse.
 
 ## Grille et discipline de lecture
 
@@ -39,5 +39,5 @@ S018_gold_doud_v2/
 ├── CLAUDE.md · input-adrian.md · manifest.yaml · strategy.py
 ├── research/    ANALYSIS.md · FALSIFICATION.md · VERDICT.md
 ├── backtests/   causality.txt · conformance.txt · grid.txt · results.json
-└── test_strategy.py
+└── test_s018_strategy.py
 ```

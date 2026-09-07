@@ -1,7 +1,7 @@
 """
 Tests de S019 — balayage de liquidité et réintégration.
 
-    python -m pytest strategies/S019_gold_sweep/test_strategy.py -q
+    python -m pytest strategies/S019_gold_sweep/test_s019_strategy.py -q
 
 Ce qui est vérifié, et pourquoi c'est ça :
 

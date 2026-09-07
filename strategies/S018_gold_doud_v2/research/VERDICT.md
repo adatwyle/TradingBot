@@ -177,6 +177,12 @@ une grille déjà à 32.
   cinq lectures, traduites ainsi, n'améliorent pas *notre* cassure Donchian.
 - **Il ne dit rien du timeframe qui est le sien.** Elle scalpe ; nous mesurons en
   H1 pour rester comparables à la v1.
+  **[Renvoi 2026-09-07]** Affirmation datée : `results_M15.json` et `results_M5.json`
+  existaient déjà (produits le 2026-09-06) et ont depuis été dépouillés — voir
+  `research/VERDICT_addendum_M15-M5_2026-09-07.md`. Elle ne dit toujours rien de
+  l'intraday réel (M1 chez elle), mais M15 et M5 sont désormais mesurés : la v1
+  traduite telle quelle y devient nettement perdante, et une seule cellule sur 64
+  survit à la fois au walk-forward strict et au spread réellement observé.
 - **Les chiffres restent optimistes** d'un montant inconnu : slippage à 0, comme
   la v1 et son témoin.
 

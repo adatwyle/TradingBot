@@ -1,7 +1,7 @@
 """
 Tests de S018 — or v2 (méthode Doud).
 
-    python -m pytest strategies/S018_gold_doud_v2/test_strategy.py -q
+    python -m pytest strategies/S018_gold_doud_v2/test_s018_strategy.py -q
 
 Ce qui est vérifié, et pourquoi c'est ça :
 

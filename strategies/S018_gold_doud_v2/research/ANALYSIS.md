@@ -59,7 +59,7 @@ stratégie (R2) → `tickets/TCK-015`.
 Cinq commutateurs binaires, 32 cellules. La cellule
 `breakout · extremes · both · off · off` **reproduit exactement les signaux de
 S011 aux paramètres scellés** : 784 signaux, égalité stricte sur les 30 024
-barres, vérifiée par `test_strategy.py::test_cellule_neutre_reproduit_la_v1`
+barres, vérifiée par `test_s018_strategy.py::test_cellule_neutre_reproduit_la_v1`
 et rejouée dans `backtests/grid.txt` § 1.
 
 Sans cette égalité, un écart mesuré pourrait venir d'une réécriture plutôt que
@@ -116,9 +116,9 @@ un critère annoncé (survie en hors échantillon avec effectif), mais après.
 |---|---|---|
 | R1 — invariant de troncature, données réelles, 5 points de grille dont le mode à état | **PASSÉ**, 0 fuite, couche indicateur couverte | `backtests/causality.txt` |
 | R5 — conformance backtest/live | **PASSÉ** (modes `breakout` et `equilibrium`) | `backtests/conformance.txt` |
-| R3 — stop obligatoire du bon côté, RR conforme | **PASSÉ** | `test_strategy.py` |
+| R3 — stop obligatoire du bon côté, RR conforme | **PASSÉ** | `test_s018_strategy.py` |
 | Cellule neutre = v1, signal par signal | **PASSÉ** (784/784) | `backtests/grid.txt` § 1 |
-| 19 tests unitaires (commutateurs, causalité du biais, bornes) | **PASSÉS** | `test_strategy.py` |
+| 19 tests unitaires (commutateurs, causalité du biais, bornes) | **PASSÉS** | `test_s018_strategy.py` |
 
 Le mode `equilibrium` porte un balayage à état (un setup en attente à la fois).
 C'est exactement le genre de code où une fuite se cache : R1 y a été passé sur

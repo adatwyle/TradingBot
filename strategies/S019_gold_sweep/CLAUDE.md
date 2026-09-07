@@ -55,7 +55,7 @@ R9 backtester commun · R10 promotion Adrian.
 ```
 strategy.py            la règle, et rien d'autre
 manifest.yaml          grille 16 cellules, paramètres par défaut
-test_strategy.py       15 tests — règle, stop, causalité, bornes
+test_s019_strategy.py       15 tests — règle, stop, causalité, bornes
 backtests/run_wf.py    harnais de mesure (coût de bord d'abord)
 research/
   FALSIFICATION.md     critères fixés AVANT la mesure

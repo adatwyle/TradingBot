@@ -3,8 +3,9 @@ id: TCK-014
 from: cc-S018
 to: cc-spec
 status: open
-blocking: false
+blocking: true
 created: 2026-09-06
+updated: 2026-09-07
 ---
 
 ## Question
@@ -32,6 +33,45 @@ la moitié du contrat sera mesurée **à côté de ce qu'elle est** — en silen
 le pire cas. C'est exactement le défaut déjà documenté dans `anchored_wf.run_walk_forward`
 à propos de `max_hold_bars` (« un harnais qui ne sait pas exprimer la règle de sortie
 ne mesure pas la stratégie, il mesure son propre défaut »).
+
+## Mise à jour 2026-09-07 — arbitrage Adrian, et le ticket devient bloquant
+
+**Adrian a tranché : TCK-014 passe avant tout le reste sur le dossier or.**
+`blocking` passe donc de `false` à `true`.
+
+Ce qui a changé depuis la rédaction : S019 a mesuré le déclencheur d'entrée de la
+même source, isolément, sur 119 992 barres M15 puis 358 624 barres M5. Résultat
+(`strategies/S019_gold_sweep/research/ANALYSIS.md`) :
+
+- 0 cellule sur 16 passe le walk-forward, dans les deux mailles ;
+- le bras témoin aléatoire place la meilleure cellule au percentile 42,5 en M15 et
+  13,5 en M5 — la cellule par défaut tombe à **0,0** en M5 ;
+- surtout : le taux de réussite colle au **seuil d'équilibre géométrique** à un point
+  de pourcentage près dans chaque cellule (33,4 % contre 33,33 % à 2 R ; 21,0 % contre
+  20,00 % à 4 R). Une fois le coût de bord neutralisé, le résidu est nul dans 15
+  cellules sur 16, |t| < 2.
+
+Autrement dit : **son déclencheur d'entrée, avec notre sortie, ne contient aucune
+information.** Et sa sélectivité mesurée est faible — 1,68 entrée par jour de live
+contre ~4,2 balayages offerts, soit un tri de 2,5× seulement, trop peu pour extraire
+un avantage d'un vivier neutre.
+
+Conséquence directe pour cette spec : l'hypothèse restante est que son avantage vit
+dans la **sortie**, et c'est la seule qu'on ne sache pas tester. Tant que TCK-014
+n'est pas livré, le dossier or est arrêté — non par manque d'idées d'entrée, mais
+parce que toute mesure d'entrée supplémentaire raffinerait une variable mesurée
+neutre.
+
+**Ce que ça n'autorise pas** : élargir la portée. La spec reste celle décrite
+ci-dessous. En particulier, l'exigence de rétrocompatibilité (point 4) devient plus
+forte, pas moins : le forward `studies/gold_forward/` est scellé et en cours de
+validation.
+
+**Test de recette proposé, gratuit et décisif** : une fois le moteur étendu,
+remesurer S019 **sans toucher à une seule ligne de sa règle**. Si le déclencheur
+neutre devient rentable par le seul changement de sortie, l'hypothèse est démontrée ;
+sinon elle est réfutée. C'est un test propre parce que la variable d'entrée est
+gelée et déjà mesurée.
 
 ## Proposition de résolution
 

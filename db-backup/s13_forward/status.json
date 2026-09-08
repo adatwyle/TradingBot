@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-09-07T17:22:39Z",
+  "generated_at_utc": "2026-09-08T17:32:00Z",
   "first_pass": false,
   "primary_symbol": "AUDCAD",
   "opened_this_pass": 0,
   "closed_this_pass": 0,
-  "months_elapsed": 0.69,
+  "months_elapsed": 0.72,
   "arms": {
     "AUDCAD": {
       "arm": "PRIMARY",
       "seal_bar_time": "2026-08-16T00:00:00",
-      "last_bar_time": "2026-09-06T00:00:00",
+      "last_bar_time": "2026-09-07T00:00:00",
       "n_closed_total": 0,
       "cum_r": 0.0,
       "mean_r": null,
@@ -20,23 +20,23 @@
     "EURJPY": {
       "arm": "OBSERVATION",
       "seal_bar_time": "2026-08-13T00:00:00",
-      "last_bar_time": "2026-09-06T00:00:00",
-      "n_closed_total": 0,
-      "cum_r": 0.0,
-      "mean_r": null,
-      "capital": 10000.0,
+      "last_bar_time": "2026-09-07T00:00:00",
+      "n_closed_total": 1,
+      "cum_r": -1.0155,
+      "mean_r": -1.0155,
+      "capital": 9898.45,
       "open_position": {
-        "trade_id": "EURJPY_LONG_20260904",
+        "trade_id": "EURJPY_LONG_20260907",
         "side": "LONG",
-        "entry_bar_time": "2026-09-04T00:00:00",
-        "entry_price": 181.459,
-        "stop_price": 179.97264285714286,
-        "target_price": 182.89935714285716,
-        "risk_distance": 1.4863571428571447,
-        "size_lots": 0.10041579310903781,
-        "risk_ccy": 100.0
+        "entry_bar_time": "2026-09-07T00:00:00",
+        "entry_price": 179.416,
+        "stop_price": 177.8497142857143,
+        "target_price": 180.9362857142857,
+        "risk_distance": 1.5662857142856978,
+        "size_lots": 0.09432384976122404,
+        "risk_ccy": 98.9845259262819
       },
-      "unrealized_r": -0.2234
+      "unrealized_r": -0.0294
     }
   },
   "stop_criteria": {

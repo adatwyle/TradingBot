@@ -4,7 +4,7 @@
   "symbols": {
     "AUDCAD": {
       "seal_bar_time": "2026-08-16T00:00:00",
-      "last_bar_time": "2026-09-07T00:00:00",
+      "last_bar_time": "2026-09-08T00:00:00",
       "capital": 10000.0,
       "open_position": null,
       "cooldown_bars_left": 0,
@@ -14,25 +14,25 @@
     },
     "EURJPY": {
       "seal_bar_time": "2026-08-13T00:00:00",
-      "last_bar_time": "2026-09-07T00:00:00",
-      "capital": 9898.45259262819,
+      "last_bar_time": "2026-09-08T00:00:00",
+      "capital": 9798.014536177086,
       "open_position": {
-        "trade_id": "EURJPY_LONG_20260907",
+        "trade_id": "EURJPY_LONG_20260908",
         "side": "LONG",
-        "entry_bar_time": "2026-09-07T00:00:00",
-        "entry_price": 179.416,
-        "stop_price": 177.8497142857143,
-        "target_price": 180.9362857142857,
-        "risk_distance": 1.5662857142856978,
-        "size_lots": 0.09432384976122404,
-        "risk_ccy": 98.9845259262819
+        "entry_bar_time": "2026-09-08T00:00:00",
+        "entry_price": 178.914,
+        "stop_price": 177.23264285714285,
+        "target_price": 180.54935714285713,
+        "risk_distance": 1.6813571428571379,
+        "size_lots": 0.08697677560611042,
+        "risk_ccy": 97.98014536177087
       },
       "cooldown_bars_left": 0,
-      "consecutive_losses": 1,
-      "n_closed": 1,
-      "cum_r": -1.0154740737181027
+      "consecutive_losses": 2,
+      "n_closed": 2,
+      "cum_r": -2.030158495461992
     }
   },
-  "journal_bytes": 830,
-  "journal_sha256": "780525f9b83c8d778051fd3e86f465fff8f759a0ab5e6ff61c5bdeda4be8ed11"
+  "journal_bytes": 1278,
+  "journal_sha256": "22e8ab494d3b8488727bc7ac3f2857deeb13ff6a4c7bd092efecf55316883700"
 }

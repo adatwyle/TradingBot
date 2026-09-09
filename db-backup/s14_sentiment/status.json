@@ -1,41 +1,41 @@
 {
-  "generated_at_utc": "2026-09-08T17:57:55Z",
+  "generated_at_utc": "2026-09-09T18:14:23Z",
   "first_pass": false,
   "started_at": "2026-08-18T20:48:46Z",
-  "n_news_total": 840,
-  "n_stale": 910,
+  "n_news_total": 902,
+  "n_stale": 952,
   "judges": {
     "claude-cli": {
-      "cursor": 840,
+      "cursor": 902,
       "backlog_news": 0,
-      "n_verdicts_total": 1335,
+      "n_verdicts_total": 1460,
       "n_na": 35,
-      "n_stale_news": 455,
+      "n_stale_news": 476,
       "last_batch": {
-        "news_id": "8460492..8460390",
-        "n_news": 3,
-        "measured_at_utc": "2026-09-08T17:27:38Z",
+        "news_id": "8465653..8465653",
+        "n_news": 1,
+        "measured_at_utc": "2026-09-09T18:14:23Z",
         "n_na": 0
       }
     },
     "finbert": {
-      "cursor": 840,
+      "cursor": 902,
       "backlog_news": 0,
-      "n_verdicts_total": 1335,
+      "n_verdicts_total": 1460,
       "n_na": 0,
-      "n_stale_news": 455,
+      "n_stale_news": 476,
       "last_batch": {
-        "news_id": "8460492..8460390",
-        "n_news": 3,
-        "measured_at_utc": "2026-09-08T17:27:38Z",
+        "news_id": "8465653..8465653",
+        "n_news": 1,
+        "measured_at_utc": "2026-09-09T18:14:23Z",
         "n_na": 0
       }
     }
   },
-  "days_elapsed": 20,
-  "months_elapsed": 0.66,
+  "days_elapsed": 21,
+  "months_elapsed": 0.69,
   "stop_criteria": {
-    "f1": "aucune lecture de valeur avant N >= 150 verdicts comptables ET >= 60 jours par juge (écoulés : 20) — les comptables se calculent dans report_sentiment.py, jamais ici",
+    "f1": "aucune lecture de valeur avant N >= 150 verdicts comptables ET >= 60 jours par juge (écoulés : 21) — les comptables se calculent dans report_sentiment.py, jamais ici",
     "time": "NON CONCLUSIF à 6 mois si F1 jamais atteint (écoulés : 0.7)"
   }
 }

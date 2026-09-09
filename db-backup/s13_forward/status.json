@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-09-08T17:32:00Z",
+  "generated_at_utc": "2026-09-09T17:39:35Z",
   "first_pass": false,
   "primary_symbol": "AUDCAD",
   "opened_this_pass": 0,
   "closed_this_pass": 0,
-  "months_elapsed": 0.72,
+  "months_elapsed": 0.76,
   "arms": {
     "AUDCAD": {
       "arm": "PRIMARY",
       "seal_bar_time": "2026-08-16T00:00:00",
-      "last_bar_time": "2026-09-07T00:00:00",
+      "last_bar_time": "2026-09-08T00:00:00",
       "n_closed_total": 0,
       "cum_r": 0.0,
       "mean_r": null,
@@ -20,30 +20,30 @@
     "EURJPY": {
       "arm": "OBSERVATION",
       "seal_bar_time": "2026-08-13T00:00:00",
-      "last_bar_time": "2026-09-07T00:00:00",
-      "n_closed_total": 1,
-      "cum_r": -1.0155,
-      "mean_r": -1.0155,
-      "capital": 9898.45,
+      "last_bar_time": "2026-09-08T00:00:00",
+      "n_closed_total": 2,
+      "cum_r": -2.0302,
+      "mean_r": -1.0151,
+      "capital": 9798.01,
       "open_position": {
-        "trade_id": "EURJPY_LONG_20260907",
+        "trade_id": "EURJPY_LONG_20260908",
         "side": "LONG",
-        "entry_bar_time": "2026-09-07T00:00:00",
-        "entry_price": 179.416,
-        "stop_price": 177.8497142857143,
-        "target_price": 180.9362857142857,
-        "risk_distance": 1.5662857142856978,
-        "size_lots": 0.09432384976122404,
-        "risk_ccy": 98.9845259262819
+        "entry_bar_time": "2026-09-08T00:00:00",
+        "entry_price": 178.914,
+        "stop_price": 177.23264285714285,
+        "target_price": 180.54935714285713,
+        "risk_distance": 1.6813571428571379,
+        "size_lots": 0.08697677560611042,
+        "risk_ccy": 97.98014536177087
       },
-      "unrealized_r": -0.0294
+      "unrealized_r": -0.0274
     }
   },
   "stop_criteria": {
     "scope": "bras principal AUDCAD UNIQUEMENT — l'observation n'entre dans aucun critère",
     "fail": "actif dès 20 trades clôturés (n = 0) ; verdict au percentile témoin < 20 — voir report_forward.py",
     "success": "actif dès 40 trades (n = 0) ; percentile témoin >= 95",
-    "time": "NON CONCLUSIF si < 12 trades après 36 mois (écoulés : 0.7)",
+    "time": "NON CONCLUSIF si < 12 trades après 36 mois (écoulés : 0.8)",
     "horizon": "lecture finale obligatoire à 72 mois si ni (a) ni (b)"
   }
 }

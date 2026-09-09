@@ -1,20 +1,20 @@
 {
-  "generated_at_utc": "2026-09-08T17:30:19Z",
+  "generated_at_utc": "2026-09-09T17:38:30Z",
   "first_pass": false,
   "seal_bar_time": "2026-08-14T21:00:00",
-  "last_bar_time": "2026-09-08T16:00:00",
+  "last_bar_time": "2026-09-09T16:00:00",
   "opened_this_pass": 0,
   "closed_this_pass": 0,
-  "n_closed_total": 7,
-  "cum_r": 3.917,
-  "mean_r": 0.5596,
-  "capital": 10386.65,
+  "n_closed_total": 8,
+  "cum_r": 2.9126,
+  "mean_r": 0.3641,
+  "capital": 10282.32,
   "open_position": null,
   "unrealized_r": null,
-  "months_elapsed": 0.72,
+  "months_elapsed": 0.76,
   "stop_criteria": {
-    "fail": "actif dès 40 trades clôturés (n = 7) ; verdict au percentile témoin < 20 — voir report_forward.py",
-    "success": "actif dès 100 trades (n = 7) ; percentile témoin >= 95",
-    "time": "NON CONCLUSIF si < 40 trades après 12 mois (écoulés : 0.7)"
+    "fail": "actif dès 40 trades clôturés (n = 8) ; verdict au percentile témoin < 20 — voir report_forward.py",
+    "success": "actif dès 100 trades (n = 8) ; percentile témoin >= 95",
+    "time": "NON CONCLUSIF si < 40 trades après 12 mois (écoulés : 0.8)"
   }
 }

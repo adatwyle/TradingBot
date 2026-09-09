@@ -8,16 +8,16 @@
       "lines": 0
     },
     "s13_forward": {
-      "bytes": 830,
-      "lines": 3
+      "bytes": 1278,
+      "lines": 5
     },
     "gold_forward": {
-      "bytes": 3080,
-      "lines": 14
+      "bytes": 3501,
+      "lines": 16
     },
     "s14_sentiment": {
-      "bytes": 945653,
-      "lines": 3930
+      "bytes": 1029821,
+      "lines": 4272
     },
     "alexg_paper": {
       "bytes": 3456,
@@ -27,7 +27,7 @@
   "autooff_seen": [
     "4e30e517522394fa"
   ],
-  "last_digest_date": "2026-09-07",
+  "last_digest_date": "2026-09-08",
   "last_monthly": "2026-08",
   "last_annual": "2025"
 }

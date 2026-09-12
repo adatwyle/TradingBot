@@ -77,9 +77,13 @@ sinon          : si bid > highest_sell_price + grid·point : Sell(round(highest_
    **ré-armement exige un pas de grille complet depuis le prix de sortie** (ce que
    l'auteur constate à [90:29]). La remise à zéro des compteurs, elle, était
    cosmétique : ajoutée à [88:02], le bug persistait [88:22] jusqu'au swap des valeurs.
-   **Non tranché** : le reset est-il écrit dans chaque branche TP ou une fois après
-   les deux ? La clôture du panier ACHAT réinitialise-t-elle la référence VENTE ? Le
-   transcript ne le dit pas ; le code affiché à [92:15]-[93:51] le dirait.
+   **Tranché par les images du code** ([92:15]-[93:51], `frames/`) : chaque côté ne
+   réinitialise QUE son ancre et son compteur — la branche achat fait
+   `highestPrice = 0; counterBuy = 0;` (l. 85-86), la branche vente
+   `lowestPrice = DBL_MAX; counterSell = 0;` (l. 89-90). **Aucune contamination
+   croisée.** Les deux blocs de sortie sont en `if / else if` (l. 83 et 87) : **un seul
+   panier se ferme par tick**. Les deux blocs d'entrée sont deux `if` indépendants
+   (l. 93 et 105) : achat et vente peuvent s'armer dans le même tick.
 3. **Bid seul, ask jamais lu** — et le biais est côté VENTE, pas achat : un achat entre
    à l'ask et sort au bid sur la condition bid > moyenne(ask) + TP, donc réalise
    exactement TP ; une vente entre au bid et sort à l'ask sur bid < moyenne(bid) − TP,
@@ -117,6 +121,8 @@ aller-retour. Le TP devra s'exprimer en multiples du spread mesuré, jamais en v
 absolue héritée de la vidéo. Le swap est cité une fois [60:26], jamais traité — sur un
 panier porté des semaines il peut changer le signe d'un « gain ».
 
-Paramètres dont le statut reste incertain : `start_lots` (0,01 ou 0,05 énoncés, 0,05
-dans le run filmé), `is_comment` (défaut non montré), et `multiplier` dont le statut
-`input` est inféré de « the user can change this » [70:11].
+Paramètres, **lus sur le code affiché** (l. 6-10, `frames/f_008.jpg`) — plus aucune
+incertitude : `input int GridPoints = 1000` · `input double StartLots = 0.05` ·
+`input double LotsMultiplier = 3` · `input int TpPoints = 100` · `input bool
+IsComment = false`. Globales : `CTrade trade; double highestPrice = 0; double
+lowestPrice = DBL_MAX;` (l. 12-14). Le programme s'appelle « GoldenHorseYT ».

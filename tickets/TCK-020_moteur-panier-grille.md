@@ -95,11 +95,15 @@ Points fixés par la contre-lecture, à reprendre tels quels dans la spec :
   bid < moyenne(bid) − TP → réalise TP − spread. Un moteur en ask/bid ne doit **pas**
   refacturer un aller-retour au panier acheteur, et doit rendre visible qu'un TP
   inférieur au spread rend le panier vendeur structurellement perdant.
-- **Reset après clôture** : valeurs highest = 0 / lowest = DBL_MAX [88:47] ; le
-  ré-armement exige un pas de grille complet depuis le prix de sortie. **Non tranché
-  par l'audio** : reset dans chaque branche TP ou une fois après les deux, et
-  contamination croisée achat/vente. Le code complet est affiché à [92:15]-[93:51] —
-  cc-support en extrait les images ; la spec attendra cette lecture pour ce point.
+- **Reset après clôture — tranché par les images du code** (l. 83-91,
+  `docs/sources/renebalke/frames/f_016.jpg`) : chaque côté ne réinitialise que son
+  ancre et son compteur (achat : `highestPrice = 0; counterBuy = 0;` — vente :
+  `lowestPrice = DBL_MAX; counterSell = 0;`). **Aucune contamination croisée.** Les
+  deux blocs de sortie sont en `if / else if` : **un seul panier se ferme par tick**.
+  Les deux blocs d'entrée sont deux `if` indépendants (l. 93 et 105). Le ré-armement
+  exige un pas de grille complet depuis le prix de sortie (l'ancre se recolle au bid
+  au tick suivant). Valeurs par défaut lues sur le code : GridPoints 1000, StartLots
+  0,05, LotsMultiplier 3 (bien un `input`), TpPoints 100, IsComment false.
 - Arrondi de lot en dur à 2 décimales ; pas de magic ni de filtre symbole (la boucle
   balaye tout le compte, l'auteur le dit [53:14]) ; compte hedging obligatoire
   (montré [64:07]).

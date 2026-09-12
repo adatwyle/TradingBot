@@ -1,0 +1,58 @@
+ATR Candle Breakout EA — Free MT5 Expert Advisor | BM Trading 
+ Skip to content 
+ BM Trading Expert Advisors Brokers VPS Trade Buddy 
+ About 
+ DE Download EAs 
+ Expert Advisors Brokers VPS Trade Buddy 
+ About Download EAs 
+ All EAs 
+ MT5 
+ ATR Candle Breakout EA 
+ Catches unusually large momentum candles — breakouts measured against the ATR. 
+Strategy 
+ATR momentum breakout 
+Markets 
+Forex, indices, gold 
+Timeframe 
+H1 – H4 
+Platform 
+MT5 
+About this EA 
+The ATR Candle Breakout EA scans every closed candle on your chosen timeframe and compares its size to the Average True Range (ATR). When a candle is significantly larger than the recent average — and closes near its own extreme — the EA reads it as a genuine momentum breakout and trades in that direction. 
+On top of the core signal comes a full set of optional filters: a higher-timeframe trend filter, multi-timeframe ATR confirmation, a time-of-day window, and a support/resistance filter that keeps you from buying straight into resistance. Position size is calculated automatically from a fixed money risk. Download it and run your own backtests in the MT5 Strategy Tester. 
+ Heads up 
+Momentum-breakout strategies can hit extended losing streaks in choppy, range-bound markets. Backtest thoroughly and size conservatively. 
+Tutorial video 
+ Tutorial video coming soon. 
+Disclaimer: I do not recommend specific inputs. The defaults are not necessarily optimal. Different symbols need different inputs. Past performance is not indicative of future results. Never trade with money you cannot afford to lose. 
+Direct download 
+ The .ex5 file works in the MT5 Strategy Tester immediately. For live trading you need a license on your MT5 account at one of my partner brokers. 
+ Download EA (.zip) Request license for my account 
+Recommendation: run MT5 on a Windows VPS (e.g. Contabo) so your EA can trade around the clock. 
+ Open the VPS guide →
+ BM Trading 
+ Automated trading — from someone who does it every day. 
+ Products 
+ Expert Advisors 
+ Request license 
+ Brokers 
+ VPS 
+ Trade Buddy 
+ Courses 
+ Learn 
+ Blog 
+ Newsletter 
+ About 
+ Contact 
+ Legal 
+ Imprint 
+ Privacy 
+ Terms 
+ Withdrawal 
+ Disclaimer 
+ Cookie settings 
+ Follow 
+Risk warning: Trading forex, CFDs and leveraged products carries a significant level of risk and is not suitable for every investor. Past performance is not indicative of future results. 
+© 2026 BM Trading. All rights reserved. 
+ We use Google Analytics to understand and improve how our website is used. Cookies are only set with your consent. More in the privacy policy →
+ Decline Accept

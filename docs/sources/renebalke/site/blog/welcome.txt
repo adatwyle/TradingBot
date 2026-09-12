@@ -1,0 +1,30 @@
+All posts 
+ Welcome Automated trading MQL5 May 15, 2026 
+ Welcome to the BM Trading Blog 
+ Strategies, MQL5 tutorials and honest takes on my automated trading. This is the first post. 
+ By René Balke 
+Glad you found this. If you already know my YouTube channel, you know the angle: automated trading with clear rules, not gut feeling . This blog is the written companion to that. 
+What I write about here 
+Three topic threads I rotate through: 
+ Strategies I actually trade — from Range Breakouts on XAUUSD to Martingale on indices. Real backtests, real drawdowns, and an honest answer to when they work and when they don’t. 
+ MQL5 tutorials for people who want to code their own. From your first “Hello World” all the way to production-ready Expert Advisors. 
+ Brokers, VPS, setup — the unglamorous details that actually decide whether your live trading works. 
+What you won’t find here 
+No “earn €5,000 a month while you sleep” promises. Trading is risky, anyone can lose money, and nobody can guarantee you anything — including me. If that’s what you want to hear, you’re on the wrong site. 
+What I offer you 
+My Expert Advisors are completely free . You download them here, test them as long as you want in the MT5 Strategy Tester, and then decide if you want to trade them live. To run them live, you activate a license with your MT5 account number at one of my partner brokers — that’s my business model, and it costs you nothing extra. 
+If the content here is useful and you eventually decide “okay, I want to try this with real money”, you’ll find the path through the broker overview and the license request form . 
+What’s coming next 
+In upcoming posts: 
+How the Range Breakout EA has performed on gold over the last two years (with the equity curve) 
+Why I love Martingale strategies but would never recommend them without strict risk management 
+ A portfolio of strategies — how I run multiple EAs in parallel to increase my chances of surviving different market trends 
+If you don’t want to miss anything in the meantime, subscribe to my YouTube channel — each of these topics has a matching video over there. The blog complements YouTube but doesn’t replace it. 
+Until then: good luck trading. And remember — the Strategy Tester is your friend before you risk real money. 
+Newsletter 
+Get my monthly live results — by email 
+New EA releases, my verified monthly performance and honest trading insights. Free, unsubscribe anytime. 
+ Email address 
+ First name 
+ Yes, I'd like to receive the newsletter with trading content, new EAs and offers. I can withdraw consent at any time. See the Privacy Policy . Get the updates 
+ Risk note: nothing in this post is investment advice. Trading forex and CFDs carries significant risk. Past performance is no guarantee of future results.

@@ -1,0 +1,55 @@
+Range Breakout EA — Free MT5 Expert Advisor | BM Trading 
+ Skip to content 
+ BM Trading Expert Advisors Brokers VPS Trade Buddy 
+ About 
+ DE Download EAs 
+ Expert Advisors Brokers VPS Trade Buddy 
+ About Download EAs 
+ All EAs 
+ MT5 
+ Range Breakout EA 
+ One of my favourite strategies. I have been running it live for years. 
+Strategy 
+Morning range breakout 
+Markets 
+Forex, indices 
+Timeframe 
+M5 – H1 
+Platform 
+MT5 
+About this EA 
+The Range Breakout EA waits for a range to form in the morning. You pick two times of day, and the EA calculates the high and low between them. It then automatically places pending orders to trade the breakouts in either direction. 
+On top of that you get a full trade-management toolkit — trailing stops, partial closes, time-based exits. Download it and test different settings until you find the variant that fits how you trade. 
+Tutorial video 
+Disclaimer: I do not recommend specific inputs. The defaults are not necessarily optimal. Different symbols need different inputs. Past performance is not indicative of future results. Never trade with money you cannot afford to lose. 
+Direct download 
+ The .ex5 file works in the MT5 Strategy Tester immediately. For live trading you need a license on your MT5 account at one of my partner brokers. 
+ Download EA (.zip) Request license for my account 
+Recommendation: run MT5 on a Windows VPS (e.g. Contabo) so your EA can trade around the clock. 
+ Open the VPS guide →
+ BM Trading 
+ Automated trading — from someone who does it every day. 
+ Products 
+ Expert Advisors 
+ Request license 
+ Brokers 
+ VPS 
+ Trade Buddy 
+ Courses 
+ Learn 
+ Blog 
+ Newsletter 
+ About 
+ Contact 
+ Legal 
+ Imprint 
+ Privacy 
+ Terms 
+ Withdrawal 
+ Disclaimer 
+ Cookie settings 
+ Follow 
+Risk warning: Trading forex, CFDs and leveraged products carries a significant level of risk and is not suitable for every investor. Past performance is not indicative of future results. 
+© 2026 BM Trading. All rights reserved. 
+ We use Google Analytics to understand and improve how our website is used. Cookies are only set with your consent. More in the privacy policy →
+ Decline Accept

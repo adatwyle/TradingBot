@@ -1,0 +1,79 @@
+All posts 
+ Performance update Live trading May 2026 June 1, 2026 
+ May 2026: €91,000 profit in my live trading account 
+ End-of-month performance update. Which strategies worked in May, where USDJPY keeps costing me money, and why I'm not intervening despite the drawdown. 
+ By René Balke 
+May is done and the account is at the highest level it’s ever been. €91,000 in total profit — a new all-time high since I opened the account just over two years ago. 
+As always: not every strategy is firing on all cylinders. Here’s the honest breakdown — what worked this month, what didn’t, and why I’m not touching the USDJPY drawdown manually. 
+ €8,051 
+ May 2026 P/L 
+ €91,000 
+ Total profit since March 2024 
+ 4 
+ Active strategies in the portfolio 
+ 7 
+ Charts running in parallel 
+The video walkthrough 
+15-minute breakdown, strategy by strategy: 
+What happened in the account this month 
+The indices continue to push toward new all-time highs. US Tech is running hot, the US30 looks almost vertical, the DE40 isn’t far behind. The biggest beneficiaries are Go Long and Turnaround Tuesday — both strategies built to ride long-term up-moves in index CFDs. 
+At the same time, the Range Breakout EA put in two outstanding trades in EURJPY. That’s exactly what you build a range-breakout strategy for: one or two genuinely big moves a month carrying most of the performance. 
+The downside: USDJPY has been in a sustained drawdown for about five months. On US30, the daily ranges are so tight that the range-breakout logic barely fires. Both are part of running a diversified portfolio — and both stay in the account untouched. 
+May 2026 — by market and strategy 
+ Market Strategy May 2026 
+ XAUUSD (Gold) Range Breakout EA +€2,219 
+ XAUUSD (Gold) ATR Candle Breakout (experimental) +€186 
+ EURJPY Range Breakout EA +€3,146 
+ USTEC Go Long EA +€3,910 
+ USTEC Turnaround Tuesday −€224 
+ US30 Go Long EA +€847 
+ US30 Turnaround Tuesday +€14 
+ US30 Range Breakout EA −€337 
+ DE40 Go Long EA +€1,698 
+ DE40 Turnaround Tuesday +€571 
+ DE40 Range Breakout EA +€130 
+ GBPUSD Range Breakout EA +€1,937 
+ USDJPY Range Breakout EA −€6,047 
+ Total +€8,051 
+The wins 
+USTEC Go Long — ~7% in a single month 
+US Tech is sitting near all-time highs. The Go Long EA does what it was built for: ride the long-term upward bias. This combination alone contributed roughly 7% of the account’s value in May. 
+Important note: this is not something I project forward. The day US Tech corrects, this position corrects with it. That’s exactly why Go Long never runs in isolation — it’s a portfolio component, not a one-trick pony. 
+Range Breakout on Gold and EURJPY 
+On gold, the Range Breakout EA keeps delivering month after month. This pairing — XAUUSD + Range Breakout — is also the single best-performing strategy/symbol combination in the entire account , if you don’t count the heavily stock-market-correlated Go Long EA: since May 2024 it has generated roughly €23,000 in profit . Significantly more than any other range-based combination. 
+On EURJPY it was quiet for weeks — and then May produced two individual trades worth roughly €3,500 combined . That’s exactly how Range Breakout works: many small break-even trades, then occasionally one that carries the month. 
+The honest part — where money was lost 
+USDJPY: a deep drawdown that won’t quit 
+Here’s the uncomfortable part. USDJPY ran beautifully from mid-2024 to early 2026 — peak profit of +€13,000 . For about five months now, it’s only gone one direction: down. Current state: −€4,000 , with a drawdown of roughly €18,000 from the peak . 
+What I’m not doing: switching off the strategy or tweaking its inputs. Both would be emotional reactions — and the entire reason I moved to automated trading was to stop reacting emotionally. If I intervene now, I deny the strategy any chance to recover if the market phase changes. 
+If you removed USDJPY from your own portfolio, I’d understand. There’s no guarantee the strategy actually recovers — and the current drawdown is unusually large even when you compare it against the backtest results. 
+GBPUSD: was deeper, coming back 
+GBPUSD was underwater for months. Drawdown peak: roughly −€10,000 . Current state: −€7,000 . The strategy is recovering slowly but steadily. If I judged GBPUSD purely on the last two years of data, the lesson would be: don’t trade this. But that’s hindsight — I know now how it played out; two years ago I didn’t. 
+ATR Candle Breakout (experimental) on gold 
+On gold I also run an AI-built strategy called ATR Candle Breakout (not part of my public EA portfolio). May: 2 wins, 6 losses. Before that: a 12-trade losing streak — unusually long for this strategy. The two recent winners brought it back close to break-even. Interesting to watch, but not something I’d offer publicly yet. 
+The lesson — why a portfolio of strategies 
+Honestly: if I judge the account purely on May, USDJPY is dead weight and USTEC is a Swiss watch. If I’d known two years ago how everything would play out, I would have built the portfolio very differently. 
+But that’s the point: we’re trading future moves , not historical ones. No one knows today which markets will deliver in the next twelve months. My USTEC stack could correct 15% tomorrow — and suddenly USDJPY would be the hero of the portfolio. 
+That’s exactly why I run four strategies across seven charts in parallel. If three lose and four win, the account is ahead. If all four keep winning and the three stop losing, you get an exceptional month. That diversification is what increases my chances of surviving different market trends. 
+The EAs I’m currently running — all free 
+The three strategies driving this update are available for free. Download them, test them as long as you want in the MT5 Strategy Tester, then decide if you want to take them live. 
+ Range Breakout EA 
+ My top performer on gold and EURJPY. Waits for the morning range, trades the breakout. 
+ View EA → 
+ Turnaround Tuesday EA 
+ Bets on recovery moves at the start of a new week in index CFDs. 
+ View EA → 
+ Go Long EA 
+ Long-only strategy. My performance driver on USTEC and US30 in recent months. 
+ View EA → 
+To run the EAs live, open an account with one of my partner brokers and submit your MT5 account number through the license form . That’s my business model — costs you nothing extra. 
+Next update 
+The June recap comes at the start of July. If the indices finally correct, that’ll be an interesting update — because it’ll show how much of the recent profit is pure index beta and how much is genuine strategy performance underneath. I’m curious. 
+Until then: good luck trading. And remember — the Strategy Tester is your friend before you risk real money. 
+Newsletter 
+Get my monthly live results — by email 
+New EA releases, my verified monthly performance and honest trading insights. Free, unsubscribe anytime. 
+ Email address 
+ First name 
+ Yes, I'd like to receive the newsletter with trading content, new EAs and offers. I can withdraw consent at any time. See the Privacy Policy . Get the updates 
+ Risk note: nothing in this post is investment advice. Trading forex and CFDs carries significant risk. Past performance is no guarantee of future results.

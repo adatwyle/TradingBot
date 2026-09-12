@@ -1,0 +1,78 @@
+All posts 
+ Performance update Live trading August 2026 September 1, 2026 
+ August 2026: +€3,190 — and Gold Saved the Month 
+ August closed at +€3,190. Gold had its best month ever, USDJPY climbed back to break-even after its record drawdown — while EURJPY and GBPUSD hurt. The verified breakdown. 
+ By René Balke 
+August closed at +€3,190 — a solid month for a portfolio that did all of it by itself while I did nothing. 
+But the interesting part isn’t the total. It’s which strategies produced it. The Range Breakout EA — normally the workhorse — was negative on four of its six markets . What rescued the month was gold having the best month it has ever had, plus USDJPY finally clawing its way back from the deepest drawdown this account has ever seen. 
+ +€3,190 
+ August 2026 P/L 
+ +€6,280 
+ Gold — best month ever 
+ −€7,230 
+ EURJPY + GBPUSD combined 
+ €95,712 
+ Account total since March 2024 
+The video walkthrough 
+The full month, strategy by strategy: 
+ Note: this update is in English only. YouTube’s subtitle and auto-translate functions will give you a German version. 
+August 2026 — by market and strategy 
+ Market Strategy August 2026 
+ XAUUSD (Gold) Range Breakout EA +€5,157.94 
+ XAUUSD (Gold) ATR Candle Breakout +€1,122.21 
+ USDJPY Range Breakout EA +€3,552.26 
+ USTEC Go Long EA +€1,043.95 
+ USTEC Turnaround Tuesday −€42.14 
+ US30 Go Long EA +€506.21 
+ US30 Turnaround Tuesday ±€0 (no trades) 
+ US30 Range Breakout EA −€180.79 
+ DE40 Go Long EA −€45.49 
+ DE40 Turnaround Tuesday ±€0 (no trades) 
+ DE40 Range Breakout EA −€694.17 
+ GBPUSD Range Breakout EA −€2,497.05 
+ EURJPY Range Breakout EA −€4,732.46 
+ Total +€3,190.47 
+Under the hood: 171 trades, a 46.8% win rate, profit factor 1.13 , and an intra-month drawdown of €3,479 — larger than the month’s final profit. A below-50% win rate is completely normal here, because most of these strategies aim for a reward well above their risk. 
+Gold — the golden boy 
+Gold is the reason August was green. +€5,158 from Range Breakout and +€1,122 from ATR Candle Breakout — €6,280 combined, its best month ever. 
+Zoom out and it isn’t close: across both strategies gold now stands at +€31,626 all-time, at a profit factor of 1.40 , a win rate above 51%, and a maximum drawdown of only €5,930 . Nothing else in this portfolio comes close to that stability. 
+The ATR Candle Breakout deserves a mention of its own. It took eight trades, half of them winners — with an average win of about €370 against an average loss of about €90. That’s the whole design showing up in one month: a take-profit roughly three times the stop, so a 50% hit rate produces a very good result. 
+USDJPY — back from the dead 
+ +€3,552 in August , and it means more than the number suggests. USDJPY produced the worst drawdown this account has ever had: €23,373 from its peak. After August, it has recovered close to half of that, and the strategy’s all-time result is back to roughly break-even (−€256, profit factor 1.00) across 468 trades. 
+I’m not declaring victory. But a strategy that was deeply underwater for most of a year clawing its way back to flat is exactly the pattern I keep pointing at when people ask whether a bad stretch means something is broken. Usually it doesn’t. 
+The honest part — EURJPY and GBPUSD 
+ EURJPY lost −€4,732 and GBPUSD −€2,497 — together −€7,230 , and both genuinely hurt. 
+GBPUSD is the more frustrating one: I wrote in July that four green months had recovered about half of its long drawdown. August gave a good chunk of that back. EURJPY, meanwhile, has slid from a strong position earlier in the year to clearly negative all-time. 
+So the honest summary of the Range Breakout EA in August: negative on DE40, US30, GBPUSD and EURJPY , and profitable only on gold and USDJPY. That it still finished the month slightly positive overall (+€606) is entirely down to how big those two winners were. 
+The indices — small, and late-month give-back 
+The index strategies netted about +€588 : USTEC +€1,002, US30 +€325, DE40 −€740. 
+Most of that was earned earlier in the month and handed back near the end, as every major index pulled back roughly 2–5% from its all-time high. Since Go Long and Turnaround Tuesday are long-only , they follow the index down — that’s not a fault to fix, it’s the deal. And “2–5% off the highs” is complaining at a very high level; the indices remain remarkably strong. 
+The big picture 
+Through the end of August the account stands at +€95,712 net across 4,310 trades , at a profit factor of 1.16 and a 52% win rate. 2026 is up roughly €35,000 — my best year so far. 
+Which left me €4,300 short of a number I’d been openly hoping for all month: €100,000 in total profit. I said in the video that I couldn’t influence it and would just have to wait. 
+I didn’t have to wait long. Three days into September, the account crossed it — the full story is here . 
+The EAs I run — all free 
+Every strategy above is free to download. Test them in the MT5 Strategy Tester for as long as you like before deciding anything. 
+ Range Breakout EA 
+ Trades the morning-range breakout. Carried by gold in August, hurt by EURJPY. 
+ View EA → 
+ ATR Candle Breakout EA 
+ Oversized momentum candles, ~3:1 reward-to-risk. A standout month. 
+ View EA → 
+ Go Long EA 
+ Long-only on index CFDs. My biggest all-time contributor. 
+ View EA → 
+ Turnaround Tuesday EA 
+ Rides the early-week recovery in index CFDs. 
+ View EA → 
+To run them live, open an account with one of my partner brokers and submit your MT5 account number through the license form . That’s my business model, and it costs you nothing extra. 
+Next update 
+The September recap comes at the start of October. Until then: good trading — and remember that a month like this one, where four of six markets lost money and the total was still green, is exactly why I run a spread of strategies instead of just the one that worked last year. 
+ Past performance is not a promise of future results. Trading leveraged products carries substantial risk and you can lose money. Test everything yourself, size conservatively, and only risk what you can afford to lose. 
+Newsletter 
+Get my monthly live results — by email 
+New EA releases, my verified monthly performance and honest trading insights. Free, unsubscribe anytime. 
+ Email address 
+ First name 
+ Yes, I'd like to receive the newsletter with trading content, new EAs and offers. I can withdraw consent at any time. See the Privacy Policy . Get the updates 
+ Risk note: nothing in this post is investment advice. Trading forex and CFDs carries significant risk. Past performance is no guarantee of future results.

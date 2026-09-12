@@ -1,0 +1,89 @@
+All posts 
+ Performance update Live trading June 2026 July 1, 2026 
+ June 2026: a losing month — and it was all one currency 
+ June was a rare red month in my live account (−€477), entirely down to USDJPY and its enormous commission costs. The honest, verified breakdown — plus a strong July teaser. 
+ By René Balke 
+June is done — and for the first time in a while, the account went backwards . Only slightly (−€477), but a red month is a red month, and I’d rather show you those honestly than pretend they don’t happen. 
+Here’s the thing, though: strip out one pair — USDJPY — and June was a solid +€4,237. A few individual strategies were red (Go Long on USTEC and DE40, Range Breakout on US30), but none came anywhere near USDJPY. So this month is really one story: USDJPY, and the costs that come with it. 
+ −€477 
+ June 2026 P/L 
+ −€4,714 
+ USDJPY alone 
+ +€4,237 
+ Everything else combined 
+ €96,662 
+ Verified total since March 2024 
+The video walkthrough 
+The full month, strategy by strategy: 
+What happened this month 
+The indices are still pinned near all-time highs — USTEC and DE40 barely off record levels, US30 printing fresh ones. As long as that lasts it’s a tailwind for the account, and Go Long and Turnaround Tuesday keep benefiting. Gold stayed steady, and two currency pairs I’d almost written off — EURJPY and GBPUSD — kept clawing back from long drawdowns. 
+And yet the month closed red. All of it traces back to one pair. 
+June 2026 — by market and strategy 
+ Market Strategy June 2026 
+ XAUUSD (Gold) Range Breakout EA +€1,218.57 
+ XAUUSD (Gold) ATR Candle Breakout (experimental) +€538.99 
+ EURJPY Range Breakout EA +€1,148.44 
+ USTEC Go Long EA −€803.98 
+ USTEC Turnaround Tuesday +€959.40 
+ US30 Go Long EA +€905.39 
+ US30 Turnaround Tuesday ±€0 (no trades) 
+ US30 Range Breakout EA −€297.19 
+ DE40 Go Long EA −€538.87 
+ DE40 Turnaround Tuesday +€420.47 
+ DE40 Range Breakout EA +€1.50 
+ GBPUSD Range Breakout EA +€684.66 
+ USDJPY Range Breakout EA −€4,713.96 
+ Total −€476.58 
+The wins 
+Gold — the reliable one 
+The Range Breakout EA on gold added +€1,218 , with the experimental ATR Candle Breakout chipping in another +€539 . Gold has quietly been one of the steadiest lines in the whole account for months — no drama, just a consistent contribution. 
+The index recoveries 
+ Turnaround Tuesday did its job on the indices: +€959 on USTEC and +€420 on DE40 , off just a couple of trades each. And Go Long on US30 made +€905 — no surprise, since the US30 is the one printing fresh highs. Not every index was green (Go Long lost a bit on USTEC and DE40 where price sits below the very top), but the index block netted a small +€640 overall. 
+EURJPY — the comeback 
+This is the one I find genuinely interesting. EURJPY made +€1,148 in June — but the bigger story is the shape of it. I started this pair in October 2025 and the first few months were ugly: a drawdown of nearly 10% on the account. Since the low, though, it has turned around hard — +€8,091 in 2026 alone , and now sitting at a new high. It’s a perfect example of how a strategy can look broken for months and then quietly come good. 
+GBPUSD — clawing back 
+ GBPUSD added +€685 and is on a similar path: it spent a long time deep underwater (a drawdown north of 23% of the account) and has now recovered roughly half of that. Slow, but going the right way. 
+The honest part — USDJPY, and the cost trap 
+Now the ugly one. USDJPY lost −€4,714 in June — that’s the entire month’s loss and then some. But this month I want to focus on why it’s so much worse than it should be, because it’s a lesson every automated trader needs. 
+It isn’t just that the trades lose. It’s the costs . Look at the June breakdown: of that −€4,714, roughly €629 was pure commission — and slippage on top. Because this strategy trades huge lot sizes on USDJPY (I’m effectively pushing enormous notional volume), the commission stacks up fast. And on the days when the range is tiny, even one or two points of slippage takes a real bite. So the strategy performs meaningfully worse than “just some losing trades” — the trading costs quietly compound the damage. 
+Zoom out and it’s sobering. All-time, USDJPY is now in its worst drawdown ever — about €23,373 from the peak . It was up around +€12,000 in 2025; in 2026 it has given back roughly −€20,800 . That’s a brutal swing. 
+Two honest takeaways from this: 
+ Commissions matter more than people think. Use a broker with genuinely low commissions — and even then, at this kind of volume, it stacks up. It’s a real, recurring drag, not a rounding error. 
+ Don’t over-leverage. The long-term backtest of this exact portfolio was very profitable, and nothing in it predicted a drawdown this deep on USDJPY. Size too big and a phase like this doesn’t just hurt — it destroys the account. 
+My latest project — another (small) account 
+Because of all this, I’ve started a second, small live account — just €5,000 deposited — running the same portfolio EA, but with one important adjustment: a minimum-range filter . On days when the range is too small (say, under 0.1%), it simply doesn’t take the trade . Those tiny-range days are exactly the ones that rack up commission on USDJPY for almost no reward, so skipping them should quietly save a lot of cost. 
+I set up a smaller account on purpose — the numbers on my 50k account aren’t realistic for a lot of people, and a €5k account is easier to relate to. 
+The big picture — the portfolio still works 
+Here’s why one currency in a record drawdown doesn’t sink me: the rest of the portfolio is carrying the losses. Zoom all the way out and the account’s verified total since it opened in March 2024 is +€96,662 , across nearly 3,960 trades — that’s the running all-time figure (current to early July), not what June alone made. 
+By strategy, all-time, the spread is clear: 
+ Go Long — +€56,820 (my biggest contributor, riding the strong index years) 
+ Range Breakout — +€21,389 (gold’s the driver, USDJPY the brake) 
+ Turnaround Tuesday — +€17,417 
+ ATR Candle Breakout — +€389 (still experimental) 
+2026 so far is roughly +€30,000 . A lot of that is the strong stock market, I won’t pretend otherwise — but gold is excellent, EURJPY and GBPUSD are recovering, and that spread is exactly why one bad currency turns into a −€477 month instead of a disaster. 
+One more thing — a July teaser 
+Quick transparency note: the dashboard, strategy and Myfxbook screenshots above are current (early July), so they already include the first couple of July trading days — I couldn’t cleanly filter those out. I’m leaving them in on purpose, because July has opened with a bang. In fact, July 2nd delivered my biggest-ever single-day win on USDJPY — the very pair that just cost me June. Funny how that works. Full story in next month’s update. 
+The EAs I run — all free 
+Every strategy above is free to download. Test them as long as you want in the MT5 Strategy Tester, then decide if you want to take them live. 
+ Go Long EA 
+ Long-only on index CFDs. My biggest all-time contributor. 
+ View EA → 
+ Turnaround Tuesday EA 
+ Rides the early-week recovery in index CFDs. 
+ View EA → 
+ Range Breakout EA 
+ Trades the morning-range breakout. Great on gold — brutal on USDJPY lately. 
+ View EA → 
+ ATR Candle Breakout EA 
+ Catches oversized momentum candles, measured against the ATR. 
+ View EA → 
+To run them live, open an account with one of my partner brokers — ideally a low-commission one, as you’ve just seen why — and submit your MT5 account number through the license form . That’s my business model, and it costs you nothing extra. 
+Next update 
+The July recap comes at the start of August — and after that July 2nd, it should be an interesting one. Until then: good trading, and keep an eye on your commissions. They add up faster than you think. 
+Newsletter 
+Get my monthly live results — by email 
+New EA releases, my verified monthly performance and honest trading insights. Free, unsubscribe anytime. 
+ Email address 
+ First name 
+ Yes, I'd like to receive the newsletter with trading content, new EAs and offers. I can withdraw consent at any time. See the Privacy Policy . Get the updates 
+ Risk note: nothing in this post is investment advice. Trading forex and CFDs carries significant risk. Past performance is no guarantee of future results.

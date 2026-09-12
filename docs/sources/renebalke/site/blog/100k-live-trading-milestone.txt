@@ -1,0 +1,56 @@
+All posts 
+ Milestone Live trading Transparency September 4, 2026 
+ €100,000 in Live Trading Profit — Streamed Almost Every Single Day 
+ My live account crossed €100,000 in profit after two and a half years — publicly verified, streamed almost daily, drawdowns included. What the number does and doesn't mean. 
+ By René Balke 
+Yesterday my live account crossed €100,000 in total profit — €100,891, to be precise. 
+I’ve been trading it since the end of March 2024 — two and a half years — and I’ve streamed almost every single trading day of that journey live on my YouTube channel . Same account number the whole time. No resets, no switching to a fresh account when things got ugly. 
+ €100,891 
+ Total profit since March 2024 
+ 2.5 years 
+ One account, never reset 
+ 4 
+ Free EAs doing all the trading 
+ 24/7 
+ Fully automated on a VPS 
+Verify it yourself — please 
+I’d rather you didn’t take my word for any of this. Both records are public and update automatically: 
+📊 MQL5 signal — every trade, live 
+📈 Myfxbook profile — track record and trading privileges both verified 
+One honest detail while I’m at it: Myfxbook syncs with a delay. At the moment I’m writing this it still shows €96,977, because it last updated 17 hours ago. It’ll catch up to the terminal figure shortly — and since the link above is live rather than a screenshot, you’ll see the current number whenever you click it. 
+That’s the entire point of this account. Screenshots can be faked; a public, broker-verified track record that has run continuously for two and a half years cannot. 
+The honest part 
+Let me be very clear about what this number is not : it isn’t proof that trading is easy, and it certainly isn’t a forecast for anyone else’s account. 
+This same account has been through several deep drawdowns — and I showed every one of them live, as they happened: 
+USDJPY spent 2026 in the worst drawdown of the entire portfolio , roughly €23,000 from its peak. I traded straight through it. ( the full story ) 
+June 2026 was a losing month — I published it exactly like the good ones. 
+My 10-year backtest of this exact portfolio contains drawdowns larger than anything I’ve personally lived through yet. That’s the part I want people to look at, not the headline number. 
+ Trading is not a get-rich-quick scheme. Done carefully, with realistic expectations and proper risk control, I think it’s a genuinely interesting field to be involved in — but the drawdowns are not optional extras. They’re part of the deal. 
+How I got here 
+Nothing exotic. Four free Expert Advisors, running fully automated on a VPS, same settings for long stretches: 
+ Range Breakout EA 
+ Trades the breakout from the day's range — and delivered my biggest single trade ever. 
+ View EA → 
+ Go Long EA 
+ Long-only on index CFDs — my biggest all-time contributor. 
+ View EA → 
+ Turnaround Tuesday EA 
+ Rides the early-week recovery in index CFDs. 
+ View EA → 
+ ATR Candle Breakout EA 
+ Catches oversized momentum candles, measured against the ATR. 
+ View EA → 
+One of those trades was worth +€6,251 in a single day — my biggest ever, and I broke it down in this post , including why the position was that large. 
+All four EAs are completely free . You can download them and test them in the MT5 Strategy Tester for as long as you like — and I’d genuinely encourage you to, because seeing the historical drawdowns for yourself is worth more than any milestone post. To run them live, open an account with one of my partner brokers and submit your MT5 account number through the license form . The broker pays me; you pay nothing extra. 
+Thank you 
+Honestly? When I started this account I mostly saw it as a marketing tool for my channel. It has since turned into a serious part of my income — and far more importantly, into the thing that lets me show what real trading actually looks like, highs and lows included. 
+And congratulations to everyone running the same EAs who has made progress with them. In my recent community survey , 206 of you told me how it’s going — including the ones for whom it didn’t work out. That honesty is worth more to me than this number. 
+There will be more drawdowns. That’s guaranteed. I’ll show those live too. 
+ Past performance is not a promise of future results — mine included. Everything above is one account, one trader, one particular period. Trading leveraged products carries substantial risk and you can lose money. Test everything yourself, size conservatively, and only risk what you can afford to lose. I’m not a financial advisor and nothing here is investment advice. 
+Newsletter 
+Get my monthly live results — by email 
+New EA releases, my verified monthly performance and honest trading insights. Free, unsubscribe anytime. 
+ Email address 
+ First name 
+ Yes, I'd like to receive the newsletter with trading content, new EAs and offers. I can withdraw consent at any time. See the Privacy Policy . Get the updates 
+ Risk note: nothing in this post is investment advice. Trading forex and CFDs carries significant risk. Past performance is no guarantee of future results.

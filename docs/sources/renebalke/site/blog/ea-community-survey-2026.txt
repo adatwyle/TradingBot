@@ -1,0 +1,174 @@
+All posts 
+ Community Survey Expert Advisors August 25, 2026 
+ What 206 Traders Told Me About My Free EAs — The Honest Results 
+ 206 people answered my anonymous survey about my free Expert Advisors: what they run, what works, why some quit. The full results — including the uncomfortable parts. 
+ By René Balke 
+A few weeks ago I asked my newsletter subscribers a simple question: how are my free Expert Advisors actually working for you? 
+Not “do you like my videos”. The real thing — live or demo, which broker, what results, and why some of you stopped using them. The survey was completely anonymous : no email, no login, no IP addresses. That was deliberate. I wanted the honest answers, not the polite ones. 
+ 206 people responded. Here is everything they said — including the parts I’d rather not publish. 
+ 206 
+ Anonymous responses 
+ 4.0 / 5 
+ Average satisfaction with the EAs 
+ 75% 
+ Would recommend them to a friend 
+ 83% 
+ Report no problems with their broker 
+I’m publishing all of it — the flattering numbers and the critical answers — because a survey you only publish when it looks good isn’t worth running. 
+Who answered 
+The first question sorted everyone into four groups, and the split surprised me: 
+ Interested, but haven't started 
+ 49% 
+ Currently using them 
+ 25% 
+ Used them, then stopped 
+ 16% 
+ Not interested 
+ 11% 
+Almost half of the people who answered want to use the EAs but never got going. I’ll come back to why, because their reasons turned out to be the most useful data in the whole survey. 
+This is also an experienced crowd, not beginners: 61% have been trading for more than three years. 
+What people actually run 
+Among the 52 active users: 
+ Range Breakout 
+ 90% 
+ Go Long 
+ 62% 
+ Turnaround Tuesday 
+ 50% 
+ ATR Candle Breakout 
+ 27% 
+And by market, gold (XAUUSD) leads at 88% — followed by DE40 and US30 (68% each), USTEC (66%), USDJPY (60%), then EURJPY and GBPUSD (50% each). 
+Other details worth knowing: 
+ 40% run them live, 38% demo only , the rest both 
+ 75% use a VPS rather than leaving a home PC running 
+ 79% use my settings either exactly (37%) or with small adjustments (42%); only 17% built their own 
+ 58% have been running them for less than three months — this is a young sample 
+Satisfaction 
+ Average rating: 4.0 out of 5. 75% gave a 4 or 5, 19% a 3, and 6% gave a 1 or 2. 
+ 75% would recommend them to a friend, 19% “maybe”, 6% “no”. 
+I’m genuinely glad about that. Some of what people wrote was lovely to read: 
+“Nothing really — the EAs are working smoothly.” 
+“No problems. Either MT5 disconnects or the market goes the opposite way. The EA has executed well so far, at least for me.” 
+“I wanted to say a really heartfelt thank you — you unintentionally became my mentor for MQL5 coding. Thank you! You’re great, keep going!” 
+But averages hide the interesting cases, and the critical answers are the ones I actually learn from. Here’s one of the lowest-rated responses in full: 
+“Your EAs only work short term. Long term, drawdowns are too high and there’s no positive equity.” 
+That came from someone who ran them on demo for 6–12 months, and it’s consistent with something I say in every monthly update: these strategies go through long, flat stretches. That’s not a bug in the strategy — it’s the nature of breakout trading, and it’s exactly what a backtest prepares you for. More on that below. 
+The brokers 
+This part I was nervous about, because I recommend these brokers and earn a commission when you sign up through my links. The data: 
+ Average broker satisfaction: 4.3 / 5 
+ 83% reported no problems at all 
+The few problems named: execution/slippage (2), then one mention each of deposits, support, platform stability, costs, and verification 
+Broker split among live traders: IC Trading 50%, IC Markets 34% , other brokers 13%, BlackBull 3%. 
+I’ll take that as validation that the recommendations hold up — the people using them are, on the whole, satisfied. 
+The results — and how to read them properly 
+32 respondents are trading live. Here’s what they reported, in people rather than percentages — with 32 answers, percentages would suggest more precision than this data has: 
+ Result since they started People 
+ More than +€5,000 5 
+ +€1,000 to +€5,000 5 
+ Up to +€1,000 12 
+ Around break-even 10 
+ Reported a loss 0 
+ That last line needs context, so let me give it properly rather than let you draw the wrong conclusion. It is not evidence that these EAs make money, and I won’t present it that way: 
+ 1. Some people who lost money are no longer in this group. They’re in the “stopped” group — 17 people there said losses were why they left. The survey didn’t lose those answers; it files them under a different question. Looking only at people still trading is the oldest trap in performance statistics, and I’d rather name it than fall into it. 
+ 2. It’s self-reported and unverified. My own account is public and Myfxbook-verified. I have no way to check anyone else’s figures. 
+ 3. Most of the sample is early. 58% have run the EAs for under three months — too short to conclude much about strategies that regularly spend months flat. 
+ 4. People who are happy are more likely to answer. That’s true of every survey, including this one. 
+So the fair reading is: among people currently trading live who chose to answer, most report being around break-even or modestly ahead, and a separate group stopped earlier after losses. Both are real. Neither tells you what will happen in your account — which is exactly why the next section matters more than this one. 
+A pattern I found interesting — with a caveat 
+Sorting live results by how long people have been running the EAs: 
+ Under 6 months: almost everyone reported break-even or up to +€1,000 
+ 6 months and longer: this is where every ”+€5,000 or more” answer came from 
+The tempting conclusion is “be patient and it pays off.” I don’t think the data supports that , and I won’t claim it. The exact same pattern appears if the people whose first months went badly have already quit — which, given the numbers above, is precisely what happened. Read it as a description of who is still here, not as a forecast. 
+What I learned from the people who stopped 
+Of the 206 people who answered, 32 had used the EAs and stopped. That group taught me the most, so I asked them why (multiple answers allowed): 
+ Losses 
+ 17 
+ Trading something else now 
+ 5 
+ Drawdown made me nervous 
+ 4 
+ Too complicated 
+ 4 
+ No time 
+ 3 
+ Technical problems 
+ 3 
+The timing is the interesting part: of the 17 who left after losses, 15 left within the first six months — the exact window in which these strategies are most likely to be flat or in drawdown, and in which a backtest would have told them so in advance. 
+Their free-text answers were the most useful part of the entire survey, and one theme ran through almost all of them: 
+“If I’d had your settings, I would have let them run — but you always made a secret of your experience.” 
+“If I had known how to set it up correctly.” 
+“The correct EA parameters and trade timing.” 
+“It’s very time-consuming to find the right parameters.” 
+The number one request, by a mile 
+Across every group — active users, people who quit, people who never started — the same thing came up more than anything else: my actual settings. The set files. 
+It’s the top content request (47%), and it dominates the free text: 
+“The actual set files you run on your own live accounts, per pair — or at least per-pair recommended settings with realistic risk sizing. My results diverge a lot by symbol with near-default settings.” 
+“Make settings files available.” 
+“It would help if a set was added for each pair you use, but for a different account level — for example €3,000 or €5,000. Then a person would know things are fine even during a decline.” 
+That last one names the real problem precisely. When you don’t know whether your configuration matches mine, a normal drawdown becomes unbearable — because you can’t tell whether it’s the strategy behaving normally or your setup being wrong. That uncertainty, more than the losses themselves, is what pushed people out. 
+ Message received. So let me point you straight at the answer — and then be very clear about what it is and isn’t. 
+Where my settings are — and what they are not 
+I’ve already walked through the settings I use, in detail, in this video: 
+Two things I want to say clearly, and I mean both of them. 
+ First: thank you. 79% of you run my settings exactly or close to it. That is a lot of trust placed in one person’s configuration, and I don’t take it lightly. 
+ Second: this is not a recommendation, and it never was. What I show you is what I run on my own account — with my capital, my risk tolerance and my time horizon. It is a starting point for your own testing, not advice, and not something you should copy simply because it came from me. I am not a financial advisor. I don’t know your situation, your account size or what a bad month would mean for you — and I can’t carry the consequences of your trades. 
+So please do the work yourself: run the EAs through the Strategy Tester, test them on a demo account, and understand what each parameter actually does before you put money behind it. Whatever you then decide is your decision to own. The responsibility for your account stays with you, and it can’t be handed off to a video — mine included. 
+That is also the honest answer to everyone who wrote “if I’d only had your settings”: having them would not have removed the risk. It would only have removed the uncertainty about whether your setup matched mine — which is a real and worthwhile thing, but a very different thing. 
+The one thing I’d recommend even more than my settings 
+If you take a single practical thing away from this survey, take this: run a long backtest of the exact configuration you intend to trade — and do it even if you’re already trading live. 
+Here’s why that matters more than any set file. The Strategy Tester shows you the drawdowns that configuration has historically produced: how deep they went, how long they lasted, how often they came. Once you’ve seen with your own eyes that a three-month flat stretch is normal for a breakout strategy, a three-month flat stretch stops being a crisis and becomes the thing you were expecting. 
+That, I think, is the real difference between the people who stayed and the people who left. Look again at what the quitters actually described — “if I had known how to set it up correctly” , “it’s very time-consuming to find the right parameters” . That isn’t ruin. It’s uncertainty : they couldn’t tell whether what they were seeing on the screen was the strategy behaving normally or their setup being wrong. That uncertainty is what makes a perfectly ordinary drawdown unbearable. 
+A backtest answers that question before your money is on the line. And if you’re already live , it’s arguably even more valuable — because you can hold your account’s behaviour up against what the strategy has always done and see immediately whether you’re inside normal territory or genuinely off track. Almost everyone who told me they were comfortable had done this; almost everyone who told me they were anxious had not. 
+I did exactly this with my own portfolio over ten years — the full breakdown is here , drawdowns included, and they are not small. You can load your own test results into Trade Buddy to break them down by symbol and strategy. 
+None of that makes the risk disappear. It just means you know what you signed up for — and in my experience that is the single biggest factor in whether someone sticks with a strategy or abandons it at the worst possible moment. 
+What’s blocking the other half 
+The 100 people who want to start but haven’t: 
+ No time 
+ 33% 
+ Other reasons 
+ 25% 
+ No capital yet 
+ 25% 
+ Afraid of losses 
+ 15% 
+ Want more proof first 
+ 14% 
+ No eligible broker 
+ 13% 
+ Setup seems too complicated 
+ 10% 
+And what they said would help most: a guide for small accounts (48%) and a complete setup video (41%) . 
+The “other” answers clustered around one thing I hadn’t fully appreciated: broker friction. People already trading with Vantage, Darwinex, Swissquote or Pepperstone, a Canadian with no eligible broker, someone who wrote “I already have 6 accounts” , and several who said they’d rather simply pay for the EA than open another account. That’s real feedback and I’m thinking about it. 
+What I’m doing with all this 
+Here’s the thing that struck me going through your answers: two of the three most-requested items already exist. You just couldn’t find them — which is my problem to fix, not yours. 
+ My settings — the single most requested thing, from every group. The video above explains them in detail. I’ll make it far more visible instead of leaving people to hunt for it. 
+ Small accounts — 48% of non-starters asked for a guide, and 21 of the 32 live traders run accounts under €5,000. There’s already a project on my channel where I trade a €2,000 account from the start, which is exactly this. It clearly isn’t visible enough. 
+ A complete setup video — there’s a full step-by-step tutorial on my license page , from zero to a running EA. Same story: it exists, people didn’t know. 
+So the honest conclusion isn’t “I need to make more content”. It’s “I need to make the content I already have findable” — and that’s what I’ll be working on. 
+The EAs everyone was talking about 
+All four are free, with no strings attached. Test them in the MT5 Strategy Tester for as long as you want before deciding anything. 
+ Range Breakout EA 
+ Used by 90% of respondents. Trades the breakout from the day's range. 
+ View EA → 
+ Go Long EA 
+ Long-only on index CFDs. Used by 62%. 
+ View EA → 
+ Turnaround Tuesday EA 
+ Rides the early-week recovery in index CFDs. Used by 50%. 
+ View EA → 
+ ATR Candle Breakout EA 
+ Catches oversized momentum candles. The newest one, used by 27%. 
+ View EA → 
+To run them live you open an account with one of my partner brokers and submit your MT5 account number through the license form . That’s my business model — the broker pays me, you pay nothing extra. And as the survey shows, 83% of the people who did that report no problems with those brokers. 
+Thank you 
+206 people spent three minutes helping me see my own work more clearly, including the ones who told me it didn’t work for them. That’s worth more than any five-star average, and it’s why the survey was anonymous in the first place. 
+I’ll run this again next year, so we can compare. 
+ About the method: anonymous online survey, 4–23 August 2026, 206 responses (111 German, 95 English), promoted through my newsletter. All figures are self-reported and unverified . The sample is self-selected and skewed toward people who chose to answer — it is not representative of everyone who downloaded the EAs. Free-text answers are quoted anonymously and only from respondents who explicitly consented (88% did). 
+ And the part that matters most: nothing here is a promise or a forecast. Other people’s reported results say nothing about what your account will do. Trading leveraged products carries substantial risk and you can lose money. Test everything yourself in the Strategy Tester, size conservatively, and only risk what you can afford to lose. 
+Newsletter 
+Get my monthly live results — by email 
+New EA releases, my verified monthly performance and honest trading insights. Free, unsubscribe anytime. 
+ Email address 
+ First name 
+ Yes, I'd like to receive the newsletter with trading content, new EAs and offers. I can withdraw consent at any time. See the Privacy Policy . Get the updates 
+ Risk note: nothing in this post is investment advice. Trading forex and CFDs carries significant risk. Past performance is no guarantee of future results.

@@ -1,0 +1,55 @@
+Go Long EA — Free MT5 Expert Advisor | BM Trading 
+ Skip to content 
+ BM Trading Expert Advisors Brokers VPS Trade Buddy 
+ About 
+ DE Download EAs 
+ Expert Advisors Brokers VPS Trade Buddy 
+ About Download EAs 
+ All EAs 
+ MT5 
+ Go Long EA 
+ Long-only. Built for index CFDs and long-term up-trends. 
+Strategy 
+Long-only trend 
+Markets 
+Index CFDs 
+Timeframe 
+D1 
+Platform 
+MT5 
+About this EA 
+The Go Long EA does exactly what the name says: it only opens long positions. I personally use it on index CFDs because indices tend to grind toward new highs over time — economies grow, and so do the big indices. 
+You define the opening and closing times, TP and SL levels, and you can restrict it to only open trades on a fresh daily high. Nobody can guarantee future returns — but as a systematic bet on long-term growth, it is a valid option. 
+Tutorial video 
+Disclaimer: I do not recommend specific inputs. The defaults are not necessarily optimal. Different symbols need different inputs. Past performance is not indicative of future results. Never trade with money you cannot afford to lose. 
+Direct download 
+ The .ex5 file works in the MT5 Strategy Tester immediately. For live trading you need a license on your MT5 account at one of my partner brokers. 
+ Download EA (.zip) Request license for my account 
+Recommendation: run MT5 on a Windows VPS (e.g. Contabo) so your EA can trade around the clock. 
+ Open the VPS guide →
+ BM Trading 
+ Automated trading — from someone who does it every day. 
+ Products 
+ Expert Advisors 
+ Request license 
+ Brokers 
+ VPS 
+ Trade Buddy 
+ Courses 
+ Learn 
+ Blog 
+ Newsletter 
+ About 
+ Contact 
+ Legal 
+ Imprint 
+ Privacy 
+ Terms 
+ Withdrawal 
+ Disclaimer 
+ Cookie settings 
+ Follow 
+Risk warning: Trading forex, CFDs and leveraged products carries a significant level of risk and is not suitable for every investor. Past performance is not indicative of future results. 
+© 2026 BM Trading. All rights reserved. 
+ We use Google Analytics to understand and improve how our website is used. Cookies are only set with your consent. More in the privacy policy →
+ Decline Accept

@@ -1,0 +1,86 @@
+Free Expert Advisors for MT5 | BM Trading 
+ Skip to content 
+ BM Trading Expert Advisors Brokers VPS Trade Buddy 
+ About 
+ DE Download EAs 
+ Expert Advisors Brokers VPS Trade Buddy 
+ About Download EAs 
+ 6 Free Expert Advisors 
+ My free Expert Advisors 
+ Six full-featured EAs from my own trading. Download them, test them unlimited in the Strategy Tester, then decide if you want to take them live. 
+ Request license See brokers 
+ Range Breakout EA 
+MT5 
+ One of my favourite strategies. I have been running it live for years. 
+ The Range Breakout EA waits for a range to form in the morning. You pick two times of day, and the EA calculates the high and low between them. It then automatically places pending orders to trade the breakouts in either direction. 
+ Strategy Morning range breakout 
+ Markets Forex, indices 
+ Timeframe M5 – H1 
+ Download Details →
+ Go Long EA 
+MT5 
+ Long-only. Built for index CFDs and long-term up-trends. 
+ The Go Long EA does exactly what the name says: it only opens long positions. I personally use it on index CFDs because indices tend to grind toward new highs over time — economies grow, and so do the big indices. 
+ Strategy Long-only trend 
+ Markets Index CFDs 
+ Timeframe D1 
+ Download Details →
+ Turnaround Tuesday EA 
+MT5 
+ The well-known Turnaround Tuesday strategy as a ready-to-run EA. 
+ The original idea: wait for pullbacks in the major indices, then ride the recovery move at the start of a new week. A strategy traders have used (and still use) for years. 
+ Strategy Weekly recovery 
+ Markets Index CFDs 
+ Timeframe D1 
+ Download Details →
+ Ninja Turtle Scalper EA 
+MT5 
+ Donchian Channel breakouts in the spirit of the legendary Turtle Traders — as a scalper. 
+ The Ninja Turtle Scalper uses the Donchian Channel to find entry signals — the same indicator that made the legendary Turtle Traders famous. Simple in concept, proven in practice, and now built right into MT5. 
+ Strategy Donchian breakout scalping 
+ Markets Forex majors 
+ Timeframe M1 – M15 
+ Download Details →
+ The Fisherman EA 
+MT5 
+ "Fishes" for quick retracements inside major trends. 
+ The Fisherman EA hunts for short counter-trend moves inside a bigger trend. Different filters set the trend direction. Before opening a trade, the EA waits for a move against the trend — and uses those retracements as the entry trigger. 
+ Strategy Trend pullback 
+ Markets Forex, indices 
+ Timeframe M15 – H4 
+ Download Details →
+ ATR Candle Breakout EA 
+MT5 
+ Catches unusually large momentum candles — breakouts measured against the ATR. 
+ The ATR Candle Breakout EA scans every closed candle on your chosen timeframe and compares its size to the Average True Range (ATR). When a candle is significantly larger than the recent average — and closes near its own extreme — the EA reads it as a genuine momentum breakout and trades in that direction. 
+ Strategy ATR momentum breakout 
+ Markets Forex, indices, gold 
+ Timeframe H1 – H4 
+ Download Details →
+ Disclaimer: I do not recommend specific inputs. The defaults are not necessarily optimal. Different symbols need different inputs. Past performance is not indicative of future results. Never trade with money you cannot afford to lose. 
+ BM Trading 
+ Automated trading — from someone who does it every day. 
+ Products 
+ Expert Advisors 
+ Request license 
+ Brokers 
+ VPS 
+ Trade Buddy 
+ Courses 
+ Learn 
+ Blog 
+ Newsletter 
+ About 
+ Contact 
+ Legal 
+ Imprint 
+ Privacy 
+ Terms 
+ Withdrawal 
+ Disclaimer 
+ Cookie settings 
+ Follow 
+Risk warning: Trading forex, CFDs and leveraged products carries a significant level of risk and is not suitable for every investor. Past performance is not indicative of future results. 
+© 2026 BM Trading. All rights reserved. 
+ We use Google Analytics to understand and improve how our website is used. Cookies are only set with your consent. More in the privacy policy →
+ Decline Accept

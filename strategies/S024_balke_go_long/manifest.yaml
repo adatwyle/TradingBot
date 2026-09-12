@@ -1,0 +1,70 @@
+# manifest — S024 balke_go_long (source unique de vérité, R7)
+# Clés plateforme (SPEC_ui-dynamique §3) : display_name / magic_number / status / symbols.
+
+strategy_id: S024_balke_go_long
+name: balke_go_long
+display_name: "Go Long — achat d'indice à heure fixe (René Balke)"
+magic_number: 130024          # unique (R4), jamais réutilisé
+status: BACKTESTED            # mesuré le 2026-09-12 (research/VERDICT.md).
+                              # « BACKTESTED = mesuré, pas validé » — aucune
+                              # promotion sans décision Adrian (R10).
+version: 1.0.0
+author: "claude:S024_balke_go_long"
+source: "https://www.youtube.com/watch?v=qgsi-u0kOVw"
+source_ea: "https://bmtrading.de/en/expert-advisors/"
+trader: "René Balke (BM Trading, @ReneBalke)"
+
+symbols: [DAX, NASDAQ, US30]
+timeframe: "H1"
+warmup_bars: 0                # aucun indicateur : la règle est un horaire
+
+# ── Règle, telle qu'elle est dictée et montrée à l'écran ─────────────────────
+# Tous les jours, un ACHAT de l'indice à heure fixe ; clôture à heure fixe le
+# même jour. Aucun filtre, aucune analyse, ni stop ni cible, ni trailing ni
+# break-even, « wait for new day high » désactivé.
+#   US30 / US Tech : ouverture 01:05, clôture 23:50 (heure serveur du courtier)
+#   DE40           : ouverture 09:05, clôture 22:55 (spread nocturne 4× plus cher)
+# Motif de la réouverture quotidienne : le swap long coûterait ≈ 6 %/an sur le
+# DE40, et être à plat la nuit et le week-end évite les gaps baissiers.
+# Dimensionnement « risque 50 000 € » = notionnel (perte si l'indice allait à
+# zéro) — c'est de la couche risque (R2), pas de la stratégie.
+
+# ── Grille : 6 cellules ──────────────────────────────────────────────────────
+# La règle N'A AUCUN réglage chez l'auteur. Les deux seuls axes ouverts sont des
+# contraintes de plateforme, pas des variantes de sa stratégie :
+#   guard_pct          garde catastrophe imposée par R3 (lui n'a pas de stop) ;
+#   entry_hour_offset  ambiguïté de ±1 h entre son 01:05 et notre maillage H1.
+# Cellule de fidélité : guard_pct 0.05, entry_hour_offset 0.
+param_grid:
+  guard_pct: [0.03, 0.05, 0.10]
+  entry_hour_offset: [0, 1]
+
+default_params:
+  start_hour: 0               # première heure de séance serveur ; DAX = 8
+                              # (réglage d'instrument, passé par le harnais —
+                              # équivalent de « Trading Start Hour » de l'EA)
+  entry_hour_offset: 0
+  guard_pct: 0.05
+
+created: 2026-09-12
+notes: |
+  CE QUE LA PLATEFORME AJOUTE, DÉCLARÉ :
+  - Garde catastrophe (R3). Balke ne met aucun stop ; son « risque 50 000 € »
+    est un notionnel. `guard_pct` est une garde, jamais un stop de gestion : le
+    harnais publie combien de trades la touchent.
+  - Sortie temporelle approximée. Le moteur commun n'offre que
+    `max_hold_bars=k` (fermeture k barres après l'entrée). Le harnais dérive k
+    de la séance réellement observée dans les barres, et publie la distribution
+    d'heure de sortie obtenue ainsi que l'écart avec son horaire.
+  - Coût de bord réel (spread catalogue ET spread mesuré) : la source n'en parle
+    pas pour cette stratégie, alors qu'elle fait ~250 trades/an et par indice.
+
+  SÉANCES OBSERVÉES (mesure du 2026-09-12, `docs/data/INDICES_intraday_2026-09-12.md`) :
+  NASDAQ et US30 cotent 24/24 en semaine — journée serveur type = 23 barres
+  (00:00 → 22:00) ; DAX = 14 barres (08:00 → 21:00), aucune barre le week-end.
+  Heure serveur Swissquote ≈ GMT+2/+3 (EET), même convention que l'IC Markets
+  de l'auteur.
+
+  CETTE STRATÉGIE EST DU BÊTA INDICIEL PAR CONSTRUCTION. Le seul jugement qui
+  vaut est la comparaison à acheter-et-tenir et à la jambe overnight, pas un
+  R/trade isolé. C'est le cœur du protocole de mesure.

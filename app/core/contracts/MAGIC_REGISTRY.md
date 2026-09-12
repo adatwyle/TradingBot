@@ -36,6 +36,11 @@ individuelle, ou de bloquer une seule stratégie.
 | `130013` | `s13_macd_fx` | Mandat Adrian — exploration de conception MACD sur forex D1 | RESEARCH |
 | `130015` | `s15_cot_positioning` | Rapport COT / CFTC — positionnement des gros opérateurs, contrats directs (XAUUSD, EURUSD) D1 | RESEARCH |
 | `130016` | `s16_confluence` | Mandat Adrian — confluence de 4 lectures (technique, sentiment, anticipations, avis de Claude), score calibré | RESEARCH |
+| `130017` | `S017_ireland_gex` | Ireland GEX — SPY intraday piloté par la carte GEX | RESEARCH |
+| `130018` | `S018_gold_doud_v2` | **réservé — vit sur la branche `v2/gold`** (or v2, méthode Doud) | RESEARCH |
+| `130019` | `S019_gold_sweep` | **réservé — vit sur la branche `v2/gold`** (or, balayage de liquidité) | RESEARCH |
+| `130020` | `S020_balke_macd_cross` | MACD cross + filtre zéro, SL/TP en % (René Balke, vidéo 2026-08-23) | RESEARCH |
+| `130021` | `S021_balke_grid` | **réservé** — grille martingale bidirectionnelle (René Balke, vidéo 2025-12-20) ; attend la capacité « panier » du moteur (TCK-020) | RESEARCH |
 | `130090` | `s90_adrian_synthesis` | Synthèse des verdicts validés | RESEARCH |
 | `130091` | `s91_claude_scratch` | Conception autonome Claude | RESEARCH |
 | `130092` | `s92_claudetrader` | Agent headless cyclique (concept Hermes) | RESEARCH |
@@ -47,7 +52,7 @@ individuelle, ou de bloquer une seule stratégie.
   `studies/s14_sentiment/` (étude scellée sur le sentiment des news, sans
   trading donc sans magic). Laisser `130014` libre évite qu'il existe deux
   objets « s14 » de nature différente dans le dépôt. Ne pas le réattribuer.
-- `130017` – `130089` : futures stratégies internes
+- `130022` – `130089` : futures stratégies internes
 - `130094` – `130099` : expérimentations Claude
 
 ## Historique (v1 — ne pas réutiliser)

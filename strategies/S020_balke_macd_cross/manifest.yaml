@@ -1,0 +1,53 @@
+# manifest — S020 balke_macd_cross (source unique de vérité, R7)
+# Clés plateforme (SPEC_ui-dynamique §3) : display_name / magic_number / status / symbols.
+
+strategy_id: S020_balke_macd_cross
+name: balke_macd_cross
+display_name: "MACD cross + filtre zéro, SL/TP en % (René Balke)"
+magic_number: 130020          # unique (R4), jamais réutilisé
+status: RESEARCH              # promotion = décision Adrian (R10)
+version: 1.0.0
+author: "claude:S020_balke_macd_cross"
+source: "https://www.youtube.com/watch?v=-9HUV9I_s-c"
+trader: "René Balke (BM Trading, @ReneBalke)"
+
+symbols: [NASDAQ, SP500, DAX, XAUUSD, EURUSD, GBPUSD, USDJPY]
+timeframe: "H1"               # « the time frame should be an input parameter » [06:20]
+warmup_bars: 60
+
+# ── Règle, telle que dictée dans la vidéo ────────────────────────────────────
+# Entrée : la ligne MACD(12,26) croise sa ligne de signal (9) — hausse = achat,
+# baisse = vente. Filtre optionnel : achat seulement si MACD < 0, vente seulement
+# si MACD > 0. Stop et cible = % du prix d'entrée, réglables (démo 2 % / 2 %).
+# Une position par symbole. Rien d'autre : pas de trailing, pas d'horaire, pas
+# de filtre de tendance. L'auteur : « this is not like a money printing machine
+# or something » [19:30].
+
+# ── Grille : 18 cellules ─────────────────────────────────────────────────────
+# Trois réglages, autour de sa démo. À 5 %, ≈ 0,9 réussite attendue par hasard.
+param_grid:
+  zero_filter: [false, true]
+  sl_pct: [0.005, 0.01, 0.02]
+  tp_pct: [0.01, 0.02, 0.04]
+
+default_params:
+  zero_filter: true
+  sl_pct: 0.02
+  tp_pct: 0.02
+  side_mode: both
+
+created: 2026-09-12
+notes: |
+  VOISINAGE INTERNE, déclaré : S013 (famille `cross`, sorties ATR, forex D1) a
+  mesuré le croisement MACD nu et l'a jugé « probablement mort ». La règle de
+  Balke combine croisement + filtre zéro, avec une géométrie en % et sur des
+  indices — ce n'est pas la même cellule. S020 fait son propre run (directive
+  Adrian 2026-09-12 : chaque stratégie porte ses règles et a sa chance).
+
+  CE QUE LA VIDÉO NE DIT PAS et que la mesure doit rendre visible : le coût de
+  bord (aucune mention de spread/commission), l'unité de temps de la démo (non
+  affichée — H1 retenu par défaut, D1 pour les indices tant que MT5 ne fournit
+  pas l'intraday), l'effet du filtre zéro (il l'active après l'avoir oublié).
+
+  DONNÉES : indices en D1 seulement dans le cache (NASDAQ 1855 j) ; intraday
+  indices à charger quand MT5 est en ligne. FX et or en H1.

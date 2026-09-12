@@ -42,6 +42,7 @@ individuelle, ou de bloquer une seule stratégie.
 | `130020` | `S020_balke_macd_cross` | MACD cross + filtre zéro, SL/TP en % (René Balke, vidéo 2026-08-23) | RESEARCH |
 | `130021` | `S021_balke_grid` | **réservé** — grille martingale bidirectionnelle (René Balke, vidéo 2025-12-20) ; attend la capacité « panier » du moteur (TCK-020) | RESEARCH |
 | `130022` | `S022_balke_atr_candle` | ATR Candle Breakout — grosse bougie > ATR fermant sur son extrême, SL/TP en % (René Balke, EA gratuit + blog 2026-06-09), or H1 | BACKTESTED |
+| `130023` | `S023_balke_turnaround_tuesday` | Turnaround Tuesday — achat du lundi sous la SMA journalière, sortie mardi soir, garde catastrophe propre (René Balke, EA gratuit + vidéo 100 k€), DAX/NASDAQ/US30 H1 | BACKTESTED |
 | `130090` | `s90_adrian_synthesis` | Synthèse des verdicts validés | RESEARCH |
 | `130091` | `s91_claude_scratch` | Conception autonome Claude | RESEARCH |
 | `130092` | `s92_claudetrader` | Agent headless cyclique (concept Hermes) | RESEARCH |
@@ -53,7 +54,7 @@ individuelle, ou de bloquer une seule stratégie.
   `studies/s14_sentiment/` (étude scellée sur le sentiment des news, sans
   trading donc sans magic). Laisser `130014` libre évite qu'il existe deux
   objets « s14 » de nature différente dans le dépôt. Ne pas le réattribuer.
-- `130023` – `130089` : futures stratégies internes
+- `130024` – `130089` : futures stratégies internes
 - `130094` – `130099` : expérimentations Claude
 
 ## Historique (v1 — ne pas réutiliser)

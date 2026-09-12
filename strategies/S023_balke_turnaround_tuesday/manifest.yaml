@@ -1,0 +1,95 @@
+# manifest — S023 balke_turnaround_tuesday (source unique de vérité, R7)
+# Clés plateforme (SPEC_ui-dynamique §3) : display_name / magic_number / status / symbols.
+
+strategy_id: S023_balke_turnaround_tuesday
+name: balke_turnaround_tuesday
+display_name: "Turnaround Tuesday — achat du lundi sous la SMA D1 (René Balke)"
+magic_number: 130023          # unique (R4), jamais réutilisé
+status: BACKTESTED            # mesuré le 2026-09-12 (research/VERDICT.md).
+                              # « BACKTESTED = mesuré, pas validé » — aucune
+                              # promotion PAPER/LIVE sans décision Adrian (R10).
+                              # Verdict : ÉCHEC au sens des critères (1 indice sur 3
+                              # au-dessus du percentile témoin 90 — le DAX seul).
+version: 1.0.0
+author: "claude:S023_balke_turnaround_tuesday"
+source: "https://www.youtube.com/watch?v=qgsi-u0kOVw"
+source_ea: "https://bmtrading.de/en/expert-advisors/"
+trader: "René Balke (BM Trading, @ReneBalke)"
+
+symbols: [DAX, NASDAQ, US30]
+timeframe: "H1"               # il trade en intraday (ouverture 01:05 / 09:05,
+                              # clôture 23:50 / 22:55) avec un FILTRE journalier
+warmup_bars: 984              # 41 jours × 24 barres — la contrainte réelle est
+                              # la SMA journalière (NaN tant que N jours complets
+                              # manquent), pas un compte de barres
+
+# ── Règle, telle que dictée dans la vidéo ────────────────────────────────────
+# [13:48]-[15:58] : « anytime on Monday if the price is below the moving average
+# ... we hold it for Monday and Tuesday », puis clôture le mardi soir. Achat
+# seulement. Pas de TP, pas de SL, aucune gestion.
+# [27:41]-[29:19] réglages live montrés à l'écran : moyenne mobile SIMPLE sur les
+# clôtures du chart JOURNALIER, période par indice — US30 25, US Tech 9, DE40 40 ;
+# ouverture lundi 01:05 (DE40 09:05), clôture mardi 23:50 (DE40 22:55) ; ni SL ni
+# TP ; risque notionnel 25 000 € par trade ; « Wait for new day high » désactivé.
+# Résultats live annoncés : ~160 trades depuis mars 2024, +16 k€, profitable sur
+# les trois indices, « probably I was lucky in the period ».
+
+# ── Cellule de fidélité par instrument ───────────────────────────────────────
+# Ce qu'il trade réellement, à comparer AVANT la grille :
+fidelity_cells:
+  US30:   {sma_period: 25, entry_mode: first_bar, guard_pct: 0.05}
+  NASDAQ: {sma_period: 9,  entry_mode: first_bar, guard_pct: 0.05}
+  DAX:    {sma_period: 40, entry_mode: first_bar, guard_pct: 0.05}
+
+# ── Grille : 18 cellules ─────────────────────────────────────────────────────
+# 3 périodes (les siennes, croisées sur les trois indices) × 2 lectures du
+# « check constantly » × 3 distances de garde. 18 cellules × 3 instruments = 54
+# tests : à 5 %, ≈ 2,7 « réussites » attendues par pur hasard. Figée AVANT mesure.
+param_grid:
+  sma_period: [9, 25, 40]
+  entry_mode: [first_bar, any_bar]
+  guard_pct: [0.03, 0.05, 0.10]
+
+default_params:
+  sma_period: 25
+  entry_mode: first_bar
+  guard_pct: 0.05
+  open_dow: 0                 # lundi — « Open Day of Week » de l'EA, hors grille
+
+# ── Bras moteur, déclarés avant la mesure ────────────────────────────────────
+# Le moteur commun n'a qu'UNE sortie temporelle : max_hold_bars. La clôture du
+# mardi soir est donc approximée par un nombre fixe de barres H1, CALIBRÉ sur les
+# données (distance médiane/modale entre la première barre du lundi et la
+# dernière du mardi) :
+engine_arms:
+  faithful:      {max_positions: 1, cooldown_bars: 0, cb_losses: 999, cb_cooldown_bars: 0}
+  common_rules:  {max_positions: 1, cooldown_bars: 2, cb_losses: 3,   cb_cooldown_bars: 24}
+max_hold_bars:
+  NASDAQ: 45                  # mode 234/261 semaines (24/24, 1re barre lundi 00:00)
+  US30:   45                  # mode 234/261 semaines
+  DAX:    27                  # mode 253/254 semaines (séance 08:00-21:00)
+
+created: 2026-09-12
+notes: |
+  LE STOP N'EST PAS DE LA SOURCE. Balke n'a ni SL ni TP : son risque est le
+  notionnel (25 000 € par trade). `Signal.stop` étant obligatoire sur cette
+  plateforme (R3), la stratégie déclare SA PROPRE règle — `guard_pct`, garde
+  CATASTROPHE à 5 % sous l'entrée, jamais un stop de gestion. Le harnais compte
+  les trades qui la touchent : si ce compte n'est pas quasi nul, la garde n'est
+  plus une garde et la reproduction n'est plus fidèle.
+
+  CELLULE DE RÉFÉRENCE HORS GRILLE : `sma_period: 0` = filtre désactivé — achat
+  de CHAQUE lundi, même sortie. C'est le rendement 2 jours nu de l'indice ;
+  il rend visible l'apport propre du filtre SMA. N'entre pas dans le décompte
+  de multiplicité (ce n'est pas un candidat, c'est un étalon).
+
+  DONNÉES : H1 serveur (Swissquote, ≈ GMT+3), 1855 jours, 2021-08-16 →
+  2026-09-11. Clôture journalière DÉRIVÉE de la dernière barre H1 de chaque jour
+  serveur — vérifiée identique aux barres D1 du courtier (écart médian nul sur
+  1293-1331 jours). NASDAQ/US30 cotent 24/24 (+18 barres dominicales résiduelles
+  sur 5 ans, comptées comme des jours complets à part entière) ; le DAX cote
+  08:00-21:00, jamais le dimanche.
+
+  SPREAD : catalogue DAX 8 / NASDAQ 8 / US30 35 pips ; mesuré sur les barres
+  (365 j) DAX 23 / NASDAQ 12 / US30 35. Les deux sont rapportés — cf.
+  docs/data/INDICES_intraday_2026-09-12.md et ticket TCK-018.

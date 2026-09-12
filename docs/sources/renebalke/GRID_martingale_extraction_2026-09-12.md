@@ -64,17 +64,27 @@ sinon          : si bid > highest_sell_price + grid·point : Sell(round(highest_
 
 ## 4. Ce que le portage devra trancher (la vidéo ne le dit pas)
 
-1. **Portée des extrêmes** : latch global depuis le démarrage — jamais une fenêtre de
-   N barres. Sur un marché en tendance, le plus-haut ne redescend jamais ; après un
-   sommet, la condition d'achat est vraie en permanence. Le choix (latch global /
-   fenêtre / session) change entièrement la fréquence des paniers.
-2. **Reset après clôture** : l'auteur se contredit trois fois ([86:45], [88:17],
-   [88:47]) ; la seule version qui produit son backtest final est highest = 0 /
-   lowest = DBL_MAX. Et la clôture du panier ACHAT réinitialise aussi la référence
-   VENTE (contamination croisée jamais évoquée).
-3. **Bid seul, ask jamais lu** : les achats sont exécutés à l'ask, déclenchés et
-   sortis au bid ; la sortie vendeuse est amputée d'un spread entier. Choix de portage
-   à déclarer, pas à reproduire par accident.
+1. **Portée des extrêmes — DITE, pas à deviner** : *« store the highest price since
+   we started running the program »* [36:28]. Latch global depuis le démarrage, jamais
+   une fenêtre de barres ni une session. Conséquence, jamais tirée dans la vidéo : au
+   tout premier tick les deux ancres se collent au bid ; rien ne peut se déclencher
+   avant une excursion complète d'un pas de grille depuis l'instant de démarrage.
+   Pour un walk-forward ancré, la tête de chaque fenêtre est donc structurellement
+   inerte — à traiter dans le protocole de mesure.
+2. **Reset après clôture** : valeurs établies à [88:47] (highest = 0, lowest = DBL_MAX)
+   après deux tentatives fausses. Sémantique réelle : remettre highest à 0 ne
+   « restaure » rien — l'ancre se recolle au bid dès le tick suivant, donc le
+   **ré-armement exige un pas de grille complet depuis le prix de sortie** (ce que
+   l'auteur constate à [90:29]). La remise à zéro des compteurs, elle, était
+   cosmétique : ajoutée à [88:02], le bug persistait [88:22] jusqu'au swap des valeurs.
+   **Non tranché** : le reset est-il écrit dans chaque branche TP ou une fois après
+   les deux ? La clôture du panier ACHAT réinitialise-t-elle la référence VENTE ? Le
+   transcript ne le dit pas ; le code affiché à [92:15]-[93:51] le dirait.
+3. **Bid seul, ask jamais lu** — et le biais est côté VENTE, pas achat : un achat entre
+   à l'ask et sort au bid sur la condition bid > moyenne(ask) + TP, donc réalise
+   exactement TP ; une vente entre au bid et sort à l'ask sur bid < moyenne(bid) − TP,
+   donc réalise TP − spread. Un TP inférieur au spread rend le panier vendeur
+   structurellement perdant. Choix de portage à déclarer, pas à reproduire par accident.
 4. **Arrondi de lot en dur** à 2 décimales, sans lecture des bornes du courtier.
 5. **Aucune vérification du retour d'ordre** : un ordre refusé est retenté à chaque tick.
 6. **Compte hedging obligatoire** — jamais précisé.
@@ -100,6 +110,13 @@ Métriques : espérance par panier avec IC, drawdown d'équité **flottante**, e
 et marge maximales, profondeurs, probabilité de ruine par bootstrap par blocs. Le taux
 de réussite ne dit rien : un panier ne se ferme que gagnant.
 
-Coût : avec un TP de 100 points, le coût d'un panier vaut spread/TP quelle que soit la
-profondeur — 19 % sur EURUSD au spread mesuré, 60 % sur AUDCAD. Le TP devra s'exprimer
-en multiples du spread mesuré, jamais en valeur absolue héritée de la vidéo.
+Coût : le panier **vendeur** paie spread/TP quelle que soit la profondeur — 19 % sur
+EURUSD au spread mesuré, 60 % sur AUDCAD ; le panier **acheteur** réalise TP net (cf.
+§ 4.3), et un moteur qui remplirait en ask/bid ne doit pas lui refacturer un spread
+aller-retour. Le TP devra s'exprimer en multiples du spread mesuré, jamais en valeur
+absolue héritée de la vidéo. Le swap est cité une fois [60:26], jamais traité — sur un
+panier porté des semaines il peut changer le signe d'un « gain ».
+
+Paramètres dont le statut reste incertain : `start_lots` (0,01 ou 0,05 énoncés, 0,05
+dans le run filmé), `is_comment` (défaut non montré), et `multiplier` dont le statut
+`input` est inféré de « the user can change this » [70:11].

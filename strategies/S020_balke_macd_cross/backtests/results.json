@@ -1,0 +1,5689 @@
+{
+  "commit": "e1b843b (arbre modifié)",
+  "symbols": {
+    "NASDAQ": {
+      "symbol": "NASDAQ",
+      "timeframe": "D1",
+      "bars": 1330,
+      "spread_catalogue": 8.0,
+      "spread_mesure": 95.0,
+      "cost": {
+        "median_risk_pips": 3657.6,
+        "pct_catalogue": 0.22,
+        "pct_mesure": 2.6
+      },
+      "r1_ok": true,
+      "full_sample": [
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "- sl0.5% tp1%",
+          "n_trades": 74,
+          "total_r": -15.52,
+          "win_rate": 28.4,
+          "profit_factor": 0.73,
+          "max_dd_r": 17.55,
+          "skipped_spread": 0,
+          "skipped_cooldown": 33,
+          "skipped_open": 0,
+          "r_per_trade": -0.2097,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              -4.1,
+              13
+            ],
+            "2023": [
+              5.2,
+              15
+            ],
+            "2024": [
+              -8.1,
+              17
+            ],
+            "2025": [
+              2.5,
+              18
+            ],
+            "2026": [
+              -8.0,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "- sl0.5% tp2%",
+          "n_trades": 71,
+          "total_r": -0.58,
+          "win_rate": 21.1,
+          "profit_factor": 0.99,
+          "max_dd_r": 14.47,
+          "skipped_spread": 0,
+          "skipped_cooldown": 36,
+          "skipped_open": 0,
+          "r_per_trade": -0.0082,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              1.8,
+              13
+            ],
+            "2023": [
+              9.2,
+              15
+            ],
+            "2024": [
+              -6.1,
+              16
+            ],
+            "2025": [
+              0.6,
+              16
+            ],
+            "2026": [
+              -3.0,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "- sl0.5% tp4%",
+          "n_trades": 64,
+          "total_r": -4.92,
+          "win_rate": 10.9,
+          "profit_factor": 0.92,
+          "max_dd_r": 19.08,
+          "skipped_spread": 0,
+          "skipped_cooldown": 43,
+          "skipped_open": 0,
+          "r_per_trade": -0.0769,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              5.8,
+              12
+            ],
+            "2023": [
+              5.8,
+              12
+            ],
+            "2024": [
+              -14.1,
+              14
+            ],
+            "2025": [
+              10.5,
+              13
+            ],
+            "2026": [
+              -10.0,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "- sl1.0% tp1%",
+          "n_trades": 81,
+          "total_r": 0.57,
+          "win_rate": 51.9,
+          "profit_factor": 1.01,
+          "max_dd_r": 7.06,
+          "skipped_spread": 0,
+          "skipped_cooldown": 26,
+          "skipped_open": 0,
+          "r_per_trade": 0.0071,
+          "by_year": {
+            "2021": [
+              -1.0,
+              3
+            ],
+            "2022": [
+              2.9,
+              15
+            ],
+            "2023": [
+              2.9,
+              15
+            ],
+            "2024": [
+              -4.1,
+              18
+            ],
+            "2025": [
+              1.8,
+              17
+            ],
+            "2026": [
+              -1.9,
+              13
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "- sl1.0% tp2%",
+          "n_trades": 71,
+          "total_r": -2.42,
+          "win_rate": 33.8,
+          "profit_factor": 0.95,
+          "max_dd_r": 10.26,
+          "skipped_spread": 0,
+          "skipped_cooldown": 36,
+          "skipped_open": 0,
+          "r_per_trade": -0.0341,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              3.9,
+              14
+            ],
+            "2023": [
+              3.9,
+              14
+            ],
+            "2024": [
+              0.9,
+              17
+            ],
+            "2025": [
+              -2.2,
+              16
+            ],
+            "2026": [
+              -5.9,
+              7
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "- sl1.0% tp4%",
+          "n_trades": 63,
+          "total_r": 6.6,
+          "win_rate": 23.8,
+          "profit_factor": 1.13,
+          "max_dd_r": 8.18,
+          "skipped_spread": 0,
+          "skipped_cooldown": 44,
+          "skipped_open": 0,
+          "r_per_trade": 0.1048,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              2.9,
+              12
+            ],
+            "2023": [
+              8.9,
+              11
+            ],
+            "2024": [
+              -0.1,
+              15
+            ],
+            "2025": [
+              1.8,
+              12
+            ],
+            "2026": [
+              -3.9,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "- sl2.0% tp1%",
+          "n_trades": 84,
+          "total_r": -0.95,
+          "win_rate": 65.5,
+          "profit_factor": 0.97,
+          "max_dd_r": 5.66,
+          "skipped_spread": 0,
+          "skipped_cooldown": 23,
+          "skipped_open": 0,
+          "r_per_trade": -0.0113,
+          "by_year": {
+            "2021": [
+              -1.5,
+              3
+            ],
+            "2022": [
+              -0.0,
+              15
+            ],
+            "2023": [
+              4.5,
+              15
+            ],
+            "2024": [
+              -3.0,
+              21
+            ],
+            "2025": [
+              2.4,
+              17
+            ],
+            "2026": [
+              -3.2,
+              13
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "- sl2.0% tp2%",
+          "n_trades": 71,
+          "total_r": -11.24,
+          "win_rate": 42.3,
+          "profit_factor": 0.73,
+          "max_dd_r": 12.17,
+          "skipped_spread": 0,
+          "skipped_cooldown": 36,
+          "skipped_open": 0,
+          "r_per_trade": -0.1583,
+          "by_year": {
+            "2021": [
+              -1.0,
+              3
+            ],
+            "2022": [
+              -1.0,
+              15
+            ],
+            "2023": [
+              1.0,
+              13
+            ],
+            "2024": [
+              -3.0,
+              17
+            ],
+            "2025": [
+              -3.1,
+              15
+            ],
+            "2026": [
+              -4.0,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "- sl2.0% tp4%",
+          "n_trades": 59,
+          "total_r": -2.23,
+          "win_rate": 32.2,
+          "profit_factor": 0.94,
+          "max_dd_r": 15.14,
+          "skipped_spread": 0,
+          "skipped_cooldown": 48,
+          "skipped_open": 0,
+          "r_per_trade": -0.0378,
+          "by_year": {
+            "2021": [
+              -0.0,
+              3
+            ],
+            "2022": [
+              5.9,
+              15
+            ],
+            "2023": [
+              5.0,
+              10
+            ],
+            "2024": [
+              -4.0,
+              13
+            ],
+            "2025": [
+              -3.1,
+              12
+            ],
+            "2026": [
+              -6.0,
+              6
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl0.5% tp1%",
+          "n_trades": 58,
+          "total_r": -7.16,
+          "win_rate": 32.8,
+          "profit_factor": 0.83,
+          "max_dd_r": 13.5,
+          "skipped_spread": 0,
+          "skipped_cooldown": 10,
+          "skipped_open": 0,
+          "r_per_trade": -0.1235,
+          "by_year": {
+            "2021": [
+              1.0,
+              2
+            ],
+            "2022": [
+              -4.1,
+              10
+            ],
+            "2023": [
+              4.3,
+              10
+            ],
+            "2024": [
+              -8.1,
+              14
+            ],
+            "2025": [
+              -0.4,
+              12
+            ],
+            "2026": [
+              0.2,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl0.5% tp2%",
+          "n_trades": 55,
+          "total_r": -13.38,
+          "win_rate": 18.2,
+          "profit_factor": 0.73,
+          "max_dd_r": 21.45,
+          "skipped_spread": 0,
+          "skipped_cooldown": 13,
+          "skipped_open": 0,
+          "r_per_trade": -0.2433,
+          "by_year": {
+            "2021": [
+              -2.0,
+              2
+            ],
+            "2022": [
+              -0.1,
+              10
+            ],
+            "2023": [
+              4.3,
+              10
+            ],
+            "2024": [
+              -4.1,
+              14
+            ],
+            "2025": [
+              -9.4,
+              11
+            ],
+            "2026": [
+              -2.1,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl0.5% tp4%",
+          "n_trades": 53,
+          "total_r": -2.43,
+          "win_rate": 13.2,
+          "profit_factor": 0.95,
+          "max_dd_r": 31.41,
+          "skipped_spread": 0,
+          "skipped_cooldown": 15,
+          "skipped_open": 0,
+          "r_per_trade": -0.0459,
+          "by_year": {
+            "2021": [
+              -2.0,
+              2
+            ],
+            "2022": [
+              7.8,
+              10
+            ],
+            "2023": [
+              16.2,
+              10
+            ],
+            "2024": [
+              -12.1,
+              12
+            ],
+            "2025": [
+              -14.3,
+              11
+            ],
+            "2026": [
+              1.9,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl1.0% tp1%",
+          "n_trades": 60,
+          "total_r": -4.32,
+          "win_rate": 48.3,
+          "profit_factor": 0.87,
+          "max_dd_r": 11.26,
+          "skipped_spread": 0,
+          "skipped_cooldown": 8,
+          "skipped_open": 0,
+          "r_per_trade": -0.072,
+          "by_year": {
+            "2021": [
+              -0.0,
+              2
+            ],
+            "2022": [
+              2.9,
+              11
+            ],
+            "2023": [
+              1.9,
+              10
+            ],
+            "2024": [
+              -8.0,
+              14
+            ],
+            "2025": [
+              -0.2,
+              13
+            ],
+            "2026": [
+              -0.9,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl1.0% tp2%",
+          "n_trades": 56,
+          "total_r": -17.31,
+          "win_rate": 25.0,
+          "profit_factor": 0.6,
+          "max_dd_r": 23.31,
+          "skipped_spread": 0,
+          "skipped_cooldown": 12,
+          "skipped_open": 0,
+          "r_per_trade": -0.3092,
+          "by_year": {
+            "2021": [
+              -2.0,
+              2
+            ],
+            "2022": [
+              3.9,
+              11
+            ],
+            "2023": [
+              1.9,
+              10
+            ],
+            "2024": [
+              -5.1,
+              14
+            ],
+            "2025": [
+              -12.2,
+              11
+            ],
+            "2026": [
+              -3.9,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl1.0% tp4%",
+          "n_trades": 55,
+          "total_r": -0.35,
+          "win_rate": 21.8,
+          "profit_factor": 0.99,
+          "max_dd_r": 19.24,
+          "skipped_spread": 0,
+          "skipped_cooldown": 13,
+          "skipped_open": 0,
+          "r_per_trade": -0.0063,
+          "by_year": {
+            "2021": [
+              -2.0,
+              2
+            ],
+            "2022": [
+              4.9,
+              10
+            ],
+            "2023": [
+              9.9,
+              10
+            ],
+            "2024": [
+              -4.1,
+              14
+            ],
+            "2025": [
+              -7.2,
+              11
+            ],
+            "2026": [
+              -1.9,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl2.0% tp1%",
+          "n_trades": 65,
+          "total_r": 3.32,
+          "win_rate": 70.8,
+          "profit_factor": 1.17,
+          "max_dd_r": 4.1,
+          "skipped_spread": 0,
+          "skipped_cooldown": 3,
+          "skipped_open": 0,
+          "r_per_trade": 0.0511,
+          "by_year": {
+            "2021": [
+              -0.5,
+              2
+            ],
+            "2022": [
+              1.5,
+              12
+            ],
+            "2023": [
+              3.5,
+              10
+            ],
+            "2024": [
+              -1.5,
+              18
+            ],
+            "2025": [
+              1.9,
+              13
+            ],
+            "2026": [
+              -1.5,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl2.0% tp2%",
+          "n_trades": 58,
+          "total_r": -7.15,
+          "win_rate": 44.8,
+          "profit_factor": 0.78,
+          "max_dd_r": 11.15,
+          "skipped_spread": 0,
+          "skipped_cooldown": 10,
+          "skipped_open": 0,
+          "r_per_trade": -0.1233,
+          "by_year": {
+            "2021": [
+              -0.0,
+              2
+            ],
+            "2022": [
+              2.0,
+              12
+            ],
+            "2023": [
+              1.0,
+              9
+            ],
+            "2024": [
+              -3.0,
+              15
+            ],
+            "2025": [
+              -5.1,
+              11
+            ],
+            "2026": [
+              -2.0,
+              9
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl2.0% tp4%",
+          "n_trades": 55,
+          "total_r": -0.16,
+          "win_rate": 34.5,
+          "profit_factor": 1.0,
+          "max_dd_r": 17.09,
+          "skipped_spread": 0,
+          "skipped_cooldown": 13,
+          "skipped_open": 0,
+          "r_per_trade": -0.0029,
+          "by_year": {
+            "2021": [
+              1.0,
+              2
+            ],
+            "2022": [
+              8.9,
+              12
+            ],
+            "2023": [
+              3.0,
+              9
+            ],
+            "2024": [
+              -2.0,
+              14
+            ],
+            "2025": [
+              -10.1,
+              10
+            ],
+            "2026": [
+              -1.0,
+              8
+            ]
+          }
+        }
+      ],
+      "wf": {
+        "strict": [],
+        "n_configs": 18
+      },
+      "control": {
+        "vidéo (Z 2%/2%)": {
+          "label": "Z sl2.0% tp2%",
+          "n": 58,
+          "total_r": -7.15,
+          "percentile": 24.0,
+          "total_r_spread_mesure": -8.53
+        },
+        "meilleure R/tr": {
+          "label": "- sl1.0% tp4%",
+          "n": 63,
+          "total_r": 6.6,
+          "percentile": 64.5,
+          "total_r_spread_mesure": 3.24
+        }
+      }
+    },
+    "SP500": {
+      "symbol": "SP500",
+      "timeframe": "D1",
+      "bars": 1330,
+      "spread_catalogue": 5.0,
+      "spread_mesure": 35.0,
+      "cost": {
+        "median_risk_pips": 1035.5,
+        "pct_catalogue": 0.48,
+        "pct_mesure": 3.38
+      },
+      "r1_ok": true,
+      "full_sample": [
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "- sl0.5% tp1%",
+          "n_trades": 79,
+          "total_r": -0.71,
+          "win_rate": 34.2,
+          "profit_factor": 0.99,
+          "max_dd_r": 15.74,
+          "skipped_spread": 0,
+          "skipped_cooldown": 36,
+          "skipped_open": 0,
+          "r_per_trade": -0.009,
+          "by_year": {
+            "2021": [
+              1.9,
+              4
+            ],
+            "2022": [
+              -0.3,
+              12
+            ],
+            "2023": [
+              7.5,
+              16
+            ],
+            "2024": [
+              1.6,
+              19
+            ],
+            "2025": [
+              -7.0,
+              18
+            ],
+            "2026": [
+              -4.5,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "- sl0.5% tp2%",
+          "n_trades": 66,
+          "total_r": -8.41,
+          "win_rate": 18.2,
+          "profit_factor": 0.85,
+          "max_dd_r": 22.39,
+          "skipped_spread": 0,
+          "skipped_cooldown": 49,
+          "skipped_open": 0,
+          "r_per_trade": -0.1274,
+          "by_year": {
+            "2021": [
+              0.9,
+              4
+            ],
+            "2022": [
+              4.7,
+              10
+            ],
+            "2023": [
+              -4.3,
+              14
+            ],
+            "2024": [
+              9.6,
+              15
+            ],
+            "2025": [
+              -11.9,
+              16
+            ],
+            "2026": [
+              -7.5,
+              7
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "- sl0.5% tp4%",
+          "n_trades": 63,
+          "total_r": 15.41,
+          "win_rate": 14.3,
+          "profit_factor": 1.28,
+          "max_dd_r": 19.27,
+          "skipped_spread": 0,
+          "skipped_cooldown": 52,
+          "skipped_open": 0,
+          "r_per_trade": 0.2445,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              6.7,
+              11
+            ],
+            "2023": [
+              4.6,
+              13
+            ],
+            "2024": [
+              22.5,
+              13
+            ],
+            "2025": [
+              -7.9,
+              16
+            ],
+            "2026": [
+              -7.5,
+              7
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "- sl1.0% tp1%",
+          "n_trades": 80,
+          "total_r": 6.4,
+          "win_rate": 55.0,
+          "profit_factor": 1.17,
+          "max_dd_r": 5.94,
+          "skipped_spread": 0,
+          "skipped_cooldown": 35,
+          "skipped_open": 0,
+          "r_per_trade": 0.08,
+          "by_year": {
+            "2021": [
+              -0.0,
+              4
+            ],
+            "2022": [
+              1.8,
+              14
+            ],
+            "2023": [
+              1.8,
+              16
+            ],
+            "2024": [
+              6.8,
+              19
+            ],
+            "2025": [
+              -1.9,
+              19
+            ],
+            "2026": [
+              -2.0,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "- sl1.0% tp2%",
+          "n_trades": 71,
+          "total_r": 8.46,
+          "win_rate": 38.0,
+          "profit_factor": 1.19,
+          "max_dd_r": 11.83,
+          "skipped_spread": 0,
+          "skipped_cooldown": 44,
+          "skipped_open": 0,
+          "r_per_trade": 0.1192,
+          "by_year": {
+            "2021": [
+              -1.0,
+              4
+            ],
+            "2022": [
+              5.8,
+              12
+            ],
+            "2023": [
+              6.8,
+              14
+            ],
+            "2024": [
+              0.9,
+              14
+            ],
+            "2025": [
+              -6.9,
+              15
+            ],
+            "2026": [
+              2.9,
+              12
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "- sl1.0% tp4%",
+          "n_trades": 60,
+          "total_r": 13.53,
+          "win_rate": 25.0,
+          "profit_factor": 1.29,
+          "max_dd_r": 13.83,
+          "skipped_spread": 0,
+          "skipped_cooldown": 55,
+          "skipped_open": 0,
+          "r_per_trade": 0.2254,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              12.8,
+              12
+            ],
+            "2023": [
+              7.8,
+              12
+            ],
+            "2024": [
+              3.9,
+              11
+            ],
+            "2025": [
+              -5.9,
+              15
+            ],
+            "2026": [
+              -2.0,
+              7
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "- sl2.0% tp1%",
+          "n_trades": 76,
+          "total_r": -1.92,
+          "win_rate": 65.8,
+          "profit_factor": 0.93,
+          "max_dd_r": 7.22,
+          "skipped_spread": 0,
+          "skipped_cooldown": 39,
+          "skipped_open": 0,
+          "r_per_trade": -0.0252,
+          "by_year": {
+            "2021": [
+              0.5,
+              4
+            ],
+            "2022": [
+              -2.1,
+              14
+            ],
+            "2023": [
+              -1.6,
+              15
+            ],
+            "2024": [
+              -0.6,
+              17
+            ],
+            "2025": [
+              2.4,
+              17
+            ],
+            "2026": [
+              -0.6,
+              9
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "- sl2.0% tp2%",
+          "n_trades": 64,
+          "total_r": -3.36,
+          "win_rate": 48.4,
+          "profit_factor": 0.9,
+          "max_dd_r": 8.19,
+          "skipped_spread": 0,
+          "skipped_cooldown": 51,
+          "skipped_open": 0,
+          "r_per_trade": -0.0525,
+          "by_year": {
+            "2021": [
+              -0.0,
+              4
+            ],
+            "2022": [
+              -0.1,
+              12
+            ],
+            "2023": [
+              -0.1,
+              14
+            ],
+            "2024": [
+              -3.1,
+              13
+            ],
+            "2025": [
+              0.9,
+              13
+            ],
+            "2026": [
+              -1.1,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "- sl2.0% tp4%",
+          "n_trades": 51,
+          "total_r": 0.71,
+          "win_rate": 35.3,
+          "profit_factor": 1.02,
+          "max_dd_r": 13.24,
+          "skipped_spread": 0,
+          "skipped_cooldown": 64,
+          "skipped_open": 0,
+          "r_per_trade": 0.014,
+          "by_year": {
+            "2021": [
+              -0.0,
+              3
+            ],
+            "2022": [
+              7.9,
+              13
+            ],
+            "2023": [
+              -2.2,
+              11
+            ],
+            "2024": [
+              -3.0,
+              9
+            ],
+            "2025": [
+              -2.2,
+              11
+            ],
+            "2026": [
+              0.2,
+              4
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl0.5% tp1%",
+          "n_trades": 60,
+          "total_r": -7.85,
+          "win_rate": 31.7,
+          "profit_factor": 0.83,
+          "max_dd_r": 16.14,
+          "skipped_spread": 0,
+          "skipped_cooldown": 10,
+          "skipped_open": 0,
+          "r_per_trade": -0.1309,
+          "by_year": {
+            "2021": [
+              0.9,
+              2
+            ],
+            "2022": [
+              -2.2,
+              11
+            ],
+            "2023": [
+              7.6,
+              13
+            ],
+            "2024": [
+              -2.2,
+              14
+            ],
+            "2025": [
+              -9.4,
+              12
+            ],
+            "2026": [
+              -2.5,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl0.5% tp2%",
+          "n_trades": 57,
+          "total_r": -6.79,
+          "win_rate": 19.3,
+          "profit_factor": 0.86,
+          "max_dd_r": 21.96,
+          "skipped_spread": 0,
+          "skipped_cooldown": 13,
+          "skipped_open": 0,
+          "r_per_trade": -0.1192,
+          "by_year": {
+            "2021": [
+              2.9,
+              2
+            ],
+            "2022": [
+              3.7,
+              11
+            ],
+            "2023": [
+              2.7,
+              12
+            ],
+            "2024": [
+              -7.2,
+              12
+            ],
+            "2025": [
+              -10.4,
+              12
+            ],
+            "2026": [
+              1.5,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl0.5% tp4%",
+          "n_trades": 52,
+          "total_r": -2.78,
+          "win_rate": 11.5,
+          "profit_factor": 0.94,
+          "max_dd_r": 18.97,
+          "skipped_spread": 0,
+          "skipped_cooldown": 18,
+          "skipped_open": 0,
+          "r_per_trade": -0.0534,
+          "by_year": {
+            "2021": [
+              -2.0,
+              2
+            ],
+            "2022": [
+              7.7,
+              10
+            ],
+            "2023": [
+              5.7,
+              12
+            ],
+            "2024": [
+              -2.2,
+              11
+            ],
+            "2025": [
+              -6.5,
+              12
+            ],
+            "2026": [
+              -5.5,
+              5
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl1.0% tp1%",
+          "n_trades": 61,
+          "total_r": 3.6,
+          "win_rate": 54.1,
+          "profit_factor": 1.12,
+          "max_dd_r": 5.13,
+          "skipped_spread": 0,
+          "skipped_cooldown": 9,
+          "skipped_open": 0,
+          "r_per_trade": 0.059,
+          "by_year": {
+            "2021": [
+              -0.0,
+              2
+            ],
+            "2022": [
+              0.9,
+              11
+            ],
+            "2023": [
+              0.8,
+              13
+            ],
+            "2024": [
+              2.9,
+              13
+            ],
+            "2025": [
+              -0.9,
+              14
+            ],
+            "2026": [
+              -0.1,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl1.0% tp2%",
+          "n_trades": 60,
+          "total_r": 10.57,
+          "win_rate": 40.0,
+          "profit_factor": 1.29,
+          "max_dd_r": 5.9,
+          "skipped_spread": 0,
+          "skipped_cooldown": 10,
+          "skipped_open": 0,
+          "r_per_trade": 0.1761,
+          "by_year": {
+            "2021": [
+              1.0,
+              2
+            ],
+            "2022": [
+              3.8,
+              11
+            ],
+            "2023": [
+              4.8,
+              13
+            ],
+            "2024": [
+              -1.1,
+              13
+            ],
+            "2025": [
+              -1.9,
+              13
+            ],
+            "2026": [
+              3.9,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl1.0% tp4%",
+          "n_trades": 55,
+          "total_r": 8.61,
+          "win_rate": 23.6,
+          "profit_factor": 1.2,
+          "max_dd_r": 9.82,
+          "skipped_spread": 0,
+          "skipped_cooldown": 15,
+          "skipped_open": 0,
+          "r_per_trade": 0.1566,
+          "by_year": {
+            "2021": [
+              -2.0,
+              2
+            ],
+            "2022": [
+              8.8,
+              11
+            ],
+            "2023": [
+              2.8,
+              12
+            ],
+            "2024": [
+              3.9,
+              11
+            ],
+            "2025": [
+              -3.9,
+              13
+            ],
+            "2026": [
+              -1.0,
+              6
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl2.0% tp1%",
+          "n_trades": 58,
+          "total_r": -1.94,
+          "win_rate": 65.5,
+          "profit_factor": 0.9,
+          "max_dd_r": 8.22,
+          "skipped_spread": 0,
+          "skipped_cooldown": 12,
+          "skipped_open": 0,
+          "r_per_trade": -0.0335,
+          "by_year": {
+            "2021": [
+              1.0,
+              2
+            ],
+            "2022": [
+              -2.1,
+              11
+            ],
+            "2023": [
+              -3.2,
+              12
+            ],
+            "2024": [
+              0.4,
+              13
+            ],
+            "2025": [
+              2.9,
+              12
+            ],
+            "2026": [
+              -1.1,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl2.0% tp2%",
+          "n_trades": 56,
+          "total_r": -5.43,
+          "win_rate": 46.4,
+          "profit_factor": 0.82,
+          "max_dd_r": 11.29,
+          "skipped_spread": 0,
+          "skipped_cooldown": 14,
+          "skipped_open": 0,
+          "r_per_trade": -0.0969,
+          "by_year": {
+            "2021": [
+              2.0,
+              2
+            ],
+            "2022": [
+              -1.1,
+              11
+            ],
+            "2023": [
+              -2.2,
+              12
+            ],
+            "2024": [
+              -5.0,
+              11
+            ],
+            "2025": [
+              -0.0,
+              12
+            ],
+            "2026": [
+              0.9,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl2.0% tp4%",
+          "n_trades": 48,
+          "total_r": -5.3,
+          "win_rate": 31.2,
+          "profit_factor": 0.84,
+          "max_dd_r": 15.24,
+          "skipped_spread": 0,
+          "skipped_cooldown": 22,
+          "skipped_open": 0,
+          "r_per_trade": -0.1104,
+          "by_year": {
+            "2021": [
+              1.0,
+              2
+            ],
+            "2022": [
+              3.9,
+              11
+            ],
+            "2023": [
+              -2.2,
+              11
+            ],
+            "2024": [
+              -3.0,
+              9
+            ],
+            "2025": [
+              -6.0,
+              9
+            ],
+            "2026": [
+              1.0,
+              6
+            ]
+          }
+        }
+      ],
+      "wf": {
+        "strict": [],
+        "n_configs": 18
+      },
+      "control": {
+        "vidéo (Z 2%/2%)": {
+          "label": "Z sl2.0% tp2%",
+          "n": 56,
+          "total_r": -5.43,
+          "percentile": 25.0,
+          "total_r_spread_mesure": -6.96
+        },
+        "meilleure R/tr": {
+          "label": "- sl0.5% tp4%",
+          "n": 63,
+          "total_r": 15.41,
+          "percentile": 79.5,
+          "total_r_spread_mesure": 7.31
+        }
+      }
+    },
+    "DAX": {
+      "symbol": "DAX",
+      "timeframe": "D1",
+      "bars": 1293,
+      "spread_catalogue": 8.0,
+      "spread_mesure": 180.0,
+      "cost": {
+        "median_risk_pips": 3621.6,
+        "pct_catalogue": 0.22,
+        "pct_mesure": 4.97
+      },
+      "r1_ok": true,
+      "full_sample": [
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "- sl0.5% tp1%",
+          "n_trades": 70,
+          "total_r": -4.12,
+          "win_rate": 35.7,
+          "profit_factor": 0.92,
+          "max_dd_r": 12.14,
+          "skipped_spread": 0,
+          "skipped_cooldown": 31,
+          "skipped_open": 0,
+          "r_per_trade": -0.0588,
+          "by_year": {
+            "2021": [
+              -0.7,
+              3
+            ],
+            "2022": [
+              -3.9,
+              11
+            ],
+            "2023": [
+              5.8,
+              15
+            ],
+            "2024": [
+              2.8,
+              18
+            ],
+            "2025": [
+              -4.3,
+              13
+            ],
+            "2026": [
+              -3.8,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "- sl0.5% tp2%",
+          "n_trades": 61,
+          "total_r": -0.07,
+          "win_rate": 23.0,
+          "profit_factor": 1.0,
+          "max_dd_r": 11.15,
+          "skipped_spread": 0,
+          "skipped_cooldown": 40,
+          "skipped_open": 0,
+          "r_per_trade": -0.0011,
+          "by_year": {
+            "2021": [
+              1.3,
+              3
+            ],
+            "2022": [
+              2.1,
+              11
+            ],
+            "2023": [
+              2.9,
+              12
+            ],
+            "2024": [
+              0.9,
+              14
+            ],
+            "2025": [
+              -0.4,
+              12
+            ],
+            "2026": [
+              -6.8,
+              9
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "- sl0.5% tp4%",
+          "n_trades": 57,
+          "total_r": 14.88,
+          "win_rate": 15.8,
+          "profit_factor": 1.26,
+          "max_dd_r": 12.26,
+          "skipped_spread": 0,
+          "skipped_cooldown": 44,
+          "skipped_open": 0,
+          "r_per_trade": 0.2611,
+          "by_year": {
+            "2021": [
+              5.3,
+              3
+            ],
+            "2022": [
+              14.0,
+              11
+            ],
+            "2023": [
+              6.8,
+              11
+            ],
+            "2024": [
+              -4.1,
+              13
+            ],
+            "2025": [
+              -4.3,
+              10
+            ],
+            "2026": [
+              -2.8,
+              9
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "- sl1.0% tp1%",
+          "n_trades": 72,
+          "total_r": -15.67,
+          "win_rate": 40.3,
+          "profit_factor": 0.65,
+          "max_dd_r": 18.65,
+          "skipped_spread": 0,
+          "skipped_cooldown": 29,
+          "skipped_open": 0,
+          "r_per_trade": -0.2176,
+          "by_year": {
+            "2021": [
+              -1.0,
+              3
+            ],
+            "2022": [
+              -7.2,
+              13
+            ],
+            "2023": [
+              2.9,
+              17
+            ],
+            "2024": [
+              -3.1,
+              15
+            ],
+            "2025": [
+              -4.4,
+              14
+            ],
+            "2026": [
+              -2.9,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "- sl1.0% tp2%",
+          "n_trades": 62,
+          "total_r": -19.14,
+          "win_rate": 24.2,
+          "profit_factor": 0.61,
+          "max_dd_r": 21.13,
+          "skipped_spread": 0,
+          "skipped_cooldown": 39,
+          "skipped_open": 0,
+          "r_per_trade": -0.3087,
+          "by_year": {
+            "2021": [
+              -0.0,
+              3
+            ],
+            "2022": [
+              -4.2,
+              13
+            ],
+            "2023": [
+              -1.3,
+              13
+            ],
+            "2024": [
+              -1.3,
+              13
+            ],
+            "2025": [
+              -5.4,
+              11
+            ],
+            "2026": [
+              -6.9,
+              9
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "- sl1.0% tp4%",
+          "n_trades": 55,
+          "total_r": -1.91,
+          "win_rate": 20.0,
+          "profit_factor": 0.96,
+          "max_dd_r": 22.33,
+          "skipped_spread": 0,
+          "skipped_cooldown": 46,
+          "skipped_open": 0,
+          "r_per_trade": -0.0347,
+          "by_year": {
+            "2021": [
+              2.0,
+              3
+            ],
+            "2022": [
+              3.8,
+              11
+            ],
+            "2023": [
+              7.6,
+              12
+            ],
+            "2024": [
+              -2.1,
+              12
+            ],
+            "2025": [
+              -9.4,
+              9
+            ],
+            "2026": [
+              -3.9,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "- sl2.0% tp1%",
+          "n_trades": 76,
+          "total_r": 2.57,
+          "win_rate": 69.7,
+          "profit_factor": 1.11,
+          "max_dd_r": 5.32,
+          "skipped_spread": 0,
+          "skipped_cooldown": 25,
+          "skipped_open": 0,
+          "r_per_trade": 0.0338,
+          "by_year": {
+            "2021": [
+              -0.4,
+              3
+            ],
+            "2022": [
+              -3.9,
+              14
+            ],
+            "2023": [
+              2.5,
+              17
+            ],
+            "2024": [
+              -0.0,
+              15
+            ],
+            "2025": [
+              3.0,
+              15
+            ],
+            "2026": [
+              1.5,
+              12
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "- sl2.0% tp2%",
+          "n_trades": 66,
+          "total_r": -1.12,
+          "win_rate": 50.0,
+          "profit_factor": 0.97,
+          "max_dd_r": 8.57,
+          "skipped_spread": 0,
+          "skipped_cooldown": 35,
+          "skipped_open": 0,
+          "r_per_trade": -0.017,
+          "by_year": {
+            "2021": [
+              0.6,
+              3
+            ],
+            "2022": [
+              -5.4,
+              13
+            ],
+            "2023": [
+              0.8,
+              15
+            ],
+            "2024": [
+              5.0,
+              15
+            ],
+            "2025": [
+              2.0,
+              12
+            ],
+            "2026": [
+              -4.1,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "- sl2.0% tp4%",
+          "n_trades": 49,
+          "total_r": 1.42,
+          "win_rate": 34.7,
+          "profit_factor": 1.04,
+          "max_dd_r": 6.09,
+          "skipped_spread": 0,
+          "skipped_cooldown": 52,
+          "skipped_open": 0,
+          "r_per_trade": 0.029,
+          "by_year": {
+            "2021": [
+              2.6,
+              3
+            ],
+            "2022": [
+              0.9,
+              11
+            ],
+            "2023": [
+              1.0,
+              11
+            ],
+            "2024": [
+              -2.0,
+              8
+            ],
+            "2025": [
+              5.0,
+              10
+            ],
+            "2026": [
+              -6.1,
+              6
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl0.5% tp1%",
+          "n_trades": 55,
+          "total_r": -6.34,
+          "win_rate": 34.5,
+          "profit_factor": 0.86,
+          "max_dd_r": 12.26,
+          "skipped_spread": 0,
+          "skipped_cooldown": 7,
+          "skipped_open": 0,
+          "r_per_trade": -0.1152,
+          "by_year": {
+            "2021": [
+              3.0,
+              3
+            ],
+            "2022": [
+              -2.9,
+              10
+            ],
+            "2023": [
+              2.9,
+              12
+            ],
+            "2024": [
+              -0.1,
+              12
+            ],
+            "2025": [
+              -1.3,
+              10
+            ],
+            "2026": [
+              -7.8,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl0.5% tp2%",
+          "n_trades": 52,
+          "total_r": -5.32,
+          "win_rate": 21.2,
+          "profit_factor": 0.89,
+          "max_dd_r": 18.36,
+          "skipped_spread": 0,
+          "skipped_cooldown": 10,
+          "skipped_open": 0,
+          "r_per_trade": -0.1023,
+          "by_year": {
+            "2021": [
+              6.9,
+              3
+            ],
+            "2022": [
+              3.1,
+              10
+            ],
+            "2023": [
+              -1.1,
+              11
+            ],
+            "2024": [
+              -0.1,
+              10
+            ],
+            "2025": [
+              -7.3,
+              9
+            ],
+            "2026": [
+              -6.8,
+              9
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl0.5% tp4%",
+          "n_trades": 48,
+          "total_r": 15.59,
+          "win_rate": 16.7,
+          "profit_factor": 1.32,
+          "max_dd_r": 20.24,
+          "skipped_spread": 0,
+          "skipped_cooldown": 14,
+          "skipped_open": 0,
+          "r_per_trade": 0.3249,
+          "by_year": {
+            "2021": [
+              14.9,
+              3
+            ],
+            "2022": [
+              15.0,
+              10
+            ],
+            "2023": [
+              -1.1,
+              10
+            ],
+            "2024": [
+              -1.1,
+              10
+            ],
+            "2025": [
+              -1.3,
+              7
+            ],
+            "2026": [
+              -10.8,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl1.0% tp1%",
+          "n_trades": 55,
+          "total_r": -16.6,
+          "win_rate": 36.4,
+          "profit_factor": 0.54,
+          "max_dd_r": 18.58,
+          "skipped_spread": 0,
+          "skipped_cooldown": 7,
+          "skipped_open": 0,
+          "r_per_trade": -0.3019,
+          "by_year": {
+            "2021": [
+              1.0,
+              3
+            ],
+            "2022": [
+              -4.2,
+              10
+            ],
+            "2023": [
+              -1.1,
+              13
+            ],
+            "2024": [
+              -3.1,
+              11
+            ],
+            "2025": [
+              -2.4,
+              10
+            ],
+            "2026": [
+              -6.9,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl1.0% tp2%",
+          "n_trades": 51,
+          "total_r": -22.6,
+          "win_rate": 19.6,
+          "profit_factor": 0.47,
+          "max_dd_r": 27.56,
+          "skipped_spread": 0,
+          "skipped_cooldown": 11,
+          "skipped_open": 0,
+          "r_per_trade": -0.4431,
+          "by_year": {
+            "2021": [
+              3.0,
+              3
+            ],
+            "2022": [
+              -1.2,
+              10
+            ],
+            "2023": [
+              -7.0,
+              10
+            ],
+            "2024": [
+              -4.1,
+              10
+            ],
+            "2025": [
+              -6.4,
+              9
+            ],
+            "2026": [
+              -6.9,
+              9
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl1.0% tp4%",
+          "n_trades": 48,
+          "total_r": -9.62,
+          "win_rate": 16.7,
+          "profit_factor": 0.77,
+          "max_dd_r": 24.42,
+          "skipped_spread": 0,
+          "skipped_cooldown": 14,
+          "skipped_open": 0,
+          "r_per_trade": -0.2004,
+          "by_year": {
+            "2021": [
+              7.0,
+              3
+            ],
+            "2022": [
+              4.8,
+              10
+            ],
+            "2023": [
+              -5.1,
+              10
+            ],
+            "2024": [
+              -5.1,
+              10
+            ],
+            "2025": [
+              -2.4,
+              7
+            ],
+            "2026": [
+              -8.9,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl2.0% tp1%",
+          "n_trades": 58,
+          "total_r": -3.39,
+          "win_rate": 63.8,
+          "profit_factor": 0.84,
+          "max_dd_r": 5.85,
+          "skipped_spread": 0,
+          "skipped_cooldown": 4,
+          "skipped_open": 0,
+          "r_per_trade": -0.0584,
+          "by_year": {
+            "2021": [
+              -0.4,
+              3
+            ],
+            "2022": [
+              -4.4,
+              10
+            ],
+            "2023": [
+              2.0,
+              13
+            ],
+            "2024": [
+              -1.5,
+              12
+            ],
+            "2025": [
+              3.5,
+              10
+            ],
+            "2026": [
+              -2.5,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl2.0% tp2%",
+          "n_trades": 56,
+          "total_r": -7.0,
+          "win_rate": 44.6,
+          "profit_factor": 0.78,
+          "max_dd_r": 9.6,
+          "skipped_spread": 0,
+          "skipped_cooldown": 6,
+          "skipped_open": 0,
+          "r_per_trade": -0.125,
+          "by_year": {
+            "2021": [
+              0.6,
+              3
+            ],
+            "2022": [
+              -4.4,
+              10
+            ],
+            "2023": [
+              -2.1,
+              12
+            ],
+            "2024": [
+              -0.0,
+              12
+            ],
+            "2025": [
+              6.0,
+              10
+            ],
+            "2026": [
+              -7.0,
+              9
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl2.0% tp4%",
+          "n_trades": 46,
+          "total_r": 1.01,
+          "win_rate": 34.8,
+          "profit_factor": 1.03,
+          "max_dd_r": 6.59,
+          "skipped_spread": 0,
+          "skipped_cooldown": 16,
+          "skipped_open": 0,
+          "r_per_trade": 0.0219,
+          "by_year": {
+            "2021": [
+              2.6,
+              3
+            ],
+            "2022": [
+              -1.4,
+              10
+            ],
+            "2023": [
+              -0.1,
+              9
+            ],
+            "2024": [
+              -1.0,
+              7
+            ],
+            "2025": [
+              7.0,
+              8
+            ],
+            "2026": [
+              -6.0,
+              9
+            ]
+          }
+        }
+      ],
+      "wf": {
+        "strict": [],
+        "n_configs": 18
+      },
+      "control": {
+        "vidéo (Z 2%/2%)": {
+          "label": "Z sl2.0% tp2%",
+          "n": 56,
+          "total_r": -7.0,
+          "percentile": 25.5,
+          "total_r_spread_mesure": -9.41
+        },
+        "meilleure R/tr": {
+          "label": "Z sl0.5% tp4%",
+          "n": 48,
+          "total_r": 15.59,
+          "percentile": 90.0,
+          "total_r_spread_mesure": 5.1
+        }
+      }
+    },
+    "XAUUSD": {
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "bars": 29977,
+      "spread_catalogue": 25.0,
+      "spread_mesure": 90.8,
+      "cost": {
+        "median_risk_pips": 5431.4,
+        "pct_catalogue": 0.46,
+        "pct_mesure": 1.67
+      },
+      "r1_ok": true,
+      "full_sample": [
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "- sl0.5% tp1%",
+          "n_trades": 965,
+          "total_r": -4.93,
+          "win_rate": 33.9,
+          "profit_factor": 0.99,
+          "max_dd_r": 49.5,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1318,
+          "skipped_open": 0,
+          "r_per_trade": -0.0051,
+          "by_year": {
+            "2021": [
+              -18.3,
+              56
+            ],
+            "2022": [
+              9.9,
+              180
+            ],
+            "2023": [
+              -2.2,
+              163
+            ],
+            "2024": [
+              -8.0,
+              184
+            ],
+            "2025": [
+              -5.2,
+              208
+            ],
+            "2026": [
+              18.9,
+              174
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "- sl0.5% tp2%",
+          "n_trades": 656,
+          "total_r": 75.36,
+          "win_rate": 22.9,
+          "profit_factor": 1.15,
+          "max_dd_r": 44.56,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1627,
+          "skipped_open": 0,
+          "r_per_trade": 0.1149,
+          "by_year": {
+            "2021": [
+              -35.8,
+              45
+            ],
+            "2022": [
+              14.5,
+              117
+            ],
+            "2023": [
+              40.8,
+              106
+            ],
+            "2024": [
+              -4.1,
+              102
+            ],
+            "2025": [
+              10.8,
+              147
+            ],
+            "2026": [
+              49.1,
+              139
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "- sl0.5% tp4%",
+          "n_trades": 445,
+          "total_r": 35.15,
+          "win_rate": 12.4,
+          "profit_factor": 1.09,
+          "max_dd_r": 71.61,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1838,
+          "skipped_open": 0,
+          "r_per_trade": 0.079,
+          "by_year": {
+            "2021": [
+              -27.6,
+              36
+            ],
+            "2022": [
+              14.8,
+              73
+            ],
+            "2023": [
+              -4.6,
+              66
+            ],
+            "2024": [
+              12.3,
+              67
+            ],
+            "2025": [
+              -10.5,
+              107
+            ],
+            "2026": [
+              50.8,
+              96
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "- sl1.0% tp1%",
+          "n_trades": 727,
+          "total_r": -4.63,
+          "win_rate": 50.2,
+          "profit_factor": 0.99,
+          "max_dd_r": 30.09,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1556,
+          "skipped_open": 0,
+          "r_per_trade": -0.0064,
+          "by_year": {
+            "2021": [
+              -1.5,
+              35
+            ],
+            "2022": [
+              -19.9,
+              136
+            ],
+            "2023": [
+              0.7,
+              104
+            ],
+            "2024": [
+              13.5,
+              135
+            ],
+            "2025": [
+              -2.5,
+              167
+            ],
+            "2026": [
+              5.1,
+              150
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "- sl1.0% tp2%",
+          "n_trades": 462,
+          "total_r": -21.56,
+          "win_rate": 32.3,
+          "profit_factor": 0.93,
+          "max_dd_r": 44.07,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1821,
+          "skipped_open": 0,
+          "r_per_trade": -0.0467,
+          "by_year": {
+            "2021": [
+              -2.3,
+              20
+            ],
+            "2022": [
+              -27.2,
+              86
+            ],
+            "2023": [
+              -4.9,
+              73
+            ],
+            "2024": [
+              10.2,
+              73
+            ],
+            "2025": [
+              -7.8,
+              106
+            ],
+            "2026": [
+              10.4,
+              104
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "- sl1.0% tp4%",
+          "n_trades": 289,
+          "total_r": 39.81,
+          "win_rate": 23.2,
+          "profit_factor": 1.18,
+          "max_dd_r": 19.8,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1994,
+          "skipped_open": 0,
+          "r_per_trade": 0.1377,
+          "by_year": {
+            "2021": [
+              -3.2,
+              13
+            ],
+            "2022": [
+              -0.8,
+              50
+            ],
+            "2023": [
+              6.4,
+              43
+            ],
+            "2024": [
+              5.5,
+              44
+            ],
+            "2025": [
+              14.4,
+              70
+            ],
+            "2026": [
+              17.5,
+              69
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "- sl2.0% tp1%",
+          "n_trades": 488,
+          "total_r": -14.03,
+          "win_rate": 65.2,
+          "profit_factor": 0.92,
+          "max_dd_r": 29.82,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1795,
+          "skipped_open": 0,
+          "r_per_trade": -0.0288,
+          "by_year": {
+            "2021": [
+              2.3,
+              23
+            ],
+            "2022": [
+              2.3,
+              90
+            ],
+            "2023": [
+              -0.1,
+              67
+            ],
+            "2024": [
+              -5.4,
+              83
+            ],
+            "2025": [
+              -16.4,
+              112
+            ],
+            "2026": [
+              3.2,
+              113
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "- sl2.0% tp2%",
+          "n_trades": 276,
+          "total_r": -16.33,
+          "win_rate": 47.5,
+          "profit_factor": 0.89,
+          "max_dd_r": 27.14,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2007,
+          "skipped_open": 0,
+          "r_per_trade": -0.0592,
+          "by_year": {
+            "2021": [
+              0.9,
+              11
+            ],
+            "2022": [
+              -5.4,
+              49
+            ],
+            "2023": [
+              -7.2,
+              35
+            ],
+            "2024": [
+              1.8,
+              44
+            ],
+            "2025": [
+              -5.2,
+              65
+            ],
+            "2026": [
+              -1.2,
+              72
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "- sl2.0% tp4%",
+          "n_trades": 175,
+          "total_r": 12.0,
+          "win_rate": 36.0,
+          "profit_factor": 1.11,
+          "max_dd_r": 16.48,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2108,
+          "skipped_open": 0,
+          "r_per_trade": 0.0686,
+          "by_year": {
+            "2021": [
+              -1.0,
+              4
+            ],
+            "2022": [
+              -6.2,
+              27
+            ],
+            "2023": [
+              -4.1,
+              22
+            ],
+            "2024": [
+              -1.1,
+              28
+            ],
+            "2025": [
+              2.8,
+              45
+            ],
+            "2026": [
+              21.6,
+              49
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl0.5% tp1%",
+          "n_trades": 897,
+          "total_r": -43.4,
+          "win_rate": 32.4,
+          "profit_factor": 0.93,
+          "max_dd_r": 81.59,
+          "skipped_spread": 0,
+          "skipped_cooldown": 541,
+          "skipped_open": 0,
+          "r_per_trade": -0.0484,
+          "by_year": {
+            "2021": [
+              -9.3,
+              53
+            ],
+            "2022": [
+              -0.0,
+              181
+            ],
+            "2023": [
+              -26.6,
+              152
+            ],
+            "2024": [
+              -3.8,
+              171
+            ],
+            "2025": [
+              -22.8,
+              190
+            ],
+            "2026": [
+              19.1,
+              150
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl0.5% tp2%",
+          "n_trades": 628,
+          "total_r": 29.94,
+          "win_rate": 21.5,
+          "profit_factor": 1.06,
+          "max_dd_r": 34.99,
+          "skipped_spread": 0,
+          "skipped_cooldown": 810,
+          "skipped_open": 0,
+          "r_per_trade": 0.0477,
+          "by_year": {
+            "2021": [
+              -15.9,
+              40
+            ],
+            "2022": [
+              4.5,
+              122
+            ],
+            "2023": [
+              30.0,
+              102
+            ],
+            "2024": [
+              -2.4,
+              100
+            ],
+            "2025": [
+              -7.1,
+              144
+            ],
+            "2026": [
+              20.8,
+              120
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl0.5% tp4%",
+          "n_trades": 436,
+          "total_r": 14.85,
+          "win_rate": 11.9,
+          "profit_factor": 1.04,
+          "max_dd_r": 81.47,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1002,
+          "skipped_open": 0,
+          "r_per_trade": 0.0341,
+          "by_year": {
+            "2021": [
+              -20.5,
+              29
+            ],
+            "2022": [
+              -16.9,
+              78
+            ],
+            "2023": [
+              -28.5,
+              72
+            ],
+            "2024": [
+              63.9,
+              60
+            ],
+            "2025": [
+              -16.6,
+              104
+            ],
+            "2026": [
+              33.5,
+              93
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl1.0% tp1%",
+          "n_trades": 706,
+          "total_r": 2.48,
+          "win_rate": 50.7,
+          "profit_factor": 1.01,
+          "max_dd_r": 29.14,
+          "skipped_spread": 0,
+          "skipped_cooldown": 732,
+          "skipped_open": 0,
+          "r_per_trade": 0.0035,
+          "by_year": {
+            "2021": [
+              4.5,
+              35
+            ],
+            "2022": [
+              -3.0,
+              135
+            ],
+            "2023": [
+              -2.3,
+              103
+            ],
+            "2024": [
+              11.5,
+              133
+            ],
+            "2025": [
+              -19.4,
+              158
+            ],
+            "2026": [
+              11.2,
+              142
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl1.0% tp2%",
+          "n_trades": 433,
+          "total_r": -18.65,
+          "win_rate": 32.3,
+          "profit_factor": 0.94,
+          "max_dd_r": 38.52,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1005,
+          "skipped_open": 0,
+          "r_per_trade": -0.0431,
+          "by_year": {
+            "2021": [
+              -1.3,
+              19
+            ],
+            "2022": [
+              -13.2,
+              81
+            ],
+            "2023": [
+              0.2,
+              65
+            ],
+            "2024": [
+              1.3,
+              70
+            ],
+            "2025": [
+              -12.7,
+              105
+            ],
+            "2026": [
+              7.1,
+              93
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl1.0% tp4%",
+          "n_trades": 286,
+          "total_r": 33.64,
+          "win_rate": 22.7,
+          "profit_factor": 1.15,
+          "max_dd_r": 28.01,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1152,
+          "skipped_open": 0,
+          "r_per_trade": 0.1176,
+          "by_year": {
+            "2021": [
+              -2.2,
+              12
+            ],
+            "2022": [
+              -6.8,
+              51
+            ],
+            "2023": [
+              -12.4,
+              37
+            ],
+            "2024": [
+              19.4,
+              45
+            ],
+            "2025": [
+              3.5,
+              71
+            ],
+            "2026": [
+              32.1,
+              70
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl2.0% tp1%",
+          "n_trades": 480,
+          "total_r": -17.93,
+          "win_rate": 64.6,
+          "profit_factor": 0.89,
+          "max_dd_r": 36.72,
+          "skipped_spread": 0,
+          "skipped_cooldown": 958,
+          "skipped_open": 0,
+          "r_per_trade": -0.0374,
+          "by_year": {
+            "2021": [
+              2.8,
+              24
+            ],
+            "2022": [
+              -1.6,
+              85
+            ],
+            "2023": [
+              -0.1,
+              67
+            ],
+            "2024": [
+              -4.4,
+              85
+            ],
+            "2025": [
+              -15.4,
+              108
+            ],
+            "2026": [
+              0.7,
+              111
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl2.0% tp2%",
+          "n_trades": 276,
+          "total_r": -32.29,
+          "win_rate": 44.6,
+          "profit_factor": 0.79,
+          "max_dd_r": 39.15,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1162,
+          "skipped_open": 0,
+          "r_per_trade": -0.117,
+          "by_year": {
+            "2021": [
+              -1.1,
+              11
+            ],
+            "2022": [
+              -10.4,
+              48
+            ],
+            "2023": [
+              -6.2,
+              34
+            ],
+            "2024": [
+              -2.2,
+              46
+            ],
+            "2025": [
+              -8.2,
+              66
+            ],
+            "2026": [
+              -4.2,
+              71
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl2.0% tp4%",
+          "n_trades": 183,
+          "total_r": 24.91,
+          "win_rate": 38.3,
+          "profit_factor": 1.22,
+          "max_dd_r": 9.27,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1255,
+          "skipped_open": 0,
+          "r_per_trade": 0.1361,
+          "by_year": {
+            "2021": [
+              2.9,
+              6
+            ],
+            "2022": [
+              2.8,
+              27
+            ],
+            "2023": [
+              0.8,
+              23
+            ],
+            "2024": [
+              -1.1,
+              28
+            ],
+            "2025": [
+              3.8,
+              47
+            ],
+            "2026": [
+              15.6,
+              52
+            ]
+          }
+        }
+      ],
+      "wf": {
+        "strict": [],
+        "n_configs": 18
+      },
+      "control": {
+        "vidéo (Z 2%/2%)": {
+          "label": "Z sl2.0% tp2%",
+          "n": 276,
+          "total_r": -32.29,
+          "percentile": 0.5,
+          "total_r_spread_mesure": -35.45
+        },
+        "meilleure R/tr": {
+          "label": "- sl1.0% tp4%",
+          "n": 289,
+          "total_r": 39.81,
+          "percentile": 94.0,
+          "total_r_spread_mesure": 32.33
+        }
+      }
+    },
+    "EURUSD": {
+      "symbol": "EURUSD",
+      "timeframe": "H1",
+      "bars": 31547,
+      "spread_catalogue": 1.9,
+      "spread_mesure": 1.8,
+      "cost": {
+        "median_risk_pips": 218.6,
+        "pct_catalogue": 0.87,
+        "pct_mesure": 0.82
+      },
+      "r1_ok": true,
+      "full_sample": [
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "- sl0.5% tp1%",
+          "n_trades": 396,
+          "total_r": -18.4,
+          "win_rate": 33.1,
+          "profit_factor": 0.93,
+          "max_dd_r": 37.93,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2061,
+          "skipped_open": 0,
+          "r_per_trade": -0.0465,
+          "by_year": {
+            "2021": [
+              -8.5,
+              20
+            ],
+            "2022": [
+              -12.8,
+              128
+            ],
+            "2023": [
+              11.0,
+              79
+            ],
+            "2024": [
+              -26.6,
+              55
+            ],
+            "2025": [
+              12.0,
+              81
+            ],
+            "2026": [
+              6.5,
+              33
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "- sl0.5% tp2%",
+          "n_trades": 213,
+          "total_r": 30.34,
+          "win_rate": 23.9,
+          "profit_factor": 1.18,
+          "max_dd_r": 27.88,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2244,
+          "skipped_open": 0,
+          "r_per_trade": 0.1425,
+          "by_year": {
+            "2021": [
+              -6.3,
+              11
+            ],
+            "2022": [
+              -15.0,
+              82
+            ],
+            "2023": [
+              10.5,
+              38
+            ],
+            "2024": [
+              24.5,
+              29
+            ],
+            "2025": [
+              14.4,
+              39
+            ],
+            "2026": [
+              2.2,
+              14
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "- sl0.5% tp4%",
+          "n_trades": 134,
+          "total_r": -35.66,
+          "win_rate": 9.0,
+          "profit_factor": 0.71,
+          "max_dd_r": 42.25,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2323,
+          "skipped_open": 0,
+          "r_per_trade": -0.2661,
+          "by_year": {
+            "2021": [
+              -4.4,
+              13
+            ],
+            "2022": [
+              -18.5,
+              44
+            ],
+            "2023": [
+              -7.0,
+              33
+            ],
+            "2024": [
+              0.7,
+              8
+            ],
+            "2025": [
+              -7.7,
+              25
+            ],
+            "2026": [
+              1.3,
+              11
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "- sl1.0% tp1%",
+          "n_trades": 229,
+          "total_r": -28.19,
+          "win_rate": 45.0,
+          "profit_factor": 0.78,
+          "max_dd_r": 29.78,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2228,
+          "skipped_open": 0,
+          "r_per_trade": -0.1231,
+          "by_year": {
+            "2021": [
+              -4.1,
+              8
+            ],
+            "2022": [
+              -2.4,
+              77
+            ],
+            "2023": [
+              -10.7,
+              46
+            ],
+            "2024": [
+              -11.4,
+              29
+            ],
+            "2025": [
+              4.4,
+              50
+            ],
+            "2026": [
+              -4.0,
+              19
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "- sl1.0% tp2%",
+          "n_trades": 133,
+          "total_r": 3.93,
+          "win_rate": 35.3,
+          "profit_factor": 1.05,
+          "max_dd_r": 15.4,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2324,
+          "skipped_open": 0,
+          "r_per_trade": 0.0295,
+          "by_year": {
+            "2021": [
+              -3.1,
+              6
+            ],
+            "2022": [
+              -1.8,
+              46
+            ],
+            "2023": [
+              -0.4,
+              21
+            ],
+            "2024": [
+              3.6,
+              20
+            ],
+            "2025": [
+              4.4,
+              28
+            ],
+            "2026": [
+              1.2,
+              12
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "- sl1.0% tp4%",
+          "n_trades": 60,
+          "total_r": 11.19,
+          "win_rate": 25.0,
+          "profit_factor": 1.25,
+          "max_dd_r": 14.22,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2397,
+          "skipped_open": 0,
+          "r_per_trade": 0.1865,
+          "by_year": {
+            "2021": [
+              0.9,
+              4
+            ],
+            "2022": [
+              -7.3,
+              22
+            ],
+            "2023": [
+              13.7,
+              11
+            ],
+            "2024": [
+              9.8,
+              5
+            ],
+            "2025": [
+              -2.2,
+              12
+            ],
+            "2026": [
+              -3.7,
+              6
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "- sl2.0% tp1%",
+          "n_trades": 118,
+          "total_r": -3.85,
+          "win_rate": 65.3,
+          "profit_factor": 0.91,
+          "max_dd_r": 11.77,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2339,
+          "skipped_open": 0,
+          "r_per_trade": -0.0326,
+          "by_year": {
+            "2021": [
+              2.0,
+              4
+            ],
+            "2022": [
+              -5.4,
+              44
+            ],
+            "2023": [
+              -0.7,
+              20
+            ],
+            "2024": [
+              -3.6,
+              14
+            ],
+            "2025": [
+              3.7,
+              29
+            ],
+            "2026": [
+              0.1,
+              7
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "- sl2.0% tp2%",
+          "n_trades": 72,
+          "total_r": 10.77,
+          "win_rate": 58.3,
+          "profit_factor": 1.36,
+          "max_dd_r": 5.11,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2385,
+          "skipped_open": 0,
+          "r_per_trade": 0.1496,
+          "by_year": {
+            "2021": [
+              -1.0,
+              3
+            ],
+            "2022": [
+              2.7,
+              27
+            ],
+            "2023": [
+              2.9,
+              11
+            ],
+            "2024": [
+              2.9,
+              9
+            ],
+            "2025": [
+              1.9,
+              16
+            ],
+            "2026": [
+              1.4,
+              6
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "- sl2.0% tp4%",
+          "n_trades": 35,
+          "total_r": -9.39,
+          "win_rate": 25.7,
+          "profit_factor": 0.64,
+          "max_dd_r": 14.12,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2422,
+          "skipped_open": 0,
+          "r_per_trade": -0.2683,
+          "by_year": {
+            "2021": [
+              1.0,
+              2
+            ],
+            "2022": [
+              -10.1,
+              13
+            ],
+            "2023": [
+              -1.1,
+              7
+            ],
+            "2024": [
+              2.0,
+              4
+            ],
+            "2025": [
+              -0.1,
+              6
+            ],
+            "2026": [
+              -1.1,
+              3
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl0.5% tp1%",
+          "n_trades": 378,
+          "total_r": -8.81,
+          "win_rate": 33.9,
+          "profit_factor": 0.97,
+          "max_dd_r": 37.9,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1171,
+          "skipped_open": 0,
+          "r_per_trade": -0.0233,
+          "by_year": {
+            "2021": [
+              5.4,
+              15
+            ],
+            "2022": [
+              -21.3,
+              119
+            ],
+            "2023": [
+              11.0,
+              79
+            ],
+            "2024": [
+              -25.6,
+              54
+            ],
+            "2025": [
+              15.1,
+              78
+            ],
+            "2026": [
+              6.6,
+              33
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl0.5% tp2%",
+          "n_trades": 202,
+          "total_r": 26.78,
+          "win_rate": 23.8,
+          "profit_factor": 1.17,
+          "max_dd_r": 41.51,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1347,
+          "skipped_open": 0,
+          "r_per_trade": 0.1326,
+          "by_year": {
+            "2021": [
+              -3.2,
+              8
+            ],
+            "2022": [
+              -8.9,
+              76
+            ],
+            "2023": [
+              -11.2,
+              40
+            ],
+            "2024": [
+              28.6,
+              25
+            ],
+            "2025": [
+              19.3,
+              39
+            ],
+            "2026": [
+              2.2,
+              14
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl0.5% tp4%",
+          "n_trades": 99,
+          "total_r": 19.67,
+          "win_rate": 14.1,
+          "profit_factor": 1.23,
+          "max_dd_r": 19.58,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1450,
+          "skipped_open": 0,
+          "r_per_trade": 0.1987,
+          "by_year": {
+            "2021": [
+              -8.1,
+              8
+            ],
+            "2022": [
+              -6.4,
+              32
+            ],
+            "2023": [
+              13.0,
+              22
+            ],
+            "2024": [
+              0.7,
+              8
+            ],
+            "2025": [
+              11.0,
+              24
+            ],
+            "2026": [
+              9.5,
+              5
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl1.0% tp1%",
+          "n_trades": 229,
+          "total_r": -16.27,
+          "win_rate": 47.6,
+          "profit_factor": 0.87,
+          "max_dd_r": 19.57,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1320,
+          "skipped_open": 0,
+          "r_per_trade": -0.071,
+          "by_year": {
+            "2021": [
+              -2.1,
+              8
+            ],
+            "2022": [
+              -2.4,
+              77
+            ],
+            "2023": [
+              -3.8,
+              47
+            ],
+            "2024": [
+              -7.4,
+              29
+            ],
+            "2025": [
+              3.4,
+              51
+            ],
+            "2026": [
+              -4.0,
+              17
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl1.0% tp2%",
+          "n_trades": 129,
+          "total_r": 19.95,
+          "win_rate": 39.5,
+          "profit_factor": 1.25,
+          "max_dd_r": 9.08,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1420,
+          "skipped_open": 0,
+          "r_per_trade": 0.1547,
+          "by_year": {
+            "2021": [
+              -2.1,
+              5
+            ],
+            "2022": [
+              2.2,
+              42
+            ],
+            "2023": [
+              7.4,
+              28
+            ],
+            "2024": [
+              3.7,
+              17
+            ],
+            "2025": [
+              6.4,
+              26
+            ],
+            "2026": [
+              2.3,
+              11
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl1.0% tp4%",
+          "n_trades": 63,
+          "total_r": -6.71,
+          "win_rate": 19.0,
+          "profit_factor": 0.87,
+          "max_dd_r": 17.23,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1486,
+          "skipped_open": 0,
+          "r_per_trade": -0.1064,
+          "by_year": {
+            "2021": [
+              -5.0,
+              5
+            ],
+            "2022": [
+              -10.3,
+              20
+            ],
+            "2023": [
+              17.6,
+              12
+            ],
+            "2024": [
+              -0.2,
+              10
+            ],
+            "2025": [
+              -5.1,
+              10
+            ],
+            "2026": [
+              -3.7,
+              6
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl2.0% tp1%",
+          "n_trades": 125,
+          "total_r": -6.4,
+          "win_rate": 64.0,
+          "profit_factor": 0.86,
+          "max_dd_r": 14.35,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1424,
+          "skipped_open": 0,
+          "r_per_trade": -0.0512,
+          "by_year": {
+            "2021": [
+              -0.0,
+              6
+            ],
+            "2022": [
+              -6.4,
+              48
+            ],
+            "2023": [
+              -0.7,
+              23
+            ],
+            "2024": [
+              -2.6,
+              13
+            ],
+            "2025": [
+              2.8,
+              27
+            ],
+            "2026": [
+              0.6,
+              8
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl2.0% tp2%",
+          "n_trades": 73,
+          "total_r": 13.75,
+          "win_rate": 60.3,
+          "profit_factor": 1.47,
+          "max_dd_r": 5.13,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1476,
+          "skipped_open": 0,
+          "r_per_trade": 0.1883,
+          "by_year": {
+            "2021": [
+              -1.0,
+              3
+            ],
+            "2022": [
+              5.7,
+              28
+            ],
+            "2023": [
+              4.9,
+              11
+            ],
+            "2024": [
+              0.9,
+              9
+            ],
+            "2025": [
+              1.9,
+              16
+            ],
+            "2026": [
+              1.4,
+              6
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl2.0% tp4%",
+          "n_trades": 33,
+          "total_r": -1.02,
+          "win_rate": 33.3,
+          "profit_factor": 0.95,
+          "max_dd_r": 9.07,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1516,
+          "skipped_open": 0,
+          "r_per_trade": -0.0309,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              -5.1,
+              11
+            ],
+            "2023": [
+              7.9,
+              7
+            ],
+            "2024": [
+              -1.0,
+              1
+            ],
+            "2025": [
+              -2.1,
+              8
+            ],
+            "2026": [
+              2.2,
+              3
+            ]
+          }
+        }
+      ],
+      "wf": {
+        "strict": [
+          {
+            "label": "sl_pct0.005_tp_pct0.04_zero_filterTrue",
+            "avg_oos": 6.712,
+            "oos_trades": 34
+          },
+          {
+            "label": "sl_pct0.005_tp_pct0.02_zero_filterTrue",
+            "avg_oos": 6.526,
+            "oos_trades": 66
+          },
+          {
+            "label": "sl_pct0.005_tp_pct0.02_zero_filterFalse",
+            "avg_oos": 5.297,
+            "oos_trades": 66
+          },
+          {
+            "label": "sl_pct0.01_tp_pct0.02_zero_filterTrue",
+            "avg_oos": 2.124,
+            "oos_trades": 43
+          }
+        ],
+        "n_configs": 18
+      },
+      "control": {
+        "vidéo (Z 2%/2%)": {
+          "label": "Z sl2.0% tp2%",
+          "n": 73,
+          "total_r": 13.75,
+          "percentile": 99.5,
+          "total_r_spread_mesure": 13.78
+        },
+        "meilleure R/tr": {
+          "label": "Z sl0.5% tp4%",
+          "n": 99,
+          "total_r": 19.67,
+          "percentile": 86.5,
+          "total_r_spread_mesure": 19.87
+        }
+      }
+    },
+    "GBPUSD": {
+      "symbol": "GBPUSD",
+      "timeframe": "H1",
+      "bars": 31548,
+      "spread_catalogue": 2.3,
+      "spread_mesure": 2.3,
+      "cost": {
+        "median_risk_pips": 251.3,
+        "pct_catalogue": 0.92,
+        "pct_mesure": 0.92
+      },
+      "r1_ok": true,
+      "full_sample": [
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "- sl0.5% tp1%",
+          "n_trades": 459,
+          "total_r": -40.35,
+          "win_rate": 31.8,
+          "profit_factor": 0.87,
+          "max_dd_r": 46.93,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2044,
+          "skipped_open": 0,
+          "r_per_trade": -0.0879,
+          "by_year": {
+            "2021": [
+              -4.8,
+              25
+            ],
+            "2022": [
+              -21.1,
+              142
+            ],
+            "2023": [
+              7.0,
+              103
+            ],
+            "2024": [
+              -20.0,
+              66
+            ],
+            "2025": [
+              -0.2,
+              83
+            ],
+            "2026": [
+              -1.3,
+              40
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "- sl0.5% tp2%",
+          "n_trades": 270,
+          "total_r": -23.74,
+          "win_rate": 18.9,
+          "profit_factor": 0.89,
+          "max_dd_r": 46.72,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2233,
+          "skipped_open": 0,
+          "r_per_trade": -0.0879,
+          "by_year": {
+            "2021": [
+              -7.5,
+              17
+            ],
+            "2022": [
+              5.3,
+              91
+            ],
+            "2023": [
+              -15.1,
+              63
+            ],
+            "2024": [
+              -17.2,
+              41
+            ],
+            "2025": [
+              4.5,
+              39
+            ],
+            "2026": [
+              6.1,
+              19
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "- sl0.5% tp4%",
+          "n_trades": 145,
+          "total_r": 39.44,
+          "win_rate": 15.2,
+          "profit_factor": 1.32,
+          "max_dd_r": 20.63,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2358,
+          "skipped_open": 0,
+          "r_per_trade": 0.272,
+          "by_year": {
+            "2021": [
+              -12.2,
+              12
+            ],
+            "2022": [
+              28.5,
+              50
+            ],
+            "2023": [
+              22.8,
+              21
+            ],
+            "2024": [
+              13.0,
+              22
+            ],
+            "2025": [
+              -8.8,
+              26
+            ],
+            "2026": [
+              -3.9,
+              14
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "- sl1.0% tp1%",
+          "n_trades": 284,
+          "total_r": -11.96,
+          "win_rate": 48.9,
+          "profit_factor": 0.92,
+          "max_dd_r": 26.88,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2219,
+          "skipped_open": 0,
+          "r_per_trade": -0.0421,
+          "by_year": {
+            "2021": [
+              -0.3,
+              16
+            ],
+            "2022": [
+              -17.7,
+              94
+            ],
+            "2023": [
+              2.9,
+              58
+            ],
+            "2024": [
+              -6.6,
+              36
+            ],
+            "2025": [
+              5.0,
+              54
+            ],
+            "2026": [
+              4.7,
+              26
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "- sl1.0% tp2%",
+          "n_trades": 149,
+          "total_r": -12.33,
+          "win_rate": 31.5,
+          "profit_factor": 0.88,
+          "max_dd_r": 19.54,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2354,
+          "skipped_open": 0,
+          "r_per_trade": -0.0828,
+          "by_year": {
+            "2021": [
+              2.9,
+              6
+            ],
+            "2022": [
+              -6.2,
+              59
+            ],
+            "2023": [
+              -6.5,
+              30
+            ],
+            "2024": [
+              4.7,
+              16
+            ],
+            "2025": [
+              -2.4,
+              26
+            ],
+            "2026": [
+              -4.8,
+              12
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "- sl1.0% tp4%",
+          "n_trades": 86,
+          "total_r": 28.29,
+          "win_rate": 27.9,
+          "profit_factor": 1.45,
+          "max_dd_r": 17.14,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2417,
+          "skipped_open": 0,
+          "r_per_trade": 0.329,
+          "by_year": {
+            "2021": [
+              0.9,
+              4
+            ],
+            "2022": [
+              14.2,
+              35
+            ],
+            "2023": [
+              19.5,
+              15
+            ],
+            "2024": [
+              5.8,
+              9
+            ],
+            "2025": [
+              -10.3,
+              20
+            ],
+            "2026": [
+              -1.9,
+              3
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "- sl2.0% tp1%",
+          "n_trades": 162,
+          "total_r": 0.86,
+          "win_rate": 67.3,
+          "profit_factor": 1.02,
+          "max_dd_r": 12.06,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2341,
+          "skipped_open": 0,
+          "r_per_trade": 0.0053,
+          "by_year": {
+            "2021": [
+              -0.1,
+              6
+            ],
+            "2022": [
+              -9.5,
+              57
+            ],
+            "2023": [
+              4.6,
+              37
+            ],
+            "2024": [
+              -2.2,
+              20
+            ],
+            "2025": [
+              2.3,
+              26
+            ],
+            "2026": [
+              5.7,
+              16
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "- sl2.0% tp2%",
+          "n_trades": 84,
+          "total_r": 8.49,
+          "win_rate": 56.0,
+          "profit_factor": 1.23,
+          "max_dd_r": 8.16,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2419,
+          "skipped_open": 0,
+          "r_per_trade": 0.1011,
+          "by_year": {
+            "2021": [
+              3.9,
+              4
+            ],
+            "2022": [
+              -2.3,
+              34
+            ],
+            "2023": [
+              3.8,
+              16
+            ],
+            "2024": [
+              2.9,
+              11
+            ],
+            "2025": [
+              -0.1,
+              14
+            ],
+            "2026": [
+              0.3,
+              5
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "- sl2.0% tp4%",
+          "n_trades": 43,
+          "total_r": 6.74,
+          "win_rate": 39.5,
+          "profit_factor": 1.26,
+          "max_dd_r": 5.11,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2460,
+          "skipped_open": 0,
+          "r_per_trade": 0.1568,
+          "by_year": {
+            "2021": [
+              1.0,
+              2
+            ],
+            "2022": [
+              -2.2,
+              17
+            ],
+            "2023": [
+              -0.1,
+              9
+            ],
+            "2024": [
+              3.0,
+              3
+            ],
+            "2025": [
+              2.9,
+              9
+            ],
+            "2026": [
+              2.1,
+              3
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl0.5% tp1%",
+          "n_trades": 434,
+          "total_r": -25.38,
+          "win_rate": 32.7,
+          "profit_factor": 0.91,
+          "max_dd_r": 30.13,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1140,
+          "skipped_open": 0,
+          "r_per_trade": -0.0585,
+          "by_year": {
+            "2021": [
+              -5.8,
+              26
+            ],
+            "2022": [
+              -15.6,
+              125
+            ],
+            "2023": [
+              15.9,
+              100
+            ],
+            "2024": [
+              -14.9,
+              61
+            ],
+            "2025": [
+              -3.8,
+              82
+            ],
+            "2026": [
+              -1.3,
+              40
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl0.5% tp2%",
+          "n_trades": 269,
+          "total_r": -31.67,
+          "win_rate": 18.6,
+          "profit_factor": 0.86,
+          "max_dd_r": 55.92,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1305,
+          "skipped_open": 0,
+          "r_per_trade": -0.1177,
+          "by_year": {
+            "2021": [
+              6.3,
+              18
+            ],
+            "2022": [
+              -11.2,
+              88
+            ],
+            "2023": [
+              -0.2,
+              58
+            ],
+            "2024": [
+              -10.2,
+              39
+            ],
+            "2025": [
+              -25.1,
+              44
+            ],
+            "2026": [
+              8.8,
+              22
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl0.5% tp4%",
+          "n_trades": 167,
+          "total_r": -0.6,
+          "win_rate": 12.0,
+          "profit_factor": 1.0,
+          "max_dd_r": 24.09,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1407,
+          "skipped_open": 0,
+          "r_per_trade": -0.0036,
+          "by_year": {
+            "2021": [
+              -5.1,
+              5
+            ],
+            "2022": [
+              -3.4,
+              64
+            ],
+            "2023": [
+              -5.1,
+              31
+            ],
+            "2024": [
+              13.0,
+              22
+            ],
+            "2025": [
+              4.9,
+              30
+            ],
+            "2026": [
+              -4.9,
+              15
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl1.0% tp1%",
+          "n_trades": 280,
+          "total_r": -9.9,
+          "win_rate": 49.3,
+          "profit_factor": 0.93,
+          "max_dd_r": 24.72,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1294,
+          "skipped_open": 0,
+          "r_per_trade": -0.0353,
+          "by_year": {
+            "2021": [
+              0.7,
+              17
+            ],
+            "2022": [
+              -6.7,
+              87
+            ],
+            "2023": [
+              -0.1,
+              59
+            ],
+            "2024": [
+              -10.6,
+              36
+            ],
+            "2025": [
+              2.0,
+              55
+            ],
+            "2026": [
+              4.7,
+              26
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl1.0% tp2%",
+          "n_trades": 153,
+          "total_r": -19.29,
+          "win_rate": 30.1,
+          "profit_factor": 0.82,
+          "max_dd_r": 28.39,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1421,
+          "skipped_open": 0,
+          "r_per_trade": -0.126,
+          "by_year": {
+            "2021": [
+              5.8,
+              6
+            ],
+            "2022": [
+              -6.0,
+              56
+            ],
+            "2023": [
+              -9.5,
+              30
+            ],
+            "2024": [
+              0.6,
+              20
+            ],
+            "2025": [
+              -7.4,
+              28
+            ],
+            "2026": [
+              -2.8,
+              13
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl1.0% tp4%",
+          "n_trades": 83,
+          "total_r": 38.38,
+          "win_rate": 30.1,
+          "profit_factor": 1.65,
+          "max_dd_r": 10.46,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1491,
+          "skipped_open": 0,
+          "r_per_trade": 0.4624,
+          "by_year": {
+            "2021": [
+              -4.0,
+              4
+            ],
+            "2022": [
+              8.2,
+              36
+            ],
+            "2023": [
+              19.5,
+              15
+            ],
+            "2024": [
+              7.7,
+              12
+            ],
+            "2025": [
+              1.8,
+              13
+            ],
+            "2026": [
+              5.2,
+              3
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl2.0% tp1%",
+          "n_trades": 152,
+          "total_r": 0.45,
+          "win_rate": 67.1,
+          "profit_factor": 1.01,
+          "max_dd_r": 9.1,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1422,
+          "skipped_open": 0,
+          "r_per_trade": 0.0029,
+          "by_year": {
+            "2021": [
+              1.4,
+              6
+            ],
+            "2022": [
+              -3.0,
+              58
+            ],
+            "2023": [
+              0.7,
+              29
+            ],
+            "2024": [
+              -2.2,
+              20
+            ],
+            "2025": [
+              -1.7,
+              24
+            ],
+            "2026": [
+              5.2,
+              15
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl2.0% tp2%",
+          "n_trades": 84,
+          "total_r": 10.48,
+          "win_rate": 57.1,
+          "profit_factor": 1.29,
+          "max_dd_r": 5.06,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1490,
+          "skipped_open": 0,
+          "r_per_trade": 0.1247,
+          "by_year": {
+            "2021": [
+              3.9,
+              6
+            ],
+            "2022": [
+              3.7,
+              32
+            ],
+            "2023": [
+              1.8,
+              16
+            ],
+            "2024": [
+              0.9,
+              11
+            ],
+            "2025": [
+              -0.1,
+              14
+            ],
+            "2026": [
+              0.3,
+              5
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl2.0% tp4%",
+          "n_trades": 44,
+          "total_r": -6.21,
+          "win_rate": 29.5,
+          "profit_factor": 0.8,
+          "max_dd_r": 11.28,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1530,
+          "skipped_open": 0,
+          "r_per_trade": -0.141,
+          "by_year": {
+            "2021": [
+              -2.0,
+              2
+            ],
+            "2022": [
+              -6.1,
+              18
+            ],
+            "2023": [
+              -0.1,
+              9
+            ],
+            "2024": [
+              -0.0,
+              3
+            ],
+            "2025": [
+              -0.1,
+              9
+            ],
+            "2026": [
+              2.1,
+              3
+            ]
+          }
+        }
+      ],
+      "wf": {
+        "strict": [],
+        "n_configs": 18
+      },
+      "control": {
+        "vidéo (Z 2%/2%)": {
+          "label": "Z sl2.0% tp2%",
+          "n": 84,
+          "total_r": 10.48,
+          "percentile": 96.5,
+          "total_r_spread_mesure": 10.48
+        },
+        "meilleure R/tr": {
+          "label": "Z sl1.0% tp4%",
+          "n": 83,
+          "total_r": 38.38,
+          "percentile": 100.0,
+          "total_r_spread_mesure": 38.38
+        }
+      }
+    },
+    "USDJPY": {
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "bars": 31548,
+      "spread_catalogue": 2.8,
+      "spread_mesure": 1.9,
+      "cost": {
+        "median_risk_pips": 290.2,
+        "pct_catalogue": 0.97,
+        "pct_mesure": 0.65
+      },
+      "r1_ok": true,
+      "full_sample": [
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "- sl0.5% tp1%",
+          "n_trades": 537,
+          "total_r": -18.01,
+          "win_rate": 33.5,
+          "profit_factor": 0.95,
+          "max_dd_r": 59.2,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1818,
+          "skipped_open": 0,
+          "r_per_trade": -0.0335,
+          "by_year": {
+            "2021": [
+              3.1,
+              17
+            ],
+            "2022": [
+              15.5,
+              123
+            ],
+            "2023": [
+              -19.6,
+              120
+            ],
+            "2024": [
+              -26.7,
+              113
+            ],
+            "2025": [
+              2.6,
+              116
+            ],
+            "2026": [
+              7.2,
+              48
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "- sl0.5% tp2%",
+          "n_trades": 335,
+          "total_r": 29.4,
+          "win_rate": 22.7,
+          "profit_factor": 1.11,
+          "max_dd_r": 34.71,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2020,
+          "skipped_open": 0,
+          "r_per_trade": 0.0878,
+          "by_year": {
+            "2021": [
+              -0.7,
+              15
+            ],
+            "2022": [
+              12.6,
+              74
+            ],
+            "2023": [
+              -15.7,
+              81
+            ],
+            "2024": [
+              -12.6,
+              75
+            ],
+            "2025": [
+              37.0,
+              60
+            ],
+            "2026": [
+              8.8,
+              30
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "- sl0.5% tp4%",
+          "n_trades": 220,
+          "total_r": 30.95,
+          "win_rate": 13.6,
+          "profit_factor": 1.16,
+          "max_dd_r": 40.23,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2135,
+          "skipped_open": 0,
+          "r_per_trade": 0.1407,
+          "by_year": {
+            "2021": [
+              -0.5,
+              9
+            ],
+            "2022": [
+              -9.4,
+              61
+            ],
+            "2023": [
+              1.3,
+              49
+            ],
+            "2024": [
+              55.4,
+              41
+            ],
+            "2025": [
+              -1.3,
+              36
+            ],
+            "2026": [
+              -14.5,
+              24
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "- sl1.0% tp1%",
+          "n_trades": 355,
+          "total_r": -9.47,
+          "win_rate": 49.6,
+          "profit_factor": 0.95,
+          "max_dd_r": 29.78,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2000,
+          "skipped_open": 0,
+          "r_per_trade": -0.0267,
+          "by_year": {
+            "2021": [
+              -0.3,
+              12
+            ],
+            "2022": [
+              10.1,
+              86
+            ],
+            "2023": [
+              3.3,
+              83
+            ],
+            "2024": [
+              -14.3,
+              75
+            ],
+            "2025": [
+              -5.2,
+              66
+            ],
+            "2026": [
+              -3.1,
+              33
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "- sl1.0% tp2%",
+          "n_trades": 218,
+          "total_r": 17.69,
+          "win_rate": 36.7,
+          "profit_factor": 1.13,
+          "max_dd_r": 13.73,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2137,
+          "skipped_open": 0,
+          "r_per_trade": 0.0811,
+          "by_year": {
+            "2021": [
+              -0.1,
+              6
+            ],
+            "2022": [
+              -0.1,
+              50
+            ],
+            "2023": [
+              2.7,
+              47
+            ],
+            "2024": [
+              -7.9,
+              52
+            ],
+            "2025": [
+              18.0,
+              41
+            ],
+            "2026": [
+              5.0,
+              22
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "- sl1.0% tp4%",
+          "n_trades": 123,
+          "total_r": -9.88,
+          "win_rate": 18.7,
+          "profit_factor": 0.9,
+          "max_dd_r": 23.0,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2232,
+          "skipped_open": 0,
+          "r_per_trade": -0.0803,
+          "by_year": {
+            "2021": [
+              1.9,
+              3
+            ],
+            "2022": [
+              -3.6,
+              28
+            ],
+            "2023": [
+              -5.7,
+              35
+            ],
+            "2024": [
+              18.3,
+              26
+            ],
+            "2025": [
+              -16.2,
+              21
+            ],
+            "2026": [
+              -4.7,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "- sl2.0% tp1%",
+          "n_trades": 223,
+          "total_r": 3.01,
+          "win_rate": 68.2,
+          "profit_factor": 1.04,
+          "max_dd_r": 10.8,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2132,
+          "skipped_open": 0,
+          "r_per_trade": 0.0135,
+          "by_year": {
+            "2021": [
+              -1.5,
+              3
+            ],
+            "2022": [
+              -1.1,
+              59
+            ],
+            "2023": [
+              -1.6,
+              55
+            ],
+            "2024": [
+              -2.9,
+              49
+            ],
+            "2025": [
+              8.6,
+              42
+            ],
+            "2026": [
+              1.6,
+              15
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "- sl2.0% tp2%",
+          "n_trades": 118,
+          "total_r": 0.99,
+          "win_rate": 50.8,
+          "profit_factor": 1.02,
+          "max_dd_r": 10.75,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2237,
+          "skipped_open": 0,
+          "r_per_trade": 0.0084,
+          "by_year": {
+            "2021": [
+              -1.0,
+              3
+            ],
+            "2022": [
+              -2.3,
+              28
+            ],
+            "2023": [
+              0.7,
+              27
+            ],
+            "2024": [
+              -4.2,
+              28
+            ],
+            "2025": [
+              3.7,
+              20
+            ],
+            "2026": [
+              4.1,
+              12
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": false,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "- sl2.0% tp4%",
+          "n_trades": 71,
+          "total_r": -2.0,
+          "win_rate": 32.4,
+          "profit_factor": 0.96,
+          "max_dd_r": 11.42,
+          "skipped_spread": 0,
+          "skipped_cooldown": 2284,
+          "skipped_open": 0,
+          "r_per_trade": -0.0281,
+          "by_year": {
+            "2021": [
+              1.0,
+              2
+            ],
+            "2022": [
+              -6.2,
+              21
+            ],
+            "2023": [
+              2.6,
+              15
+            ],
+            "2024": [
+              6.8,
+              17
+            ],
+            "2025": [
+              -6.1,
+              12
+            ],
+            "2026": [
+              -0.1,
+              4
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl0.5% tp1%",
+          "n_trades": 528,
+          "total_r": -14.75,
+          "win_rate": 33.7,
+          "profit_factor": 0.96,
+          "max_dd_r": 44.23,
+          "skipped_spread": 0,
+          "skipped_cooldown": 947,
+          "skipped_open": 0,
+          "r_per_trade": -0.0279,
+          "by_year": {
+            "2021": [
+              2.2,
+              15
+            ],
+            "2022": [
+              0.0,
+              118
+            ],
+            "2023": [
+              -1.1,
+              122
+            ],
+            "2024": [
+              -13.8,
+              109
+            ],
+            "2025": [
+              -13.3,
+              120
+            ],
+            "2026": [
+              11.2,
+              44
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl0.5% tp2%",
+          "n_trades": 325,
+          "total_r": 29.96,
+          "win_rate": 22.8,
+          "profit_factor": 1.12,
+          "max_dd_r": 34.9,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1150,
+          "skipped_open": 0,
+          "r_per_trade": 0.0922,
+          "by_year": {
+            "2021": [
+              -6.4,
+              11
+            ],
+            "2022": [
+              -12.1,
+              79
+            ],
+            "2023": [
+              5.2,
+              75
+            ],
+            "2024": [
+              -21.4,
+              74
+            ],
+            "2025": [
+              52.8,
+              59
+            ],
+            "2026": [
+              11.8,
+              27
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.005,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl0.5% tp4%",
+          "n_trades": 192,
+          "total_r": 5.32,
+          "win_rate": 12.0,
+          "profit_factor": 1.03,
+          "max_dd_r": 35.85,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1283,
+          "skipped_open": 0,
+          "r_per_trade": 0.0277,
+          "by_year": {
+            "2021": [
+              -2.5,
+              11
+            ],
+            "2022": [
+              -21.5,
+              47
+            ],
+            "2023": [
+              0.7,
+              41
+            ],
+            "2024": [
+              34.0,
+              36
+            ],
+            "2025": [
+              -6.5,
+              40
+            ],
+            "2026": [
+              1.2,
+              17
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl1.0% tp1%",
+          "n_trades": 349,
+          "total_r": -15.28,
+          "win_rate": 48.7,
+          "profit_factor": 0.92,
+          "max_dd_r": 25.85,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1126,
+          "skipped_open": 0,
+          "r_per_trade": -0.0438,
+          "by_year": {
+            "2021": [
+              -1.3,
+              11
+            ],
+            "2022": [
+              3.3,
+              81
+            ],
+            "2023": [
+              0.3,
+              82
+            ],
+            "2024": [
+              -12.3,
+              75
+            ],
+            "2025": [
+              -4.3,
+              69
+            ],
+            "2026": [
+              -1.1,
+              31
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl1.0% tp2%",
+          "n_trades": 212,
+          "total_r": 17.79,
+          "win_rate": 36.8,
+          "profit_factor": 1.13,
+          "max_dd_r": 17.71,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1263,
+          "skipped_open": 0,
+          "r_per_trade": 0.0839,
+          "by_year": {
+            "2021": [
+              1.8,
+              7
+            ],
+            "2022": [
+              -4.0,
+              51
+            ],
+            "2023": [
+              3.7,
+              46
+            ],
+            "2024": [
+              -6.9,
+              51
+            ],
+            "2025": [
+              14.1,
+              39
+            ],
+            "2026": [
+              9.1,
+              18
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.01,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl1.0% tp4%",
+          "n_trades": 126,
+          "total_r": -23.51,
+          "win_rate": 16.7,
+          "profit_factor": 0.78,
+          "max_dd_r": 30.98,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1349,
+          "skipped_open": 0,
+          "r_per_trade": -0.1866,
+          "by_year": {
+            "2021": [
+              -0.1,
+              5
+            ],
+            "2022": [
+              -13.4,
+              28
+            ],
+            "2023": [
+              -13.3,
+              37
+            ],
+            "2024": [
+              12.4,
+              27
+            ],
+            "2025": [
+              -4.3,
+              19
+            ],
+            "2026": [
+              -4.7,
+              10
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.01
+          },
+          "label": "Z sl2.0% tp1%",
+          "n_trades": 223,
+          "total_r": 5.98,
+          "win_rate": 69.1,
+          "profit_factor": 1.09,
+          "max_dd_r": 9.77,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1252,
+          "skipped_open": 0,
+          "r_per_trade": 0.0268,
+          "by_year": {
+            "2021": [
+              1.4,
+              9
+            ],
+            "2022": [
+              -2.1,
+              57
+            ],
+            "2023": [
+              -1.0,
+              53
+            ],
+            "2024": [
+              -1.9,
+              48
+            ],
+            "2025": [
+              8.1,
+              41
+            ],
+            "2026": [
+              1.6,
+              15
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.02
+          },
+          "label": "Z sl2.0% tp2%",
+          "n_trades": 115,
+          "total_r": -5.94,
+          "win_rate": 47.8,
+          "profit_factor": 0.9,
+          "max_dd_r": 13.7,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1360,
+          "skipped_open": 0,
+          "r_per_trade": -0.0516,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              -5.3,
+              29
+            ],
+            "2023": [
+              -5.2,
+              23
+            ],
+            "2024": [
+              1.7,
+              28
+            ],
+            "2025": [
+              0.8,
+              19
+            ],
+            "2026": [
+              5.1,
+              13
+            ]
+          }
+        },
+        {
+          "cell": {
+            "zero_filter": true,
+            "sl_pct": 0.02,
+            "tp_pct": 0.04
+          },
+          "label": "Z sl2.0% tp4%",
+          "n_trades": 71,
+          "total_r": -19.69,
+          "win_rate": 23.9,
+          "profit_factor": 0.63,
+          "max_dd_r": 23.36,
+          "skipped_spread": 0,
+          "skipped_cooldown": 1404,
+          "skipped_open": 0,
+          "r_per_trade": -0.2774,
+          "by_year": {
+            "2021": [
+              -3.0,
+              3
+            ],
+            "2022": [
+              -11.2,
+              20
+            ],
+            "2023": [
+              -5.1,
+              17
+            ],
+            "2024": [
+              5.8,
+              18
+            ],
+            "2025": [
+              -6.1,
+              9
+            ],
+            "2026": [
+              -0.1,
+              4
+            ]
+          }
+        }
+      ],
+      "wf": {
+        "strict": [],
+        "n_configs": 18
+      },
+      "control": {
+        "vidéo (Z 2%/2%)": {
+          "label": "Z sl2.0% tp2%",
+          "n": 115,
+          "total_r": -5.94,
+          "percentile": 38.5,
+          "total_r_spread_mesure": -5.59
+        },
+        "meilleure R/tr": {
+          "label": "- sl0.5% tp4%",
+          "n": 220,
+          "total_r": 30.95,
+          "percentile": 77.0,
+          "total_r_spread_mesure": 33.91
+        }
+      }
+    }
+  }
+}

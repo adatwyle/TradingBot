@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- SPEC_analytics-trades AN-1 — page « analyse » (parité Trade Buddy).
+     Shell only: filters, tiles, charts, summary, journal — everything renders
+     from /api/analytics + /api/analytics/trades (polling 10 s, app.js). -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyse — supervision</title>
+  <link rel="stylesheet" href="/ui/style.css">
+</head>
+<body data-page="analytics">
+  <header>
+    <h1>ANALYSE</h1>
+    <nav>
+      <a href="/">stratégies</a>
+      <a href="/services">services communs</a>
+      <a href="/analytics">analyse</a>
+    </nav>
+    <span id="stamp">chargement…</span>
+    <span id="conn" class="ok">live</span>
+  </header>
+
+  <main>
+    <!-- AN-27 : en-tête compte (mode × devise remplace le « compte » Trade Buddy) -->
+    <div id="an-header" class="an-header">chargement…</div>
+    <div id="an-source" class="subtitle"></div>
+    <div id="print-url" class="print-only"></div>
+
+    <!-- AN-8 : barre de filtres (mode radio, multi <details>, dates, effacer) -->
+    <div id="filters" class="filters"></div>
+
+    <!-- AN-13 : 9 tuiles KPI, jamais masquées par un menu -->
+    <div id="kpi" class="kpi-tiles"></div>
+
+    <section class="panel" id="performance">
+      <h2>PERFORMANCE</h2>
+      <div class="subtitle">courbe de solde (capital initial + cumul net) et drawdown
+        à granularité trade — un seul drawdown pour la tuile, la courbe et le résumé
+        <label class="toggle"><input type="checkbox" id="show-balance" checked> solde</label>
+        <label class="toggle"><input type="checkbox" id="show-drawdown" checked> drawdown</label>
+      </div>
+      <div id="performance-content"></div>
+    </section>
+
+    <section class="panel" id="heatmap">
+      <h2>P&amp;L PAR MOIS</h2>
+      <div class="subtitle">montant · % du capital initial (non composé) · Σ R — totaux
+        par année et par mois calendaire</div>
+      <div id="heatmap-content"></div>
+    </section>
+
+    <section class="panel" id="instances">
+      <h2>P&amp;L PAR INSTANCE</h2>
+      <div class="subtitle">une barre par instance, triée par net décroissant ; drawdown
+        calculé sur la sous-série de l'instance</div>
+      <div id="instances-content"></div>
+    </section>
+
+    <section class="panel" id="strategies">
+      <h2>P&amp;L PAR STRATÉGIE</h2>
+      <div class="subtitle">sous-barres empilées par instance ; « magic divergent » =
+        trades dont le magic ne correspond pas au manifeste</div>
+      <div id="strategies-content"></div>
+    </section>
+
+    <section class="panel" id="weekday">
+      <h2>P&amp;L PAR JOUR DE SEMAINE</h2>
+      <div class="subtitle">jour local de l'entrée par défaut (weekday_key=open)</div>
+      <div id="weekday-content"></div>
+    </section>
+
+    <section class="panel" id="hour">
+      <h2>P&amp;L PAR HEURE D'ENTRÉE</h2>
+      <div class="subtitle">heure locale de l'ouverture</div>
+      <div id="hour-content"></div>
+    </section>
+
+    <section class="panel" id="distribution">
+      <h2>DISTRIBUTION</h2>
+      <div class="subtitle">en R (bins fixes de 0,5 R sur [−3, +5]) ou en devise
+        (16 bins équirépartis) selon le filtre dist_unit</div>
+      <div id="distribution-content"></div>
+    </section>
+
+    <section class="panel" id="summary">
+      <h2>SUMMARY</h2>
+      <div class="subtitle">volume · P&amp;L · risque · séries &amp; durée · solde &amp; coûts</div>
+      <div id="summary-content"></div>
+    </section>
+
+    <section class="panel" id="open-positions">
+      <h2>POSITIONS OUVERTES</h2>
+      <div class="subtitle">hors de toutes les statistiques — sans P&amp;L flottant
+        (le status.json de l'instance reste la source du vivant)</div>
+      <div id="open-positions-content"></div>
+    </section>
+
+    <section class="panel" id="journal">
+      <h2>JOURNAL DES TRADES</h2>
+      <div class="subtitle">lecture seule, paginé côté serveur (clôture décroissante) ;
+        tri et recherche sur la page courante</div>
+      <div id="journal-toolbar" class="journal-toolbar">
+        <input type="search" id="journal-search" placeholder="recherche instance / symbole / raison">
+        <span class="pager">
+          <button type="button" id="journal-prev" title="page précédente">‹</button>
+          <span id="journal-range">—</span>
+          <button type="button" id="journal-next" title="page suivante">›</button>
+        </span>
+      </div>
+      <div id="journal-content"></div>
+    </section>
+
+    <section class="panel" id="warnings">
+      <h2>AVERTISSEMENTS</h2>
+      <div class="subtitle">ledger absent, journal absent ou chaîne altérée : jamais une
+        panne, toujours une alerte</div>
+      <div id="warnings-content"></div>
+    </section>
+  </main>
+
+  <script src="/ui/app.js"></script>
+</body>
+</html>

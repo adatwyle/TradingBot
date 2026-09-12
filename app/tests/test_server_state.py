@@ -14,10 +14,13 @@ absente → pages servies).
 """
 from __future__ import annotations
 
+import json
 import os
 import shutil
 import sys
 from datetime import datetime, timedelta, timezone
+
+import pytest
 
 APP_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if APP_DIR not in sys.path:
@@ -166,6 +169,99 @@ def test_alexg_paper_joint_aux_etudes_heritees(client, ui_env):
     n = client.get("/api/state").get_json()["niveaux"]
     assert "S093_alexg_ai_judge" in n["paper"]
     assert any("S093" in d and "attendu PAPER" in d for d in n["divergences"])
+
+
+def test_legacy_studies_aligned_on_adapter_catalogue(ui_env):
+    """SPEC_analytics-trades §3.2 / §7 L1 : LEGACY_STUDIES suit le catalogue
+    ``journal_adapter.STUDIES`` (s20_forward compris) + s14_sentiment sans
+    stratégie ; chaque entrée porte un libellé."""
+    from server import state
+    from server.journal_adapter import STUDIES
+    pairs = [(f, s) for f, s, _l in state.LEGACY_STUDIES]
+    assert pairs[:len(STUDIES)] == list(STUDIES)
+    assert ("s20_forward", "S020") in pairs
+    assert ("s14_sentiment", None) in pairs
+    assert all(isinstance(l, str) and l for _f, _s, l in state.LEGACY_STUDIES)
+    assert state.legacy_studies() == state.LEGACY_STUDIES
+    with pytest.raises(AttributeError):
+        state.PAS_UN_ATTRIBUT  # noqa: B018 — __getattr__ ne masque rien
+
+
+def _write_arms_study(ui_env, folder, arms, *, fresh=True):
+    """status.json au format à bras (s13 / s20) — sans compteurs racine."""
+    d = ui_env.db / folder
+    d.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now(timezone.utc) - (timedelta(hours=1) if fresh
+                                       else timedelta(days=3))
+    doc = {"generated_at_utc": ui_env.iso(ts), "first_pass": False,
+           "primary_symbol": next(iter(arms)), "arms": arms,
+           "stop_criteria": {"scope": "bras principal"}}
+    (d / "status.json").write_text(json.dumps(doc), encoding="utf-8")
+
+
+S20_ARMS = {
+    "EURUSD": {"arm": "PRIMARY", "last_bar_time": "2026-09-11T21:00:00",
+               "n_closed_total": 3, "cum_r": 1.5, "capital": 10150.0,
+               "open_position": {"trade_id": "EURUSD_SHORT_20260910",
+                                 "side": "SHORT"}},
+    "USDJPY": {"arm": "OBSERVATION", "last_bar_time": "2026-09-11T21:00:00",
+               "n_closed_total": 2, "cum_r": -2.0302, "capital": 9798.01,
+               "open_position": None},
+}
+
+
+def test_study_state_reads_arms_format(ui_env):
+    """§7 L1 : trades, R et capital SOMMÉS sur les bras + détail par bras ;
+    position = un bras au moins en position."""
+    from server.state import study_state, study_totals
+    _write_arms_study(ui_env, "s20_forward", S20_ARMS)
+    e = study_state("s20_forward")
+    assert e["vivante"] is True
+    assert e["trades"] == 5
+    assert abs(e["cum_r"] - (-0.5302)) < 1e-6
+    assert abs(e["capital"] - 19948.01) < 1e-6
+    assert e["position"] is True
+    assert set(e["bras"]) == {"EURUSD", "USDJPY"}
+    assert e["bras"]["EURUSD"]["arm"] == "PRIMARY"
+    assert e["bras"]["EURUSD"]["position"] is True
+    assert e["bras"]["USDJPY"]["trades"] == 2
+    assert e["bras"]["USDJPY"]["position"] is False
+    # Format plat (gold) inchangé : mêmes clés, ``bras`` vide.
+    ui_env.write_study("gold_forward", fresh=True, open_position={"x": 1})
+    g = study_state("gold_forward")
+    assert g["trades"] == 7 and g["capital"] == 10123.0
+    assert g["position"] is True and g["bras"] == {}
+    # Variante alexg / macd_ai : clé = bras, ``n_closed``, ``open_positions``.
+    ai = study_totals({"arms": {
+        "MECH": {"n_closed": 4, "cum_r": 0.5, "capital": 9669.99,
+                 "open_positions": [{"symbol": "EURNZD"}]},
+        "AI": {"n_closed": 1, "cum_r": -1.0, "capital": 10000.0,
+               "open_positions": []}}})
+    assert ai["trades"] == 5 and ai["position"] is True
+    assert abs(ai["capital"] - 19669.99) < 1e-6
+    assert ai["bras"]["MECH"]["arm"] == "MECH"
+    assert ai["bras"]["AI"]["position"] is False
+    # ``arms`` vide ou altéré → format plat, jamais une exception.
+    assert study_totals({"arms": {}, "n_closed_total": 4})["trades"] == 4
+    assert study_totals({"arms": "pouet"})["trades"] == 0
+    bad = study_totals({"arms": {"EURUSD": {"n_closed_total": "x",
+                                            "capital": None}}})
+    assert bad["trades"] == 0 and bad["capital"] is None
+
+
+def test_s20_study_on_its_strategy_card(client, ui_env):
+    """AN-T11 : /api/strategy/S020 ne 404 plus et porte l'étude s20_forward
+    (LEGACY_STUDIES aligné)."""
+    ui_env.make_strategy("S020_balke_macd_cross", status="PAPER",
+                         symbols=("EURUSD", "USDJPY"))
+    _write_arms_study(ui_env, "s20_forward", S20_ARMS)
+    r = client.get("/api/strategy/S020")
+    assert r.status_code == 200
+    etudes = r.get_json()["card"]["etudes"]
+    assert [e["dossier"] for e in etudes] == ["s20_forward"]
+    assert etudes[0]["trades"] == 5 and etudes[0]["vivante"] is True
+    n = client.get("/api/state").get_json()["niveaux"]
+    assert "S020_balke_macd_cross" in n["paper"] and n["divergences"] == []
 
 
 def test_levels_placement(client, ui_env):

@@ -6,7 +6,7 @@ factory, panneau, logs, Telegram, datasets, tickets, études scellées). Le banc
 fige : factory vivante/morte selon le mtime du verrou (UI-T5), tickets
 bloquants détectés et en tête (UI-T5), présence de token SANS fuite de la
 valeur (UI-T5), section watcher conditionnelle, secrets jamais listés, et le
-service des trois pages HTML + assets sans CDN.
+service des quatre pages HTML (dont /analytics, AN-1) + assets sans CDN.
 
     pytest app/tests/test_server_services.py -q
 """
@@ -217,16 +217,34 @@ def test_html_pages_served(client, ui_env):
     assert "SERVICES COMMUNS" in html
     assert 'data-page="services"' in html
 
+    # AN-1 : 4ᵉ shell, la page « analyse » (SPEC_analytics-trades).
+    r = client.get("/analytics")
+    assert r.status_code == 200
+    assert 'data-page="analytics"' in r.get_data(as_text=True)
+
+
+SHELLS = ("/", "/strategy/S013", "/services", "/analytics")
+
 
 def test_assets_served_without_cdn(client, ui_env):
     js = client.get("/ui/app.js")
     css = client.get("/ui/style.css")
     assert js.status_code == 200 and css.status_code == 200
-    # D-UI-2 : aucun asset distant — ni http:// ni https:// dans le front.
-    for page in ("/", "/services"):
+    # D-UI-2 / D-AN-13 : aucun asset distant — ni http:// ni https:// dans
+    # les 4 shells ni dans les assets (test bloquant de la spec analytics).
+    for page in SHELLS:
         html = client.get(page).get_data(as_text=True)
         assert "https://" not in html and "http://" not in html
-    assert "https://" not in js.get_data(as_text=True)
+    for asset in (js, css):
+        text = asset.get_data(as_text=True)
+        assert "https://" not in text and "http://" not in text
+
+
+def test_nav_link_analyse_in_all_shells(client, ui_env):
+    """AN-1 : le lien « analyse » figure dans les 4 shells (UI-8 amendé)."""
+    for page in SHELLS:
+        html = client.get(page).get_data(as_text=True)
+        assert 'href="/analytics"' in html, page
 
 
 # ── port du serveur (seam TBOT_UI_PORT — worker « supervision », T4) ────────

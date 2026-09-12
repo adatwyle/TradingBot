@@ -50,15 +50,45 @@ LEVEL_OF_STATUS = {
 }
 
 # Inherited sealed studies (UI-9): they instantiate strategies and stay
-# visible in /services until E6 migrates them to the paper_S0NN family.
-# (data folder under db_dir(), instantiated strategy S0NN or None, label)
-LEGACY_STUDIES = [
-    ("gold_forward",  "S011", "Or — XAUUSD H1"),
-    ("s13_forward",   "S013", "AUDCAD ext-MACD D1"),
-    ("macd_ai_paper", "S012", "MACD-IA — indices D1"),
-    ("s14_sentiment", None,   "Sentiment des news (étude)"),
-    ("alexg_paper",   "S093", "fxalexg + juge IA — 26 paires H1"),
-]
+# visible on their strategy's card (or in /services when they instantiate
+# none).  The (folder, S0NN) catalogue is OWNED by server.journal_adapter
+# (``STUDIES``, SPEC_analytics-trades §3.2) — a single source of truth for
+# the analytics adapter and this module; only the labels live here.
+# ``s14_sentiment`` has no trade journal, hence no strategy and no entry in
+# the adapter's catalogue: it is appended here.
+STUDY_LABELS = {
+    "gold_forward":  "Or — XAUUSD H1",
+    "s13_forward":   "AUDCAD ext-MACD D1",
+    "s20_forward":   "EURUSD MACD cross H1",
+    "alexg_paper":   "fxalexg + juge IA — 26 paires H1",
+    "macd_ai_paper": "MACD-IA — indices D1",
+    "s14_sentiment": "Sentiment des news (étude)",
+}
+STUDIES_WITHOUT_STRATEGY = (("s14_sentiment", None),)
+
+
+def legacy_studies() -> list[tuple[str, str | None, str]]:
+    """``[(data folder under db_dir(), instantiated S0NN or None, label)]``
+    — ``journal_adapter.STUDIES`` + the studies without a strategy.
+
+    The import is local on purpose: journal_adapter imports this module
+    (``declared_instances``), so a module-level import would be circular
+    in one of the two import orders.  A study missing from STUDY_LABELS is
+    labelled by its folder name — never dropped."""
+    from server.journal_adapter import STUDIES  # import local : cycle
+    out = [(folder, sid, STUDY_LABELS.get(folder, folder))
+           for folder, sid in STUDIES]
+    out += [(folder, sid, STUDY_LABELS.get(folder, folder))
+            for folder, sid in STUDIES_WITHOUT_STRATEGY]
+    return out
+
+
+def __getattr__(name: str):
+    """``LEGACY_STUDIES`` reste importable comme constante (services.py,
+    tests) sans import circulaire : résolu à la première lecture (PEP 562)."""
+    if name == "LEGACY_STUDIES":
+        return legacy_studies()
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 _PAIR_RE = re.compile(r"^[A-Z]{6}$")
 
@@ -257,7 +287,7 @@ def build_card(folder: str, *, spark: bool = True) -> dict:
     # Études héritées instanciant cette stratégie : elles vivent SUR la carte
     # (directive Adrian 2026-08-26 — plus de monde séparé côté stratégies).
     etudes = [dict(study_state(folder), dossier=folder, libelle=label)
-              for folder, strat, label in LEGACY_STUDIES if strat == short]
+              for folder, strat, label in legacy_studies() if strat == short]
 
     declared = "RESEARCH"
     name = folder
@@ -320,17 +350,80 @@ def study_state(folder: str) -> dict:
     else:
         age = (utc_now() - ts).total_seconds()
     judges = st.get("judges") or {}
+    totals = study_totals(st)
     return {
         "vivante": age is not None and age < FRESH_SEC,
-        "trades": st.get("n_closed_total", 0),
-        "cum_r": st.get("cum_r", 0.0),
-        "capital": st.get("capital"),
-        "position": bool(st.get("open_position")),
+        "trades": totals["trades"],
+        "cum_r": totals["cum_r"],
+        "capital": totals["capital"],
+        "position": totals["position"],
+        "bras": totals["bras"],
         "mesure": st.get("generated_at_utc") or "jamais",
         "news": st.get("n_news_total"),
         "verdicts": (sum(int(j.get("n_verdicts_total", 0))
                          for j in judges.values()) if judges else None),
         "arret": st.get("stop_criteria") or {},
+    }
+
+
+def _num(value, default=None):
+    """float si numérique, sinon ``default`` — un status.json altéré ne fait
+    pas tomber la carte."""
+    if isinstance(value, bool) or value is None:
+        return default
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def study_totals(st: dict) -> dict:
+    """Les compteurs d'une étude, dans ses deux formats de ``status.json`` :
+
+    - plat (gold, macd_ai, alexg) : ``n_closed_total`` / ``cum_r`` /
+      ``capital`` / ``open_position`` à la racine ;
+    - à bras (s13, s20 — SPEC_analytics-trades §7 L1) : ``arms{<symbole>:
+      {arm, n_closed_total, cum_r, capital, open_position, last_bar_time}}``
+      → trades, R et capital SOMMÉS sur les bras (le capital est par bras,
+      10 000 chacun — jamais 10 000 pour l'étude), position = un bras au
+      moins en position, détail par bras sous ``bras`` ;
+    - variante alexg / macd_ai : ``arms{<MECH|AI|RND>: {n_closed, cum_r,
+      capital, open_positions[]}}`` — clé = nom du bras, compteur
+      ``n_closed``, positions au pluriel (liste par symbole).
+
+    Un ``arms`` vide ou non conforme retombe sur le format plat."""
+    arms = st.get("arms")
+    per_arm = {}
+    if isinstance(arms, dict):
+        for symbol, a in arms.items():
+            if not isinstance(a, dict):
+                continue
+            n_closed = a.get("n_closed_total", a.get("n_closed"))
+            opened = a.get("open_position") or a.get("open_positions")
+            per_arm[str(symbol)] = {
+                "arm": a.get("arm") or str(symbol),
+                "trades": int(_num(n_closed, 0)),
+                "cum_r": _num(a.get("cum_r"), 0.0),
+                "capital": _num(a.get("capital")),
+                "position": bool(opened),
+                "derniere_barre": a.get("last_bar_time"),
+            }
+    if not per_arm:
+        return {
+            "trades": st.get("n_closed_total", 0),
+            "cum_r": st.get("cum_r", 0.0),
+            "capital": st.get("capital"),
+            "position": bool(st.get("open_position")),
+            "bras": {},
+        }
+    capitals = [b["capital"] for b in per_arm.values()
+                if b["capital"] is not None]
+    return {
+        "trades": sum(b["trades"] for b in per_arm.values()),
+        "cum_r": round(sum(b["cum_r"] for b in per_arm.values()), 4),
+        "capital": round(sum(capitals), 2) if capitals else None,
+        "position": any(b["position"] for b in per_arm.values()),
+        "bras": per_arm,
     }
 
 

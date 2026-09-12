@@ -98,10 +98,154 @@ def ui_env(tmp_path, monkeypatch):
         doc.update(over)
         (d / "status.json").write_text(json.dumps(doc), encoding="utf-8")
 
+    # ── journaux forward jetables (SPEC_analytics-trades §8) ────────────
+    # Trois en-têtes réels : gold (mono-instrument), s13/s20 (arm + symbol),
+    # alexg/macd_ai (signal_id, decision, reason…). Le helper choisit le
+    # plus petit en-tête qui porte toutes les clés fournies, sauf override.
+    gold_cols = ["measured_at_utc", "event", "trade_id", "bar_time", "side",
+                 "entry_price", "stop_price", "target_price", "size_lots",
+                 "risk_ccy", "exit_price", "exit_reason", "pnl_r", "pnl_ccy",
+                 "capital_after", "chain"]
+    arm_cols = gold_cols[:2] + ["arm", "symbol"] + gold_cols[2:]
+    alexg_cols = ["measured_at_utc", "event", "arm", "symbol", "signal_id",
+                  "trade_id", "bar_time", "side", "entry_price", "stop_price",
+                  "target_price", "size_lots", "risk_ccy", "exit_price",
+                  "exit_reason", "pnl_r", "pnl_r_nocost", "pnl_ccy",
+                  "capital_after", "decision", "size_frac", "sl_adjust",
+                  "tp_adjust", "reason", "chain"]
+
+    def _journal_columns(rows):
+        keys = set()
+        for r in rows:
+            keys |= set(r)
+        for cols in (gold_cols, arm_cols, alexg_cols):
+            if keys <= set(cols):
+                return cols
+        return alexg_cols + sorted(keys - set(alexg_cols))
+
+    def _csv_line(values):
+        import csv
+        import io
+        buf = io.StringIO()
+        csv.writer(buf, lineterminator="\n").writerow(values)
+        return buf.getvalue()
+
+    def _default_params(study, rows):
+        symbols = sorted({r.get("symbol") for r in rows if r.get("symbol")})
+        params = {"study": study, "timeframe": "H1",
+                  "sizing": {"capital_initial": 10000.0,
+                             "risk_per_trade_pct": 1.0}}
+        if symbols:
+            params["instruments"] = {
+                s: next((r.get("arm") for r in rows
+                         if r.get("symbol") == s and r.get("arm")), "PRIMARY")
+                for s in symbols}
+            params["specs"] = {
+                s: {"symbol": s, "pip": 0.0001, "spread_pips": 2.0,
+                    "max_spread_pips": 4.0, "pip_value_per_lot": 10.0,
+                    "slippage_pips": 0.5} for s in symbols}
+        else:
+            params["instrument"] = "XAUUSD"
+            params["spec"] = {"symbol": "XAUUSD", "pip": 0.01,
+                              "spread_pips": 25.0, "max_spread_pips": 60.0,
+                              "pip_value_per_lot": 1.0, "slippage_pips": 0.0}
+        return params
+
+    def write_journal(study, rows, *, chain=True, params=..., state=...,
+                      strategy_folder=..., columns=None):
+        """journal.csv chaîné SHA-256 (algorithme des études) + params.json
+        + state.json jetables. ``chain=False`` ⇒ maillon falsifié sur la
+        1ʳᵉ ligne de données. ``params``/``state``/``strategy_folder`` :
+        ``...`` = défaut sensé, ``None`` = rien n'est écrit, sinon la valeur
+        (dict ou nom de dossier) est utilisée telle quelle."""
+        import hashlib
+        cols = columns or _journal_columns(rows)
+        d = db / study
+        d.mkdir(parents=True, exist_ok=True)
+        raw = _csv_line(cols).encode("utf-8")
+        for i, r in enumerate(rows):
+            link = hashlib.sha256(raw).hexdigest()
+            if not chain and i == 0:
+                link = "0" * 64
+            cells = [r.get(c, "") if c != "chain" else link for c in cols]
+            raw += _csv_line(cells).encode("utf-8")
+        (d / "journal.csv").write_bytes(raw)
+
+        if params is ...:
+            params = _default_params(study, rows)
+        if params is not None:
+            sdir = root / "studies" / study
+            sdir.mkdir(parents=True, exist_ok=True)
+            (sdir / "params.json").write_text(json.dumps(params),
+                                              encoding="utf-8")
+        if state is ...:
+            state = {"schema": 1, "started_at": "2026-08-16T20:59:28Z",
+                     "journal_bytes": len(raw),
+                     "journal_sha256": hashlib.sha256(raw).hexdigest()}
+        if state is not None:
+            (d / "state.json").write_text(json.dumps(state), encoding="utf-8")
+
+        if strategy_folder is ...:
+            from server.journal_adapter import STUDY_STRATEGY
+            sid = STUDY_STRATEGY.get(study)
+            strategy_folder = f"{sid}_fixture" if sid else None
+        if strategy_folder:
+            sid = strategy_folder.split("_", 1)[0]
+            symbols = sorted({r.get("symbol") for r in rows if r.get("symbol")})
+            if not symbols and params:
+                symbols = [params.get("instrument")
+                           or (params.get("spec") or {}).get("symbol")
+                           or "XAUUSD"]
+            magic = 130000 + int(sid[1:]) if sid[1:].isdigit() else 130013
+            syms = ", ".join(symbols)
+            make_strategy(strategy_folder, manifest_text=(
+                f"strategy_id: {strategy_folder.lower()}\n"
+                f'display_name: "{strategy_folder}"\n'
+                f'version: "1.0.0"\n'
+                f"magic_number: {magic}\n"
+                f"status: PAPER\n"
+                f"symbols: [{syms}]\n"))
+        return d / "journal.csv"
+
+    def seed_ledger(path, trades):
+        """Ledger jetable : une entrée par dict de ``trades`` (clés de
+        ``Ledger.record_trade`` ; ``net`` = raccourci de ``gross_pnl`` ;
+        ``close_time=None`` ⇒ position ouverte via ``open_trade``). Plusieurs
+        instances, modes, devises, mois et trades à 0 acceptés. Retourne les
+        ids ledger."""
+        from core.ledger import Ledger
+        t0 = datetime(2026, 8, 20, 12, 0, tzinfo=timezone.utc)
+        ids = []
+        with Ledger(path) as lg:
+            for i, t in enumerate(trades):
+                t = dict(t)
+                base = dict(strategy_id="S013", instance_id="S013.AUD-CAD",
+                            strategy_version="1.0.0", magic_number=130013,
+                            mode="PAPER", symbol="AUDCAD", timeframe="D1",
+                            side="LONG", volume_lots=0.1, open_price=0.9,
+                            stop_price=0.89, currency="CHF",
+                            open_time=t0 + timedelta(days=i, hours=-2))
+                if "net" in t:
+                    t.setdefault("gross_pnl", t.pop("net"))
+                close_time = t.pop("close_time",
+                                   t0 + timedelta(days=i)
+                                   if "gross_pnl" in t else None)
+                base.update(t)
+                if close_time is None:
+                    ids.append(lg.open_trade(**base))
+                    continue
+                base.setdefault("close_price", 0.91)
+                base.setdefault("exit_reason", "TP")
+                base.setdefault("gross_pnl", 0.0)
+                ids.append(lg.record_trade(close_time=close_time, **base))
+        return ids
+
     return SimpleNamespace(root=root, db=db, tmp=tmp_path,
                            make_strategy=make_strategy,
                            write_status=write_status,
-                           write_study=write_study, iso=_iso)
+                           write_study=write_study, iso=_iso,
+                           write_journal=write_journal,
+                           seed_ledger=seed_ledger)
 
 
 @pytest.fixture()

@@ -184,3 +184,181 @@ details > summary { cursor: pointer; font-size: 12px; color: var(--dim); }
 .kv { font-size: 12px; }
 .kv dt { color: var(--dim); float: left; clear: left; min-width: 180px; }
 .kv dd { margin: 0 0 3px 190px; }
+
+/* ── page analyse (SPEC_analytics-trades, D-AN-13) ─────────────────────── */
+
+/* AN-27 : en-tête compte (mode × devise) */
+.an-header { font-size: 12.5px; letter-spacing: .03em; margin: 10px 0 2px; }
+
+/* AN-8 : barre de filtres — mode radio, multi <details>, dates, selects */
+.filters {
+  margin: 10px 0 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  font-size: 12px;
+}
+.filters.busy { opacity: .6; }
+.filters .frow { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 4px 0; }
+.filters .flabel { color: var(--dim); }
+.filters .fradio { cursor: pointer; }
+.filters .fradio input { vertical-align: -1px; }
+.filters .fsel { position: relative; }
+.filters .fsel > summary { list-style: none; padding: 2px 8px; border: 1px solid var(--border-soft); border-radius: 5px; }
+.filters .fsel > summary::-webkit-details-marker { display: none; }
+.filters .fsel .fcount { color: var(--fg); }
+.filters .fsel[open] > summary { border-color: var(--blue); }
+.filters .fsel .opts {
+  position: absolute;
+  z-index: 5;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  max-height: 260px;
+  overflow-y: auto;
+  margin-top: 3px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+}
+.filters .fsel .opts label { display: block; white-space: nowrap; padding: 1px 0; cursor: pointer; }
+.filters input[type="date"], .filters select, .filters button {
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+  font: inherit;
+  padding: 2px 6px;
+}
+.filters button { cursor: pointer; }
+.filters button:hover { border-color: var(--blue); }
+.filters .fdate, .filters .fselect { color: var(--dim); }
+
+/* AN-13 : tuiles KPI (9 sur /analytics, 6 réduites sur /) */
+.kpi-tiles { margin: 0 0 6px; }
+.kpi-tiles .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.tile {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--card);
+  min-width: 0;
+}
+.tile-label { font-size: 10px; letter-spacing: .08em; color: var(--dim); }
+.tile-value { font-size: 17px; margin: 3px 0 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile-sub { font-size: 10.5px; color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kpi-band h2 a { font-size: 11px; margin-left: 10px; letter-spacing: 0; }
+.kpi-band.live { border-color: var(--red); }
+
+/* graphiques SVG maison */
+.ccy-block { margin: 6px 0; }
+.ccy-title { font-size: 11px; color: var(--dim); letter-spacing: .08em; margin: 6px 0 2px; }
+.chart { display: block; max-width: 100%; }
+.chart text { fill: var(--faint); font-size: 10px; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+.chart text.pos { fill: var(--green); }
+.chart text.neg { fill: var(--red); }
+.chart text.baselabel { fill: var(--dim); }
+.chart .grid-line { stroke: var(--border-soft); stroke-width: 1; }
+.chart .zero { stroke: rgba(216, 226, 236, .3); stroke-width: 1; }
+.chart .baseline { stroke: var(--dim); stroke-width: 1; stroke-dasharray: 4 4; }
+.chart .cursor { stroke: rgba(216, 226, 236, .5); stroke-width: 1; pointer-events: none; }
+.chart .dot { fill: var(--fg); pointer-events: none; }
+.chart rect { cursor: crosshair; }
+.chart-empty { padding: 30px 0; text-align: center; }
+.toggle { margin-left: 12px; cursor: pointer; color: var(--fg); }
+.toggle input { vertical-align: -1px; }
+
+/* tooltip DOM partagé (courbes, barres, cellules heatmap) */
+.tooltip {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--card);
+  color: var(--fg);
+  font-size: 11px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .5);
+}
+
+/* AN-19 : heatmap mensuelle — 4 paliers d'intensité par signe */
+.heat-wrap { overflow-x: auto; }
+table.grid.heat { width: auto; min-width: 100%; }
+table.grid.heat th { text-align: center; padding: 4px 6px; }
+table.grid.heat th:first-child { text-align: left; }
+.heat-cell { text-align: center; padding: 4px 6px !important; min-width: 62px; cursor: default; }
+.heat-cell span { display: block; line-height: 1.25; }
+.heat-cell .h1 { font-size: 12px; }
+.heat-cell .h2 { font-size: 10px; color: var(--dim); }
+.heat-cell .h3 { font-size: 10px; color: var(--faint); }
+.heat-cell.empty { color: var(--faint); }
+.heat-cell.total { border-left: 1px solid var(--border); font-weight: bold; }
+.heat-cell.pos .h1 { color: var(--green); }
+.heat-cell.neg .h1 { color: var(--red); }
+.heat-cell.pos.heat-1 { background: rgba(127, 209, 140, .10); }
+.heat-cell.pos.heat-2 { background: rgba(127, 209, 140, .20); }
+.heat-cell.pos.heat-3 { background: rgba(127, 209, 140, .32); }
+.heat-cell.pos.heat-4 { background: rgba(127, 209, 140, .46); }
+.heat-cell.neg.heat-1 { background: rgba(255, 107, 107, .10); }
+.heat-cell.neg.heat-2 { background: rgba(255, 107, 107, .20); }
+.heat-cell.neg.heat-3 { background: rgba(255, 107, 107, .32); }
+.heat-cell.neg.heat-4 { background: rgba(255, 107, 107, .46); }
+tr:last-child .heat-cell.total { border-top: 1px solid var(--border); }
+
+/* AN-25 : SUMMARY en 5 colonnes clé/valeur */
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px 18px; }
+.summary-col h4 { margin: 4px 0 6px; font-size: 11px; letter-spacing: .08em; color: var(--dim); }
+.summary-col .kv dt { min-width: 120px; font-size: 11.5px; }
+.summary-col .kv dd { margin-left: 128px; font-size: 11.5px; }
+.summary-col .kv dd.subtitle { margin: 6px 0 0; float: none; clear: both; }
+
+/* AN-29 : journal — tri client par en-tête, pagination, recherche */
+.journal-toolbar { display: flex; gap: 12px; align-items: center; margin: 4px 0 6px; font-size: 12px; }
+.journal-toolbar input {
+  flex: 1 1 220px;
+  max-width: 360px;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+  font: inherit;
+  padding: 3px 8px;
+}
+.pager { margin-left: auto; white-space: nowrap; color: var(--dim); }
+.pager button {
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+  font: inherit;
+  padding: 1px 8px;
+  cursor: pointer;
+}
+.pager button:disabled { opacity: .35; cursor: default; }
+.scroll-x { overflow-x: auto; }
+table.grid.journal { white-space: nowrap; font-size: 11.5px; }
+table.grid.journal th.sortable { cursor: pointer; user-select: none; }
+table.grid.journal th.sortable:hover, table.grid.journal th.sorted { color: var(--fg); }
+.badge.side-long { border-color: var(--green); color: var(--green); }
+.badge.side-short { border-color: var(--red); color: var(--red); }
+.badge.magic-bad { border-color: var(--amber); color: var(--amber); }
+
+/* AN-32 : impression — Ctrl+P, pas de bouton */
+.print-only { display: none; }
+@media print {
+  :root { --fg: #000; --dim: #444; --faint: #666; --panel: #fff; --card: #fff; --border: #999; --border-soft: #ccc; --bg: #fff; }
+  body { background: #fff; color: #000; font-size: 11px; }
+  header nav, #conn, .filters, .journal-toolbar, .pager, .toggle, .tooltip { display: none !important; }
+  .print-only { display: block; font-size: 10px; color: #444; word-break: break-all; margin: 2px 0 8px; }
+  section.panel { break-inside: avoid; border-color: #bbb; }
+  .chart { max-width: 100%; }
+  .tile { border-color: #bbb; }
+  .heat-cell.pos.heat-1, .heat-cell.pos.heat-2, .heat-cell.pos.heat-3, .heat-cell.pos.heat-4 { background: #e3f3e6 !important; }
+  .heat-cell.neg.heat-1, .heat-cell.neg.heat-2, .heat-cell.neg.heat-3, .heat-cell.neg.heat-4 { background: #fbe3e3 !important; }
+  a { color: #000; }
+}

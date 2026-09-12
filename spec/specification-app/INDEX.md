@@ -1,6 +1,6 @@
 # INDEX — Spécifications d'implémentation (spec/specification-app/)
 
-**Maintenu par** : cc-spec · **Public** : cc-app · **Dernière révision** : 2026-08-26
+**Maintenu par** : cc-spec · **Public** : cc-app · **Dernière révision** : 2026-09-12 (ajout spec 7 — analyse des trades)
 
 | # | Spec | Couvre | Statut |
 |---|------|--------|--------|
@@ -10,6 +10,7 @@
 | 4 | `SPEC_ledger.md` | `core/ledger` sur schema.sql : API open/close/record, snapshots, risk events, agrégats jour/semaine/mois/année par stratégie et instance, vues fiscales, migration `user_version` | **prête pour implémentation** |
 | 5 | `SPEC_telegram-reporting.md` | Canal TradingBot : notifier (formats exacts Adrian, curseurs après envoi) + gateway (offset avant appel payé, skills `/etat`, menu auto), inerte sans tokens | **prête pour implémentation** |
 | 6 | `SPEC_backup-github.md` | Worker `backup` : miroir allowlist `C:\db\tradingBot\` → `db-backup/`, commit `[skip ci]` horodaté sur `dev`, 1×/jour + à la demande, idempotent | **prête pour implémentation** |
+| 7 | `SPEC_analytics-trades_2026-09-12.md` | Page `/analytics` (parité Trade Buddy) : filtres globaux mode/stratégie/instance/symbole/période, 9 KPI, courbe solde + drawdown, heatmap mensuelle, répartitions, SUMMARY (streaks, R), journal paginé lecture seule ; adaptateur lecture seule journaux forward → format ledger ; SVG maison ; lots L1 (P1) / L2 (P2) / L3 (P3) ; amende UI-7/UI-8 (4 shells, +3 routes GET) | **prête pour implémentation** (défauts §9 arbitrables par Adrian) |
 
 ## Invariants transverses (opposables à toute implémentation)
 

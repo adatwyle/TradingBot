@@ -1,0 +1,57 @@
+{
+  "study": "s20_forward",
+  "sealed_at": "2026-09-12",
+  "engine_commit_at_seal": "26a81f0",
+  "strategy_id": "S020_balke_macd_cross",
+  "timeframe": "H1",
+  "primary_symbol": "EURUSD",
+  "instruments": {
+    "EURUSD": "PRIMARY",
+    "USDJPY": "OBSERVATION"
+  },
+  "cell": {
+    "zero_filter": true,
+    "sl_pct": 0.01,
+    "tp_pct": 0.02,
+    "side_mode": "both"
+  },
+  "specs": {
+    "EURUSD": {
+      "symbol": "EURUSD",
+      "pip": 0.0001,
+      "spread_pips": 1.9,
+      "max_spread_pips": 3.0,
+      "pip_value_per_lot": 10.0,
+      "slippage_pips": 0.0
+    },
+    "USDJPY": {
+      "symbol": "USDJPY",
+      "pip": 0.01,
+      "spread_pips": 2.8,
+      "max_spread_pips": 5.0,
+      "pip_value_per_lot": 6.7,
+      "slippage_pips": 0.0
+    }
+  },
+  "engine": {
+    "max_positions": 1,
+    "cooldown_bars": 2,
+    "cb_losses": 3,
+    "cb_cooldown_bars": 24,
+    "max_hold_bars": null
+  },
+  "sizing": {
+    "capital_initial": 10000.0,
+    "risk_per_trade_pct": 1.0
+  },
+  "control": {
+    "draws": 200,
+    "seed": 20260912
+  },
+  "stop_rules": {
+    "fail": {"min_trades": 30, "percentile_below": 20},
+    "success": {"min_trades": 60, "percentile_at_least": 95},
+    "time": {"months": 18, "min_trades": 30},
+    "horizon": {"months": 48}
+  }
+}

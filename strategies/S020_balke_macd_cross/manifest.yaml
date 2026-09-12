@@ -5,7 +5,9 @@ strategy_id: S020_balke_macd_cross
 name: balke_macd_cross
 display_name: "MACD cross + filtre zéro, SL/TP en % (René Balke)"
 magic_number: 130020          # unique (R4), jamais réutilisé
-status: RESEARCH              # promotion = décision Adrian (R10)
+status: PAPER                 # forward scellé en cours (studies/s20_forward, GO Adrian
+                              # 2026-09-12). PAPER ne vaut PAS validation : c'est le
+                              # test prospectif qui tranchera (PROTOCOL.md § 3).
 version: 1.0.0
 author: "claude:S020_balke_macd_cross"
 source: "https://www.youtube.com/watch?v=-9HUV9I_s-c"

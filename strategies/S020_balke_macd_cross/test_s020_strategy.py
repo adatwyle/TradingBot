@@ -156,7 +156,7 @@ def test_manifest_conforme():
     m = Strategy().manifest()
     assert m.magic_number == 130020
     assert m.strategy_id == "S020_balke_macd_cross"
-    assert m.status == "RESEARCH"
+    assert m.status == "PAPER"       # forward scellé en cours — PAPER ne vaut pas validation
     assert int(np.prod([len(v) for v in m.param_grid.values()])) == 18
     for k in m.param_grid:
         assert m.default_params[k] in m.param_grid[k]

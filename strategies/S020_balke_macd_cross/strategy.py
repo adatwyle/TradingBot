@@ -78,7 +78,7 @@ class Strategy(StrategyModule):
                 "tp_pct": 0.02,
                 "side_mode": "both",
             },
-            status="RESEARCH",
+            status="PAPER",               # forward scellé studies/s20_forward (GO Adrian 2026-09-12)
             notes=("Reproduction fidèle de la règle dictée dans la vidéo. Pas de "
                    "réglage après lecture des résultats : research/FALSIFICATION.md "
                    "fixe les seuils d'avance."),

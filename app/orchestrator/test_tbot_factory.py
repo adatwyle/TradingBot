@@ -1,5 +1,5 @@
 """
-Tests de la tbot factory — le superviseur console TradingBot (TCK-005).
+Tests de la tBot factory — le superviseur console TradingBot (TCK-005).
 
 Ce banc couvre ce qui DÉCIDE : le panneau (fail-closed), les gardes matière
 des workers claude: (tickets, snapshots S017), la fenêtre horaire du
@@ -190,7 +190,9 @@ def test_catalogue_reel_coherent(usine_reelle):
                 # Études scellées migrées du prototype (TCK-009/T10) —
                 # cadences identiques à robinbot, off par défaut au panneau.
                 "gold_forward", "s13_forward", "macd_ai_paper",
-                "s14_sentiment", "alexg_paper"}
+                "s14_sentiment", "alexg_paper",
+                # Forward scellé S020 (GO Adrian 2026-09-12) — EURUSD H1 + USDJPY observation.
+                "s20_forward"}
     assert attendus == set(noms)
     # supervision est le SEUL service persistant du catalogue v1.
     services = [w[0] for w in u.WORKERS if w[4] == "service"]
@@ -430,3 +432,19 @@ def test_scan_strategies(usine, tmp_path):
     assert reg[0]["id"] == "S099"
     assert reg[0]["status"] == "RESEARCH"
     assert reg[0]["magic"] == "130099"
+    assert reg[0]["name"] == "test_strat"
+
+
+def test_scan_strategies_schema_canonique(usine, tmp_path):
+    # Schéma SPEC_ui-dynamique §3 (display_name/magic_number, valeurs quotées)
+    # — celui des manifests historiques ; il prime sur les alias name/magic.
+    d = tmp_path / "strategies" / "S098_canon"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "manifest.yaml").write_text(
+        'strategy_id: S098\ndisplay_name: "Stratégie Canon"\n'
+        "magic_number: 130098\nstatus: PAPER\n", encoding="utf-8")
+    reg = usine.scan_strategies()
+    assert len(reg) == 1
+    assert reg[0]["name"] == "Stratégie Canon"
+    assert reg[0]["magic"] == "130098"
+    assert reg[0]["status"] == "PAPER"

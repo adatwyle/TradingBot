@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-tbot-factory.py — LA CONSOLE 24/7 DE TRADINGBOT (« tbot factory »)
+tbot-factory.py — LA CONSOLE 24/7 DE TRADINGBOT (« tBot factory »)
 ===================================================================
 
 RÈGLE D'OR : si cette console ne tourne pas, RIEN ne se passe.
@@ -131,7 +131,7 @@ ROOT = pathlib.Path(os.environ.get("TBF_ROOT") or project_root())
 
 # LE PANNEAU VIT HORS DU DÉPÔT — un panneau, un poste (leçon robinbot
 # 2026-08-21 : un panneau versionné devient un conflit de merge multi-postes).
-# C'est le panneau de la TBOT factory : fichier distinct de celui du prototype
+# C'est le panneau de la tBot factory : fichier distinct de celui du prototype
 # (robinbot-panel.txt) — deux consoles, deux surfaces de contrôle. Résolution
 # UNIQUE dans core.paths (F9) : factory, notify et serveur = LE MÊME fichier.
 PANEL_FILE = tbot_panel_file()      # TBF_PANEL, sinon db_dir()/tbot-panel.txt
@@ -499,6 +499,7 @@ WORKERS: list[tuple[str, pathlib.Path, str, int, str]] = [
     # alarme d'altération). État : C:/db/tradingBot/<étude>/ via core.paths.
     ("gold_forward",  ROOT, "py:studies/gold_forward/run_forward.py",    3600, "tick"),
     ("s13_forward",   ROOT, "py:studies/s13_forward/run_forward.py",     3600, "tick"),
+    ("s20_forward",   ROOT, "py:studies/s20_forward/run_forward.py",     3600, "tick"),
     ("macd_ai_paper", ROOT, "py:studies/macd_ai_paper/run_paper.py",     3600, "tick"),
     ("s14_sentiment", ROOT, "py:studies/s14_sentiment/run_sentiment.py", 1800, "tick"),
     ("alexg_paper",   ROOT, "py:studies/alexg_paper/run_paper.py",       3600, "tick"),
@@ -584,7 +585,7 @@ def alerte(msg: str) -> None:
 
 # == VERROU SINGLE-INSTANCE ====================================================
 def lock_is_fresh() -> bool:
-    """True si une AUTRE tbot factory semble vivante sur ce poste. Deux usines
+    """True si une AUTRE tBot factory semble vivante sur ce poste. Deux usines
     = deux ticks concurrents sur les mêmes fichiers d'état. Une seule, point."""
     if not LOCK_FILE.exists():
         return False
@@ -612,7 +613,7 @@ def clear_lock() -> None:
 # == PANNEAU DE CONTRÔLE (CHAUD — relu à chaque cycle) =========================
 PANEL_HEADER = """\
 # ═══════════════════════════════════════════════════════════════════════════
-# PANNEAU DE CONTRÔLE tbot factory — relu à CHAQUE cycle
+# PANNEAU DE CONTRÔLE tBot factory — relu à CHAQUE cycle
 # ═══════════════════════════════════════════════════════════════════════════
 # Modifier ce fichier prend effet AU TICK SUIVANT. Aucun redémarrage.
 #
@@ -730,15 +731,18 @@ def scan_strategies() -> list[dict]:
         champs = {}
         try:
             for ligne in mf.read_text(encoding="utf-8-sig").splitlines():
-                m = re.match(r"^(strategy_id|name|status|magic)\s*:\s*([^#]*)", ligne)
+                # Schéma canonique (SPEC_ui-dynamique §3) : display_name /
+                # magic_number ; les alias historiques name / magic restent lus.
+                m = re.match(r"^(strategy_id|display_name|name|status"
+                             r"|magic_number|magic)\s*:\s*([^#]*)", ligne)
                 if m:
-                    champs[m.group(1)] = m.group(2).strip()
+                    champs[m.group(1)] = m.group(2).strip().strip("\"'")
         except OSError:
             champs = {}
         out.append({"id": champs.get("strategy_id", d.name),
-                    "name": champs.get("name", ""),
+                    "name": champs.get("display_name") or champs.get("name", ""),
                     "status": champs.get("status", "?"),
-                    "magic": champs.get("magic", "?"),
+                    "magic": champs.get("magic_number") or champs.get("magic", "?"),
                     "dir": d.name})
     return out
 
@@ -1037,7 +1041,7 @@ def print_status(panel, now: float) -> None:
 
 def print_header(dry: bool) -> None:
     log("=" * 78)
-    log(f"tbot factory — LA console TradingBot. Si elle s'arrête, RIEN ne tourne."
+    log(f"tBot factory — LA console TradingBot. Si elle s'arrête, RIEN ne tourne."
         f"{'  [DRY-RUN]' if dry else ''}")
     log(f"racine   : {ROOT}")
     log(f"panneau  : {PANEL_FILE}  (À CHAUD — relu à chaque cycle)")
@@ -1124,7 +1128,7 @@ def arreter_services() -> None:
 def run(dry: bool = False, once: bool = False) -> int:
     if not dry and lock_is_fresh():
         detenteur = LOCK_FILE.read_text(encoding="utf-8").strip() if LOCK_FILE.exists() else "?"
-        log(f"REFUS DE DÉMARRER : une autre tbot factory semble vivante "
+        log(f"REFUS DE DÉMARRER : une autre tBot factory semble vivante "
             f"({LOCK_FILE.name}, {detenteur}, touché il y a moins de {LOCK_STALE_SEC}s).\n"
             f"        Deux usines = deux ticks concurrents sur les mêmes fichiers d'état.\n"
             f"        Si tu es SÛR qu'aucune ne tourne : supprime {LOCK_FILE} et relance.")
@@ -1211,13 +1215,13 @@ def run(dry: bool = False, once: bool = False) -> int:
         _stop.set()
         if not dry:
             clear_lock()
-        log("tbot factory arrêtée. Plus rien ne tourne — c'est la règle d'or.")
+        log("tBot factory arrêtée. Plus rien ne tourne — c'est la règle d'or.")
     return code_retour
 
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
-        description="tbot factory — la console 24/7 TradingBot. Si elle ne tourne pas, rien ne se passe.")
+        description="tBot factory — la console 24/7 TradingBot. Si elle ne tourne pas, rien ne se passe.")
     ap.add_argument("--once", action="store_true", help="un seul cycle puis sortie (sonde)")
     ap.add_argument("--dry-run", action="store_true", help="montre ce qui serait lancé, n'exécute rien")
     a = ap.parse_args(argv)

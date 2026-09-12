@@ -48,6 +48,7 @@ SYMBOL_MAP = {
     "DAX":    "#DE40",
     "FTSE":   "#GB100",
     "NIKKEI": "#NIK225",
+    "US30":   "#US30",
     "WTIUSD": "OILUSD",
 }
 

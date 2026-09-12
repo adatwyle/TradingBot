@@ -57,6 +57,15 @@ _CATALOG: dict[str, dict] = {
     "DAX":    dict(pip=0.1, spread_pips=8.0,  max_spread_pips=20.0, pip_value_per_lot=1.0),
     "FTSE":   dict(pip=0.1, spread_pips=8.0,  max_spread_pips=18.0, pip_value_per_lot=1.0),
     "NIKKEI": dict(pip=1.0, spread_pips=10.0, max_spread_pips=25.0, pip_value_per_lot=1.0),
+    # US30 ajouté le 2026-09-12. MT5 (#US30, Swissquote) : digits=2, point=0.01
+    # (même convention que NASDAQ/DAX -> pip=0.1 = 10 points), contract_size=1.0,
+    # tick_size=0.01, tick_value≈0.0081637 USD/lot (currency_profit=USD,
+    # currency_margin=USD) — pip_value_per_lot=1.0 aligné sur les autres
+    # indices par convention (cf. note pip_value_per_lot USD/CHF plus haut),
+    # PAS recalculé depuis tick_value. spread_pips = médiane du spread H1 sur
+    # 365 jours (5902 barres, 2025-09-11..2026-09-11) = 35.0 pips, mesurée le
+    # 2026-09-12 (voir docs/data/INDICES_intraday_2026-09-12.md) ; max ≈ 2.5×.
+    "US30":   dict(pip=0.1, spread_pips=35.0, max_spread_pips=87.5, pip_value_per_lot=1.0),
     # ── Matières premières / crypto ──────────────────────────────────────
     "XAUUSD": dict(pip=0.01,  spread_pips=25.0, max_spread_pips=60.0, pip_value_per_lot=1.0),
     "XAGUSD": dict(pip=0.001, spread_pips=25.0, max_spread_pips=60.0, pip_value_per_lot=5.0),

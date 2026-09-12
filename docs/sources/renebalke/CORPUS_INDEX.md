@@ -1,8 +1,8 @@
 # Corpus Rene Balke -- index complet de la chaine
 
 - Items au catalogue (videos + streams + shorts) : 773
-- Transcrits : 42 (22 api, 5 whisper, 15 aout)
-- Duree couverte / duree totale connue : 16.2 h / 757.3 h (55 items sans duree connue)
+- Transcrits : 84 (22 api, 47 whisper, 15 aout)
+- Duree couverte / duree totale connue : 39.7 h / 757.3 h (55 items sans duree connue)
 
 | id | titre | type | duree | vues | date | transcrit |
 |---|---|---|---|---|---|---|
@@ -11,52 +11,52 @@
 | 9O1wElRvX2E | Forex Trading VPS Setup - Easy Tutorial from Start to MT5 Installation | video | 22:08 | 141 000 | - | [whisper](corpus/9O1wElRvX2E.md) |
 | xsC72lgSM5c | Best AI Machine Learning Expert Advisor for MT5 (Free Code) or How ... | video | 23:41 | 133 000 | - | [whisper](corpus/xsC72lgSM5c.md) |
 | tZrIPeh-4nk | I received my First myForexFunds Payout (+Refund +Bonus) | video | 08:46 | 108 000 | - | [whisper](corpus/tZrIPeh-4nk.md) |
-| o7ZG8SvzBDw | Easy Scalping Strategy For EURUSD \| Free MT5 Expert Advisor Coding | video | 53:33 | 102 000 | - | — |
-| c6z-lIcraIo | I Tested The MOST EXPENSIVE Expert Advisor On MQL5 \| Is It Worth T... | video | 20:15 | 93 000 | - | — |
-| Zi5RjdtCZb8 | MT5 Programming Tutorial - Creating a New Expert Advisor - Part 1 | video | 11:46 | 88 000 | - | — |
-| 1-YTXD82OfE | MQL5 for Beginners - Learn MetaTrader 5 Programming in 2.5 Hours | video | 149:43 | 84 000 | - | — |
-| -cXaqL5KfdE | Free MT5 Forex Expert Advisor That Wins Nearly Every Setup (99% Win... | video | 40:56 | 83 000 | - | — |
-| lXn4QqNnoRQ | How To Use The MT5 Strategy Tester For Backtesting (EA Testing Expl... | video | 31:49 | 82 000 | - | — |
-| aK7pcSSQqZc | I Tested The $5,000 Bonnitta EA and The Profits are INSANE... | video | 40:12 | 79 000 | - | — |
-| OU5x8sUWumI | After 5 Years Live Trading This Is My Best Strategy - Profitably Ex... | video | 16:30 | 76 000 | - | — |
-| oDEk7aV9iYw | I Tested The TradeGPT EA From mql5! Is It The Best AI (ChatGPT) Cre... | video | 21:49 | 71 000 | - | — |
-| WqqObk0m7cs | I received my First FTMO Payout (+Refund) | video | 12:48 | 65 000 | - | — |
-| qqdu2JzLMz8 | Should You Use ChatGPT for MetaTrader Programming? Professional mql... | video | 17:51 | 61 000 | - | — |
-| DxmKwJy2r5E | iCustom Explained: Automate Any Indicator You Already Use | video | 37:37 | 61 000 | - | — |
-| uexbULNv7YI | How to Create an RSI Trading Bot for MT5 using AI (Zero Experience ... | video | 18:48 | 57 000 | - | — |
-| vFlFmWKx6Zs | I Coded This Scalping Strategy From Scratch — Here's Every Line | video | 104:28 | 50 000 | - | — |
-| gPknWd-m6xI | I Tested the SSX Titan TT! Highest Ranked EA in the MQL5 Market | video | 32:03 | 44 000 | - | — |
-| hRsXWksoFtY | How to Open a Live Trading Account with IC Markets for Forex and CF... | video | 17:01 | 43 000 | - | — |
+| o7ZG8SvzBDw | Easy Scalping Strategy For EURUSD \| Free MT5 Expert Advisor Coding | video | 53:33 | 102 000 | - | [whisper](corpus/o7ZG8SvzBDw.md) |
+| c6z-lIcraIo | I Tested The MOST EXPENSIVE Expert Advisor On MQL5 \| Is It Worth T... | video | 20:15 | 93 000 | - | [whisper](corpus/c6z-lIcraIo.md) |
+| Zi5RjdtCZb8 | MT5 Programming Tutorial - Creating a New Expert Advisor - Part 1 | video | 11:46 | 88 000 | - | [whisper](corpus/Zi5RjdtCZb8.md) |
+| 1-YTXD82OfE | MQL5 for Beginners - Learn MetaTrader 5 Programming in 2.5 Hours | video | 149:43 | 84 000 | - | [whisper](corpus/1-YTXD82OfE.md) |
+| -cXaqL5KfdE | Free MT5 Forex Expert Advisor That Wins Nearly Every Setup (99% Win... | video | 40:56 | 83 000 | - | [whisper](corpus/-cXaqL5KfdE.md) |
+| lXn4QqNnoRQ | How To Use The MT5 Strategy Tester For Backtesting (EA Testing Expl... | video | 31:49 | 82 000 | - | [whisper](corpus/lXn4QqNnoRQ.md) |
+| aK7pcSSQqZc | I Tested The $5,000 Bonnitta EA and The Profits are INSANE... | video | 40:12 | 79 000 | - | [whisper](corpus/aK7pcSSQqZc.md) |
+| OU5x8sUWumI | After 5 Years Live Trading This Is My Best Strategy - Profitably Ex... | video | 16:30 | 76 000 | - | [whisper](corpus/OU5x8sUWumI.md) |
+| oDEk7aV9iYw | I Tested The TradeGPT EA From mql5! Is It The Best AI (ChatGPT) Cre... | video | 21:49 | 71 000 | - | [whisper](corpus/oDEk7aV9iYw.md) |
+| WqqObk0m7cs | I received my First FTMO Payout (+Refund) | video | 12:48 | 65 000 | - | [whisper](corpus/WqqObk0m7cs.md) |
+| qqdu2JzLMz8 | Should You Use ChatGPT for MetaTrader Programming? Professional mql... | video | 17:51 | 61 000 | - | [whisper](corpus/qqdu2JzLMz8.md) |
+| DxmKwJy2r5E | iCustom Explained: Automate Any Indicator You Already Use | video | 37:37 | 61 000 | - | [whisper](corpus/DxmKwJy2r5E.md) |
+| uexbULNv7YI | How to Create an RSI Trading Bot for MT5 using AI (Zero Experience ... | video | 18:48 | 57 000 | - | [whisper](corpus/uexbULNv7YI.md) |
+| vFlFmWKx6Zs | I Coded This Scalping Strategy From Scratch — Here's Every Line | video | 104:28 | 50 000 | - | [whisper](corpus/vFlFmWKx6Zs.md) |
+| gPknWd-m6xI | I Tested the SSX Titan TT! Highest Ranked EA in the MQL5 Market | video | 32:03 | 44 000 | - | [whisper](corpus/gPknWd-m6xI.md) |
+| hRsXWksoFtY | How to Open a Live Trading Account with IC Markets for Forex and CF... | video | 17:01 | 43 000 | - | [whisper](corpus/hRsXWksoFtY.md) |
 | 64weJpTZdHs | The Best GOLD Trading Strategy Ever!? (LIVE RESULTS) | short | inconnue | 42 000 | - | — |
-| ObW45UjoVVk | Testing The Wolf Scalper EA! Is It Really This Good And How Does It... | video | 24:14 | 41 000 | - | — |
-| ldXCwYLyB-0 | 100% Free Trading Panel (Download on mql5 now) *NO CLICKBAIT* | video | 06:37 | 40 000 | - | — |
-| 6txbB5eMvTs | Simple Trade Copier for MT5 - Copy Trades From One Account To Anoth... | video | 42:18 | 38 000 | - | — |
-| OThnhXKf60k | 100% History Quality in the MT5 Tester using the Tick Data Suite | video | 26:48 | 38 000 | - | — |
-| zAA5omdO-ko | MT5 Zone Recovery Hedging Expert Adivsor (100% Free Programming Tut... | video | 44:38 | 37 000 | - | — |
-| mGG0nu8A9FU | Copy My Prompts: Claude AI Codes a 5-Year Profitable MetaTrader 5 E... | video | 25:37 | 36 000 | - | — |
-| cQYZjFoYc24 | This MT5 Price Action Breakout Expert Advisor Will Trade Trends Aut... | video | 13:47 | 36 000 | - | — |
-| Z2Zdw_La1fg | I Coded Nick Shawn's 99% Winrate DCA Strategy for the MT5 \| Part 1 | video | 37:14 | 33 000 | - | — |
-| 3l8RyeQNmNo | Automate any Trailing Stop in MT5 Using This Simple Program \| mql5... | video | 52:59 | 33 000 | - | — |
-| He7TgDzqgxc | Backtest MT5 EAs with 100% Modelling Quality - Quant Data Manager (... | video | 25:52 | 31 000 | - | — |
-| yKKHqLt8PZo | The Most Wanted EA on MQL5 Tested \| 100% Honest Review | video | 25:55 | 31 000 | - | — |
-| DMCYVVNKC4M | Automate ANY MT5 Indicator With One Free EA (Full Code) | video | 42:48 | 31 000 | - | — |
-| j4ZlJfHAWy4 | How To Use The MT5 Strategy Optimizer (EA Optimization Explained) | video | 19:40 | 31 000 | - | — |
-| 8-Vc4AHyMKE | Reviewing the mql5 Gold Reaper Expert Advisor (INSANE Testing Profits) | video | 34:18 | 30 000 | - | — |
+| ObW45UjoVVk | Testing The Wolf Scalper EA! Is It Really This Good And How Does It... | video | 24:14 | 41 000 | - | [whisper](corpus/ObW45UjoVVk.md) |
+| ldXCwYLyB-0 | 100% Free Trading Panel (Download on mql5 now) *NO CLICKBAIT* | video | 06:37 | 40 000 | - | [whisper](corpus/ldXCwYLyB-0.md) |
+| 6txbB5eMvTs | Simple Trade Copier for MT5 - Copy Trades From One Account To Anoth... | video | 42:18 | 38 000 | - | [whisper](corpus/6txbB5eMvTs.md) |
+| OThnhXKf60k | 100% History Quality in the MT5 Tester using the Tick Data Suite | video | 26:48 | 38 000 | - | [whisper](corpus/OThnhXKf60k.md) |
+| zAA5omdO-ko | MT5 Zone Recovery Hedging Expert Adivsor (100% Free Programming Tut... | video | 44:38 | 37 000 | - | [whisper](corpus/zAA5omdO-ko.md) |
+| mGG0nu8A9FU | Copy My Prompts: Claude AI Codes a 5-Year Profitable MetaTrader 5 E... | video | 25:37 | 36 000 | - | [whisper](corpus/mGG0nu8A9FU.md) |
+| cQYZjFoYc24 | This MT5 Price Action Breakout Expert Advisor Will Trade Trends Aut... | video | 13:47 | 36 000 | - | [whisper](corpus/cQYZjFoYc24.md) |
+| Z2Zdw_La1fg | I Coded Nick Shawn's 99% Winrate DCA Strategy for the MT5 \| Part 1 | video | 37:14 | 33 000 | - | [whisper](corpus/Z2Zdw_La1fg.md) |
+| 3l8RyeQNmNo | Automate any Trailing Stop in MT5 Using This Simple Program \| mql5... | video | 52:59 | 33 000 | - | [whisper](corpus/3l8RyeQNmNo.md) |
+| He7TgDzqgxc | Backtest MT5 EAs with 100% Modelling Quality - Quant Data Manager (... | video | 25:52 | 31 000 | - | [whisper](corpus/He7TgDzqgxc.md) |
+| yKKHqLt8PZo | The Most Wanted EA on MQL5 Tested \| 100% Honest Review | video | 25:55 | 31 000 | - | [whisper](corpus/yKKHqLt8PZo.md) |
+| DMCYVVNKC4M | Automate ANY MT5 Indicator With One Free EA (Full Code) | video | 42:48 | 31 000 | - | [whisper](corpus/DMCYVVNKC4M.md) |
+| j4ZlJfHAWy4 | How To Use The MT5 Strategy Optimizer (EA Optimization Explained) | video | 19:40 | 31 000 | - | [whisper](corpus/j4ZlJfHAWy4.md) |
+| 8-Vc4AHyMKE | Reviewing the mql5 Gold Reaper Expert Advisor (INSANE Testing Profits) | video | 34:18 | 30 000 | - | [whisper](corpus/8-Vc4AHyMKE.md) |
 | imNqQTzQz1Y | Industry INSIDER Reveals the INCOME of Online Trading Coaches (Show... | video | 21:49 | 30 000 | - | — |
-| YrzfNo8iKlw | Coding a Profitable Stochastic Moving Average EA for MT5 (mql5 Tuto... | video | 37:36 | 30 000 | - | — |
+| YrzfNo8iKlw | Coding a Profitable Stochastic Moving Average EA for MT5 (mql5 Tuto... | video | 37:36 | 30 000 | - | [whisper](corpus/YrzfNo8iKlw.md) |
 | OizNBGE-sQA | Turn Any Arrow Indicator Into a Fully Automated Bot (Free EA) | video | 20:51 | 30 000 | - | — |
-| XU3FXFg3anY | 100% Automated Heiken Ashi Forex Trading Expert Advisor Programming... | video | 45:24 | 30 000 | - | — |
-| aN2X-YQwN88 | I Tested the Uni Bot (#1 on mql5) and it is the Most Profitable For... | video | 17:55 | 29 000 | - | — |
-| tqN-84ofLkE | Easy Tripple Moving Average Trading Strategy \| Simple mql5 Expert ... | video | 54:47 | 29 000 | - | — |
-| acaqusyaeXc | MT5 Supertrend Indicator Strategie MQL5 Programming Tutorial - Part... | video | 21:51 | 29 000 | - | — |
-| a4WyViDMwGo | I Finally Found This No Martingale No Grid Expert Advisor On MQL5 \... | video | 19:26 | 28 000 | - | — |
+| XU3FXFg3anY | 100% Automated Heiken Ashi Forex Trading Expert Advisor Programming... | video | 45:24 | 30 000 | - | [whisper](corpus/XU3FXFg3anY.md) |
+| aN2X-YQwN88 | I Tested the Uni Bot (#1 on mql5) and it is the Most Profitable For... | video | 17:55 | 29 000 | - | [whisper](corpus/aN2X-YQwN88.md) |
+| tqN-84ofLkE | Easy Tripple Moving Average Trading Strategy \| Simple mql5 Expert ... | video | 54:47 | 29 000 | - | [whisper](corpus/tqN-84ofLkE.md) |
+| acaqusyaeXc | MT5 Supertrend Indicator Strategie MQL5 Programming Tutorial - Part... | video | 21:51 | 29 000 | - | [whisper](corpus/acaqusyaeXc.md) |
+| a4WyViDMwGo | I Finally Found This No Martingale No Grid Expert Advisor On MQL5 \... | video | 19:26 | 28 000 | - | [whisper](corpus/a4WyViDMwGo.md) |
 | 1Y6j8_9Hzgk | Range Breakout Expert Advisor Coding Tutorial for MT5 (mql5 Class) | video | 52:21 | 27 000 | - | [aout](02_range_breakout_coding.txt) |
-| ywbvbdEboGA | How To Get My MT5 Expert Advisors For Free NOW (+Forex Broker) | video | 11:12 | 27 000 | - | — |
-| jwtmlYZxD_o | ICT Silver Bullet Strategy Expert Advisor for Forex and CFD Trading... | video | 41:34 | 27 000 | - | — |
-| K42oSdaCN_Q | MT5 Tester Trader For Manual Backtesting \| New EA For Every Trader... | video | 12:32 | 27 000 | - | — |
-| miIyWxN0b6g | Copy My EXACT Claude AI Prompt for MT5 Trading Bots | video | 26:55 | 26 000 | - | — |
-| 9lxCcb14hnk | I tested the mql5 Market Quantum EAs for the MT5 | video | 56:36 | 26 000 | - | — |
-| o9p6Jem8cXc | The Easiest Way to License your MetaTrader Expert Advisor | video | 15:48 | 26 000 | - | — |
+| ywbvbdEboGA | How To Get My MT5 Expert Advisors For Free NOW (+Forex Broker) | video | 11:12 | 27 000 | - | [whisper](corpus/ywbvbdEboGA.md) |
+| jwtmlYZxD_o | ICT Silver Bullet Strategy Expert Advisor for Forex and CFD Trading... | video | 41:34 | 27 000 | - | [whisper](corpus/jwtmlYZxD_o.md) |
+| K42oSdaCN_Q | MT5 Tester Trader For Manual Backtesting \| New EA For Every Trader... | video | 12:32 | 27 000 | - | [whisper](corpus/K42oSdaCN_Q.md) |
+| miIyWxN0b6g | Copy My EXACT Claude AI Prompt for MT5 Trading Bots | video | 26:55 | 26 000 | - | [whisper](corpus/miIyWxN0b6g.md) |
+| 9lxCcb14hnk | I tested the mql5 Market Quantum EAs for the MT5 | video | 56:36 | 26 000 | - | [whisper](corpus/9lxCcb14hnk.md) |
+| o9p6Jem8cXc | The Easiest Way to License your MetaTrader Expert Advisor | video | 15:48 | 26 000 | - | [whisper](corpus/o9p6Jem8cXc.md) |
 | XJQKXvOo16w | I used this Scalping Strategy for 2 Weeks Live Trading and the Resu... | video | 19:04 | 26 000 | - | — |
 | Ubc5ZBjOF-o | The Benefits of Automated Trading - Forex Expert Advisors for MT4 | video | 05:50 | 26 000 | - | — |
 | tAd0O3p1uls | Don't Buy Trading Bots! This FREE EA Made $3.5 Million | video | 13:48 | 25 000 | - | — |
@@ -782,48 +782,6 @@
 
 ## Backlog top-50 non encore transcrits
 
-- `o7ZG8SvzBDw` -- Easy Scalping Strategy For EURUSD \| Free MT5 Expert Advisor Coding
-- `c6z-lIcraIo` -- I Tested The MOST EXPENSIVE Expert Advisor On MQL5 \| Is It Worth The Money And How Does It Work?
-- `Zi5RjdtCZb8` -- MT5 Programming Tutorial - Creating a New Expert Advisor - Part 1
-- `1-YTXD82OfE` -- MQL5 for Beginners - Learn MetaTrader 5 Programming in 2.5 Hours
-- `-cXaqL5KfdE` -- Free MT5 Forex Expert Advisor That Wins Nearly Every Setup (99% Winrate)
-- `lXn4QqNnoRQ` -- How To Use The MT5 Strategy Tester For Backtesting (EA Testing Explained)
-- `aK7pcSSQqZc` -- I Tested The $5,000 Bonnitta EA and The Profits are INSANE...
-- `OU5x8sUWumI` -- After 5 Years Live Trading This Is My Best Strategy - Profitably Expert Advisor 100% Explained
-- `oDEk7aV9iYw` -- I Tested The TradeGPT EA From mql5! Is It The Best AI (ChatGPT) Created Expert Advisor?
-- `WqqObk0m7cs` -- I received my First FTMO Payout (+Refund)
-- `qqdu2JzLMz8` -- Should You Use ChatGPT for MetaTrader Programming? Professional mql Programmer View
-- `DxmKwJy2r5E` -- iCustom Explained: Automate Any Indicator You Already Use
-- `uexbULNv7YI` -- How to Create an RSI Trading Bot for MT5 using AI (Zero Experience Needed)
-- `vFlFmWKx6Zs` -- I Coded This Scalping Strategy From Scratch — Here's Every Line
-- `gPknWd-m6xI` -- I Tested the SSX Titan TT! Highest Ranked EA in the MQL5 Market
-- `hRsXWksoFtY` -- How to Open a Live Trading Account with IC Markets for Forex and CFD Trading
-- `ObW45UjoVVk` -- Testing The Wolf Scalper EA! Is It Really This Good And How Does It Work? MT5 Expert Advisor Review
-- `ldXCwYLyB-0` -- 100% Free Trading Panel (Download on mql5 now) *NO CLICKBAIT*
-- `6txbB5eMvTs` -- Simple Trade Copier for MT5 - Copy Trades From One Account To Another (Full MQL5 Programming)
-- `OThnhXKf60k` -- 100% History Quality in the MT5 Tester using the Tick Data Suite
-- `zAA5omdO-ko` -- MT5 Zone Recovery Hedging Expert Adivsor (100% Free Programming Tutorial)
-- `mGG0nu8A9FU` -- Copy My Prompts: Claude AI Codes a 5-Year Profitable MetaTrader 5 EA (Step-by-Step)
-- `cQYZjFoYc24` -- This MT5 Price Action Breakout Expert Advisor Will Trade Trends Automatically \| Download For Free
-- `Z2Zdw_La1fg` -- I Coded Nick Shawn's 99% Winrate DCA Strategy for the MT5 \| Part 1
-- `3l8RyeQNmNo` -- Automate any Trailing Stop in MT5 Using This Simple Program \| mql5 Programming Tutorial
-- `He7TgDzqgxc` -- Backtest MT5 EAs with 100% Modelling Quality - Quant Data Manager (Free Tool)
-- `yKKHqLt8PZo` -- The Most Wanted EA on MQL5 Tested \| 100% Honest Review
-- `DMCYVVNKC4M` -- Automate ANY MT5 Indicator With One Free EA (Full Code)
-- `j4ZlJfHAWy4` -- How To Use The MT5 Strategy Optimizer (EA Optimization Explained)
-- `8-Vc4AHyMKE` -- Reviewing the mql5 Gold Reaper Expert Advisor (INSANE Testing Profits)
 - `imNqQTzQz1Y` -- Industry INSIDER Reveals the INCOME of Online Trading Coaches (Showing Numbers)
-- `YrzfNo8iKlw` -- Coding a Profitable Stochastic Moving Average EA for MT5 (mql5 Tutorial)
 - `OizNBGE-sQA` -- Turn Any Arrow Indicator Into a Fully Automated Bot (Free EA)
-- `XU3FXFg3anY` -- 100% Automated Heiken Ashi Forex Trading Expert Advisor Programming Tutorial For MT5
-- `aN2X-YQwN88` -- I Tested the Uni Bot (#1 on mql5) and it is the Most Profitable Forex EA
-- `tqN-84ofLkE` -- Easy Tripple Moving Average Trading Strategy \| Simple mql5 Expert Advisor Coding Lesson
-- `acaqusyaeXc` -- MT5 Supertrend Indicator Strategie MQL5 Programming Tutorial - Part 1 - Indicator Values
-- `a4WyViDMwGo` -- I Finally Found This No Martingale No Grid Expert Advisor On MQL5 \| Tested Live For Over 4 Years
-- `ywbvbdEboGA` -- How To Get My MT5 Expert Advisors For Free NOW (+Forex Broker)
-- `jwtmlYZxD_o` -- ICT Silver Bullet Strategy Expert Advisor for Forex and CFD Trading \| mql5 Programming Tutorial
-- `K42oSdaCN_Q` -- MT5 Tester Trader For Manual Backtesting \| New EA For Every Trader \| Free Demo
-- `miIyWxN0b6g` -- Copy My EXACT Claude AI Prompt for MT5 Trading Bots
-- `9lxCcb14hnk` -- I tested the mql5 Market Quantum EAs for the MT5
-- `o9p6Jem8cXc` -- The Easiest Way to License your MetaTrader Expert Advisor
 - `XJQKXvOo16w` -- I used this Scalping Strategy for 2 Weeks Live Trading and the Results are Crazy

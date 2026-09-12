@@ -2,14 +2,14 @@
 id: TCK-009
 from: cc-support
 to: cc-app
-status: answered
+status: closed
 blocking: false
 created: 2026-08-26
 ---
 
 ## Question
 
-Directive Adrian 2026-08-26 : rendre la tbot factory **capable de faire tourner les études forward du prototype** (`gold_forward`, `s13_forward`, `s14_sentiment`, `macd_ai_paper`, `alexg_paper`) — voir `support/input-adrian/09_reprise-prototype.md` §« Études en vol — migration vers la tbot factory » (protocole de bascule par étude, source de vérité).
+Directive Adrian 2026-08-26 : rendre la tBot factory **capable de faire tourner les études forward du prototype** (`gold_forward`, `s13_forward`, `s14_sentiment`, `macd_ai_paper`, `alexg_paper`) — voir `support/input-adrian/09_reprise-prototype.md` §« Études en vol — migration vers la tBot factory » (protocole de bascule par étude, source de vérité).
 
 État des lieux : code des études dans le prototype `C:/Datas/Projects/TradingBot_9.0.0.x/studies/` (lecture seule) ; repo `studies/` = README seul ; journaux vivants dans `C:/db/tbot/<étude>/` (prototype) ; DB cible `C:/db/tradingBot/<étude>/` (README DB l'anticipe déjà).
 
@@ -23,7 +23,7 @@ Périmètre du ticket = la PRÉPARATION (sans toucher au prototype ni aux journa
 
 La BASCULE elle-même (toucher robinbot-panel.txt + déplacer un journal vivant) est HORS ticket : GO Adrian explicite par étude, exécution pilotée par cc-support au moment choisi.
 
-Dépendances : TCK-005 (tbot factory) livré ; socle E2 suffisamment fonctionnel pour que les études tournent depuis le repo (MT5, datasets — même PC, mêmes accès que le prototype).
+Dépendances : TCK-005 (tBot factory) livré ; socle E2 suffisamment fonctionnel pour que les études tournent depuis le repo (MT5, datasets — même PC, mêmes accès que le prototype).
 
 ## Proposition de résolution
 
@@ -32,3 +32,5 @@ Migration verbatim + adaptation minimale des imports/chemins (pattern déjà app
 ## Réponse
 
 [cc-support 2026-08-26] PRIS EN CHARGE — intégré au run /apex-autonomous comme tâche T10, dispatch cc-app immédiat (en parallèle de T5 ledger ; zones disjointes). Périmètre confirmé : préparation uniquement, prototype et journaux vivants intouchés, bascule = GO Adrian par étude piloté par cc-support. Un commit par étude + verify-journal + CUTOVER.md comme proposé.
+
+[cc-support 2026-09-12] CLOS — réponse appliquée : les cinq études basculées robinbot → tbot le 26-27.08 (CUTOVER complet, journaux intacts, continuité prouvée sur un trade or à cheval sur la migration).

@@ -2,7 +2,7 @@
 id: TCK-007
 from: cc-support
 to: Adrian
-status: answered
+status: closed
 blocking: false
 created: 2026-08-26
 ---
@@ -20,3 +20,5 @@ Créer les 2 bots, puis déposer : token notifier dans `C:\db\tradingBot\notifie
 - **Bascule du poller** : `gateway = off` dans le panneau robinbot (annoté « MIGRÉ, ne pas rallumer — conflit getUpdates ») → 90 s → `gateway = on` + `notify = on` dans le panneau tbot. Vérifié : ticks gateway OK 2.0 s et notify OK 1.4 s dans tbot-factory.log (code 0, plus de code 2).
 - Le notify robinbot reste ON (sortant pur, pas de conflit de polling — les deux consoles peuvent émettre).
 - Option future : si Adrian veut rendre l'entrant à robinbot ou séparer les canaux, créer 2 bots dédiés via @BotFather et échanger les tokens — la structure de fichiers est en place.
+
+[cc-support 2026-09-12] CLOS — réponse appliquée : bots réutilisés, gateway/notify basculés sur tbot (CLAUDE.md racine : « TCK-007 clos »).

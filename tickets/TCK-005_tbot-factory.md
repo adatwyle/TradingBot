@@ -2,14 +2,14 @@
 id: TCK-005
 from: cc-support
 to: cc-app
-status: answered
+status: closed
 blocking: false
 created: 2026-08-26
 ---
 
 ## Question
 
-Directive Adrian 2026-08-26 : construire la **tbot factory** — application console terminal 24/7 du projet (voir `support/input-adrian/03_application-console.md`, section « La tbot factory », mise à jour ce jour — source de vérité de la demande).
+Directive Adrian 2026-08-26 : construire la **tBot factory** — application console terminal 24/7 du projet (voir `support/input-adrian/03_application-console.md`, section « La tBot factory », mise à jour ce jour — source de vérité de la demande).
 
 Résumé : adaptation TradingBot de `app/orchestrator/robinbot-factory.py` (D1 : socle repris, mécanismes éprouvés — ticks éphémères, panneau à chaud hors repo, codes de sortie/AUTO-OFF, verrou, `.stop`, veille Python gratuite / session `claude:` seulement s'il y a matière). Catalogue de workers v1 :
 
@@ -49,3 +49,5 @@ Copie-adaptation de `robinbot-factory.py` en `tbot-factory.py` (plutôt qu'impor
 4. Sessions headless lancées avec les flags exacts du prototype (pas de `--permission-mode`/`--allowedTools` ajoutés) : les droits d'écriture des CC headless reposent sur la config `.claude/` du repo — à vérifier à la première mise en route réelle.
 
 **Préconisation première mise en route** : lancer avec le panneau par défaut (gex_S017 seul) et observer 1-2 jours de collecte ; poser les secrets Telegram (TCK-004) puis allumer `gateway`/`notify` ; allumer `cc_support_block` ensuite (garde bon marché) ; `cc_app_queue`/`cc_spec_queue`/`cc_S017` en dernier, un par un, en surveillant `app/orchestrator/logs/<worker>/`. Retirer la tâche planifiée GEX transitoire dès la factory validée.
+
+[cc-support 2026-09-12] CLOS — réponse appliquée : tbot-factory livrée et en exploitation depuis le 26.08 (a tourné jusqu'au reboot du 10.09). Le démarrage automatique au boot reste TCK-013.

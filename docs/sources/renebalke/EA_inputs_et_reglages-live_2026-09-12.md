@@ -117,15 +117,15 @@ en % (0 = désactivé) ; clôture à heure fixe optionnelle ; BE/TSL en %. Sens 
 **aucune valeur live, aucun résultat publié** : rien contre quoi se comparer. Grille
 ouverte, donc multiplicité maximale ; à traiter après les stratégies prouvées.
 
-## 3. Ordre proposé pour la reproduction
+## 3. Ordre de reproduction — état au 2026-09-13
 
-| Priorité | Stratégie | Pourquoi | Ce qu'il faut |
-|---|---|---|---|
-| 1 | **ATR Candle Breakout — or H1** (S022) | spécification complète, réglages live connus, **backtest et comparaison live publiés** | rien : moteur et données prêts |
-| 2 | **Turnaround Tuesday** — DAX, NASDAQ (S023) | règle complète, 160 trades live, +16 k€ | H1 indices (MT5 en ligne), pas de stop → stop de portefeuille |
-| 3 | **Go Long** — DAX, NASDAQ (S024) | > 50 % de son profit, règle triviale | idem ; le résultat est un bêta indiciel assumé — à mesurer contre « acheter et tenir » comme témoin, pas contre le hasard |
-| 4 | Range Breakout v1.40 fidèle (ordres stop M1, buffer, BE) | reprise de S009 avec l'exécution réelle | données M1 indices/or, ordres stop dans le moteur |
-| 5 | Fisherman, Ninja Turtle | pas de réglages ni de preuve | à instruire seulement après les quatre autres |
+| Priorité | Stratégie | Pourquoi | Ce qu'il faut | Verdict |
+|---|---|---|---|---|
+| 1 | **ATR Candle Breakout — or H1** (S022) | spécification complète, réglages live connus, **backtest et comparaison live publiés** | rien : moteur et données prêts | mesurée : ÉCHEC au sens des critères écrits d'avance (0/12 STRICT, cellule live −10,4 R OOS), fidélité tenue — `strategies/S022_balke_atr_candle/research/VERDICT.md` |
+| 2 | **Turnaround Tuesday** — DAX, NASDAQ, US30 (S023) | règle complète, 160 trades live, +16 k€ | H1 indices (MT5 en ligne), pas de stop → stop de portefeuille | mesurée : ÉCHEC (seul le DAX bat le témoin ; NASDAQ/US30 = dérive de l'indice) — `strategies/S023_balke_turnaround_tuesday/research/VERDICT.md` |
+| 3 | **Go Long** — DAX, NASDAQ, US30 (S024) | > 50 % de son profit, règle triviale | idem ; le résultat est un bêta indiciel assumé — à mesurer contre « acheter et tenir » comme témoin, pas contre le hasard | mesurée : réussite en tant que bêta indiciel, pas d'edge de timing (fidèle +47,9/+71,4/+43,5 % sur 5 ans ; overnight négatif) — `strategies/S024_balke_go_long/research/VERDICT.md` |
+| 4 | Range Breakout v1.40 fidèle (ordres stop M1, buffer, BE) | reprise de S009 avec l'exécution réelle | données M1 indices/or, ordres stop dans le moteur | à faire |
+| 5 | Fisherman, Ninja Turtle | pas de réglages ni de preuve | à instruire seulement après les quatre autres | à faire |
 
 Chacune avec `FALSIFICATION.md` écrite avant la première mesure, témoin aléatoire, et
 — pour S022 — la comparaison directe à ses chiffres publiés comme test de fidélité.

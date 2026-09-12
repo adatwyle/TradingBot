@@ -2,14 +2,15 @@
 
 Materiau source pour l'etude de la chaine YouTube et du site de Rene Balke (BM Trading) :
 transcripts video, pages EA du site, articles de blog. Utilise en entree des etudes de strategie
-(range breakout, turnaround tuesday, etc.) — cf. `SYNTHESE.md`, `GRID_martingale_extraction_2026-09-12.md`,
-`EA_inputs_et_reglages-live_2026-09-12.md`.
+(range breakout, turnaround tuesday, etc.) — cf. `SYNTHESE.md` (15 videos, aout), `SYNTHESE_tranche1_2026-09-12.md`,
+`SYNTHESE_tranche2_2026-09-12.md`, `EA_inputs_et_reglages-live_2026-09-12.md` (→ S022/S023/S024),
+`TRADEBUDDY_analyse-ecrans_2026-09-12.md` (→ module `/analytics`), `GRID_martingale_extraction_2026-09-12.md` (→ S021).
 
 ## Contenu
 
 - `01_..._15_*.txt` — 15 transcripts recuperes manuellement en aout 2026 (sous-titres automatiques
   YouTube, dedupliques). **Ne pas modifier** — historiques, mappees par id video dans `CORPUS_INDEX.md`
-  (colonne `transcrit` = `aout`).
+  (colonne `transcrit` = `aout`). Le compte « 84 transcrits » de l'index les inclut (22 api + 47 whisper + 15 aout).
 - `corpus/<video_id>.md` — un fichier par transcript genere par `tools/build_corpus.py` : en-tete
   (titre, URL, date, vues, duree, categorie, source de transcription) puis le texte en paragraphes
   d'environ 60 s / 600 caracteres, chacun prefixe d'un marqueur `[mm:ss]`. Les durees (en-tete et
@@ -21,8 +22,10 @@ transcripts video, pages EA du site, articles de blog. Utilise en entree des etu
   decroissantes, avec statut de transcription (`api` / `whisper` / `aout` / `—`) et lien vers le
   fichier transcrit quand il existe. Section finale : ids du top-50 pas encore transcrits (backlog
   Whisper restant).
-- `SYNTHESE.md`, `GRID_martingale_extraction_2026-09-12.md`, `EA_inputs_et_reglages-live_2026-09-12.md`,
-  `ea_inputs/`, `frames/`, `code/` — analyses derivees, non touchees par le script de build.
+- `SYNTHESE.md`, `SYNTHESE_tranche1_2026-09-12.md`, `SYNTHESE_tranche2_2026-09-12.md`,
+  `GRID_martingale_extraction_2026-09-12.md`, `EA_inputs_et_reglages-live_2026-09-12.md`,
+  `TRADEBUDDY_analyse-ecrans_2026-09-12.md`, `ea_inputs/`, `code/` — analyses derivees, non touchees par le script de build.
+- `frames/tradebuddy/` — 168 captures `.jpg` de la video qgsi-u0kOVw (36:50 → 48:06), dont 68 exploitees dans l'analyse TradeBuddy.
 - `tools/build_corpus.py` — script de construction (voir ci-dessous).
 
 ## Reconstruire le corpus

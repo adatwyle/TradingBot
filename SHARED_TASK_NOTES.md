@@ -103,7 +103,7 @@ Plan : `support/designs/PLAN_apex-autonomous-e3-e5_2026-08-26-1740.md`. Une entr
 ## T7a — synthèse tranche 1 — 2026-09-12 19:20
 - Files changed: docs/sources/renebalke/SYNTHESE_tranche1_2026-09-12.md (rendu du workflow wf_da9dcde9 : quatre lectures + contre-lecture, 182 k car.).
 - Decisions: rendu mécanique du JSON, titres lissés ; contenu = sortie des agents, non réécrit.
-- Open follow-ups: tranche 2 (transcripts Whisper) à analyser quand disponibles ; SYNTHESE.md à raccorder.
+- Open follow-ups: tranche 2 (transcripts Whisper) à analyser quand disponibles ; SYNTHESE.md raccordée en Phase X (2026-09-13).
 
 ## T1 — s20_forward sous la fabrique — 2026-09-12 19:36
 - Files changed: aucun.
@@ -112,7 +112,7 @@ Plan : `support/designs/PLAN_apex-autonomous-e3-e5_2026-08-26-1740.md`. Une entr
 
 ## TradeBuddy — phase comprendre — 2026-09-12 19:50
 - Files changed: spec/specification-app/SPEC_analytics-trades_2026-09-12.md (+ ligne INDEX.md), docs/sources/renebalke/TRADEBUDDY_analyse-ecrans_2026-09-12.md, docs/sources/renebalke/frames/tradebuddy/ (168 écrans, commit 0c5d0f3).
-- Decisions: workflow wf_7d141f1d (22 agents) : 76 écrans décrits, 26 fonctionnalités F01-F26 (9 P1 / 9 P2 / 8 P3), formules reconstruites depuis les valeurs à l'écran, 3 critiques (couverture, données, narration) intégrées ; spec = 33 exigences AN-x, 18 décisions, 20 défauts DF-x modifiables par Adrian, lots L1/L2/L3. Override de périmètre : cc-support rédige la spec et fait développer l'app sur directive Adrian directe (19:03).
+- Decisions: workflow wf_7d141f1d (22 agents) : 168 captures `.jpg`, 68 exploitées (76 descriptions d'écran), 26 fonctionnalités F01-F26 (9 P1 / 9 P2 / 8 P3), formules reconstruites depuis les valeurs à l'écran, 3 critiques (couverture, données, narration) intégrées ; spec = 33 exigences AN-x, 18 décisions, 20 défauts DF-x modifiables par Adrian, lots L1/L2/L3. Override de périmètre : cc-support rédige la spec et fait développer l'app sur directive Adrian directe (19:03).
 - Open follow-ups: implémentation en cours (wf_e1b817a5) ; SPEC_ledger v1.1 (projection écrite journaux → ledger) reste un ticket séparé ; DF-1…DF-5 à arbitrer par Adrian.
 
 ## T4 — S022 ATR Candle Breakout (or H1, René Balke) — 2026-09-12 20:05
@@ -128,7 +128,7 @@ Plan : `support/designs/PLAN_apex-autonomous-e3-e5_2026-08-26-1740.md`. Une entr
 ## T7b — tranche 2 Balke (47 vidéos les plus vues, Whisper) — 2026-09-13 00:05
 - Files changed: docs/sources/renebalke/SYNTHESE_tranche2_2026-09-12.md (195 k car.), corpus/ (69 transcripts), CORPUS_INDEX.md (84/773) — commit 7bab68d.
 - Decisions: workflow wf_a60226fd (22 agents) : 4 angles × 4 lots, fusion par angle, 2 contrôleurs (30 erreurs, 32 trous, 20 contradictions relevés — livrés bruts dans la contre-lecture, non réécrits). Nouveautés à règle complète : scalping EMA 8/13/21 multi-TF, ICT Silver Bullet, stochastique 5/3/3 + SMA100, RSI 30/70 réarmé + SMA50, BB+RSI, triple SMA, structure HH/HL, Heiken Ashi flip, Trend Tracer, Arrow ZigZag, Donchian D1 trailing ; six mécanismes grille supplémentaires pour S021 ; trois jeux d'heures différents pour son Range Breakout (S009).
-- Open follow-ups: 689 éléments du canal non transcrits (fetcher API bloqué 429 ; Whisper sur la suite = ~700 h, à cadencer) ; SYNTHESE.md racine à raccorder aux trois tranches.
+- Open follow-ups: 689 éléments du canal non transcrits (fetcher API bloqué 429 ; Whisper sur la suite = ~700 h, à cadencer) ; SYNTHESE.md racine raccordée aux trois tranches en Phase X (2026-09-13).
 
 ## T6 — S024 Go Long (DAX/NASDAQ/US30 H1, René Balke) — 2026-09-13 00:20
 - Files changed: strategies/S024_balke_go_long/{strategy.py, manifest.yaml (BACKTESTED), test_s024_strategy.py (30 tests), backtests/run_wf.py (% via pnl_r × risk_distance / entry, porte R1/R5, jambes intraday/overnight sur trois populations, balayage horaire), results.json, run_all.log, research/FALSIFICATION.md (+ addendum A1-A6), VERDICT.md, CLAUDE.md, input-adrian.md}, MAGIC_REGISTRY.md (130024).

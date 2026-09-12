@@ -1,13 +1,13 @@
 # Trade Buddy (René Balke) — analyse écran par écran — 2026-09-12
 
-**Source** : vidéo [qgsi-u0kOVw] (rétrospective 48 min), segment 36:50 → 48:06 ; 28 captures
-sous `frames/tradebuddy/` (nommage `sNNN_MMmSSs.png`) ; transcript `corpus/qgsi-u0kOVw.md`.
+**Source** : vidéo [qgsi-u0kOVw] (rétrospective 48 min), segment 36:50 → 48:06 ; 168 captures
+sous `frames/tradebuddy/` (nommage `sNNN_MMmSSs.jpg`), dont 68 référencées ci-dessous ; transcript `corpus/qgsi-u0kOVw.md`.
 **Directive Adrian (2026-09-12, verbatim)** : « à partir de 37:10 René Balke visualise son
 TradeBuddy — passe à travers chaque image, analyse les fonctionnalités développées et
 développe-les sur l'UI tBot, c'est ce que je veux ».
 **Produit dérivé** : `spec/specification-app/SPEC_analytics-trades_2026-09-12.md` (F01-F27 →
 exigences AN-n, lots L1/L2/L3).
-**Méthode** : lecture des 28 captures + transcript, formules reconstruites et vérifiées sur
+**Méthode** : lecture des 168 captures + transcript, formules reconstruites et vérifiées sur
 les valeurs affichées ; trois relectures critiques intégrées (manques d'écran, erreurs de
 mapping tBot, fidélité à la narration). Statut de chaque élément : **montré** (à l'écran),
 **dit** (à l'oral), **déduit**.
@@ -44,7 +44,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
 
 ## 2. Inventaire chronologique (intervalle · page · widgets · valeurs lues · ce qu'il en dit)
 
-### 36:50 — MT5 (contexte avant Trade Buddy) — `s000_36m50s.png`
+### 36:50 — MT5 (contexte avant Trade Buddy) — `s000_36m50s.jpg`
 
 - **Page** : MetaTrader 5, titre « CapitalPointTrading-MT5-4 - Hedge - Capital Point Trading Ltd ».
 - **Widgets** : Navigator > Scripts > `TradeBuddyMT5` (le script d'export) ; Toolbox
@@ -57,7 +57,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
   (confirmé par Myfxbook à 48:03) ; (c) le broker affiché dans Trade Buddy (« IC Trading »)
   est un libellé saisi, pas une valeur importée.
 
-### 37:04 → 37:26 — Dashboard — `s003_37m04s.png`, `s003_37m15s.png`, `s003_37m26s.png`
+### 37:04 → 37:26 — Dashboard — `s003_37m04s.jpg`, `s003_37m15s.jpg`, `s003_37m26s.jpg`
 
 - **En-tête compte** : « 50K BM Trading · #11141149 · IC Trading · EUR · Starting balance:
   €50,000.00 · 4,371 trades ».
@@ -75,7 +75,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
 - **P&L BY WEEKDAY** : Mon ≈ 48k, Tue ≈ 28k, Wed ≈ 27k, Thu ≈ 5k, Fri ≈ −11k, Sat/Sun vides.
 - **Dit** (37:18-37:28) : « automatic import function from the MetaTrader 5. It's a two-step process ». Survol de « Strategies » à 37:26 sans clic.
 
-### 37:27 → 37:30 — Trades + modale Import — `s004_37m27s.png`, `s005_37m28s.png`, `s006_37m29s.png`, `s007_37m30s.png`
+### 37:27 → 37:30 — Trades + modale Import — `s004_37m27s.jpg`, `s005_37m28s.jpg`, `s006_37m29s.jpg`, `s007_37m30s.jpg`
 
 - **Trades** (s004) : sous-titre « 50K BM Trading · 4,371 trades », champ « Search… »,
   bouton « Import trades », compteur « 1–200 / 4,371 (4,371 total) », barre de 7 filtres
@@ -95,7 +95,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
   « Duplicate tickets are skipped automatically » ; « nothing is uploaded to a server » ; Close.
 - s007 : retour sur Trades après fermeture.
 
-### 37:31 → 38:42 — Dashboard, narration des KPI — `s008_37m31s.png`, `s009_37m37s.png`, `s009_38m01s.png`, `s009_38m25s.png`, `s010_38m26s.png`, `s011_38m42s.png`
+### 37:31 → 38:42 — Dashboard, narration des KPI — `s008_37m31s.jpg`, `s009_37m37s.jpg`, `s009_38m01s.jpg`, `s009_38m25s.jpg`, `s010_38m26s.jpg`, `s011_38m42s.jpg`
 
 - **Dit** (37:33-37:48) : « more than 4,000 trades, win rate slightly above 50 %, profit
   around 100,000, profit factor 1.16, max drawdown 22,000 ».
@@ -108,7 +108,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
   profit. Some symbols like GBP dollar and Euro Japanese yen are even negative ».
 - s011 : survol « Strategies » (38:42), pas de clic.
 
-### 38:43 → 39:06 — Analysis, sans filtre — `s012_38m43s.png`, `s013_38m44s.png`, `s014_38m47s.png`, `s015_38m48s.png`, `s016_39m06s.png`
+### 38:43 → 39:06 — Analysis, sans filtre — `s012_38m43s.jpg`, `s013_38m44s.jpg`, `s014_38m47s.jpg`, `s015_38m48s.jpg`, `s016_39m06s.jpg`
 
 - **En-tête** : « Analysis — Filter and break down trade performance », bouton bleu « Print /
   Save as PDF » ; barre 7 filtres tous « All ».
@@ -127,7 +127,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
   sans widget intercalé visible.
 - **Dit** : « almost every single month was a profit ».
 
-### 39:12 → 40:04 — Analysis, filtre Go Long — `s018_39m12s.png`, `s019_39m13s.png`, `s020_39m14s.png`, `s023_39m36s.png`, `s023_39m49s.png`, `s023_40m03s.png`, `s024_40m04s.png`
+### 39:12 → 40:04 — Analysis, filtre Go Long — `s018_39m12s.jpg`, `s019_39m13s.jpg`, `s020_39m14s.jpg`, `s023_39m36s.jpg`, `s023_39m49s.jpg`, `s023_40m03s.jpg`, `s024_40m04s.jpg`
 
 - **Dropdown STRATEGY** (s018) : GO LONG (coché), TURNAROUND TUESDAY, RANGE BREAKOUT, ATR
   CANDLE BREAKOUT, UNASSIGNED ; libellé « 1 selected ».
@@ -142,7 +142,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
   **starting balance** (23,553.17 / 0.4711 = 50 000), pas au pic.
 - **Dit** : drawdown d'avril 2025 « tariffs » ; « a big drawdown, 24,000 euro almost ».
 
-### 40:24 → 41:00 — Analysis, drill-down Go Long par symbole puis Turnaround Tuesday — `s025_40m24s.png`, `s026…s033 (40:30-40:39)`, `s034_40m41s.png … s040_41m00s.png`, `s038_40m50s.png`
+### 40:24 → 41:00 — Analysis, drill-down Go Long par symbole puis Turnaround Tuesday — `s025_40m24s.jpg`, `s026…s033 (40:30-40:39)`, `s034_40m41s.jpg … s040_41m00s.jpg`, `s038_40m50s.jpg`
 
 - s025 : animation de courbe.
 - **Dropdown SYMBOL contextuel** (s026-s033) : seulement DE40 / US30 / USTEC (symboles présents
@@ -150,7 +150,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
 - **Turnaround Tuesday** (s034-s040) : 163 / 64.4 % / +€16,956.65 / 2.03 / €3,167.70
   (Recovery 5.35) / 0.28 ; axe X depuis 24.04.01 ; tooltip (s038) « 24.11.22 — Balance €52,016 ».
 
-### 41:06 → 41:23 — Turnaround Tuesday × USTEC, puis Range Breakout — `s042_41m06s.png`, `s048_41m15s.png`, `s050_41m18s.png`, `s051_41m18s.png`, `s052_41m21s.png`, `s053_41m22s.png`, `s054_41m23s.png`
+### 41:06 → 41:23 — Turnaround Tuesday × USTEC, puis Range Breakout — `s042_41m06s.jpg`, `s048_41m15s.jpg`, `s050_41m18s.jpg`, `s051_41m18s.jpg`, `s052_41m21s.jpg`, `s053_41m22s.jpg`, `s054_41m23s.jpg`
 
 - s042 : dropdown STRATEGY ouvert — il **recouvre** les tuiles NET P&L et PROFIT FACTOR
   (simple empilement z-index, pas un comportement).
@@ -162,7 +162,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
   tooltip (s054) « 25.02.02 — Balance €60,991 ». 1,154 + 1,161 = 2,315 ≠ 2,316 : un trade
   à net = 0, compté dans N mais ni W ni L ; expectancy affichée 10.91 ≠ net/N 11.02.
 
-### 41:51 → 42:03 — Range Breakout : drawdown, symboles, DE40 — `s058_41m51s.png`, `s059_41m52s.png`, `s061_41m59s.png`, `s062_42m03s.png`
+### 41:51 → 42:03 — Range Breakout : drawdown, symboles, DE40 — `s058_41m51s.jpg`, `s059_41m52s.jpg`, `s061_41m59s.jpg`, `s062_42m03s.jpg`
 
 - s058 : les deux cases décochées → graphique vide (état transitoire) ; s059 : Drawdown,
   tooltip « 25.08.26 — Drawdown −€1,710.47 (−3.42 %) ».
@@ -173,7 +173,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
   = −0.39 alors que net/N = +0.03 (les trades à 0 comptent côté perte).
 - **Dit** : DE40 « break-even after 205 trades ».
 
-### 42:45 → 43:48 — EURJPY, EURUSD, GBPUSD — `s065_42m45s.png`, `s066_42m46s.png`, `s067_42m59s.png`, `s068_43m00s.png`, `s071…s074 (43:09)`, `s076…s080 (43:24-43:36)`, `s081_43m45s.png`, `s082_43m48s.png`
+### 42:45 → 43:48 — EURJPY, EURUSD, GBPUSD — `s065_42m45s.jpg`, `s066_42m46s.jpg`, `s067_42m59s.jpg`, `s068_43m00s.jpg`, `s071…s074 (43:09)`, `s076…s080 (43:24-43:36)`, `s081_43m45s.jpg`, `s082_43m48s.jpg`
 
 - **EURJPY** : heatmap 2025 OCT −€3,467 (−6.93 %) ; Sharpe −0.03 ; drawdown tooltip
   « 26.08.30 — −€7,938.12 (−15.88 %) » ; axe X depuis 25.10.07.
@@ -186,7 +186,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
 - **Dit** (43:55-44:01) : « I would always recommend to not only test a few months or years,
   but really make long-term backtests ».
 
-### 44:03 → 45:26 — US30, sélection multi-symboles, USDJPY — `s088_44m03s.png`, `s091…s096 (44:14-44:25)`, `s097_44m29s.png`, `s098_44m31s.png`, `s099_44m40s.png`, `s101_44m50s.png`, `s103_45m17s.png`
+### 44:03 → 45:26 — US30, sélection multi-symboles, USDJPY — `s088_44m03s.jpg`, `s091…s096 (44:14-44:25)`, `s097_44m29s.jpg`, `s098_44m31s.jpg`, `s099_44m40s.jpg`, `s101_44m50s.jpg`, `s103_45m17s.jpg`
 
 - **RB × US30** (s088) : 221 / 43.9 % (97W / 124L) / PF 0.86 / DD €2,715.33 (Recovery
   **−0.56**) / −0.06 / +€96.33 −€87.69 / −€6.92 → point de contrôle : recovery négatif si
@@ -202,7 +202,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
 - **Dit** (45:06-45:26) : « I did backtests for all of these strategies over at least the
   last 10 years… these drawdowns actually are completely normal ».
 
-### 45:54 → 46:23 — XAUUSD et jeu des 7 charts — `s112_46m01s.png`, `s113_46m02s.png`, `s116_46m07s.png`, `s118…s123 (46:16-46:23)`
+### 45:54 → 46:23 — XAUUSD et jeu des 7 charts — `s112_46m01s.jpg`, `s113_46m02s.jpg`, `s116_46m07s.jpg`, `s118…s123 (46:16-46:23)`
 
 - **XAUUSD** (s112, s113) : DD €5,930.38 (Recovery 5.14), Sharpe 0.13 ; tooltips « 25.05.02 —
   €65,276 », « 25.08.07 — €66,929 » ; heatmap 3 années complètes, TOTAL +€30,491 (+60.98 %) ;
@@ -213,7 +213,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
   making all of the profits » → seul XAUUSD porte le profit du Range Breakout ; USDJPY a
   contribué puis rendu une grande partie.
 
-### 46:30 → 47:38 — ATR Candle Breakout, SUMMARY, retour All — `s126_46m30s.png`, `s127_46m33s.png … s131_47m12s.png`, `s132_47m16s.png`, `s133_47m17s.png`, `s134_47m19s.png`, `s135_47m28s.png`, `s136_47m29s.png`, `s137_47m30s.png`, `s138_47m34s.png`, `s139`, `s140_47m38s.png`
+### 46:30 → 47:38 — ATR Candle Breakout, SUMMARY, retour All — `s126_46m30s.jpg`, `s127_46m33s.jpg … s131_47m12s.jpg`, `s132_47m16s.jpg`, `s133_47m17s.jpg`, `s134_47m19s.jpg`, `s135_47m28s.jpg`, `s136_47m29s.jpg`, `s137_47m30s.jpg`, `s138_47m34s.jpg`, `s139`, `s140_47m38s.jpg`
 
 - **Bascule Range Breakout → ATR** (s126, s127).
 - **KPI ATR** : 55 / 29.1 % (16W / 39L) / +€2,263.48 / 1.62 / €1,138.55 (Recovery 1.99) /
@@ -241,7 +241,7 @@ FROM/TO, DIRECTION, WEEKDAY, MAGIC, ni la recherche, ni le tri du journal.
 - **Retour All** (s138-s140) : heatmap compte entier 3 années ; weekday et distribution compte
   entier (bins −€2,680, −€1,715, −€749, €216 … €6,008, pic ≈ 1,500 trades autour de 0).
 
-### 48:03 — Myfxbook (contexte après Trade Buddy) — `s144_48m03s.png`
+### 48:03 — Myfxbook (contexte après Trade Buddy) — `s144_48m03s.jpg`
 
 - **Lu** : Deposits €45,115.84 · Withdrawals €125,023.13 · Balance €19,751.54 · Drawdown
   77.98 % · Profit €99,537.31 · Interest −€1,204.15.

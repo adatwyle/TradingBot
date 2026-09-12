@@ -39,7 +39,7 @@ individuelle, ou de bloquer une seule stratégie.
 | `130017` | `S017_ireland_gex` | Ireland GEX — SPY intraday piloté par la carte GEX | RESEARCH |
 | `130018` | `S018_gold_doud_v2` | **réservé — vit sur la branche `v2/gold`** (or v2, méthode Doud) | RESEARCH |
 | `130019` | `S019_gold_sweep` | **réservé — vit sur la branche `v2/gold`** (or, balayage de liquidité) | RESEARCH |
-| `130020` | `S020_balke_macd_cross` | MACD cross + filtre zéro, SL/TP en % (René Balke, vidéo 2026-08-23) | RESEARCH |
+| `130020` | `S020_balke_macd_cross` | MACD cross + filtre zéro, SL/TP en % (René Balke, vidéo 2026-08-23) | PAPER (forward scellé `studies/s20_forward`, GO Adrian 2026-09-12 — PAPER ≠ validation) |
 | `130021` | `S021_balke_grid` | **réservé** — grille martingale bidirectionnelle (René Balke, vidéo 2025-12-20) ; attend la capacité « panier » du moteur (TCK-020) | RESEARCH |
 | `130022` | `S022_balke_atr_candle` | ATR Candle Breakout — grosse bougie > ATR fermant sur son extrême, SL/TP en % (René Balke, EA gratuit + blog 2026-06-09), or H1 | BACKTESTED |
 | `130023` | `S023_balke_turnaround_tuesday` | Turnaround Tuesday — achat du lundi sous la SMA journalière, sortie mardi soir, garde catastrophe propre (René Balke, EA gratuit + vidéo 100 k€), DAX/NASDAQ/US30 H1 | BACKTESTED |

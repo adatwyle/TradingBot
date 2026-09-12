@@ -106,13 +106,13 @@ barres closes à la reprise).
 
 ## Ordre conseillé et notes par étude
 
-| Ordre | Étude | Cadence | Notes de bascule |
-|---|---|---|---|
-| 1 | `macd_ai_paper` | 3600 s | Verdict RENDU (NE PAS armer l'IA — VERDICT_REPLAY.md). Journal quasi vide (en-tête seul) : bascule au risque minimal, idéale pour valider la procédure. Les outils replay_* lisent `datasets/LONGHIST` sous `C:\db\tradingBot\` — copie des datasets HORS scope bascule (décision Adrian séparée, le tick horaire n'en a pas besoin). |
-| 2 | `s13_forward` | 3600 s | ARMÉE, 0 trade clos (~7/an attendus), journal en-tête seul. D1 : fenêtre géante. |
-| 3 | `gold_forward` | 3600 s | ARMÉE, 6 lignes de journal (+1,64 R). H1. |
-| 4 | `alexg_paper` | 3600 s | ARMÉE 22.08, 26 paires, 4 bras, ~3 mois avant verdict. Journal en-tête seul. Le runner LIT un compte MT5 réel mais n'envoie JAMAIS d'ordre (R10). |
-| 5 | `s14_sentiment` | 1800 s | Le journal le plus précieux (1 706 lignes, verdict mi-octobre). Basculer en DERNIER, après que la procédure a été validée 4 fois. Pré-requis clé Finnhub (voir plus haut). |
+| Ordre | Étude | Cadence | Notes de bascule | Bascule |
+|---|---|---|---|---|
+| 1 | `macd_ai_paper` | 3600 s | Verdict RENDU (NE PAS armer l'IA — VERDICT_REPLAY.md). Journal quasi vide (en-tête seul) : bascule au risque minimal, idéale pour valider la procédure. Les outils replay_* lisent `datasets/LONGHIST` sous `C:\db\tradingBot\` — copie des datasets HORS scope bascule (décision Adrian séparée, le tick horaire n'en a pas besoin). | faite 2026-08-26 (GO Adrian, verify 0/0) |
+| 2 | `s13_forward` | 3600 s | ARMÉE, 0 trade clos (~7/an attendus), journal en-tête seul. D1 : fenêtre géante. | faite 2026-08-26 (GO Adrian, verify 0/0) |
+| 3 | `gold_forward` | 3600 s | ARMÉE, 6 lignes de journal (+1,64 R). H1. | à faire (GO Adrian) |
+| 4 | `alexg_paper` | 3600 s | ARMÉE 22.08, 26 paires, 4 bras, ~3 mois avant verdict. Journal en-tête seul. Le runner LIT un compte MT5 réel mais n'envoie JAMAIS d'ordre (R10). | à faire (GO Adrian) |
+| 5 | `s14_sentiment` | 1800 s | Le journal le plus précieux (1 706 lignes, verdict mi-octobre). Basculer en DERNIER, après que la procédure a été validée 4 fois. Pré-requis clé Finnhub (voir plus haut). | à faire (GO Adrian) |
 
 ## Ce que T10 a préparé (état 2026-08-26)
 

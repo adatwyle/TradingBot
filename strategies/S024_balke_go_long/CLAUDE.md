@@ -60,7 +60,7 @@ qui compte, et c'est de la donnée, pas du réglage.
 ```
 strategy.py                la règle, et rien d'autre (un horaire, pas un indicateur)
 manifest.yaml              6 cellules, cellule de fidélité garde 5 % / offset 0
-test_s024_strategy.py      27 tests — calendrier, séances, trous, géométrie, R1/R5, bornes
+test_s024_strategy.py      30 tests — calendrier, séances, trous, géométrie, R1/R5, bornes
 backtests/run_wf.py        harnais 3 indices (séance dérivée des barres, étalons, WF, témoins)
 backtests/results.json     la mesure du 2026-09-12
 backtests/run_all.log      le journal complet du run

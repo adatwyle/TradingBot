@@ -173,18 +173,15 @@ def test_alexg_paper_joint_aux_etudes_heritees(client, ui_env):
 
 def test_legacy_studies_aligned_on_adapter_catalogue(ui_env):
     """SPEC_analytics-trades §3.2 / §7 L1 : LEGACY_STUDIES suit le catalogue
-    ``journal_adapter.STUDIES`` (s20_forward compris) + s14_sentiment sans
-    stratégie ; chaque entrée porte un libellé."""
-    from server import state
-    from server.journal_adapter import STUDIES
+    ``STUDIES`` (unique, importé tel quel par journal_adapter ; s20_forward
+    compris) + s14_sentiment sans stratégie ; chaque entrée porte un libellé."""
+    from server import journal_adapter, state
+    assert journal_adapter.STUDIES is state.STUDIES
     pairs = [(f, s) for f, s, _l in state.LEGACY_STUDIES]
-    assert pairs[:len(STUDIES)] == list(STUDIES)
+    assert pairs[:len(state.STUDIES)] == list(state.STUDIES)
     assert ("s20_forward", "S020") in pairs
-    assert ("s14_sentiment", None) in pairs
-    assert all(isinstance(l, str) and l for _f, _s, l in state.LEGACY_STUDIES)
-    assert state.legacy_studies() == state.LEGACY_STUDIES
-    with pytest.raises(AttributeError):
-        state.PAS_UN_ATTRIBUT  # noqa: B018 — __getattr__ ne masque rien
+    assert pairs[len(state.STUDIES):] == [("s14_sentiment", None)]
+    assert all(label for _f, _s, label in state.LEGACY_STUDIES)
 
 
 def _write_arms_study(ui_env, folder, arms, *, fresh=True):

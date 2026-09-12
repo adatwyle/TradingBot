@@ -567,12 +567,14 @@ def test_journal_d_etude_herite_notifie(usine, tmp_path):
     assert "🔻 [gold_forward] CLOSE XAUUSD -1.00 R (-100 CHF) SL" in usine.sent[-1]
 
 
-def test_les_cinq_etudes_du_depot_sont_jointes():
-    """F5 : alexg_paper manquait aux jointures — les 5 études de studies/
-    doivent être surveillées, avec le seam de dossier de leur runner."""
+def test_les_six_etudes_du_depot_sont_jointes():
+    """F5 : alexg_paper manquait aux jointures, puis s20_forward — les 6 études
+    de studies/ doivent être surveillées, avec le seam de dossier de leur runner
+    (s20 : `S20_FORWARD_DIR`, studies/s20_forward/forward_step.py)."""
     assert set(mod.ETUDES) == {
         ("gold_forward",  "GOLD_FORWARD_DIR"),
         ("s13_forward",   "S13_FORWARD_DIR"),
+        ("s20_forward",   "S20_FORWARD_DIR"),
         ("macd_ai_paper", "MACD_AI_PAPER_DIR"),
         ("s14_sentiment", "S14_SENTIMENT_DIR"),
         ("alexg_paper",   "ALEXG_PAPER_DIR"),

@@ -111,6 +111,7 @@ dernier tick a échoué ; tout champ supplémentaire est toléré et ignoré par
 - **UI-8** — Le front (`app/server/ui/`) : `index.html`, `strategy.html`, `services.html`
   + un seul `app.js` et `style.css` (sombre, monospace — continuité console). Polling
   `fetch` toutes les 5 s (10 s sur `/services`), indicateur visuel si l'API ne répond plus.
+  *Amendé v1.1 par `SPEC_analytics-trades_2026-09-12.md`* : +1 shell `analytics.html` (`/analytics`, 4 shells) et +3 routes GET `/api/analytics`, `/api/analytics/trades`, `/api/analytics/kpi` (UI-7).
 - **UI-9** — La maquette héritée `dashboard.html` et l'injection regex `STRATS/LEDGER`
   sont **supprimées** ; `build_niveaux()` (confrontation déclaré/réel) est conservé et
   adapté au contrat §3 ; les panneaux d'études scellées héritées (gold_forward, s13,

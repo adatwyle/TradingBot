@@ -42,17 +42,10 @@ from typing import Callable
 
 from core.paths import db_dir, project_root
 from server import state as state_mod
-from server.state import declared_instances, load_json_quiet, parse_utc
+from server.state import STUDIES, declared_instances, load_json_quiet, parse_utc
 
-# Catalogue fixe (dossier étude sous db_dir(), stratégie instanciée) — §3.2.
-# s14_sentiment est exclue : pas de journal de trades.
-STUDIES: tuple[tuple[str, str], ...] = (
-    ("gold_forward", "S011"),
-    ("s13_forward", "S013"),
-    ("s20_forward", "S020"),
-    ("alexg_paper", "S093"),
-    ("macd_ai_paper", "S012"),
-)
+# Catalogue fixe (dossier étude sous db_dir(), stratégie instanciée) — §3.2 :
+# ``server.state.STUDIES`` (source unique, s14_sentiment exclue : pas de journal).
 STUDY_STRATEGY: dict[str, str] = dict(STUDIES)
 
 # Constantes d'étude : les journaux ne nomment ni la devise ni le mode
@@ -453,10 +446,11 @@ def read_study(folder: str, strategy_id: str, *,
         # journal absent alors qu'il pesait > 0 octet est une suppression
         # (même lecture que verify_journal des études).
         prior = load_json_quiet(state_path) if state_path.is_file() else None
-        if isinstance(prior, dict) and to_float(prior.get("journal_bytes")):
+        prior_bytes = to_float(prior.get("journal_bytes")) if isinstance(prior, dict) else None
+        if prior_bytes:
             study.warnings.append(
                 f"journal absent : {folder} — suppression détectée "
-                f"(state.json en référençait {int(prior['journal_bytes'])} octets)")
+                f"(state.json en référençait {int(prior_bytes)} octets)")
         else:
             study.warnings.append(f"journal absent : {folder}")
         return study

@@ -51,11 +51,18 @@ LEVEL_OF_STATUS = {
 
 # Inherited sealed studies (UI-9): they instantiate strategies and stay
 # visible on their strategy's card (or in /services when they instantiate
-# none).  The (folder, S0NN) catalogue is OWNED by server.journal_adapter
-# (``STUDIES``, SPEC_analytics-trades §3.2) — a single source of truth for
-# the analytics adapter and this module; only the labels live here.
-# ``s14_sentiment`` has no trade journal, hence no strategy and no entry in
-# the adapter's catalogue: it is appended here.
+# none).  ``STUDIES`` — (data folder under db_dir(), instantiated S0NN) —
+# is the single catalogue shared with server.journal_adapter
+# (SPEC_analytics-trades §3.2), which imports it from here.
+# ``s14_sentiment`` has no trade journal, hence no strategy: it is absent
+# from ``STUDIES`` and appended to ``LEGACY_STUDIES`` only.
+STUDIES: tuple[tuple[str, str], ...] = (
+    ("gold_forward", "S011"),
+    ("s13_forward", "S013"),
+    ("s20_forward", "S020"),
+    ("alexg_paper", "S093"),
+    ("macd_ai_paper", "S012"),
+)
 STUDY_LABELS = {
     "gold_forward":  "Or — XAUUSD H1",
     "s13_forward":   "AUDCAD ext-MACD D1",
@@ -64,31 +71,11 @@ STUDY_LABELS = {
     "macd_ai_paper": "MACD-IA — indices D1",
     "s14_sentiment": "Sentiment des news (étude)",
 }
-STUDIES_WITHOUT_STRATEGY = (("s14_sentiment", None),)
-
-
-def legacy_studies() -> list[tuple[str, str | None, str]]:
-    """``[(data folder under db_dir(), instantiated S0NN or None, label)]``
-    — ``journal_adapter.STUDIES`` + the studies without a strategy.
-
-    The import is local on purpose: journal_adapter imports this module
-    (``declared_instances``), so a module-level import would be circular
-    in one of the two import orders.  A study missing from STUDY_LABELS is
-    labelled by its folder name — never dropped."""
-    from server.journal_adapter import STUDIES  # import local : cycle
-    out = [(folder, sid, STUDY_LABELS.get(folder, folder))
-           for folder, sid in STUDIES]
-    out += [(folder, sid, STUDY_LABELS.get(folder, folder))
-            for folder, sid in STUDIES_WITHOUT_STRATEGY]
-    return out
-
-
-def __getattr__(name: str):
-    """``LEGACY_STUDIES`` reste importable comme constante (services.py,
-    tests) sans import circulaire : résolu à la première lecture (PEP 562)."""
-    if name == "LEGACY_STUDIES":
-        return legacy_studies()
-    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+# ``[(data folder, instantiated S0NN or None, label)]`` — a study missing
+# from STUDY_LABELS is labelled by its folder name, never dropped.
+LEGACY_STUDIES: tuple[tuple[str, str | None, str], ...] = tuple(
+    (folder, sid, STUDY_LABELS.get(folder, folder)) for folder, sid in STUDIES
+) + (("s14_sentiment", None, STUDY_LABELS["s14_sentiment"]),)
 
 _PAIR_RE = re.compile(r"^[A-Z]{6}$")
 
@@ -287,7 +274,7 @@ def build_card(folder: str, *, spark: bool = True) -> dict:
     # Études héritées instanciant cette stratégie : elles vivent SUR la carte
     # (directive Adrian 2026-08-26 — plus de monde séparé côté stratégies).
     etudes = [dict(study_state(folder), dossier=folder, libelle=label)
-              for folder, strat, label in legacy_studies() if strat == short]
+              for folder, strat, label in LEGACY_STUDIES if strat == short]
 
     declared = "RESEARCH"
     name = folder

@@ -159,7 +159,7 @@ def main() -> int:
           "(sans coupe-circuit)")
     print("critères écrits avant la mesure : research/FALSIFICATION.md")
 
-    bars = load_bars(SYMBOL, TF, days=DAYS)
+    bars = load_bars(SYMBOL, TF, days=DAYS, max_age_hours=10 ** 9)   # cache figé : results.json reproductible
     if bars is None or len(bars) < 2000:
         print(f"{SYMBOL} {TF} : barres indisponibles"); return 1
     spec_cat = get_spec(SYMBOL)

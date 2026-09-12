@@ -146,9 +146,16 @@ def hold_calibration(bars: pd.DataFrame, open_dow: Optional[int] = None) -> dict
 
 # ── spreads ─────────────────────────────────────────────────────────────────
 def spec_with(spec: InstrumentSpec, spread_pips: float) -> InstrumentSpec:
+    """Même instrument, autre spread. `max_spread_pips` est relevé (le plafond du
+    catalogue est calibré sur le spread du catalogue ; sans relèvement le moteur
+    refuserait tous les trades à spread mesuré, en silence). `slippage_pips` est
+    REPRIS tel quel, jamais remis à 0 : les deux tarifs doivent partager le même
+    régime de coût, sinon la comparaison « catalogue contre mesuré » mélangerait
+    deux différences au lieu d'une (même contrat que S022/S024)."""
     return InstrumentSpec(spec.symbol, pip=spec.pip, spread_pips=spread_pips,
                           max_spread_pips=max(spec.max_spread_pips, spread_pips * 10),
-                          pip_value_per_lot=spec.pip_value_per_lot, slippage_pips=0.0)
+                          pip_value_per_lot=spec.pip_value_per_lot,
+                          slippage_pips=spec.slippage_pips)
 
 
 def measured_spread_pips(bars: pd.DataFrame, spec: InstrumentSpec) -> float | None:
@@ -159,13 +166,22 @@ def measured_spread_pips(bars: pd.DataFrame, spec: InstrumentSpec) -> float | No
     point 1e-5), JPY 3 chiffres (pip 1e-2, point 1e-3) ET indices à 2 décimales
     (pip 0,1 = 10 points). Les valeurs obtenues ici doivent redonner celles
     mesurées le 2026-09-12 : DAX 23,0 · NASDAQ 12,0 · US30 35,0 pips.
+
+    Renvoie None plutôt qu'une valeur douteuse : une médiane nulle, négative ou
+    NaN signifie que la colonne `spread` n'est pas exploitable (0 pip pris au pied
+    de la lettre donnerait un « spread mesuré » gratuit, plus flatteur que le
+    catalogue, sans le dire).
     """
     if "spread" not in bars.columns:
         return None
     rec = bars.loc[bars.index >= bars.index[-1] - pd.Timedelta(days=365), "spread"]
     if rec.empty:
         return None
-    return float(rec.median() / 10.0)
+    point = 0.01 if spec.pip == 0.1 else spec.pip / 10.0
+    val = float(rec.median() * point / spec.pip)
+    if not np.isfinite(val) or val <= 0.0:
+        return None
+    return val
 
 
 # ── exécution d'une cellule ─────────────────────────────────────────────────

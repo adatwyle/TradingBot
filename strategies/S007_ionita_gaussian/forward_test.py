@@ -50,8 +50,9 @@ import numpy as np
 import pandas as pd
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
+for _p in (ROOT, os.path.join(ROOT, "app")):   # `core` vit sous app/ (comme test_s022/23/24)
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from core.backtest.allocation_engine import run_allocation
 from strategies.S007_ionita_gaussian.run_backtest import (

@@ -99,8 +99,8 @@ backup = on             # tick 3600s — garde interne 24 h + .push-now/--now
 # factories sur le même journal — entrelacement = fausse alarme d'altération.
 # Coût : 0 token hors juge IA sur signal (macd_ai_paper, alexg_paper, s14).
 gold_forward = off      # tick 3600s — forward s11/XAUUSD H1 (ARMÉE au prototype)
-s13_forward = off       # tick 3600s — forward s13 AUDCAD D1 (ARMÉE au prototype)
-macd_ai_paper = off     # tick 3600s — essai à blanc s12+IA (VERDICT RENDU : ne pas armer l'IA)
+s13_forward = off       # tick 3600s — forward s13 AUDCAD D1 (basculée 26.08 — exemple : `on` en prod)
+macd_ai_paper = off     # tick 3600s — essai à blanc s12+IA (basculée 26.08 ; VERDICT RENDU : ne pas armer l'IA)
 s14_sentiment = off     # tick 1800s — sentiment Finnhub + juges IA (verdict mi-octobre)
 alexg_paper = off       # tick 3600s — essai à blanc fxalexg+IA 26 paires (ARMÉE 22.08)
 

@@ -109,6 +109,7 @@ JOURS_FR = ["Lu", "Ma", "Me", "Je", "Ve", "Sa", "Di"]
 ETUDES: list[tuple[str, str]] = [
     ("gold_forward",  "GOLD_FORWARD_DIR"),
     ("s13_forward",   "S13_FORWARD_DIR"),
+    ("s20_forward",   "S20_FORWARD_DIR"),
     ("macd_ai_paper", "MACD_AI_PAPER_DIR"),
     ("s14_sentiment", "S14_SENTIMENT_DIR"),
     ("alexg_paper",   "ALEXG_PAPER_DIR"),

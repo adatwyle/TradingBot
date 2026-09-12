@@ -7,6 +7,7 @@
 > **Code** : source non récupérable — voir `code/README.md` ; version tutoriel
 > reconstituée dans `code/RangeBreakout_tutorial_reconstruction.mq5`.
 > **Date** : 2026-08-17. **Aucun fichier hors ce dossier n'a été modifié.**
+> **Suites (2026-09-12)** : `SYNTHESE_tranche1_2026-09-12.md` (22 vidéos récentes), `SYNTHESE_tranche2_2026-09-12.md` (47 vidéos les plus vues, Whisper), `TRADEBUDDY_analyse-ecrans_2026-09-12.md` (→ SPEC_analytics-trades), `EA_inputs_et_reglages-live_2026-09-12.md` (six EA, ordre de reproduction + verdicts), index `CORPUS_INDEX.md` (84/773).
 
 ---
 
@@ -56,7 +57,7 @@ verdict : −10 000 €.
 | A1 | Protocole de conformance backtest ↔ live sur période identique | **À ADOPTER** | `05`, `14`, `15` | ★★★★☆ |
 | A2 | Leçon « stop garanti en OHLC = auto-illusion » + suivi manuel SL/TP + filtre de spread à l'entrée | **À ADOPTER** (côté EA MQL5) / DÉJÀ FAIT (côté moteur) | `09` | ★★★★☆ |
 | T2 | 1 vs 2 cassures par jour (la 2e cassure ajoute ~20 % de profit, PF plus faible) | **À TESTER** (dans la grille de T1) | `04` | ★★★☆☆ |
-| T3 | Turnaround Tuesday (indices sous MA40 D1, achat lundi, sortie mardi soir) | **À TESTER** (2e priorité, D1, péage faible) | `07`, `11`, `13` | ★★★☆☆ |
+| T3 | Turnaround Tuesday (indices sous MA40 D1, achat lundi, sortie mardi soir) | **MESURÉ** — S023 (2026-09-12), ÉCHEC au sens des critères, `strategies/S023_balke_turnaround_tuesday/research/VERDICT.md` | `07`, `11`, `13` | ★★★☆☆ |
 | T4 | Filtre de taille de range (min/max en % du prix) | **À TESTER** (drapeau dans la grille de T1) | `05`, `06` | ★★☆☆☆ |
 | D1 | Sortie par le temps plutôt que par le prix (« la sortie est l'heure ») | DÉJÀ IDENTIFIÉ — c'est la limite s91 §7.1, jamais testable chez nous | `01-03` | — |
 | D2 | Magic number unique par EA, reprise après crash via magic | DÉJÀ FAIT (`MAGIC_REGISTRY.md`) | `01`, `02` | — |

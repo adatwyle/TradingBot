@@ -33,7 +33,7 @@ Plateforme de trading algorithmique : héberge des stratégies indépendantes et
 
 ## Stratégies
 
-- Numérotation `S0NN`, mapping conservé du prototype (`s13` → `S013`). `S014` réservé (étude sentiment). `S017` = ireland_gex (GEX SPY, 2026-08-26). Prochain numéro libre : `S018`.
+- Numérotation `S0NN`, mapping conservé du prototype (`s13` → `S013`). `S014` réservé (étude sentiment). `S017` = ireland_gex (GEX SPY, 2026-08-26). `S020` = balke_macd_cross (PAPER, forward `studies/s20_forward`). `S021` réservé (grille martingale, attend TCK-020). `S022`/`S023`/`S024` = ATR Candle Breakout or H1 / Turnaround Tuesday / Go Long (René Balke, BACKTESTED 2026-09-12). Prochain numéro libre : `S025` (source de vérité : `app/core/contracts/MAGIC_REGISTRY.md`).
 - Multi-paires : instances `S0NN.XXX-YYY` (ex. `S013.AUD-CAD`), déclarées dans `manifest.yaml`, paramètres propres par paire.
 - Cycle : `RESEARCH → BACKTESTED → PAPER → LIVE → RETIRED`. « BACKTESTED = mesuré, pas validé. »
 - **Directive Adrian (D2, 2026-08-23)** : reprise sans préavis — pas de refus fondé sur les seuls verdicts du prototype. Chaque CC stratégie évalue, tente des chemins d'amélioration, et seul son propre constat de non-pérennité justifie l'archivage.
@@ -42,4 +42,4 @@ Plateforme de trading algorithmique : héberge des stratégies indépendantes et
 
 - Spec bootstrap : `support/designs/SPEC_tradingbot-bootstrap_2026-08-25.md`
 - Corpus intentions Adrian : `support/input-adrian/` (9 chapitres — source de vérité fonctionnelle)
-- Plan de migration : phases E1-E7 (spec §10). État courant : E1-E5 faits + tBot factory + préparation bascule études (v1.1.0, CHANGELOG.md). Restent : E6 bascule (GO Adrian par étude, `studies/CUTOVER.md`), E7 lancement dev stratégies, broker (TCK-006). Tokens Telegram posés 2026-08-26 (TCK-007 clos — bot dédié `Adrian_tBot`).
+- Plan de migration : phases E1-E7 (spec §10). État courant (v1.1.3) : E1-E5 + tBot factory + module analyse `/analytics` (SPEC_analytics-trades) ; E6 bascule en cours (faites : macd_ai_paper, s13_forward ; restent gold_forward, alexg_paper, s14_sentiment — GO Adrian par étude, `studies/CUTOVER.md`) ; E7 entamé (S020 forward, S022-S024 mesurées). Reste : broker (TCK-006). Tokens Telegram posés 2026-08-26 (TCK-007 clos — bot dédié `Adrian_tBot`).

@@ -83,12 +83,29 @@ Préférence cc-support : **contrat distinct**, inerte par défaut, avec oracle 
 non-régression avant la première ligne de moteur — même préalable que TCK-014,
 les deux tickets se servent du même.
 
-Ambiguïtés de la vidéo que le portage devra fixer (relevées dans l'extraction) :
-portée du plus-haut/plus-bas de référence (latch global depuis le démarrage, jamais
-une fenêtre de barres — l'auteur se contredit trois fois sur le reset), contamination
-croisée achat/vente au reset des extrêmes, arrondi de lot en dur à 2 décimales,
-absence de magic/filtre symbole. Le pseudocode complet et horodaté est disponible
-chez cc-support.
+Points fixés par la contre-lecture, à reprendre tels quels dans la spec :
+- **Portée des extrêmes** : latch global depuis le démarrage du programme — l'auteur
+  le DIT [36:28]. Conséquence pour le walk-forward ancré : au premier tick de chaque
+  fenêtre les deux ancres se collent au bid, donc **la tête de chaque fenêtre est
+  structurellement inerte** (pas de trade avant une excursion d'un pas de grille).
+  Le protocole de mesure doit en tenir compte (préchauffage des ancres sur l'historique
+  précédant la fenêtre, ou fenêtres décalées).
+- **Biais de spread côté VENTE, pas achat** : un achat entre à l'ask et sort au bid sur
+  bid > moyenne(ask) + TP → réalise TP net ; une vente entre au bid et sort à l'ask sur
+  bid < moyenne(bid) − TP → réalise TP − spread. Un moteur en ask/bid ne doit **pas**
+  refacturer un aller-retour au panier acheteur, et doit rendre visible qu'un TP
+  inférieur au spread rend le panier vendeur structurellement perdant.
+- **Reset après clôture** : valeurs highest = 0 / lowest = DBL_MAX [88:47] ; le
+  ré-armement exige un pas de grille complet depuis le prix de sortie. **Non tranché
+  par l'audio** : reset dans chaque branche TP ou une fois après les deux, et
+  contamination croisée achat/vente. Le code complet est affiché à [92:15]-[93:51] —
+  cc-support en extrait les images ; la spec attendra cette lecture pour ce point.
+- Arrondi de lot en dur à 2 décimales ; pas de magic ni de filtre symbole (la boucle
+  balaye tout le compte, l'auteur le dit [53:14]) ; compte hedging obligatoire
+  (montré [64:07]).
+
+Fiche complète, horodatée, avec pseudocode :
+`docs/sources/renebalke/GRID_martingale_extraction_2026-09-12.md`.
 
 ## Réponse
 

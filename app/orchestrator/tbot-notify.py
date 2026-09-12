@@ -3,7 +3,7 @@
 tbot-notify.py — LE NOTIFIER TELEGRAM DE TRADINGBOT (bot dédié, sortant)
 =========================================================================
 
-Worker « tick » de la tbot factory (SPEC_telegram-reporting.md §3) : la source
+Worker « tick » de la tBot factory (SPEC_telegram-reporting.md §3) : la source
 des trades est le LEDGER (core/ledger — modes PAPER et LIVE uniquement, jamais
 BACKTEST), les formats sont EXACTEMENT ceux d'Adrian (chapitre 07) :
 
@@ -130,7 +130,7 @@ def etude_dirs() -> list[tuple[str, str]]:
 
 
 def panel_path() -> str:
-    # Le panneau de la TBOT factory (tbot-factory.py écrit ses AUTO-OFF là),
+    # Le panneau de la tBot factory (tbot-factory.py écrit ses AUTO-OFF là),
     # PAS celui du prototype robinbot. Résolution UNIQUE : core.paths (F9).
     return str(_paths.tbot_panel_file())
 

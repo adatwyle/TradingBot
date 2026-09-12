@@ -1,5 +1,5 @@
 @echo off
-rem ── Lanceur console du PC PROD (watcher + tbot factory) ────────────────────
+rem ── Lanceur console du PC PROD (watcher + tBot factory) ────────────────────
 rem Double-clic = le watcher demarre, lance la factory en enfant dans CETTE
 rem console, observe origin/main et se met a jour tout seul (SPEC_prod-watcher).
 rem Fermer la fenetre = tout s'arrete (regle d'or). Le `pause` final garde la

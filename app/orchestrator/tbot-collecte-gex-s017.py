@@ -3,7 +3,7 @@
 tbot-collecte-gex-s017.py — WRAPPER DE FENÊTRE HORAIRE DU COLLECTEUR GEX S017
 ==============================================================================
 
-Worker `py:` de la tbot factory (app/orchestrator/tbot-factory.py). Il décide
+Worker `py:` de la tBot factory (app/orchestrator/tbot-factory.py). Il décide
 en Python pur — ZÉRO token — si le snapshot GEX pré-market S017 doit partir,
 puis délègue le travail réel à l'outil de la stratégie :
 

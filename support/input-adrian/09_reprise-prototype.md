@@ -29,9 +29,9 @@
 5. **CI/CD + watcher PC prod** : n'existent pas dans le prototype.
 6. Dette documentaire : `PROMOTION_POLICY.md` et `registry.py` référencés mais inexistants ; divergence de chemin du panneau entre factory et notifier ; devise mixte USD/CHF dans le catalogue d'instruments.
 
-## Études en vol — migration vers la tbot factory (directive Adrian 2026-08-26)
+## Études en vol — migration vers la tBot factory (directive Adrian 2026-08-26)
 
-`gold_forward`, `s13_forward`, `s14_sentiment` (verdict mi-octobre), `macd_ai_paper`, `alexg_paper` tournent dans le prototype (journaux dans `C:/db/tbot/<étude>/`). **La tbot factory doit devenir capable de les faire tourner** — sans attendre la bascule E6 complète, et sans trou dans les journaux scellés.
+`gold_forward`, `s13_forward`, `s14_sentiment` (verdict mi-octobre), `macd_ai_paper`, `alexg_paper` tournent dans le prototype (journaux dans `C:/db/tbot/<étude>/`). **La tBot factory doit devenir capable de les faire tourner** — sans attendre la bascule E6 complète, et sans trou dans les journaux scellés.
 
 Protocole de bascule par étude (une à la fois, à chaud) :
 1. Code de l'étude migré dans `studies/` du repo (verbatim + adaptation chemins vers `C:/db/tradingBot/`), worker ajouté au catalogue tbot (off par défaut) — préparable sans toucher au prototype.

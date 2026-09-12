@@ -20,9 +20,9 @@ La factory RobinBot est reprise comme fondation, avec ses mécanismes éprouvés
 - Verrou single-instance, arrêt propre (Ctrl-C ou fichier `.stop`), timeout par tick, stagger entre départs.
 - Sessions IA headless : veille en Python pur (gratuite), session Claude Code seulement quand il y a matière.
 
-## La tbot factory (directive Adrian 2026-08-26)
+## La tBot factory (directive Adrian 2026-08-26)
 
-Le nom de l'application console TradingBot est **tbot factory**. Adrian la démarre à la main dans un terminal ; tant qu'elle tourne, tous les jobs cycliques se font 24/7 — c'est l'interrupteur physique unique du système (doctrine du prototype reprise : **aucune tâche planifiée Windows** ; la collecte GEX S017 posée en Task Scheduler le 2026-08-26 est transitoire et sera retirée dès la factory validée).
+Le nom de l'application console TradingBot est **tBot factory**. Adrian la démarre à la main dans un terminal ; tant qu'elle tourne, tous les jobs cycliques se font 24/7 — c'est l'interrupteur physique unique du système (doctrine du prototype reprise : **aucune tâche planifiée Windows** ; la collecte GEX S017 posée en Task Scheduler le 2026-08-26 est transitoire et sera retirée dès la factory validée).
 
 Familles de workers demandées :
 

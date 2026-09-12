@@ -788,7 +788,7 @@ def run(once: bool = False) -> int:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
         description="prod-watcher — mise à jour automatique du PC prod "
-                    "(wrapper englobant de la tbot factory).")
+                    "(wrapper englobant de la tBot factory).")
     ap.add_argument("--once", action="store_true",
                     help="un seul cycle de check (sonde) — ne lance pas la "
                          "factory si elle ne tourne pas déjà")

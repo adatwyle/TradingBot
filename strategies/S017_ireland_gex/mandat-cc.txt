@@ -1,4 +1,4 @@
-# Mandat cc-S017 — session headless lancée par la tbot factory (worker cc_S017)
+# Mandat cc-S017 — session headless lancée par la tBot factory (worker cc_S017)
 # ============================================================================
 # Fichier ÉDITABLE À CHAUD : la factory le relit à chaque lancement de session.
 # Adrian (via cc-support) ajuste ici le cap de la stratégie sans rien

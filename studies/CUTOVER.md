@@ -1,7 +1,7 @@
-# CUTOVER — bascule des études en vol : robinbot (prototype) → tbot factory
+# CUTOVER — bascule des études en vol : robinbot (prototype) → tBot factory
 
 **Source de vérité du protocole** : `support/input-adrian/09_reprise-prototype.md`
-§ « Études en vol — migration vers la tbot factory » (directive Adrian 2026-08-26).
+§ « Études en vol — migration vers la tBot factory » (directive Adrian 2026-08-26).
 **Préparation** : TCK-009 / T10 (code migré, workers au catalogue off, outil
 `studies/verify-journal.py`). **La bascule elle-même n'est PAS couverte par T10** :
 chaque étude bascule sur **GO Adrian explicite**, une à la fois, pilotée par
@@ -43,7 +43,7 @@ avec le code migré — équivalence de format prouvée avant toute bascule).
 
 ## Pré-requis (une fois, avant la première bascule)
 
-- [ ] tbot factory opérationnelle sur ce poste (`app/orchestrator/tbot-factory.py`),
+- [ ] tBot factory opérationnelle sur ce poste (`app/orchestrator/tbot-factory.py`),
       les 5 workers visibles au catalogue et `off` au panneau
       `C:\db\tradingBot\tbot-panel.txt`.
 - [ ] `python -m pytest studies -q` vert sur HEAD déployé.
@@ -128,5 +128,5 @@ barres closes à la reprise).
   (premier passage scellé en environnement jetable), s14 exit 2 (clé absente,
   comportement contractuel). Les vrais `C:\db\tradingBot\` et `C:\db\tbot\`
   n'ont PAS été touchés.
-- Les `run_*.bat` du prototype n'ont pas été migrés : la tbot factory est le
+- Les `run_*.bat` du prototype n'ont pas été migrés : la tBot factory est le
   lanceur (`python -m studies.<étude>.<runner>` depuis la racine du dépôt).

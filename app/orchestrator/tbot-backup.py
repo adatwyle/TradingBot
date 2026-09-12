@@ -101,7 +101,7 @@ ALLOWED_NAMES = {"journal.csv", "status.json", "state.json",
                  "config.json", "events.csv"}
 # À la racine de db_dir() seulement : le panneau de contrôle. Deux noms — le
 # panneau du prototype (robinbot-panel.txt, défaut core.paths) et celui de la
-# tbot factory (tbot-panel.txt) — même surface, deux consoles.
+# tBot factory (tbot-panel.txt) — même surface, deux consoles.
 ROOT_ALLOWED_NAMES = {"robinbot-panel.txt", "tbot-panel.txt"}
 EXCLUDED_SEGMENTS = {"secrets", "datasets", "bars_cache", "cache", "db-backup"}
 EXCLUDED_NAME_PARTS = ("token", "key", "secret")

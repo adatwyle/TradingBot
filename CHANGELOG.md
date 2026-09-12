@@ -1,8 +1,13 @@
 # CHANGELOG — TradingBot
 
+## Non publié
+
+- **Bascules études (CUTOVER)** : `macd_ai_paper` puis `s13_forward` migrées robinbot → tBot factory (GO Adrian, journaux intacts, verify 0/0). Restent : `gold_forward`, `alexg_paper`, `s14_sentiment`.
+- **Schéma manifest unifié** : manifest S017 conformé au schéma plateforme (`display_name`/`magic_number`/`symbols`, SPEC_ui-dynamique §3) ; registre `tbot-factory` tolérant aux deux schémas (canonique prioritaire) ; gabarit `strategies/_TEMPLATE/manifest.yaml` créé.
+
 ## 1.1.0 — 2026-08-26
 
-Run /apex-autonomous « GO E3 + E4, terminer l'application » (E3, E4, E5 + tbot factory + préparation bascule études). Détail des tâches : `SHARED_TASK_NOTES.md`.
+Run /apex-autonomous « GO E3 + E4, terminer l'application » (E3, E4, E5 + tBot factory + préparation bascule études). Détail des tâches : `SHARED_TASK_NOTES.md`.
 
 - **E3** : code des 19 stratégies migré du prototype (verbatim + imports adaptés, verdicts préservés) + corpus de sources (7 chaînes).
 - **Specs** : 6 spécifications d'implémentation (`spec/specification-app/`) par cc-spec, zéro TBD.
@@ -11,7 +16,7 @@ Run /apex-autonomous « GO E3 + E4, terminer l'application » (E3, E4, E5 + tbot
 - **Ledger (E5)** : `core/ledger` sur le schéma hérité (WAL, migration v2 `instance_id`, agrégats jour/semaine ISO/mois/12 mois/année par stratégie et instance, décomposition fiscale brut/commission/swap/net).
 - **UI (E5)** : serveur de supervision réécrit — découverte dynamique des stratégies, contrat `status.json` par instance, vues dev/paper/prod + courbes SVG, drill-down par stratégie, vue services communs, divergences déclaré/réel. Maquette et injection regex supprimées.
 - **Telegram (E5)** : canal TradingBot — `tbot-notify` (ligne par trade + récaps jour/semaine/mois/12 mois/année aux formats Adrian) + `tbot-gateway` (bot dédié, sessions headless lecture seule, menu skills, `/etat`). Inertes sans tokens (TCK-007).
-- **tbot factory** (directive Adrian 2026-08-26, TCK-005) : console 24/7 du projet — collecteur GEX S017, workers CC (files de tickets, S017), gateway/notify, backup, supervision ; panneau à chaud `C:\db\tradingBot\tbot-panel.txt` ; assertion anti-live R4.
+- **tBot factory** (directive Adrian 2026-08-26, TCK-005) : console 24/7 du projet — collecteur GEX S017, workers CC (files de tickets, S017), gateway/notify, backup, supervision ; panneau à chaud `C:\db\tradingBot\tbot-panel.txt` ; assertion anti-live R4.
 - **Préparation bascule études (TCK-009)** : code des 5 études forward migré (scellés octet pour octet), workers off, `verify-journal`, runbook `CUTOVER.md` — bascule par GO Adrian, étude par étude.
 - **Backup GitHub** : worker `tbot-backup` — allowlist fail-closed, commit `[skip ci]` scoped `db-backup/`, inerte hors branche `dev`.
 - **Phase X** : revue finale du cumul (12 findings, tous traités ou actés), passe de-sloppify, 497+ tests.

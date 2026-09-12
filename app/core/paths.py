@@ -37,7 +37,7 @@ TWO control panels, TWO consoles — never confuse them:
   - panel_file() is the ROBINBOT (prototype) panel — kept as archived
     reference for the robinbot-*.py modules, which are never launched from
     this repo.
-  - tbot_panel_file() is the TBOT factory panel — the live control surface of
+  - tbot_panel_file() is the tBot factory panel — the live control surface of
     THIS repo, shared by tbot-factory.py (writes AUTO-OFF), tbot-notify.py
     and the supervision server (server/services.py): the three MUST resolve
     the same file.  The prototype diverged on exactly this point (factory
@@ -85,7 +85,7 @@ def panel_file() -> pathlib.Path:
 
 
 def tbot_panel_file() -> pathlib.Path:
-    """The TBOT factory control panel — ONE file per machine, shared by
+    """The tBot factory control panel — ONE file per machine, shared by
     tbot-factory (writes AUTO-OFF), tbot-notify and the supervision server."""
     env = os.environ.get("TBF_PANEL")
     return pathlib.Path(env) if env else db_dir() / "tbot-panel.txt"

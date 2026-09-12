@@ -1,5 +1,5 @@
 # ═══════════════════════════════════════════════════════════════════════════
-# PANNEAU DE CONTRÔLE tbot factory — relu à CHAQUE cycle
+# PANNEAU DE CONTRÔLE tBot factory — relu à CHAQUE cycle
 # ═══════════════════════════════════════════════════════════════════════════
 # Gabarit versionné (app/orchestrator/tbot-panel.exemple.txt). Le panneau RÉEL
 # vit HORS du dépôt : C:/db/tradingBot/tbot-panel.txt — un panneau = un poste.
